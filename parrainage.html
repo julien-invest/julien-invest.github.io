@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommandations & Parrainages | Julien Invest</title>
+  <meta name="description" content="Toutes les plateformes recommandées par Julien Invest : bonus exclusifs à l'inscription pour la bourse, la crypto, la banque, l'immobilier et le private equity.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Parrainages & Bonus : Meilleures plateformes d'investissement | Julien Invest">
+  <meta property="og:description" content="Les meilleures plateformes d'investissement avec des bonus exclusifs : testées et approuvées par Julien. Crypto, bourse, épargne.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julieninvest.github.io/parrainage.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Parrainages & Bonus | Julien Invest">
+  <meta name="twitter:description" content="Codes parrainage et bonus exclusifs pour les meilleures plateformes crypto et bourse.">
+  <meta name="twitter:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+    /* ═══════════════════════════════════════════════
+       DISCLAIMER BANNER
+    ═══════════════════════════════════════════════ */
+    .parr-disclaimer {
+      background: #EEEAF9;
+      border-bottom: 1px solid rgba(124,88,196,0.18);
+      padding: 13px 0;
+    }
+    .parr-disclaimer-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--navy);
+      line-height: 1.55;
+    }
+    .parr-disclaimer-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+    /* ═══════════════════════════════════════════════
+       STICKY FILTERS BAR
+    ═══════════════════════════════════════════════ */
+    .parr-filters-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--grey-5);
+      padding: 16px 0;
+      position: sticky;
+      top: 60px;
+      z-index: 90;
+    }
+    .parr-filters {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--grey-5);
+      background: var(--white);
+      color: var(--grey-2);
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .filter-btn:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+      background: var(--pearl);
+    }
+    .filter-btn.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: white;
+    }
+    .filter-count {
+      background: rgba(255,255,255,0.18);
+      border-radius: 100px;
+      padding: 0 6px;
+      font-size: 11px;
+      min-width: 18px;
+      text-align: center;
+    }
+    .filter-btn:not(.active) .filter-count {
+      background: var(--grey-5);
+      color: var(--grey-3);
+    }
+
+    /* ═══════════════════════════════════════════════
+       CONTENT AREA
+    ═══════════════════════════════════════════════ */
+    .parr-content-wrap {
+      background: var(--pearl);
+      padding: 48px 0 80px;
+      min-height: 500px;
+    }
+    #parr-content {
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    /* Section group (mode Tous) */
+    .section-group + .section-group { margin-top: 56px; }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--grey-5);
+    }
+    .section-divider-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+    .section-divider-label {
+      font-family: var(--font-head);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--grey-3);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .section-divider-count {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--grey-4);
+      background: var(--grey-5);
+      border-radius: 100px;
+      padding: 1px 8px;
+    }
+
+    /* Grid */
+    .parr-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 1200px) { .parr-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px)  { .parr-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 420px)  { .parr-grid { grid-template-columns: 1fr; } }
+
+    /* ═══════════════════════════════════════════════
+       PLATFORM CARD
+    ═══════════════════════════════════════════════ */
+    .p-card {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .p-card:hover {
+      border-color: var(--lavender);
+      box-shadow: 0 8px 32px rgba(26,61,124,0.10);
+      transform: translateY(-3px);
+    }
+
+    /* Header */
+    .p-card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .p-card-logo-wrap {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      border: 1px solid var(--grey-5);
+      background: white;
+      flex-shrink: 0;
+      overflow: hidden;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .p-card-logo-wrap img {
+      width: calc(100% - 10px); height: calc(100% - 10px);
+      object-fit: contain;
+      display: block;
+    }
+    .p-logo-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 100%; height: 100%;
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      border-radius: 11px;
+    }
+    .p-card-header-info { flex: 1; min-width: 0; }
+    .p-card-name {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .badge-new {
+      font-family: var(--font-head);
+      font-size: 9px;
+      font-weight: 800;
+      color: white;
+      background: linear-gradient(135deg, #7C3AED, #A855F7);
+      padding: 2px 7px;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .p-card-tags {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+    }
+    .tag-pill {
+      display: inline-block;
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 100px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Body */
+    .p-card-desc {
+      font-size: 13px;
+      color: var(--grey-2);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Bonus */
+    .p-card-bonus {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      background: #EDE8F8;
+      border: 1px solid rgba(124,88,196,0.14);
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 12px;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+    .p-card-bonus-icon { font-size: 14px; flex-shrink: 0; }
+
+    /* Warning */
+    .p-card-warning {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      background: #FEF3C7;
+      border: 1px solid #FCD34D;
+      border-radius: 10px;
+      padding: 9px 12px;
+      font-size: 12px;
+      color: #92400E;
+      line-height: 1.4;
+    }
+
+    /* Footer */
+    .p-card-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .p-card-code-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .p-card-code {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--pearl);
+      border: 1px solid var(--grey-5);
+      border-radius: 7px;
+      padding: 5px 10px;
+      letter-spacing: 0.05em;
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .p-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 10px;
+      border-radius: 7px;
+      border: 1.5px solid var(--grey-5);
+      background: white;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--grey-2);
+      cursor: pointer;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .p-copy-btn:hover { border-color: var(--lavender); color: var(--navy); }
+    .p-copy-btn.copied { border-color: #86efac; background: #dcfce7; color: #166534; }
+
+    .p-card-cta {
+      display: block;
+      text-align: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--gradient-brand);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .p-card-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .p-card-cta-disabled {
+      display: block;
+      text-align: center;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--grey-5);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--grey-3);
+      cursor: not-allowed;
+    }
+
+    /* Contact CTA (no direct link, need to DM/email) */
+    .p-card-contact-box {
+      background: rgba(14,165,233,0.07);
+      border: 1px solid rgba(14,165,233,0.2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .p-card-contact-msg {
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+    .p-card-contact-msg strong { color: #0369A1; }
+    .p-card-contact-btns {
+      display: flex;
+      gap: 7px;
+    }
+    .p-card-contact-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 5px 8px;
+      border-radius: 6px;
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .p-card-contact-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .p-card-contact-btn--insta {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+    .p-card-contact-btn--mail {
+      background: var(--navy);
+      color: white;
+    }
+
+    /* Empty state */
+    .parr-empty {
+      text-align: center;
+      padding: 80px 20px;
+      color: var(--grey-3);
+      font-family: var(--font-head);
+    }
+    .parr-empty p { font-size: 16px; margin-top: 12px; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .parr-filters-bar { top: 56px; }
+      .section-group + .section-group { margin-top: 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAV ═══ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="parrainage.html" class="nav-link active">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Parrainages</span>
+        <h1>Mes recommandations &amp;<br><em>parrainages</em></h1>
+        <p>Des plateformes que j'utilise personnellement, avec des bonus exclusifs pour bien démarrer. <strong id="platform-count">31</strong> plateformes testées, 7 catégories.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DISCLAIMER ═══ -->
+  <div class="parr-disclaimer">
+    <div class="container">
+      <div class="parr-disclaimer-inner">
+        <span class="parr-disclaimer-icon"></span>
+        <span>Ces liens sont des liens affiliés. Si tu t'inscris via mon lien, tu reçois un bonus et moi une petite commission, sans surcoût pour toi. Je ne recommande que des plateformes que j'ai testées ou que j'utilise. Les crypto-actifs sont volatils et comportent un risque de perte totale. Aucun lien ne constitue un conseil en investissement.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FILTERS ═══ -->
+  <div class="parr-filters-bar" id="parr-filters-bar">
+    <div class="container">
+      <div class="parr-filters" id="parr-filters">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CONTENT ═══ -->
+  <section class="parr-content-wrap">
+    <div class="container">
+      <div id="parr-content">
+        <!-- rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">
+            Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest
+          </div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener noreferrer" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener noreferrer" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener noreferrer" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener noreferrer" title="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="formation.html#guides">Guide ETF</a>
+          <a href="formation.html#guides">Guide PEA</a>
+          <a href="formation.html#guides">Guide Assurance-vie</a>
+          <a href="index.html#lead-magnet">Ebook gratuit</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          <strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle. Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF. Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques, y compris la perte en capital. Les performances passées ne préjugent pas des performances futures. Je partage mon expérience personnelle et mes apprentissages. Consultez un professionnel agréé pour toute décision financière.
+        </p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+  /* ═══════════════════════════════════════════════════
+     PLATFORM DATA
+  ═══════════════════════════════════════════════════ */
+  const platforms = [
+
+    // ── CRYPTO, EXCHANGES ──────────────────────────
+    { id:'swissborg', name:'SwissBorg', logo:'images/logo-swissborg.png',
+      tags:['crypto'], bonus:'Entre 1$ et 100$ offerts pour tout dépôt de 50$ min',
+      description:'Application crypto suisse avec rendement automatisé et analyse de marché intégrée.',
+      link:'https://swissborg.com/fr/r/julienOI6QETY8', code:'julienOI6QETY8',
+      isNew:false, priority:1, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'binance', name:'Binance', logo:'images/logo-binance.png',
+      tags:['crypto'], bonus:'Réduction sur les frais de trading',
+      description:"Le plus grand exchange crypto au monde par volume. Accès à des milliers d'actifs numériques.",
+      link:'https://accounts.binance.com/register?ref=105787577', code:'105787577',
+      isNew:false, priority:2, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'bybit', name:'Bybit', logo:'images/logo-bybit.png',
+      tags:['crypto'], bonus:"Bonus de bienvenue à l'inscription",
+      description:'Exchange crypto avec interface avancée, produits dérivés et staking.',
+      link:'https://www.bybit.com/invite?ref=81XNMM', code:'81XNMM',
+      isNew:false, priority:3, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'cryptocom', name:'Crypto.com', logo:'images/logo-cryptocom.png',
+      tags:['crypto','banque'], bonus:"Bonus à l'inscription",
+      description:'Exchange crypto + carte Visa avec cashback en crypto sur tous tes achats.',
+      link:'https://crypto.com/app/xssmncg6es', code:'xssmncg6es',
+      isNew:false, priority:4, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'mexc', name:'MEXC', logo:'images/logo-mexc.png',
+      tags:['crypto'], bonus:null,
+      description:'Exchange crypto avec accès à des altcoins émergents et faibles frais de trading.',
+      link:'https://www.mexc.com/register?inviteCode=1PTii', code:'1PTii',
+      isNew:false, priority:5, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'kucoin', name:'KuCoin', logo:'images/logo-kucoin.png',
+      tags:['crypto'], bonus:null,
+      description:"Exchange crypto international avec un large catalogue d'altcoins et staking intégré.",
+      link:'https://www.kucoin.com/r/rf/QBSWC75S', code:'QBSWC75S',
+      isNew:false, priority:6, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'gateio', name:'Gate.io', logo:'images/logo-gateio.png',
+      tags:['crypto'], bonus:null,
+      description:'Exchange crypto avec accès à des milliers de tokens et produits financiers dérivés.',
+      link:'https://www.gate.io/signup/BlcWVg1Z?ref_type=103', code:'BlcWVg1Z',
+      isNew:false, priority:7, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'bingx', name:'BingX', logo:'images/logo-bingx.png',
+      tags:['crypto'], bonus:null,
+      description:'Exchange crypto avec copy trading intégré, copie les stratégies des meilleurs traders.',
+      link:'https://bingx.com/invite/ZCQZQN', code:'ZCQZQN',
+      isNew:false, priority:8, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'coinbase', name:'Coinbase', logo:'images/logo-coinbase.png',
+      tags:['crypto'], bonus:null,
+      description:"L'exchange crypto américain coté en bourse. Interface simple, idéale pour débuter.",
+      link:'https://coinbase.com/join/H5PGLAG?src=ios-link', code:'H5PGLAG',
+      isNew:false, priority:9, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'bitget', name:'Bitget', logo:'images/logo-bitget.png',
+      tags:['crypto'], bonus:null,
+      description:'Exchange crypto avec copy trading et produits dérivés avancés.',
+      link:null, code:'ECPX9LDP',
+      isNew:false, priority:10, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'deblock', name:'Deblock', logo:'images/logo-deblock.png',
+      tags:['crypto','banque'], bonus:null,
+      description:'Néobanque française avec compte en euros ET portefeuille crypto intégré. Régulée AMF.',
+      link:'https://deblock.com/a-tgk938', code:'a-tgk938',
+      isNew:false, priority:11, warning:null, section:'Banque & Paiement' },
+
+    { id:'xexchange', name:'XExchange', logo:'images/logo-xexchange.png',
+      tags:['crypto'], bonus:null,
+      description:'DEX natif de la blockchain MultiversX. Trading décentralisé sans intermédiaire.',
+      link:'https://xport.al/referral/cg2uvvmndb', code:'cg2uvvmndb',
+      isNew:false, priority:12, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'bitstack', name:'Bitstack', logo:'images/logo-bitstack.png',
+      tags:['crypto'], bonus:'5€ en Bitcoin offerts pour 100€ achetés',
+      description:"Application française d'épargne Bitcoin automatisée. Arrondi sur tes dépenses, DCA programmé, carte Stackback 1% cashback en BTC. Régulée MiCA/AMF.",
+      link:'https://bitstack-app.com/referral/3EG9qndDfCXndOzO5kyY6cbjL5c', code:null,
+      isNew:true, priority:13, warning:null, section:'Crypto, Exchanges' },
+
+    { id:'meria', name:'Meria', logo:'images/logo-meria.png',
+      tags:['crypto'], bonus:null,
+      description:'Plateforme crypto française. Achat, vente et staking simplifiés. Interface mobile optimisée.',
+      link:'https://meria.onelink.me/ktU9?af_xp=referral&pid=invite_friend_mobile&c=Affiliation&deep_link_value=Julien', code:'Julien',
+      isNew:true, priority:14, warning:null, section:'Crypto, Exchanges' },
+
+    // ── SÉCURITÉ CRYPTO ─────────────────────────────
+    { id:'ledger', name:'Ledger', logo:'images/logo-ledger.png',
+      tags:['securite'], bonus:null,
+      description:'Le hardware wallet le plus vendu au monde. Sécurise tes cryptos hors ligne, hors des exchanges.',
+      link:'https://shop.ledger.com/fr/pages/referral-program?referral_code=ENQHTST4E3RNM', code:'ENQHTST4E3RNM',
+      isNew:false, priority:1, warning:null, section:'Sécurité Crypto' },
+
+    { id:'trezor', name:'Trezor', logo:'images/logo-trezor.png',
+      tags:['securite'], bonus:null,
+      description:"L'alternative open-source à Ledger. Firmware 100% auditable, référence mondiale de la sécurité crypto.",
+      link:'http://trezorio.refr.cc/default/u/juliendenis', code:null,
+      isNew:true, priority:2, warning:null, section:'Sécurité Crypto' },
+
+    // ── BOURSE & ÉPARGNE ────────────────────────────
+    { id:'boursobank', name:'BoursoBank', logo:'images/logo-boursobank.png',
+      tags:['bourse','banque'], bonus:"Jusqu'à 150€ offerts",
+      description:'Banque en ligne leader en France. PEA, CTO, assurance-vie, compte courant, tout centralisé.',
+      link:null, code:'DIDE0356',
+      isNew:false, priority:1, warning:null, section:'Bourse & Épargne' },
+
+    { id:'fortuneo', name:'Fortuneo', logo:'images/logo-fortuneo.png',
+      tags:['bourse','banque'], bonus:"Jusqu'à 140€ offerts",
+      description:'Banque en ligne avec le meilleur rapport qualité/prix pour un PEA. 1 ordre/mois gratuit sous 500€.',
+      link:null, code:'13385764',
+      isNew:false, priority:2, warning:null, section:'Bourse & Épargne' },
+
+    { id:'degiro', name:'DEGIRO', logo:'images/logo-degiro.png',
+      tags:['bourse'], bonus:'50€ offerts',
+      description:"L'un des courtiers les plus réputés d'Europe. Frais parmi les plus bas du marché pour un CTO.",
+      link:'https://www.degiro.fr/parrainage/commencez-a-investir?id=E88272C4', code:'E88272C4',
+      isNew:false, priority:3, warning:null, section:'Bourse & Épargne' },
+
+    { id:'traderepublic', name:'Trade Republic', logo:'images/logo-trade-republic.png',
+      tags:['bourse','banque'], bonus:null,
+      description:'Néo-courtier allemand. PEA dès 1€, ETF sans frais de courtage, 4% sur les liquidités.',
+      link:'https://refnocode.trade.re/p1txpjf1', code:'p1txpjf1',
+      isNew:false, priority:4, warning:null, section:'Bourse & Épargne' },
+
+    { id:'xtb', name:'XTB', logo:'images/logo-xtb.png',
+      tags:['bourse','crypto'], bonus:null,
+      description:'Courtier régulé avec accès actions, ETF, forex et crypto. Partenaire officiel Julien Invest.',
+      link:null, code:'JULIEN',
+      isNew:false, priority:5, warning:null, section:'Bourse & Épargne' },
+
+    { id:'boursedirect', name:'Bourse Direct', logo:'images/logo-boursedirect.png',
+      tags:['bourse'], bonus:null,
+      description:"Courtier bourse français historique. PEA, CTO, compte-titres, parmi les tarifs les plus bas du marché pour les investisseurs actifs.",
+      link:null, code:'2025934141',
+      isNew:false, priority:6, warning:null, section:'Bourse & Épargne' },
+
+    { id:'revolut', name:'Revolut', logo:'images/logo-revolut.png',
+      tags:['bourse','banque','crypto'], bonus:null,
+      description:"Néobanque multidevises. Achat de fractions d'actions, ETF, crypto, tout dans une app.",
+      link:'https://revolut.com/referral/?referral-code=julien4uj7!NOV2-24-VR-FR', code:'julien4uj7',
+      isNew:false, priority:6, warning:null, section:'Banque & Paiement' },
+
+    { id:'wise', name:'Wise', logo:'images/logo-wise.png',
+      tags:['banque'], bonus:null,
+      description:"Transferts internationaux au taux réel sans frais cachés. Indispensable pour investir à l'étranger.",
+      link:'https://wise.com/invite/dic/julienpierred7', code:'julienpierred7',
+      isNew:false, priority:7, warning:null, section:'Banque & Paiement' },
+
+    { id:'amex', name:'Amex Gold', logo:'images/logo-amex.png',
+      tags:['banque'], bonus:null,
+      description:'Carte premium avec points Membership Rewards, accès lounges et assurances voyage incluses.',
+      link:'https://americanexpress.com/fr-fr/referral/gold?ref=jULIEDb6rZ', code:null,
+      isNew:false, priority:8, warning:null, section:'Banque & Paiement' },
+
+    { id:'linxea', name:'Linxea', logo:'images/logo-linxea.png',
+      tags:['assurance-vie'], bonus:null,
+      description:"Courtier en assurance-vie en ligne avec parmi les meilleures conditions du marché. Frais réduits, large choix d'UC.",
+      link:'https://linxea.mention-me.com/m/ol/at1uw-51d98a2d96', code:null,
+      isNew:false, priority:1, warning:null, section:'Assurance-Vie' },
+
+    { id:'louve', name:'Louve Invest', logo:'images/logo-louve.svg',
+      tags:['assurance-vie','immobilier'], bonus:'25€ offerts à l\'ouverture',
+      description:'Plateforme de SCPI en ligne : investis dans l\'immobilier professionnel dès 1€ via une assurance-vie ou en direct. Large choix de SCPI, frais réduits.',
+      link:null, code:null, contactCta:true,
+      isNew:false, priority:2, warning:null, section:'Assurance-Vie' },
+
+    // ── IMMOBILIER ──────────────────────────────────
+    { id:'tokimo', name:'Tokimo', logo:'images/logo-tokimo.png',
+      tags:['immobilier'], bonus:'1% supplémentaire sur ton 1er investissement',
+      description:'Crowdfunding immobilier français. Investis dans des projets sélectionnés dès 100€. Rendement cible ~11,5%/an. Agréé PSFP AMF.',
+      link:null, code:'KAO1LEQT5C',
+      isNew:true, priority:1, warning:null, section:'Immobilier Participatif' },
+
+    { id:'lapremierebrique', name:'La Première Brique', logo:'images/logo-premierebrique.png',
+      tags:['immobilier'], bonus:null,
+      description:'Investissement immobilier fractionné. Accède à des projets immobiliers dès 1€.',
+      link:'https://app.lapremierebrique.fr/fr/users/sign_up/RLAHUZ', code:'RLAHUZ',
+      isNew:false, priority:2, warning:null, section:'Immobilier Participatif' },
+
+    { id:'bricks', name:'Bricks', logo:'images/logo-bricks.png',
+      tags:['immobilier'], bonus:null,
+      description:'Immobilier tokenisé. Perçois des revenus locatifs proportionnels à ta participation.',
+      link:'https://app.bricks.co/sign-up/JULDEN95', code:'JULDEN95',
+      isNew:false, priority:3, warning:null, section:'Immobilier Participatif' },
+
+    // ── PRIVATE EQUITY ──────────────────────────────
+    { id:'fundora', name:'Fundora', logo:'images/logo-fundora.png',
+      tags:['private-equity'], bonus:'10% de réduction sur les frais de ton 1er investissement',
+      description:'Démocratise le private equity. Accède aux meilleurs fonds mondiaux (VC, LBO, secondaire) dès 100€. Géré par Kyoseil AM, agréé AMF.',
+      link:'https://invest.fundora.fr/opportunities?ref=6JBC38', code:'6JBC38',
+      isNew:true, priority:1, warning:null,
+      section:'Private Equity' },
+  ];
+
+  /* ═══════════════════════════════════════════════════
+     CONFIG
+  ═══════════════════════════════════════════════════ */
+  const filters = [
+    { id:'all',            label:'Tous',              icon:'' },
+    { id:'bourse',         label:'Bourse & Épargne',  icon:'' },
+    { id:'banque',         label:'Banque & Paiement', icon:'' },
+    { id:'assurance-vie',  label:'Assurance-Vie',     icon:'' },
+    { id:'crypto',         label:'Crypto',            icon:'' },
+    { id:'securite',       label:'Sécurité Crypto',   icon:'' },
+    { id:'immobilier',     label:'Immobilier',        icon:'' },
+    { id:'private-equity', label:'Private Equity',    icon:'' },
+  ];
+
+  const tagColors = {
+    crypto:          '#F7931A',
+    securite:        '#6B7280',
+    bourse:          '#8B5CF6',
+    immobilier:      '#10B981',
+    'private-equity':  '#D97706',
+    banque:            '#3B82F6',
+    'assurance-vie':   '#0EA5E9',
+  };
+
+  const tagBg = {
+    crypto:          'rgba(247,147,26,0.12)',
+    securite:        'rgba(107,114,128,0.12)',
+    bourse:          'rgba(139,92,246,0.12)',
+    immobilier:      'rgba(16,185,129,0.12)',
+    'private-equity':  'rgba(217,119,6,0.12)',
+    banque:            'rgba(59,130,246,0.12)',
+    'assurance-vie':   'rgba(14,165,233,0.12)',
+  };
+
+  const tagLabels = {
+    crypto:          'Crypto',
+    securite:        'Sécurité',
+    bourse:          'Bourse',
+    immobilier:      'Immobilier',
+    'private-equity':  'Private Equity',
+    banque:            'Banque',
+    'assurance-vie':   'Assurance-Vie',
+  };
+
+  const sectionOrder = [
+    'Bourse & Épargne',
+    'Banque & Paiement',
+    'Assurance-Vie',
+    'Crypto, Exchanges',
+    'Sécurité Crypto',
+    'Immobilier Participatif',
+    'Private Equity',
+  ];
+
+  const sectionIcons = {
+    'Banque & Paiement':     '',
+    'Bourse & Épargne':      '',
+    'Assurance-Vie':         '',
+    'Crypto, Exchanges':    '',
+    'Sécurité Crypto':       '',
+    'Immobilier Participatif':'',
+    'Private Equity':        '',
+  };
+
+  let currentFilter = 'all';
+
+  /* ═══════════════════════════════════════════════════
+     COPY
+  ═══════════════════════════════════════════════════ */
+  function copyCode(code, btn) {
+    const doCopy = () => {
+      btn.textContent = 'Copié ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('copied'); }, 2000);
+    };
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(code).then(doCopy).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = code; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta); doCopy();
+      });
+    } else {
+      const ta = document.createElement('textarea');
+      ta.value = code; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta); doCopy();
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     LOGO FALLBACK
+  ═══════════════════════════════════════════════════ */
+  function handleLogoError(img) {
+    img.style.display = 'none';
+    const fallback = img.nextElementSibling;
+    if (fallback) {
+      fallback.style.display = 'flex';
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RENDER CARD
+  ═══════════════════════════════════════════════════ */
+  function renderCard(p) {
+    const firstTag = p.tags[0];
+    const fallbackBg = tagColors[firstTag] || '#1A3D7C';
+    const initial = p.name.charAt(0).toUpperCase();
+
+    const tagsHtml = p.tags.map(t =>
+      `<span class="tag-pill" style="background:${tagBg[t]||'#eee'};color:${tagColors[t]||'#333'}">${tagLabels[t]||t}</span>`
+    ).join('');
+
+    const bonusHtml = p.bonus
+      ? `<div class="p-card-bonus"><span class="p-card-bonus-icon"></span><span><strong>${p.bonus}</strong></span></div>`
+      : '';
+
+    const warningHtml = '';
+
+    const codeHtml = p.code
+      ? `<div class="p-card-code-row">
+           <span class="p-card-code">${p.code}</span>
+           <button class="p-copy-btn" onclick="copyCode('${p.code.replace(/'/g,"\\'")}', this)">Copier</button>
+         </div>`
+      : '';
+
+    const ctaHtml = p.contactCta
+      ? `<div class="p-card-contact-box">
+           <p class="p-card-contact-msg">Pas de lien direct : envoie-moi ton <strong>adresse email</strong> pour recevoir ton lien de parrainage personnalisé et obtenir <strong>25€ offerts</strong> à l'ouverture.</p>
+           <div class="p-card-contact-btns">
+             <a href="https://www.instagram.com/julien_invest" target="_blank" rel="noopener" class="p-card-contact-btn p-card-contact-btn--insta">DM Instagram</a>
+             <a href="mailto:contact.julieninvest@gmail.com" class="p-card-contact-btn p-card-contact-btn--mail">Email</a>
+           </div>
+         </div>`
+      : p.link
+        ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="p-card-cta">Profiter de l'offre →</a>`
+        : ``;
+
+    return `
+      <div class="p-card">
+        <div class="p-card-header">
+          <div class="p-card-logo-wrap">
+            <img src="${p.logo}" alt="${p.name}" loading="lazy" onerror="handleLogoError(this)">
+            <div class="p-logo-fallback" style="background:${fallbackBg}">${initial}</div>
+          </div>
+          <div class="p-card-header-info">
+            <div class="p-card-name">
+              ${p.name}
+            </div>
+            <div class="p-card-tags">${tagsHtml}</div>
+          </div>
+        </div>
+        <p class="p-card-desc">${p.description}</p>
+        ${bonusHtml}
+        ${warningHtml}
+        <div class="p-card-footer">
+          ${codeHtml}
+          ${ctaHtml}
+        </div>
+      </div>`;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RENDER ALL (mode Tous, grouped by section)
+  ═══════════════════════════════════════════════════ */
+  function renderAll(container) {
+    const grouped = {};
+    sectionOrder.forEach(s => grouped[s] = []);
+    platforms.forEach(p => {
+      if (!grouped[p.section]) grouped[p.section] = [];
+      grouped[p.section].push(p);
+    });
+
+    let html = '';
+    sectionOrder.forEach(section => {
+      const list = grouped[section];
+      if (!list || list.length === 0) return;
+      const icon = sectionIcons[section] || '';
+      html += `
+        <div class="section-group">
+          <div class="section-divider">
+            <div class="section-divider-inner">
+              <span class="section-divider-label">${icon} ${section}</span>
+              <span class="section-divider-count">${list.length}</span>
+            </div>
+          </div>
+          <div class="parr-grid">
+            ${list.map(renderCard).join('')}
+          </div>
+        </div>`;
+    });
+
+    container.innerHTML = html || '<div class="parr-empty"><p>Aucune plateforme disponible.</p></div>';
+  }
+
+  /* ═══════════════════════════════════════════════════
+     RENDER FILTERED (flat, sorted by priority)
+  ═══════════════════════════════════════════════════ */
+  function renderFiltered(filterId, container) {
+    const list = platforms
+      .filter(p => p.tags.includes(filterId))
+      .sort((a, b) => a.priority - b.priority);
+
+    if (list.length === 0) {
+      container.innerHTML = '<div class="parr-empty"><p>Aucune plateforme dans cette catégorie pour l\'instant.</p></div>';
+      return;
+    }
+
+    container.innerHTML = `<div class="parr-grid">${list.map(renderCard).join('')}</div>`;
+  }
+
+  /* ═══════════════════════════════════════════════════
+     SWITCH FILTER
+  ═══════════════════════════════════════════════════ */
+  function switchFilter(filterId) {
+    if (filterId === currentFilter) return;
+    currentFilter = filterId;
+
+    // Update buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === filterId);
+    });
+
+    const content = document.getElementById('parr-content');
+    content.style.opacity = '0';
+    content.style.transform = 'translateY(8px)';
+
+    // Scroll to grid if out of viewport
+    const bar = document.getElementById('parr-filters-bar');
+    const barBottom = bar.getBoundingClientRect().bottom;
+    if (barBottom < 0 || barBottom > window.innerHeight) {
+      bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    setTimeout(() => {
+      if (filterId === 'all') {
+        renderAll(content);
+      } else {
+        renderFiltered(filterId, content);
+      }
+      content.style.opacity = '1';
+      content.style.transform = 'translateY(0)';
+    }, 210);
+  }
+
+  /* ═══════════════════════════════════════════════════
+     INIT
+  ═══════════════════════════════════════════════════ */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Platform count
+    document.getElementById('platform-count').textContent = platforms.length;
+
+    // Render filter buttons
+    const filtersEl = document.getElementById('parr-filters');
+    filtersEl.innerHTML = filters.map(f => {
+      const count = f.id === 'all'
+        ? platforms.length
+        : platforms.filter(p => p.tags.includes(f.id)).length;
+      return `<button class="filter-btn${f.id === 'all' ? ' active' : ''}" data-filter="${f.id}" onclick="switchFilter('${f.id}')">
+        ${f.icon ? `<span>${f.icon}</span>` : ''}
+        ${f.label}
+        <span class="filter-count">${count}</span>
+      </button>`;
+    }).join('');
+
+    // Initial render
+    const content = document.getElementById('parr-content');
+    content.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    renderAll(content);
+  });
+  </script>
+</body>
+</html>

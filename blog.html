@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Ressources : Apprendre à investir | Julien Invest</title>
+  <meta name="description" content="Articles, guides et vidéos pour apprendre à investir simplement. ETF, PEA, assurance-vie, liberté financière : tout expliqué sans jargon.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Blog & Ressources : Apprendre à investir | Julien Invest">
+  <meta property="og:description" content="Articles, guides et vidéos pour apprendre à investir simplement. ETF, PEA, assurance-vie, liberté financière.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julieninvest.github.io/blog.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog & Ressources | Julien Invest">
+  <meta name="twitter:description" content="Articles et guides gratuits pour apprendre à investir sans jargon.">
+  <meta name="twitter:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── BLOG CARDS ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+
+    .blog-card {
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--white);
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      cursor: pointer;
+    }
+    .blog-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--lavender);
+      box-shadow: 0 12px 40px rgba(26,61,124,0.10);
+    }
+    .blog-card-thumb {
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .blog-card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-head);
+      color: var(--navy);
+    }
+    .blog-card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .blog-card-meta { font-size: 12px; color: var(--grey-3); }
+    .blog-card-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+    }
+    .blog-card-desc { font-size: 13px; color: var(--grey-2); line-height: 1.6; }
+    .blog-card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--grey-5);
+    }
+    .blog-card-platform { font-size: 12px; color: var(--grey-3); }
+    .blog-card-link {
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--font-head);
+      color: var(--navy);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .blog-card-link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+    .blog-card-link:hover { opacity: 0.7; }
+
+    /* ── FILTRES ── */
+    .blog-filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .blog-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      border: 1.5px solid var(--grey-5);
+      background: var(--white);
+      color: var(--grey-2);
+      cursor: pointer;
+      transition: border-color 0.18s, background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .blog-filter-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--pearl); }
+    .blog-filter-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Blog & Ressources</span>
+        <h1>Apprends à investir <em>à ton rythme</em></h1>
+        <p>Des articles clairs, des vidéos associées, zéro jargon bancaire. Chaque sujet expliqué comme si tu découvrais pour la première fois.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENU BLOG -->
+  <section class="section" style="background: var(--pearl);">
+    <div class="container">
+
+      <!-- Filtres -->
+      <div class="blog-filters reveal">
+        <button class="blog-filter-btn active" data-category="all">Tous</button>
+        <button class="blog-filter-btn" data-category="ETF">ETF</button>
+        <button class="blog-filter-btn" data-category="PEA">PEA</button>
+        <button class="blog-filter-btn" data-category="Fiscalité">Fiscalité</button>
+        <button class="blog-filter-btn" data-category="Crypto">Crypto</button>
+        <button class="blog-filter-btn" data-category="Débutants">Débutants</button>
+        <button class="blog-filter-btn" data-category="Liberté financière">Liberté financière</button>
+      </div>
+
+      <!-- Grille articles -->
+      <div class="blog-grid" id="blog-grid">
+
+        <article class="blog-card" data-category="ETF">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); flex-direction:column; gap:8px;">
+            <div style="background:#ffffff; border-radius:14px; padding:12px 28px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:32px; color:#1E3A8A; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">ETF</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">L'explication simple</div>
+            <span class="blog-card-tag">ETF</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>ETF</span> · <span>5 min de lecture</span></div>
+            <h3 class="blog-card-title">C'est quoi un ETF ? L'explication simple</h3>
+            <p class="blog-card-desc">Tu as entendu parler des ETF partout mais tu ne sais toujours pas ce que c'est ? On t'explique tout en moins de 5 minutes, sans jargon.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform">▶ YouTube</span>
+              <a href="article-etf-monde-2026.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="ETF">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A8A 0%, #0EA5E9 100%); flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#ffffff; border-radius:12px; padding:10px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#1E3A8A; letter-spacing:-0.03em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">PHYS.</div>
+              <div style="width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:800; color:white; letter-spacing:0.05em; flex-shrink:0;">VS</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:12px; padding:10px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:rgba(255,255,255,0.92); letter-spacing:-0.03em;">SYNTH.</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">S&P 500 dans ton PEA</div>
+            <span class="blog-card-tag">ETF</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>ETF</span> · <span>6 min de lecture</span></div>
+            <h3 class="blog-card-title">ETF physique vs synthétique : comment accéder aux marchés US depuis un PEA</h3>
+            <p class="blog-card-desc">Un ETF synthétique européen te donne la performance du S&P 500 tout en restant éligible au PEA. On t'explique le mécanisme, les avantages et les risques.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> TikTok</span>
+              <a href="article-etf-physique-vs-synthetique.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="PEA">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #064E3B 0%, #059669 100%); flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#ffffff; border-radius:12px; padding:12px 22px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#064E3B; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">PEA</div>
+              <div style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:800; color:white; letter-spacing:0.05em; flex-shrink:0;">VS</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:12px; padding:12px 22px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:rgba(255,255,255,0.92); letter-spacing:-0.04em;">CTO</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Lequel choisir pour ton profil ?</div>
+            <span class="blog-card-tag">PEA</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>PEA</span> · <span>7 min de lecture</span></div>
+            <h3 class="blog-card-title">PEA vs CTO : lequel choisir selon ton profil ?</h3>
+            <p class="blog-card-desc">Avantages fiscaux, contraintes, plafonds… On compare les deux enveloppes pour que tu fasses le bon choix dès le départ.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform">▶ YouTube</span>
+              <a href="article-pea-vs-cto.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="Débutants">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%); flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:10px; padding:10px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:17px; color:#4C1D95; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">100 €</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:rgba(255,255,255,0.8);">→</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:10px; padding:10px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:17px; color:rgba(255,255,255,0.92); letter-spacing:-0.03em;">762 €</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">En 20 ans à 10%/an</div>
+            <span class="blog-card-tag">Débutants</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Débutants</span> · <span>4 min de lecture</span></div>
+            <h3 class="blog-card-title">Les intérêts composés : le secret des riches enfin expliqué</h3>
+            <p class="blog-card-desc">Albert Einstein les appelait la 8e merveille du monde. Comprends pourquoi commencer tôt change radicalement ton avenir financier.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> TikTok</span>
+              <a href="article-debuter-investissement.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="Fiscalité">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 100%); flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:12px; padding:10px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:19px; color:#7F1D1D; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">30% PFU</div>
+              <div style="width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:800; color:white; flex-shrink:0;">VS</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:12px; padding:10px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:19px; color:rgba(255,255,255,0.92); letter-spacing:-0.03em;">Barème</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Quelle option choisir ?</div>
+            <span class="blog-card-tag">Fiscalité</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Fiscalité</span> · <span>6 min de lecture</span></div>
+            <h3 class="blog-card-title">Flat tax ou barème progressif : quelle option choisir ?</h3>
+            <p class="blog-card-desc">30% de PFU ou barème progressif ? Le calcul concret selon ta tranche marginale pour optimiser ta déclaration et payer moins d'impôts.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> TikTok</span>
+              <a href="article-fiscalite-investissement.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="Crypto">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #78350F 0%, #D97706 100%); flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <div style="background:#fff; border-radius:50%; width:60px; height:60px; display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:28px; color:#78350F; box-shadow:0 8px 28px rgba(0,0,0,0.25);">₿</div>
+              <div>
+                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:28px; color:white; letter-spacing:-0.04em; line-height:1;">2026</div>
+                <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.6); letter-spacing:0.12em; text-transform:uppercase; margin-top:3px;">Ce que tu dois savoir</div>
+              </div>
+            </div>
+            <span class="blog-card-tag">Crypto</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Crypto</span> · <span>8 min de lecture</span></div>
+            <h3 class="blog-card-title">Bitcoin en 2026 : ce que tu dois vraiment savoir avant d'investir</h3>
+            <p class="blog-card-desc">Halving, ETF Bitcoin spot, adoption institutionnelle : tout ce qui change la donne cette année pour les investisseurs qui s'y intéressent.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform">▶ YouTube</span>
+              <a href="article-bitcoin-2026.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="Liberté financière">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #164E63 0%, #0891B2 100%); flex-direction:column; gap:8px;">
+            <div style="background:#fff; border-radius:16px; padding:10px 28px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:42px; color:#164E63; letter-spacing:-0.05em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.2);">4%</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">La règle de la liberté financière</div>
+            <span class="blog-card-tag">Liberté financière</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Liberté financière</span> · <span>5 min de lecture</span></div>
+            <h3 class="blog-card-title">La règle des 4% : comment calculer ta liberté financière</h3>
+            <p class="blog-card-desc">C'est la règle la plus connue du mouvement FIRE. Elle est simple et puissante : voici comment l'appliquer à ta situation concrète.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform">▶ YouTube</span>
+              <a href="article-liberte-financiere.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="Débutants">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #7C2D12 0%, #EA580C 100%); flex-direction:column; gap:8px;">
+            <div style="background:#fff; border-radius:14px; padding:10px 24px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:38px; color:#7C2D12; letter-spacing:-0.05em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.2);">90%</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Des débutants font ces 5 erreurs</div>
+            <span class="blog-card-tag">Débutants</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Débutants</span> · <span>6 min de lecture</span></div>
+            <h3 class="blog-card-title">Les 5 erreurs que font 90% des débutants en bourse</h3>
+            <p class="blog-card-desc">Vendre au mauvais moment, tout mettre dans une seule action, ignorer les frais… Ces erreurs classiques peuvent te coûter très cher. Évite-les.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> TikTok</span>
+              <a href="article-dividendes-vs-etf.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="blog-card" data-category="PEA">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #831843 0%, #DB2777 100%); flex-direction:column; gap:10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:12px; padding:12px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:24px; color:#831843; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">AV</div>
+              <div style="width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:800; color:white; flex-shrink:0;">VS</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:12px; padding:12px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:24px; color:rgba(255,255,255,0.92); letter-spacing:-0.04em;">PEA</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Le comparatif complet</div>
+            <span class="blog-card-tag">PEA</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>PEA</span> · <span>7 min de lecture</span></div>
+            <h3 class="blog-card-title">Assurance-vie ou PEA : le comparatif complet</h3>
+            <p class="blog-card-desc">Deux enveloppes fiscales très avantageuses, mais pas pour les mêmes profils. On t'explique leurs différences clés pour que tu choisisse celle qui te correspond.</p>
+            <div class="blog-card-footer">
+              <span class="blog-card-platform">▶ YouTube</span>
+              <a href="article-assurance-vie-pea.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+          <a href="ressources.html">Ressources</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="blog.html">Blog & Articles</a>
+          <a href="ressources.html">Ressources gratuites</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+          <a href="calculateur.html#retraite">Simulateur retraite</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.blog-filter-btn');
+      const cards = document.querySelectorAll('#blog-grid .blog-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.dataset.category;
+          cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

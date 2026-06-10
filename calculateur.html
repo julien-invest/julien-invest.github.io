@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateurs : Intérêts Composés & Liberté Financière | Julien Invest</title>
+  <meta name="description" content="Deux calculateurs gratuits : simulateur d'intérêts composés et calculateur de liberté financière (FIRE). Graphiques interactifs en temps réel.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta property="og:title" content="Simulateurs gratuits : Intérêts composés, FIRE, Retraite | Julien Invest">
+  <meta property="og:description" content="Simule la croissance de ton épargne, calcule ton capital FIRE et planifie ta retraite avec les simulateurs gratuits de Julien Invest.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julieninvest.github.io/calculateur.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simulateurs gratuits | Julien Invest">
+  <meta name="twitter:description" content="Intérêts composés, liberté financière, retraite : simulateurs interactifs gratuits.">
+  <meta name="twitter:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment calculer les intérêts composés ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les intérêts composés se calculent avec la formule : Capital final = Capital initial x (1 + taux)^n + versements mensuels x [(1 + taux)^n - 1] / taux. Notre simulateur gratuit effectue ce calcul automatiquement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel capital faut-il pour atteindre la liberté financière ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Selon la règle des 4%, ton capital FIRE = tes dépenses annuelles x 25. Par exemple, si tu dépenses 2000€/mois (24 000€/an), il te faut 600 000€ de capital investi."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    /* ── HERO FOND CLAIR ── */
+    .calc-page-hero {
+      background: var(--pearl);
+      padding: 140px 0 64px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--grey-5);
+    }
+    .calc-page-hero-bg { display: none; }
+    .calc-hero-content { position: relative; max-width: 760px; }
+    .calc-hero-tabs {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+    .calc-hero-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: 100px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--grey-2);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .calc-hero-tab:hover { border-color: var(--lavender); color: var(--navy); background: var(--lavender-lt); }
+    .calc-hero-tab .emoji { font-size: 16px; }
+    /* ── CONTAINER LARGE ── */
+    .container--wide { max-width: 1360px; margin: 0 auto; padding: 0 24px; width: 100%; box-sizing: border-box; }
+    /* ── SECTION TITLES ── */
+    .calc-section-title { margin-bottom: 36px; }
+    .calc-section-title h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3vw, 40px);
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .calc-section-title p { font-size: 15px; color: var(--grey-2); }
+    /* ── LAYOUT 3 COLONNES ── */
+    .calc-main { padding: 56px 0 72px; background: var(--white); }
+    .calc-3col {
+      display: grid;
+      grid-template-columns: 300px 240px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 1200px) {
+      .calc-3col { grid-template-columns: 1fr 1fr; }
+      .calc-col-chart { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .calc-3col { grid-template-columns: 1fr; }
+      .calc-col-chart { grid-column: auto; }
+      .calc-col-inputs, .calc-col-results, .calc-col-chart { min-width: 0; box-sizing: border-box; }
+    }
+    .calc-col-title {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--grey-5);
+    }
+    .calc-col-inputs, .calc-col-results, .calc-col-chart {
+      background: var(--off-white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .calc-chart-canvas-wrap { position: relative; height: 320px; }
+    /* Col 2 résultats */
+    .calc-res-main {
+      text-align: center;
+      padding: 20px 16px;
+      background: var(--navy);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+    }
+    .calc-res-main-label {
+      font-size: 11px;
+      font-family: var(--font-head);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 6px;
+    }
+    .calc-res-main-val {
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .calc-res-rows { display: flex; flex-direction: column; gap: 0; }
+    .calc-res-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--grey-5);
+      font-size: 13px;
+    }
+    .calc-res-row:last-child { border-bottom: none; }
+    .calc-res-row-label { color: var(--grey-2); }
+    .calc-res-row-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 14px; }
+    .calc-res-row--gain .calc-res-row-val { color: #0D6B42; }
+    .calc-recap-compact {
+      font-size: 13px;
+      color: var(--grey-2);
+      line-height: 1.6;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--grey-5);
+      font-style: italic;
+    }
+    .calc-col-results .sim-progress-bar { background: var(--grey-5); }
+    /* ── SECTION FIRE ── */
+    .calc-fire-section {
+      padding: 64px 0 80px;
+      background: var(--pearl);
+      border-top: 1px solid var(--grey-5);
+    }
+    .fire-layout {
+      display: grid;
+      grid-template-columns: 300px 260px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    @media (max-width: 1200px) {
+      .fire-layout { grid-template-columns: 1fr 1fr; }
+      .fire-chart-panel { grid-column: 1 / -1; }
+    }
+    @media (max-width: 768px) {
+      .fire-layout { grid-template-columns: 1fr; }
+      .fire-inputs-panel, .fire-results-panel, .fire-chart-panel { min-width: 0; box-sizing: border-box; }
+    }
+    .fire-inputs-panel, .fire-results-panel, .fire-chart-panel {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .fire-res-main {
+      background: var(--gradient-hero);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .fire-res-main-label {
+      font-size: 11px;
+      font-family: var(--font-head);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .fire-res-main-val {
+      font-family: var(--font-head);
+      font-size: 34px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .fire-res-main-sub {
+      font-size: 12px;
+      font-family: var(--font-head);
+      color: rgba(255,255,255,0.5);
+    }
+    .fire-res-rows { display: flex; flex-direction: column; gap: 0; }
+    .fire-res-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--grey-5);
+      font-size: 13px;
+    }
+    .fire-res-row:last-child { border-bottom: none; }
+    .fire-res-row--highlight {
+      background: var(--lavender-lt);
+      margin: 0 -28px;
+      padding: 12px 28px;
+    }
+    .fire-res-label { color: var(--grey-2); }
+    .fire-res-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 14px; }
+    .fire-res-val--big { font-size: 20px; color: var(--navy); }
+    .fire-recap {
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: var(--lavender-lt);
+      border-left: 3px solid var(--lavender);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 13px;
+      color: var(--navy);
+      line-height: 1.65;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link active">
+              Calculateur <span class="nav-link-arrow">▾</span>
+            </a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div>
+                  <div class="nav-dropdown-text-title">Intérêts composés</div>
+                  <div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div>
+                </div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div>
+                  <div class="nav-dropdown-text-title">Liberté financière</div>
+                  <div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div>
+                </div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div>
+                  <div class="nav-dropdown-text-title">Simulateur retraite</div>
+                  <div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div>
+                </div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="calc-page-hero">
+    <div class="calc-page-hero-bg"></div>
+    <div class="container">
+      <div class="calc-hero-content">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,180,232,0.2);border:1px solid rgba(200,180,232,0.5);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
+          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Outil gratuit</span>
+        </div>
+        <h1 style="font-family:var(--font-display); font-size:clamp(38px,5vw,68px); color:var(--navy); line-height:1.05; margin-bottom:16px;">
+          Tes calculateurs<br><em style="background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">d'investissement</em>
+        </h1>
+        <p style="font-size:17px; color:var(--grey-2); line-height:1.7; margin-bottom:0; max-width:560px;">
+          Trois outils interactifs pour simuler ton épargne, calculer ton capital de liberté financière et préparer ta retraite. Mis à jour en temps réel.
+        </p>
+        <div class="calc-hero-tabs">
+          <a href="#interets-composes" class="calc-hero-tab">
+            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> Intérêts composés
+          </a>
+          <a href="#liberte-financiere" class="calc-hero-tab">
+            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span> Liberté financière (FIRE)
+          </a>
+          <a href="#retraite" class="calc-hero-tab">
+            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Simulateur retraite
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATEUR INTÉRÊTS COMPOSÉS -->
+  <section class="calc-main" id="interets-composes">
+    <div class="container--wide">
+      <div class="calc-section-title">
+        <h2>Simulateur d'<em class="t-display">intérêts composés</em></h2>
+        <p>Ajuste les curseurs : le graphique et les résultats se mettent à jour en temps réel.</p>
+      </div>
+      <div class="calc-3col">
+        <!-- COL 1 : Sliders -->
+        <div class="calc-col-inputs">
+          <div class="calc-col-title">Tes paramètres</div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-initial">Capital de départ</label>
+              <span class="sim-field-val" id="val-initial">1 000 €</span>
+            </div>
+            <input type="range" id="sl-initial" min="0" max="100000" step="500" value="1000" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>100 k€</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-monthly">Apport mensuel</label>
+              <span class="sim-field-val" id="val-monthly">200 €</span>
+            </div>
+            <input type="range" id="sl-monthly" min="0" max="3000" step="50" value="200" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>3 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-rate">Rendement annuel</label>
+              <span class="sim-field-val" id="val-rate">7,0 %</span>
+            </div>
+            <input type="range" id="sl-rate" min="0" max="20" step="0.5" value="7" class="sim-slider">
+            <div class="sim-field-range"><span>0 %</span><span>20 %</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-years">Durée</label>
+              <span class="sim-field-val" id="val-years">20 ans</span>
+            </div>
+            <input type="range" id="sl-years" min="1" max="40" step="1" value="20" class="sim-slider">
+            <div class="sim-field-range"><span>1 an</span><span>40 ans</span></div>
+          </div>
+          <p class="calc-recap-compact" id="recap-sentence"></p>
+        </div>
+        <!-- COL 2 : Résultats -->
+        <div class="calc-col-results">
+          <div class="calc-col-title">Résultats</div>
+          <div class="calc-res-main">
+            <div class="calc-res-main-label">Capital final estimé</div>
+            <div class="calc-res-main-val" id="res-total">, </div>
+          </div>
+          <div class="sim-progress" style="margin: 16px 0;">
+            <div class="sim-progress-bar">
+              <div class="sim-progress-invested" id="bar-invested"></div>
+              <div class="sim-progress-gains" id="bar-gains"></div>
+            </div>
+            <div class="sim-progress-legend">
+              <span class="sim-legend-dot sim-legend-dot--invested"></span>
+              <span class="sim-legend-label" style="color:var(--grey-2);">Versements</span>
+              <span class="sim-legend-dot sim-legend-dot--gains"></span>
+              <span class="sim-legend-label" style="color:var(--grey-2);">Intérêts</span>
+            </div>
+          </div>
+          <div class="calc-res-rows">
+            <div class="calc-res-row">
+              <span class="calc-res-row-label">Somme investie</span>
+              <span class="calc-res-row-val" id="res-invested">, </span>
+            </div>
+            <div class="calc-res-row calc-res-row--gain">
+              <span class="calc-res-row-label">Intérêts générés</span>
+              <span class="calc-res-row-val" id="res-gains">, </span>
+            </div>
+            <div class="calc-res-row">
+              <span class="calc-res-row-label">Multiplicateur</span>
+              <span class="calc-res-row-val" id="res-mult">, </span>
+            </div>
+          </div>
+          <p class="sim-disclaimer" style="color:var(--grey-3); margin-top:20px;">
+            Rendement historique MSCI World : ~7%/an. Simulation indicative. Performances passées non garanties.
+          </p>
+          <a href="formation.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:16px;font-size:13px;">
+            Accéder à la formation →
+          </a>
+        </div>
+        <!-- COL 3 : Graphique -->
+        <div class="calc-col-chart">
+          <div class="calc-col-title">Évolution année par année</div>
+          <div class="calc-chart-canvas-wrap">
+            <canvas id="chart-main"></canvas>
+          </div>
+          <div style="margin-top:20px; padding:20px; background:var(--navy); border-radius:var(--radius-md); text-align:center;">
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:12px;line-height:1.6;">
+              La formation t'explique concrètement comment construire ce portefeuille : ETF, PEA, DCA.
+            </p>
+            <a href="formation.html" class="btn btn-gradient btn--sm" style="display:inline-flex;">
+              Accéder à la formation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATEUR LIBERTÉ FINANCIÈRE -->
+  <section class="calc-fire-section" id="liberte-financiere">
+    <div class="container--wide">
+      <div class="calc-section-title" style="margin-bottom:36px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(160,231,197,0.15);border:1px solid rgba(160,231,197,0.4);border-radius:100px;padding:6px 16px;margin-bottom:16px;">
+          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#0D6B42;">Nouveau</span>
+        </div>
+        <h2>Calculateur de <em class="t-display">liberté financière</em></h2>
+        <p>À partir de ta rente mensuelle souhaitée et de ton âge cible, calcule le capital à accumuler et ce que tu dois épargner chaque mois pour y arriver.</p>
+      </div>
+      <div class="fire-layout">
+        <!-- Colonne inputs -->
+        <div class="fire-inputs-panel">
+          <div class="calc-col-title">Ta situation</div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-age-now">Ton âge actuel</label>
+              <span class="sim-field-val" id="fire-val-age-now">27 ans</span>
+            </div>
+            <input type="range" id="fire-age-now" min="18" max="65" step="1" value="27" class="sim-slider">
+            <div class="sim-field-range"><span>18 ans</span><span>65 ans</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-age-target">Âge cible FIRE</label>
+              <span class="sim-field-val" id="fire-val-age-target">50 ans</span>
+            </div>
+            <input type="range" id="fire-age-target" min="25" max="80" step="1" value="50" class="sim-slider">
+            <div class="sim-field-range"><span>25 ans</span><span>80 ans</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-capital-now">Capital déjà constitué</label>
+              <span class="sim-field-val" id="fire-val-capital-now">0 €</span>
+            </div>
+            <input type="range" id="fire-capital-now" min="0" max="200000" step="1000" value="0" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>200 k€</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-rente">Rente mensuelle souhaitée</label>
+              <span class="sim-field-val" id="fire-val-rente">2 000 €</span>
+            </div>
+            <input type="range" id="fire-rente" min="500" max="10000" step="100" value="2000" class="sim-slider">
+            <div class="sim-field-range"><span>500 €</span><span>10 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-rate">Rendement annuel estimé</label>
+              <span class="sim-field-val" id="fire-val-rate">7,0 %</span>
+            </div>
+            <input type="range" id="fire-rate" min="1" max="12" step="0.5" value="7" class="sim-slider">
+            <div class="sim-field-range"><span>1 %</span><span>12 %</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fire-tax">Imposition sur les gains</label>
+              <span class="sim-field-val" id="fire-val-tax">17,2 %</span>
+            </div>
+            <input type="range" id="fire-tax" min="0" max="30" step="0.1" value="17.2" class="sim-slider">
+            <div class="sim-field-range"><span>0 % (PEA 5 ans)</span><span>30 % (flat tax)</span></div>
+          </div>
+        </div>
+        <!-- Colonne résultats FIRE -->
+        <div class="fire-results-panel">
+          <div class="calc-col-title">Ton objectif FIRE</div>
+          <div class="fire-res-main">
+            <div class="fire-res-main-label">Capital à accumuler</div>
+            <div class="fire-res-main-val" id="fire-res-capital">, </div>
+            <div class="fire-res-main-sub" id="fire-res-status">, </div>
+          </div>
+          <div class="fire-res-rows">
+            <div class="fire-res-row">
+              <span class="fire-res-label">Années restantes</span>
+              <span class="fire-res-val" id="fire-res-years">, </span>
+            </div>
+            <div class="fire-res-row">
+              <span class="fire-res-label">Rente mensuelle nette</span>
+              <span class="fire-res-val" id="fire-res-rente-net">, </span>
+            </div>
+            <div class="fire-res-row">
+              <span class="fire-res-label">Rendement net d'impôts</span>
+              <span class="fire-res-val" id="fire-res-rate-net">, </span>
+            </div>
+            <div class="fire-res-row fire-res-row--highlight">
+              <span class="fire-res-label">Épargne mensuelle nécessaire</span>
+              <span class="fire-res-val fire-res-val--big" id="fire-res-monthly">, </span>
+            </div>
+            <div class="fire-res-row">
+              <span class="fire-res-label">Taux de retrait sûr (SWR)</span>
+              <span class="fire-res-val" id="fire-res-swr">, </span>
+            </div>
+          </div>
+          <div class="fire-recap" id="fire-recap-sentence"></div>
+          <p class="sim-disclaimer" style="color:var(--grey-3); margin-top:16px;">
+            Basé sur la règle des 4% (Trinity Study). Simulation indicative. L'imposition de 17,2% correspond aux prélèvements sociaux sur un PEA ouvert depuis plus de 5 ans.
+          </p>
+        </div>
+        <!-- Colonne graphique FIRE -->
+        <div class="fire-chart-panel">
+          <div class="calc-col-title">Progression vers la liberté financière</div>
+          <div style="position:relative; height:320px;">
+            <canvas id="chart-fire"></canvas>
+          </div>
+          <div style="margin-top:20px; padding:20px; background:var(--navy); border-radius:var(--radius-md); text-align:center;">
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:12px;line-height:1.6;">
+              La formation t'explique concrètement comment construire ce portefeuille : ETF, PEA, DCA.
+            </p>
+            <a href="formation.html" class="btn btn-gradient btn--sm" style="display:inline-flex;">
+              Accéder à la formation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIMULATEUR RETRAITE -->
+  <section class="calc-main" id="retraite" style="background: var(--white); border-top: 1px solid var(--grey-5);">
+    <div class="container--wide">
+      <div class="calc-section-title">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(186,212,255,0.2);border:1px solid rgba(186,212,255,0.5);border-radius:100px;padding:6px 16px;margin-bottom:16px;">
+          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Simulateur retraite</span>
+        </div>
+        <h2>De combien aurai-je besoin<br><em class="t-display">pour ma retraite ?</em></h2>
+        <p>Calcule le capital à accumuler pour recevoir une rente mensuelle à l'âge que tu choisis.</p>
+      </div>
+      <div class="calc-3col">
+        <!-- COL 1 : Sliders -->
+        <div class="calc-col-inputs">
+          <div class="calc-col-title">Tes paramètres</div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="ret-age-current">Âge actuel</label>
+              <span class="sim-field-val" id="ret-val-age-current">30 ans</span>
+            </div>
+            <input type="range" id="ret-age-current" min="18" max="55" step="1" value="30" class="sim-slider">
+            <div class="sim-field-range"><span>18 ans</span><span>55 ans</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="ret-age-retire">Âge de départ à la retraite</label>
+              <span class="sim-field-val" id="ret-val-age-retire">65 ans</span>
+            </div>
+            <input type="range" id="ret-age-retire" min="50" max="70" step="1" value="65" class="sim-slider">
+            <div class="sim-field-range"><span>50 ans</span><span>70 ans</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="ret-monthly-income">Rente mensuelle souhaitée</label>
+              <span class="sim-field-val" id="ret-val-monthly-income">2 000 €</span>
+            </div>
+            <input type="range" id="ret-monthly-income" min="500" max="5000" step="100" value="2000" class="sim-slider">
+            <div class="sim-field-range"><span>500 €</span><span>5 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="ret-monthly-save">Apport mensuel actuel</label>
+              <span class="sim-field-val" id="ret-val-monthly-save">300 €</span>
+            </div>
+            <input type="range" id="ret-monthly-save" min="0" max="2000" step="50" value="300" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>2 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="ret-rate">Rendement annuel estimé</label>
+              <span class="sim-field-val" id="ret-val-rate">7,0 %</span>
+            </div>
+            <input type="range" id="ret-rate" min="1" max="12" step="0.5" value="7" class="sim-slider">
+            <div class="sim-field-range"><span>1 %</span><span>12 %</span></div>
+          </div>
+        </div>
+        <!-- COL 2 : Résultats -->
+        <div class="calc-col-results">
+          <div class="calc-col-title">Résultats</div>
+          <div class="calc-res-main">
+            <div class="calc-res-main-label">Capital retraite nécessaire</div>
+            <div class="calc-res-main-val" id="ret-res-capital">, </div>
+          </div>
+          <div class="calc-res-rows">
+            <div class="calc-res-row">
+              <span class="calc-res-row-label">Années d'épargne restantes</span>
+              <span class="calc-res-row-val" id="ret-res-years">, </span>
+            </div>
+            <div class="calc-res-row calc-res-row--gain">
+              <span class="calc-res-row-label">Capital accumulé avec tes versements</span>
+              <span class="calc-res-row-val" id="ret-res-accumulated">, </span>
+            </div>
+            <div class="calc-res-row">
+              <span class="calc-res-row-label">Écart à combler</span>
+              <span class="calc-res-row-val" id="ret-res-gap">, </span>
+            </div>
+            <div class="calc-res-row">
+              <span class="calc-res-row-label">Effort mensuel supplémentaire</span>
+              <span class="calc-res-row-val" id="ret-res-extra">, </span>
+            </div>
+          </div>
+          <p class="calc-recap-compact" id="ret-recap-sentence"></p>
+          <p class="sim-disclaimer" style="color:var(--grey-3); margin-top:16px;">
+            Capital calculé avec la règle des 4% (Trinity Study). Simulation indicative. Les performances passées ne garantissent pas les performances futures.
+          </p>
+        </div>
+        <!-- COL 3 : Graphique -->
+        <div class="calc-col-chart">
+          <div class="calc-col-title">Accumulation du capital jusqu'à la retraite</div>
+          <div class="calc-chart-canvas-wrap">
+            <canvas id="chart-retraite"></canvas>
+          </div>
+          <div style="margin-top:20px; padding:20px; background:var(--navy); border-radius:var(--radius-md); text-align:center;">
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:12px;line-height:1.6;">
+              La formation t'explique concrètement comment construire ce portefeuille : ETF, PEA, DCA.
+            </p>
+            <a href="formation.html" class="btn btn-gradient btn--sm" style="display:inline-flex;">
+              Accéder à la formation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="index.html#lead-magnet">Ebook gratuit</a>
+          <a href="formation.html#guides">Guides gratuits</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/simulator.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => initSimulator('', 'chart-main'));
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let retChart = null;
+
+      function fmt(n) {
+        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n));
+      }
+      function fmtK(n) {
+        if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.', ',') + ' M€';
+        if (n >= 1000)    return Math.round(n / 1000) + ' k€';
+        return Math.round(n) + ' €';
+      }
+      function fv(rate, nper, pmt) {
+        if (rate === 0) return pmt * nper;
+        return pmt * ((Math.pow(1 + rate, nper) - 1) / rate);
+      }
+      function pmt(rate, nper, fvGoal) {
+        if (rate === 0) return fvGoal / nper;
+        return fvGoal * rate / (Math.pow(1 + rate, nper) - 1);
+      }
+
+      function calcRetraite() {
+        const ageCurrent   = parseInt(document.getElementById('ret-age-current').value);
+        const ageRetire    = parseInt(document.getElementById('ret-age-retire').value);
+        const monthlyIncome = parseFloat(document.getElementById('ret-monthly-income').value);
+        const monthlySave  = parseFloat(document.getElementById('ret-monthly-save').value);
+        const annualRate   = parseFloat(document.getElementById('ret-rate').value);
+
+        const monthlyRate = annualRate / 12 / 100;
+        const yearsLeft   = Math.max(1, ageRetire - ageCurrent);
+        const nMonths     = yearsLeft * 12;
+
+        const capitalNeeded    = (monthlyIncome * 12) / 0.04;
+        const capitalAccum     = fv(monthlyRate, nMonths, monthlySave);
+        const gap              = Math.max(0, capitalNeeded - capitalAccum);
+        const extraMonthly     = gap > 0 ? pmt(monthlyRate, nMonths, gap) : 0;
+
+        document.getElementById('ret-val-age-current').textContent  = ageCurrent + ' ans';
+        document.getElementById('ret-val-age-retire').textContent   = ageRetire + ' ans';
+        document.getElementById('ret-val-monthly-income').textContent = fmt(monthlyIncome);
+        document.getElementById('ret-val-monthly-save').textContent = fmt(monthlySave);
+        document.getElementById('ret-val-rate').textContent         = annualRate.toFixed(1).replace('.', ',') + ' %';
+
+        document.getElementById('ret-res-capital').textContent      = fmtK(capitalNeeded);
+        document.getElementById('ret-res-years').textContent        = yearsLeft + ' ans';
+        document.getElementById('ret-res-accumulated').textContent  = fmtK(capitalAccum);
+        document.getElementById('ret-res-gap').textContent          = gap > 0 ? fmtK(gap) : '✓ Objectif atteint';
+        document.getElementById('ret-res-extra').textContent        = gap > 0 ? fmt(extraMonthly) + '/mois' : '0 € (objectif déjà atteint)';
+
+        const short = gap > 0
+          ? `En épargnant ${fmt(monthlySave)}/mois pendant ${yearsLeft} ans à ${annualRate.toFixed(1)}%/an, tu accumuleras ${fmtK(capitalAccum)} sur les ${fmtK(capitalNeeded)} nécessaires. Il te manque ${fmtK(gap)}, soit ${fmt(extraMonthly)}/mois supplémentaires.`
+          : `En épargnant ${fmt(monthlySave)}/mois pendant ${yearsLeft} ans à ${annualRate.toFixed(1)}%/an, tu dépasseras ton objectif de ${fmtK(capitalNeeded)} !`;
+        document.getElementById('ret-recap-sentence').textContent = short;
+
+        // Graphique
+        const labels = [];
+        const dataCapital = [];
+        for (let y = 1; y <= yearsLeft; y++) {
+          labels.push('An ' + y + ' (' + (ageCurrent + y) + ' ans)');
+          dataCapital.push(Math.round(fv(monthlyRate, y * 12, monthlySave)));
+        }
+        const targetLine = new Array(yearsLeft).fill(Math.round(capitalNeeded));
+
+        const canvas = document.getElementById('chart-retraite');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        if (retChart) {
+          retChart.data.labels = labels;
+          retChart.data.datasets[0].data = dataCapital;
+          retChart.data.datasets[1].data = targetLine;
+          retChart.update('active');
+          return;
+        }
+
+        retChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              {
+                label: 'Capital accumulé',
+                data: dataCapital,
+                borderColor: '#1A3D7C',
+                backgroundColor: 'rgba(26,61,124,0.08)',
+                borderWidth: 2.5,
+                pointRadius: 0,
+                fill: true,
+                tension: 0.4
+              },
+              {
+                label: 'Capital cible',
+                data: targetLine,
+                borderColor: '#93C5FD',
+                borderWidth: 2,
+                borderDash: [6, 4],
+                pointRadius: 0,
+                fill: false
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: { duration: 300, easing: 'easeOutQuart' },
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { display: true, position: 'bottom', labels: { font: { family: 'DM Sans' }, boxWidth: 12, padding: 16 } },
+              tooltip: {
+                callbacks: {
+                  label: ctx => ' ' + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(ctx.parsed.y)
+                }
+              }
+            },
+            scales: {
+              x: { grid: { display: false }, ticks: { maxTicksLimit: 8, font: { family: 'DM Sans', size: 11 }, color: '#6F6F99' } },
+              y: {
+                grid: { color: 'rgba(226,238,255,0.8)' },
+                ticks: {
+                  font: { family: 'DM Sans', size: 11 }, color: '#6F6F99',
+                  callback: v => v >= 1000000 ? (v/1000000).toFixed(1)+'M€' : v >= 1000 ? Math.round(v/1000)+'k€' : v+'€'
+                }
+              }
+            }
+          }
+        });
+      }
+
+      ['ret-age-current','ret-age-retire','ret-monthly-income','ret-monthly-save','ret-rate'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('input', calcRetraite);
+      });
+
+      calcRetraite();
+    });
+  </script>
+</body>
+</html>

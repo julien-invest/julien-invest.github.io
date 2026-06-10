@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julien Invest : L'investissement accessible à tous</title>
+  <meta name="description" content="Débute l'investissement sans faire d'erreur. Formation, accompagnement personnalisé et ressources gratuites pour investir simplement, même en partant de zéro.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Julien Invest : L'investissement accessible à tous">
+  <meta property="og:description" content="Débute l'investissement sans faire d'erreur. Formation, accompagnement et ressources gratuites.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julieninvest.github.io">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Julien Invest : L'investissement accessible à tous">
+  <meta name="twitter:description" content="Débute l'investissement sans faire d'erreur. Formation, accompagnement et ressources gratuites.">
+  <meta name="twitter:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julieninvest.github.io",
+  "logo": "https://julieninvest.github.io/images/favicon.svg",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  }
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-glow"></div>
+    <div class="hero-bg-glow-2"></div>
+    <div class="container">
+      <div class="hero-inner">
+
+        <!-- Left, Content -->
+        <div class="hero-content">
+          <div class="hero-label">
+            <span class="hero-label-dot"></span>
+            <span>Éducation financière indépendante</span>
+          </div>
+          <h1 class="hero-title">
+            Investis <em>simplement.</em><br>
+            Passe à l'action<br>
+            <em>maintenant.</em>
+          </h1>
+          <p class="hero-sub">
+            Tu n'as pas besoin d'être riche pour commencer à investir.
+            Tu as besoin d'une méthode claire, et de quelqu'un qui
+            te l'explique sans jargon inutile.
+          </p>
+          <div class="hero-actions">
+            <a href="formation.html" class="btn btn-gradient btn--lg">
+              Découvrir la formation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <a href="#lead-magnet" class="btn btn-ghost btn--lg">
+              Ebook gratuit
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-val">
+                <span data-target="50" data-suffix="K+">0</span>
+              </div>
+              <div class="hero-stat-label">Abonnés TikTok</div>
+            </div>
+
+            <div>
+              <div class="hero-stat-val">
+                <span>100%</span>
+              </div>
+              <div class="hero-stat-label">100% indépendant · sans conflit d'intérêt</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right, Photo -->
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-card">
+            <div class="hero-photo-card-inner">
+              <img src="images/julien-denis.png" alt="Julien, Fondateur de Julien Invest" loading="eager">
+            </div>
+          </div>
+          <div class="hero-badge hero-badge-tl">
+            <div class="hero-badge-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="hero-badge-val">+8%/an</div>
+            <div class="hero-badge-label">Performance historique S&P 500</div>
+          </div>
+          <div class="hero-badge hero-badge-br">
+            <div class="hero-badge-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+            <div class="hero-badge-val">0€ min.</div>
+            <div class="hero-badge-label">Pour commencer à investir</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TRUST BAR
+  ═══════════════════════════════════════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Contenu 100% indépendant</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Méthode passive · 10 min/mois</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Accessible même en partant de zéro</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>Vidéos TikTok · Instagram · YouTube</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Formation complète de A à Z</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COMMUNAUTÉ / STATS
+  ═══════════════════════════════════════════ -->
+  <section class="community section--sm">
+    <div class="container">
+      <div class="community-inner reveal">
+        <span class="t-label">En chiffres</span>
+        <div class="community-stats-grid">
+          <a href="https://www.tiktok.com/@julien_invest_" class="community-stat-card" target="_blank" rel="noopener">
+            <div class="community-stat-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+            <div class="community-stat-val">50K+</div>
+            <div class="community-stat-name">Abonnés TikTok</div>
+          </a>
+          <a href="https://www.instagram.com/julien_invest" class="community-stat-card" target="_blank" rel="noopener">
+            <div class="community-stat-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+            <div class="community-stat-val">2K</div>
+            <div class="community-stat-name">Abonnés Instagram</div>
+          </a>
+          <a href="https://www.youtube.com/@jueth7215" class="community-stat-card" target="_blank" rel="noopener">
+            <div class="community-stat-icon">▶️</div>
+            <div class="community-stat-val">2K</div>
+            <div class="community-stat-name">Abonnés YouTube</div>
+          </a>
+
+          <div class="community-stat-card">
+            <div class="community-stat-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <div class="community-stat-val">37</div>
+            <div class="community-stat-name">Élèves formés</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROBLEM SECTION
+  ═══════════════════════════════════════════ -->
+  <section class="problem section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Le vrai problème</span>
+        <h2>Ne pas investir, c'est <em class="t-display">perdre de l'argent</em> chaque année</h2>
+        <p>L'inflation érode ton épargne. Ne pas agir, c'est un choix, souvent le pire.</p>
+      </div>
+      <div class="problem-grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-card-header"><span class="problem-emoji"></span>
+          <h3>«&nbsp;Je ne comprends rien à la finance&nbsp;»</h3></div>
+          <p>Normal : l'école ne l'enseigne pas. Mais investir n'est pas réservé aux experts. Avec les bonnes bases, n'importe qui peut se lancer en quelques heures.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-card-header"><span class="problem-emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><path d="M15 9a3.5 3.5 0 0 0-6 2.5A3.5 3.5 0 0 0 15 15"/><line x1="7" y1="11" x2="13" y2="11"/><line x1="7" y1="13" x2="13" y2="13"/></svg></span>
+          <h3>«&nbsp;Je n'ai pas assez d'argent pour investir&nbsp;»</h3></div>
+          <p>Faux. On peut commencer avec 10€ par mois. L'important, c'est de commencer tôt : les intérêts composés font le reste sur la durée.</p>
+        </div>
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-card-header"><span class="problem-emoji"></span>
+          <h3>«&nbsp;J'ai peur de tout perdre en bourse&nbsp;»</h3></div>
+          <p>La vraie perte silencieuse, c'est l'inflation. Le livret A ne suffit plus. Une stratégie passive sur ETF, c'est simple, diversifié, et éprouvé depuis des décennies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section class="about section">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo">
+            <img src="images/julien-denis.png" alt="Julien, Fondateur Julien Invest">
+          </div>
+          <div class="about-accent"></div>
+        </div>
+        <div class="about-content reveal reveal-delay-2">
+          <span class="t-label">Qui suis-je ?</span>
+          <h2>Ex-prof devenu<br><em class="t-display">investisseur indépendant</em></h2>
+          <p>
+            Je m'appelle Julien. J'ai été professeur d'EPS certifié avant de tout quitter
+            pour créer du contenu sur la finance personnelle. <strong>Pas de diplôme en finance,
+            pas de costume-cravate.</strong> Juste quelqu'un qui a appris, fait des erreurs,
+            et qui t'explique maintenant ce qu'il faut vraiment savoir.
+          </p>
+          <p>
+            Mon credo&nbsp;: <strong>tout le monde peut investir.</strong> Il faut juste
+            arrêter de croire que c'est réservé à une élite. La méthode passive sur ETF
+            bat 94% des gestionnaires actifs sur 20 ans. Elle est à la portée de tous.
+          </p>
+          <div class="about-pills">
+            <span class="about-pill"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> ETF & PEA</span>
+            <span class="about-pill"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Investissement passif</span>
+            <span class="about-pill"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Pédagogie accessible</span>
+            <span class="about-pill"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> 100% indépendant</span>
+          </div>
+          <a href="formation.html" class="btn btn-primary">
+            Découvrir ma méthode
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       OFFERS
+  ═══════════════════════════════════════════ -->
+  <section class="offers section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Comment je peux t'aider</span>
+        <h2>Trois façons d'<em class="t-display">accélérer</em> ton parcours</h2>
+        <p>Que tu préfères apprendre seul ou être accompagné, il y a une option pour toi.</p>
+      </div>
+      <div class="offers-grid">
+
+        <!-- Card 1, Formation -->
+        <div class="offer-card featured reveal reveal-delay-1">
+          <div class="offer-tag">Populaire</div>
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <h3>Formation complète</h3>
+          <p>De zéro à investisseur : 8 modules pour maîtriser ETF, PEA, assurance-vie et construire ta stratégie sur mesure.</p>
+          <ul class="offer-features">
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              8 modules vidéo de A à Z
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              PEA, CTO, AV, PER expliqués
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Accès à vie + mises à jour
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Stratégie ETF pas à pas
+            </li>
+          </ul>
+          <a href="formation.html" class="btn btn-gradient">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 2, Coaching -->
+        <div class="offer-card reveal reveal-delay-2">
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Session stratégique</h3>
+          <p>Un accompagnement individuel pour analyser ta situation, définir ta stratégie et passer à l'action sans hésitation.</p>
+          <ul class="offer-features">
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Session one-to-one avec moi
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Analyse de ta situation perso
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Plan d'action concret & personnalisé
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Réponses à toutes tes questions
+            </li>
+          </ul>
+          <a href="coaching.html" class="btn btn-secondary">
+            Réserver une session
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Card 3, Parrainage -->
+        <div class="offer-card reveal reveal-delay-3">
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+          <h3>Mes recommandations</h3>
+          <p>Les meilleures plateformes d'investissement avec des bonus exclusifs, testées et approuvées par moi.</p>
+          <ul class="offer-features">
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Bonus de bienvenue offerts
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Plateformes crypto & bourse
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Codes parrainage exclusifs
+            </li>
+            <li class="offer-feature">
+              <span class="offer-feature-icon">✓</span>
+              Comparatif honnête et indépendant
+            </li>
+          </ul>
+          <a href="parrainage.html" class="btn btn-secondary">
+            Voir les offres
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS
+  ═══════════════════════════════════════════ -->
+  <section class="social-proof section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Ils ont franchi le pas</span>
+        <h2>Ce qu'ils disent après<br><em class="t-display">avoir commencé</em></h2>
+        <p>Des vraies personnes, des vrais premiers investissements.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;J'avais peur de me lancer depuis des années. Après avoir suivi Julien, j'ai ouvert mon PEA et investi mes premiers 200€ en ETF. Simple, clair, actionnable.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MC</div>
+            <div>
+              <div class="testimonial-name">Marie C.</div>
+              <div class="testimonial-info">27 ans · Infirmière</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;La formation m'a tout appris sur le PEA, les ETF, la fiscalité. En 3h de contenu j'en savais plus qu'avec des années à lire des articles sur le sujet.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AT</div>
+            <div>
+              <div class="testimonial-name">Antoine T.</div>
+              <div class="testimonial-info">31 ans · Développeur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;J'investissais déjà mais dans des trucs trop compliqués. Julien m'a convaincu de simplifier avec des ETF monde. Mes performances sont meilleures et ça me prend 10 min/mois.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <div class="testimonial-name">Sarah B.</div>
+              <div class="testimonial-info">34 ans · Marketing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DERNIERS CONTENUS
+  ═══════════════════════════════════════════ -->
+  <section class="content-section section" id="contenus">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Apprendre</span>
+        <h2>Derniers <em class="t-display">contenus</em></h2>
+        <p>Vidéos, tips et analyses pour progresser à ton rythme.</p>
+      </div>
+
+      <div class="content-filters reveal">
+        <button class="content-filter active" data-filter="all">Tout</button>
+        <button class="content-filter" data-filter="etf">ETF</button>
+        <button class="content-filter" data-filter="crypto">Crypto</button>
+        <button class="content-filter" data-filter="pea">PEA</button>
+        <button class="content-filter" data-filter="fiscalite">Fiscalité</button>
+        <button class="content-filter" data-filter="immo">Immo</button>
+      </div>
+
+      <div class="content-grid">
+
+        <div class="content-card reveal" data-category="etf">
+          <div class="content-card-thumb" style="background: linear-gradient(135deg,#BAD4FF,#93C5FD);">
+            <span style="font-size:36px;"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+          </div>
+          <div class="content-card-body">
+            <span class="content-card-tag content-card-tag--etf">ETF</span>
+            <h3 class="content-card-title">Comment investir dans un ETF Monde en 2026</h3>
+            <p class="content-card-desc">Le guide complet pour démarrer avec les ETF indiciels mondiaux : choix du courtier, PEA ou CTO, frais à surveiller.</p>
+            <div class="content-card-footer">
+              <span class="content-card-platform">▶ YouTube</span>
+              <a href="article-etf-monde-2026.html" class="content-card-link">Voir →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card reveal reveal-delay-1" data-category="crypto">
+          <div class="content-card-thumb" style="background: linear-gradient(135deg,#FDE68A,#F59E0B);">
+            <span style="font-size:36px;">₿</span>
+          </div>
+          <div class="content-card-body">
+            <span class="content-card-tag content-card-tag--crypto">Crypto</span>
+            <h3 class="content-card-title">Bitcoin en 2026 : ce que tu dois vraiment savoir</h3>
+            <p class="content-card-desc">Halving, ETF Bitcoin spot, adoption institutionnelle : tout ce qui change la donne cette année pour les investisseurs.</p>
+            <div class="content-card-footer">
+              <span class="content-card-platform"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> TikTok</span>
+              <a href="article-bitcoin-2026.html" class="content-card-link">Voir →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-card reveal reveal-delay-2" data-category="pea">
+          <div class="content-card-thumb" style="background: linear-gradient(135deg,#A0E7C5,#34D399);">
+            <span style="font-size:36px;"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="m3 9 9-6 9 6"/></svg></span>
+          </div>
+          <div class="content-card-body">
+            <span class="content-card-tag content-card-tag--pea">PEA</span>
+            <h3 class="content-card-title">PEA vs CTO : lequel choisir selon ton profil</h3>
+            <p class="content-card-desc">Avantages fiscaux, contraintes, plafonds… On compare les deux enveloppes pour que tu fasses le bon choix dès le départ.</p>
+            <div class="content-card-footer">
+              <span class="content-card-platform">▶ YouTube</span>
+              <a href="article-pea-vs-cto.html" class="content-card-link">Voir →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="blog.html" class="btn btn-secondary btn--lg">
+          Voir tous les articles →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SIMULATEUR
+  ═══════════════════════════════════════════ -->
+  <section class="simulator-section section" id="simulateur">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Simulateur gratuit</span>
+        <h2>Combien peut valoir ton épargne<br><em class="t-display">dans 20 ans ?</em></h2>
+        <p>Déplace les curseurs et vois les intérêts composés travailler pour toi en temps réel.</p>
+      </div>
+      <div class="simulator-card reveal">
+        <div class="simulator-inputs">
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-initial">Capital de départ</label>
+              <span class="sim-field-val" id="val-initial">1 000 €</span>
+            </div>
+            <input type="range" id="sl-initial" min="0" max="50000" step="500" value="1000" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>50 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-monthly">Apport mensuel</label>
+              <span class="sim-field-val" id="val-monthly">200 €</span>
+            </div>
+            <input type="range" id="sl-monthly" min="0" max="2000" step="50" value="200" class="sim-slider">
+            <div class="sim-field-range"><span>0 €</span><span>2 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-rate">Rendement annuel estimé</label>
+              <span class="sim-field-val" id="val-rate">7,0 %</span>
+            </div>
+            <input type="range" id="sl-rate" min="1" max="15" step="0.5" value="7" class="sim-slider">
+            <div class="sim-field-range"><span>1 %</span><span>15 %</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-years">Durée d'investissement</label>
+              <span class="sim-field-val" id="val-years">20 ans</span>
+            </div>
+            <input type="range" id="sl-years" min="1" max="40" step="1" value="20" class="sim-slider">
+            <div class="sim-field-range"><span>1 an</span><span>40 ans</span></div>
+          </div>
+        </div>
+        <div class="simulator-results">
+          <div class="sim-result-main">
+            <div class="sim-result-label">Capital final estimé</div>
+            <div class="sim-result-val" id="res-total">, </div>
+          </div>
+          <div class="sim-progress">
+            <div class="sim-progress-bar">
+              <div class="sim-progress-gains" id="bar-gains"></div>
+              <div class="sim-progress-invested" id="bar-invested"></div>
+            </div>
+            <div class="sim-progress-legend">
+              <span class="sim-legend-dot sim-legend-dot--gains"></span><span class="sim-legend-label">Intérêts générés</span>
+              <span class="sim-legend-dot sim-legend-dot--invested"></span><span class="sim-legend-label">Somme investie</span>
+            </div>
+          </div>
+          <div class="sim-result-breakdown">
+            <div class="sim-result-item">
+              <span class="sim-result-item-label">Somme investie</span>
+              <span class="sim-result-item-val" id="res-invested">, </span>
+            </div>
+            <div class="sim-result-item sim-result-item--gain">
+              <span class="sim-result-item-label">Intérêts générés</span>
+              <span class="sim-result-item-val" id="res-gains">, </span>
+            </div>
+            <div class="sim-result-item">
+              <span class="sim-result-item-label">Multiplicateur</span>
+              <span class="sim-result-item-val" id="res-mult">, </span>
+            </div>
+          </div>
+          <p class="sim-disclaimer">Simulation indicative. Rendement historique moyen MSCI World : ~7%/an. Les performances passées ne garantissent pas les performances futures.</p>
+          <a href="formation.html" class="btn btn-gradient" style="width:100%; justify-content:center; margin-top:16px;">
+            Apprendre à investir · Formation complète →
+          </a>
+        </div>
+      </div>
+      <div class="chart-wrapper reveal" style="margin-top: 40px;">
+        <div class="chart-header">
+          <span class="chart-title">Évolution année par année</span>
+          <span class="chart-subtitle">Versements + Intérêts cumulés</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="chart-main"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LEAD MAGNET
+  ═══════════════════════════════════════════ -->
+  <section class="lead-magnet section" id="lead-magnet">
+    <div class="lead-magnet-bg"></div>
+    <div class="container">
+      <div class="lead-magnet-inner">
+        <div class="lead-magnet-content reveal">
+          <span class="t-label" style="color:rgba(200,180,232,0.7);">Cadeau gratuit</span>
+          <h2 style="color:white; font-family: var(--font-display); font-size:clamp(36px,3.5vw,52px); margin: 16px 0 20px;">
+            Les 5 erreurs qui coûtent<br><em>des milliers d'euros</em><br>aux débutants
+          </h2>
+          <p>Télécharge l'ebook gratuit et évite les pièges que 90% des nouveaux investisseurs commettent dans leur première année.</p>
+          <ul class="lead-magnet-list">
+            <li class="lead-magnet-item">
+              <span class="lead-magnet-item-icon">✓</span>
+              Pourquoi ton livret A te fait perdre de l'argent
+            </li>
+            <li class="lead-magnet-item">
+              <span class="lead-magnet-item-icon">✓</span>
+              L'erreur qui coûte le plus cher : attendre
+            </li>
+            <li class="lead-magnet-item">
+              <span class="lead-magnet-item-icon">✓</span>
+              Comment choisir la bonne enveloppe fiscale
+            </li>
+            <li class="lead-magnet-item">
+              <span class="lead-magnet-item-icon">✓</span>
+              Les frais cachés qui tuent tes rendements
+            </li>
+            <li class="lead-magnet-item">
+              <span class="lead-magnet-item-icon">✓</span>
+              Pourquoi diversifier n'est pas ce que tu crois
+            </li>
+          </ul>
+        </div>
+        <div class="lead-form-wrap reveal reveal-delay-2">
+          <form class="lead-form" id="lead-form">
+            <h3>Reçois l'ebook gratuitement</h3>
+            <p>Rejoins plus de 2&nbsp;000 personnes qui investissent déjà mieux.</p>
+            <div class="form-group">
+              <input type="text" name="firstname" placeholder="Ton prénom" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Ton adresse email" required autocomplete="email">
+            </div>
+            <button type="submit" class="form-submit">
+              <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> Recevoir l'ebook gratuit
+            </button>
+            <p class="form-legal">
+              En t'inscrivant, tu acceptes de recevoir des emails éducatifs de Julien Invest.
+              Pas de spam. Désinscription en 1 clic à tout moment.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">
+            Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest
+          </div>
+          <p class="footer-brand-desc">
+            L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener" title="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="formation.html#guides">Guide ETF</a>
+          <a href="formation.html#guides">Guide PEA</a>
+          <a href="formation.html#guides">Guide Assurance-vie</a>
+          <a href="#lead-magnet">Ebook gratuit</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          <strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle. Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF. Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques, y compris la perte en capital. Les performances passées ne préjugent pas des performances futures. Je partage mon expérience personnelle et mes apprentissages. Consultez un professionnel agréé pour toute décision financière.
+        </p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/simulator.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation Investissement : De zéro à investisseur | Julien Invest</title>
+  <meta name="description" content="La formation complète pour apprendre à investir de A à Z : ETF, PEA, assurance-vie, stratégie passive. 8 modules vidéo, accès à vie.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Formation Investissement : De zéro à investisseur | Julien Invest">
+  <meta property="og:description" content="La formation complète pour apprendre à investir de A à Z : ETF, PEA, assurance-vie. 8 modules vidéo, accès à vie.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julieninvest.github.io/formation.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formation Investissement : De zéro à investisseur | Julien Invest">
+  <meta name="twitter:description" content="La formation complète pour apprendre à investir de A à Z. 8 modules vidéo, accès à vie.">
+  <meta name="twitter:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "De 0 à Investisseur",
+  "description": "Formation complète pour apprendre à investir de A à Z : ETF, PEA, assurance-vie, stratégie passive. 8 modules vidéo.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julieninvest.github.io"
+  }
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── MA BIBLIOTHÈQUE ─────────────────────────── */
+    .library-section {
+      background: #F8F8FC;
+      padding: 80px 0;
+    }
+    .library-intro {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: 16px;
+      color: #4A4A6A;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 1280px) { .books-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 1024px) { .books-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px)  { .books-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 400px)  { .books-grid { grid-template-columns: 1fr; } }
+
+    .book-card {
+      background: white;
+      border: 1.5px solid var(--grey-5);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--lavender);
+      box-shadow: 0 12px 40px rgba(26,61,124,0.10);
+    }
+
+    /* Cover */
+    .book-cover-wrap {
+      position: relative;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      background: #1A1A4E;
+    }
+    .book-cover-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    a.book-cover-wrap:hover img { transform: scale(1.04); }
+    .book-cover-fallback {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      text-align: center;
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.4;
+    }
+    .book-tag {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      backdrop-filter: blur(6px);
+    }
+    .book-tag--lavender { background: rgba(200,180,232,0.92); color: #3B1F6E; }
+    .book-tag--mint     { background: rgba(160,231,197,0.92); color: #0D5C3A; }
+    .book-tag--sky      { background: rgba(168,200,232,0.92); color: #0D3A5C; }
+    .book-tag--gold     { background: rgba(240,192,64,0.92);  color: #7A4A00; }
+
+    /* Body */
+    .book-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .book-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+    .book-author {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey-3);
+    }
+    .book-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--grey-2);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .book-cta {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 11px 16px;
+      border-radius: 100px;
+      background: var(--navy);
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .book-cta:hover { background: #2A5090; transform: translateY(-1px); }
+
+    .library-disclaimer {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 12px;
+      color: var(--grey-3);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="#tarif" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="https://julieninvest.systeme.io/paiement-formation" class="btn btn-gradient" style="margin-top:24px;" target="_blank" rel="noopener">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Formation complète</span>
+        <div class="inline-proof" style="justify-content:center; margin-top:16px;">
+          <span class="inline-proof-stars">★★★★★</span>
+          <span class="inline-proof-text"><strong>27 élèves formés</strong></span>
+        </div>
+        <h1>De zéro à investisseur<br><em>en moins de 3 heures</em></h1>
+        <p>
+          8 modules vidéo clairs, sans jargon et actionnables immédiatement.
+          Tout ce qu'il faut savoir sur les ETF, le PEA, l'assurance-vie et la stratégie passive.
+        </p>
+        <div class="page-hero-price">
+          <span class="page-hero-price-label">Paiement unique · accès à vie · mises à jour incluses</span>
+        </div>
+        <div class="page-hero-actions">
+          <a href="#tarif" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <a href="#modules" class="btn btn-ghost btn--lg">
+            Voir le programme
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TRUST BAR ═══════════════════════ -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Garantie 30 jours satisfait ou remboursé</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          <span>Accès immédiat dès l'achat</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Mises à jour incluses à vie</span>
+        </div>
+        <div class="trust-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span>Pédagogie accessible à tous</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ POUR QUI ═══════════════════════ -->
+  <section class="for-who section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Cette formation est faite pour toi si…</span>
+        <h2>Tu te reconnais dans<br><em class="t-display">l'un de ces profils</em></h2>
+      </div>
+      <div class="for-who-grid">
+        <div class="for-who-card reveal reveal-delay-1">
+          <div class="for-who-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 22V8"/><path d="M12 8C12 4 9 2 4 2c0 5 3 8 8 8"/><path d="M12 10c0-4 3-6 8-6 0 5-3 8-8 8"/></svg></div>
+          <h3>Tu pars de zéro</h3>
+          <p>Tu n'as jamais investi, tu ne sais pas par où commencer et tu as peur de faire une erreur coûteuse.</p>
+        </div>
+        <div class="for-who-card reveal reveal-delay-2">
+          <div class="for-who-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><path d="M15 9a3.5 3.5 0 0 0-6 2.5A3.5 3.5 0 0 0 15 15"/><line x1="7" y1="11" x2="13" y2="11"/><line x1="7" y1="13" x2="13" y2="13"/></svg></div>
+          <h3>Tu as de l'épargne qui dort</h3>
+          <p>Ton argent est sur un livret A ou un compte courant et tu sais que l'inflation l'érode chaque année.</p>
+        </div>
+        <div class="for-who-card reveal reveal-delay-3">
+          <div class="for-who-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+          <h3>Tu suis des créateurs finance</h3>
+          <p>Tu consommes du contenu finance mais tu n'arrives pas à passer à l'action : il te manque une méthode claire.</p>
+        </div>
+        <div class="for-who-card reveal reveal-delay-1">
+          <div class="for-who-icon">⏱️</div>
+          <h3>Tu n'as pas de temps à perdre</h3>
+          <p>Tu veux une stratégie simple qui ne te prend pas des heures chaque mois. La méthode passive est faite pour toi.</p>
+        </div>
+        <div class="for-who-card reveal reveal-delay-2">
+          <div class="for-who-icon"></div>
+          <h3>Tu investis déjà mais mal</h3>
+          <p>Tu as un PEA ou une AV mais tu n'es pas sûr de ce que tu fais. Tu veux une base solide et une vraie stratégie.</p>
+        </div>
+        <div class="for-who-card reveal reveal-delay-3">
+          <div class="for-who-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <h3>Tu as un objectif clair</h3>
+          <p>Retraite, indépendance financière, achat immobilier… tu as besoin d'un plan concret pour y arriver.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ MODULES ═══════════════════════ -->
+  <section class="modules-section section" id="modules">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Le programme</span>
+        <h2>8 modules pour tout<br><em class="t-display">maîtriser de A à Z</em></h2>
+        <p>Chaque module est autonome. Tu peux les suivre dans l'ordre ou aller directement à ce dont tu as besoin.</p>
+      </div>
+      <div class="modules-grid">
+        <div class="module-card reveal reveal-delay-1">
+          <div class="module-num">01</div>
+          <div class="module-content">
+            <h3>Pourquoi et comment investir</h3>
+            <p>L'inflation, les intérêts composés, et pourquoi ne pas agir est la pire décision financière que tu puisses prendre.</p>
+            <span class="module-duration">⏱ ~25 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-2">
+          <div class="module-num">02</div>
+          <div class="module-content">
+            <h3>Comprendre les ETF</h3>
+            <p>Ce qu'est un ETF, pourquoi il bat 94% des gestionnaires actifs sur 20 ans, et comment choisir le bon.</p>
+            <span class="module-duration">⏱ ~30 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-1">
+          <div class="module-num">03</div>
+          <div class="module-content">
+            <h3>Le PEA : l'enveloppe reine</h3>
+            <p>Tout sur le Plan d'Épargne en Actions : ouverture, plafonds, fiscalité avantageuse, et quels ETF y mettre.</p>
+            <span class="module-duration">⏱ ~35 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-2">
+          <div class="module-num">04</div>
+          <div class="module-content">
+            <h3>L'Assurance-Vie</h3>
+            <p>Pourquoi l'AV est incontournable, comment bien la choisir, les fonds euros vs unités de compte.</p>
+            <span class="module-duration">⏱ ~30 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-1">
+          <div class="module-num">05</div>
+          <div class="module-content">
+            <h3>CTO & PER : quand les utiliser</h3>
+            <p>Le Compte-Titres Ordinaire et le Plan d'Épargne Retraite : pour qui, quand, et comment les intégrer.</p>
+            <span class="module-duration">⏱ ~20 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-2">
+          <div class="module-num">06</div>
+          <div class="module-content">
+            <h3>Construire ta stratégie</h3>
+            <p>Comment définir ton profil de risque, choisir tes ETF, et construire un portefeuille cohérent avec tes objectifs.</p>
+            <span class="module-duration">⏱ ~40 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-1">
+          <div class="module-num">07</div>
+          <div class="module-content">
+            <h3>Passer à l'action</h3>
+            <p>Étape par étape : ouvrir ton compte, faire ton premier virement, passer ton premier ordre d'achat.</p>
+            <span class="module-duration">⏱ ~25 min</span>
+          </div>
+        </div>
+        <div class="module-card reveal reveal-delay-2">
+          <div class="module-num">08</div>
+          <div class="module-content">
+            <h3>Gérer son portefeuille (10 min/mois)</h3>
+            <p>Comment suivre et rééquilibrer ton portefeuille sans y passer ta vie. La méthode passive au quotidien.</p>
+            <span class="module-duration">⏱ ~20 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ GUIDES ═══════════════════════ -->
+  <section class="section" style="background:var(--pearl);" id="guides">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Bonus inclus</span>
+        <h2>En plus des vidéos,<br><em class="t-display">tu reçois aussi</em></h2>
+      </div>
+      <div class="offers-grid">
+        <div class="offer-card reveal reveal-delay-1">
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg></div>
+          <h3>Guide ETF complet</h3>
+          <p>Le guide PDF de référence : les meilleurs ETF monde, Europe, et sectoriels triés et commentés par moi.</p>
+          <ul class="offer-features">
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Top ETF par catégorie</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Frais et performances comparés</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Mis à jour régulièrement</li>
+          </ul>
+        </div>
+        <div class="offer-card reveal reveal-delay-2">
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+          <h3>Tableur portefeuille</h3>
+          <p>Le tableau Excel/Sheets de suivi de portefeuille que j'utilise personnellement, prêt à l'emploi.</p>
+          <ul class="offer-features">
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Calcul de performance automatique</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Répartition par classe d'actif</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>100% personnalisable</li>
+          </ul>
+        </div>
+        <div class="offer-card featured reveal reveal-delay-3">
+          <div class="offer-tag">Exclusif</div>
+          <div class="offer-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+          <h3>Accès à la communauté</h3>
+          <p>Rejoins le groupe privé des élèves pour poser tes questions, partager tes avancées et progresser ensemble.</p>
+          <ul class="offer-features">
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Groupe Discord privé</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Je réponds régulièrement</li>
+            <li class="offer-feature"><span class="offer-feature-icon">✓</span>Partage d'expériences réelles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TÉMOIGNAGES ═══════════════════════ -->
+  <section class="social-proof section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Ils l'ont fait</span>
+        <h2>Ce que disent les<br><em class="t-display">élèves de la formation</em></h2>
+        <p>Des vrais retours, de vraies personnes qui ont passé à l'action.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;J'avais peur de me lancer depuis des années. Après avoir suivi la formation, j'ai ouvert mon PEA et investi mes premiers 200€ en ETF. Simple, clair, actionnable.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MC</div>
+            <div>
+              <div class="testimonial-name">Marie C.</div>
+              <div class="testimonial-info">27 ans · Infirmière</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;En 3h de contenu j'en savais plus qu'avec des années à lire des articles. Julien explique clairement la fiscalité, les enveloppes, les ETF. Rien de superflu.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AT</div>
+            <div>
+              <div class="testimonial-name">Antoine T.</div>
+              <div class="testimonial-info">31 ans · Développeur</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">«&nbsp;J'investissais déjà mais dans des trucs compliqués. Julien m'a convaincu de simplifier. Mes performances sont meilleures et ça me prend 10 min/mois.&nbsp;»</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SB</div>
+            <div>
+              <div class="testimonial-name">Sarah B.</div>
+              <div class="testimonial-info">34 ans · Marketing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ TARIF ═══════════════════════ -->
+  <section class="pricing-section section" id="tarif">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Tarif</span>
+        <h2>Un investissement qui<br><em class="t-display">se rembourse lui-même</em></h2>
+        <p>Une seule formation. Un seul paiement. Des compétences pour toute la vie.</p>
+      </div>
+      <div class="pricing-inner reveal reveal-delay-1">
+        <div class="pricing-card featured">
+          <div class="pricing-tag">Accès complet</div>
+          <div class="pricing-name">Formation Julien Invest</div>
+          <div class="pricing-desc">Tout ce qu'il faut pour passer de zéro à investisseur autonome et confiant.</div>
+          <div class="pricing-price">
+            <span class="pricing-amount" style="font-size:28px; letter-spacing:-0.01em;">Accès à vie</span>
+            <span class="pricing-period">· paiement unique</span>
+          </div>
+          <div class="pricing-features">
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>8 modules vidéo (≈ 3h de contenu)
+            </div>
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>Guide PDF ETF & comparatifs
+            </div>
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>Tableur de suivi de portefeuille
+            </div>
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>Accès à la communauté Discord
+            </div>
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>Mises à jour incluses à vie
+            </div>
+            <div class="pricing-feature">
+              <span class="pricing-feature-icon">✓</span>Accès immédiat dès l'achat
+            </div>
+          </div>
+          <a href="https://julieninvest.systeme.io/paiement-formation" class="btn btn-gradient btn--lg" style="width:100%; justify-content:center;" target="_blank" rel="noopener">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <div class="pricing-guarantee">
+            <span class="pricing-guarantee-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+            <span>Garantie <strong>30 jours satisfait ou remboursé</strong>, sans question posée.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FAQ ═══════════════════════ -->
+  <section class="faq-section section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Questions fréquentes</span>
+        <h2>Tout ce que tu veux<br><em class="t-display">savoir avant d'acheter</em></h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-question">Faut-il des connaissances en finance pour suivre cette formation ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Non, zéro prérequis. La formation commence depuis les bases absolues. Si tu sais ce qu'est un livret A, tu peux suivre sans problème. Le contenu est fait pour être compréhensible par n'importe qui, sans jargon inutile.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Combien de temps faut-il pour suivre toute la formation ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Environ 3 heures au total, réparties sur 8 modules. Tu peux avancer à ton propre rythme, il n'y a pas de date limite. Certains élèves finissent en un weekend, d'autres en regardent un module par semaine.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Comment accède-t-on à la formation après l'achat ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Dès que ton paiement est validé, tu reçois un email avec tes accès. Les vidéos sont hébergées sur une plateforme dédiée, accessible depuis n'importe quel appareil (ordinateur, téléphone, tablette) à vie.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">La formation est-elle mise à jour ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Oui. La fiscalité et les réglementations évoluent, et la formation est mise à jour régulièrement. Toutes les mises à jour sont incluses dans ton accès initial : tu ne paieras jamais plus.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Quelle est la politique de remboursement ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Tu bénéficies d'une garantie satisfait ou remboursé de 30 jours. Si la formation ne te convient pas pour quelque raison que ce soit, envoie un email à contact.julieninvest@gmail.com et tu seras remboursé intégralement, sans question posée.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">La formation remplace-t-elle un conseil financier professionnel ?<span class="faq-icon">+</span></button>
+          <div class="faq-answer"><p>Non. La formation est éducative. Elle t'enseigne des principes généraux d'investissement passif. Pour une situation personnelle complexe (succession, fiscalité spécifique, etc.), consulte un conseiller en gestion de patrimoine agréé.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CTA FINAL ═══════════════════════ -->
+  <section class="lead-magnet section" style="background: var(--gradient-dark);">
+    <div class="lead-magnet-bg"></div>
+    <div class="container" style="position:relative; text-align:center;">
+      <div class="reveal" style="max-width:640px; margin:0 auto;">
+        <span class="t-label" style="color:rgba(200,180,232,0.7);">Prêt à te lancer ?</span>
+        <h2 style="font-family:var(--font-display); font-size:clamp(36px,4vw,56px); color:white; margin:20px 0 20px; line-height:1.05;">
+          Dans 3 heures, tu seras<br><em>investisseur autonome.</em>
+        </h2>
+        <p style="color:rgba(255,255,255,0.55); font-size:17px; margin-bottom:36px; line-height:1.7;">
+          Arrête de remettre à demain. Chaque mois que tu attends, l'inflation mange ton épargne.
+        </p>
+        <a href="https://julieninvest.systeme.io/paiement-formation" class="btn btn-gradient btn--lg" target="_blank" rel="noopener">
+          Accéder à la formation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <p style="color:rgba(255,255,255,0.3); font-size:13px; margin-top:16px;"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Garantie 30 jours satisfait ou remboursé</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ MA BIBLIOTHÈQUE ═══════════════════════ -->
+  <section class="library-section" id="bibliotheque">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Ma bibliothèque</span>
+        <h2>Les livres qui m'ont <em class="t-display">vraiment appris</em> quelque chose</h2>
+        <p>Je ne recommande que des livres que j'ai lus. Ces liens sont affiliés Amazon : tu paies le même prix, je touche une petite commission.</p>
+      </div>
+
+      <p class="library-intro reveal">
+        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Ces 9 livres représentent pour moi les meilleures heures investies dans ma formation financière. Si tu n'en lis qu'un, commence par <strong>La Psychologie de l'Argent</strong>.
+      </p>
+
+      <div class="books-grid">
+
+        <!-- La Psychologie de l'Argent -->
+        <div class="book-card reveal reveal-delay-1">
+          <a class="book-cover-wrap" href="https://amzn.to/4pNTaNJ" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-psychologie.jpg"
+                 alt="La Psychologie de l'Argent"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">La Psychologie de l'Argent</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">La Psychologie de l'Argent</div>
+            <div class="book-author">Morgan Housel</div>
+            <p class="book-desc">Le livre qui a changé ma façon de voir l'investissement. Pas de chiffres, pas de formules, juste la psychologie humaine face à l'argent. Indispensable avant tout investissement.</p>
+            <a href="https://amzn.to/4pNTaNJ" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Investir pour être libre -->
+        <div class="book-card reveal reveal-delay-2">
+          <a class="book-cover-wrap" href="https://amzn.to/4vdfbba" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-investir-libre.jpg"
+                 alt="Investir pour être libre"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Investir pour être libre</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Investir pour être libre</div>
+            <div class="book-author">Mounir Laggoune</div>
+            <p class="book-desc">La référence française sur l'investissement en ETF et la liberté financière. Mounir est l'un des créateurs finance les plus sérieux de France, et ce livre est à la hauteur.</p>
+            <a href="https://amzn.to/4vdfbba" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Investissez votre épargne -->
+        <div class="book-card reveal reveal-delay-3">
+          <a class="book-cover-wrap" href="https://amzn.to/4sgEt7M" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-investissez-epargne.jpg"
+                 alt="Investissez votre épargne"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Investissez votre épargne</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Investissez votre épargne</div>
+            <div class="book-author">Édouard Petit</div>
+            <p class="book-desc">Le guide pratique par excellence pour l'investisseur passif francophone. PEA, ETF, stratégie long terme : tout y est, expliqué simplement. Un de mes livres de chevet.</p>
+            <a href="https://amzn.to/4sgEt7M" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Prenez votre argent en main -->
+        <div class="book-card reveal reveal-delay-1">
+          <a class="book-cover-wrap" href="https://amzn.to/3Y8YdME" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-prenez-argent.jpg"
+                 alt="Prenez votre argent en main"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Prenez votre argent en main</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Prenez votre argent en main</div>
+            <div class="book-author">Matthias Baccino</div>
+            <p class="book-desc">Le point de départ idéal pour quelqu'un qui part de zéro. Budget, épargne, premiers investissements : une progression claire et accessible pour reprendre le contrôle.</p>
+            <a href="https://amzn.to/3Y8YdME" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- L'investisseur intelligent -->
+        <div class="book-card reveal reveal-delay-2">
+          <a class="book-cover-wrap" href="https://amzn.to/4nOYEaO" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-investisseur-intelligent.jpg"
+                 alt="L'investisseur intelligent"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">L'investisseur intelligent</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">L'investisseur intelligent</div>
+            <div class="book-author">Benjamin Graham</div>
+            <p class="book-desc">Le livre fondateur de l'investissement en valeur, lu par Warren Buffett. Moins accessible que les autres mais incontournable pour comprendre les bases de l'analyse boursière.</p>
+            <a href="https://amzn.to/4nOYEaO" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Père Riche Père Pauvre -->
+        <div class="book-card reveal reveal-delay-3">
+          <a class="book-cover-wrap" href="https://amzn.to/3RAYVCg" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-pere-riche.jpg"
+                 alt="Père Riche Père Pauvre"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Père Riche Père Pauvre</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Père Riche Père Pauvre</div>
+            <div class="book-author">Robert Kiyosaki</div>
+            <p class="book-desc">Le classique qui change la façon de penser l'argent. Actifs vs passifs, revenus passifs, liberté financière : un livre qui ouvre les yeux sur le système et donne envie d'agir.</p>
+            <a href="https://amzn.to/3RAYVCg" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Tout le monde peut réussir en Bourse -->
+        <div class="book-card reveal reveal-delay-1">
+          <a class="book-cover-wrap" href="https://amzn.to/4wTstLB" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-tout-le-monde-bourse.jpg"
+                 alt="Tout le monde peut réussir en Bourse"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Tout le monde peut réussir en Bourse</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Tout le monde peut réussir en Bourse</div>
+            <div class="book-author">Matthieu Louvet</div>
+            <p class="book-desc">21 principes simples pour s'enrichir via les ETF en 10 minutes par mois. Matthieu Louvet (S'investir) livre ici sa méthode complète, validée par des centaines de milliers de personnes.</p>
+            <a href="https://amzn.to/4wTstLB" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- La Stratégie Bitcoin -->
+        <div class="book-card reveal reveal-delay-2">
+          <a class="book-cover-wrap" href="https://amzn.to/3S2VKDs" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-strategie-bitcoin.jpg"
+                 alt="La Stratégie Bitcoin"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">La Stratégie Bitcoin</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">La Stratégie Bitcoin</div>
+            <div class="book-author">Éric Larchevêque</div>
+            <p class="book-desc">Le meilleur livre francophone sur Bitcoin par le cofondateur de Ledger. Comprendre pourquoi Bitcoin existe, comment l'acquérir et construire une vraie stratégie long terme.</p>
+            <a href="https://amzn.to/3S2VKDs" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+        <!-- Bitcoin et autres cryptomonnaies -->
+        <div class="book-card reveal reveal-delay-3">
+          <a class="book-cover-wrap" href="https://amzn.to/3RuXDZz" target="_blank" rel="noopener noreferrer sponsored">
+            <img src="images/book-bitcoin-cryptoast.jpg"
+                 alt="Bitcoin et autres cryptomonnaies"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="book-cover-fallback">Bitcoin et autres cryptomonnaies</div>
+          </a>
+          <div class="book-body">
+            <div class="book-title">Bitcoin et autres cryptomonnaies</div>
+            <div class="book-author">Cryptoast</div>
+            <p class="book-desc">Le guide de référence de l'équipe Cryptoast pour comprendre l'écosystème crypto dans son ensemble : Bitcoin, altcoins, DeFi, NFT et sécurisation de ses actifs.</p>
+            <a href="https://amzn.to/3RuXDZz" class="book-cta" target="_blank" rel="noopener noreferrer sponsored">Voir sur Amazon →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="library-disclaimer"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Liens Amazon Partenaires : en achetant via ces liens tu soutiens Julien Invest sans surcoût pour toi.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ GUIDES ═══════════════════════ -->
+  <section class="guides-section section" id="guides">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Guides pratiques</span>
+        <h2>Tout ce qu'il faut savoir<br><em class="t-display">pour démarrer</em></h2>
+        <p style="color:var(--grey-2); max-width:520px; margin:0 auto; font-size:16px;">7 guides gratuits, concis et actionnables. Lis-les avant d'investir le premier euro.</p>
+      </div>
+
+      <div class="guides-grid reveal reveal-delay-1">
+
+        <!-- Guide 1 : ETF -->
+        <div class="guide-card" id="guide-etf">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-etf-body">
+            <div class="guide-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #1 · ~5 min</div>
+              <div class="guide-card-title">Comprendre les ETF en 5 minutes</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-etf-body">
+            <ul>
+              <li>Un ETF = un panier de centaines d'actions en un seul achat. Tu achètes le monde entier pour 20€.</li>
+              <li>Frais ultra-bas (0,07%/an pour un ETF monde vs 1,5%/an pour un fonds actif).</li>
+              <li>94% des gérants actifs sous-performent leur indice sur 20 ans. L'ETF bat presque tout le monde.</li>
+              <li>Les ETF à connaître : iShares Core MSCI World (IE00B4L5Y983), Amundi PEA S&P 500 (FR0013412285).</li>
+              <li>Où acheter : PEA (avantage fiscal français), CTO, assurance-vie.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-etf.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 2 : PEA -->
+        <div class="guide-card" id="guide-pea">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-pea-body">
+            <div class="guide-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="m3 9 9-6 9 6"/></svg></div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #2 · ~6 min</div>
+              <div class="guide-card-title">Ouvrir son PEA : mode d'emploi</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-pea-body">
+            <ul>
+              <li>PEA = enveloppe fiscale française. Après 5 ans : 0% d'impôt sur les plus-values (hors 17,2% prélèvements sociaux).</li>
+              <li>Plafond versements : 150 000€. 1 PEA par personne majeure.</li>
+              <li>Ouvrir tôt = faire courir le délai de 5 ans. Même avec 1€ dessus.</li>
+              <li>Où ouvrir : Fortuneo (frais parmi les plus bas), Trade Republic (gratuit sur ETF), BoursoBank.</li>
+              <li>Ce qu'on met dedans : actions européennes + ETF éligibles PEA.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-pea.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 3 : DCA -->
+        <div class="guide-card" id="guide-dca">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-dca-body">
+            <div class="guide-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #3 · ~5 min</div>
+              <div class="guide-card-title">La méthode DCA expliquée</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-dca-body">
+            <ul>
+              <li>DCA = Dollar Cost Averaging = investir la même somme chaque mois, quoi qu'il arrive.</li>
+              <li>Avantage principal : tu n'as pas à timer le marché. Tu achètes parfois haut, parfois bas, en moyenne tu gagnes.</li>
+              <li>Exemple : 200€/mois sur MSCI World pendant 20 ans à 7%/an = ~104 000€ pour 48 000€ investis.</li>
+              <li>Comment l'automatiser : virement automatique le 1er du mois, ordre programmé sur l'ETF.</li>
+              <li>La règle d'or : ne jamais arrêter en période de baisse. C'est là que tu achètes le moins cher.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-dca.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 4 : Assurance-vie -->
+        <div class="guide-card" id="guide-av">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-av-body">
+            <div class="guide-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #4 · ~6 min</div>
+              <div class="guide-card-title">L'assurance-vie, pour quoi faire ?</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-av-body">
+            <ul>
+              <li>L'AV n'est pas une assurance : c'est une enveloppe fiscale pour faire fructifier ton épargne.</li>
+              <li>Avantage fiscal après 8 ans : abattement annuel de 4 600€ (célibataire) ou 9 200€ (couple) sur les gains.</li>
+              <li>Avantage successoral : hors succession jusqu'à 152 500€ par bénéficiaire.</li>
+              <li>Fonds euros (capital garanti, ~2-3%/an) + unités de compte (ETF, SCPI, avec plus de rendement et plus de risque).</li>
+              <li>Complémentaire au PEA : PEA pour la croissance, AV pour la sécurité et la transmission.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-assurance-vie.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 5 : Crypto -->
+        <div class="guide-card" id="guide-crypto">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-crypto-body">
+            <div class="guide-card-icon">₿</div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #5 · ~7 min</div>
+              <div class="guide-card-title">Investir en crypto : par où commencer</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-crypto-body">
+            <ul>
+              <li>La crypto = classe d'actifs à haute volatilité. Règle n°1 : n'investis que ce que tu acceptes de perdre totalement.</li>
+              <li>Bitcoin et Ethereum = les deux seuls actifs crypto avec un historique suffisant pour évaluer le risque.</li>
+              <li>La stratégie DCA s'applique aussi en crypto : 20-50€/mois sur Bitcoin, peu importe le prix.</li>
+              <li>Les altcoins = spéculation pure. Pas de place dans un portefeuille débutant.</li>
+              <li>Sécurité : hardware wallet (Ledger, Trezor) dès 500€ de crypto.</li>
+              <li>Proportion recommandée dans un portefeuille : 5-10% maximum si tu débutes.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-crypto-debutant.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 6 : Inflation -->
+        <div class="guide-card" id="guide-inflation">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-inflation-body">
+            <div class="guide-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #6 · ~5 min</div>
+              <div class="guide-card-title">Comprendre l'inflation</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-inflation-body">
+            <ul>
+              <li>L'inflation = hausse générale des prix = ton argent perd du pouvoir d'achat chaque année.</li>
+              <li>Exemple concret : 10 000€ sur un livret à 3% avec inflation à 4% = tu perds 100€ de pouvoir d'achat/an.</li>
+              <li>Sur 20 ans à 3% d'inflation, 10 000€ aujourd'hui n'achètent plus que l'équivalent de ~5 500€.</li>
+              <li>Ne pas investir = décision par défaut de s'appauvrir lentement.</li>
+              <li>La bourse sur le long terme : seul actif accessible qui bat l'inflation de manière historiquement prouvée.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-inflation.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guide 7 : Erreurs débutants -->
+        <div class="guide-card" id="guide-erreurs">
+          <button class="guide-card-header" aria-expanded="false" aria-controls="guide-erreurs-body">
+            <div class="guide-card-icon">✗</div>
+            <div class="guide-card-title-wrap">
+              <div class="guide-card-label">Guide #7 · ~6 min</div>
+              <div class="guide-card-title">Les 5 erreurs que font tous les débutants</div>
+            </div>
+            <svg class="guide-card-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="guide-card-body" id="guide-erreurs-body">
+            <ul>
+              <li><strong>Erreur 1 :</strong> Attendre "le bon moment". Il n'existe pas. Time in the market > timing the market.</li>
+              <li><strong>Erreur 2 :</strong> Tout mettre dans 1 seule action. La diversification n'est pas optionnelle.</li>
+              <li><strong>Erreur 3 :</strong> Vendre en période de baisse. La panique est la pire conseillère financière.</li>
+              <li><strong>Erreur 4 :</strong> Négliger les frais. 1% de frais en plus = des dizaines de milliers d'euros perdus sur 30 ans.</li>
+              <li><strong>Erreur 5 :</strong> Investir de l'argent dont on a besoin à court terme. L'investissement boursier = minimum 5 ans.</li>
+            </ul>
+            <div class="guide-cta-block">
+              <p>Tu veux aller encore plus loin sur ce sujet ?</p>
+              <div class="guide-cta-actions">
+                <a href="guides/guide-erreurs-debutants.html" class="btn-guide-full">
+                  Voir le guide complet
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+                </a>
+                <a href="formation.html#tarif" class="btn btn-gradient btn--sm">Aller plus loin dans la formation →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Formation</h4>
+          <a href="#modules">Le programme</a>
+          <a href="#tarif">Tarif</a>
+          <a href="#guides">Bonus inclus</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle. Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF. Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

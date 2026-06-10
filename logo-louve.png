@@ -1,0 +1,378 @@
+<!DOCTYPE html><!-- Last Published: Wed May 27 2026 08:31:03 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.louveinvest.com" data-wf-page="6582a77505ed680e52bf282a" data-wf-site="6123bd7ac39298d77a24d06d" lang="fr"><head><meta charset="utf-8"/><link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous"/><title>404</title><meta content="Oups, page 404" name="description"/><meta content="404" property="og:title"/><meta content="404" name="twitter:title"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="noindex" name="robots"/><link href="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/css/louve.shared.9ade302a0.min.css" rel="stylesheet" type="text/css" integrity="sha384-mt4wKgPbpERdKzh9IU95wuFHc05+51E+gb6w2nzr/lmtVRx77s4DpM2iPCAgejGN" crossorigin="anonymous"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700","Space Grotesk:300,400,500,600,700","Space Mono:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/6183f530d1de7c14e227aa5f_Favicon_RVB%201.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/6183f51e421dc439d655a910_Favicon_RVB%201.png" rel="apple-touch-icon"/><link href="https://www.louveinvest.com/404" rel="canonical"/><script>(function(w,i,g){w[g]=w[g]||[];if(typeof w[g].push=='function')w[g].push.apply(w[g],Array.isArray(i)?i:[i]);})(window,['GTM-N9MZKQF'],'google_tags_first_party');</script><script async="" src="/nvhc9u4gxsagNjEyM2JkN2FjMzkyOThkNzdhMjRkMDZk/ANjHKF9R15MLFLO2FDoEHeYXMg"></script><script type="text/javascript">window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('set', 'developer_id.dZGVlNj', true);gtag('set', 'developer_id.dYWYxNW', true);gtag('js', new Date());gtag('config', 'GTM-N9MZKQF');</script><script type="text/javascript">!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.agent='plwebflow';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('consent', 'revoke');fbq('init', '669771594408659');fbq('track', 'PageView');</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<!-- Charset -->
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+
+<!-- Google Optimize -->
+<!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-N9D3TZ9"></script> --><meta name="robots" content="noindex">
+
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+    var classname = document.getElementsByClassName("urlencode");
+    for (var i = 0; i < classname.length; i++) {
+        //click gauche
+        classname[i].addEventListener("click", myFunction, false);
+        //click droit
+        classname[i].addEventListener("contextmenu", myRightFunction, false);
+    }
+});
+
+//fonction du click gauche
+var myFunction = function(event) {
+    var attribute = this.getAttribute("data-urlencode");
+    var decodedUrl = decodeURIComponent(window.atob(attribute));
+    if (event.ctrlKey || event.metaKey) {
+        var newWindow = window.open(decodedUrl, "_blank");
+        newWindow.focus();
+    } else {
+        simulateClick(decodedUrl);
+    }
+};
+
+//fonction du click droit
+var myRightFunction = function(event) {
+    var attribute = this.getAttribute("data-urlencode");
+    var decodedUrl = decodeURIComponent(window.atob(attribute));
+    if (event.ctrlKey || event.metaKey) {
+        var newWindow = window.open(decodedUrl, "_blank");
+        newWindow.focus();
+    } else {
+        simulateClick(decodedUrl, "_blank");
+    }
+};
+
+//fonction pour simuler un clic sur un lien
+function simulateClick(url, target = "_self") {
+    var link = document.createElement('a');
+    link.href = url;
+    link.target = target;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"EUR","symbol":"€","decimal":",","fractionDigits":2,"group":" ","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script></head><body class="body-white"><div class="page-wrapper"><div class="w-embed w-iframe"><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9MZKQF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --></div><div class="global-styles w-embed"><style>
+/* Focus state style for keyboard navigation for the focusable elements */
+*[tabindex]:focus-visible,
+input[type="file"]:focus-visible {
+  outline: 0.125rem solid #4d65ff;
+  outline-offset: 0.125rem;
+}
+
+/* Get rid of top margin on first element in any rich text element */
+.w-richtext > :not(div):first-child,
+.w-richtext > div:first-child > :first-child {
+  margin-top: 0 !important;
+}
+
+/* Get rid of bottom margin on last element in any rich text element */
+.w-richtext > :last-child,
+.w-richtext ol li:last-child,
+.w-richtext ul li:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+  pointer-events: none;
+}
+
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+/* Make sure containers never lose their center alignment */
+.container-medium,
+.container-small,
+.container-large {
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+/* 
+Make the following elements inherit typography styles from the parent and not have hardcoded values. 
+Important: You will not be able to style for example "All Links" in Designer with this CSS applied.
+Uncomment this CSS to use it in the project. Leave this message for future hand-off.
+*/
+/*
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
+color: inherit;
+text-decoration: inherit;
+font-size: inherit;
+}
+*/
+
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+
+@media screen and (max-width: 991px) {
+  .hide,
+  .hide-tablet {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hide-mobile-landscape {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 479px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+.margin-0 {
+  margin: 0rem !important;
+}
+
+.padding-0 {
+  padding: 0rem !important;
+}
+
+.spacing-clean {
+  padding: 0rem !important;
+  margin: 0rem !important;
+}
+
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+
+/* Apply "..." at 100% width */
+.truncate-width {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Removes native scrollbar */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/*** Simulateur tab ***/
+
+[data-txt-simu] {
+  display: none;
+  overflow: hidden;
+}
+.simulateurs_button-title.is-current [data-txt-simu] {
+  display: block;
+}
+.simulateurs_button-title.is-current {
+  opacity: 1;
+}
+.simulateurs_button-title.is-current .progress-bar {
+  transition: width linear;
+}
+
+.simulateurs_button-title.is-current {
+  opacity: 1;
+}
+
+.simulateurs_button-title.is-current .progress-bar {
+  transition: width linear;
+}
+
+.data-txt-simu {
+  position: relative;
+  z-index: 10;
+}
+
+.simulateurs_button-title {
+  pointer-events: auto;
+}
+
+.data-txt-simu a {
+  pointer-events: auto;
+}
+</style></div><div class="navbar"><div data-animation="default" class="navbar_component w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="70cdd9cd-7897-5321-e74e-57dd25b41289" role="banner" data-duration="400"><div class="promo_container"><div class="w-layout-grid banner-content w-clearfix"><div id="w-node-_7b063838-9caa-6a83-8a99-079c76a3bbee-25b41288" class="promo-text-stack"><a href="https://app.louveinvest.com/invest" target="_blank" class="link-yellow-2">OFFRE EXCLUSIVE !</a><div class="text-promo">Cashback boosté de 5%.</div><div class="text-promo">Jusqu&#x27;au 30 juin.</div><a href="https://app.louveinvest.com/invest" target="_blank" class="link-yellow-2">PROFITEZ-EN !</a></div><a id="w-node-fd585d87-50bd-c9d0-2e88-ea242f91d5ca-25b41288" data-w-id="fd585d87-50bd-c9d0-2e88-ea242f91d5ca" href="#" class="close-btn-2 w-inline-block"><div class="close-btn-cashback-2">x</div></a></div></div><div class="navbar_container"><div class="navbar_logo-link-obfus w-embed"><span class="urlencode" data-urlencode="aHR0cHM6Ly93d3cubG91dmVpbnZlc3QuY29tLw==">
+<img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/64c272301e25c5e76ac628d3_Logo%20Louve%20Invest.svg" 
+			height=100%
+      loading="lazy" 
+    	alt="Logo de Louve Invest">
+</span></div><nav role="navigation" class="navbar_menu w-nav-menu"><div class="navbar_menu-left"><div data-hover="true" data-delay="200" class="navbar_menu-dropdown w-dropdown"><div class="navbar_dropdown-toggle w-dropdown-toggle"><div class="dropdown-icon w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.02221 3L4.79188 6.23033L1.55396 3L0.788086 3.76588L4.3824 7.34502H5.19377L8.78809 3.76588L8.02221 3Z" fill="#0C1B33"/>
+</svg></div><div>Investir</div></div><nav class="navbar_dropdown-list w-dropdown-list"><a href="/scpi" class="navbar_dropdown-link w-inline-block"><div>SCPI</div></a><a href="/assurance-vie" class="navbar_dropdown-link w-inline-block"><div>Assurance-vie</div></a></nav></div><div data-hover="true" data-delay="200" data-w-id="66706455-917f-bd15-c78f-711571b2d78b" class="navbar_menu-dropdown w-dropdown"><div class="navbar_dropdown-toggle w-dropdown-toggle"><div class="dropdown-icon w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.02221 3L4.79188 6.23033L1.55396 3L0.788086 3.76588L4.3824 7.34502H5.19377L8.78809 3.76588L8.02221 3Z" fill="#0C1B33"/>
+</svg></div><div>Simuler</div></div><nav class="navbar_dropdown-list w-dropdown-list"><a href="https://www.louveinvest.com/scpi/scpi-simulation" class="navbar_dropdown-link w-inline-block"><div>Simulation SCPI</div></a><div class="navbar_dropdown-link-obfus w-embed"><span class="urlencode" data-urlencode="aHR0cHM6Ly9hcHAubG91dmVpbnZlc3QuY29tL3NpbXVsYXRpb24vY3JlZGl0">
+Simulation crédit
+</span></div></nav></div><div data-hover="true" data-delay="200" data-w-id="2b79d66b-3058-3f86-ca93-777039556853" class="navbar_menu-dropdown w-dropdown"><div class="navbar_dropdown-toggle w-dropdown-toggle"><div class="dropdown-icon w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.02221 3L4.79188 6.23033L1.55396 3L0.788086 3.76588L4.3824 7.34502H5.19377L8.78809 3.76588L8.02221 3Z" fill="#0C1B33"/>
+</svg></div><div>Découvrir</div></div><nav class="navbar_dropdown-list w-dropdown-list"><a href="https://www.louveinvest.com/scpi/guide-scpi" class="navbar_dropdown-link w-inline-block"><div>Guide SCPI</div></a><a href="https://www.louveinvest.com/assurance-vie/fonctionnement-assurance-vie" class="navbar_dropdown-link w-inline-block"><div>Guide assurance-vie</div></a><a href="/academy" class="navbar_dropdown-link w-inline-block"><div>Académie</div></a></nav></div><div data-hover="true" data-delay="200" data-w-id="037a68b9-6981-c80a-79d2-6866e5e4a57c" class="navbar_menu-dropdown w-dropdown"><div class="navbar_dropdown-toggle w-dropdown-toggle"><div class="dropdown-icon w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.02221 3L4.79188 6.23033L1.55396 3L0.788086 3.76588L4.3824 7.34502H5.19377L8.78809 3.76588L8.02221 3Z" fill="#0C1B33"/>
+</svg></div><div>Échanger</div></div><nav class="navbar_dropdown-list w-dropdown-list"><a href="https://community.louveinvest.com/" target="_blank" class="navbar_dropdown-link w-inline-block"><div>Communauté</div></a><a href="/contact-conseiller" class="navbar_dropdown-link w-inline-block"><div>Contacter un conseiller</div></a><a href="/equipe" class="navbar_dropdown-link w-inline-block"><div>Qui sommes-nous ?</div></a></nav></div></div><div class="navbar_menu-right"><div data-urlencode="aHR0cHM6Ly9hcHAubG91dmVpbnZlc3QuY29tL2Rhc2hib2FyZAo=" data-w-id="b3f9a081-8e90-47a7-53ed-6478f252d3fe" class="navbar_button-link-obfus urlencode"><div class="button-text"><div class="button-text-item"><div>Se connecter</div></div><div class="button-text-item"><div>Se connecter</div></div></div></div><div data-urlencode="aHR0cHM6Ly9hcHAubG91dmVpbnZlc3QuY29tL3NpZ251cAo=" class="button_new is-hover is-navbar urlencode"><div class="button-text"><div class="button-text-item"><div>Commencer</div><div class="icon-embed-button w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.19578 21L3.75 19.5484L17.3042 5.93951L18.3886 5.06855L18.2078 4.70564L16.8705 4.95968H8.4488V3H20.7018L21.75 4.05242V16.3185H19.7259V7.82661L19.9789 6.48387L19.6175 6.30242L18.75 7.39113L5.19578 21Z" fill="CurrentColor"/>
+</svg></div></div></div></div></div></nav><div class="navbar_menu-button w-nav-button"><div class="menu-icon"><div class="menu-icon_line-top"></div><div class="menu-icon_line-bottom"></div></div></div></div></div></div><main class="main-wrapper"><div class="section-20"><div class="contain padding w-container"><div class="bloc-full-height"><div class="bloc-full"><img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/626c54d285b3e6555dfeada2_louve_louveteau%201.svg" loading="lazy" alt="Louveteau" class="image-98"/><div class="center-bloc"><h1 class="h1 dark margin-top text-center">Oups...<br/>Page <span class="emphasize-yellow-h2">non</span> <span class="emphasize-yellow-h2">trouvée</span><span class="emphasize-blue-6"></span></h1><div class="text-header full _14px">Cette page n&#x27;existe pas ou a été supprimée !<br/>Nous vous suggérons de retourner à la maison.</div><a href="#" class="primary-cta w-inline-block"><div class="text-block-43 yellow">Revenir sur le site</div><img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/6179a9237ad4229697e95a84_arrow-right-up-line%20(1).svg" loading="lazy" alt="" class="image-34"/><img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/6179a562acfb9014f0d2ae71_arrow-right-up-line.svg" loading="lazy" alt="" class="icon-left"/></a></div></div></div></div></div><div class="section-21"><div class="w-layout-grid grid-35"><div id="w-node-_00e3ac74-0ef9-be6a-a1b5-03404a7867b7-52bf282a" class="div-block-179"><div class="div-block-178"><div class="div-block-180"><h1 class="h1 small white-texte">Oups...<br/>Page <span class="emphasize-yellow-h2">non</span> <span class="emphasize-yellow-h2">trouvée</span><span class="emphasize-blue-6"></span></h1><div class="texte-header-margin text-color-white">Cette page n&#x27;existe pas ou a été supprimée !<br/>Nous vous suggérons de retourner à la maison.</div><a href="/scpi" class="primary-cta-2 yellow w-inline-block"><div class="text-block-84">Revenir sur le site</div><img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/6179a9237ad4229697e95a84_arrow-right-up-line%20(1).svg" loading="lazy" alt="" class="icon-left bleu"/></a></div></div></div><div id="w-node-_00e3ac74-0ef9-be6a-a1b5-03404a7867ce-52bf282a"><img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/626c4eb812cafffdfcbb1e90_louve_louveteau%201.svg" loading="lazy" alt="Louveteau" class="image-97"/></div></div></div><div class="footer"><footer class="footer_component"><div class="padding-global"><div class="container-large"><div class="padding-section-medium"><div class="footer_top-wrapper"><div class="footer_logo-link-obfus w-embed"><span class="urlencode" data-urlencode="aHR0cHM6Ly93d3cubG91dmVpbnZlc3QuY29tLw==">
+<img src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/64c272301e25c5e76ac628d3_Logo%20Louve%20Invest.svg" 
+			height=100%
+      loading="lazy" 
+    	alt="Logo de Louve Invest">
+</span></div><div class="w-layout-grid footer_social-icons"><div data-urlencode="aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2NvbXBhbnkvbG91dmVpbnZlc3QK" id="w-node-_4b39ecde-42ff-3a93-4365-872e7df78131-c5750b2a" class="footer_social-link urlencode"><div class="social-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--bx" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><circle cx="4.983" cy="5.009" r="2.188" fill="currentColor"></circle><path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118c1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783c-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z" fill="currentColor"></path></svg></div></div><div data-urlencode="aHR0cHM6Ly90d2l0dGVyLmNvbS9Mb3V2ZUludmVzdAo=" id="w-node-_2516e7c4-6b86-669e-0fe2-004e7636a915-c5750b2a" class="footer_social-link urlencode"><div class="social-icon w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.9728 6.7174C20.5084 7.33692 19.947 7.87733 19.3103 8.31776C19.3103 8.47959 19.3103 8.64142 19.3103 8.81225C19.3154 11.7511 18.1415 14.5691 16.0518 16.6345C13.962 18.6999 11.1312 19.8399 8.19405 19.7989C6.49599 19.8046 4.81967 19.4169 3.29642 18.6661C3.21428 18.6302 3.16131 18.549 3.16162 18.4593V18.3604C3.16162 18.2313 3.26623 18.1267 3.39527 18.1267C5.06442 18.0716 6.67402 17.4929 7.99634 16.4724C6.48553 16.4419 5.12619 15.5469 4.5006 14.1707C4.46901 14.0956 4.47884 14.0093 4.52657 13.9432C4.57429 13.8771 4.653 13.8407 4.73425 13.8471C5.19342 13.8932 5.65718 13.8505 6.1002 13.7212C4.43239 13.375 3.17921 11.9904 2.99986 10.2957C2.99349 10.2144 3.02992 10.1357 3.096 10.0879C3.16207 10.0402 3.24824 10.0303 3.32338 10.062C3.77094 10.2595 4.25409 10.3635 4.74324 10.3676C3.28184 9.40846 2.65061 7.58405 3.20655 5.92622C3.26394 5.76513 3.40181 5.64612 3.5695 5.61294C3.73718 5.57975 3.90996 5.63728 4.02432 5.76439C5.99639 7.86325 8.70604 9.11396 11.5819 9.25279C11.5083 8.95885 11.4721 8.65676 11.4741 8.35372C11.501 6.76472 12.4842 5.34921 13.9634 4.76987C15.4425 4.19054 17.1249 4.56203 18.223 5.71044C18.9714 5.56785 19.695 5.31645 20.3707 4.96421C20.4202 4.93331 20.483 4.93331 20.5325 4.96421C20.5634 5.01373 20.5634 5.07652 20.5325 5.12604C20.2052 5.87552 19.6523 6.50412 18.9509 6.92419C19.5651 6.85296 20.1685 6.70807 20.7482 6.49264C20.797 6.45942 20.8611 6.45942 20.9099 6.49264C20.9508 6.51134 20.9814 6.54711 20.9935 6.59042C21.0056 6.63373 20.998 6.68018 20.9728 6.7174Z" fill="CurrentColor"/>
+</svg></div></div><div data-urlencode="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL2xvdXZlaW52ZXN0Cg==" id="w-node-_13382349-e6b0-bca3-f27e-a9397c274460-c5750b2a" class="footer_social-link urlencode"><div class="social-icon w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.5 6H13.5C12.9477 6 12.5 6.44772 12.5 7V10H16.5C16.6137 9.99748 16.7216 10.0504 16.7892 10.1419C16.8568 10.2334 16.8758 10.352 16.84 10.46L16.1 12.66C16.0318 12.8619 15.8431 12.9984 15.63 13H12.5V20.5C12.5 20.7761 12.2761 21 12 21H9.5C9.22386 21 9 20.7761 9 20.5V13H7.5C7.22386 13 7 12.7761 7 12.5V10.5C7 10.2239 7.22386 10 7.5 10H9V7C9 4.79086 10.7909 3 13 3H16.5C16.7761 3 17 3.22386 17 3.5V5.5C17 5.77614 16.7761 6 16.5 6Z" fill="CurrentColor"/>
+</svg></div></div><div data-urlencode="aHR0cHM6Ly93d3cueW91dHViZS5jb20vY2hhbm5lbC9VQzVFeGpvekl5ZGhMTGllLWVtVVBFOEEK" id="w-node-e4853678-b707-f091-83c0-70f816eb8db4-c5750b2a" class="footer_social-link urlencode"><div class="social-icon w-embed"><svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M18.5399 4.33992L19.9999 4.48992C21.7284 4.68529 23.0264 6.16064 22.9999 7.89992V16.0999C23.0264 17.8392 21.7284 19.3146 19.9999 19.5099L18.5999 19.6599C14.2315 20.1099 9.82835 20.1099 5.45991 19.6599L3.99991 19.5099C2.27143 19.3146 0.973464 17.8392 0.999909 16.0999V7.89992C0.973464 6.16064 2.27143 4.68529 3.99991 4.48992L5.39991 4.33992C9.76835 3.88995 14.1715 3.88995 18.5399 4.33992ZM11.1099 15.2199L14.9999 12.6199H15.0599C15.2695 12.4833 15.3959 12.2501 15.3959 11.9999C15.3959 11.7497 15.2695 11.5165 15.0599 11.3799L11.1699 8.77992C10.9402 8.62469 10.6437 8.60879 10.3987 8.73859C10.1538 8.86839 10.0004 9.12271 9.99991 9.39992V14.5999C10.0128 14.858 10.1576 15.0913 10.3832 15.2173C10.6088 15.3433 10.8834 15.3443 11.1099 15.2199Z" fill="currentColor"/>
+</svg></div></div></div></div><div class="line-divider"></div><div class="w-layout-grid footer_content-wrapper-message"><div class="footer_link-list"><div class="footer_column-heading">Notre mission : démocratiser l’investissement</div><div class="footer_link is-opacity-50">Notre équipe est disponible :<br/>• le lundi, mercredi, jeudi, vendredi de 9h30 à 12h30 et de 13h30 à 18h, <br/>• le mardi de 9h30 à 12h30 et de 14h30 à 18h.</div></div><div class="footer_link-list"><div class="spacer-small"></div><a href="tel:0176421316" class="button_new is-hover is-footer w-inline-block"><div class="button-text"><div class="button-text-item"><div class="icon-embed-button w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.19578 21L3.75 19.5484L17.3042 5.93951L18.3886 5.06855L18.2078 4.70564L16.8705 4.95968H8.4488V3H20.7018L21.75 4.05242V16.3185H19.7259V7.82661L19.9789 6.48387L19.6175 6.30242L18.75 7.39113L5.19578 21Z" fill="CurrentColor"/>
+</svg></div><div>01 76 42 13 16</div></div><div class="button-text-item"><div class="icon-embed-button w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.19578 21L3.75 19.5484L17.3042 5.93951L18.3886 5.06855L18.2078 4.70564L16.8705 4.95968H8.4488V3H20.7018L21.75 4.05242V16.3185H19.7259V7.82661L19.9789 6.48387L19.6175 6.30242L18.75 7.39113L5.19578 21Z" fill="CurrentColor"/>
+</svg></div><div>01 76 42 13 16</div></div></div></a><div class="spacer-xxsmall"></div><a href="mailto:contact@louveinvest.com" class="footer_link w-inline-block"><div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" style="" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mail_mask0-3103-19699" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<rect width="24" height="24" fill="#0C1B33"/>
+</mask>
+<g mask="url(#mail_mask0-3103-19699)">
+<path d="M4.61538 19C4.15513 19 3.77083 18.8458 3.4625 18.5375C3.15417 18.2292 3 17.8449 3 17.3846V6.61537C3 6.15512 3.15417 5.77083 3.4625 5.4625C3.77083 5.15417 4.15513 5 4.61538 5H19.3846C19.8449 5 20.2292 5.15417 20.5375 5.4625C20.8458 5.77083 21 6.15512 21 6.61537V17.3846C21 17.8449 20.8458 18.2292 20.5375 18.5375C20.2292 18.8458 19.8449 19 19.3846 19H4.61538ZM12 12.1154L4 6.88463V17.3846C4 17.5641 4.05769 17.7115 4.17308 17.8269C4.28846 17.9423 4.43589 18 4.61538 18H19.3846C19.5641 18 19.7115 17.9423 19.8269 17.8269C19.9423 17.7115 20 17.5641 20 17.3846V6.88463L12 12.1154ZM12 11L19.6923 6H4.3077L12 11ZM4 6.88463V6V17.3846C4 17.5641 4.05769 17.7115 4.17308 17.8269C4.28846 17.9423 4.43589 18 4.61538 18H4V6.88463Z" fill="#0C1B33"/>
+</g>
+</svg></div><div>contact@louveinvest.com</div></a><div class="spacer-small"></div></div><div class="footer_link-list"><div class="footer_column-heading">À propos</div><a href="/faq" class="footer_link">FAQ</a><a href="/blog" class="footer_link">Blog</a></div><div class="footer_link-list"><div class="footer_column-heading">Liens utiles</div><a href="/avis-louve-invest" class="footer_link">Avis Louve Invest</a><div class="footer_link-obfus w-embed"><span class="urlencode" data-urlencode="aHR0cHM6Ly93d3cubG91dmVpbnZlc3QuY29tL3BhcnJhaW5hZ2UtbG91dmU=">
+Parrainage
+</span></div></div></div><div class="spacer-small"></div><div class="w-layout-grid footer_content-wrapper"><div class="footer_link-list"><div class="footer_column-heading">SCPI : c&#x27;est quoi ?</div><a href="https://www.louveinvest.com/scpi/meilleures-scpi" class="footer_link">Meilleures SCPI</a><a href="/frais-scpi" class="footer_link">Frais &amp; Cashback SCPI</a><a href="https://www.louveinvest.com/simulateur-fiscalite-scpi" class="footer_link">Fiscalité SCPI</a><a href="/scpi/valeur-reconstitution-scpi" class="footer_link">Valeur de reconstitution SCPI</a><a href="/scpi/scpi-avis" class="footer_link">SCPI Avis</a></div><div class="footer_link-list"><div class="footer_column-heading">Les stratégies SCPI</div><a href="/scpi/scpi-de-rendement" class="footer_link">SCPI de rendement</a><a href="/scpi/scpi-fiscales" class="footer_link">SCPI fiscales</a><a href="/scpi/scpi-demembrement" class="footer_link">SCPI en démembrement</a><a href="/scpi/scpi-europeenne" class="footer_link">SCPI européennes</a><a href="/scpi/scpi-a-credit" class="footer_link">SCPI à crédit</a></div><div class="footer_link-list"><div class="footer_column-heading">Contrat Assurance-vie</div><a href="https://www.louveinvest.com/assurance-vie/fonctionnement-assurance-vie#Comment-fonctionne-une-assurance-vie-Le-c%C5%93ur-du-reacteur" class="footer_link">Fonctionnement Assurance-vie</a><a href="/assurance-vie/meilleure-assurance-vie" class="footer_link">Meilleure Assurance-vie</a><a href="/assurance-vie/meilleure-assurance-vie/avis-assurance-vie" class="footer_link">Avis Assurance-vie</a><a href="/assurance-vie/fonctionnement-assurance-vie/frais-assurance-vie" class="footer_link">Frais Assurance-vie</a><a href="/assurance-vie/fiscalite-assurance-vie" class="footer_link">Fiscalité Assurance-vie</a></div><div class="footer_link-list"><div class="footer_column-heading">Objectifs Assurance-vie</div><a href="/assurance-vie/gestion-assurance-vie" class="footer_link">Gestion Assurance-vie</a><a href="/assurance-vie/fonctionnement-assurance-vie/assurance-vie-succession" class="footer_link">Succession Assurance-vie</a><a href="/assurance-vie/fonds-euro" class="footer_link">Fonds Euro</a><a href="/assurance-vie/unite-de-compte-assurance-vie" class="footer_link">Unité de Compte</a><a href="/scpi/scpi-assurance-vie" class="footer_link">SCPI en Assurance-vie</a></div></div><div class="spacer-small"></div><div class="footer_bottom-wrapper"><div class="footer_credit-wrapper"><div id="w-node-_3eb3aa8d-9b28-116a-6076-1c62c5750b92-c5750b2a" class="footer_credit-text">Copyright © Louve Group</div><div class="footer_credit-divider"></div><div class="footer_legal-text">Tous droits réservés</div></div><div class="footer_legal-text-wrapper"><a href="/mentions-legales" class="footer_legal-text w-inline-block"><div class="footer_legal-text">Mentions Légales</div></a></div><div class="footer_legal-text-wrapper"><div class="footer_legal-google">**Taux sur Google du 27/04/2026</div></div></div></div></div></div></footer></div></main></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6123bd7ac39298d77a24d06d" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/js/louve.schunk.1a807f015b216e46.js" type="text/javascript" integrity="sha384-oY4R8SfnVBTWnix6ULiWbZs/5tyRyxEiWcG+WrT3unnu5pmfsIYJEraZcyFVlvND" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/js/louve.schunk.ebea7d6872db7a6a.js" type="text/javascript" integrity="sha384-0lX61zXaqqM4gBnDK6h/rthiy90/fEG4+3rghB2GGoQwGR4AZIKZmsu3YjSc2Nsx" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/6123bd7ac39298d77a24d06d/js/louve.7e9cc942.aed0f7a53540448a.js" type="text/javascript" integrity="sha384-/dOocOIC3KPHuPdoQSINqGOqssDw2cpAjutjlwdbb2RcGwxfqPmDfuedfeHApHw7" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(ScrollTrigger,SplitText);</script><!-- Cookie mgmt -->
+<!--
+<script>
+window.axeptioSettings = {
+  clientId: "6091a46228ee1a1c45bd98f5",
+  googleConsentMode: {
+    default: [
+      {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500,
+      },
+      {
+        region: ['US'],
+        analytics_storage: 'granted',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        wait_for_update: 500,
+      }
+    ]
+  }
+};
+ 
+(function(d, s) {
+  var t = d.getElementsByTagName(s)[0], e = d.createElement(s);
+  e.async = true; e.src = "//static.axept.io/sdk.js";
+  t.parentNode.insertBefore(e, t);
+})(document, "script");
+  
+if(typeof process!=='undefined') {process.env={}}
+if(typeof btnCookies!=='undefined') {btnCookies.onclick = () => {openAxeptioCookies();}}
+</script>
+-->
+</body></html>

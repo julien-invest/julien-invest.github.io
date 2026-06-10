@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D0D2E"/>
+      <stop offset="55%" style="stop-color:#1A1A4E"/>
+      <stop offset="100%" style="stop-color:#1E2A5E"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4C0FF"/>
+      <stop offset="50%" style="stop-color:#BAD4E3"/>
+      <stop offset="100%" style="stop-color:#A0E7C5"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Subtle glow decoration -->
+  <circle cx="980" cy="90" r="320" fill="rgba(200,180,232,0.07)"/>
+  <circle cx="1080" cy="520" r="220" fill="rgba(160,231,197,0.06)"/>
+  <!-- Logo mark -->
+  <rect x="80" y="80" width="64" height="64" rx="14" fill="#1A1A4E" stroke="#C8B4E8" stroke-width="2"/>
+  <text x="112" y="125" text-anchor="middle" font-family="'Syne', Arial, sans-serif" font-weight="800" font-size="36" fill="#FFFFFF">J</text>
+  <circle cx="144" cy="132" r="6" fill="#C8B4E8"/>
+  <!-- Brand name -->
+  <text x="80" y="222" font-family="'Syne', Arial, sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">Julien</text>
+  <circle cx="262" cy="207" r="8" fill="#C8B4E8"/>
+  <text x="284" y="222" font-family="'Syne', Arial, sans-serif" font-weight="800" font-size="54" fill="#FFFFFF">Invest</text>
+  <!-- Tagline -->
+  <text x="80" y="305" font-family="'Instrument Serif', Georgia, serif" font-style="italic" font-weight="400" font-size="32" fill="rgba(255,255,255,0.7)">L'investissement accessible à tous</text>
+  <!-- Divider -->
+  <rect x="80" y="356" width="120" height="3" rx="2" fill="url(#brand)"/>
+  <!-- Description -->
+  <text x="80" y="416" font-family="'DM Sans', Arial, sans-serif" font-weight="400" font-size="22" fill="rgba(255,255,255,0.5)">Formation · Coaching · Parrainages</text>
+  <!-- URL -->
+  <text x="80" y="540" font-family="'DM Sans', Arial, sans-serif" font-weight="500" font-size="20" fill="rgba(255,255,255,0.35)">julieninvest.github.io</text>
+</svg>

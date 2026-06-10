@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page introuvable | Julien Invest</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .error-hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #0D0D2E 0%, #1A1A4E 55%, #1E2A5E 100%);
+      padding: 40px 24px;
+    }
+    .error-code {
+      font-family: var(--font-head, 'Syne', sans-serif);
+      font-weight: 800;
+      font-size: clamp(80px, 14vw, 160px);
+      line-height: 1;
+      background: linear-gradient(135deg, #D4C0FF, #BAD4E3, #A0E7C5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .error-hero h1 {
+      font-family: var(--font-display, 'Instrument Serif', serif);
+      font-style: italic;
+      font-weight: 400;
+      color: #fff;
+      font-size: clamp(26px, 4vw, 40px);
+      margin: 20px 0 12px;
+    }
+    .error-hero p {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      max-width: 440px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <main class="error-hero">
+    <div>
+      <span class="t-label" style="color:rgba(200,180,232,0.7);">Erreur 404</span>
+      <div class="error-code">404</div>
+      <h1>Cette page n'existe pas</h1>
+      <p>Le lien que tu as suivi est peut-être cassé, ou la page a été déplacée. Pas de panique, ton portefeuille n'a rien perdu.</p>
+      <a href="index.html" class="btn btn-gradient btn--lg">
+        Retour à l'accueil
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+    </div>
+  </main>
+</body>
+</html>

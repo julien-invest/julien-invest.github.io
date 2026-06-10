@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La méthode DCA expliquée : Investir Sans Stress | Julien Invest</title>
+  <meta name="description" content="Le DCA (Dollar Cost Averaging) est la stratégie d'investissement la plus simple et la plus efficace pour les débutants. Tout comprendre en 5 minutes.">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <meta property="og:title" content="La méthode DCA : Investir sans stress | Julien Invest">
+  <meta property="og:image" content="https://julieninvest.github.io/images/og-cover.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="../formation.html" class="nav-link">Formation</a></li>
+          <li><a href="../coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="../parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="../calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="../calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="../calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="../contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="../formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="../formation.html">Formation</a></li>
+      <li><a href="../coaching.html">Coaching</a></li>
+      <li><a href="../parrainage.html">Parrainages</a></li>
+      <li><a href="../calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="../calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <a href="../formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="guide-page-hero">
+    <div class="guide-page-hero-bg"></div>
+    <div class="container">
+      <div class="guide-page-hero-inner">
+        <div class="guide-page-meta">
+          <span class="guide-page-tag"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Guide DCA</span>
+          <span class="guide-page-readtime">⏱ ~5 min de lecture</span>
+        </div>
+        <h1>La méthode DCA : investir <em>sans stress</em></h1>
+        <p>Investir la même somme chaque mois, peu importe le marché. La stratégie la plus simple, la plus prouvée, et celle que j'utilise moi-même.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENU -->
+  <div class="container">
+    <div class="guide-layout">
+
+      <article class="guide-article reveal">
+
+        <h2 id="definition">DCA : définition simple</h2>
+        <p>Le <strong>DCA (Dollar Cost Averaging)</strong>, ou investissement progressif, consiste à investir <strong>la même somme à intervalles réguliers</strong>, quoi qu'il arrive sur les marchés.</p>
+        <p>Exemple concret : tu programmes un virement de 200€ le 1er de chaque mois sur un ETF MSCI World. Que le marché soit en hausse ou en baisse, tu investis. Sans exception. Sans te poser de questions.</p>
+        <ul>
+          <li>Quand le marché monte : tu achètes moins de parts pour 200€</li>
+          <li>Quand le marché baisse : tu achètes plus de parts pour 200€</li>
+          <li>Résultat : ton prix moyen d'achat s'lisse dans le temps</li>
+        </ul>
+
+        <h2 id="market-timers">Pourquoi le DCA bat-il les market timers ?</h2>
+        <p>Le "market timing", c'est-à-dire essayer d'acheter au plus bas et vendre au plus haut, est la stratégie préférée des débutants. Et aussi la plus ruineuse.</p>
+        <p><strong>Personne ne sait prévoir les marchés</strong> de manière consistante. Ni les gérants de hedge funds payés des millions. Ni les algorithmes de trading. Ni toi. Ni moi.</p>
+        <ul>
+          <li>Une étude JP Morgan sur 20 ans montre que rater les <strong>10 meilleurs jours</strong> de bourse divise le rendement par 3.</li>
+          <li>Ces 10 meilleurs jours surviennent souvent juste après les pires. Si tu vends pendant les baisses, tu les rates systématiquement.</li>
+          <li>Le DCA élimine ce risque comportemental : tu es investi en permanence, donc tu ne peux pas rater ces jours.</li>
+        </ul>
+        <div class="guide-callout">
+          <p><strong>Ce que le DCA résout :</strong> tu n'as plus à décider "c'est le bon moment ?". La réponse est toujours oui, c'est toujours le 1er du mois.</p>
+        </div>
+
+        <h2 id="calcul">Calcul concret : 200€/mois pendant 20 ans</h2>
+        <p>Voici ce que donne concrètement un DCA de 200€/mois sur un ETF MSCI World, avec un rendement moyen de 7%/an (moyenne historique) :</p>
+        <ul>
+          <li><strong>Capital investi total</strong> : 200€ × 240 mois = <strong>48 000€</strong></li>
+          <li><strong>Valeur finale estimée</strong> : <strong>~104 000€</strong></li>
+          <li><strong>Intérêts générés</strong> : <strong>~56 000€</strong>, soit plus que ce que tu as investi</li>
+        </ul>
+
+        <div class="guide-visual">
+          <svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" aria-label="DCA 200€/mois sur 20 ans">
+            <!-- Barre capital investi -->
+            <rect x="60" y="40" width="140" height="160" rx="6" fill="#E2EEFF"/>
+            <text x="130" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#3A526A">Versé</text>
+            <text x="130" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#1A3D7C">48 000€</text>
+            <!-- Barre total -->
+            <rect x="260" y="40" width="140" height="160" rx="6" fill="#DBEAFE"/>
+            <rect x="260" y="40" width="140" height="90" rx="6" fill="#93C5FD" opacity="0.7"/>
+            <text x="330" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#3A526A">Total final</text>
+            <text x="330" y="215" text-anchor="middle" font-size="14" font-weight="700" fill="#1A3D7C">~104 000€</text>
+            <!-- Label intérêts -->
+            <text x="330" y="90" text-anchor="middle" font-size="12" fill="#1A3D7C" font-weight="600">+56 000€</text>
+            <text x="330" y="105" text-anchor="middle" font-size="11" fill="#2558A8">d'intérêts composés</text>
+          </svg>
+          <figcaption>200€/mois · 7%/an · 20 ans. Les intérêts dépassent le capital investi.</figcaption>
+        </div>
+
+        <div class="guide-callout">
+          <p><strong><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Teste par toi-même :</strong> Change les curseurs ci-dessous et observe comment les intérêts composés travaillent pour toi sur la durée. Commence petit, même 50€/mois font une vraie différence.</p>
+        </div>
+
+        <div class="guide-simulator" id="simulateur-dca">
+          <h3 class="guide-simulator-title"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg> Simulateur DCA · intérêts composés</h3>
+          <div class="guide-simulator-inner">
+            <div class="simulator-inputs">
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Capital initial</span>
+                  <span class="sim-field-val" id="dca-val-initial">0 €</span>
+                </div>
+                <input type="range" class="sim-slider" id="dca-sl-initial" min="0" max="50000" step="500" value="0">
+                <div class="sim-field-range"><span>0 €</span><span>50 000 €</span></div>
+              </div>
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Versement mensuel</span>
+                  <span class="sim-field-val" id="dca-val-monthly">200 €</span>
+                </div>
+                <input type="range" class="sim-slider" id="dca-sl-monthly" min="0" max="2000" step="50" value="200">
+                <div class="sim-field-range"><span>0 €</span><span>2 000 €</span></div>
+              </div>
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Rendement annuel</span>
+                  <span class="sim-field-val" id="dca-val-rate">7.0 %</span>
+                </div>
+                <input type="range" class="sim-slider" id="dca-sl-rate" min="1" max="15" step="0.5" value="7">
+                <div class="sim-field-range"><span>1 %</span><span>15 %</span></div>
+              </div>
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Durée</span>
+                  <span class="sim-field-val" id="dca-val-years">20 ans</span>
+                </div>
+                <input type="range" class="sim-slider" id="dca-sl-years" min="1" max="40" step="1" value="20">
+                <div class="sim-field-range"><span>1 an</span><span>40 ans</span></div>
+              </div>
+            </div>
+            <div class="guide-sim-results">
+              <div class="sim-result-main">
+                <div class="sim-result-label">Capital final estimé</div>
+                <div class="sim-result-val" id="dca-res-total">, </div>
+              </div>
+              <div class="sim-progress">
+                <div class="sim-progress-bar">
+                  <div class="sim-progress-gains" id="dca-bar-gains" style="width:0%"></div>
+                  <div class="sim-progress-invested" id="dca-bar-invested" style="width:100%"></div>
+                </div>
+                <div class="sim-progress-legend">
+                  <span class="sim-legend-dot sim-legend-dot--gains"></span><span class="sim-legend-label">Intérêts composés <strong id="dca-res-gains">, </strong></span>
+                  <span class="sim-legend-dot sim-legend-dot--invested"></span><span class="sim-legend-label">Capital versé <strong id="dca-res-invested">, </strong></span>
+                </div>
+              </div>
+              <div class="sim-result-breakdown">
+                <div class="sim-result-item">
+                  <span>Multiplicateur</span>
+                  <strong id="dca-res-mult">, </strong>
+                </div>
+              </div>
+              <p class="sim-disclaimer">Simulation indicative. Rendements passés non garantis. ETF MSCI World : ~7%/an moyen sur 30 ans.</p>
+            </div>
+          </div>
+        </div>
+        <div class="chart-wrapper" style="margin-top: 0; margin-bottom: 32px;">
+          <div class="chart-header">
+            <span class="chart-title">Ta progression année par année</span>
+            <span class="chart-subtitle">En lavande : tes versements · En vert : tes intérêts</span>
+          </div>
+          <div class="chart-container">
+            <canvas id="dca-chart-main"></canvas>
+          </div>
+        </div>
+
+        <h2 id="automatiser">Comment automatiser son DCA</h2>
+        <ol>
+          <li><strong>Ouvrir un PEA</strong> chez Trade Republic ou Fortuneo : <a href="../parrainage.html">voir les codes parrainage</a>.</li>
+          <li><strong>Programmer un virement automatique</strong> le 1er du mois depuis ton compte courant vers ton PEA.</li>
+          <li><strong>Mettre un ordre récurrent</strong> sur l'ETF de ton choix (Trade Republic le propose nativement).</li>
+          <li><strong>Ne plus y toucher</strong> : c'est le secret. Automatiser et oublier.</li>
+        </ol>
+        <p>Résultat : 10 minutes de configuration = 20 ans d'investissement automatique. Tu n'as plus à y penser.</p>
+
+        <h2 id="erreurs">Les erreurs qui tuent le DCA</h2>
+        <ul>
+          <li><strong>Arrêter en période de baisse</strong> : c'est exactement le moment où tu achètes le moins cher. Arrêter, c'est rater les meilleures opportunités.</li>
+          <li><strong>Modifier la somme à la hausse quand ça monte</strong>, et à la baisse quand ça descend. C'est l'inverse du DCA.</li>
+          <li><strong>Investir trop par rapport à ses revenus</strong> : si la somme mensuelle te stresse, réduis-la. Un DCA qu'on tient vaut mieux qu'un gros DCA qu'on abandonne.</li>
+        </ul>
+        <div class="guide-warning">
+          <p><strong>Exemple réel :</strong> En 2020, le marché a chuté de -34% en 5 semaines. Ceux qui ont arrêté leur DCA ont raté le rebond de +70% qui a suivi en 12 mois. Résultat : moins-value définitive.</p>
+        </div>
+
+        <h2 id="vs-lump-sum">DCA vs Lump Sum : lequel choisir ?</h2>
+        <table class="guide-table">
+          <thead>
+            <tr><th>Situation</th><th>Stratégie recommandée</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Tu investis chaque mois une partie de ton salaire</td><td class="positive">DCA, par définition</td></tr>
+            <tr><td>Tu as une grosse somme disponible (héritage, bonus)</td><td class="positive">Lump Sum (investissement en une fois)</td></tr>
+            <tr><td>Tu as une grosse somme mais tu stresses à l'idée de tout investir</td><td>DCA étalé sur 6-12 mois</td></tr>
+          </tbody>
+        </table>
+        <p>La vérité honnête : statistiquement, investir une grosse somme d'un coup (<em>lump sum</em>) surperforme le DCA étalé dans ~70% des cas sur 10 ans. Mais le DCA reste supérieur sur le plan psychologique et comportemental pour la majorité des investisseurs.</p>
+
+        <!-- VIDÉO -->
+        <div class="guide-video">
+          <div class="guide-video-header">
+            <div class="guide-video-yt-icon">▶</div>
+            <div>
+              <div class="guide-video-title">La méthode DCA · Comment j'investis chaque mois</div>
+              <div class="guide-video-sub">Julien Invest · YouTube</div>
+            </div>
+          </div>
+          <!-- Quand la vidéo est prête : <div class="guide-video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe></div> -->
+          <div class="guide-video-placeholder">
+            <span style="font-size:48px;">▶️</span>
+            <span>Vidéo YouTube à venir</span>
+            <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener" class="btn btn-secondary btn--sm" style="margin-top:8px; color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">Voir ma chaîne YouTube</a>
+          </div>
+        </div>
+
+        <!-- CTA FORMATION -->
+        <div class="guide-cta-formation">
+          <h3>Automatise ton DCA en <em>moins d'une heure</em></h3>
+          <p>La formation t'explique comment configurer un investissement automatique de A à Z : ouverture du PEA, choix de l'ETF, ordre récurrent. Une fois, et pour toujours.</p>
+          <a href="../formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="guide-sidebar">
+        <div class="guide-toc">
+          <div class="guide-toc-title">Sommaire</div>
+          <a href="#definition">Définition du DCA</a>
+          <a href="#market-timers">DCA vs market timing</a>
+          <a href="#calcul">Simulation 200€/mois</a>
+          <a href="#automatiser">Comment automatiser</a>
+          <a href="#erreurs">Erreurs à éviter</a>
+          <a href="#vs-lump-sum">DCA vs Lump Sum</a>
+        </div>
+        <div class="guide-sidebar-cta">
+          <p>Configure ton DCA automatique et commence à investir sans y penser chaque mois.</p>
+          <a href="../formation.html" class="btn btn-gradient">Voir la formation</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- GUIDES CONNEXES -->
+  <section class="related-guides">
+    <div class="container">
+      <div class="section-header">
+        <span class="t-label">Continuer à apprendre</span>
+        <h2>Guides connexes</h2>
+      </div>
+      <div class="related-guides-grid">
+        <a href="guide-etf.html" class="related-guide-card">
+          <div class="related-guide-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+          <div class="related-guide-title">Comprendre les ETF</div>
+          <div class="related-guide-desc">Le support idéal pour appliquer la méthode DCA. Diversification maximale, frais minimaux.</div>
+        </a>
+        <a href="guide-pea.html" class="related-guide-card">
+          <div class="related-guide-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="m3 9 9-6 9 6"/></svg></div>
+          <div class="related-guide-title">Ouvrir son PEA</div>
+          <div class="related-guide-desc">L'enveloppe dans laquelle faire ton DCA pour bénéficier de l'avantage fiscal après 5 ans.</div>
+        </a>
+        <a href="guide-inflation.html" class="related-guide-card">
+          <div class="related-guide-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+          <div class="related-guide-title">Comprendre l'inflation</div>
+          <div class="related-guide-desc">Pourquoi ne rien faire coûte aussi cher que perdre de l'argent, et comment le DCA te protège.</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Navigation</h4><a href="../index.html">Accueil</a><a href="../formation.html">Formation</a><a href="../coaching.html">Coaching</a><a href="../parrainage.html">Parrainages</a><a href="../calculateur.html">Calculateur</a></div>
+        <div class="footer-col"><h4>Guides gratuits</h4><a href="guide-etf.html">Les ETF</a><a href="guide-pea.html">Ouvrir un PEA</a><a href="guide-dca.html">La méthode DCA</a><a href="guide-assurance-vie.html">L'assurance-vie</a><a href="guide-inflation.html">L'inflation</a></div>
+        <div class="footer-col"><h4>Contact</h4><a href="../contact.html">Formulaire de contact</a><a href="mailto:contact.julieninvest@gmail.com">contact.julieninvest@gmail.com</a></div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Contenu exclusivement éducatif. Ne constitue pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal"><span>© 2026 Julien Invest. Tous droits réservés</span><a href="../mentions-legales.html">Mentions légales</a><a href="../mentions-legales.html#cgv">CGV</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/simulator.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => initSimulator('dca-', 'dca-chart-main'));</script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
