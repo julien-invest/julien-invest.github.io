@@ -287,6 +287,19 @@
       background: var(--navy);
       color: #fff;
     }
+    /* ── Simulateur fiscal ── */
+    .fisc-cards { display: flex; flex-direction: column; gap: 12px; }
+    .fisc-card { border: 1.5px solid var(--grey-5); border-radius: var(--radius-md); padding: 16px 18px; transition: border-color .2s, background .2s; }
+    .fisc-card.best { border-color: var(--mint); background: rgba(160,231,197,0.10); }
+    .fisc-card-top { display: flex; justify-content: space-between; align-items: baseline; }
+    .fisc-card-env { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 14px; }
+    .fisc-card-tag { font-size: 10px; font-family: var(--font-head); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #0D6B42; }
+    .fisc-card-net { font-family: var(--font-head); font-size: 26px; font-weight: 800; color: var(--navy); letter-spacing: -0.02em; margin: 4px 0 2px; }
+    .fisc-card-imp { font-size: 12px; color: var(--grey-3); }
+    .fisc-ecart { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--grey-5); font-size: 13px; color: var(--grey-1); line-height: 1.6; }
+    .fisc-ecart strong { color: var(--navy); }
+    .fisc-warn { margin-top: 12px; font-size: 12px; color: #92500a; background: rgba(240,192,64,0.14); border-radius: 8px; padding: 8px 11px; line-height: 1.5; display: none; }
+    .fisc-warn.show { display: block; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/calculateur.html">
   <script type="application/ld+json">
@@ -344,6 +357,13 @@
                   <div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div>
                 </div>
               </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div>
+                  <div class="nav-dropdown-text-title">Simulateur fiscal</div>
+                  <div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div>
+                </div>
+              </a>
             </div>
           </li>
           <li><a href="blog.html" class="nav-link">Blog</a></li>
@@ -369,6 +389,7 @@
       <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
       <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
       <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="ressources.html">Ressources</a></li>
@@ -733,6 +754,100 @@
     </div>
   </section>
 
+  <!-- ═══════════════ SIMULATEUR FISCAL PEA / CTO / AV ═══════════════ -->
+  <section class="calc-fire-section" id="fiscalite">
+    <div class="container--wide">
+      <div class="calc-section-title" style="margin-bottom:36px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(200,180,232,0.18);border:1px solid rgba(200,180,232,0.5);border-radius:100px;padding:6px 16px;margin-bottom:16px;">
+          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Simulateur fiscal</span>
+        </div>
+        <h2>Compare l'impôt à la sortie<br><em class="t-display">PEA, CTO, assurance vie</em></h2>
+        <p>Même capital investi, trois enveloppes : visualise ce qu'il te reste vraiment après impôt, à la fiscalité 2026.</p>
+      </div>
+      <div class="calc-3col">
+        <!-- COL 1 : Sliders -->
+        <div class="calc-col-inputs">
+          <div class="calc-col-title">Tes paramètres</div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fisc-versement">Versement mensuel</label>
+              <span class="sim-field-val" id="fisc-val-versement">300 €</span>
+            </div>
+            <input type="range" id="fisc-versement" min="50" max="2000" step="50" value="300" class="sim-slider">
+            <div class="sim-field-range"><span>50 €</span><span>2 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fisc-duree">Durée</label>
+              <span class="sim-field-val" id="fisc-val-duree">20 ans</span>
+            </div>
+            <input type="range" id="fisc-duree" min="5" max="40" step="1" value="20" class="sim-slider">
+            <div class="sim-field-range"><span>5 ans</span><span>40 ans</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="fisc-rendement">Rendement annuel</label>
+              <span class="sim-field-val" id="fisc-val-rendement">7,0 %</span>
+            </div>
+            <input type="range" id="fisc-rendement" min="1" max="12" step="0.5" value="7" class="sim-slider">
+            <div class="sim-field-range"><span>1 %</span><span>12 %</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label>Situation (pour l'abattement assurance vie)</label>
+            </div>
+            <div class="fire-tax-toggle" role="group" aria-label="Situation familiale">
+              <button type="button" class="fire-tax-opt active" data-situation="celibataire">Célibataire</button>
+              <button type="button" class="fire-tax-opt" data-situation="couple">Couple</button>
+            </div>
+            <input type="hidden" id="fisc-situation" value="celibataire">
+          </div>
+        </div>
+        <!-- COL 2 : Résultats -->
+        <div class="calc-col-results">
+          <div class="calc-col-title">Capital net après impôt</div>
+          <div class="fisc-cards">
+            <div class="fisc-card" id="fisc-card-pea">
+              <div class="fisc-card-top"><span class="fisc-card-env">PEA</span><span class="fisc-card-tag" id="fisc-tag-pea">Le plus avantageux</span></div>
+              <div class="fisc-card-net" id="fisc-pea-net">140 602 €</div>
+              <div class="fisc-card-imp" id="fisc-pea-imp">Impôt : 15 676 €</div>
+            </div>
+            <div class="fisc-card" id="fisc-card-cto">
+              <div class="fisc-card-top"><span class="fisc-card-env">Compte titres (CTO)</span><span class="fisc-card-tag" id="fisc-tag-cto"></span></div>
+              <div class="fisc-card-net" id="fisc-cto-net">129 815 €</div>
+              <div class="fisc-card-imp" id="fisc-cto-imp">Impôt : 26 463 €</div>
+            </div>
+            <div class="fisc-card" id="fisc-card-av">
+              <div class="fisc-card-top"><span class="fisc-card-env">Assurance vie</span><span class="fisc-card-tag" id="fisc-tag-av"></span></div>
+              <div class="fisc-card-net" id="fisc-av-net">135 806 €</div>
+              <div class="fisc-card-imp" id="fisc-av-imp">Impôt : 20 472 €</div>
+            </div>
+          </div>
+          <p class="fisc-ecart" id="fisc-ecart">Capital brut identique : <strong>156 278 €</strong>. Écart entre la meilleure et la pire enveloppe : <strong>10 788 €</strong>.</p>
+          <div class="fisc-warn" id="fisc-warn">Tes versements cumulés dépassent le plafond du PEA de 150 000€. Au delà, le surplus doit aller sur un CTO ou une assurance vie.</div>
+          <p class="sim-disclaimer" style="color:var(--grey-3); margin-top:14px;">
+            Taux 2026 : PFU 31,4%, prélèvements sociaux PEA 18,6%, assurance vie 17,2%. Hypothèses : retrait total en fin de période, versements assurance vie sous 150 000€, abattement annuel non étalé. Un retrait étalé sur plusieurs années réduit encore la facture de l'assurance vie. Simulation indicative hors cas particuliers (TMI, option barème, succession). Les performances passées ne garantissent pas les performances futures. Ceci n'est pas un conseil en investissement.
+          </p>
+        </div>
+        <!-- COL 3 : Graphique -->
+        <div class="calc-col-chart">
+          <div class="calc-col-title">Comparaison du capital net</div>
+          <div class="calc-chart-canvas-wrap">
+            <canvas id="chart-fiscalite"></canvas>
+          </div>
+          <div style="margin-top:20px; padding:20px; background:var(--navy); border-radius:var(--radius-md); text-align:center;">
+            <p style="color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:12px;line-height:1.6;">
+              La formation t'explique comment coordonner PEA, CTO et assurance vie pour garder un maximum de tes gains.
+            </p>
+            <a href="formation.html" class="btn btn-gradient btn--sm" style="display:inline-flex;">
+              Accéder à la formation →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -938,6 +1053,102 @@
           hidden.dispatchEvent(new Event('input', { bubbles: true }));
         });
       });
+    });
+  </script>
+
+  <!-- ═══ Simulateur fiscal PEA / CTO / AV (fiscalité 2026) ═══ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!document.getElementById('fisc-versement')) return;
+      let fiscChart = null;
+      function eur(n) { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n)); }
+      const ids = ['fisc-versement', 'fisc-duree', 'fisc-rendement'];
+
+      function calc() {
+        const v = parseFloat(document.getElementById('fisc-versement').value);
+        const dur = parseInt(document.getElementById('fisc-duree').value);
+        const rate = parseFloat(document.getElementById('fisc-rendement').value);
+        const situation = document.getElementById('fisc-situation').value;
+        const r = rate / 100 / 12, n = dur * 12;
+        const brut = r > 0 ? v * ((Math.pow(1 + r, n) - 1) / r) : v * n;
+        const versements = v * n;
+        const gains = Math.max(0, brut - versements);
+
+        // PEA
+        const impPea = dur >= 5 ? gains * 0.186 : gains * 0.314;
+        const netPea = brut - impPea;
+        // CTO
+        const impCto = gains * 0.314;
+        const netCto = brut - impCto;
+        // Assurance vie
+        const ab = situation === 'couple' ? 9200 : 4600;
+        let impAv;
+        if (dur >= 8) { impAv = Math.max(0, gains - ab) * 0.075 + gains * 0.172; }
+        else { impAv = gains * 0.30; }
+        const netAv = brut - impAv;
+
+        // labels sliders
+        document.getElementById('fisc-val-versement').textContent = eur(v);
+        document.getElementById('fisc-val-duree').textContent = dur + (dur > 1 ? ' ans' : ' an');
+        document.getElementById('fisc-val-rendement').textContent = rate.toFixed(1).replace('.', ',') + ' %';
+
+        // cartes
+        document.getElementById('fisc-pea-net').textContent = eur(netPea);
+        document.getElementById('fisc-pea-imp').textContent = 'Impôt : ' + eur(impPea);
+        document.getElementById('fisc-cto-net').textContent = eur(netCto);
+        document.getElementById('fisc-cto-imp').textContent = 'Impôt : ' + eur(impCto);
+        document.getElementById('fisc-av-net').textContent = eur(netAv);
+        document.getElementById('fisc-av-imp').textContent = 'Impôt : ' + eur(impAv);
+
+        // meilleure enveloppe
+        const data = [{ k: 'pea', net: netPea }, { k: 'cto', net: netCto }, { k: 'av', net: netAv }];
+        const best = data.reduce(function (a, b) { return b.net > a.net ? b : a; });
+        ['pea', 'cto', 'av'].forEach(function (k) {
+          document.getElementById('fisc-card-' + k).classList.toggle('best', k === best.k);
+          document.getElementById('fisc-tag-' + k).textContent = (k === best.k) ? 'Le plus avantageux' : '';
+        });
+
+        const nets = [netPea, netCto, netAv];
+        const ecart = Math.max.apply(null, nets) - Math.min.apply(null, nets);
+        document.getElementById('fisc-ecart').innerHTML = 'Capital brut identique : <strong>' + eur(brut) + '</strong>. Écart entre la meilleure et la pire enveloppe : <strong>' + eur(ecart) + '</strong>.';
+
+        document.getElementById('fisc-warn').classList.toggle('show', versements > 150000);
+
+        renderChart(netPea, netCto, netAv);
+      }
+
+      function renderChart(pea, cto, av) {
+        const canvas = document.getElementById('chart-fiscalite');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const labels = ['PEA', 'CTO', 'Assurance vie'];
+        const values = [Math.round(pea), Math.round(cto), Math.round(av)];
+        if (fiscChart) { fiscChart.data.datasets[0].data = values; fiscChart.update('active'); return; }
+        function create() {
+          fiscChart = new Chart(ctx, {
+            type: 'bar',
+            data: { labels: labels, datasets: [{ label: 'Capital net', data: values, backgroundColor: ['rgba(160,231,197,0.9)', 'rgba(200,180,232,0.9)', 'rgba(186,212,227,0.95)'], borderRadius: 6 }] },
+            options: {
+              responsive: true, maintainAspectRatio: false,
+              plugins: { legend: { display: false }, tooltip: { backgroundColor: '#1A1A4E', callbacks: { label: function (i) { return ' ' + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(i.raw); } } } },
+              scales: { x: { grid: { display: false }, ticks: { font: { family: "'DM Sans', sans-serif", size: 12 }, color: '#4A4A6A' } }, y: { grid: { color: 'rgba(200,200,220,0.25)' }, ticks: { font: { family: "'DM Sans', sans-serif", size: 11 }, color: '#8888AA', callback: function (val) { return val >= 1000 ? Math.round(val / 1000) + 'k€' : val + '€'; } } } }
+            }
+          });
+        }
+        if (typeof Chart !== 'undefined') { create(); } else {
+          const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js'; s.onload = create; document.head.appendChild(s);
+        }
+      }
+
+      ids.forEach(function (id) { const el = document.getElementById(id); if (el) el.addEventListener('input', calc); });
+      document.querySelectorAll('#fiscalite .fire-tax-opt').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('#fiscalite .fire-tax-opt').forEach(function (b) { b.classList.toggle('active', b === btn); });
+          document.getElementById('fisc-situation').value = btn.dataset.situation;
+          calc();
+        });
+      });
+      calc();
     });
   </script>
 </body>
