@@ -49,7 +49,7 @@
 
 /* ── RESET ───────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--font-body);
   background: var(--white);
@@ -57,6 +57,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100%;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; }
@@ -1535,7 +1536,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: var(--transition);
 }
 .for-who-card:hover { background: rgba(200,180,232,0.07); border-color: rgba(200,180,232,0.18); }
-.for-who-icon { font-size: 32px; margin-bottom: 16px; }
+.for-who-icon { font-size: 32px; margin-bottom: 16px; color: var(--lavender); }
 .for-who-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 8px; letter-spacing: -0.01em; }
 .for-who-card p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.65; }
 
