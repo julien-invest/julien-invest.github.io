@@ -29,6 +29,16 @@ Dates plausibles attribuées automatiquement, réparties sur janvier → juin 20
 
 - `index.html`, `formation.html`, `coaching.html` : cartes témoignages présentes mais masquées (`is-hidden`) avec un commentaire `TÉMOIGNAGE RÉEL À INSÉRER`. Ne publier que des retours authentiques et vérifiables (retirer `is-hidden` et remplir).
 
-## 4. Vérifications diverses
+## 4. Fiscalité 2026 (Phase 5)
+
+Chiffres appliqués partout (à confirmer au regard du texte définitif de la LFSS 2026 et de la doctrine fiscale avant publication) :
+
+- PFU / flat tax : **31,4%** (12,8% IR + 18,6% PS).
+- PEA > 5 ans : exonération d'IR, **18,6%** de prélèvements sociaux au retrait.
+- PEA < 5 ans / CTO : **31,4%**.
+- Assurance-vie : **non concernée**, PS maintenus à 17,2% (avant 8 ans 30%, après 8 ans 24,7% avec abattement 4 600€ / 9 200€).
+- Exemples recalculés : article PEA vs CTO (120 000€ de PV → PEA 22 320€, CTO 37 680€, écart 15 360€), article fiscalité, article dividendes vs ETF, simulateur fiscal.
+
+## 5. Vérifications diverses
 
 - `images/og-cover.png` : présent (OK). Vérifier que le visuel est à jour.
