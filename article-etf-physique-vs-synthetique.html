@@ -71,6 +71,54 @@
   "founder": { "@type": "Person", "name": "Julien Denis" }
 }
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Un ETF synthétique est il plus risqué qu'un ETF physique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pas vraiment dans la pratique. Il introduit un risque de contrepartie lié au swap, mais la réglementation européenne impose des garde fous stricts qui le limitent fortement. L'ETF physique a, de son côté, un risque lié au prêt de titres. Pour un investisseur long terme, les deux restent maîtrisés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi a t on besoin d'un ETF synthétique pour un PEA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce que le PEA n'accepte que des valeurs européennes. Un ETF synthétique peut détenir un panier européen tout en reproduisant, via un swap, la performance d'un indice américain ou mondial. C'est ce qui permet d'avoir le S&P 500 ou le MSCI World dans un PEA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La performance d'un ETF synthétique est elle fiable ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le contrat de swap engage la banque à verser exactement la performance de l'indice cible. En pratique, un bon ETF synthétique suit son indice d'aussi près qu'un ETF physique, parfois même mieux sur certains indices américains."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel ETF synthétique choisir pour un PEA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Des fonds comme le Amundi PEA S&P 500 ou le Amundi MSCI World (CW8) sont parmi les plus utilisés. Vérifie toujours les frais, l'encours et l'éligibilité PEA sur le document d'informations clés avant d'investir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le synthétique change t il quelque chose à la fiscalité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. La fiscalité dépend de l'enveloppe, pas du type de réplication. Dans un PEA de plus de 5 ans, tu paies 18,6% de prélèvements sociaux, que l'ETF soit physique ou synthétique."
+      }
+    }
+  ]
+}
+  </script>
 </head>
 <body>
 
@@ -148,111 +196,146 @@
     <div class="container">
       <div class="article-body">
         <span class="article-tag">ETF</span>
+        <p>Physique ou synthétique ? Derrière ce mot un peu technique se cache une vraie question pratique : comment loger un ETF S&P 500 ou MSCI World dans un PEA, alors que ce dernier n'accepte en théorie que des valeurs européennes ? La réplication synthétique est la réponse. On t'explique comment ça marche, sans jargon, et pourquoi c'est un outil précieux pour l'investisseur français.</p>
 
-        <h2>La réplication : comment un ETF suit son indice</h2>
-        <p>Quand tu achètes un ETF MSCI World, l'objectif du fonds est simple : reproduire fidèlement la performance de l'indice MSCI World. Mais il existe deux façons très différentes d'y arriver. La première, dite réplication physique, consiste à acheter réellement les actions qui composent l'indice. La seconde, la réplication synthétique, utilise des contrats financiers (des swaps) pour obtenir la même performance sans détenir les actions sous-jacentes.</p>
-        <p>En pratique, pour un investisseur particulier, les deux approches donnent des résultats très similaires. Mais comprendre la différence t'aide à choisir en connaissance de cause et à mieux comprendre ce que tu achètes.</p>
-
-        <h2>La réplication physique</h2>
-        <p>Un ETF à réplication physique détient réellement les titres de l'indice qu'il réplique. Si l'indice contient 500 actions, le fonds en achète 500 (ou un échantillon représentatif pour les indices très larges, c'est ce qu'on appelle la réplication physique par échantillonnage).</p>
-
-        <h3>Avantages</h3>
-        <ul>
-          <li><strong>Transparence totale :</strong> tu sais exactement ce que le fonds détient. La composition est publiée quotidiennement.</li>
-          <li><strong>Aucun risque de contrepartie :</strong> le fonds possède des actions réelles. S'il ferme, les actifs te sont restitués directement.</li>
-          <li><strong>Simplicité à comprendre :</strong> le mécanisme est intuitif, même pour un débutant.</li>
-        </ul>
-
-        <h3>Inconvénients</h3>
-        <ul>
-          <li><strong>Contrainte géographique :</strong> un ETF physique qui détient des actions américaines ne peut pas être éligible au PEA, car les titres détenus ne sont pas européens.</li>
-          <li><strong>Coût opérationnel potentiellement plus élevé :</strong> gérer des centaines de lignes d'actions engendre des frais de transaction lors des rééquilibrages.</li>
-          <li><strong>Retenue à la source sur les dividendes :</strong> certains marchés prélèvent une taxe sur les dividendes versés à des fonds étrangers, ce qui peut légèrement pénaliser la performance.</li>
-        </ul>
-
-        <h2>La réplication synthétique</h2>
-        <p>Un ETF synthétique ne détient pas les actions de l'indice. À la place, il conclut un contrat swap avec une banque (appelée contrepartie). Dans ce contrat, la banque s'engage à verser au fonds exactement la performance de l'indice ciblé, en échange d'un panier de titres que le fonds lui transmet en garantie.</p>
-        <p>Le résultat pour toi en tant qu'investisseur est identique : ton ETF suit la performance du MSCI World. Mais le mécanisme interne est radicalement différent.</p>
-
-        <div class="info-box">
-          <p><strong>Le point clé à retenir :</strong> un ETF synthétique est domicilié en Europe et enregistré comme un fonds européen. C'est ce statut juridique qui compte pour l'éligibilité PEA, pas les titres que l'indice réplique. Un ETF irlandais ou luxembourgeois qui suit le S&P 500 via un swap est donc éligible au PEA, même si le S&P 500 ne contient que des entreprises américaines.</p>
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#physique">La réplication physique, la plus intuitive</a></li>
+            <li><a href="#synthetique">La réplication synthétique, le tour de passe passe légal</a></li>
+            <li><a href="#pea">Pourquoi le synthétique débloque le PEA</a></li>
+            <li><a href="#risques">Les risques de chacune</a></li>
+            <li><a href="#comparatif">Le comparatif côte à côte</a></li>
+            <li><a href="#frais">Frais et performance, qui gagne</a></li>
+            <li><a href="#cas">Un cas concret pour un investisseur français</a></li>
+            <li><a href="#choisir">Laquelle choisir en pratique</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
         </div>
 
-        <h3>Avantages</h3>
-        <ul>
-          <li><strong>Éligibilité PEA pour les indices non européens :</strong> c'est l'avantage majeur. Tu peux loger un ETF S&P 500 ou MSCI World dans ton PEA et bénéficier de l'exonération d'impôt après 5 ans.</li>
-          <li><strong>Tracking error réduite :</strong> la performance suit l'indice de façon très précise, car la banque s'y engage contractuellement via le swap.</li>
-          <li><strong>Optimisation fiscale sur les dividendes :</strong> certains ETF synthétiques évitent les retenues à la source américaines grâce à la structure du swap, ce qui peut améliorer légèrement la performance nette.</li>
-        </ul>
+        <h2 id="physique">La réplication physique, la plus intuitive</h2>
+        <p>Un ETF à réplication physique fait exactement ce que tu imagines : il achète réellement les actions de l'indice qu'il suit. Si l'ETF réplique le MSCI World, il détient pour de vrai les actions des entreprises de l'indice, dans les mêmes proportions. Quand l'indice monte, le fonds monte, parce qu'il possède les titres.</p>
+        <p>C'est la méthode la plus transparente et la plus simple à comprendre. Pour les très grands indices, le fonds détient parfois un échantillon représentatif plutôt que la totalité des lignes, mais le principe reste le même : tu possèdes, indirectement, des morceaux d'entreprises bien réelles. La plupart des ETF logés en compte titres ordinaire ou en assurance vie fonctionnent ainsi.</p>
 
-        <h3>Inconvénients</h3>
-        <ul>
-          <li><strong>Risque de contrepartie :</strong> si la banque qui signe le swap fait défaut, le fonds pourrait subir une perte. En pratique, la réglementation européenne (UCITS) plafonne ce risque à 10% de la valeur du fonds, et la plupart des ETF synthétiques sécurisent leurs swaps bien en dessous de ce seuil.</li>
-          <li><strong>Structure moins intuitive :</strong> le panier de titres réellement détenu par le fonds peut être très différent des actions de l'indice suivi. C'est déroutant au premier abord.</li>
-          <li><strong>Moins de transparence :</strong> la composition du portefeuille de garantie ne correspond pas directement à l'indice répliqué.</li>
-        </ul>
+        <h2 id="synthetique">La réplication synthétique, le tour de passe passe légal</h2>
+        <p>Un ETF synthétique, lui, ne détient pas forcément les actions de l'indice qu'il réplique. À la place, il passe un contrat d'échange, appelé swap, avec une banque. Le fonds détient un panier d'actifs, souvent des actions européennes, et la banque s'engage par contrat à lui verser exactement la performance de l'indice cible, par exemple le S&P 500.</p>
+        <p>Le résultat pour toi est identique : ton ETF synthétique suit la performance du S&P 500 ou du MSCI World, sans posséder directement les actions américaines. C'est parfaitement légal, encadré, et utilisé par de grands émetteurs comme Amundi. Ce mécanisme paraît abstrait, mais il rend un immense service à l'investisseur français.</p>
 
-        <h2>Tableau comparatif</h2>
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Physique, le fonds détient vraiment les actions. Synthétique, il reproduit la performance par contrat. Pour toi, le rendement visé est le même. La différence se joue surtout sur l'éligibilité au PEA et sur le type de risque.</p>
+        </div>
+
+        <h2 id="pea">Pourquoi le synthétique débloque le PEA</h2>
+        <p>C'est là que la réplication synthétique prend tout son sens pour un investisseur français. Le PEA n'accepte que des valeurs européennes. Or, un ETF synthétique domicilié en Europe peut détenir un panier d'actions européennes tout en te servant, par le swap, la performance d'un indice américain ou mondial. Sur le papier, le fonds respecte les règles du PEA. En pratique, tu captes la performance du S&P 500 ou du MSCI World.</p>
+        <p>C'est exactement ce que font des ETF comme le Amundi PEA S&P 500 ou le Amundi MSCI World (CW8). Grâce à eux, tu profites du marché américain ou mondial tout en bénéficiant de la fiscalité avantageuse du PEA : après 5 ans, tes plus values ne subissent que les prélèvements sociaux de 18,6% depuis 2026, contre 31,4% en flat tax sur un compte titres. Sur un investissement de long terme, cette différence peut représenter des dizaines de milliers d'euros, comme expliqué dans <a href="article-pea-vs-cto.html">PEA ou CTO</a>.</p>
+
+        <h2 id="risques">Les risques de chacune</h2>
+        <p>Chaque méthode a son petit talon d'Achille. Pour la réplication physique, le principal point d'attention est le prêt de titres : certains fonds prêtent une partie de leurs actions à d'autres acteurs pour générer un petit revenu, ce qui introduit un risque de contrepartie limité, en général bien encadré.</p>
+        <p>Pour la réplication synthétique, le risque est lié à la banque qui assure le swap. Si cette contrepartie faisait défaut, le fonds pourrait théoriquement subir une perte. En pratique, la réglementation européenne impose des garde fous stricts qui limitent fortement ce risque, et les émetteurs travaillent avec des contreparties solides. Pour un investisseur long terme, ce risque reste très théorique.</p>
         <table class="compare-table">
           <thead>
-            <tr>
-              <th>Critère</th>
-              <th>Réplication physique</th>
-              <th>Réplication synthétique</th>
-            </tr>
+            <tr><th>Critère</th><th>ETF physique</th><th>ETF synthétique</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Titres détenus</strong></td>
-              <td>Les actions de l'indice (ou un échantillon)</td>
-              <td>Un panier de garantie différent de l'indice</td>
-            </tr>
-            <tr>
-              <td><strong>Éligibilité PEA</strong></td>
-              <td class="negative">Non pour les indices hors Europe</td>
-              <td class="positive">Oui si domicilié en Europe (UCITS)</td>
-            </tr>
-            <tr>
-              <td><strong>Risque de contrepartie</strong></td>
-              <td class="positive">Nul</td>
-              <td>Limité à 10% par la réglementation UCITS</td>
-            </tr>
-            <tr>
-              <td><strong>Transparence</strong></td>
-              <td class="positive">Totale</td>
-              <td>Partielle</td>
-            </tr>
-            <tr>
-              <td><strong>Suivi de l'indice</strong></td>
-              <td>Très bon</td>
-              <td class="positive">Excellent (garanti contractuellement)</td>
-            </tr>
-            <tr>
-              <td><strong>Exemples connus</strong></td>
-              <td>iShares Core MSCI World (IWDA)</td>
-              <td>Amundi MSCI World (CW8), Lyxor MSCI World (EWLD)</td>
-            </tr>
+            <tr><td>Détient les actions</td><td class="yes">Oui</td><td>Non, via un swap</td></tr>
+            <tr><td>Éligible PEA pour indices US ou monde</td><td class="no">Rarement</td><td class="yes">Oui</td></tr>
+            <tr><td>Transparence</td><td class="yes">Très élevée</td><td>Bonne, mais plus indirecte</td></tr>
+            <tr><td>Risque principal</td><td>Prêt de titres</td><td>Contrepartie du swap</td></tr>
+            <tr><td>Performance visée</td><td>Celle de l'indice</td><td>Celle de l'indice</td></tr>
           </tbody>
         </table>
 
-        <h2>Le cas concret du PEA et des marchés américains</h2>
-        <p>C'est là que la réplication synthétique prend tout son sens pour un investisseur français. Le PEA est fiscalement très avantageux : après 5 ans de détention, tes plus-values ne subissent que les prélèvements sociaux de 18,6% (depuis 2026), contre 31,4% (PFU) sur un compte-titres ordinaire. Sur un investissement long terme, cette différence peut représenter des dizaines de milliers d'euros.</p>
-        <p>Problème : le PEA est légalement restreint aux actions et ETF européens. Les marchés américains (S&P 500, Nasdaq, MSCI World à 70% américain) en sont donc exclus... sauf par la voie synthétique.</p>
-        <p>Un ETF comme le <strong>CW8 (Amundi MSCI World)</strong>, domicilié en Irlande ou au Luxembourg, est légalement un fonds européen. Il est donc éligible PEA. Mais grâce au swap, il te donne exactement la même performance que si tu détenais les 1 500 actions mondiales en direct. Tu profites à la fois de l'exposition mondiale et de la fiscalité PEA.</p>
+        <h2 id="comparatif">Le comparatif côte à côte</h2>
+        <figure class="article-figure">
+          <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma : l'ETF physique détient les actions, l'ETF synthétique reçoit la performance via un contrat de swap avec une banque">
+            <rect x="40" y="40" width="170" height="150" rx="10" fill="#A0E7C5" opacity="0.25" stroke="#3FAE7E"/>
+            <rect x="250" y="40" width="170" height="150" rx="10" fill="#C8B4E8" opacity="0.25" stroke="#7A5BC0"/>
+            <text x="125" y="68" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Physique</text>
+            <text x="335" y="68" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Synthétique</text>
+            <text x="125" y="105" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Le fonds achète</text>
+            <text x="125" y="123" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">les vraies actions</text>
+            <text x="125" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#3FAE7E">= performance</text>
+            <text x="335" y="100" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Panier européen</text>
+            <text x="335" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">+ swap avec banque</text>
+            <text x="335" y="155" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#7A5BC0">= même performance</text>
+          </svg>
+          <figcaption>Deux chemins différents pour un même résultat : suivre la performance de l'indice.</figcaption>
+        </figure>
 
-        <h2>Le risque de contrepartie est-il vraiment inquiétant ?</h2>
-        <p>C'est la question que se posent beaucoup d'investisseurs quand ils découvrent le mécanisme synthétique. La réponse courte : non, pas dans les proportions qui doivent t'empêcher d'investir.</p>
-        <p>Voici pourquoi. La réglementation UCITS, qui s'applique à tous les ETF commercialisés en Europe, plafonne le risque de contrepartie à 10% de la valeur du fonds. En pratique, les grands émetteurs comme Amundi et Lyxor maintiennent ce risque bien en dessous de ce plafond et renégocient leurs swaps régulièrement pour le ramener à zéro. De plus, le panier de garantie que le fonds détient couvre la quasi-totalité de la valeur du swap. Si la contrepartie bancaire fait défaut, les investisseurs récupèrent ces actifs.</p>
-        <p>Pour un investisseur particulier qui investit sur ETF MSCI World, le risque synthétique est bien moins préoccupant que le risque de marché habituel (une baisse de 30% sur les bourses mondiales).</p>
+        <h2 id="frais">Frais et performance, qui gagne</h2>
+        <p>Sur le papier, les deux méthodes visent la même performance. En pratique, de petites différences existent. Les ETF synthétiques affichent souvent un suivi très précis de leur indice, parfois même légèrement meilleur sur les indices américains, car ils évitent certaines frictions fiscales sur les dividendes américains. Les ETF physiques, eux, génèrent parfois un petit revenu via le prêt de titres, qui peut compenser une partie des frais.</p>
+        <p>Au final, pour un investisseur de long terme, l'écart de performance entre un bon ETF physique et un bon ETF synthétique sur le même indice est minime. Ce qui compte davantage, c'est le niveau de frais du fonds et l'enveloppe dans laquelle tu le loges. Un ETF synthétique éligible PEA à frais bas reste imbattable pour capter les marchés mondiaux avec la fiscalité française.</p>
 
-        <h2>Comment choisir dans la pratique ?</h2>
-        <p><strong>Si tu investis via un PEA</strong>, tu n'as pas vraiment le choix pour les indices mondiaux : il te faut un ETF synthétique. CW8 (Amundi) et EWLD (Lyxor, désormais Amundi) sont les deux références. Les deux sont éligibles PEA, capitalisants, et suivent le MSCI World avec un TER raisonnable.</p>
-        <p><strong>Si tu investis via un CTO</strong>, tu peux choisir librement. L'ETF physique IWDA (iShares Core MSCI World) est souvent préféré pour sa transparence et son TER très bas (0,20%/an). Certains investisseurs mixent les deux : ETF synthétique en PEA pour l'avantage fiscal, ETF physique en CTO pour l'exposition complémentaire.</p>
-        <p><strong>Ne pas sur-optimiser :</strong> la différence de performance entre un ETF physique et synthétique sur le même indice est généralement inférieure à 0,1%/an. Ce n'est pas ce critère qui va déterminer ton succès en tant qu'investisseur. La régularité de tes versements et la durée de détention comptent infiniment plus.</p>
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Ne choisis pas un ETF uniquement sur son type de réplication. Regarde d'abord l'indice suivi, les frais, l'encours et l'enveloppe visée. La réplication n'est qu'un critère parmi d'autres, important surtout pour l'éligibilité PEA.</p>
+        </div>
+
+        <h2 id="cas">Un cas concret pour un investisseur français</h2>
+        <p>Prenons Karim, qui veut s'exposer au marché américain tout en profitant du PEA. S'il choisissait un ETF S&P 500 à réplication physique, il ne pourrait pas le loger dans son PEA, et serait contraint d'utiliser un compte titres, avec la flat tax de 31,4% sur ses gains. En choisissant à la place un ETF S&P 500 synthétique éligible PEA, comme le Amundi PEA S&P 500, il capte la même performance, mais dans son PEA.</p>
+        <p>Résultat : après 5 ans, ses plus values ne supportent plus que 18,6% de prélèvements sociaux, au lieu de 31,4%. Sur un investissement de plusieurs dizaines de milliers d'euros tenu pendant 20 ans, l'économie d'impôt se chiffre en milliers, voire en dizaines de milliers d'euros. C'est tout l'intérêt de la réplication synthétique pour l'investisseur français : elle transforme une contrainte du PEA en avantage.</p>
+
+        <h2 id="choisir">Laquelle choisir en pratique</h2>
+        <p>La règle est simple. Si tu investis dans un PEA et que tu veux un indice américain ou mondial, tu n'as pas vraiment le choix : il te faut un ETF synthétique éligible PEA. Et c'est une excellente nouvelle, car tu combines la performance mondiale et la fiscalité française.</p>
+        <p>Si tu investis dans un compte titres ou une assurance vie, où l'éligibilité PEA n'entre pas en jeu, tu peux privilégier la réplication physique pour sa transparence. Dans les deux cas, regarde aussi les frais, l'encours et la politique de distribution du fonds. Le <a href="comparateur-etf.html">comparateur ETF</a> précise pour chaque fonds son type de réplication et son éligibilité PEA. Pour bâtir une stratégie complète autour de ces choix, c'est l'objet de la <a href="formation.html">formation</a>.</p>
+
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Un ETF synthétique est il plus risqué qu'un ETF physique ?</summary>
+            <p>Pas vraiment dans la pratique. Il introduit un risque de contrepartie lié au swap, mais la réglementation européenne impose des garde fous stricts qui le limitent fortement. L'ETF physique a, de son côté, un risque lié au prêt de titres. Pour un investisseur long terme, les deux restent maîtrisés.</p>
+          </details>
+          <details>
+            <summary>Pourquoi a t on besoin d'un ETF synthétique pour un PEA ?</summary>
+            <p>Parce que le PEA n'accepte que des valeurs européennes. Un ETF synthétique peut détenir un panier européen tout en reproduisant, via un swap, la performance d'un indice américain ou mondial. C'est ce qui permet d'avoir le S&P 500 ou le MSCI World dans un PEA.</p>
+          </details>
+          <details>
+            <summary>La performance d'un ETF synthétique est elle fiable ?</summary>
+            <p>Oui. Le contrat de swap engage la banque à verser exactement la performance de l'indice cible. En pratique, un bon ETF synthétique suit son indice d'aussi près qu'un ETF physique, parfois même mieux sur certains indices américains.</p>
+          </details>
+          <details>
+            <summary>Quel ETF synthétique choisir pour un PEA ?</summary>
+            <p>Des fonds comme le Amundi PEA S&P 500 ou le Amundi MSCI World (CW8) sont parmi les plus utilisés. Vérifie toujours les frais, l'encours et l'éligibilité PEA sur le document d'informations clés avant d'investir.</p>
+          </details>
+          <details>
+            <summary>Le synthétique change t il quelque chose à la fiscalité ?</summary>
+            <p>Non. La fiscalité dépend de l'enveloppe, pas du type de réplication. Dans un PEA de plus de 5 ans, tu paies 18,6% de prélèvements sociaux, que l'ETF soit physique ou synthétique.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_ARTICLE_ETF_SYNTH par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_ARTICLE_ETF_SYNTH = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_ARTICLE_ETF_SYNTH && VIDEO_ID_ARTICLE_ETF_SYNTH!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_ETF_SYNTH+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
 
         <div class="article-cta">
-          <h2>Prêt à construire ton portefeuille ETF ?</h2>
-          <p>La formation complète couvre l'ouverture du PEA, le choix des ETF, la stratégie DCA et l'automatisation. Tout ce qu'il faut pour investir correctement dès le départ.</p>
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
           <a href="formation.html" class="btn btn-gradient btn--lg">
             Accéder à la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>

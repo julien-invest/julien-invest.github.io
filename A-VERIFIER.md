@@ -24,6 +24,7 @@ Dates plausibles attribuées automatiquement, réparties sur janvier → juin 20
 ## 2. IDs de vidéos YouTube à remplacer
 
 - `index.html` : constante `PRESENTATION_VIDEO_ID = "VIDEO_ID"` (section Présentation). Tant que l'ID n'est pas renseigné, la façade affiche « Vidéo bientôt disponible » avec lien vers la chaîne.
+- Chaque article (Phase 7) a un bloc vidéo avec une constante `VIDEO_ID_ARTICLE_*` à remplacer : `VIDEO_ID_ARTICLE_PEA_CTO`, `_DEBUTER`, `_ERREURS`, `_FISCALITE`, `_AV_PEA`, `_DIVIDENDES`, `_ETF_MONDE`, `_ETF_SYNTH`, `_LIBERTE`, `_BITCOIN`. Même comportement de repli « Vidéo bientôt disponible ».
 
 ## 3. Témoignages réels à insérer
 
