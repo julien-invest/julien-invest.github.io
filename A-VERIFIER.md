@@ -62,6 +62,11 @@ Chiffres appliqués partout (à confirmer au regard du texte définitif de la LF
 - Assurance-vie : **non concernée**, PS maintenus à 17,2% (avant 8 ans 30%, après 8 ans 24,7% avec abattement 4 600€ / 9 200€).
 - Exemples recalculés : article PEA vs CTO (120 000€ de PV → PEA 22 320€, CTO 37 680€, écart 15 360€), article fiscalité, article dividendes vs ETF, simulateur fiscal.
 
+## 4bis. Mentions légales (Phase 13)
+
+- `mentions-legales.html`, section « Médiateur de la consommation » : compléter le **nom du médiateur** choisi, son **adresse postale** et l'**URL de saisine** (placeholders `À COMPLÉTER PAR JULIEN`). Obligatoire pour la vente aux consommateurs.
+- Vérifier que la case de renonciation expresse au droit de rétractation est bien présente sur la page de paiement (systeme.io).
+
 ## 5. Vérifications diverses
 
 - `images/og-cover.png` : présent (OK). Vérifier que le visuel est à jour.
