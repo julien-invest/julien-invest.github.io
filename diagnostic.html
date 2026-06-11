@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostic de patrimoine gratuit en 2 minutes | Julien Invest</title>
+  <meta name="description" content="Fais la photo de ton patrimoine en 2 minutes : répartition, épargne qui dort, perte de pouvoir d'achat et projection. Aucune donnée stockée.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Diagnostic de patrimoine en 2 minutes | Julien Invest">
+  <meta property="og:description" content="Répartition, épargne qui dort, perte de pouvoir d'achat : ton diagnostic patrimoine immédiat et sans email.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/diagnostic.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Diagnostic de patrimoine en 2 minutes | Julien Invest">
+  <meta name="twitter:description" content="Répartition, épargne qui dort, perte de pouvoir d'achat. Sans email, rien n'est stocké.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="canonical" href="https://julien-invest.github.io/diagnostic.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": ["https://www.tiktok.com/@julien_invest_","https://www.instagram.com/julien_invest","https://www.youtube.com/@jueth7215","https://www.linkedin.com/in/julien-denis-849541251/"],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <style>
+    .diag-hero { background: var(--pearl); padding: 130px 0 46px; text-align: center; border-bottom: 1px solid var(--grey-5); }
+    .diag-nostore { display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-size:13px; color:var(--grey-2); background:var(--white); border:1px solid var(--grey-5); border-radius:100px; padding:7px 16px; }
+    .diag-main { padding: 48px 0 70px; background: var(--white); }
+    .diag-grid { display:grid; grid-template-columns: 360px 1fr; gap:32px; align-items:start; }
+    @media (max-width:900px){ .diag-grid { grid-template-columns:1fr; } }
+    .diag-panel { background: var(--off-white); border:1.5px solid var(--grey-5); border-radius:var(--radius-lg); padding:26px; }
+    .diag-panel-title { font-family:var(--font-head); font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-3); margin-bottom:18px; padding-bottom:12px; border-bottom:1px solid var(--grey-5); }
+    .diag-field { margin-bottom:14px; }
+    .diag-field label { display:block; font-size:13px; color:var(--grey-1); margin-bottom:6px; }
+    .diag-field .opt { color:var(--grey-3); font-size:11px; }
+    .diag-input { width:100%; box-sizing:border-box; padding:10px 12px; border:1.5px solid var(--grey-5); border-radius:var(--radius-md); font-size:15px; font-family:var(--font-body); color:var(--navy); background:var(--white); }
+    .diag-input:focus { outline:none; border-color:var(--lavender); }
+    .diag-sliders { margin-top:20px; padding-top:18px; border-top:1px solid var(--grey-5); }
+    .diag-donut-wrap { position:relative; height:280px; max-width:340px; margin:0 auto 10px; }
+    .diag-total { text-align:center; font-family:var(--font-head); font-weight:800; color:var(--navy); font-size:22px; margin-bottom:8px; }
+    .diag-total span { font-size:13px; color:var(--grey-3); font-weight:600; display:block; }
+    .diag-cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:24px 0; }
+    @media (max-width:560px){ .diag-cards { grid-template-columns:1fr; } }
+    .diag-card { border:1.5px solid var(--grey-5); border-radius:var(--radius-md); padding:18px 20px; }
+    .diag-card.alert { border-color:#F0C040; background:rgba(240,192,64,0.08); }
+    .diag-card-label { font-size:12px; color:var(--grey-3); font-family:var(--font-head); font-weight:600; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; }
+    .diag-card-val { font-family:var(--font-head); font-size:28px; font-weight:800; color:var(--navy); letter-spacing:-0.02em; }
+    .diag-card-sub { font-size:12px; color:var(--grey-3); margin-top:4px; }
+    .diag-proj { background:var(--navy); color:#fff; border-radius:var(--radius-md); padding:24px 26px; margin-bottom:24px; }
+    .diag-proj h3 { font-family:var(--font-head); font-size:14px; color:#fff; margin-bottom:10px; }
+    .diag-proj p { color:rgba(255,255,255,0.78); line-height:1.7; font-size:15px; margin:0; }
+    .diag-proj strong { color:var(--mint); }
+    .diag-reads { border:1px solid var(--grey-5); border-radius:var(--radius-md); padding:22px 24px; margin-bottom:24px; }
+    .diag-reads h3 { font-family:var(--font-head); font-size:14px; color:var(--navy); margin-bottom:12px; }
+    .diag-reads ul { margin:0; padding-left:20px; }
+    .diag-reads li { line-height:1.7; font-size:15px; margin-bottom:6px; }
+    .diag-reads a { color:var(--navy); font-weight:600; }
+    .diag-disclaimer { font-size:12px; color:var(--grey-3); line-height:1.6; border-top:1px solid var(--grey-5); padding-top:16px; margin-top:8px; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="diag-hero">
+    <div class="container">
+      <span class="t-label">Diagnostic</span>
+      <h1>La photo de ton patrimoine<br><em class="t-display">en 2 minutes</em></h1>
+      <p style="color:var(--grey-2); max-width:560px; margin:14px auto 0;">Renseigne tes montants, obtiens immédiatement ta répartition, ton épargne qui dort et ta perte de pouvoir d'achat.</p>
+      <span class="diag-nostore"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Aucune donnée stockée ni transmise. Tout est calculé dans ton navigateur.</span>
+    </div>
+  </section>
+
+  <section class="diag-main">
+    <div class="container">
+      <div class="diag-grid">
+        <!-- ENTRÉES -->
+        <div class="diag-panel">
+          <div class="diag-panel-title">Tes montants (en €)</div>
+          <div class="diag-field"><label>Compte courant</label><input class="diag-input" type="number" min="0" id="d-cc" value="3000" inputmode="numeric"></div>
+          <div class="diag-field"><label>Livret A</label><input class="diag-input" type="number" min="0" id="d-livretA" value="8000" inputmode="numeric"></div>
+          <div class="diag-field"><label>LDDS</label><input class="diag-input" type="number" min="0" id="d-ldds" value="4000" inputmode="numeric"></div>
+          <div class="diag-field"><label>Autres livrets</label><input class="diag-input" type="number" min="0" id="d-autresLivrets" value="0" inputmode="numeric"></div>
+          <div class="diag-field"><label>PEA / CTO (bourse)</label><input class="diag-input" type="number" min="0" id="d-bourse" value="5000" inputmode="numeric"></div>
+          <div class="diag-field"><label>Assurance vie</label><input class="diag-input" type="number" min="0" id="d-av" value="2000" inputmode="numeric"></div>
+          <div class="diag-field"><label>Crypto</label><input class="diag-input" type="number" min="0" id="d-crypto" value="0" inputmode="numeric"></div>
+          <div class="diag-field"><label>Immobilier locatif <span class="opt">(optionnel)</span></label><input class="diag-input" type="number" min="0" id="d-immo" value="0" inputmode="numeric"></div>
+          <div class="diag-field"><label>Autre <span class="opt">(optionnel)</span></label><input class="diag-input" type="number" min="0" id="d-autre" value="0" inputmode="numeric"></div>
+          <div class="diag-field"><label>Ton âge <span class="opt">(optionnel)</span></label><input class="diag-input" type="number" min="0" id="d-age" value="" inputmode="numeric" placeholder="ex : 30"></div>
+
+          <div class="diag-sliders">
+            <div class="sim-field">
+              <div class="sim-field-header"><label for="d-inflation">Inflation estimée</label><span class="sim-field-val" id="d-val-inflation">2,0 %</span></div>
+              <input type="range" id="d-inflation" min="0" max="6" step="0.1" value="2" class="sim-slider">
+            </div>
+            <div class="sim-field">
+              <div class="sim-field-header"><label for="d-livretRate">Rendement de tes livrets</label><span class="sim-field-val" id="d-val-livretRate">1,5 %</span></div>
+              <input type="range" id="d-livretRate" min="0" max="5" step="0.1" value="1.5" class="sim-slider">
+            </div>
+            <div class="sim-field">
+              <div class="sim-field-header"><label for="d-investPct">Part de l'épargne dormante à investir</label><span class="sim-field-val" id="d-val-investPct">50 %</span></div>
+              <input type="range" id="d-investPct" min="0" max="100" step="5" value="50" class="sim-slider">
+            </div>
+          </div>
+        </div>
+
+        <!-- RÉSULTATS -->
+        <div>
+          <div class="diag-panel">
+            <div class="diag-panel-title">Répartition de ton patrimoine</div>
+            <div class="diag-total" id="d-total">23 000 € <span>patrimoine total</span></div>
+            <div class="diag-donut-wrap"><canvas id="d-donut"></canvas></div>
+          </div>
+
+          <div class="diag-cards">
+            <div class="diag-card" id="d-card-dormant">
+              <div class="diag-card-label">Épargne qui dort</div>
+              <div class="diag-card-val" id="d-dormant-pct">65 %</div>
+              <div class="diag-card-sub" id="d-dormant-eur">15 000 € sur compte courant et livrets</div>
+            </div>
+            <div class="diag-card" id="d-card-loss">
+              <div class="diag-card-label">Perte de pouvoir d'achat estimée</div>
+              <div class="diag-card-val" id="d-loss">75 € / an</div>
+              <div class="diag-card-sub">à cause de l'inflation sur ton épargne dormante</div>
+            </div>
+          </div>
+
+          <div class="diag-proj">
+            <h3>Et si tu investissais une partie ?</h3>
+            <p id="d-proj-text"></p>
+          </div>
+
+          <div class="diag-reads">
+            <h3>Trois lectures recommandées pour toi</h3>
+            <ul id="d-reads"></ul>
+          </div>
+
+          <!-- LEAD MAGNET (renvoie vers l'ebook de la home) -->
+          <div class="diag-proj" style="background:var(--gradient-brand); color:var(--navy);">
+            <h3 style="color:var(--navy);">Le guide gratuit pour passer à l'action</h3>
+            <p style="color:rgba(26,26,78,0.78);">Reçois mon ebook offert : les bases pour investir simplement, sans jargon. <a href="index.html#lead-magnet" style="color:var(--navy);font-weight:700;text-decoration:underline;">Récupérer l'ebook gratuit →</a></p>
+          </div>
+
+          <div style="text-align:center; margin:26px 0;">
+            <a href="formation.html" class="btn btn-gradient btn--lg">Découvrir la formation
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+
+          <p class="diag-disclaimer">
+            Ce diagnostic est un outil éducatif. Les projections sont des simulations basées sur tes hypothèses (inflation, rendements) et ne constituent en aucun cas une garantie ni un conseil en investissement personnalisé. Investir comporte un risque de perte en capital. Les performances passées ne préjugent pas des performances futures. Aucune donnée saisie n'est collectée, stockée ni transmise : tout est calculé localement dans ton navigateur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="diagnostic.html">Diagnostic patrimoine</a>
+          <a href="quiz.html">Quel investisseur es-tu ?</a>
+          <a href="calculateur.html#fiscalite">Simulateur fiscal</a>
+          <a href="index.html#lead-magnet">Ebook gratuit</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let donut = null;
+      function eur(n){ return new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(Math.round(n)); }
+      function val(id){ const v = parseFloat(document.getElementById(id).value); return isNaN(v) || v < 0 ? 0 : v; }
+
+      const COLORS = ['#C8B4E8','#A0E7C5','#BAD4E3','#F0C040','#8B7BB8','#9AA7C7'];
+
+      function compute() {
+        const cc = val('d-cc'), la = val('d-livretA'), ldds = val('d-ldds'), al = val('d-autresLivrets');
+        const bourse = val('d-bourse'), av = val('d-av'), crypto = val('d-crypto'), immo = val('d-immo'), autre = val('d-autre');
+        const dormant = cc + la + ldds + al;
+        const total = dormant + bourse + av + crypto + immo + autre;
+
+        const inflation = parseFloat(document.getElementById('d-inflation').value) / 100;
+        const livretRate = parseFloat(document.getElementById('d-livretRate').value) / 100;
+        const investPct = parseFloat(document.getElementById('d-investPct').value) / 100;
+        document.getElementById('d-val-inflation').textContent = (inflation*100).toFixed(1).replace('.', ',') + ' %';
+        document.getElementById('d-val-livretRate').textContent = (livretRate*100).toFixed(1).replace('.', ',') + ' %';
+        document.getElementById('d-val-investPct').textContent = Math.round(investPct*100) + ' %';
+
+        document.getElementById('d-total').innerHTML = eur(total) + ' <span>patrimoine total</span>';
+
+        const dormantPct = total > 0 ? (dormant / total * 100) : 0;
+        document.getElementById('d-dormant-pct').textContent = Math.round(dormantPct) + ' %';
+        document.getElementById('d-dormant-eur').textContent = eur(dormant) + ' sur compte courant et livrets';
+        document.getElementById('d-card-dormant').classList.toggle('alert', dormantPct >= 50);
+
+        const lossRate = Math.max(0, inflation - livretRate);
+        const loss = dormant * lossRate;
+        document.getElementById('d-loss').textContent = eur(loss) + ' / an';
+        document.getElementById('d-card-loss').classList.toggle('alert', loss > 0);
+
+        // Projection
+        const toInvest = dormant * investPct;
+        const fvInvest = toInvest * Math.pow(1.07, 20);
+        const fvLivret = toInvest * Math.pow(1 + livretRate, 20);
+        document.getElementById('d-proj-text').innerHTML =
+          'Si tu investissais <strong>' + Math.round(investPct*100) + '%</strong> de ton épargne dormante, soit ' + eur(toInvest) +
+          ', à <strong>7% par an pendant 20 ans</strong>, elle pourrait valoir <strong>' + eur(fvInvest) + '</strong>, au lieu de ' + eur(fvLivret) +
+          ' en restant sur tes livrets. Ceci est une simulation, pas une promesse.';
+
+        // Lectures recommandées selon profil
+        let reads;
+        const cryptoPct = total > 0 ? crypto/total*100 : 0;
+        if (dormantPct >= 50) {
+          reads = [
+            ['Comprendre le coût de l\'épargne qui dort', 'guides/guide-inflation.html'],
+            ['Faire ses premiers pas en bourse', 'article-debuter-investissement.html'],
+            ['Découvrir le PEA', 'guides/guide-pea.html'] ];
+        } else if (cryptoPct >= 20) {
+          reads = [
+            ['Remettre le Bitcoin en perspective', 'article-bitcoin-2026.html'],
+            ['Bâtir un socle diversifié en ETF', 'article-etf-monde-2026.html'],
+            ['Comprendre la fiscalité crypto et bourse', 'article-fiscalite-investissement.html'] ];
+        } else if (bourse > 0 && av === 0) {
+          reads = [
+            ['Faut-il une assurance vie en plus du PEA', 'article-assurance-vie-pea.html'],
+            ['Comparer les ETF et leurs frais', 'comparateur-etf.html'],
+            ['Dividendes ou ETF capitalisant', 'article-dividendes-vs-etf.html'] ];
+        } else {
+          reads = [
+            ['Choisir entre PEA et CTO', 'article-pea-vs-cto.html'],
+            ['Optimiser ta fiscalité 2026', 'article-fiscalite-investissement.html'],
+            ['Viser la liberté financière', 'article-liberte-financiere.html'] ];
+        }
+        const ul = document.getElementById('d-reads');
+        ul.innerHTML = reads.map(function (r) { return '<li><a href="' + r[1] + '">' + r[0] + '</a></li>'; }).join('');
+
+        renderDonut([dormant, bourse, av, crypto, immo, autre]);
+      }
+
+      function renderDonut(values) {
+        const canvas = document.getElementById('d-donut');
+        if (!canvas) return;
+        const labels = ['Liquidités', 'Bourse (PEA/CTO)', 'Assurance vie', 'Crypto', 'Immobilier', 'Autre'];
+        const ctx = canvas.getContext('2d');
+        if (donut) { donut.data.datasets[0].data = values; donut.update('active'); return; }
+        function create() {
+          donut = new Chart(ctx, {
+            type: 'doughnut',
+            data: { labels: labels, datasets: [{ data: values, backgroundColor: COLORS, borderWidth: 2, borderColor: '#fff' }] },
+            options: {
+              responsive: true, maintainAspectRatio: false, cutout: '62%',
+              plugins: { legend: { position: 'bottom', labels: { font: { family: "'DM Sans', sans-serif", size: 12 }, color: '#4A4A6A', usePointStyle: true, pointStyle: 'circle', padding: 12 } },
+                tooltip: { backgroundColor: '#1A1A4E', callbacks: { label: function (i) { const t = i.dataset.data.reduce(function(a,b){return a+b;},0); const p = t>0?Math.round(i.raw/t*100):0; return ' ' + i.label + ' : ' + new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(i.raw) + ' (' + p + '%)'; } } } }
+            }
+          });
+        }
+        if (typeof Chart !== 'undefined') { create(); } else { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js'; s.onload = create; document.head.appendChild(s); }
+      }
+
+      document.querySelectorAll('.diag-input, #d-inflation, #d-livretRate, #d-investPct').forEach(function (el) {
+        el.addEventListener('input', compute);
+      });
+      compute();
+    });
+  </script>
+</body>
+</html>

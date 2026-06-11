@@ -687,20 +687,31 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
-       QUIZ TEASER
+       OUTILS TEASER (quiz + diagnostic)
   ═══════════════════════════════════════════ -->
   <section class="section" style="background:var(--white);">
     <div class="container">
-      <div class="real-proof reveal" style="background:var(--pearl);">
-        <span class="t-label">Le test</span>
-        <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(28px,3.4vw,40px); color:var(--navy); margin:10px 0 14px;">Quel investisseur es-tu ?</h2>
-        <p class="real-proof-text">Fais le test en 2 minutes. 9 questions pour découvrir ton profil, tes forces et tes prochaines étapes. Aucune adresse email demandée.</p>
-        <a href="quiz.html" class="btn btn-gradient">Faire le test
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-        </a>
+      <div class="reveal home-tools-grid">
+        <div style="background:var(--pearl); border:1px solid var(--grey-5); border-radius:var(--radius-lg); padding:32px 28px; text-align:center;">
+          <span class="t-label">Le test</span>
+          <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(24px,2.8vw,32px); color:var(--navy); margin:8px 0 12px;">Quel investisseur es-tu ?</h2>
+          <p style="color:var(--grey-2); font-size:15px; line-height:1.6; margin-bottom:18px;">9 questions, 2 minutes, ton profil et tes prochaines étapes. Sans email.</p>
+          <a href="quiz.html" class="btn btn-gradient">Faire le test
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div style="background:var(--pearl); border:1px solid var(--grey-5); border-radius:var(--radius-lg); padding:32px 28px; text-align:center;">
+          <span class="t-label">Diagnostic</span>
+          <h2 style="font-family:var(--font-display); font-style:italic; font-size:clamp(24px,2.8vw,32px); color:var(--navy); margin:8px 0 12px;">La photo de ton patrimoine</h2>
+          <p style="color:var(--grey-2); font-size:15px; line-height:1.6; margin-bottom:18px;">Répartition, épargne qui dort, perte de pouvoir d'achat. En 2 minutes, sans email.</p>
+          <a href="diagnostic.html" class="btn btn-gradient">Faire mon diagnostic
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
+  <style>.home-tools-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:900px; margin:0 auto; } @media (max-width:680px){ .home-tools-grid{ grid-template-columns:1fr; } }</style>
 
   <!-- ═══════════════════════════════════════════
        LEAD MAGNET
