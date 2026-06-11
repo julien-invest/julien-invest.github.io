@@ -277,6 +277,56 @@
   </section>
 
   <!-- ═══════════════════════════════════════════
+       PRÉSENTATION VIDÉO
+  ═══════════════════════════════════════════ -->
+  <section class="presentation section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="t-label">Présentation</span>
+        <h2>Qui je suis, et<br><em class="t-display">pourquoi ce site existe</em></h2>
+      </div>
+      <!-- Façade vidéo : l'iframe YouTube ne se charge qu'au clic (performance). -->
+      <div class="video-facade reveal reveal-delay-1" id="presentation-video" role="button" tabindex="0" aria-label="Lire la vidéo de présentation">
+        <img src="images/julien-denis.jpg" alt="Julien, fondateur de Julien Invest, dans sa vidéo de présentation" class="video-facade-cover" loading="lazy">
+        <button class="video-facade-play" type="button" aria-label="Lire la vidéo">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+        <span class="video-soon" id="presentation-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+      </div>
+      <p class="presentation-caption">2 minutes pour comprendre ma méthode et ce que tu vas trouver ici.</p>
+      <div style="text-align:center;">
+        <a href="formation.html" class="btn btn-secondary">Découvrir la formation</a>
+      </div>
+    </div>
+  </section>
+  <script>
+    // REMPLACER VIDEO_ID par l'ID de la vidéo YouTube de présentation
+    const PRESENTATION_VIDEO_ID = "VIDEO_ID";
+    (function () {
+      const facade = document.getElementById('presentation-video');
+      if (!facade) return;
+      const soon = document.getElementById('presentation-video-soon');
+      const hasVideo = PRESENTATION_VIDEO_ID && PRESENTATION_VIDEO_ID !== "VIDEO_ID";
+      if (hasVideo && soon) soon.remove();
+      function play() {
+        if (!hasVideo) { window.open('https://www.youtube.com/@jueth7215', '_blank', 'noopener'); return; }
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + PRESENTATION_VIDEO_ID + '?autoplay=1&rel=0';
+        iframe.title = 'Vidéo de présentation Julien Invest';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        facade.innerHTML = '';
+        facade.appendChild(iframe);
+        facade.classList.add('is-playing');
+      }
+      facade.addEventListener('click', play);
+      facade.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
+    })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════
        ABOUT
   ═══════════════════════════════════════════ -->
   <section class="about section">

@@ -42,6 +42,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── STICKY CTA MOBILE (index, formation, blog, articles) ──────
+  (function () {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    const allowed = page === '' || page === 'index.html' || page === 'formation.html'
+      || page === 'blog.html' || /^article-/.test(page);
+    if (!allowed) return;
+    const isFormation = page === 'formation.html';
+    let dismissed = false; // état mémorisé pour la session courante uniquement (pas de stockage)
+    const bar = document.createElement('div');
+    bar.className = 'sticky-cta';
+    bar.innerHTML =
+      '<a class="sticky-cta-btn" href="' + (isFormation ? '#tarif' : 'formation.html') + '">Découvrir la formation</a>' +
+      '<button class="sticky-cta-close" type="button" aria-label="Fermer">&times;</button>';
+    document.body.appendChild(bar);
+    bar.querySelector('.sticky-cta-close').addEventListener('click', () => {
+      dismissed = true;
+      bar.classList.remove('visible');
+    });
+    if (isFormation) {
+      bar.querySelector('.sticky-cta-btn').addEventListener('click', (e) => {
+        const target = document.getElementById('tarif');
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    }
+    window.addEventListener('scroll', () => {
+      if (dismissed) return;
+      bar.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+  })();
+
   // ── SCROLL REVEAL ─────────────────────────────
   const revealElements = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
