@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel investisseur es-tu ? Le test en 2 minutes | Julien Invest</title>
+  <meta name="description" content="Réponds à 9 questions et découvre ton profil d'investisseur, tes forces, tes points de vigilance et tes prochaines étapes. Gratuit, sans email.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Quel investisseur es-tu ? | Julien Invest">
+  <meta property="og:description" content="Le test en 2 minutes pour découvrir ton profil d'investisseur et tes prochaines étapes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/quiz.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Quel investisseur es-tu ? | Julien Invest">
+  <meta name="twitter:description" content="9 questions, ton profil d'investisseur et tes prochaines étapes. Sans email.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="canonical" href="https://julien-invest.github.io/quiz.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <style>
+    .quiz-hero { background: var(--pearl); padding: 130px 0 50px; text-align: center; border-bottom: 1px solid var(--grey-5); }
+    .quiz-wrap { max-width: 640px; margin: 0 auto; padding: 48px 0 80px; }
+    .quiz-progress-track { height: 8px; background: var(--grey-5); border-radius: 100px; overflow: hidden; margin-bottom: 8px; }
+    .quiz-progress-bar { height: 100%; width: 0%; background: var(--gradient-brand); border-radius: 100px; transition: width .3s ease; }
+    .quiz-progress-label { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 26px; }
+    .quiz-question { font-family: var(--font-display); font-style: italic; font-size: clamp(24px, 3.4vw, 34px); color: var(--navy); line-height: 1.2; margin-bottom: 28px; }
+    .quiz-options { display: flex; flex-direction: column; gap: 12px; }
+    .quiz-option { text-align: left; padding: 18px 20px; border: 1.5px solid var(--grey-5); border-radius: var(--radius-md); background: var(--white); color: var(--grey-1); font-size: 16px; line-height: 1.45; cursor: pointer; transition: border-color .18s, background .18s, transform .12s; }
+    .quiz-option:hover { border-color: var(--lavender); background: var(--pearl); transform: translateY(-1px); }
+    .quiz-back { margin-top: 24px; background: none; border: none; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; font-size: 14px; cursor: pointer; }
+    .quiz-back:hover { color: var(--navy); }
+    .quiz-back[hidden] { display: none; }
+    /* résultat */
+    .quiz-result { display: none; }
+    .quiz-result.show { display: block; }
+    .quiz-result-label { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-3); margin-bottom: 10px; }
+    .quiz-result-name { font-family: var(--font-display); font-style: italic; font-size: clamp(30px, 4.4vw, 46px); color: var(--navy); line-height: 1.1; margin-bottom: 16px; }
+    .quiz-result-desc { color: var(--grey-1); line-height: 1.75; font-size: 16px; margin-bottom: 28px; }
+    .quiz-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
+    .quiz-col { border: 1px solid var(--grey-5); border-radius: var(--radius-md); padding: 20px 22px; }
+    .quiz-col h3 { font-family: var(--font-head); font-size: 14px; color: var(--navy); margin-bottom: 10px; }
+    .quiz-col ul { margin: 0; padding-left: 18px; }
+    .quiz-col li { color: var(--grey-1); line-height: 1.6; font-size: 14px; margin-bottom: 6px; }
+    .quiz-steps { background: var(--pearl); border-radius: var(--radius-md); padding: 24px 26px; margin-bottom: 28px; }
+    .quiz-steps h3 { font-family: var(--font-head); font-size: 15px; color: var(--navy); margin-bottom: 12px; }
+    .quiz-steps ol { margin: 0; padding-left: 20px; }
+    .quiz-steps li { color: var(--grey-1); line-height: 1.7; font-size: 15px; margin-bottom: 8px; }
+    .quiz-steps a { color: var(--navy); font-weight: 600; }
+    .quiz-cta { text-align: center; margin-bottom: 26px; }
+    .quiz-restart { display: block; margin: 0 auto; background: none; border: none; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: underline; }
+    .quiz-disclaimer { font-size: 12px; color: var(--grey-3); line-height: 1.6; margin-top: 24px; border-top: 1px solid var(--grey-5); padding-top: 16px; }
+    @media (max-width: 560px) { .quiz-cols { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="quiz-hero">
+    <div class="container">
+      <span class="t-label">Le test</span>
+      <h1>Quel investisseur<br><em class="t-display">es-tu ?</em></h1>
+      <p style="color:var(--grey-2); max-width:520px; margin:14px auto 0;">9 questions, 2 minutes, et tu repars avec ton profil et tes prochaines étapes. Aucune adresse email demandée.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="quiz-wrap">
+      <!-- ZONE QUESTIONS -->
+      <div id="quiz-game">
+        <div class="quiz-progress-track"><div class="quiz-progress-bar" id="quiz-bar"></div></div>
+        <div class="quiz-progress-label" id="quiz-step-label">Question 1 sur 9</div>
+        <div class="quiz-question" id="quiz-question"></div>
+        <div class="quiz-options" id="quiz-options"></div>
+        <button class="quiz-back" id="quiz-back" hidden>← Question précédente</button>
+      </div>
+
+      <!-- ZONE RÉSULTAT -->
+      <div class="quiz-result" id="quiz-result">
+        <span class="quiz-result-label">Ton profil</span>
+        <div class="quiz-result-name" id="res-name"></div>
+        <p class="quiz-result-desc" id="res-desc"></p>
+        <div class="quiz-cols">
+          <div class="quiz-col"><h3>Tes forces</h3><ul id="res-forces"></ul></div>
+          <div class="quiz-col"><h3>Tes points de vigilance</h3><ul id="res-vigilance"></ul></div>
+        </div>
+        <div class="quiz-steps">
+          <h3>Tes 3 prochaines étapes</h3>
+          <ol id="res-steps"></ol>
+        </div>
+        <div class="quiz-cta" id="res-cta"></div>
+        <button class="quiz-restart" id="quiz-restart">Refaire le test</button>
+        <p class="quiz-disclaimer">Ce test est un outil éducatif et ludique. Il ne constitue pas un conseil en investissement personnalisé et ne recommande aucun produit financier. Investir comporte un risque de perte en capital. Aucune donnée n'est collectée ni transmise : tout est calculé dans ton navigateur.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="quiz.html">Quel investisseur es-tu ?</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+          <a href="index.html#lead-magnet">Ebook gratuit</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  (function () {
+    // 9 questions, chaque réponse pointe vers un profil : dormant, prudent, disperse, presse
+    const QUESTIONS = [
+      { q: "Où en est ton épargne aujourd'hui ?", o: [
+        ["Mon argent dort sur des livrets ou un compte courant", "dormant"],
+        ["J'ai mis de côté mais je n'ai jamais osé investir", "prudent"],
+        ["J'investis déjà, un peu partout, sans vraie logique", "disperse"],
+        ["J'investis et je veux structurer et accélérer", "presse"] ] },
+      { q: "Combien peux-tu investir chaque mois ?", o: [
+        ["Moins de 50€, c'est serré en ce moment", "dormant"],
+        ["Entre 50 et 200€", "prudent"],
+        ["Entre 200 et 600€", "disperse"],
+        ["Plus de 600€", "presse"] ] },
+      { q: "Quelle est ton expérience d'investissement ?", o: [
+        ["Aucune, je n'ai jamais investi", "dormant"],
+        ["Très faible, je débute tout juste", "prudent"],
+        ["J'ai déjà plusieurs placements en cours", "disperse"],
+        ["Solide, je veux passer au niveau supérieur", "presse"] ] },
+      { q: "Le marché baisse de 20%. Ta réaction ?", o: [
+        ["Je paniquerais et je vendrais sûrement", "dormant"],
+        ["Je serais stressé sans savoir quoi faire", "prudent"],
+        ["Je regarderais, mais sans plan clair", "disperse"],
+        ["Je resterais calme, c'est prévu dans ma stratégie", "presse"] ] },
+      { q: "Sur quel horizon veux-tu investir ?", o: [
+        ["Je veux surtout que ça reste disponible", "dormant"],
+        ["Quelques années, pour un projet précis", "prudent"],
+        ["Long terme, mais sans cap défini", "disperse"],
+        ["Long terme, avec un objectif chiffré", "presse"] ] },
+      { q: "Combien de temps peux-tu y consacrer par mois ?", o: [
+        ["Aucun, et ça ne me motive pas trop", "dormant"],
+        ["Peu, j'aimerais être guidé pas à pas", "prudent"],
+        ["Pas mal, j'aime gérer mes placements moi-même", "disperse"],
+        ["Très peu, mais je veux un plan clé en main", "presse"] ] },
+      { q: "Quel est ton objectif principal ?", o: [
+        ["Arrêter de perdre du pouvoir d'achat", "dormant"],
+        ["Me lancer enfin, sans me tromper", "prudent"],
+        ["Mettre de l'ordre dans ce que j'ai déjà", "disperse"],
+        ["Viser l'indépendance financière efficacement", "presse"] ] },
+      { q: "Connais-tu les enveloppes fiscales (PEA, assurance vie) ?", o: [
+        ["Non, je ne sais pas ce que c'est", "dormant"],
+        ["J'en ai entendu parler, sans plus", "prudent"],
+        ["J'en ai, sans savoir si c'est optimal", "disperse"],
+        ["Je maîtrise et je veux optimiser la fiscalité", "presse"] ] },
+      { q: "Quel est ton rapport au risque ?", o: [
+        ["Zéro risque, la sécurité avant tout", "dormant"],
+        ["Un peu de risque, mais ça me fait peur", "prudent"],
+        ["J'accepte le risque, mais sans méthode", "disperse"],
+        ["Je gère le risque avec une stratégie définie", "presse"] ] }
+    ];
+
+    const PROFILES = {
+      dormant: {
+        name: "L'Épargnant dormant",
+        desc: "Ton argent dort sur des livrets ou ton compte courant. Tu n'as rien à te reprocher : tu as pris l'habitude de mettre de côté. Le problème, c'est que cette épargne perd discrètement du pouvoir d'achat à cause de l'inflation. Ta priorité n'est pas de prendre des risques, c'est de comprendre le coût réel de l'inaction.",
+        forces: ["Tu sais déjà épargner régulièrement", "Tu as un capital prêt à être mis au travail", "Tu n'as pas de mauvaises habitudes d'investissement à corriger"],
+        vigilance: ["L'inflation grignote ton épargne chaque année", "L'attente te coûte des années d'intérêts composés", "La peur de mal faire peut te paralyser longtemps"],
+        steps: [
+          ['Comprendre le coût de l\'inaction avec le ', 'guides/guide-inflation.html', 'guide sur l\'inflation', '.'],
+          ['Visualiser ce que ton épargne pourrait devenir avec le ', 'calculateur.html#interets-composes', 'simulateur d\'intérêts composés', '.'],
+          ['Découvrir l\'enveloppe de base avec le ', 'guides/guide-pea.html', 'guide du PEA', '.'] ],
+        cta: "formation"
+      },
+      prudent: {
+        name: "Le Débutant prudent",
+        desc: "Tu es motivé pour investir, mais la peur de l'erreur te retient. C'est sain : mieux vaut comprendre avant d'agir. Ce qu'il te manque, ce n'est pas le courage, c'est une méthode claire, pas à pas, qui enlève le doute. Une fois les bases posées, tu avanceras sereinement.",
+        forces: ["Tu es prudent et tu cherches à comprendre", "Tu es prêt à te lancer, il ne manque qu'un cadre", "Tu n'es pas du genre à prendre des risques inconsidérés"],
+        vigilance: ["La peur de l'erreur peut repousser le passage à l'action", "Trop d'informations contradictoires peuvent te bloquer", "Sans méthode, tu risques de tout remettre à plus tard"],
+        steps: [
+          ['Poser les bases avec l\'article ', 'article-debuter-investissement.html', 'comment débuter en bourse', '.'],
+          ['Te projeter avec le ', 'calculateur.html#interets-composes', 'simulateur d\'intérêts composés', '.'],
+          ['Comprendre où loger ton argent avec ', 'article-pea-vs-cto.html', 'PEA ou CTO', '.'] ],
+        cta: "formation"
+      },
+      disperse: {
+        name: "L'Actif dispersé",
+        desc: "Tu investis déjà, et c'est une bonne chose. Mais tu sens que ça part un peu dans tous les sens, sans stratégie cohérente. Ta priorité n'est pas d'en faire plus, c'est de simplifier et de structurer ce que tu as. Avec un cap clair, tes placements deviendront plus efficaces et moins chronophages.",
+        forces: ["Tu es déjà passé à l'action", "Tu n'as pas peur d'investir", "Tu as une base sur laquelle bâtir une vraie stratégie"],
+        vigilance: ["L'éparpillement nuit à la performance et à la lisibilité", "Tu paies peut-être des frais évitables sans le savoir", "Sans cap, tu risques de réagir à l'émotion plutôt qu'à un plan"],
+        steps: [
+          ['Clarifier tes enveloppes avec ', 'article-pea-vs-cto.html', 'PEA ou CTO', '.'],
+          ['Comparer tes fonds et leurs frais avec le ', 'comparateur-etf.html', 'comparateur ETF', '.'],
+          ['Comprendre l\'impact des dividendes avec ', 'article-dividendes-vs-etf.html', 'dividendes ou ETF capitalisant', '.'] ],
+        cta: "formation"
+      },
+      presse: {
+        name: "Le Stratège pressé",
+        desc: "Tu sais où tu vas et tu as les moyens d'avancer vite. Ce qui te manque, ce n'est pas la motivation, c'est le temps. Tu as besoin d'un plan directement applicable, optimisé fiscalement, sans y passer tes soirées. Un accompagnement ciblé peut te faire gagner un temps précieux.",
+        forces: ["Tu as une vision claire et de l'ambition", "Tu as une capacité d'investissement confortable", "Tu es prêt à optimiser, pas seulement à investir"],
+        vigilance: ["Le manque de temps peut conduire à des raccourcis risqués", "Vouloir aller vite peut pousser à négliger la diversification", "Une optimisation mal pensée peut coûter en fiscalité"],
+        steps: [
+          ['Cadrer ton objectif avec l\'article ', 'article-liberte-financiere.html', 'la règle des 4%', '.'],
+          ['Chiffrer ton plan avec le ', 'calculateur.html#liberte-financiere', 'calculateur de liberté financière', '.'],
+          ['Optimiser l\'impôt avec l\'article ', 'article-fiscalite-investissement.html', 'fiscalité 2026', '.'] ],
+        cta: "coaching"
+      }
+    };
+
+    const ORDER = ["dormant", "prudent", "disperse", "presse"];
+
+    const game = document.getElementById('quiz-game');
+    const result = document.getElementById('quiz-result');
+    const bar = document.getElementById('quiz-bar');
+    const stepLabel = document.getElementById('quiz-step-label');
+    const qEl = document.getElementById('quiz-question');
+    const oEl = document.getElementById('quiz-options');
+    const backBtn = document.getElementById('quiz-back');
+
+    let current = 0;
+    const answers = new Array(QUESTIONS.length).fill(null);
+
+    function render() {
+      const item = QUESTIONS[current];
+      bar.style.width = ((current) / QUESTIONS.length * 100) + '%';
+      stepLabel.textContent = 'Question ' + (current + 1) + ' sur ' + QUESTIONS.length;
+      qEl.textContent = item.q;
+      oEl.innerHTML = '';
+      item.o.forEach(function (opt) {
+        const b = document.createElement('button');
+        b.className = 'quiz-option';
+        b.type = 'button';
+        b.textContent = opt[0];
+        if (answers[current] === opt[1]) b.style.borderColor = 'var(--lavender)';
+        b.addEventListener('click', function () { choose(opt[1]); });
+        oEl.appendChild(b);
+      });
+      backBtn.hidden = current === 0;
+    }
+
+    function choose(profile) {
+      answers[current] = profile;
+      if (current < QUESTIONS.length - 1) {
+        current++;
+        render();
+      } else {
+        showResult();
+      }
+    }
+
+    backBtn.addEventListener('click', function () {
+      if (current > 0) { current--; render(); }
+    });
+
+    function computeProfile() {
+      const counts = { dormant: 0, prudent: 0, disperse: 0, presse: 0 };
+      answers.forEach(function (a) { if (a) counts[a]++; });
+      let best = ORDER[0];
+      ORDER.forEach(function (k) { if (counts[k] > counts[best]) best = k; });
+      return best;
+    }
+
+    function showResult() {
+      const key = computeProfile();
+      const p = PROFILES[key];
+      document.getElementById('res-name').textContent = p.name;
+      document.getElementById('res-desc').textContent = p.desc;
+      fillList('res-forces', p.forces);
+      fillList('res-vigilance', p.vigilance);
+      const steps = document.getElementById('res-steps');
+      steps.innerHTML = '';
+      p.steps.forEach(function (s) {
+        const li = document.createElement('li');
+        li.innerHTML = s[0] + '<a href="' + s[1] + '">' + s[2] + '</a>' + s[3];
+        steps.appendChild(li);
+      });
+      const cta = document.getElementById('res-cta');
+      if (p.cta === 'coaching') {
+        cta.innerHTML = '<a href="coaching.html" class="btn btn-gradient btn--lg">Réserver une session de coaching <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+      } else {
+        cta.innerHTML = '<a href="formation.html" class="btn btn-gradient btn--lg">Découvrir la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+      }
+      bar.style.width = '100%';
+      game.style.display = 'none';
+      result.classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function fillList(id, arr) {
+      const ul = document.getElementById(id);
+      ul.innerHTML = '';
+      arr.forEach(function (t) { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+    }
+
+    document.getElementById('quiz-restart').addEventListener('click', function () {
+      current = 0;
+      for (var i = 0; i < answers.length; i++) answers[i] = null;
+      result.classList.remove('show');
+      game.style.display = '';
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    render();
+  })();
+  </script>
+</body>
+</html>
