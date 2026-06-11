@@ -21,6 +21,19 @@ Dates plausibles attribuées automatiquement, réparties sur janvier → juin 20
 | article-bitcoin-2026.html | 28 mai 2026 | 10 juin 2026 |
 | article-5-erreurs-debutants.html | 2 juin 2026 | 10 juin 2026 |
 
+## 1bis. Données du comparateur de courtiers (Phase 9)
+
+Toutes les valeurs chiffrées du comparateur (`parrainage.html`, objet `COURTIERS` dans le script en bas de page) sont **indicatives** et marquées d'un astérisque. À vérifier sur le site de chaque courtier avant publication, puis retirer l'astérisque une fois confirmé.
+
+| Courtier | Frais d'ordre | Droits de garde | ETF | Bonus |
+|---|---|---|---|---|
+| Trade Republic | 1€ par ordre* | 0€* | Large, plans programmés* | Variable selon l'offre* |
+| Fortuneo | Variable selon l'offre* | 0€* | Sélection large* | Jusqu'à 140€ offerts* |
+| BoursoBank | Variable selon l'offre* | 0€* | Sélection large* | Jusqu'à 150€ offerts* |
+| DEGIRO | Frais réduits, variable* | Variable selon l'offre* | Catalogue très large* | Variable selon l'offre* |
+| XTB | 0€ sous conditions* | 0€* | Sélection large* | Variable selon l'offre* |
+| Bourse Direct | Variable selon l'offre* | 0€* | Sélection large* | Variable selon l'offre* |
+
 ## 2. IDs de vidéos YouTube à remplacer
 
 - `index.html` : constante `PRESENTATION_VIDEO_ID = "VIDEO_ID"` (section Présentation). Tant que l'ID n'est pas renseigné, la façade affiche « Vidéo bientôt disponible » avec lien vers la chaîne.

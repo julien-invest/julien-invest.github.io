@@ -476,6 +476,42 @@
       .parr-filters-bar { top: 56px; }
       .section-group + .section-group { margin-top: 40px; }
     }
+
+    /* ═══ COMPARATEUR DE COURTIERS ═══ */
+    .courtier-section { background: var(--pearl); padding: 64px 0; border-top: 1px solid var(--grey-5); }
+    .courtier-head { text-align: center; max-width: 640px; margin: 0 auto 28px; }
+    .courtier-head h2 { font-family: var(--font-display); font-style: italic; font-size: clamp(28px,3.4vw,40px); color: var(--navy); margin-bottom: 10px; }
+    .courtier-head p { color: var(--grey-2); font-size: 15px; }
+    .courtier-filters { display: flex; gap: 7px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
+    .courtier-filter-btn { padding: 8px 16px; border-radius: 100px; font-family: var(--font-head); font-size: 13px; font-weight: 600; border: 1.5px solid var(--grey-5); background: var(--white); color: var(--grey-2); cursor: pointer; transition: all .18s; }
+    .courtier-filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .courtier-filter-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .courtier-table-wrap { overflow-x: auto; background: var(--white); border: 1px solid var(--grey-5); border-radius: var(--radius-lg); }
+    .courtier-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 820px; }
+    .courtier-table th { background: var(--navy); color: #fff; padding: 12px 14px; text-align: left; font-family: var(--font-head); font-size: 12px; white-space: nowrap; }
+    .courtier-table th.sortable { cursor: pointer; user-select: none; }
+    .courtier-table th.sortable:hover { color: var(--mint); }
+    .courtier-table th .sort-arrow { opacity: 0.5; font-size: 10px; }
+    .courtier-table td { padding: 13px 14px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); vertical-align: middle; }
+    .courtier-table tr:last-child td { border-bottom: none; }
+    .courtier-name { font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+    .env-badges { display: flex; gap: 4px; flex-wrap: wrap; }
+    .env-badge { font-size: 10px; font-weight: 700; font-family: var(--font-head); padding: 2px 7px; border-radius: 100px; background: rgba(26,26,78,0.08); color: var(--navy); }
+    .courtier-cta { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 100px; background: var(--gradient-brand); color: var(--navy); font-family: var(--font-head); font-weight: 700; font-size: 12px; text-decoration: none; white-space: nowrap; }
+    .courtier-code-row { display: inline-flex; align-items: center; gap: 6px; }
+    .courtier-code { font-family: monospace; font-size: 12px; background: var(--pearl); border: 1px solid var(--grey-5); border-radius: 6px; padding: 3px 8px; }
+    .courtier-disclaimer { max-width: 760px; margin: 22px auto 0; font-size: 12px; color: var(--grey-3); line-height: 1.6; text-align: center; }
+    @media (max-width: 768px) {
+      .courtier-table-wrap { overflow: visible; border: none; background: transparent; }
+      .courtier-table { min-width: 0; }
+      .courtier-table thead { display: none; }
+      .courtier-table, .courtier-table tbody, .courtier-table tr, .courtier-table td { display: block; width: 100%; }
+      .courtier-table tr { background: var(--white); border: 1px solid var(--grey-5); border-radius: var(--radius-md); margin-bottom: 14px; padding: 6px 0; }
+      .courtier-table td { border-bottom: 1px solid var(--grey-5); display: flex; justify-content: space-between; gap: 14px; text-align: right; }
+      .courtier-table td::before { content: attr(data-label); font-family: var(--font-head); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-3); text-align: left; }
+      .courtier-table td:last-child { border-bottom: none; }
+      .env-badges { justify-content: flex-end; }
+    }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/parrainage.html">
   <script type="application/ld+json">
@@ -1414,6 +1450,38 @@
     </div>
   </section>
 
+  <!-- ═══ COMPARATEUR DE COURTIERS ═══ -->
+  <section class="courtier-section" id="comparateur-courtiers">
+    <div class="container">
+      <div class="courtier-head">
+        <span class="t-label">Comparateur</span>
+        <h2>Comparateur de courtiers</h2>
+        <p>Les principaux courtiers que je recommande, comparés sur l'essentiel. Filtre par enveloppe, trie les colonnes, et profite des bonus via Julien Invest.</p>
+      </div>
+      <div class="courtier-filters" id="courtier-filters"></div>
+      <div class="courtier-table-wrap">
+        <table class="courtier-table" id="courtier-table">
+          <thead>
+            <tr>
+              <th class="sortable" data-sort="name">Courtier <span class="sort-arrow">↕</span></th>
+              <th>Enveloppes</th>
+              <th>Frais d'ordre</th>
+              <th>Droits de garde</th>
+              <th>ETF disponibles</th>
+              <th>Bonus via Julien Invest</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="courtier-tbody"></tbody>
+        </table>
+      </div>
+      <p class="courtier-disclaimer">
+        <strong>*</strong> Données indicatives à la date de mise à jour, vérifie les conditions sur le site du courtier. Mis à jour le 11 juin 2026.<br>
+        Comparatif informatif et éducatif. Il ne constitue pas un conseil en investissement. Les liens sont des liens affiliés : tu reçois un bonus, je touche une commission, sans surcoût pour toi.
+      </p>
+    </div>
+  </section>
+
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer">
     <div class="container">
@@ -1507,6 +1575,80 @@
     const fb = img.nextElementSibling;
     if (fb) fb.style.display = 'flex';
   }
+  </script>
+
+  <!-- ═══ COMPARATEUR DE COURTIERS (données indicatives, à vérifier) ═══ -->
+  <script>
+  (function () {
+    // Toutes les valeurs chiffrées sont indicatives et marquées d'un astérisque (voir A-VERIFIER.md).
+    const COURTIERS = [
+      { name: "Trade Republic", env: ["PEA","CTO","Crypto"], ordre: "1€ par ordre*", garde: "0€*", etf: "Large sélection, plans programmés*", bonus: "Variable selon l'offre*", link: "https://refnocode.trade.re/p1txpjf1", code: "p1txpjf1" },
+      { name: "Fortuneo", env: ["PEA","CTO","AV"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Jusqu'à 140€ offerts*", link: null, code: "13385764" },
+      { name: "BoursoBank", env: ["PEA","CTO","AV"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Jusqu'à 150€ offerts*", link: null, code: "DIDE0356" },
+      { name: "DEGIRO", env: ["CTO"], ordre: "Frais réduits, variable*", garde: "Variable selon l'offre*", etf: "Catalogue très large*", bonus: "Variable selon l'offre*", link: "https://www.degiro.fr/parrainage/commencez-a-investir?id=E88272C4", code: "E88272C4" },
+      { name: "XTB", env: ["CTO","Crypto"], ordre: "0€ sous conditions*", garde: "0€*", etf: "Sélection large*", bonus: "Variable selon l'offre*", link: null, code: "JULIEN" },
+      { name: "Bourse Direct", env: ["PEA","CTO"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Variable selon l'offre*", link: null, code: "2025934141" }
+    ];
+    const FILTERS = [
+      { id: "all", label: "Tous" },
+      { id: "PEA", label: "PEA" },
+      { id: "CTO", label: "CTO" },
+      { id: "AV", label: "Assurance vie" },
+      { id: "Crypto", label: "Crypto" }
+    ];
+    let activeFilter = "all";
+    let sortAsc = true;
+
+    const filtersEl = document.getElementById('courtier-filters');
+    const tbody = document.getElementById('courtier-tbody');
+    if (!filtersEl || !tbody) return;
+
+    filtersEl.innerHTML = FILTERS.map(function (f) {
+      return '<button class="courtier-filter-btn' + (f.id === 'all' ? ' active' : '') + '" data-filter="' + f.id + '">' + f.label + '</button>';
+    }).join('');
+    filtersEl.querySelectorAll('.courtier-filter-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        activeFilter = btn.dataset.filter;
+        filtersEl.querySelectorAll('.courtier-filter-btn').forEach(function (b) { b.classList.toggle('active', b === btn); });
+        render();
+      });
+    });
+
+    document.querySelectorAll('.courtier-table th.sortable').forEach(function (th) {
+      th.addEventListener('click', function () { sortAsc = !sortAsc; render(); });
+    });
+
+    function actionCell(c) {
+      if (c.link) {
+        return '<a href="' + c.link + '" target="_blank" rel="sponsored noopener" class="courtier-cta">Profiter →</a>';
+      }
+      if (c.code) {
+        return '<span class="courtier-code-row"><span class="courtier-code">' + c.code + '</span><button class="p-copy-btn" onclick="copyCode(\'' + c.code.replace(/'/g, "\\'") + '\', this)">Copier</button></span>';
+      }
+      return '';
+    }
+
+    function render() {
+      let list = COURTIERS.filter(function (c) { return activeFilter === 'all' || c.env.indexOf(activeFilter) !== -1; });
+      list.sort(function (a, b) { return sortAsc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name); });
+      if (list.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--grey-3);">Aucun courtier pour cette enveloppe.</td></tr>';
+        return;
+      }
+      tbody.innerHTML = list.map(function (c) {
+        return '<tr>' +
+          '<td data-label="Courtier"><span class="courtier-name">' + c.name + '</span></td>' +
+          '<td data-label="Enveloppes"><span class="env-badges">' + c.env.map(function (e) { return '<span class="env-badge">' + e + '</span>'; }).join('') + '</span></td>' +
+          '<td data-label="Frais d\'ordre">' + c.ordre + '</td>' +
+          '<td data-label="Droits de garde">' + c.garde + '</td>' +
+          '<td data-label="ETF disponibles">' + c.etf + '</td>' +
+          '<td data-label="Bonus">' + c.bonus + '</td>' +
+          '<td data-label="Action">' + actionCell(c) + '</td>' +
+        '</tr>';
+      }).join('');
+    }
+    render();
+  })();
   </script>
 </body>
 </html>
