@@ -2447,3 +2447,51 @@ a:hover > .platform-logo {
   .nav-links .nav-link { font-size: 13px; }
   .nav-cta .btn { font-size: 12px; padding: 8px 14px; }
 }
+
+/* ── UTILITAIRE : masquer (cartes témoignages en attente de vrais retours) ── */
+.is-hidden { display: none !important; }
+
+/* ── PREUVE SOCIALE RÉELLE (en attendant de vrais témoignages vérifiables) ── */
+.real-proof {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--pearl);
+  border: 1px solid var(--grey-5);
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+}
+.real-proof-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px 48px;
+  margin-bottom: 24px;
+}
+.real-proof-stat { display: flex; flex-direction: column; gap: 4px; }
+.real-proof-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(30px, 4vw, 42px);
+  color: var(--navy);
+  line-height: 1;
+}
+.real-proof-lbl {
+  font-family: var(--font-head);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-2);
+}
+.real-proof-text {
+  color: var(--grey-1);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 auto 24px;
+  max-width: 540px;
+}
+@media (max-width: 560px) {
+  .real-proof { padding: 32px 20px; }
+  .real-proof-stats { gap: 22px 32px; }
+}
