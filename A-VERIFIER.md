@@ -4,6 +4,15 @@ Ce fichier liste toutes les données chiffrées, dates et éléments à contrôl
 
 ---
 
+## 0. Données ETF (Phase 12) — PRIORITÉ MAXIMALE
+
+Fichier : `data/etf.json` (37 ETF). **Vérifier chaque ligne contre le DIC (document d'informations clés) de l'émetteur avant publication**, puis passer `verifie` à `true` ligne par ligne.
+
+- `isin`, `encours`, `perf_5_ans_annualisee` sont à `null` partout (rien n'a été inventé). À renseigner après vérification.
+- `ter` reprend des ordres de grandeur publics connus, à confirmer.
+- `eligible_pea`, `replication`, `politique`, `region`, `devise` : à confirmer aussi (notamment l'éligibilité PEA de certains S&P 500 et MSCI World).
+- Tant que `verifie` est `false`, un point « en cours de vérification » s'affiche dans le comparateur. Voir le commentaire dans `comparateur-etf.html` pour retirer cet affichage une fois validé.
+
 ## 1. Dates de publication des articles (Phase 4)
 
 Dates plausibles attribuées automatiquement, réparties sur janvier → juin 2026. À ajuster selon les vraies dates de publication. Elles apparaissent à deux endroits par article : la ligne visible sous le titre et le bloc JSON-LD (`datePublished` / `dateModified`).

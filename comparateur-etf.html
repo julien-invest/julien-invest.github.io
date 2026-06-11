@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur d'ETF : frais, PEA, réplication | Julien Invest</title>
+  <meta name="description" content="Compare les ETF les plus utilisés par les investisseurs passifs français : frais (TER), éligibilité PEA, réplication, et impact des frais en mode duel.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Comparateur d'ETF | Julien Invest">
+  <meta property="og:description" content="Filtre, trie et compare les ETF : frais, PEA, réplication, et simule l'impact des frais sur ton capital.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/comparateur-etf.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comparateur d'ETF | Julien Invest">
+  <meta name="twitter:description" content="Compare les ETF des investisseurs passifs français et simule l'impact des frais.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="canonical" href="https://julien-invest.github.io/comparateur-etf.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": ["https://www.tiktok.com/@julien_invest_","https://www.instagram.com/julien_invest","https://www.youtube.com/@jueth7215","https://www.linkedin.com/in/julien-denis-849541251/"],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <style>
+    .etf-hero { background: var(--pearl); padding: 130px 0 40px; text-align: center; border-bottom: 1px solid var(--grey-5); }
+    .etf-disc-banner { background: rgba(240,192,64,0.12); border-bottom: 1px solid rgba(240,192,64,0.4); }
+    .etf-disc-banner .container { padding: 12px 24px; font-size: 13px; color: #6b4e0c; line-height: 1.5; }
+    .etf-main { padding: 36px 0 70px; background: var(--white); }
+    .etf-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; align-items: end; background: var(--off-white); border: 1px solid var(--grey-5); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 22px; }
+    .etf-filter label { display: block; font-size: 12px; font-family: var(--font-head); font-weight: 600; color: var(--grey-2); margin-bottom: 6px; }
+    .etf-filter select { width: 100%; padding: 9px 10px; border: 1.5px solid var(--grey-5); border-radius: var(--radius-md); background: var(--white); font-size: 14px; color: var(--navy); }
+    .etf-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--grey-1); cursor: pointer; }
+    .etf-ter-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 13px; }
+    .etf-table-wrap { overflow-x: auto; border: 1px solid var(--grey-5); border-radius: var(--radius-lg); }
+    .etf-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 760px; }
+    .etf-table th { background: var(--navy); color: #fff; padding: 11px 12px; text-align: left; font-family: var(--font-head); font-size: 12px; white-space: nowrap; }
+    .etf-table th.sortable { cursor: pointer; user-select: none; }
+    .etf-table th.sortable:hover { color: var(--mint); }
+    .etf-table td { padding: 11px 12px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); vertical-align: middle; }
+    .etf-name { font-family: var(--font-head); font-weight: 700; color: var(--navy); display: inline-flex; align-items: center; gap: 6px; }
+    .verif-dot { width: 7px; height: 7px; border-radius: 50%; background: #F0C040; flex-shrink: 0; }
+    .etf-badge { font-size: 10px; font-weight: 700; font-family: var(--font-head); padding: 2px 7px; border-radius: 100px; }
+    .etf-badge.pea { background: rgba(160,231,197,0.3); color: #0D6B42; }
+    .etf-badge.nopea { background: var(--grey-5); color: var(--grey-3); }
+    .etf-count { font-size: 13px; color: var(--grey-3); margin: 14px 0; }
+    .etf-cb { width: 16px; height: 16px; cursor: pointer; }
+    /* Duel */
+    .etf-duel { background: var(--navy); color: #fff; border-radius: var(--radius-lg); padding: 28px; margin-bottom: 28px; display: none; }
+    .etf-duel.show { display: block; }
+    .etf-duel h2 { color: #fff; font-family: var(--font-display); font-style: italic; font-size: 28px; margin-bottom: 18px; }
+    .etf-duel-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+    .etf-duel-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-md); padding: 18px; }
+    .etf-duel-card h3 { font-family: var(--font-head); font-size: 15px; color: #fff; margin-bottom: 10px; }
+    .etf-duel-row { display: flex; justify-content: space-between; font-size: 13px; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .etf-duel-row span:first-child { color: rgba(255,255,255,0.55); }
+    .etf-duel-row span:last-child { color: #fff; font-weight: 600; }
+    .etf-sim { background: rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 20px; }
+    .etf-sim-inputs { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; }
+    .etf-sim-field { flex: 1; min-width: 150px; }
+    .etf-sim-field label { display: block; font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+    .etf-sim-field .v { font-family: var(--font-head); font-weight: 700; color: var(--mint); }
+    .etf-sim-result { text-align: center; margin: 10px 0; }
+    .etf-sim-ecart-label { font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.08em; font-family: var(--font-head); }
+    .etf-sim-ecart { font-family: var(--font-head); font-weight: 800; font-size: 38px; color: var(--mint); letter-spacing: -0.02em; }
+    .etf-sim-chart { height: 160px; margin-top: 12px; }
+    .etf-duel-hint { color: var(--grey-3); font-size: 13px; margin-bottom: 22px; }
+    @media (max-width: 640px) {
+      .etf-duel-cols { grid-template-columns: 1fr; }
+      .etf-table-wrap { overflow: visible; border: none; }
+      .etf-table { min-width: 0; }
+      .etf-table thead { display: none; }
+      .etf-table, .etf-table tbody, .etf-table tr, .etf-table td { display: block; width: 100%; }
+      .etf-table tr { background: var(--white); border: 1px solid var(--grey-5); border-radius: var(--radius-md); margin-bottom: 12px; padding: 6px 0; }
+      .etf-table td { display: flex; justify-content: space-between; gap: 12px; text-align: right; border-bottom: 1px solid var(--grey-5); }
+      .etf-table td::before { content: attr(data-label); font-family: var(--font-head); font-weight: 700; font-size: 11px; text-transform: uppercase; color: var(--grey-3); text-align: left; }
+      .etf-table td:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="etf-hero">
+    <div class="container">
+      <span class="t-label">Comparateur</span>
+      <h1>Compare les <em class="t-display">ETF</em></h1>
+      <p style="color:var(--grey-2); max-width:600px; margin:14px auto 0;">Les ETF les plus utilisés par les investisseurs passifs français. Filtre par enveloppe, frais et région, puis compare deux fonds côte à côte.</p>
+    </div>
+  </section>
+
+  <div class="etf-disc-banner">
+    <div class="container">
+      Données indicatives fournies à titre éducatif, mises à jour le 12 juin 2026. Vérifie le document d'informations clés (DIC) de chaque ETF avant toute décision. Ceci n'est pas un conseil en investissement. Investir comporte un risque de perte en capital.
+    </div>
+  </div>
+
+  <section class="etf-main">
+    <div class="container">
+      <div class="etf-filters">
+        <div class="etf-filter">
+          <label>Éligibilité</label>
+          <label class="etf-toggle"><input type="checkbox" id="f-pea"> Éligible PEA uniquement</label>
+        </div>
+        <div class="etf-filter">
+          <label>TER maximum : <span class="etf-ter-val" id="f-ter-val">0,60 %</span></label>
+          <input type="range" id="f-ter" min="0.05" max="0.60" step="0.01" value="0.60" class="sim-slider">
+        </div>
+        <div class="etf-filter">
+          <label>Région</label>
+          <select id="f-region">
+            <option value="all">Toutes</option>
+            <option value="monde">Monde</option>
+            <option value="usa">États Unis</option>
+            <option value="europe">Europe</option>
+            <option value="emergents">Émergents</option>
+            <option value="sectoriel">Sectoriel</option>
+          </select>
+        </div>
+        <div class="etf-filter">
+          <label>Réplication</label>
+          <select id="f-replication">
+            <option value="all">Toutes</option>
+            <option value="physique">Physique</option>
+            <option value="synthetique">Synthétique</option>
+          </select>
+        </div>
+        <div class="etf-filter">
+          <label>Distribution</label>
+          <select id="f-politique">
+            <option value="all">Toutes</option>
+            <option value="capitalisant">Capitalisant</option>
+            <option value="distribuant">Distribuant</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- DUEL -->
+      <div class="etf-duel" id="etf-duel">
+        <h2>Duel : impact des frais</h2>
+        <div class="etf-duel-cols" id="etf-duel-cols"></div>
+        <div class="etf-sim">
+          <div class="etf-sim-inputs">
+            <div class="etf-sim-field">
+              <label>Versement mensuel : <span class="v" id="sim-v-val">300 €</span></label>
+              <input type="range" id="sim-versement" min="50" max="2000" step="50" value="300" class="sim-slider">
+            </div>
+            <div class="etf-sim-field">
+              <label>Durée : <span class="v" id="sim-d-val">20 ans</span></label>
+              <input type="range" id="sim-duree" min="5" max="40" step="1" value="20" class="sim-slider">
+            </div>
+          </div>
+          <div class="etf-sim-result">
+            <div class="etf-sim-ecart-label">Écart de capital final dû aux frais</div>
+            <div class="etf-sim-ecart" id="sim-ecart">—</div>
+            <div id="sim-detail" style="font-size:13px;color:rgba(255,255,255,0.6);"></div>
+          </div>
+          <div class="etf-sim-chart"><canvas id="sim-chart"></canvas></div>
+          <p style="font-size:12px;color:rgba(255,255,255,0.5);margin-top:12px;line-height:1.5;">Hypothèse : rendement brut de 7% par an, identique pour les deux ETF, dont on déduit le TER de chacun. Les écarts de performance réels peuvent différer. Simulation indicative, pas un conseil.</p>
+        </div>
+      </div>
+
+      <p class="etf-duel-hint">Coche deux ETF pour les comparer côte à côte et simuler l'impact de leurs frais. <span style="white-space:nowrap;"><span class="verif-dot" style="display:inline-block;vertical-align:middle;"></span> = donnée en cours de vérification.</span></p>
+      <div class="etf-count" id="etf-count"></div>
+      <div class="etf-table-wrap">
+        <table class="etf-table" id="etf-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="sortable" data-sort="nom">ETF ↕</th>
+              <th>Émetteur</th>
+              <th>Indice</th>
+              <th class="sortable" data-sort="ter">TER ↕</th>
+              <th>PEA</th>
+              <th>Réplication</th>
+              <th>Distribution</th>
+              <th>Région</th>
+            </tr>
+          </thead>
+          <tbody id="etf-tbody"></tbody>
+        </table>
+      </div>
+
+      <div style="text-align:center; margin:40px 0 10px;">
+        <a href="formation.html" class="btn btn-gradient btn--lg">Apprends à choisir et automatiser tes ETF
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="comparateur-etf.html">Comparateur ETF</a>
+          <a href="diagnostic.html">Diagnostic patrimoine</a>
+          <a href="quiz.html">Quel investisseur es-tu ?</a>
+          <a href="index.html#lead-magnet">Ebook gratuit</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      let ALL = [], simChart = null, sortKey = 'nom', sortAsc = true;
+      const selected = [];
+      const tbody = document.getElementById('etf-tbody');
+
+      fetch('data/etf.json').then(function (r) { return r.json(); }).then(function (d) {
+        ALL = d.etfs;
+        render();
+      }).catch(function () {
+        tbody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:var(--grey-3);padding:24px;">Impossible de charger les données ETF.</td></tr>';
+      });
+
+      function regionLabel(r) { return { monde: 'Monde', usa: 'États Unis', europe: 'Europe', emergents: 'Émergents', sectoriel: 'Sectoriel' }[r] || r; }
+      function repLabel(r) { return r === 'physique' ? 'Physique' : 'Synthétique'; }
+      function polLabel(p) { return p === 'capitalisant' ? 'Capitalisant' : 'Distribuant'; }
+      function terStr(t) { return t == null ? 'n.c.*' : t.toFixed(2).replace('.', ',') + ' %'; }
+
+      function filtered() {
+        const pea = document.getElementById('f-pea').checked;
+        const terMax = parseFloat(document.getElementById('f-ter').value);
+        const region = document.getElementById('f-region').value;
+        const rep = document.getElementById('f-replication').value;
+        const pol = document.getElementById('f-politique').value;
+        let list = ALL.filter(function (e) {
+          if (pea && !e.eligible_pea) return false;
+          if (e.ter != null && e.ter > terMax) return false;
+          if (region !== 'all' && e.region !== region) return false;
+          if (rep !== 'all' && e.replication !== rep) return false;
+          if (pol !== 'all' && e.politique !== pol) return false;
+          return true;
+        });
+        list.sort(function (a, b) {
+          let va = a[sortKey], vb = b[sortKey];
+          // nulls toujours en dernier
+          if (va == null && vb == null) return 0;
+          if (va == null) return 1;
+          if (vb == null) return -1;
+          if (typeof va === 'string') { return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va); }
+          return sortAsc ? va - vb : vb - va;
+        });
+        return list;
+      }
+
+      function render() {
+        const list = filtered();
+        document.getElementById('etf-count').textContent = list.length + ' ETF affichés sur ' + ALL.length;
+        tbody.innerHTML = list.map(function (e) {
+          // Tant que verifie est false, on affiche un point « en cours de vérification ».
+          // Pour retirer cet affichage une fois les données validées : supprimer la variable dot
+          // ci-dessous (ou la conditionner à !e.verifie restera sans effet une fois verifie=true).
+          const dot = e.verifie ? '' : '<span class="verif-dot" title="Donnée en cours de vérification"></span>';
+          const isChecked = selected.indexOf(e.nom) !== -1 ? 'checked' : '';
+          return '<tr>' +
+            '<td data-label=""><input type="checkbox" class="etf-cb" data-nom="' + e.nom.replace(/"/g, '&quot;') + '" ' + isChecked + '></td>' +
+            '<td data-label="ETF"><span class="etf-name">' + dot + e.nom + '</span></td>' +
+            '<td data-label="Émetteur">' + e.emetteur + '</td>' +
+            '<td data-label="Indice">' + e.indice + '</td>' +
+            '<td data-label="TER">' + terStr(e.ter) + '</td>' +
+            '<td data-label="PEA"><span class="etf-badge ' + (e.eligible_pea ? 'pea">Oui' : 'nopea">Non') + '</span></td>' +
+            '<td data-label="Réplication">' + repLabel(e.replication) + '</td>' +
+            '<td data-label="Distribution">' + polLabel(e.politique) + '</td>' +
+            '<td data-label="Région">' + regionLabel(e.region) + '</td>' +
+          '</tr>';
+        }).join('');
+        tbody.querySelectorAll('.etf-cb').forEach(function (cb) {
+          cb.addEventListener('change', function () { toggleSelect(cb.dataset.nom, cb.checked); });
+        });
+      }
+
+      function toggleSelect(nom, on) {
+        const i = selected.indexOf(nom);
+        if (on) {
+          if (i === -1) selected.push(nom);
+          while (selected.length > 2) { selected.shift(); }
+        } else if (i !== -1) { selected.splice(i, 1); }
+        // re-sync checkboxes
+        tbody.querySelectorAll('.etf-cb').forEach(function (cb) { cb.checked = selected.indexOf(cb.dataset.nom) !== -1; });
+        renderDuel();
+      }
+
+      function find(nom) { return ALL.find(function (e) { return e.nom === nom; }); }
+
+      function renderDuel() {
+        const duel = document.getElementById('etf-duel');
+        if (selected.length !== 2) { duel.classList.remove('show'); return; }
+        const a = find(selected[0]), b = find(selected[1]);
+        duel.classList.add('show');
+        document.getElementById('etf-duel-cols').innerHTML = [a, b].map(function (e) {
+          return '<div class="etf-duel-card"><h3>' + e.nom + '</h3>' +
+            row('Émetteur', e.emetteur) + row('Indice', e.indice) + row('TER', terStr(e.ter)) +
+            row('PEA', e.eligible_pea ? 'Oui' : 'Non') + row('Réplication', repLabel(e.replication)) +
+            row('Distribution', polLabel(e.politique)) + row('Région', regionLabel(e.region)) + '</div>';
+        }).join('');
+        simulate();
+        duel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      function row(k, v) { return '<div class="etf-duel-row"><span>' + k + '</span><span>' + v + '</span></div>'; }
+
+      function eur(n) { return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n)); }
+
+      function simulate() {
+        if (selected.length !== 2) return;
+        const a = find(selected[0]), b = find(selected[1]);
+        const v = parseFloat(document.getElementById('sim-versement').value);
+        const dur = parseInt(document.getElementById('sim-duree').value);
+        document.getElementById('sim-v-val').textContent = eur(v);
+        document.getElementById('sim-d-val').textContent = dur + (dur > 1 ? ' ans' : ' an');
+        const n = dur * 12;
+        function fv(ter) {
+          const annual = 0.07 - (ter == null ? 0 : ter / 100);
+          const r = annual / 12;
+          return r > 0 ? v * ((Math.pow(1 + r, n) - 1) / r) : v * n;
+        }
+        const fa = fv(a.ter), fb = fv(b.ter);
+        const ecart = Math.abs(fa - fb);
+        const cheaper = (a.ter == null ? 0 : a.ter) <= (b.ter == null ? 0 : b.ter) ? a : b;
+        document.getElementById('sim-ecart').textContent = eur(ecart);
+        document.getElementById('sim-detail').textContent = (a.ter == null || b.ter == null)
+          ? 'TER manquant sur un des deux ETF : écart indicatif.'
+          : 'Sur ' + dur + ' ans, l\'ETF aux frais les plus bas (' + cheaper.nom + ') laisse ' + eur(ecart) + ' de plus dans ta poche.';
+        renderSimChart([a.nom, b.nom], [Math.round(fa), Math.round(fb)]);
+      }
+
+      function renderSimChart(labels, values) {
+        const canvas = document.getElementById('sim-chart');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (simChart) { simChart.data.labels = labels; simChart.data.datasets[0].data = values; simChart.update('active'); return; }
+        function create() {
+          simChart = new Chart(ctx, {
+            type: 'bar',
+            data: { labels: labels, datasets: [{ data: values, backgroundColor: ['rgba(160,231,197,0.9)', 'rgba(200,180,232,0.9)'], borderRadius: 6 }] },
+            options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+              plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (i) { return ' ' + eur(i.raw); } } } },
+              scales: { x: { ticks: { color: 'rgba(255,255,255,0.6)', callback: function (v) { return v >= 1000 ? Math.round(v / 1000) + 'k€' : v; } }, grid: { color: 'rgba(255,255,255,0.1)' } }, y: { ticks: { color: 'rgba(255,255,255,0.8)', font: { size: 11 } }, grid: { display: false } } } }
+          });
+        }
+        if (typeof Chart !== 'undefined') { create(); } else { const s = document.createElement('script'); s.src = 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js'; s.onload = create; document.head.appendChild(s); }
+      }
+
+      // listeners filtres
+      ['f-pea', 'f-region', 'f-replication', 'f-politique'].forEach(function (id) { document.getElementById(id).addEventListener('change', render); });
+      document.getElementById('f-ter').addEventListener('input', function () {
+        document.getElementById('f-ter-val').textContent = parseFloat(this.value).toFixed(2).replace('.', ',') + ' %';
+        render();
+      });
+      document.querySelectorAll('.etf-table th.sortable').forEach(function (th) {
+        th.addEventListener('click', function () { const k = th.dataset.sort; if (sortKey === k) sortAsc = !sortAsc; else { sortKey = k; sortAsc = true; } render(); });
+      });
+      document.getElementById('sim-versement').addEventListener('input', simulate);
+      document.getElementById('sim-duree').addEventListener('input', simulate);
+    });
+  </script>
+</body>
+</html>
