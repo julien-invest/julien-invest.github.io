@@ -43,6 +43,11 @@ Toutes les valeurs chiffrées du comparateur (`parrainage.html`, objet `COURTIER
 | XTB | 0€ sous conditions* | 0€* | Sélection large* | Variable selon l'offre* |
 | Bourse Direct | Variable selon l'offre* | 0€* | Sélection large* | Variable selon l'offre* |
 
+## 1ter. Liens affiliés et codes parrainage manquants
+
+- `parrainage.html` : certaines plateformes n'ont qu'un code parrainage (pas de lien direct) et une carte (Louve Invest) fonctionne par contact direct (DM Instagram / email) faute de lien d'affiliation. Vérifier et compléter les liens affiliés manquants si disponibles. Aucun lien ni montant de bonus n'a été inventé.
+- Comparateur de courtiers : mêmes liens/codes que les cartes (Trade Republic, DEGIRO ont un lien ; Fortuneo, BoursoBank, XTB, Bourse Direct un code). À confirmer.
+
 ## 2. IDs de vidéos YouTube à remplacer
 
 - `index.html` : constante `PRESENTATION_VIDEO_ID = "VIDEO_ID"` (section Présentation). Tant que l'ID n'est pas renseigné, la façade affiche « Vidéo bientôt disponible » avec lien vers la chaîne.
