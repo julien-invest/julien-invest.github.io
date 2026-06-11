@@ -2451,6 +2451,16 @@ a:hover > .platform-logo {
 /* ── UTILITAIRE : masquer (cartes témoignages en attente de vrais retours) ── */
 .is-hidden { display: none !important; }
 
+/* ── DATE DE PUBLICATION (articles) ── */
+.article-meta-date {
+  margin-top: 14px;
+  font-family: var(--font-head);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.6);
+}
+
 /* ── VIDÉO YOUTUBE (façade lazy, chargée au clic) ── */
 .video-facade {
   position: relative;
