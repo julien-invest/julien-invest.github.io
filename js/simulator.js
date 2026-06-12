@@ -215,7 +215,7 @@ function initFireCalculator() {
     const capitalNow  = parseFloat(document.getElementById('fire-capital-now')?.value || 0);
     const rente       = parseFloat(document.getElementById('fire-rente')?.value || 2000);
     const rate        = parseFloat(document.getElementById('fire-rate')?.value || 7) / 100;
-    const tax         = parseFloat(document.getElementById('fire-tax')?.value || 18.6) / 100;
+    const tax         = parseFloat(document.getElementById('fire-tax')?.value || 17.2) / 100;
     const setTxt  = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
     const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
     const yearsLeft   = Math.max(0, ageTarget - ageNow);
