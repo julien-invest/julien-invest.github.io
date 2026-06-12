@@ -1683,6 +1683,16 @@ a:hover > .platform-logo {
 .light-form .form-group select:focus,
 .light-form .form-group textarea:focus { border-color: var(--lavender); }
 .light-form .form-group textarea { resize: vertical; min-height: 120px; }
+.light-form .form-group label {
+  display: block;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--grey-2);
+  margin-bottom: 7px;
+}
+.light-form .form-group input::placeholder,
+.light-form .form-group textarea::placeholder { color: var(--grey-3); }
 .light-form .form-submit {
   width: 100%;
   padding: 16px;

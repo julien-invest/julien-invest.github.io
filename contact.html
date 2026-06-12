@@ -206,14 +206,17 @@
           <p>Toutes les demandes sont les bienvenues, je réponds à tout le monde.</p>
           <form class="light-form" id="contact-form" action="https://formspree.io/f/mvznqwpd" method="POST">
             <div class="form-group">
-              <input type="text" name="name" placeholder="Ton prénom et nom" required autocomplete="name">
+              <label for="contact-name">Prénom et nom</label>
+              <input type="text" id="contact-name" name="name" placeholder="Ex : Julien Denis" required autocomplete="name">
             </div>
             <div class="form-group">
-              <input type="email" name="email" placeholder="Ton adresse email" required autocomplete="email">
+              <label for="contact-email">Adresse email</label>
+              <input type="email" id="contact-email" name="email" placeholder="Ex : prenom@email.com" required autocomplete="email">
             </div>
             <div class="form-group">
-              <select name="subject" required>
-                <option value="" disabled selected>Objet de ta demande</option>
+              <label for="contact-subject">Objet de ta demande</label>
+              <select id="contact-subject" name="subject" required>
+                <option value="" disabled selected>Choisis un objet</option>
                 <option value="formation">Question sur la formation</option>
                 <option value="coaching">Demande de coaching</option>
                 <option value="remboursement">Demande de remboursement</option>
@@ -223,7 +226,8 @@
               </select>
             </div>
             <div class="form-group">
-              <textarea name="message" placeholder="Ton message… Décris ta situation ou ta question en quelques lignes." required></textarea>
+              <label for="contact-message">Ton message</label>
+              <textarea id="contact-message" name="message" placeholder="Décris ta situation ou ta question en quelques lignes." required></textarea>
             </div>
             <button type="submit" class="form-submit">
               Envoyer mon message

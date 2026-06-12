@@ -1469,19 +1469,17 @@
     <div class="container">
       <div class="courtier-head">
         <span class="t-label">Comparateur</span>
-        <h2>Comparateur de courtiers</h2>
-        <p>Les principaux courtiers que je recommande, comparés sur l'essentiel. Filtre par enveloppe, trie les colonnes, et profite des bonus via Julien Invest.</p>
+        <h2>Comparateur des plateformes</h2>
+        <p>Toutes les plateformes que je recommande, réunies au même endroit. Filtre par catégorie, trie les colonnes, et profite des bonus via Julien Invest.</p>
       </div>
       <div class="courtier-filters" id="courtier-filters"></div>
       <div class="courtier-table-wrap">
         <table class="courtier-table" id="courtier-table">
           <thead>
             <tr>
-              <th class="sortable" data-sort="name">Courtier <span class="sort-arrow">↕</span></th>
-              <th>Enveloppes</th>
-              <th>Frais d'ordre</th>
-              <th>Droits de garde</th>
-              <th>ETF disponibles</th>
+              <th class="sortable" data-sort="name">Plateforme <span class="sort-arrow">↕</span></th>
+              <th>Catégorie</th>
+              <th>Points forts</th>
               <th>Bonus via Julien Invest</th>
               <th>Action</th>
             </tr>
@@ -1596,19 +1594,47 @@
   (function () {
     // Toutes les valeurs chiffrées sont indicatives et marquées d'un astérisque (voir A-VERIFIER.md).
     const COURTIERS = [
-      { name: "Trade Republic", env: ["PEA","CTO","Crypto"], ordre: "1€ par ordre*", garde: "0€*", etf: "Large sélection, plans programmés*", bonus: "Variable selon l'offre*", link: "https://refnocode.trade.re/p1txpjf1", code: "p1txpjf1" },
-      { name: "Fortuneo", env: ["PEA","CTO","AV"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Jusqu'à 140€ offerts*", link: null, code: "13385764" },
-      { name: "BoursoBank", env: ["PEA","CTO","AV"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Jusqu'à 150€ offerts*", link: null, code: "DIDE0356" },
-      { name: "DEGIRO", env: ["CTO"], ordre: "Frais réduits, variable*", garde: "Variable selon l'offre*", etf: "Catalogue très large*", bonus: "Variable selon l'offre*", link: "https://www.degiro.fr/parrainage/commencez-a-investir?id=E88272C4", code: "E88272C4" },
-      { name: "XTB", env: ["CTO","Crypto"], ordre: "0€ sous conditions*", garde: "0€*", etf: "Sélection large*", bonus: "Variable selon l'offre*", link: null, code: "JULIEN" },
-      { name: "Bourse Direct", env: ["PEA","CTO"], ordre: "Variable selon l'offre*", garde: "0€*", etf: "Sélection large*", bonus: "Variable selon l'offre*", link: null, code: "2025934141" }
+      { name: "BoursoBank", cats: ["Bourse", "Banque"], atouts: "Banque en ligne leader en France. PEA, CTO, assurance-vie, compte courant, tout centralisé.", bonus: "Jusqu'à 150€ offerts", code: "DIDE0356", link: null },
+      { name: "Fortuneo", cats: ["Bourse", "Banque"], atouts: "Banque en ligne avec le meilleur rapport qualité/prix pour un PEA. 1 ordre/mois gratuit sous 500€.", bonus: "Jusqu'à 140€ offerts", code: "13385764", link: null },
+      { name: "DEGIRO", cats: ["Bourse"], atouts: "L'un des courtiers les plus réputés d'Europe. Frais parmi les plus bas du marché pour un CTO.", bonus: "50€ offerts", code: "E88272C4", link: "https://www.degiro.fr/parrainage/commencez-a-investir?id=E88272C4" },
+      { name: "Trade Republic", cats: ["Bourse", "Banque"], atouts: "Néo-courtier allemand. PEA dès 1€, ETF sans frais de courtage, 4% sur les liquidités.", bonus: null, code: "p1txpjf1", link: "https://refnocode.trade.re/p1txpjf1" },
+      { name: "XTB", cats: ["Bourse", "Crypto"], atouts: "Courtier régulé avec accès actions, ETF, forex et crypto. Partenaire officiel Julien Invest.", bonus: null, code: "JULIEN", link: null },
+      { name: "Bourse Direct", cats: ["Bourse"], atouts: "Courtier bourse français historique. PEA, CTO, compte-titres, parmi les tarifs les plus bas du marché pour les investisseurs actifs.", bonus: null, code: "2025934141", link: null },
+      { name: "Revolut", cats: ["Bourse", "Banque", "Crypto"], atouts: "Néobanque multidevises. Achat de fractions d'actions, ETF, crypto, tout dans une app.", bonus: null, code: "julien4uj7", link: "https://revolut.com/referral/?referral-code=julien4uj7!NOV2-24-VR-FR" },
+      { name: "Wise", cats: ["Banque"], atouts: "Transferts internationaux au taux réel sans frais cachés. Indispensable pour investir à l'étranger.", bonus: null, code: "julienpierred7", link: "https://wise.com/invite/dic/julienpierred7" },
+      { name: "Amex Gold", cats: ["Banque"], atouts: "Carte premium avec points Membership Rewards, accès lounges et assurances voyage incluses.", bonus: null, code: null, link: "https://americanexpress.com/fr-fr/referral/gold?ref=jULIEDb6rZ" },
+      { name: "Deblock", cats: ["Crypto", "Banque"], atouts: "Néobanque française avec compte en euros ET portefeuille crypto intégré. Régulée AMF.", bonus: null, code: "a-tgk938", link: "https://deblock.com/a-tgk938" },
+      { name: "Linxea", cats: ["Assurance-vie"], atouts: "Courtier en assurance-vie en ligne avec parmi les meilleures conditions du marché. Frais réduits, large choix d'UC.", bonus: null, code: null, link: "https://linxea.mention-me.com/m/ol/at1uw-51d98a2d96" },
+      { name: "Louve Invest", cats: ["Assurance-vie", "Immobilier"], atouts: "Plateforme de SCPI en ligne : investis dans l'immobilier professionnel dès 1€ via une assurance-vie ou en direct. Large choix de SCPI, frais réduits.", bonus: "25€ offerts à l'ouverture", code: null, link: null },
+      { name: "SwissBorg", cats: ["Crypto"], atouts: "Application crypto suisse avec rendement automatisé et analyse de marché intégrée.", bonus: "Entre 1$ et 100$ offerts pour tout dépôt de 50$ min", code: "julienOI6QETY8", link: "https://swissborg.com/fr/r/julienOI6QETY8" },
+      { name: "Binance", cats: ["Crypto"], atouts: "Le plus grand exchange crypto au monde par volume. Accès à des milliers d'actifs numériques.", bonus: "Réduction sur les frais de trading", code: "105787577", link: "https://accounts.binance.com/register?ref=105787577" },
+      { name: "Bybit", cats: ["Crypto"], atouts: "Exchange crypto avec interface avancée, produits dérivés et staking.", bonus: "Bonus de bienvenue à l'inscription", code: "81XNMM", link: "https://www.bybit.com/invite?ref=81XNMM" },
+      { name: "Crypto.com", cats: ["Crypto", "Banque"], atouts: "Exchange crypto + carte Visa avec cashback en crypto sur tous tes achats.", bonus: "Bonus à l'inscription", code: "xssmncg6es", link: "https://crypto.com/app/xssmncg6es" },
+      { name: "MEXC", cats: ["Crypto"], atouts: "Exchange crypto avec accès à des altcoins émergents et faibles frais de trading.", bonus: null, code: "1PTii", link: "https://www.mexc.com/register?inviteCode=1PTii" },
+      { name: "KuCoin", cats: ["Crypto"], atouts: "Exchange crypto international avec un large catalogue d'altcoins et staking intégré.", bonus: null, code: "QBSWC75S", link: "https://www.kucoin.com/r/rf/QBSWC75S" },
+      { name: "Gate.io", cats: ["Crypto"], atouts: "Exchange crypto avec accès à des milliers de tokens et produits financiers dérivés.", bonus: null, code: "BlcWVg1Z", link: "https://www.gate.io/signup/BlcWVg1Z?ref_type=103" },
+      { name: "BingX", cats: ["Crypto"], atouts: "Exchange crypto avec copy trading intégré, copie les stratégies des meilleurs traders.", bonus: null, code: "ZCQZQN", link: "https://bingx.com/invite/ZCQZQN" },
+      { name: "Coinbase", cats: ["Crypto"], atouts: "L'exchange crypto américain coté en bourse. Interface simple, idéale pour débuter.", bonus: null, code: "H5PGLAG", link: "https://coinbase.com/join/H5PGLAG?src=ios-link" },
+      { name: "Bitget", cats: ["Crypto"], atouts: "Exchange crypto avec copy trading et produits dérivés avancés.", bonus: null, code: "ECPX9LDP", link: null },
+      { name: "XExchange", cats: ["Crypto"], atouts: "DEX natif de la blockchain MultiversX. Trading décentralisé sans intermédiaire.", bonus: null, code: "cg2uvvmndb", link: "https://xport.al/referral/cg2uvvmndb" },
+      { name: "Bitstack", cats: ["Crypto"], atouts: "Application française d'épargne Bitcoin automatisée. Arrondi sur tes dépenses, DCA programmé, carte Stackback 1% cashback en BTC. Régulée MiCA/AMF.", bonus: "5€ en Bitcoin offerts pour 100€ achetés", code: null, link: "https://bitstack-app.com/referral/3EG9qndDfCXndOzO5kyY6cbjL5c" },
+      { name: "Meria", cats: ["Crypto"], atouts: "Plateforme crypto française. Achat, vente et staking simplifiés. Interface mobile optimisée.", bonus: null, code: "Julien", link: "https://meria.onelink.me/ktU9?af_xp=referral&pid=invite_friend_mobile&c=Affiliation&deep_link_value=Julien" },
+      { name: "Ledger", cats: ["Sécurité"], atouts: "Le hardware wallet le plus vendu au monde. Sécurise tes cryptos hors ligne, hors des exchanges.", bonus: null, code: "ENQHTST4E3RNM", link: "https://shop.ledger.com/fr/pages/referral-program?referral_code=ENQHTST4E3RNM" },
+      { name: "Trezor", cats: ["Sécurité"], atouts: "L'alternative open-source à Ledger. Firmware 100% auditable, référence mondiale de la sécurité crypto.", bonus: null, code: null, link: "http://trezorio.refr.cc/default/u/juliendenis" },
+      { name: "Tokimo", cats: ["Immobilier"], atouts: "Crowdfunding immobilier français. Investis dans des projets sélectionnés dès 100€. Rendement cible ~11,5%/an. Agréé PSFP AMF.", bonus: "1% supplémentaire sur ton 1er investissement", code: "KAO1LEQT5C", link: null },
+      { name: "La Première Brique", cats: ["Immobilier"], atouts: "Investissement immobilier fractionné. Accède à des projets immobiliers dès 1€.", bonus: null, code: "RLAHUZ", link: "https://app.lapremierebrique.fr/fr/users/sign_up/RLAHUZ" },
+      { name: "Bricks", cats: ["Immobilier"], atouts: "Immobilier tokenisé. Perçois des revenus locatifs proportionnels à ta participation.", bonus: null, code: "JULDEN95", link: "https://app.bricks.co/sign-up/JULDEN95" },
+      { name: "Fundora", cats: ["Private Equity"], atouts: "Démocratise le private equity. Accède aux meilleurs fonds mondiaux (VC, LBO, secondaire) dès 100€. Géré par Kyoseil AM, agréé AMF.", bonus: "10% de réduction sur les frais de ton 1er investissement", code: "6JBC38", link: "https://invest.fundora.fr/opportunities?ref=6JBC38" }
     ];
     const FILTERS = [
       { id: "all", label: "Tous" },
-      { id: "PEA", label: "PEA" },
-      { id: "CTO", label: "CTO" },
-      { id: "AV", label: "Assurance vie" },
-      { id: "Crypto", label: "Crypto" }
+      { id: "Bourse", label: "Bourse" },
+      { id: "Banque", label: "Banque" },
+      { id: "Crypto", label: "Crypto" },
+      { id: "Assurance-vie", label: "Assurance-vie" },
+      { id: "Immobilier", label: "Immobilier" },
+      { id: "Sécurité", label: "Sécurité" },
+      { id: "Private Equity", label: "Private Equity" }
     ];
     let activeFilter = "all";
     let sortAsc = true;
@@ -1639,24 +1665,23 @@
       if (c.code) {
         return '<span class="courtier-code-row"><span class="courtier-code">' + c.code + '</span><button class="p-copy-btn" onclick="copyCode(\'' + c.code.replace(/'/g, "\\'") + '\', this)">Copier</button></span>';
       }
-      return '';
+      // Pas de lien ni de code (ex. Louve Invest) : le lien de parrainage s'obtient en me contactant.
+      return '<a href="contact.html" class="courtier-cta">Me contacter →</a>';
     }
 
     function render() {
-      let list = COURTIERS.filter(function (c) { return activeFilter === 'all' || c.env.indexOf(activeFilter) !== -1; });
+      let list = COURTIERS.filter(function (c) { return activeFilter === 'all' || c.cats.indexOf(activeFilter) !== -1; });
       list.sort(function (a, b) { return sortAsc ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name); });
       if (list.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--grey-3);">Aucun courtier pour cette enveloppe.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--grey-3);">Aucune plateforme dans cette catégorie.</td></tr>';
         return;
       }
       tbody.innerHTML = list.map(function (c) {
         return '<tr>' +
-          '<td data-label="Courtier"><span class="courtier-name">' + c.name + '</span></td>' +
-          '<td data-label="Enveloppes"><span class="env-badges">' + c.env.map(function (e) { return '<span class="env-badge">' + e + '</span>'; }).join('') + '</span></td>' +
-          '<td data-label="Frais d\'ordre">' + c.ordre + '</td>' +
-          '<td data-label="Droits de garde">' + c.garde + '</td>' +
-          '<td data-label="ETF disponibles">' + c.etf + '</td>' +
-          '<td data-label="Bonus">' + c.bonus + '</td>' +
+          '<td data-label="Plateforme"><span class="courtier-name">' + c.name + '</span></td>' +
+          '<td data-label="Catégorie"><span class="env-badges">' + c.cats.map(function (e) { return '<span class="env-badge">' + e + '</span>'; }).join('') + '</span></td>' +
+          '<td data-label="Points forts">' + c.atouts + '</td>' +
+          '<td data-label="Bonus">' + (c.bonus ? c.bonus : '—') + '</td>' +
           '<td data-label="Action">' + actionCell(c) + '</td>' +
         '</tr>';
       }).join('');
