@@ -2386,6 +2386,11 @@ a:hover > .platform-logo {
   margin-bottom: 2px;
 }
 .nav-dropdown-text-sub { font-size: 12px; color: var(--grey-2); line-height: 1.4; }
+.nav-dropdown-sep {
+  height: 1px;
+  background: rgba(26,61,124,0.08);
+  margin: 4px 12px;
+}
 .nav-link-arrow {
   display: inline-block;
   font-size: 10px;
@@ -2804,4 +2809,31 @@ a:hover > .platform-logo {
 @media (max-width: 560px) {
   .real-proof { padding: 32px 20px; }
   .real-proof-stats { gap: 22px 32px; }
+}
+
+/* ═══════════════════════════════════════════
+     STICKY MOBILE CONVERSION BAR
+═══════════════════════════════════════════ */
+.mobile-sticky-cta { display: none; }
+@media (max-width: 768px) {
+  .mobile-sticky-cta {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: var(--gradient-dark);
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    box-shadow: 0 -4px 20px rgba(15, 37, 88, 0.18);
+  }
+  .mobile-sticky-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  body { padding-bottom: 70px; }
+}
+@media (min-width: 769px) {
+  .mobile-sticky-cta { display: none; }
 }
