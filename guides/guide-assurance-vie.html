@@ -520,9 +520,10 @@
         <p>Si tu avais retiré avant 8 ans avec la flat tax à 30% : 3 000 × 30% = 900€ d'impôt. La différence est nette.</p>
 
         <div class="guide-simulator" id="simulateur-rachat">
-          <div class="guide-simulator-inner">
-            <h3 style="margin-top:0;">Simulateur : impôt sur un rachat partiel</h3>
-            <div class="simulator-inputs">
+          <h3 style="margin-top:0;">Simulateur : impôt sur un rachat partiel</h3>
+          <div class="guide-simulator-inner" style="grid-template-columns: 300px 1fr;">
+            <div class="guide-sim-inputs">
+              <div class="sim-col-title">Tes paramètres</div>
               <div class="sim-field">
                 <div class="sim-field-header">
                   <span class="sim-field-label">Valeur totale de l'AV</span>
@@ -550,50 +551,56 @@
               <div class="sim-field">
                 <div class="sim-field-header">
                   <span class="sim-field-label">Ancienneté du contrat</span>
-                  <span class="sim-field-val" id="av-anciennete-val">Après 8 ans</span>
                 </div>
-                <input type="range" class="sim-slider" id="av-anciennete" min="0" max="1" step="1" value="1">
-                <div class="sim-field-range"><span>Avant 8 ans</span><span>Après 8 ans</span></div>
+                <div class="sim-toggle" role="group" aria-label="Ancienneté du contrat">
+                  <button type="button" class="sim-toggle-opt" data-anciennete="0">Avant 8 ans</button>
+                  <button type="button" class="sim-toggle-opt active" data-anciennete="1">Après 8 ans</button>
+                </div>
+                <input type="hidden" id="av-anciennete" value="1">
               </div>
               <div class="sim-field">
                 <div class="sim-field-header">
                   <span class="sim-field-label">Situation familiale</span>
-                  <span class="sim-field-val" id="av-situation-val">Célibataire</span>
                 </div>
-                <input type="range" class="sim-slider" id="av-situation" min="0" max="1" step="1" value="0">
-                <div class="sim-field-range"><span>Célibataire</span><span>Couple</span></div>
+                <div class="sim-toggle" role="group" aria-label="Situation familiale">
+                  <button type="button" class="sim-toggle-opt active" data-situation="0">Célibataire</button>
+                  <button type="button" class="sim-toggle-opt" data-situation="1">Couple</button>
+                </div>
+                <input type="hidden" id="av-situation" value="0">
               </div>
             </div>
             <div class="guide-sim-results">
+              <div class="sim-col-title">Résultats</div>
               <div class="sim-result-main">
                 <span class="sim-result-label">Montant net reçu</span>
                 <span class="sim-result-val" id="av-net">9 484 €</span>
               </div>
               <div class="sim-result-breakdown">
                 <div class="sim-result-item">
-                  <span>Gains dans le retrait</span>
-                  <span id="av-gains-retrait">3 000 €</span>
+                  <span class="sim-result-item-label">Gains dans le retrait</span>
+                  <span class="sim-result-item-val" id="av-gains-retrait">3 000 €</span>
                 </div>
                 <div class="sim-result-item">
-                  <span>Abattement utilisé</span>
-                  <span id="av-abattement">3 000 €</span>
+                  <span class="sim-result-item-label">Abattement utilisé</span>
+                  <span class="sim-result-item-val" id="av-abattement">3 000 €</span>
                 </div>
                 <div class="sim-result-item">
-                  <span>Impôt sur le revenu (IR)</span>
-                  <span id="av-ir">0 €</span>
+                  <span class="sim-result-item-label">Impôt sur le revenu (IR)</span>
+                  <span class="sim-result-item-val" id="av-ir">0 €</span>
                 </div>
                 <div class="sim-result-item">
-                  <span>Prélèvements sociaux (17,2%)</span>
-                  <span id="av-ps">516 €</span>
+                  <span class="sim-result-item-label">Prélèvements sociaux (17,2%)</span>
+                  <span class="sim-result-item-val" id="av-ps">516 €</span>
                 </div>
                 <div class="sim-result-item">
-                  <span>Total d'impôt</span>
-                  <span id="av-total-impot">516 €</span>
+                  <span class="sim-result-item-label">Total d'impôt</span>
+                  <span class="sim-result-item-val" id="av-total-impot">516 €</span>
                 </div>
               </div>
               <p class="sim-disclaimer">Simulation indicative. Ne constitue pas un conseil fiscal personnalisé. Consultez un conseiller pour votre situation.</p>
             </div>
           </div>
+          <p style="font-size:12px; color:var(--grey-3); line-height:1.6; margin:16px 0 0; padding-top:14px; border-top:1px solid var(--grey-5);">Tous les calculs respectent la fiscalité 2026. Avant/après 8 ans : régime d'imposition différent. Couple : abattement doublé (9 200 €) pour les versements avant 70 ans. Simulation indicative, pas un conseil fiscal.</p>
         </div>
 
         <script>
@@ -615,9 +622,6 @@
             document.getElementById('av-total-val').textContent = fmt(total);
             document.getElementById('av-verses-val').textContent = fmt(verses);
             document.getElementById('av-retrait-val').textContent = fmt(retrait);
-            document.getElementById('av-anciennete-val').textContent = apres8 ? 'Après 8 ans' : 'Avant 8 ans';
-            document.getElementById('av-situation-val').textContent = couple ? 'Couple' : 'Célibataire';
-
             var plusvalues = Math.max(0, total - verses);
             var ratioGains = plusvalues / total;
             var gainsRetrait = retrait * ratioGains;
@@ -647,8 +651,24 @@
             document.getElementById('av-net').textContent = fmt(net);
           }
 
-          ['av-total','av-verses','av-retrait','av-anciennete','av-situation'].forEach(function(id) {
+          ['av-total','av-verses','av-retrait'].forEach(function(id) {
             document.getElementById(id).addEventListener('input', calcRachat);
+          });
+          document.querySelectorAll('[data-anciennete]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              document.querySelectorAll('[data-anciennete]').forEach(function(b) { b.classList.remove('active'); });
+              btn.classList.add('active');
+              document.getElementById('av-anciennete').value = btn.getAttribute('data-anciennete');
+              calcRachat();
+            });
+          });
+          document.querySelectorAll('[data-situation]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              document.querySelectorAll('[data-situation]').forEach(function(b) { b.classList.remove('active'); });
+              btn.classList.add('active');
+              document.getElementById('av-situation').value = btn.getAttribute('data-situation');
+              calcRachat();
+            });
           });
           calcRachat();
         })();
