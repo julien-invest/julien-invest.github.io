@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprendre les ETF en 5 minutes | Guide Complet | Julien Invest</title>
-  <meta name="description" content="Qu'est-ce qu'un ETF ? Comment ça marche, comment en choisir un et où les acheter. Le guide complet pour investir en ETF dès aujourd'hui.">
+  <title>Comprendre les ETF en 18 minutes | Guide Complet | Julien Invest</title>
+  <meta name="description" content="Qu'est-ce qu'un ETF ? Réplication, frais, fiscalité, fournisseurs, simulateur et FAQ. Le guide complet pour investir en ETF dès aujourd'hui.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <meta property="og:title" content="Comprendre les ETF : Guide Complet | Julien Invest">
@@ -33,7 +33,7 @@
 </head>
 <body>
 
-  <nav class="nav" id="nav">
+  <nav class="nav nav--dark" id="nav">
     <div class="container">
       <div class="nav-inner">
         <a href="../index.html" class="nav-logo">
@@ -66,6 +66,11 @@
               <a href="../comparateur-etf.html" class="nav-dropdown-item">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
                 <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="../ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
               </a>
             </div>
           </li>
@@ -111,10 +116,10 @@
       <div class="guide-page-hero-inner">
         <div class="guide-page-meta">
           <span class="guide-page-tag"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Guide ETF</span>
-          <span class="guide-page-readtime">⏱ ~5 min de lecture</span>
+          <span class="guide-page-readtime">⏱ ~18 min de lecture</span>
         </div>
         <h1>Comprendre les ETF : le guide <em>complet</em></h1>
-        <p>Un ETF te permet d'acheter des centaines d'actions en un seul clic, pour moins de 20€. Voici tout ce qu'il faut savoir pour commencer.</p>
+        <p>Un ETF te permet d'acheter des centaines d'actions en un seul clic, pour moins de 20€. Frais, réplication, fiscalité, fournisseurs, performance historique : voici tout ce qu'il faut savoir pour commencer et optimiser.</p>
       </div>
     </div>
   </section>
@@ -127,19 +132,21 @@
       <article class="guide-article reveal">
 
         <h2 id="definition">Qu'est-ce qu'un ETF exactement ?</h2>
-        <p>Un <strong>ETF (Exchange Traded Fund)</strong> est un fonds qui réplique automatiquement un indice boursier, par exemple le S&P 500 (500 plus grandes entreprises américaines) ou le MSCI World (1 500 entreprises dans 23 pays).</p>
-        <p>L'analogie simple : au lieu d'acheter chaque fruit séparément au marché, tu achètes un panier déjà composé. Tu obtiens instantanément de la diversification sans avoir à choisir chaque action.</p>
+        <p>Un <strong>ETF (Exchange Traded Fund)</strong>, ou <em>tracker</em> en français, est un fonds d'investissement qui réplique automatiquement la performance d'un indice boursier. Par exemple le <strong>S&P 500</strong> (500 plus grandes entreprises américaines), le <strong>MSCI World</strong> (environ 1 500 entreprises dans 23 pays développés) ou le <strong>CAC 40</strong> (40 leaders français).</p>
+        <p>L'analogie simple : au lieu d'acheter chaque fruit séparément au marché, tu achètes un panier déjà composé. Tu obtiens instantanément de la diversification sans avoir à choisir chaque action. Et ce panier se rééquilibre tout seul : si une entreprise quitte l'indice, elle sort automatiquement du fonds, sans que tu aies à faire quoi que ce soit.</p>
         <ul>
-          <li><strong>ETF vs action individuelle</strong> : une action = une entreprise (risque concentré). Un ETF = des centaines d'entreprises (risque dilué).</li>
-          <li><strong>ETF vs fonds géré activement</strong> : un fonds actif est piloté par des gérants qui tentent de "battre le marché". Un ETF suit bêtement l'indice, et c'est là sa force.</li>
-          <li><strong>Cotation en bourse</strong> : l'ETF s'achète et se vend en temps réel comme une action, sur ton compte PEA ou CTO.</li>
+          <li><strong>ETF vs action individuelle</strong> : une action = une entreprise (risque concentré). Un ETF = des centaines d'entreprises (risque dilué). Si Apple fait faillite, tu perds 4% dans un ETF MSCI World, pas 100%.</li>
+          <li><strong>ETF vs fonds géré activement</strong> : un fonds actif est piloté par des gérants qui tentent de "battre le marché". Un ETF suit bêtement l'indice, sans décision humaine — et c'est précisément là sa force.</li>
+          <li><strong>Cotation en bourse</strong> : l'ETF s'achète et se vend en temps réel comme une action, sur ton PEA, CTO ou assurance-vie, pendant les heures d'ouverture des marchés.</li>
+          <li><strong>Prix d'entrée très bas</strong> : une part d'ETF MSCI World coûte entre 15€ et 500€ selon l'ETF choisi. Tu peux commencer avec 50€.</li>
         </ul>
         <div class="guide-callout">
-          <p><strong>À retenir :</strong> En achetant 1 ETF MSCI World, tu possèdes des parts dans ~1 500 entreprises de 23 pays. Apple, LVMH, Toyota, Samsung : tout ça en un seul achat.</p>
+          <p><strong>À retenir :</strong> En achetant 1 ETF MSCI World, tu possèdes des parts dans environ 1 500 entreprises de 23 pays. Apple, LVMH, Toyota, Samsung, Nestlé, ASML : tout ça en un seul achat, pour quelques dizaines d'euros, avec des frais inférieurs à 0,20%/an.</p>
         </div>
+        <p>Concrètement, voici ce qui se passe quand tu achètes un ETF : le gestionnaire du fonds (Amundi, iShares, Vanguard…) collecte l'argent de tous les investisseurs et achète les actions constituant l'indice dans les mêmes proportions. Quand tu vends ta part, tu récupères ta quote-part de la valeur totale du fonds, appelée VL (valeur liquidative) ou NAV en anglais.</p>
 
         <h2 id="frais">ETF vs fonds actifs : les chiffres qui font mal</h2>
-        <p>La différence fondamentale entre un ETF et un fonds géré activement tient en un mot : les <strong>frais</strong>.</p>
+        <p>La différence fondamentale entre un ETF et un fonds géré activement tient en un mot : les <strong>frais</strong>. Et sur 20 ou 30 ans, ces frais font une différence colossale sur ton patrimoine final.</p>
         <table class="guide-table">
           <thead>
             <tr>
@@ -151,27 +158,37 @@
           <tbody>
             <tr>
               <td>Frais annuels (TER)</td>
-              <td class="positive">0,07%, 0,30%</td>
-              <td class="negative">1,2%, 2,5%</td>
+              <td class="positive">0,07% à 0,30%</td>
+              <td class="negative">1,2% à 2,5%</td>
             </tr>
             <tr>
               <td>Performance sur 20 ans</td>
-              <td class="positive">Suit l'indice</td>
+              <td class="positive">Suit l'indice fidèlement</td>
               <td class="negative">94% sous-performent l'indice</td>
             </tr>
             <tr>
               <td>Transparence</td>
-              <td class="positive">Composition publique</td>
-              <td>Variable</td>
+              <td class="positive">Composition publique, mise à jour quotidienne</td>
+              <td>Variable, souvent opaque</td>
             </tr>
             <tr>
               <td>Accessibilité</td>
-              <td class="positive">Dès 1 action (~20€)</td>
+              <td class="positive">Dès 1 part (~15-500€)</td>
               <td>Souvent 1 000€ minimum</td>
+            </tr>
+            <tr>
+              <td>Frais d'entrée</td>
+              <td class="positive">0% (frais de courtage uniquement)</td>
+              <td class="negative">Jusqu'à 3-5% à la souscription</td>
+            </tr>
+            <tr>
+              <td>Gestion requise</td>
+              <td class="positive">Aucune : automatique</td>
+              <td>Surveillance régulière nécessaire</td>
             </tr>
           </tbody>
         </table>
-        <p>Le <strong>TER (Total Expense Ratio)</strong> est le coût annuel du fonds, prélevé automatiquement sur la performance. 1,5% de frais en plus chaque année, ça peut sembler peu, mais sur 20 ans, c'est des milliers d'euros perdus.</p>
+        <p>Le <strong>TER (Total Expense Ratio)</strong> est le coût annuel du fonds, prélevé automatiquement sur la performance. Tu ne vois jamais ce prélèvement sur ton relevé — il est directement déduit de la valeur de la part. 1,5% de frais en plus chaque année peut sembler anecdotique, mais sur 20 ans avec 10 000€ investis à 7%/an, la différence dépasse 8 000€ perdus en frais.</p>
 
         <div class="guide-visual">
           <svg viewBox="0 0 520 280" xmlns="http://www.w3.org/2000/svg" aria-label="Impact des frais sur 20 ans">
@@ -220,64 +237,626 @@
           <figcaption>10 000€ investis à 7%/an brut sur 20 ans. Différence due aux seuls frais : 8 000€.</figcaption>
         </div>
 
-        <h2 id="types">Les types d'ETF à connaître</h2>
-        <ul>
-          <li><strong>ETF Monde (MSCI World, FTSE All-World)</strong> : ~1 500 entreprises, 23 pays développés. Le meilleur point de départ pour 95% des investisseurs.</li>
-          <li><strong>ETF S&P 500</strong> : les 500 plus grandes entreprises américaines. Plus concentré géographiquement, mais excellente performance historique.</li>
-          <li><strong>ETF Marchés émergents</strong> : Chine, Inde, Brésil, Afrique du Sud. Potentiel de croissance élevé, mais plus de volatilité.</li>
-          <li><strong>ETF Obligataires</strong> : obligations d'États ou d'entreprises. Plus défensif, pour sécuriser une partie du portefeuille.</li>
-          <li><strong>ETF Sectoriels (tech, santé, énergie)</strong> : plus risqués car concentrés. À utiliser en complément d'un ETF monde, pas à la place.</li>
-        </ul>
+        <p>Et encore, ce graphique ne prend pas en compte les <strong>frais d'entrée</strong> des fonds actifs (jusqu'à 3-5%) ni les éventuelles commissions de performance. La plupart des fonds actifs facturent également des frais sur les arbitrages internes, invisibles pour l'investisseur final.</p>
+        <p>La recherche académique est sans appel : sur 20 ans, <strong>94% des fonds actifs en Europe sous-performent leur indice de référence</strong> après frais. Le problème n'est pas que les gérants soient incompétents — certains sont brillants. Le problème, c'est que les frais sont si élevés qu'ils annulent l'essentiel de la surperformance générée.</p>
 
-        <h2 id="choisir">Comment choisir un ETF : 4 critères simples</h2>
-        <ol>
-          <li><strong>TER (frais annuels) &lt; 0,30%</strong> : vise un ETF avec moins de 0,30% de frais par an. Les grands ETF monde sont souvent à 0,07-0,20%.</li>
-          <li><strong>Encours &gt; 500M€</strong> : plus le fonds est grand, plus il est liquide et stable. Un petit ETF peut fermer.</li>
-          <li><strong>Réplication physique de préférence</strong> : l'ETF détient vraiment les actions. La réplication synthétique (via des contrats) fonctionne aussi, mais c'est plus complexe pour débuter.</li>
-          <li><strong>Éligibilité PEA</strong> : crucial pour profiter de l'avantage fiscal français. Vérifie ce critère avant tout achat.</li>
-        </ol>
-        <p>Pour filtrer les ETF selon ces critères (frais, éligibilité PEA, réplication) et comparer deux fonds côte à côte, utilise le <a href="../comparateur-etf.html">comparateur ETF</a>.</p>
+        <h2 id="replications">Réplication physique vs synthétique</h2>
+        <p>Quand tu achètes un ETF, il doit répliquer son indice d'une façon ou d'une autre. Il existe deux grandes méthodes, et comprendre la différence est crucial, notamment pour l'éligibilité PEA.</p>
         <table class="guide-table">
           <thead>
-            <tr><th>ETF</th><th>Indice répliqué</th><th>ISIN</th><th>TER</th><th>PEA</th></tr>
+            <tr>
+              <th>Critère</th>
+              <th>Réplication physique</th>
+              <th>Réplication synthétique</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Comment ça marche</td>
+              <td>Le fonds achète vraiment les actions de l'indice (totalement ou par échantillonnage)</td>
+              <td>Le fonds utilise un contrat swap avec une banque qui s'engage à livrer la performance de l'indice</td>
+            </tr>
+            <tr>
+              <td>Risque contrepartie</td>
+              <td class="positive">Très faible (tu possèdes des vrais actifs)</td>
+              <td class="negative">Limité à 10% par la réglementation UCITS, mais existant</td>
+            </tr>
+            <tr>
+              <td>Éligibilité PEA</td>
+              <td class="negative">Impossible pour les indices non-européens (ex : MSCI World, S&P 500)</td>
+              <td class="positive">Oui, même pour des indices mondiaux (grâce au swap)</td>
+            </tr>
+            <tr>
+              <td>Tracking error</td>
+              <td>Légèrement supérieure (coûts de transaction)</td>
+              <td class="positive">Souvent plus précise (swap garanti)</td>
+            </tr>
+            <tr>
+              <td>Exemples</td>
+              <td>iShares Core MSCI World (CTO/AV), Vanguard FTSE All-World</td>
+              <td>Amundi PEA S&P 500, Lyxor PEA Monde (MSCI World)</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="guide-callout">
+          <p><strong>Pourquoi c'est important pour le PEA :</strong> Le PEA ne peut normalement contenir que des actions européennes. Les ETF synthétiques contournent cette règle : le fonds détient des actions européennes en collatéral, mais via un contrat swap, il te délivre la performance du S&P 500 ou du MSCI World. Résultat : tu profites de la diversification mondiale ET de l'avantage fiscal du PEA. C'est parfaitement légal et très utilisé en France.</p>
+        </div>
+        <p>Le risque de contrepartie d'un ETF synthétique est encadré par la réglementation européenne UCITS : l'exposition au swap ne peut dépasser 10% de la valeur du fonds. En pratique, les grands émetteurs comme Amundi maintiennent cette exposition bien en dessous de ce seuil et renouvellent fréquemment leurs swaps. Ce risque est réel mais faible et très encadré.</p>
+
+        <h2 id="capitalisant">ETF capitalisant vs distribuant</h2>
+        <p>Quand une entreprise dans ton ETF verse des dividendes, que devient cet argent ? Ça dépend du type d'ETF que tu as choisi.</p>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Critère</th>
+              <th>ETF capitalisant (ACC)</th>
+              <th>ETF distribuant (DIST)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Que fait-il des dividendes ?</td>
+              <td class="positive">Les réinvestit automatiquement dans le fonds</td>
+              <td>Les verse sur ton compte en cash</td>
+            </tr>
+            <tr>
+              <td>Fiscalité en France (CTO)</td>
+              <td class="positive">Pas d'imposition tant que tu ne vends pas</td>
+              <td class="negative">Imposé chaque année (flat tax 30% ou barème IR)</td>
+            </tr>
+            <tr>
+              <td>Intérêts composés</td>
+              <td class="positive">Maximum : 100% des dividendes se recompoundent</td>
+              <td>Partiels : tu dois réinvestir manuellement (et payer l'impôt avant)</td>
+            </tr>
+            <tr>
+              <td>Gestion</td>
+              <td class="positive">Zéro action de ta part</td>
+              <td>Réinvestissement manuel nécessaire si tu veux compoundre</td>
+            </tr>
+            <tr>
+              <td>Idéal pour</td>
+              <td class="positive">Phase d'accumulation (25-55 ans)</td>
+              <td>Phase de rente / revenus passifs à la retraite</td>
+            </tr>
+            <tr>
+              <td>Reconnaître dans le nom</td>
+              <td>Souvent "ACC", "C", "capitalisation"</td>
+              <td>Souvent "DIST", "D", "distribution"</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="guide-callout">
+          <p><strong>L'exemple qui parle :</strong> Imaginons que tu aies 50 000€ investis dans un ETF MSCI World avec un rendement de dividendes de 2%/an. Ça représente <strong>1 000€ de dividendes par an</strong>. Avec un ETF distribuant en CTO, tu paies la flat tax à 30% sur ces 1 000€, soit 300€ d'impôt. Tu ne peux réinvestir que 700€. Avec un ETF capitalisant, ces 1 000€ sont automatiquement réinvestis sans passer par la case impôt. Sur 20 ans, cette différence de 300€/an économisée et recompoundée peut représenter plusieurs dizaines de milliers d'euros supplémentaires.</p>
+        </div>
+        <p>En PEA, la distinction est moins critique puisque les dividendes ne sont pas imposés tant que tu ne fais pas de retrait. Mais en CTO ou assurance-vie, opter pour un ETF capitalisant est presque toujours la meilleure stratégie en phase d'accumulation.</p>
+
+        <h2 id="composition">La composition du MSCI World</h2>
+        <p>Le MSCI World est l'indice de référence de la plupart des portefeuilles long terme. Mais sais-tu vraiment ce qu'il contient ? La répartition géographique est parfois surprenante.</p>
+
+        <div class="guide-visual">
+          <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" aria-label="Répartition géographique MSCI World">
+            <!-- Titre -->
+            <text x="16" y="28" font-size="14" font-weight="700" fill="#1A3D7C">MSCI World — Répartition géographique (2024)</text>
+            <!-- USA 72% -->
+            <rect x="16" y="50" width="432" height="30" rx="5" fill="#1A3D7C"/>
+            <text x="24" y="70" font-size="13" font-weight="600" fill="#ffffff">États-Unis</text>
+            <text x="452" y="70" font-size="13" font-weight="700" fill="#1A3D7C">72%</text>
+            <!-- Japon 6% -->
+            <rect x="16" y="93" width="36" height="28" rx="5" fill="#3B82F6"/>
+            <text x="24" y="112" font-size="12" fill="#ffffff">JP</text>
+            <text x="58" y="112" font-size="12" fill="#3A526A">Japon</text>
+            <text x="452" y="112" font-size="12" font-weight="700" fill="#3B82F6">6%</text>
+            <!-- UK 4% -->
+            <rect x="16" y="133" width="24" height="28" rx="5" fill="#3B82F6"/>
+            <text x="46" y="152" font-size="12" fill="#3A526A">Royaume-Uni</text>
+            <text x="452" y="152" font-size="12" font-weight="700" fill="#3B82F6">4%</text>
+            <!-- France 3% -->
+            <rect x="16" y="173" width="18" height="28" rx="5" fill="#93C5FD"/>
+            <text x="40" y="192" font-size="12" fill="#3A526A">France</text>
+            <text x="452" y="192" font-size="12" font-weight="700" fill="#6F6F99">3%</text>
+            <!-- Canada 3% -->
+            <rect x="16" y="213" width="18" height="28" rx="5" fill="#93C5FD"/>
+            <text x="40" y="232" font-size="12" fill="#3A526A">Canada</text>
+            <text x="452" y="232" font-size="12" font-weight="700" fill="#6F6F99">3%</text>
+            <!-- Allemagne 2.5% -->
+            <rect x="16" y="253" width="15" height="28" rx="5" fill="#E2EEFF"/>
+            <text x="37" y="272" font-size="12" fill="#3A526A">Allemagne</text>
+            <text x="452" y="272" font-size="12" font-weight="700" fill="#6F6F99">2,5%</text>
+            <!-- Autres 9.5% -->
+            <rect x="16" y="293" width="57" height="22" rx="5" fill="#E2EEFF"/>
+            <text x="79" y="309" font-size="12" fill="#3A526A">Autres pays développés</text>
+            <text x="452" y="309" font-size="12" font-weight="700" fill="#6F6F99">9,5%</text>
+            <!-- Échelle -->
+            <line x1="16" y1="316" x2="448" y2="316" stroke="#E2EEFF" stroke-width="1"/>
+            <text x="16" y="328" font-size="9" fill="#6F6F99">0%</text>
+            <text x="218" y="328" font-size="9" fill="#6F6F99">50%</text>
+            <text x="436" y="328" font-size="9" fill="#6F6F99">100%</text>
+          </svg>
+          <figcaption>Source : MSCI, données 2024. La pondération reflète la capitalisation boursière de chaque pays.</figcaption>
+        </div>
+
+        <p>La première réaction de beaucoup d'investisseurs face à ces chiffres : "72% aux États-Unis, c'est beaucoup trop concentré !" Voici pourquoi cette inquiétude est compréhensible mais mal fondée :</p>
+        <ul>
+          <li><strong>La pondération est méritocratique :</strong> le MSCI World pondère chaque pays par sa capitalisation boursière. Si les USA représentent 72%, c'est parce que leurs entreprises valent 72% de la capitalisation des pays développés. Apple seule vaut plus que toute la bourse française.</li>
+          <li><strong>Les entreprises américaines sont mondiales :</strong> Apple, Microsoft, Amazon, Google réalisent entre 40% et 60% de leur chiffre d'affaires hors des États-Unis. Posséder leurs actions, c'est en réalité posséder une exposition mondiale.</li>
+          <li><strong>La pondération évolue automatiquement :</strong> si dans 10 ans l'Inde ou la Chine prend de l'importance, leur poids dans l'indice augmentera mécaniquement. Tu n'as rien à faire.</li>
+          <li><strong>Vouloir "corriger" la pondération coûte cher :</strong> surpondérer l'Europe ou les émergents revient à parier que tu sais mieux que le marché. La plupart des gérants professionnels qui font ce pari perdent à long terme.</li>
+        </ul>
+        <div class="guide-callout">
+          <p><strong>Les 10 premières positions du MSCI World :</strong> Apple (~4,5%), Microsoft (~4,1%), NVIDIA (~3,8%), Amazon (~2,5%), Meta (~1,8%), Alphabet A (~1,4%), Alphabet C (~1,2%), Berkshire Hathaway (~0,9%), Eli Lilly (~0,8%), Broadcom (~0,8%). Ces 10 entreprises représentent environ 22% du fonds — les 1 490 autres se partagent les 78% restants.</p>
+        </div>
+
+        <h2 id="performance">Performance historique : les données brutes</h2>
+        <p>Avant d'investir, il est indispensable de connaître la réalité historique — les bonnes années comme les mauvaises. Le MSCI World n'est pas une progression linéaire vers le haut : il y a des turbulences, parfois sévères.</p>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Décennie</th>
+              <th>Performance totale</th>
+              <th>Performance annualisée</th>
+              <th>Contexte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2000–2009</td>
+              <td class="negative">–19% total</td>
+              <td class="negative">–2%/an</td>
+              <td>Bulle internet + crise financière 2008</td>
+            </tr>
+            <tr>
+              <td>2010–2019</td>
+              <td class="positive">+186% total</td>
+              <td class="positive">+11%/an</td>
+              <td>Reprise post-crise, QE des banques centrales</td>
+            </tr>
+            <tr>
+              <td>2020–2024</td>
+              <td class="positive">+82% total</td>
+              <td class="positive">+13%/an</td>
+              <td>COVID, rebond historique, boom IA</td>
+            </tr>
+            <tr>
+              <td>1970–2024</td>
+              <td class="positive">×185 (en USD)</td>
+              <td class="positive">~10,5%/an</td>
+              <td>Performance sur 54 ans, dividendes réinvestis</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="guide-warning">
+          <p><strong>La "décennie perdue" 2000-2009 :</strong> si tu avais investi 10 000€ dans le MSCI World en janvier 2000, tu aurais eu seulement ~8 100€ en décembre 2009. Dix ans d'attente pour un résultat négatif. C'est la réalité. C'est pour ça que l'ETF MSCI World est un investissement <em>à 15 ans minimum</em>, idéalement 20-30 ans. Sur ces horizons, historiquement, il n'y a jamais eu de période de perte nette.</p>
+        </div>
+        <p>Quelques chiffres marquants sur la volatilité intra-annuelle pour te préparer psychologiquement :</p>
+        <ul>
+          <li><strong>–34% en quelques semaines en mars 2020</strong> (COVID). Récupération complète en 5 mois.</li>
+          <li><strong>–20% en 2022</strong> (inflation + hausse des taux). Récupération en 12 mois.</li>
+          <li><strong>–50% en 2008-2009</strong> (crise financière). Récupération en 4 ans.</li>
+          <li><strong>–45% en 2000-2003</strong> (bulle internet). Récupération en 6 ans.</li>
+        </ul>
+        <p>La leçon est toujours la même : <strong>ceux qui ont tenu ont récupéré, ceux qui ont vendu en panique ont cristallisé leurs pertes.</strong> Investir en ETF, c'est d'abord un travail sur soi.</p>
+
+        <h2 id="types">Les types d'ETF à connaître</h2>
+        <p>Il existe des dizaines de catégories d'ETF. Voici les essentiels à connaître, du plus adapté aux débutants au plus spécialisé.</p>
+        <ul>
+          <li><strong>ETF Monde (MSCI World, FTSE All-World)</strong> : environ 1 500 entreprises, 23 pays développés. Le meilleur point de départ pour 95% des investisseurs. Pas besoin d'aller plus loin dans la plupart des cas. Si tu ne devais choisir qu'un seul ETF à vie, ce serait celui-là.</li>
+          <li><strong>ETF S&P 500</strong> : les 500 plus grandes entreprises américaines. Plus concentré géographiquement, mais excellent historique de performance. Souvent moins cher en frais (TER 0,07%) et éligible PEA via les versions synthétiques.</li>
+          <li><strong>ETF Marchés émergents (MSCI Emerging Markets)</strong> : Chine, Inde, Brésil, Taïwan, Afrique du Sud. Potentiel de croissance long terme élevé, mais volatilité nettement supérieure et risques géopolitiques réels. À utiliser en complément (max 10-20% du portefeuille) et uniquement si tu comprends ce que tu fais.</li>
+          <li><strong>ETF Obligataires</strong> : obligations d'États (Bunds, Treasuries) ou d'entreprises. Plus défensifs, pour sécuriser une partie du portefeuille à l'approche de la retraite ou si tu as une aversion au risque élevée.</li>
+          <li><strong>ETF Sectoriels (tech, santé, énergie, immobilier)</strong> : concentrés sur un seul secteur. Plus risqués, parfois tentants après une bonne performance passée. À utiliser en complément léger d'un ETF monde, jamais à la place — la performance passée d'un secteur est rarement prédictive de la future.</li>
+          <li><strong>ETF ACWI (All Country World Index)</strong> : combine pays développés + émergents dans un seul fonds. Si tu veux une exposition monde encore plus large que le MSCI World, c'est l'option à regarder.</li>
+        </ul>
+        <div class="guide-callout">
+          <p><strong>MSCI World vs FTSE All-World :</strong> le MSCI World couvre 23 pays développés (~1 500 entreprises). Le FTSE All-World ajoute les pays émergents (~3 700 entreprises). La corrélation entre les deux sur 20 ans dépasse 95% — la différence est très faible sur le long terme. Commencer par l'un ou l'autre ne fait pratiquement aucune différence.</p>
+        </div>
+
+        <h2 id="fournisseurs">Les 5 grands fournisseurs d'ETF</h2>
+        <p>Tous les ETF ne se valent pas, et le choix du fournisseur a une importance sur la qualité de réplication, la liquidité et la solidité du fonds. Voici les acteurs que tu vas croiser en France.</p>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Fournisseur</th>
+              <th>Nationalité</th>
+              <th>Part de marché Europe</th>
+              <th>Points forts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Amundi ETF</strong></td>
+              <td>🇫🇷 France</td>
+              <td>~18%</td>
+              <td>Leader européen, nombreux ETF PEA, TER très compétitifs, encours importants</td>
+            </tr>
+            <tr>
+              <td><strong>iShares (BlackRock)</strong></td>
+              <td>🇺🇸 USA</td>
+              <td>~39%</td>
+              <td>N°1 mondial, gamme très large, très liquide, excellente réputation sur les ETF physiques</td>
+            </tr>
+            <tr>
+              <td><strong>Vanguard</strong></td>
+              <td>🇺🇸 USA</td>
+              <td>~7%</td>
+              <td>Pionniers de l'indexation, TER ultra-bas, ETF physiques de référence (VWCE, VUSA)</td>
+            </tr>
+            <tr>
+              <td><strong>Lyxor (Société Générale)</strong></td>
+              <td>🇫🇷 France</td>
+              <td>~8%</td>
+              <td>Nombreux ETF PEA, bonne présence sur Euronext Paris, absorbé par Amundi en 2023 (gamme maintenue)</td>
+            </tr>
+            <tr>
+              <td><strong>HSBC ETF</strong></td>
+              <td>🇬🇧 UK</td>
+              <td>~4%</td>
+              <td>Frais compétitifs, bonne gamme monde, ETF MSCI World très populaire (IE00B4X9L533)</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>Dans la pratique, pour un investisseur français en PEA, les choix se réduisent souvent à <strong>Amundi et Lyxor</strong> pour la réplication synthétique (donc éligibilité PEA) et à <strong>iShares, Vanguard ou HSBC</strong> pour les ETF physiques en CTO ou assurance-vie.</p>
+
+        <h2 id="choisir">Comment choisir un ETF : 5 critères essentiels</h2>
+        <p>Avec des milliers d'ETF disponibles en Europe, il faut un cadre clair pour ne pas se perdre. Ces 5 critères te permettent de filtrer rapidement.</p>
+        <ol>
+          <li><strong>TER (frais annuels) &lt; 0,30%</strong> : vise un ETF avec moins de 0,30% de frais par an. Les grands ETF monde sont souvent à 0,07-0,20%. Au-delà de 0,50%, pose-toi des questions.</li>
+          <li><strong>Encours &gt; 500M€</strong> : plus le fonds est grand, plus il est liquide, stable, et peu susceptible de fermer. Un petit ETF sous 100M€ peut être liquidé et tu devras réinvestir ailleurs (événement taxable en CTO).</li>
+          <li><strong>Réplication physique ou synthétique, selon ton enveloppe</strong> : physique pour CTO/AV (tu possèdes vraiment les actifs), synthétique pour PEA (indispensable pour les indices non-européens).</li>
+          <li><strong>Éligibilité PEA</strong> : crucial pour profiter de l'avantage fiscal français. Vérifie ce critère en premier si tu investis en PEA.</li>
+          <li><strong>Capitalisant (ACC) de préférence en phase d'accumulation</strong> : les dividendes se réinvestissent automatiquement, sans frottement fiscal et sans action de ta part. Le rendement des dividendes du MSCI World est d'environ 1,5-2%/an — c'est significatif sur le long terme.</li>
+        </ol>
+        <p>Pour filtrer les ETF selon ces critères (frais, éligibilité PEA, réplication, capitalisation) et comparer deux fonds côte à côte, utilise le <a href="../comparateur-etf.html">comparateur ETF</a>.</p>
+        <table class="guide-table">
+          <thead>
+            <tr><th>ETF</th><th>Indice</th><th>ISIN</th><th>TER</th><th>PEA</th><th>Type</th></tr>
           </thead>
           <tbody>
             <tr>
               <td>iShares Core MSCI World</td><td>MSCI World</td>
-              <td>IE00B4L5Y983</td><td class="positive">0,20%</td><td>Non (CTO/AV)</td>
+              <td>IE00B4L5Y983</td><td class="positive">0,20%</td><td>Non</td><td>Physique / ACC</td>
             </tr>
             <tr>
               <td>Amundi PEA S&P 500</td><td>S&P 500</td>
-              <td>FR0013412285</td><td class="positive">0,15%</td><td class="positive">Oui</td>
+              <td>FR0013412285</td><td class="positive">0,15%</td><td class="positive">Oui</td><td>Synthétique / ACC</td>
             </tr>
             <tr>
               <td>Lyxor PEA Monde</td><td>MSCI World</td>
-              <td>FR0011869353</td><td class="positive">0,45%</td><td class="positive">Oui</td>
+              <td>FR0011869353</td><td>0,45%</td><td class="positive">Oui</td><td>Synthétique / ACC</td>
             </tr>
             <tr>
               <td>Amundi MSCI World II</td><td>MSCI World</td>
-              <td>LU1681043599</td><td class="positive">0,12%</td><td>Non (CTO/AV)</td>
+              <td>LU1681043599</td><td class="positive">0,12%</td><td>Non</td><td>Physique / ACC</td>
+            </tr>
+            <tr>
+              <td>HSBC MSCI World</td><td>MSCI World</td>
+              <td>IE00B4X9L533</td><td class="positive">0,15%</td><td>Non</td><td>Physique / ACC</td>
+            </tr>
+            <tr>
+              <td>Vanguard FTSE All-World</td><td>FTSE All-World</td>
+              <td>IE00B3RBWM25</td><td class="positive">0,22%</td><td>Non</td><td>Physique / DIST</td>
             </tr>
           </tbody>
         </table>
 
+        <!-- SIMULATEUR FRAIS -->
+        <h2 id="simulateur-frais">Simulateur : l'impact des frais sur ton capital</h2>
+        <p>Les frais annuels d'un ETF semblent dérisoires. Mais sur 20 ou 30 ans, la différence entre 0,20% et 1,5% peut représenter des dizaines de milliers d'euros. Utilise ce simulateur pour le voir en direct.</p>
+
+        <div class="guide-simulator">
+          <div class="guide-simulator-inner">
+            <div class="simulator-inputs">
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Capital initial</span>
+                  <span class="sim-field-val" id="sf-capital-val">10 000 €</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-capital" min="1000" max="100000" step="1000" value="10000">
+                <div class="sim-field-range"><span>1 000 €</span><span>100 000 €</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Versement mensuel</span>
+                  <span class="sim-field-val" id="sf-mensuel-val">200 €</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-mensuel" min="0" max="2000" step="50" value="200">
+                <div class="sim-field-range"><span>0 €</span><span>2 000 €</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Rendement brut annuel</span>
+                  <span class="sim-field-val" id="sf-rendement-val">7%</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-rendement" min="2" max="12" step="0.5" value="7">
+                <div class="sim-field-range"><span>2%</span><span>12%</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Frais ETF (TER)</span>
+                  <span class="sim-field-val" id="sf-frais-etf-val">0,20%</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-frais-etf" min="0.05" max="0.5" step="0.05" value="0.2">
+                <div class="sim-field-range"><span>0,05%</span><span>0,5%</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Frais fonds actif (TER)</span>
+                  <span class="sim-field-val" id="sf-frais-actif-val">1,50%</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-frais-actif" min="0.5" max="3" step="0.1" value="1.5">
+                <div class="sim-field-range"><span>0,5%</span><span>3%</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Durée d'investissement</span>
+                  <span class="sim-field-val" id="sf-duree-val">20 ans</span>
+                </div>
+                <input type="range" class="sim-slider" id="sf-duree" min="5" max="40" step="1" value="20">
+                <div class="sim-field-range"><span>5 ans</span><span>40 ans</span></div>
+              </div>
+
+            </div><!-- /simulator-inputs -->
+
+            <div class="guide-sim-results" id="sf-results">
+
+              <div class="sim-result-main" id="sf-col-etf">
+                <div class="sim-result-label">Avec ETF</div>
+                <div class="sim-result-val" id="sf-etf-final">—</div>
+                <div class="sim-progress" id="sf-prog-etf">
+                  <div class="sim-progress-bar">
+                    <div class="sim-progress-gains" id="sf-etf-gains-bar" style="width:0%"></div>
+                    <div class="sim-progress-invested" id="sf-etf-invested-bar" style="width:0%"></div>
+                  </div>
+                  <div class="sim-progress-legend">
+                    <span><span class="sim-legend-dot sim-legend-dot--gains"></span><span class="sim-legend-label">Plus-values</span></span>
+                    <span><span class="sim-legend-dot sim-legend-dot--invested"></span><span class="sim-legend-label">Investi</span></span>
+                  </div>
+                </div>
+                <div class="sim-result-breakdown">
+                  <div class="sim-result-item"><span>Capital investi</span><strong id="sf-etf-invested">—</strong></div>
+                  <div class="sim-result-item"><span>Plus-values</span><strong id="sf-etf-pv">—</strong></div>
+                  <div class="sim-result-item"><span>Frais payés</span><strong id="sf-etf-fees" style="color:#EF4444;">—</strong></div>
+                </div>
+              </div>
+
+              <div class="sim-result-main" id="sf-col-actif">
+                <div class="sim-result-label">Avec fonds actif</div>
+                <div class="sim-result-val" id="sf-actif-final">—</div>
+                <div class="sim-progress" id="sf-prog-actif">
+                  <div class="sim-progress-bar">
+                    <div class="sim-progress-gains" id="sf-actif-gains-bar" style="width:0%"></div>
+                    <div class="sim-progress-invested" id="sf-actif-invested-bar" style="width:0%"></div>
+                  </div>
+                  <div class="sim-progress-legend">
+                    <span><span class="sim-legend-dot sim-legend-dot--gains"></span><span class="sim-legend-label">Plus-values</span></span>
+                    <span><span class="sim-legend-dot sim-legend-dot--invested"></span><span class="sim-legend-label">Investi</span></span>
+                  </div>
+                </div>
+                <div class="sim-result-breakdown">
+                  <div class="sim-result-item"><span>Capital investi</span><strong id="sf-actif-invested">—</strong></div>
+                  <div class="sim-result-item"><span>Plus-values</span><strong id="sf-actif-pv">—</strong></div>
+                  <div class="sim-result-item"><span>Frais payés</span><strong id="sf-actif-fees" style="color:#EF4444;">—</strong></div>
+                </div>
+              </div>
+
+            </div><!-- /guide-sim-results -->
+
+            <div style="text-align:center; margin-top:16px; padding:14px 20px; background:rgba(34,197,94,0.08); border-radius:10px; border:1px solid rgba(34,197,94,0.2);">
+              <span style="font-size:13px; color:#3A526A;">Différence en faveur de l'ETF : </span>
+              <strong id="sf-diff" style="font-size:18px; color:#22C55E;">—</strong>
+            </div>
+            <div class="sim-disclaimer">Simulation indicative. Ne tient pas compte de la fiscalité ni de l'inflation. Les performances passées ne préjugent pas des performances futures.</div>
+          </div>
+        </div>
+
+        <script>
+        (function(){
+          function fmt(n){ return Math.round(n).toLocaleString('fr-FR') + ' €'; }
+          function fmtPct(v){ return (Math.round(v*100)/100).toFixed(2).replace('.',',') + '%'; }
+
+          function calcFV(capital, monthly, rate, years){
+            var r = rate / 100 / 12;
+            var n = years * 12;
+            var fv = capital * Math.pow(1+r, n);
+            if(r > 0){
+              fv += monthly * (Math.pow(1+r, n) - 1) / r;
+            } else {
+              fv += monthly * n;
+            }
+            return fv;
+          }
+
+          function update(){
+            var capital  = parseFloat(document.getElementById('sf-capital').value);
+            var mensuel  = parseFloat(document.getElementById('sf-mensuel').value);
+            var rendement= parseFloat(document.getElementById('sf-rendement').value);
+            var fraisEtf = parseFloat(document.getElementById('sf-frais-etf').value);
+            var fraisActif = parseFloat(document.getElementById('sf-frais-actif').value);
+            var duree    = parseFloat(document.getElementById('sf-duree').value);
+
+            document.getElementById('sf-capital-val').textContent  = capital.toLocaleString('fr-FR') + ' €';
+            document.getElementById('sf-mensuel-val').textContent  = mensuel.toLocaleString('fr-FR') + ' €';
+            document.getElementById('sf-rendement-val').textContent= rendement.toString().replace('.',',') + '%';
+            document.getElementById('sf-frais-etf-val').textContent= fmtPct(fraisEtf);
+            document.getElementById('sf-frais-actif-val').textContent= fmtPct(fraisActif);
+            document.getElementById('sf-duree-val').textContent    = duree + ' an' + (duree > 1 ? 's' : '');
+
+            var netEtf   = rendement - fraisEtf;
+            var netActif = rendement - fraisActif;
+
+            var fvEtf   = calcFV(capital, mensuel, netEtf, duree);
+            var fvActif = calcFV(capital, mensuel, netActif, duree);
+
+            var invested = capital + mensuel * 12 * duree;
+
+            var pvEtf   = fvEtf - invested;
+            var pvActif = fvActif - invested;
+
+            // Approximate fees paid (difference between gross FV and net FV)
+            var fvGross = calcFV(capital, mensuel, rendement, duree);
+            var feesEtf   = fvGross - fvEtf;
+            var feesActif = fvGross - fvActif;
+
+            document.getElementById('sf-etf-final').textContent   = fmt(fvEtf);
+            document.getElementById('sf-actif-final').textContent  = fmt(fvActif);
+
+            document.getElementById('sf-etf-invested').textContent   = fmt(invested);
+            document.getElementById('sf-etf-pv').textContent         = fmt(Math.max(0, pvEtf));
+            document.getElementById('sf-etf-fees').textContent       = '–' + fmt(feesEtf);
+
+            document.getElementById('sf-actif-invested').textContent = fmt(invested);
+            document.getElementById('sf-actif-pv').textContent       = fmt(Math.max(0, pvActif));
+            document.getElementById('sf-actif-fees').textContent     = '–' + fmt(feesActif);
+
+            var maxVal = Math.max(fvEtf, fvActif);
+            var investedPct = Math.min(100, (invested / maxVal) * 100);
+            var etfPVpct    = Math.min(100 - investedPct, (Math.max(0,pvEtf) / maxVal) * 100);
+            var actifPVpct  = Math.min(100 - investedPct, (Math.max(0,pvActif) / maxVal) * 100);
+
+            document.getElementById('sf-etf-gains-bar').style.width   = etfPVpct + '%';
+            document.getElementById('sf-etf-invested-bar').style.width = investedPct + '%';
+            document.getElementById('sf-actif-gains-bar').style.width  = actifPVpct + '%';
+            document.getElementById('sf-actif-invested-bar').style.width = investedPct + '%';
+
+            var diff = fvEtf - fvActif;
+            document.getElementById('sf-diff').textContent = (diff >= 0 ? '+' : '') + fmt(diff);
+            document.getElementById('sf-diff').style.color = diff >= 0 ? '#22C55E' : '#EF4444';
+          }
+
+          ['sf-capital','sf-mensuel','sf-rendement','sf-frais-etf','sf-frais-actif','sf-duree'].forEach(function(id){
+            document.getElementById(id).addEventListener('input', update);
+          });
+          update();
+        })();
+        </script>
+
+        <h2 id="lire-etf">Comment lire une fiche ETF (KIID)</h2>
+        <p>Avant d'acheter un ETF, tu dois consulter son KIID (Key Investor Information Document) ou son KID (Key Information Document depuis 2023). Ce document standardisé de 2 pages contient tout ce qu'il faut savoir. Voici les 5 points clés à vérifier.</p>
+        <ol>
+          <li><strong>Objectif et politique d'investissement</strong> : décrit l'indice répliqué, la méthode (physique ou synthétique) et le traitement des dividendes (ACC ou DIST). C'est la section la plus importante — vérifie que ça correspond exactement à ce que tu cherches.</li>
+          <li><strong>TER (Total Expense Ratio)</strong> : le coût annuel total du fonds, exprimé en pourcentage. Tout ce qui dépasse 0,50% sur un ETF monde mérite explication. Le TER est toujours dans la section "Frais".</li>
+          <li><strong>Indicateur de risque SRRI (1 à 7)</strong> : mesure la volatilité historique. Un ETF MSCI World est généralement noté 5/7. Les obligations sont à 2-3/7, les sectoriels à 6-7/7. Ce n'est pas parfait mais ça donne une idée.</li>
+          <li><strong>ISIN (code d'identification)</strong> : le numéro unique de l'ETF, comme un numéro de série. Commence par "FR" pour les fonds domiciliés en France, "IE" pour l'Irlande (très courant), "LU" pour le Luxembourg. Toujours vérifier l'ISIN avant d'acheter pour éviter de confondre deux ETF au nom similaire.</li>
+          <li><strong>Encours (AUM)</strong> : la taille totale du fonds en milliards d'euros. Plus l'encours est élevé, plus le fonds est liquide et stable. En dessous de 100M€, le risque de fermeture est réel. Au-dessus de 500M€, tu es tranquille.</li>
+        </ol>
+        <div class="guide-callout">
+          <p><strong>Où trouver ces fiches ?</strong> Sur le site du gestionnaire (amundietf.com, ishares.com, vanguard.fr), sur Just ETF (justetf.com), ou directement dans l'interface de ton courtier. Tape l'ISIN dans la barre de recherche et accède aux "Documents légaux" ou "Documents réglementaires".</p>
+        </div>
+
         <h2 id="ou-acheter">Où acheter des ETF en France</h2>
+        <p>Le choix de l'enveloppe fiscale est aussi important que le choix de l'ETF lui-même. Chaque enveloppe a ses règles, ses avantages et ses contraintes.</p>
         <ul>
-          <li><strong>PEA</strong> : avantage fiscal majeur après 5 ans (0% d'impôt sur les plus-values hors PS). Ouvrir chez <a href="../parrainage.html">Fortuneo, Trade Republic ou BoursoBank</a>.</li>
-          <li><strong>CTO (Compte-Titres Ordinaire)</strong> : plus flexible, accès à tous les ETF mondiaux, mais fiscalité moins avantageuse (flat tax 31,4% depuis 2026).</li>
-          <li><strong>Assurance-vie</strong> : idéale pour la transmission et le long terme. ETF disponibles en unités de compte chez Linxea.</li>
+          <li><strong>PEA (Plan d'Épargne en Actions)</strong> : l'enveloppe reine pour investir en ETF en France. Après 5 ans d'ancienneté, les plus-values sont exonérées d'impôt sur le revenu (seuls les prélèvements sociaux de 17,2% restent dus). Plafond de versement : 150 000€. Ouvrir chez <a href="../parrainage.html">Fortuneo, Trade Republic ou BoursoBank</a>. Seuls les ETF éligibles PEA sont accessibles (souvent synthétiques pour les indices mondiaux).</li>
+          <li><strong>CTO (Compte-Titres Ordinaire)</strong> : plus flexible, accès à tous les ETF mondiaux sans restriction, mais fiscalité moins avantageuse (flat tax 30% depuis 2018, passée à 31,4% en 2026 avec l'ajout des prélèvements sociaux). Utile pour les ETF non-éligibles PEA ou quand le PEA est plein.</li>
+          <li><strong>Assurance-vie</strong> : idéale pour la transmission patrimoniale et le long terme. Les ETF sont disponibles en unités de compte chez des contrats en ligne comme Linxea Spirit 2 ou Lucya Cardif. La fiscalité après 8 ans est avantageuse (abattement annuel de 4 600€ ou 9 200€ pour un couple).</li>
         </ul>
         <div class="guide-callout">
-          <p><strong>Règle n°1 :</strong> Ouvre ton PEA le plus tôt possible pour faire courir le délai de 5 ans. Même avec seulement 50€ dessus. Le délai commence à l'ouverture, pas au premier gros versement.</p>
+          <p><strong>La règle d'or :</strong> Ouvre ton PEA le plus tôt possible pour faire courir le délai de 5 ans, même avec seulement 50€ dessus. Le décompte commence à la date d'ouverture, pas au premier gros versement. Un PEA ouvert aujourd'hui avec 50€ et alimenté sérieusement dans 2 ans sera exonéré d'impôt dès la 5e année d'ouverture.</p>
         </div>
 
         <h2 id="pieges">ETF : pièges à éviter</h2>
+        <p>Les ETF sont simples, mais quelques erreurs récurrentes peuvent te coûter cher. Voici les pièges les plus courants.</p>
         <ul>
-          <li><strong>Choisir un ETF trop sectoriel au départ</strong> : les ETF "technologie" ou "intelligence artificielle" sont séduisants mais concentrés. Commence par un ETF monde.</li>
-          <li><strong>Confondre ETF et ETP/ETC</strong> : les produits sur matières premières (or, pétrole) ne sont pas des ETF classiques. Mécanisme différent et plus risqué.</li>
-          <li><strong>Payer des frais de courtage élevés</strong> : si tu investis 100€/mois et que tu paies 5€ de frais par ordre, c'est 5% perdus d'emblée. Préfère Trade Republic (1€/ordre) ou BoursoBank (0€ sur ETF en PEA).</li>
-          <li><strong>Vendre en période de baisse</strong> : l'ETF MSCI World a chuté de -34% en 2020, -20% en 2022. Ceux qui ont tenu ont récupéré en quelques mois. Ceux qui ont vendu ont cristallisé leurs pertes.</li>
+          <li><strong>Choisir un ETF trop sectoriel au départ :</strong> les ETF "technologie", "intelligence artificielle" ou "énergies renouvelables" sont séduisants mais hyper-concentrés. Si le secteur se retourne, tu peux perdre 40-60% sans que le reste du marché soit affecté. Commence par un ETF monde, ajoute des sectoriels seulement si tu as déjà un portefeuille bien ancré.</li>
+          <li><strong>Confondre ETF et ETP/ETC :</strong> les produits sur matières premières (or, pétrole, Bitcoin) et les ETF à effet de levier ne sont pas des ETF classiques. Mécanisme différent, risques très supérieurs. Un ETF levier ×2 ne double pas tes gains sur le long terme à cause de l'effet de rééquilibrage quotidien.</li>
+          <li><strong>Payer des frais de courtage élevés :</strong> si tu investis 100€/mois et que tu paies 5€ de frais par ordre, c'est 5% perdus d'emblée avant même que le marché bouge. Préfère Trade Republic (1€/ordre fixe), BoursoBank (0€ sur certains ETF en PEA) ou Fortuneo.</li>
+          <li><strong>Vendre en période de baisse :</strong> l'ETF MSCI World a chuté de –34% en 2020, –20% en 2022. Ceux qui ont tenu ont non seulement récupéré mais ont continué à profiter de la hausse suivante. Ceux qui ont vendu ont cristallisé leurs pertes ET ont raté le rebond. C'est l'erreur la plus coûteuse.</li>
+          <li><strong>Ignorer la tracking error :</strong> un bon ETF doit suivre fidèlement son indice. Si l'indice fait +10% et ton ETF ne fait que +9%, l'écart de 1% est la tracking error. Une tracking error chroniquement élevée signale un problème de gestion. Vérifie sur JustETF.com la différence de suivi sur 3-5 ans.</li>
+          <li><strong>Diversifier à l'excès :</strong> certains achètent 15 ETF différents en pensant diversifier davantage. Avec 3-4 ETF qui se recoupent (MSCI World + S&P 500 + Nasdaq), tu sur-pondères les US sans le savoir. Un seul ETF MSCI World donne déjà 1 500 entreprises. La diversification n'est pas dans le nombre d'ETF mais dans la qualité de l'indice répliqué.</li>
         </ul>
+
+        <h2 id="glossaire">Glossaire ETF essentiel</h2>
+        <p>Les fiches ETF sont remplies d'acronymes. Voici les 8 termes que tu rencontreras le plus souvent.</p>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>Terme</th>
+              <th>Définition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>TER</strong></td>
+              <td>Total Expense Ratio. Le coût annuel total de l'ETF, exprimé en % de la valeur du fonds. Prélevé automatiquement, invisible sur ton relevé. Exemple : 0,20%/an sur 10 000€ = 20€/an.</td>
+            </tr>
+            <tr>
+              <td><strong>ISIN</strong></td>
+              <td>International Securities Identification Number. Code unique à 12 caractères identifiant chaque ETF. Commence souvent par "IE" (Irlande) ou "FR" (France). À toujours vérifier avant d'acheter.</td>
+            </tr>
+            <tr>
+              <td><strong>AUM</strong></td>
+              <td>Assets Under Management. L'encours total du fonds, c'est-à-dire la somme totale gérée. Un ETF avec 5 milliards d'€ d'AUM est très liquide et peu susceptible de fermer.</td>
+            </tr>
+            <tr>
+              <td><strong>Tracking error</strong></td>
+              <td>Écart entre la performance de l'ETF et celle de son indice de référence. Une tracking error de 0,10% signifie que l'ETF a légèrement sous- ou surperformé l'indice. Visée idéale : la plus proche de 0 possible.</td>
+            </tr>
+            <tr>
+              <td><strong>NAV</strong></td>
+              <td>Net Asset Value (valeur liquidative). La valeur théorique d'une part du fonds, calculée en divisant la valeur totale des actifs par le nombre de parts. En ETF, le prix de marché peut légèrement s'en écarter (spread).</td>
+            </tr>
+            <tr>
+              <td><strong>ACC / DIST</strong></td>
+              <td>Accumulation (capitalisant) / Distribution (distribuant). ACC réinvestit automatiquement les dividendes dans le fonds. DIST les verse en cash sur ton compte. Pour la phase d'accumulation, préfère ACC.</td>
+            </tr>
+            <tr>
+              <td><strong>Spread</strong></td>
+              <td>Écart entre le prix d'achat et le prix de vente d'un ETF à un instant T. Plus l'ETF est liquide (gros AUM), plus le spread est faible. Un spread de 0,05% est excellent. Attention aux ETF peu liquides où le spread peut atteindre 0,5-1%.</td>
+            </tr>
+            <tr>
+              <td><strong>KIID / KID</strong></td>
+              <td>Key Investor Information Document / Key Information Document. Document réglementaire standardisé de 2 pages résumant les caractéristiques essentielles de l'ETF : objectif, risque, frais, performances passées. Obligatoire à lire avant tout achat en Europe.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="faq">FAQ — Les questions les plus posées sur les ETF</h2>
+
+        <details class="guide-faq-item">
+          <summary>Peut-on perdre tout son argent avec un ETF ?</summary>
+          <p>En théorie, oui — si toutes les entreprises contenues dans l'ETF faisaient faillite en même temps. En pratique, c'est virtuellement impossible pour un ETF MSCI World qui contient 1 500 entreprises dans 23 pays. Un tel scénario supposerait l'effondrement simultané de l'économie mondiale. Ce qui peut arriver, en revanche, c'est de perdre 30 à 50% temporairement lors d'une crise. C'est douloureux, mais historiquement toujours suivi d'une récupération pour qui reste investi. Le risque réel avec un ETF monde n'est pas la perte totale, c'est la perte temporaire que l'on gère mal en vendant en panique.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>MSCI World vs FTSE All-World : lequel choisir ?</summary>
+          <p>Le MSCI World couvre environ 1 500 entreprises dans 23 pays <em>développés</em> uniquement. Le FTSE All-World couvre environ 3 700 entreprises dans 50 pays, incluant les <em>marchés émergents</em> (Chine, Inde, Brésil, etc.) à hauteur d'environ 10-12% du fonds. Sur les 20 dernières années, la corrélation entre les deux indices dépasse 95% — la différence de performance est minime. Si tu veux une exposition aux émergents, le FTSE All-World est légèrement plus complet. Si tu veux la simplicité et les TER les plus bas, le MSCI World est souvent plus accessible. Les deux sont d'excellents choix pour le long terme.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>Est-ce risqué d'investir sur un ETF synthétique ?</summary>
+          <p>C'est plus complexe qu'un ETF physique, mais pas particulièrement risqué. La réglementation européenne UCITS impose que le risque de contrepartie ne dépasse jamais 10% de la valeur du fonds. En pratique, les grands émetteurs comme Amundi renouvellent leurs swaps fréquemment et maintiennent l'exposition bien en dessous de ce seuil. En cas de défaut de la banque contrepartie, le collatéral (actions détenues par le fonds) protège les investisseurs. Des dizaines de milliards d'euros sont investis dans ces ETF synthétiques en France via les PEA. Le risque existe mais est très encadré et faible comparé aux risques de marché habituels.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>Faut-il choisir MSCI World ou S&P 500 ?</summary>
+          <p>Les deux sont excellents. Le S&P 500 contient les 500 plus grandes entreprises américaines — son avantage est un TER souvent plus bas (à partir de 0,07%) et une performance historique légèrement meilleure sur les 15 dernières années. Le MSCI World ajoute 1 000 entreprises européennes, japonaises et canadiennes, offrant une diversification géographique supérieure. Sur 50 ans, le S&P 500 a légèrement surperformé le MSCI World, mais personne ne sait si les USA continueront à dominer les 30 prochaines années. Si tu veux la sécurité de la diversification maximale, MSCI World. Si tu préfères les TER ultra-bas et une exposition US assumée, S&P 500. Les deux sont de très bons choix — ne te bloque pas dessus.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>Combien d'ETF dans un portefeuille ?</summary>
+          <p>Un seul ETF MSCI World suffit pour la grande majorité des investisseurs. Si tu veux une couverture totale incluant les émergents, ajoute un ETF Emerging Markets (MSCI EM) à hauteur de 10-20%. Si tu veux surpondérer les petites capitalisations, ajoute un ETF Small Cap à 10-15%. Au-delà de 3-4 ETF, tu complexifie ton portefeuille sans nécessairement améliorer la performance ni la diversification. Beaucoup d'investisseurs avec 10 ETF ont en réalité 70% de leurs positions en commun. La simplicité est une vertu en investissement passif.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>L'ETF peut-il fermer ? Que se passe-t-il alors ?</summary>
+          <p>Oui, un ETF peut être liquidé, notamment si son encours est trop faible pour être rentable pour le gestionnaire. Dans ce cas, les investisseurs sont prévenus plusieurs semaines à l'avance. L'ETF est liquidé à sa valeur liquidative (NAV) : tu récupères l'équivalent de tes parts en cash ou en actions physiques selon les cas. Tu ne perds pas d'argent du fait de la fermeture en soi, mais tu devras réinvestir ailleurs — et si c'est sur un CTO, la liquidation peut déclencher un événement taxable. C'est pourquoi il vaut mieux choisir des ETF avec un AUM supérieur à 500M€, voire 1 milliard€ pour être vraiment tranquille.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>Comment fonctionne le dividende dans un ETF capitalisant ?</summary>
+          <p>Dans un ETF capitalisant (ACC), quand une entreprise contenue dans le fonds verse un dividende, cet argent n'est pas distribué aux investisseurs — il est automatiquement réinvesti dans le fonds, ce qui augmente la valeur de chaque part. Tu ne reçois rien sur ton compte, mais la valeur de ta part augmente légèrement. C'est invisible pour toi, mais c'est le moteur des intérêts composés : 2% de dividendes réinvestis chaque année sur 20 ans font une différence considérable. En PEA ou assurance-vie, ce mécanisme est encore plus puissant car il n'y a aucun frottement fiscal au niveau du fonds.</p>
+        </details>
+
+        <details class="guide-faq-item">
+          <summary>Peut-on investir avec 50€ seulement ?</summary>
+          <p>Oui, tout à fait. Certains ETF comme l'Amundi PEA S&P 500 cotent autour de 15-20€ la part. Tu peux en acheter 2 ou 3 avec 50€. Trade Republic propose même l'investissement par fraction de part, ce qui te permet d'investir exactement 50€ chaque mois peu importe le prix de la part. L'important n'est pas le montant de départ mais la régularité. 50€/mois investis pendant 30 ans à 7%/an deviennent environ 60 000€. Et ouvrir un PEA avec 50€ aujourd'hui, c'est faire courir le délai de 5 ans dès maintenant.</p>
+        </details>
 
         <!-- VIDÉO -->
         <div class="guide-video">
@@ -315,10 +894,19 @@
           <div class="guide-toc-title">Sommaire</div>
           <a href="#definition">Qu'est-ce qu'un ETF ?</a>
           <a href="#frais">ETF vs fonds actifs</a>
+          <a href="#replications">Réplication physique vs synthétique</a>
+          <a href="#capitalisant">Capitalisant vs distribuant</a>
+          <a href="#composition">Composition du MSCI World</a>
+          <a href="#performance">Performance historique</a>
           <a href="#types">Les types d'ETF</a>
+          <a href="#fournisseurs">Les 5 grands fournisseurs</a>
           <a href="#choisir">Comment choisir</a>
+          <a href="#simulateur-frais">Simulateur frais</a>
+          <a href="#lire-etf">Lire une fiche ETF</a>
           <a href="#ou-acheter">Où acheter</a>
           <a href="#pieges">Pièges à éviter</a>
+          <a href="#glossaire">Glossaire</a>
+          <a href="#faq">FAQ</a>
         </div>
         <div class="guide-sidebar-cta">
           <p>Envie de tout comprendre en près de 4 heures, avec un plan d'action concret ?</p>

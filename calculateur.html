@@ -300,6 +300,29 @@
     .fisc-ecart strong { color: var(--navy); }
     .fisc-warn { margin-top: 12px; font-size: 12px; color: #92500a; background: rgba(240,192,64,0.14); border-radius: 8px; padding: 8px 11px; line-height: 1.5; display: none; }
     .fisc-warn.show { display: block; }
+    /* ── BLOCS INTERPRÉTATION ── */
+    .calc-interp {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: rgba(160, 231, 197, 0.10);
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--navy);
+    }
+    .calc-interp-icon { font-size: 17px; flex-shrink: 0; line-height: 1.5; }
+    .calc-interp-title {
+      font-family: var(--font-head);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-2);
+      margin-bottom: 5px;
+    }
+    .calc-interp-body { margin: 0; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/calculateur.html">
   <script type="application/ld+json">
@@ -528,6 +551,13 @@
           </div>
         </div>
       </div>
+      <div class="calc-interp" style="margin-top:24px;">
+        <span class="calc-interp-icon">💡</span>
+        <div>
+          <div class="calc-interp-title">Ce que ça veut dire pour toi</div>
+          <p class="calc-interp-body" id="interp-ic-text"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -648,6 +678,13 @@
           </div>
         </div>
       </div>
+      <div class="calc-interp" style="margin-top:24px;">
+        <span class="calc-interp-icon">💡</span>
+        <div>
+          <div class="calc-interp-title">Ce que ça veut dire pour toi</div>
+          <p class="calc-interp-body" id="interp-fire-text"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -752,6 +789,13 @@
           </div>
         </div>
       </div>
+      <div class="calc-interp" style="margin-top:24px;">
+        <span class="calc-interp-icon">💡</span>
+        <div>
+          <div class="calc-interp-title">Ce que ça veut dire pour toi</div>
+          <p class="calc-interp-body" id="interp-ret-text"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -846,6 +890,13 @@
           </div>
         </div>
       </div>
+      <div class="calc-interp" style="margin-top:24px;">
+        <span class="calc-interp-icon">💡</span>
+        <div>
+          <div class="calc-interp-title">Ce que ça veut dire pour toi</div>
+          <p class="calc-interp-body" id="interp-fisc-text"></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -900,6 +951,109 @@
 
   <script defer src="js/main.js"></script>
   <script defer src="js/simulator.js"></script>
+  <!-- Interprétation contextuelle — Simulateur 1 Intérêts Composés -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!document.getElementById('sl-initial')) return;
+      function interpIC() {
+        var initial = parseFloat(document.getElementById('sl-initial').value);
+        var monthly = parseFloat(document.getElementById('sl-monthly').value);
+        var rate    = parseFloat(document.getElementById('sl-rate').value);
+        var years   = parseInt(document.getElementById('sl-years').value);
+        var r = rate / 100 / 12;
+        var months = years * 12;
+        var fi = initial * Math.pow(1 + r, months);
+        var fm = r > 0 ? monthly * ((Math.pow(1 + r, months) - 1) / r) : monthly * months;
+        var total    = fi + fm;
+        var invested = initial + monthly * months;
+        var mult     = invested > 0 ? total / invested : 0;
+        function fmtN(n) { return new Intl.NumberFormat('fr-FR').format(Math.round(n)); }
+        var msg;
+        if (monthly === 0 && initial < 5000) {
+          msg = "Tu pars d'un capital faible sans versement régulier. Dans cette configuration, le temps joue peu pour toi. Le vrai levier est d'ouvrir un virement automatique mensuel, même modeste. 50 €/mois investis sur 20 ans surpassent 5 000 € placés une seule fois.";
+        } else if (monthly < 100 && initial < 10000) {
+          msg = "Ton capital de départ est limité et ton apport mensuel reste faible. Ce n'est pas un problème : la régularité prime sur le montant. Augmenter ton apport de 50 €/mois supplémentaires aurait un impact bien plus fort que d'espérer un meilleur rendement.";
+        } else if (monthly >= 100 && monthly < 300 && years >= 15) {
+          msg = "Avec " + fmtN(monthly) + " €/mois sur " + years + " ans, tu laisses les intérêts composés faire le travail. C'est exactement cette régularité sur le long terme qui explique la différence entre les investisseurs qui réussissent et ceux qui attendent le bon moment.";
+        } else if (monthly >= 300 && years >= 20) {
+          msg = "Ta situation est solide. Avec " + fmtN(monthly) + " €/mois et " + years + " ans devant toi, tu es dans la catégorie des investisseurs qui construisent une vraie indépendance financière. Le risque principal à ce stade : te décourager dans les 3 premières années où la courbe semble plate.";
+        } else if (years < 8) {
+          msg = "Sur moins de 8 ans, les intérêts composés n'ont pas encore le temps d'accélérer. L'effet boule de neige se produit surtout après la 10e année. Si tu as besoin de cet argent à court terme, assure-toi qu'il ne s'agit pas de ton épargne de précaution.";
+        } else if (rate > 10) {
+          msg = "Un rendement de " + rate.toFixed(1) + "% par an est optimiste. Le MSCI World affiche ~7% de moyenne historique sur 30 ans. Simuler à 10% ou plus peut fausser ta projection et te pousser à sous-épargner. Recalibre à 6 ou 7% pour une vision réaliste.";
+        } else if (mult >= 5) {
+          msg = "Un multiplicateur de x" + mult.toFixed(1) + " signifie que ton argent travaille vraiment pour toi. À ce niveau, réduire les frais de gestion devient crucial : 0,5% de frais en moins par an peut représenter plusieurs dizaines de milliers d'euros sur la durée.";
+        } else if (mult >= 2 && mult < 5) {
+          msg = "Ton capital va plus que doubler. Ce résultat est directement lié à la durée : chaque année supplémentaire accélère la croissance car tu gagnes des intérêts sur des intérêts déjà accumulés. C'est l'effet exponentiel en action.";
+        } else {
+          msg = "Joue avec les curseurs pour explorer différents scénarios. Même de petites variations sur la durée ou l'apport mensuel peuvent changer radicalement le résultat final.";
+        }
+        var el = document.getElementById('interp-ic-text');
+        if (el) el.textContent = msg;
+      }
+      ['sl-initial','sl-monthly','sl-rate','sl-years'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', interpIC);
+      });
+      interpIC();
+    });
+  </script>
+  <!-- Interprétation contextuelle — Simulateur 2 Liberté Financière (FIRE) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!document.getElementById('fire-age-now')) return;
+      function interpFire() {
+        var ageNow     = parseInt(document.getElementById('fire-age-now').value);
+        var ageTarget  = parseInt(document.getElementById('fire-age-target').value);
+        var capitalNow = parseFloat(document.getElementById('fire-capital-now').value);
+        var rente      = parseFloat(document.getElementById('fire-rente').value);
+        var rate       = parseFloat(document.getElementById('fire-rate').value) / 100;
+        var taxRaw     = parseFloat(document.getElementById('fire-tax').value);
+        var tax        = taxRaw / 100;
+        var yearsLeft  = Math.max(0, ageTarget - ageNow);
+        var rateNet    = rate * (1 - tax);
+        var swr        = Math.min(rateNet, 0.04);
+        var capitalFire = (rente * 12) / swr;
+        var r = rate / 12, n = yearsLeft * 12;
+        var monthlyNeeded = 0;
+        if (n > 0) {
+          if (r > 0) {
+            var fvNow = capitalNow * Math.pow(1 + r, n);
+            var rem   = Math.max(0, capitalFire - fvNow);
+            monthlyNeeded = rem > 0 ? rem * r / (Math.pow(1 + r, n) - 1) : 0;
+          } else {
+            monthlyNeeded = Math.max(0, (capitalFire - capitalNow) / n);
+          }
+        }
+        function fmtN(n) { return new Intl.NumberFormat('fr-FR').format(Math.round(n)); }
+        var msg;
+        if (yearsLeft < 5) {
+          msg = "Tu es à moins de 5 ans de ton objectif FIRE. À ce stade, la préservation du capital devient aussi importante que la croissance. Commence à réfléchir à la sécurisation progressive d'une partie de ton portefeuille vers des actifs moins volatils.";
+        } else if (monthlyNeeded > 3000) {
+          msg = "L'épargne mensuelle nécessaire pour atteindre cet objectif est élevée. Deux leviers à explorer : repousser l'âge FIRE de 3 à 5 ans (impact massif sur le calcul) ou réduire la rente cible. Une rente de " + fmtN(rente - 500) + " €/mois changerait radicalement l'équation.";
+        } else if (ageTarget < 40) {
+          msg = "Le FIRE avant 40 ans est possible mais exige une discipline hors norme. Les personnes qui y parviennent combinent généralement des revenus élevés, un taux d'épargne supérieur à 50% et des revenus complémentaires (immobilier, side business). Ce n'est pas qu'une question de placement.";
+        } else if (ageTarget >= 40 && ageTarget < 50 && monthlyNeeded <= 1500) {
+          msg = "Ton objectif est ambitieux mais réaliste. À " + fmtN(monthlyNeeded) + " €/mois d'épargne, tu es dans la zone atteignable si tu commences maintenant. Chaque année de retard allonge significativement l'effort mensuel nécessaire.";
+        } else if (Math.abs(taxRaw - 31.4) < 0.01) {
+          msg = "Tu as sélectionné la flat tax CTO à 31,4%. Si tu n'as pas encore de PEA, ouvre-en un maintenant même avec un versement symbolique. Après 5 ans, la fiscalité tombe à 18,6% sur les plus-values, ce qui peut représenter plusieurs dizaines de milliers d'euros d'impôt économisés sur une vie.";
+        } else if (capitalNow > 50000 && yearsLeft > 15) {
+          msg = "Tu pars avec une base solide. Avec " + fmtN(capitalNow) + " € déjà constitués, les intérêts sur ton capital existant vont contribuer significativement à l'objectif. Tu n'es pas en train de partir de zéro : l'effet boule de neige est déjà enclenché.";
+        } else if (capitalNow === 0 && monthlyNeeded <= 800) {
+          msg = "Tu pars de zéro, mais l'objectif reste accessible. " + fmtN(monthlyNeeded) + " €/mois c'est le prix d'une dépense qu'on ne remarque plus après 3 mois. Le plus difficile n'est pas le montant : c'est d'automatiser le virement le premier mois et de ne plus y toucher.";
+        } else {
+          msg = "Joue avec les curseurs pour explorer différents scénarios. Même de petites variations sur la durée ou l'apport mensuel peuvent changer radicalement le résultat final.";
+        }
+        var el = document.getElementById('interp-fire-text');
+        if (el) el.textContent = msg;
+      }
+      ['fire-age-now','fire-age-target','fire-capital-now','fire-rente','fire-rate','fire-tax'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', interpFire);
+      });
+      interpFire();
+    });
+  </script>
   <script>
     document.addEventListener('DOMContentLoaded', () => initSimulator('', 'chart-main'));
   </script>
@@ -956,6 +1110,29 @@
           ? `En épargnant ${fmt(monthlySave)}/mois pendant ${yearsLeft} ans à ${annualRate.toFixed(1)}%/an, tu accumuleras ${fmtK(capitalAccum)} sur les ${fmtK(capitalNeeded)} nécessaires. Il te manque ${fmtK(gap)}, soit ${fmt(extraMonthly)}/mois supplémentaires.`
           : `En épargnant ${fmt(monthlySave)}/mois pendant ${yearsLeft} ans à ${annualRate.toFixed(1)}%/an, tu dépasseras ton objectif de ${fmtK(capitalNeeded)} !`;
         document.getElementById('ret-recap-sentence').textContent = short;
+
+        // Interprétation contextuelle retraite
+        {
+          const fmtNR = x => new Intl.NumberFormat('fr-FR').format(Math.round(x));
+          let msgRet;
+          if (gap <= 0) {
+            msgRet = `Avec ${fmtNR(monthlySave)} €/mois au rendement actuel, tu couvres déjà ton objectif retraite. Tu es sur la bonne trajectoire. La priorité devient maintenant la diversification des enveloppes fiscales et la régularité, pas d'augmenter le montant investi.`;
+          } else if (extraMonthly > 0 && extraMonthly <= 100) {
+            msgRet = `Il te manque seulement ${fmtNR(extraMonthly)} €/mois pour atteindre ton objectif. C'est un ajustement marginal. Avant d'augmenter tes versements, vérifie que tu utilises bien le PEA en priorité : la fiscalité à la sortie fait une différence réelle sur le long terme.`;
+          } else if (extraMonthly > 100 && extraMonthly <= 400) {
+            msgRet = `L'écart à combler est significatif mais gérable. ${fmtNR(extraMonthly)} €/mois supplémentaires représentent un effort réel. Alternative : pousser l'âge de départ à la retraite de 2 ou 3 ans. L'impact sur le capital nécessaire est immédiat et l'impact sur l'accumulation est double.`;
+          } else if (extraMonthly > 400) {
+            msgRet = "L'écart entre ton rythme actuel et l'objectif est important. Deux questions à te poser : la rente souhaitée inclut-elle la retraite de base de la Sécu ? Si oui, tu la surestimes peut-être. Et : repousser l'âge de départ de 5 ans divise souvent l'effort mensuel par deux.";
+          } else if (yearsLeft < 15 && gap > 0) {
+            msgRet = "Avec moins de 15 ans devant toi, chaque année compte double. Les intérêts composés n'ont pas encore eu le temps de s'amplifier sur ton portefeuille. À ce stade, augmenter le montant investi prime sur l'optimisation du rendement.";
+          } else if (yearsLeft >= 25 && monthlySave >= 200) {
+            msgRet = `Tu as le temps et la régularité. Avec ${yearsLeft} ans devant toi, les intérêts composés vont faire l'essentiel du travail. La plus grande erreur à éviter : interrompre les versements lors d'une période difficile. C'est précisément dans ces moments que la régularité crée l'avantage.`;
+          } else {
+            msgRet = "Joue avec les curseurs pour explorer différents scénarios. Même de petites variations sur la durée ou l'apport mensuel peuvent changer radicalement le résultat final.";
+          }
+          const elRet = document.getElementById('interp-ret-text');
+          if (elRet) elRet.textContent = msgRet;
+        }
 
         // Graphique
         const labels = [];
@@ -1114,6 +1291,31 @@
         document.getElementById('fisc-ecart').innerHTML = 'Capital brut identique : <strong>' + eur(brut) + '</strong>. Écart entre la meilleure et la pire enveloppe : <strong>' + eur(ecart) + '</strong>.';
 
         document.getElementById('fisc-warn').classList.toggle('show', versements > 150000);
+
+        // Interprétation contextuelle fiscal
+        {
+          const fmtNF = x => new Intl.NumberFormat('fr-FR').format(Math.round(x));
+          let msgFisc;
+          if (dur < 5) {
+            msgFisc = "Sur moins de 5 ans, le PEA n'est pas encore fiscalement avantageux : un retrait avant 5 ans entraîne sa clôture et une fiscalité au taux plein. Si tu as besoin de flexibilité à court terme, le CTO ou l'assurance vie sont plus adaptés.";
+          } else if (dur >= 5 && dur < 8) {
+            msgFisc = `À ${dur} ans, le PEA vient de passer le cap fiscal des 5 ans. C'est maintenant que l'avantage devient réel : tes plus-values ne sont soumises qu'aux prélèvements sociaux à 18,6%, contre 31,4% sur un CTO. Ne ferme pas ton PEA maintenant, même si tu as besoin de liquidités ponctuelles.`;
+          } else if (ecart > 20000) {
+            msgFisc = `L'écart entre la meilleure et la pire enveloppe atteint ${fmtNF(ecart)} € dans ta simulation. Ce n'est pas de la théorie : c'est de l'argent réel que le choix de l'enveloppe te fait gagner ou perdre. La fiscalité est souvent le facteur le plus sous-estimé par les investisseurs débutants.`;
+          } else if (ecart > 5000 && ecart <= 20000) {
+            msgFisc = `${fmtNF(ecart)} € d'écart entre la meilleure et la pire enveloppe sur ta simulation. Pour un même effort mensuel et un même rendement, l'enveloppe fait toute la différence à la sortie. C'est gratuit à optimiser : il suffit de choisir le bon compte dès le départ.`;
+          } else if (versements > 150000) {
+            msgFisc = "Tes versements cumulés dépassent le plafond du PEA à 150 000 €. Au-delà, le surplus doit aller sur un CTO ou une assurance vie. Stratégie optimale : maximiser le PEA en priorité, puis arbitrer entre assurance vie (avantage successoral) et CTO (flexibilité totale) selon ta situation.";
+          } else if (netAv > netCto && situation === 'couple') {
+            msgFisc = "Pour un couple, l'assurance vie devient particulièrement intéressante grâce à l'abattement doublé sur les rachats après 8 ans. Dans ta simulation, elle surpasse le CTO net d'impôts. C'est un avantage souvent ignoré par rapport au seul PEA.";
+          } else if (dur >= 20 && rate >= 7) {
+            msgFisc = `Sur ${dur} ans à ${rate.toFixed(1)}%, l'effet des frais de gestion est massif. Un ETF à 0,2% de frais annuels contre un fonds actif à 1,5% représente plusieurs dizaines de milliers d'euros d'écart à la sortie, sans même parler de la fiscalité. Choisis des supports à frais réduits dans toutes tes enveloppes.`;
+          } else {
+            msgFisc = "Joue avec les curseurs pour explorer différents scénarios. Même de petites variations sur la durée ou l'apport mensuel peuvent changer radicalement le résultat final.";
+          }
+          const elFisc = document.getElementById('interp-fisc-text');
+          if (elFisc) elFisc.textContent = msgFisc;
+        }
 
         renderChart(netPea, netCto, netAv);
       }

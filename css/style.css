@@ -194,6 +194,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   gap: 8px;
 }
 .nav.scrolled .nav-logo { color: var(--navy); }
+/* Nav sur fond sombre (pages guides) */
+.nav--dark:not(.scrolled) .nav-logo { color: var(--white); }
+.nav--dark:not(.scrolled) .nav-link { color: rgba(255,255,255,0.75); }
+.nav--dark:not(.scrolled) .nav-link:hover,
+.nav--dark:not(.scrolled) .nav-link.active { color: var(--white); }
+.nav--dark:not(.scrolled) .nav-cta .btn-gradient { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: var(--white); backdrop-filter: blur(8px); }
 .nav-logo-dot {
   width: 6px; height: 6px;
   border-radius: 50%;

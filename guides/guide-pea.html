@@ -33,7 +33,7 @@
 </head>
 <body>
 
-  <nav class="nav" id="nav">
+  <nav class="nav nav--dark" id="nav">
     <div class="container">
       <div class="nav-inner">
         <a href="../index.html" class="nav-logo">
@@ -66,6 +66,11 @@
               <a href="../comparateur-etf.html" class="nav-dropdown-item">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
                 <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="../ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
               </a>
             </div>
           </li>
@@ -111,7 +116,7 @@
       <div class="guide-page-hero-inner">
         <div class="guide-page-meta">
           <span class="guide-page-tag"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="m3 9 9-6 9 6"/></svg> Guide PEA</span>
-          <span class="guide-page-readtime">⏱ ~6 min de lecture</span>
+          <span class="guide-page-readtime">&#9203; ~20 min de lecture</span>
         </div>
         <h1>Ouvrir son PEA : le guide <em>pas à pas</em></h1>
         <p>Le PEA est l'enveloppe fiscale la plus avantageuse pour investir en bourse en France. Voici comment l'ouvrir, quoi y mettre et comment en tirer le maximum.</p>
@@ -125,15 +130,31 @@
 
       <article class="guide-article reveal">
 
+        <!-- ===================== SECTION 1 : DÉFINITION ===================== -->
         <h2 id="definition">Le PEA : c'est quoi exactement ?</h2>
-        <p>Le <strong>Plan d'Épargne en Actions (PEA)</strong> est une enveloppe fiscale française qui te permet d'investir en bourse tout en bénéficiant d'un régime fiscal avantageux après 5 ans.</p>
-        <p>Attention : le PEA n'est pas un produit financier en lui-même, c'est un <strong>contenant</strong>. Dedans, tu mets ce que tu veux dans les limites légales : ETF, actions européennes, OPCVM éligibles.</p>
+        <p>Le <strong>Plan d'Épargne en Actions (PEA)</strong> est une enveloppe fiscale française qui te permet d'investir en bourse tout en bénéficiant d'un régime fiscal très avantageux après 5 ans de détention.</p>
+        <p>Attention : le PEA n'est pas un produit financier en lui-même, c'est un <strong>contenant</strong>. Dedans, tu mets ce que tu veux dans les limites légales : ETF, actions européennes, OPCVM éligibles. Pense à une boîte fiscale protectrice : les gains qui se forment à l'intérieur ne sont pas taxés tant que tu ne les sors pas, et quand tu les sors après 5 ans, tu payes beaucoup moins d'impôts qu'ailleurs.</p>
+
+        <h3>Pourquoi le PEA existe : un peu d'histoire</h3>
+        <p>Le PEA a été créé en <strong>1992</strong> sous le gouvernement Bérégovoy avec un objectif précis : orienter l'épargne des Français vers le financement des entreprises européennes. L'idée était simple — offrir un cadre fiscal attractif pour que les particuliers investissent sur les marchés actions plutôt que de laisser leur argent dormir sur des livrets.</p>
+        <p>Depuis sa création, le PEA a connu plusieurs réformes importantes :</p>
         <ul>
-          <li><strong>Qui peut ouvrir un PEA</strong> : tout résident fiscal français majeur. Maximum 1 PEA par personne (+ 1 PEA-PME optionnel).</li>
-          <li><strong>Plafond de versements</strong> : 150 000€. Les plus-values peuvent dépasser ce plafond.</li>
-          <li><strong>Âge minimum</strong> : 18 ans (les mineurs rattachés au foyer fiscal peuvent ouvrir un PEA-Jeunes).</li>
+          <li><strong>2014</strong> : création du PEA-PME pour orienter une partie de l'épargne vers les petites et moyennes entreprises.</li>
+          <li><strong>2019</strong> (loi PACTE) : le plafond du PEA passe de 132 000€ à <strong>150 000€</strong>, le délai de blocage passe de 8 à <strong>5 ans</strong>, et les retraits partiels après 5 ans ne clôturent plus le PEA.</li>
+          <li><strong>2020</strong> : ouverture du PEA aux jeunes de 18 à 25 ans rattachés au foyer fiscal (PEA Jeunes, plafond 20 000€).</li>
+          <li><strong>2026</strong> : hausse des prélèvements sociaux de 17,2% à 18,6% (loi de financement de la Sécurité sociale).</li>
+        </ul>
+        <p>La loi PACTE de 2019 est la plus importante : elle a rendu le PEA beaucoup plus souple, notamment en permettant les retraits partiels après 5 ans sans perdre l'enveloppe. Avant 2019, le moindre retrait clôturait tout.</p>
+
+        <h3>Les caractéristiques essentielles</h3>
+        <ul>
+          <li><strong>Qui peut ouvrir un PEA</strong> : tout résident fiscal français majeur. Maximum 1 PEA par personne (+ 1 PEA-PME optionnel). Les couples peuvent donc avoir 2 PEA (un chacun).</li>
+          <li><strong>Plafond de versements</strong> : 150 000€. Attention, c'est le plafond des sommes que tu <em>verses</em>, pas la valeur de ton portefeuille. Si tu verses 150 000€ et que ton portefeuille vaut ensuite 400 000€, c'est parfaitement légal.</li>
+          <li><strong>Âge minimum</strong> : 18 ans. Exception : les 18-25 ans rattachés au foyer fiscal des parents peuvent ouvrir un PEA Jeunes (plafond 20 000€, fusionné ensuite avec le PEA classique à la sortie du foyer fiscal).</li>
+          <li><strong>Durée légale de détention</strong> : 5 ans minimum pour bénéficier de la fiscalité avantageuse. Ce délai court à partir de la <strong>date d'ouverture</strong>, pas du premier versement important.</li>
         </ul>
 
+        <!-- ===================== SECTION 2 : AVANTAGE FISCAL ===================== -->
         <h2 id="fiscal">L'avantage fiscal qui change tout</h2>
         <p>C'est là que le PEA brille. La différence de traitement fiscal avant et après 5 ans est considérable :</p>
         <table class="guide-table">
@@ -153,23 +174,78 @@
             </tr>
           </tbody>
         </table>
+
+        <h3>Ce que ça représente en euros concrets</h3>
+        <p>Prenons un exemple très simple. Tu as investi <strong>10 000€</strong> dans ton PEA. Après plusieurs années, tu as réalisé <strong>10 000€ de plus-values</strong>. Voici ce que tu payes selon l'enveloppe :</p>
+        <table class="guide-table">
+          <thead>
+            <tr><th>Impôt</th><th>PEA (après 5 ans)</th><th>CTO (flat tax)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Impôt sur le revenu (IR)</td>
+              <td class="positive">0€</td>
+              <td class="negative">1 280€</td>
+            </tr>
+            <tr>
+              <td>Prélèvements sociaux (PS)</td>
+              <td>1 860€</td>
+              <td>1 860€</td>
+            </tr>
+            <tr>
+              <td><strong>Total impôts sur 10 000€ de PV</strong></td>
+              <td class="positive"><strong>1 860€</strong></td>
+              <td class="negative"><strong>3 140€</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Capital net conservé</strong></td>
+              <td class="positive"><strong>8 140€ sur les gains</strong></td>
+              <td class="negative"><strong>6 860€ sur les gains</strong></td>
+            </tr>
+          </tbody>
+        </table>
         <div class="guide-callout">
-          <p><strong>En euros concrets :</strong> Sur 10 000€ de plus-values, la différence entre PEA (après 5 ans) et CTO est de <strong>1 280€ d'impôt en moins</strong>. Sur une vie d'investisseur, ça se compte en dizaines de milliers d'euros.</p>
+          <p><strong>Résumé :</strong> Sur 10 000€ de plus-values, le PEA te fait économiser <strong>1 280€ d'impôt</strong> par rapport à un CTO. Et c'est sur <em>chaque tranche de 10 000€ de gains</em>. Sur une carrière d'investisseur avec des versements réguliers, cet avantage se compte en dizaines de milliers d'euros.</p>
           <p style="margin-top:12px;">Depuis le 1er janvier 2026, les prélèvements sociaux sur les revenus du capital sont passés de 17,2% à 18,6% (loi de financement de la Sécurité sociale pour 2026). Cette hausse s'applique au PEA et au CTO, mais pas à l'assurance-vie, qui reste à 17,2%.</p>
         </div>
 
-        <h2 id="regles">Les règles à connaître</h2>
+        <!-- ===================== SECTION 3 : RÈGLES ===================== -->
+        <h2 id="regles">Les règles à connaître absolument</h2>
+
+        <h3>Ce qu'on peut et ne peut pas faire</h3>
         <ul>
-          <li><strong>Plafond de versement : 150 000€</strong>, attention, c'est sur les versements, pas sur la valeur du portefeuille. Ton portefeuille peut valoir 500 000€ sur un PEA.</li>
-          <li><strong>Retrait avant 5 ans = clôture automatique</strong>, sauf exceptions (création d'entreprise, invalidité, licenciement, décès du conjoint).</li>
-          <li><strong>Ce qu'on ne peut PAS mettre</strong> : actions d'entreprises hors Europe, ETF non éligibles PEA (ex: iShares MSCI World classique), crypto.</li>
-          <li><strong>Ce qu'on PEUT mettre</strong> : actions européennes (CAC 40, DAX, etc.), ETF éligibles PEA (Amundi, Lyxor/Société Générale), OPCVM investis à 75%+ en actions européennes.</li>
+          <li><strong>Plafond de versement : 150 000€.</strong> C'est sur les versements, pas sur la valeur du portefeuille. Une fois le plafond atteint, tu ne peux plus verser de nouvelles sommes, mais les plus-values et dividendes continuent de grossir sans limite.</li>
+          <li><strong>Retrait avant 5 ans = clôture automatique</strong>, sauf exceptions légales : création ou reprise d'entreprise, invalidité de 2e ou 3e catégorie, licenciement, mise à la retraite anticipée, décès du conjoint ou partenaire de PACS.</li>
+          <li><strong>Après 5 ans</strong> : les retraits partiels sont possibles sans clôturer l'enveloppe. Mais attention — après un retrait partiel, tu ne peux plus effectuer de nouveaux versements. Ton plafond reste consommé.</li>
+          <li><strong>Les dividendes et plus-values</strong> réinvestis dans le PEA ne comptent pas dans le plafond de versements. Seules les sommes entrées depuis ton compte bancaire comptent.</li>
         </ul>
 
+        <h3>Ce qu'on peut mettre dans un PEA</h3>
+        <ul>
+          <li><strong>Actions de sociétés européennes</strong> dont le siège est dans l'UE ou l'EEE (France, Allemagne, Italie, Espagne, Belgique, Pays-Bas, Suède, etc.).</li>
+          <li><strong>ETF éligibles PEA</strong> : des ETF domiciliés en France ou dans l'UE, constitués d'actions européennes. Ils peuvent offrir une exposition mondiale grâce à des swaps (échanges de performance avec une contrepartie bancaire).</li>
+          <li><strong>OPCVM (fonds communs de placement)</strong> investis à au moins 75% en actions de sociétés européennes éligibles.</li>
+          <li><strong>Droits d'attribution et droits de souscription</strong> attachés à des actions éligibles.</li>
+        </ul>
+
+        <h3>Ce qu'on ne peut PAS mettre</h3>
+        <ul>
+          <li><strong>Actions de sociétés hors Europe</strong> : Apple, Amazon, Google, Microsoft, Tesla, etc. ne sont pas éligibles au PEA en direct.</li>
+          <li><strong>ETF domiciliés en Irlande ou au Luxembourg avec ISIN IE... ou LU...</strong> qui ne sont pas structurés via swap pour être éligibles PEA.</li>
+          <li><strong>Obligations, fonds obligataires, SCPI, SICAV monétaires.</strong></li>
+          <li><strong>Cryptomonnaies.</strong></li>
+          <li><strong>Produits dérivés</strong> (options, warrants, turbos).</li>
+        </ul>
+        <div class="guide-warning">
+          <p><strong>Risque réel :</strong> Acheter un actif non éligible dans un PEA par erreur peut entraîner la clôture forcée de ton PEA par l'administration fiscale, avec toutes les conséquences fiscales que ça implique. Vérifie toujours l'éligibilité avant de passer un ordre.</p>
+        </div>
+
+        <!-- ===================== SECTION 4 : COURTIERS ===================== -->
         <h2 id="courtiers">Quel courtier choisir pour son PEA ?</h2>
+        <p>Le choix du courtier est crucial car les frais peuvent amputer significativement tes rendements sur le long terme. Voici une comparaison des principaux courtiers PEA disponibles en France en 2026 :</p>
         <table class="guide-table">
           <thead>
-            <tr><th>Courtier</th><th>Frais ETF</th><th>Frais actions</th><th>Interface</th></tr>
+            <tr><th>Courtier</th><th>Frais ETF</th><th>Frais actions</th><th>Interface</th><th>Plan d'invest. prog.</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -177,53 +253,530 @@
               <td class="positive">0€</td>
               <td class="positive">1€/ordre</td>
               <td>Mobile first, très simple</td>
+              <td class="positive">Oui, natif (hebdo/mensuel)</td>
             </tr>
             <tr>
               <td><strong>Fortuneo</strong></td>
               <td>1,99€/ordre (&lt;500€)</td>
               <td>1,99€ à 9,90€</td>
               <td>Web + mobile, complet</td>
+              <td class="positive">Oui, disponible</td>
             </tr>
             <tr>
               <td><strong>BoursoBank</strong></td>
               <td>Variable (0,99€+)</td>
               <td>Variable</td>
               <td>Intégré à la banque</td>
+              <td>Partiel (ordres programmés)</td>
             </tr>
             <tr>
               <td><strong>Bourse Direct</strong></td>
               <td class="positive">0,99€/ordre</td>
               <td class="positive">0,99€/ordre</td>
               <td>Desktop, plus avancé</td>
+              <td>Non</td>
+            </tr>
+            <tr>
+              <td><strong>Saxo Banque</strong></td>
+              <td>0,08% (min 2€)</td>
+              <td>0,08% (min 2€)</td>
+              <td>Pro, complexe</td>
+              <td>Non</td>
             </tr>
           </tbody>
         </table>
-        <p><strong>Ma recommandation :</strong> <strong>Trade Republic</strong> si tu investis uniquement en ETF (0€ de frais). <strong>Fortuneo</strong> si tu veux aussi des actions individuelles. Les deux proposent des codes parrainage, <a href="../parrainage.html">voir la page parrainages</a>.</p>
 
-        <h2 id="etapes">Comment ouvrir son PEA : étape par étape</h2>
-        <ol>
-          <li><strong>Choisir son courtier</strong> (~5 min) en fonction de tes critères : frais, interface, types d'actifs souhaités.</li>
-          <li><strong>Remplir le formulaire d'ouverture en ligne</strong> (~10-15 min) : pièce d'identité + RIB. Tout se fait en ligne.</li>
-          <li><strong>Attendre la validation</strong> : en général 2 à 5 jours ouvrés. Tu reçois une confirmation par email.</li>
-          <li><strong>Effectuer un premier virement</strong> : même 1€ suffit. Le délai de 5 ans commence dès l'ouverture, pas dès le premier gros versement.</li>
-          <li><strong>Passer son premier ordre</strong> : choisis ton ETF, saisis le montant, confirme. C'est fait.</li>
-        </ol>
+        <h3>Comment choisir selon ton profil</h3>
+        <ul>
+          <li><strong>Tu veux investir en ETF uniquement avec le moins de friction possible</strong> → Trade Republic. Zéro frais sur les ETF, interface ultra-simple, plan d'investissement automatique natif. C'est la meilleure option pour débuter.</li>
+          <li><strong>Tu veux aussi acheter des actions individuelles</strong> → Fortuneo ou Bourse Direct. Les frais restent raisonnables et l'offre d'actions est plus large.</li>
+          <li><strong>Tu veux tout centraliser dans ta banque principale</strong> → BoursoBank, si tu y es déjà client. Attention, les frais peuvent être plus élevés selon les ETF.</li>
+          <li><strong>Tu fais beaucoup d'ordres sur des actions</strong> → Bourse Direct offre le meilleur tarif fixe à 0,99€/ordre.</li>
+        </ul>
+        <p><strong>Ma recommandation :</strong> <strong>Trade Republic</strong> pour 90% des profils (ETF uniquement, frais nuls, plan automatique). <strong>Fortuneo</strong> si tu veux aussi des actions individuelles. Les deux proposent des codes parrainage, <a href="../parrainage.html">voir la page parrainages</a>.</p>
         <div class="guide-callout">
-          <p><strong>Astuce :</strong> Ouvre ton PEA aujourd'hui même si tu n'as pas encore d'argent à investir. Le délai de 5 ans commence à la date d'ouverture. Chaque jour compte.</p>
+          <p><strong>Impact des frais sur 20 ans :</strong> Sur 200€ mensuels investis à 7%/an pendant 20 ans, payer 1€/ordre de frais (soit 12€/an) représente une perte d'environ 500€ sur la performance finale. Payer 5€/ordre (60€/an) représente une perte de 2 500€. Les frais comptent, surtout sur le long terme.</p>
         </div>
 
+        <!-- ===================== SECTION 5 : ÉTAPES ===================== -->
+        <h2 id="etapes">Comment ouvrir son PEA : étape par étape</h2>
+        <ol>
+          <li><strong>Choisir son courtier</strong> (~5 min) en fonction de tes critères : frais, interface, types d'actifs souhaités. Consulte la comparaison ci-dessus et la page parrainages pour les offres de bienvenue.</li>
+          <li><strong>Remplir le formulaire d'ouverture en ligne</strong> (~10-15 min) : pièce d'identité (carte nationale d'identité ou passeport) + RIB de ton compte bancaire. Tout se fait entièrement en ligne, sans passer en agence.</li>
+          <li><strong>Attendre la validation</strong> : en général 2 à 5 jours ouvrés. Tu reçois une confirmation par email avec tes identifiants de connexion. Chez Trade Republic, c'est souvent validé sous 24h.</li>
+          <li><strong>Effectuer un premier virement</strong> : même 1€ suffit pour ouvrir officiellement le compte. Le délai de 5 ans commence à la date d'ouverture enregistrée par le courtier, pas à la date de ton premier gros versement.</li>
+          <li><strong>Passer son premier ordre</strong> : choisis ton ETF (voir la section dédiée ci-dessous), saisis le montant, confirme. C'est fait.</li>
+          <li><strong>Mettre en place un plan d'investissement automatique</strong> (optionnel mais recommandé) : sur Trade Republic et Fortuneo, tu peux programmer des achats automatiques mensuels. C'est la méthode DCA — tu investis régulièrement sans y penser.</li>
+        </ol>
+        <div class="guide-callout">
+          <p><strong>La règle d'or :</strong> Ouvre ton PEA aujourd'hui même si tu n'as pas encore d'argent à investir. Le délai de 5 ans commence à la date d'ouverture, pas au premier gros versement. Chaque jour que tu attends est un jour perdu sur le délai fiscal. Un PEA ouvert avec 1€ aujourd'hui sera fiscal après 5 ans. Un PEA ouvert dans 6 mois ne sera fiscal que dans 5 ans et 6 mois.</p>
+        </div>
+
+        <!-- ===================== SECTION 6 : QUE METTRE ===================== -->
         <h2 id="que-mettre">Que mettre dans son PEA ?</h2>
+        <p>La question numéro un des débutants. Voici une hiérarchie claire selon les objectifs :</p>
+
+        <h3>Priorité 1 : les ETF monde éligibles PEA</h3>
+        <p>Si tu ne devais choisir qu'un seul produit, ce serait un ETF MSCI World éligible PEA. Il te donne une exposition à ~1 500 grandes entreprises mondiales en un seul achat. Attention, les ETF MSCI World éligibles PEA utilisent une technique appelée <strong>réplication synthétique (swap)</strong> : l'ETF est légalement constitué d'actions européennes, mais via un contrat avec une banque (swap), il te donne la performance du MSCI World (USA, Europe, Japon, etc.). C'est parfaitement légal et courant.</p>
+
+        <h3>Priorité 2 : les ETF S&P 500 éligibles PEA</h3>
+        <p>Pour une exposition concentrée sur les 500 plus grandes entreprises américaines. Plus volatile, mais historiquement très performant. Peut se combiner avec un ETF Europe pour diversifier géographiquement.</p>
+
+        <h3>Priorité 3 : les ETF sectoriels ou géographiques européens</h3>
+        <p>Une fois les bases en place, tu peux ajouter des ETF sectoriels (technologie, santé, énergie) ou géographiques (marchés émergents via swap éligible PEA, NASDAQ, small caps).</p>
+
+        <h3>Actions individuelles : pour les investisseurs expérimentés</h3>
+        <p>Tu peux acheter des actions d'entreprises européennes en direct (Total, LVMH, SAP, Nestlé, etc.). C'est plus risqué qu'un ETF car tu concentres ton exposition sur une seule entreprise. À réserver aux investisseurs qui ont envie de suivre des entreprises spécifiques.</p>
+
         <ul>
-          <li><strong>ETF MSCI World éligibles PEA</strong> : Amundi MSCI World (LU1681043599), Lyxor PEA Monde (FR0011869353). À privilégier en premier.</li>
-          <li><strong>ETF S&P 500 éligibles PEA</strong> : Amundi PEA S&P 500 (FR0013412285). Exposition concentrée sur les USA.</li>
-          <li><strong>Actions européennes</strong> : CAC 40, DAX, EURO STOXX 50, si tu veux sélectionner des entreprises individuelles.</li>
-          <li><strong>Ce qu'il ne faut PAS mettre</strong> : iShares MSCI World (IE...) non éligible, actions Apple/Amazon/Google en direct, crypto.</li>
+          <li><strong>Ce qu'il ne faut PAS mettre</strong> : iShares MSCI World (ISIN commençant par IE...) non éligible en direct, actions Apple/Amazon/Google, crypto. Un ordre sur un actif non éligible sera rejeté par le courtier ou, pire, accepté par erreur et entraîner une régularisation fiscale.</li>
         </ul>
 
+        <!-- ===================== SECTION 7 : TIMELINE FISCALE ===================== -->
+        <h2 id="timeline">La timeline fiscale du PEA</h2>
+        <p>Visualise les grandes étapes fiscales de ton PEA pour ne jamais te faire surprendre :</p>
+
+        <div class="guide-visual">
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frise chronologique du PEA : de l'ouverture à 10 ans">
+
+            <!-- Zone avant 5 ans (rouge clair) -->
+            <rect x="60" y="70" width="260" height="40" rx="4" fill="#FEE2E2"/>
+            <!-- Zone après 5 ans (vert clair) -->
+            <rect x="320" y="70" width="320" height="40" rx="4" fill="#DCFCE7"/>
+
+            <!-- Axe principal -->
+            <line x1="60" y1="90" x2="640" y2="90" stroke="#3A526A" stroke-width="2.5"/>
+
+            <!-- Flèche de l'axe -->
+            <polygon points="640,86 648,90 640,94" fill="#3A526A"/>
+
+            <!-- Tick 0 ans -->
+            <line x1="60" y1="82" x2="60" y2="98" stroke="#3A526A" stroke-width="2"/>
+            <text x="60" y="120" text-anchor="middle" font-size="11" fill="#3A526A" font-family="sans-serif">0</text>
+            <text x="60" y="133" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">Ouverture</text>
+
+            <!-- Tick 1 an -->
+            <line x1="117" y1="85" x2="117" y2="95" stroke="#6F6F99" stroke-width="1.5"/>
+            <text x="117" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">1 an</text>
+
+            <!-- Tick 2 ans -->
+            <line x1="174" y1="85" x2="174" y2="95" stroke="#6F6F99" stroke-width="1.5"/>
+            <text x="174" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">2 ans</text>
+
+            <!-- Tick 3 ans -->
+            <line x1="231" y1="85" x2="231" y2="95" stroke="#6F6F99" stroke-width="1.5"/>
+            <text x="231" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">3 ans</text>
+
+            <!-- Tick 4 ans -->
+            <line x1="288" y1="85" x2="288" y2="95" stroke="#6F6F99" stroke-width="1.5"/>
+            <text x="288" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">4 ans</text>
+
+            <!-- Tick 5 ans — LE SEUIL -->
+            <line x1="320" y1="60" x2="320" y2="110" stroke="#22C55E" stroke-width="3"/>
+            <circle cx="320" cy="90" r="7" fill="#22C55E"/>
+            <text x="320" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="#22C55E" font-family="sans-serif">5 ANS</text>
+            <text x="320" y="44" text-anchor="middle" font-size="10" fill="#22C55E" font-family="sans-serif">SEUIL FISCAL</text>
+            <text x="320" y="128" text-anchor="middle" font-size="10" fill="#22C55E" font-family="sans-serif" font-weight="bold">0% IR !</text>
+
+            <!-- Tick 8 ans -->
+            <line x1="491" y1="82" x2="491" y2="98" stroke="#3A526A" stroke-width="1.5"/>
+            <text x="491" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">8 ans</text>
+
+            <!-- Tick 10 ans -->
+            <line x1="604" y1="82" x2="604" y2="98" stroke="#3A526A" stroke-width="1.5"/>
+            <text x="604" y="120" text-anchor="middle" font-size="10" fill="#6F6F99" font-family="sans-serif">10 ans</text>
+
+            <!-- Label zone rouge -->
+            <text x="190" y="82" text-anchor="middle" font-size="11" fill="#EF4444" font-family="sans-serif" font-weight="bold">Flat tax 31,4% si retrait</text>
+
+            <!-- Label zone verte -->
+            <text x="476" y="82" text-anchor="middle" font-size="11" fill="#16A34A" font-family="sans-serif" font-weight="bold">18,6% PS seulement</text>
+
+            <!-- Étoile ouverture -->
+            <text x="60" y="68" text-anchor="middle" font-size="14" fill="#1A3D7C" font-family="sans-serif">&#9733;</text>
+            <text x="60" y="57" text-anchor="middle" font-size="9" fill="#1A3D7C" font-family="sans-serif" font-weight="bold">Le compteur</text>
+            <text x="60" y="47" text-anchor="middle" font-size="9" fill="#1A3D7C" font-family="sans-serif" font-weight="bold">démarre !</text>
+
+            <!-- Légende en bas -->
+            <rect x="60" y="155" width="14" height="14" rx="2" fill="#FEE2E2" stroke="#EF4444" stroke-width="1"/>
+            <text x="80" y="166" font-size="11" fill="#3A526A" font-family="sans-serif">Avant 5 ans : retrait = clôture + flat tax 31,4%</text>
+
+            <rect x="60" y="178" width="14" height="14" rx="2" fill="#DCFCE7" stroke="#22C55E" stroke-width="1"/>
+            <text x="80" y="189" font-size="11" fill="#3A526A" font-family="sans-serif">Après 5 ans : retraits partiels OK, 18,6% PS seulement</text>
+          </svg>
+          <figcaption>La date d'ouverture fait foi, pas la date du premier gros versement. Ouvre ton PEA aujourd'hui avec 1€.</figcaption>
+        </div>
+
+        <div class="guide-callout">
+          <p><strong>Point clé souvent mal compris :</strong> La date qui compte pour le délai de 5 ans, c'est la date à laquelle tu as ouvert ton PEA, pas la date à laquelle tu as commencé à vraiment investir des sommes importantes. Tu peux ouvrir ton PEA aujourd'hui avec 1€, ne pas y toucher pendant 3 ans, puis commencer à verser des sommes conséquentes. Le délai de 5 ans aura commencé dès le premier jour. Chaque jour d'attente avant d'ouvrir le PEA est littéralement perdu.</p>
+        </div>
+
+        <!-- ===================== SECTION 8 : SIMULATION FISCALE ===================== -->
+        <h2 id="simulation-fiscale">Simulation chiffrée : PEA vs CTO sur 10 ans</h2>
+        <p>Arrêtons de parler en pourcentages abstraits. Voici un exemple concret avec des chiffres réels pour que tu vois exactement de quoi il s'agit.</p>
+
+        <h3>Le scénario</h3>
+        <ul>
+          <li>Capital initial investi : <strong>10 000€</strong></li>
+          <li>Rendement annuel moyen : <strong>7%</strong> (proche de la moyenne historique d'un ETF MSCI World)</li>
+          <li>Durée : <strong>10 ans</strong></li>
+          <li>Capital final brut : <strong>19 672€</strong> (10 000€ × 1,07^10)</li>
+          <li>Plus-value totale : <strong>9 672€</strong></li>
+        </ul>
+
+        <table class="guide-table">
+          <thead>
+            <tr><th></th><th class="positive">PEA (après 5 ans)</th><th class="negative">CTO (flat tax)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Capital brut final</td>
+              <td>19 672€</td>
+              <td>19 672€</td>
+            </tr>
+            <tr>
+              <td>Plus-value imposable</td>
+              <td>9 672€</td>
+              <td>9 672€</td>
+            </tr>
+            <tr>
+              <td>Impôt sur le revenu (IR)</td>
+              <td class="positive"><strong>0€</strong> (exonéré)</td>
+              <td class="negative"><strong>1 238€</strong> (12,8%)</td>
+            </tr>
+            <tr>
+              <td>Prélèvements sociaux (PS 18,6%)</td>
+              <td>1 799€</td>
+              <td>1 799€</td>
+            </tr>
+            <tr>
+              <td><strong>Total impôts</strong></td>
+              <td class="positive"><strong>1 799€</strong></td>
+              <td class="negative"><strong>3 037€</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Capital net après impôts</strong></td>
+              <td class="positive"><strong>17 873€</strong></td>
+              <td class="negative"><strong>16 635€</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Avantage PEA</strong></td>
+              <td class="positive"><strong>+1 238€</strong></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="guide-callout">
+          <p><strong>Projection à 30 ans :</strong> Sur 30 ans avec des versements réguliers de 300€/mois à 7%/an, le capital brut atteint environ 340 000€ avec une plus-value de ~232 000€. L'avantage fiscal du PEA par rapport à un CTO représente alors <strong>environ 29 700€ d'impôts économisés</strong>. C'est une voiture de milieu de gamme offerte par l'État en récompense de ta patience.</p>
+        </div>
+
+        <!-- ===================== SECTION 9 : SIMULATEUR ===================== -->
+        <h2 id="simulateur-pea">Simulateur : ton économie fiscale PEA vs CTO</h2>
+        <p>Ajuste les curseurs selon ta situation pour voir ton économie fiscale personnalisée :</p>
+
+        <div class="guide-simulator" id="pea-simulator">
+          <div class="guide-simulator-inner">
+            <div class="simulator-inputs">
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Capital final brut du portefeuille</span>
+                  <span class="sim-field-val" id="pea-capital-val">50 000€</span>
+                </div>
+                <input type="range" class="sim-slider" id="pea-capital" min="10000" max="500000" step="5000" value="50000">
+                <div class="sim-field-range"><span>10 000€</span><span>500 000€</span></div>
+              </div>
+
+              <div class="sim-field">
+                <div class="sim-field-header">
+                  <span class="sim-field-label">Part de plus-values dans le capital final</span>
+                  <span class="sim-field-val" id="pea-pv-val">40%</span>
+                </div>
+                <input type="range" class="sim-slider" id="pea-pv" min="10" max="80" step="5" value="40">
+                <div class="sim-field-range"><span>10%</span><span>80%</span></div>
+              </div>
+
+            </div>
+
+            <div class="guide-sim-results" id="pea-results">
+              <div class="sim-result-main">
+                <div class="sim-result-label">Économie fiscale PEA vs CTO</div>
+                <div class="sim-result-val" id="pea-economie">0€</div>
+              </div>
+
+              <div class="sim-result-breakdown">
+                <div class="sim-result-item">
+                  <span class="sim-result-label">Plus-value imposable</span>
+                  <span class="sim-result-val" id="pea-pv-montant">—</span>
+                </div>
+                <div class="sim-result-item">
+                  <span class="sim-result-label">Impôts PEA (18,6% PS)</span>
+                  <span class="sim-result-val" id="pea-impot-pea">—</span>
+                </div>
+                <div class="sim-result-item">
+                  <span class="sim-result-label">Impôts CTO (flat tax 31,4%)</span>
+                  <span class="sim-result-val" id="pea-impot-cto">—</span>
+                </div>
+                <div class="sim-result-item">
+                  <span class="sim-result-label">Capital net PEA</span>
+                  <span class="sim-result-val" id="pea-net-pea">—</span>
+                </div>
+                <div class="sim-result-item">
+                  <span class="sim-result-label">Capital net CTO</span>
+                  <span class="sim-result-val" id="pea-net-cto">—</span>
+                </div>
+              </div>
+
+              <div class="sim-progress">
+                <div class="sim-progress-bar">
+                  <div class="sim-progress-invested" id="pea-bar-invested" style="width:60%"></div>
+                  <div class="sim-progress-gains" id="pea-bar-gains" style="width:40%"></div>
+                </div>
+                <div class="sim-progress-legend">
+                  <span><span class="sim-legend-dot"></span><span class="sim-legend-label">Capital versé</span></span>
+                  <span><span class="sim-legend-dot sim-legend-dot--gains"></span><span class="sim-legend-label">Plus-values</span></span>
+                </div>
+              </div>
+
+              <p class="sim-disclaimer">Simulation indicative basée sur un retrait PEA après 5 ans de détention. Prélèvements sociaux à 18,6% (taux 2026). Flat tax CTO à 31,4% (12,8% IR + 18,6% PS). Ne constitue pas un conseil fiscal.</p>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (function() {
+            function formatEur(n) {
+              return Math.round(n).toLocaleString('fr-FR') + ' €';
+            }
+            function updatePeaSim() {
+              var capital = parseInt(document.getElementById('pea-capital').value, 10);
+              var pvPct = parseInt(document.getElementById('pea-pv').value, 10) / 100;
+              var pv = capital * pvPct;
+              var versé = capital - pv;
+              var impotPea = pv * 0.186;
+              var impotCto = pv * 0.314;
+              var economie = impotCto - impotPea;
+              var netPea = capital - impotPea;
+              var netCto = capital - impotCto;
+              document.getElementById('pea-capital-val').textContent = formatEur(capital);
+              document.getElementById('pea-pv-val').textContent = Math.round(pvPct * 100) + '%';
+              document.getElementById('pea-economie').textContent = formatEur(economie);
+              document.getElementById('pea-pv-montant').textContent = formatEur(pv);
+              document.getElementById('pea-impot-pea').textContent = formatEur(impotPea);
+              document.getElementById('pea-impot-cto').textContent = formatEur(impotCto);
+              document.getElementById('pea-net-pea').textContent = formatEur(netPea);
+              document.getElementById('pea-net-cto').textContent = formatEur(netCto);
+              var pctVerse = Math.round((1 - pvPct) * 100);
+              var pctGains = Math.round(pvPct * 100);
+              document.getElementById('pea-bar-invested').style.width = pctVerse + '%';
+              document.getElementById('pea-bar-gains').style.width = pctGains + '%';
+            }
+            document.getElementById('pea-capital').addEventListener('input', updatePeaSim);
+            document.getElementById('pea-pv').addEventListener('input', updatePeaSim);
+            updatePeaSim();
+          })();
+        </script>
+
+        <!-- ===================== SECTION 10 : ETF ÉLIGIBLES ===================== -->
+        <h2 id="etf-eligibles">Les ETF éligibles PEA : comment les identifier</h2>
+        <p>C'est l'une des questions les plus fréquentes, et la réponse n'est pas intuitive. Un ETF "MSCI World" éligible PEA ne contient pas vraiment des actions mondiales — il utilise un mécanisme technique appelé <strong>swap de performance</strong>.</p>
+
+        <h3>La règle de base : la composition légale, pas l'exposition économique</h3>
+        <p>Pour être éligible au PEA, un ETF doit être composé d'au moins 75% d'actions de sociétés dont le siège est dans l'UE ou l'EEE. <strong>Mais</strong> il peut donner une exposition économique mondiale via un contrat swap :</p>
+        <ol>
+          <li>L'ETF achète légalement un panier d'actions européennes (pour remplir la condition PEA).</li>
+          <li>Il conclut simultanément un contrat avec une banque (le "swap") qui lui dit : "Je t'échange la performance de ces actions européennes contre la performance du MSCI World."</li>
+          <li>Résultat : tu as la performance du MSCI World, mais dans une enveloppe légalement éligible PEA.</li>
+        </ol>
+        <p>C'est parfaitement légal, encadré par la réglementation UCITS, et c'est la raison pour laquelle les ETF Amundi PEA MSCI World donnent accès aux actions américaines, japonaises, etc. depuis un PEA.</p>
+
+        <h3>Comment vérifier si un ETF est éligible PEA</h3>
+        <ul>
+          <li><strong>L'ISIN commence par FR</strong> : bonne indication, mais pas garantie (certains ETF FR ne sont pas éligibles).</li>
+          <li><strong>La fiche produit ou le DICI (Document d'Information Clé pour l'Investisseur)</strong> mentionne explicitement "Eligible PEA" ou "PEA : Oui".</li>
+          <li><strong>Sur Trade Republic</strong> : les ETF éligibles PEA sont clairement marqués avec une étiquette "PEA" dans la recherche.</li>
+          <li><strong>Sur Fortuneo</strong> : le filtre "Eligible PEA" dans la recherche ETF permet de filtrer directement.</li>
+          <li><strong>Sur le site de l'AMF (amf-france.org)</strong> : tu peux rechercher n'importe quel ETF et vérifier son éligibilité.</li>
+        </ul>
+
+        <div class="guide-warning">
+          <p><strong>Attention piège :</strong> Un iShares MSCI World (ISIN IE00B4L5Y983) n'est PAS éligible au PEA. Si tu passes l'ordre sur un courtier sérieux, il sera rejeté automatiquement. Mais certaines plateformes moins rigoureuses peuvent l'accepter par erreur — ce qui pourrait entraîner une régularisation forcée de ton PEA. Vérifie toujours l'éligibilité avant d'acheter.</p>
+        </div>
+
+        <h3>Les 5 ETF incontournables éligibles PEA</h3>
+        <table class="guide-table">
+          <thead>
+            <tr><th>ETF</th><th>Indice répliqué</th><th>ISIN</th><th>TER</th><th>Encours approx.</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Amundi MSCI World PEA</strong></td>
+              <td>MSCI World (~1 500 actions)</td>
+              <td>LU1681043599</td>
+              <td class="positive">0,38%</td>
+              <td>~7 Mds€</td>
+            </tr>
+            <tr>
+              <td><strong>Amundi PEA S&P 500 ESG</strong></td>
+              <td>S&P 500 ESG (500 US)</td>
+              <td>FR0013412285</td>
+              <td class="positive">0,25%</td>
+              <td>~2 Mds€</td>
+            </tr>
+            <tr>
+              <td><strong>Lyxor PEA Monde (MSCI World)</strong></td>
+              <td>MSCI World</td>
+              <td>FR0011869353</td>
+              <td>0,45%</td>
+              <td>~1,5 Mds€</td>
+            </tr>
+            <tr>
+              <td><strong>Amundi PEA NASDAQ-100</strong></td>
+              <td>NASDAQ-100 (100 tech US)</td>
+              <td>FR0013412269</td>
+              <td>0,23%</td>
+              <td>~1 Md€</td>
+            </tr>
+            <tr>
+              <td><strong>Amundi PEA MSCI Emerging Markets</strong></td>
+              <td>MSCI Emerging Markets</td>
+              <td>FR0013412020</td>
+              <td>0,20%</td>
+              <td>~600 M€</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>TER</strong> = Total Expense Ratio, le coût annuel de l'ETF prélevé automatiquement sur la performance. Plus c'est bas, mieux c'est. Pour un débutant, l'Amundi MSCI World PEA (LU1681043599) est la référence : exposition mondiale, frais raisonnables, encours massif (gage de liquidité).</p>
+        <div class="guide-callout">
+          <p><strong>Note :</strong> Les ISIN et TER peuvent évoluer. Vérifie toujours sur la fiche produit officielle d'Amundi ou de la Société Générale (marque Lyxor absorbée). Les données ci-dessus sont indicatives pour 2026.</p>
+        </div>
+
+        <!-- ===================== SECTION 11 : APRÈS 5 ANS ===================== -->
+        <h2 id="apres-5-ans">Après 5 ans : quelle stratégie ?</h2>
+        <p>Félicitations, ton PEA a atteint les 5 ans. Tu es désormais dans la zone fiscalement optimale. Mais comment l'utiliser maintenant ?</p>
+
+        <h3>Ce que tu peux faire après 5 ans</h3>
+        <ul>
+          <li><strong>Continuer à investir normalement</strong> : tu peux continuer à verser jusqu'au plafond de 150 000€ et passer des ordres d'achat/vente à l'intérieur du PEA. Les transactions internes n'ont aucune conséquence fiscale.</li>
+          <li><strong>Faire des retraits partiels</strong> sans clôturer le PEA. Tu peux retirer 20 000€ d'un PEA qui en vaut 100 000€ — le PEA continue d'exister avec 80 000€ (valeur approximative après retrait et selon les fluctuations).</li>
+          <li><strong>Tout laisser croître</strong> sans aucun retrait. C'est souvent la meilleure stratégie si tu n'as pas besoin de l'argent.</li>
+        </ul>
+
+        <h3>La règle importante sur les versements après un retrait partiel</h3>
+        <p>Voici un point que <strong>beaucoup de gens ignorent</strong> : une fois que tu as effectué un retrait partiel (même de 1€) après 5 ans, tu ne peux plus jamais effectuer de nouveau versement sur ce PEA. Le plafond de 150 000€ est définitivement épuisé. Tes fonds restants dans le PEA peuvent continuer à fructifier, mais tu ne peux plus alimenter l'enveloppe.</p>
+        <div class="guide-warning">
+          <p><strong>Conséquence pratique :</strong> Si tu as 30 ans et un PEA de 5 ans avec 40 000€ versés sur les 150 000€ de plafond, réfléchis bien avant de faire un retrait partiel. Tu perds définitivement 110 000€ de capacité de versement future. Sauf urgence absolue, il vaut mieux ne pas toucher à l'enveloppe pendant que tu accumules.</p>
+        </div>
+
+        <h3>Comment les gains sont calculés lors d'un retrait partiel</h3>
+        <p>Quand tu retires une somme de ton PEA, tu ne choisis pas si tu retires du capital ou des gains. L'administration fiscale applique une formule proportionnelle :</p>
+        <div class="guide-callout">
+          <p><strong>Formule :</strong> Gains imposables du retrait = Montant retiré × (Plus-value totale du PEA / Valeur totale du PEA au moment du retrait)</p>
+          <p style="margin-top:12px;"><strong>Exemple :</strong> Ton PEA vaut 100 000€. Tu as versé 60 000€, donc ta plus-value latente est de 40 000€. Tu retires 20 000€. Gains imposables = 20 000€ × (40 000€ / 100 000€) = 8 000€. Tu payes 18,6% × 8 000€ = 1 488€ de prélèvements sociaux. Le reste (18 512€) est net.</p>
+        </div>
+
+        <h3>Deux stratégies selon ton horizon</h3>
+        <table class="guide-table">
+          <thead>
+            <tr><th></th><th>PEA long terme (accumulation)</th><th>PEA revenus complémentaires</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Profil</strong></td>
+              <td>Tu n'as pas besoin de l'argent avant la retraite</td>
+              <td>Tu veux des revenus passifs à moyen terme</td>
+            </tr>
+            <tr>
+              <td><strong>Stratégie</strong></td>
+              <td>Ne jamais retirer. Laisser les intérêts composés travailler</td>
+              <td>Retraits partiels annuels programmés après la retraite</td>
+            </tr>
+            <tr>
+              <td><strong>Avantage</strong></td>
+              <td class="positive">Capital maximal à long terme</td>
+              <td class="positive">Revenus défiscalisés (0% IR) à la retraite</td>
+            </tr>
+            <tr>
+              <td><strong>Inconvénient</strong></td>
+              <td>Capital immobilisé</td>
+              <td class="negative">Plus de versements possibles après le 1er retrait</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ===================== SECTION 12 : PEA-PME ===================== -->
+        <h2 id="pea-pme">Le PEA-PME : le petit frère souvent oublié</h2>
+        <p>Le PEA-PME est une enveloppe fiscale distincte du PEA classique, mais avec les mêmes avantages fiscaux. Il a été créé en 2014 pour orienter l'épargne des particuliers vers les petites et moyennes entreprises (PME) et entreprises de taille intermédiaire (ETI) européennes.</p>
+
+        <h3>Les caractéristiques clés</h3>
+        <ul>
+          <li><strong>Plafond de versements : 225 000€</strong>. Mais attention — le plafond est combiné avec le PEA classique. Si tu as déjà versé 150 000€ sur ton PEA classique (plafond atteint), tu ne peux verser que 75 000€ sur le PEA-PME. La règle : PEA + PEA-PME ≤ 225 000€ au total.</li>
+          <li><strong>Même fiscalité que le PEA</strong> : 0% IR après 5 ans, seulement 18,6% de PS. Le délai de 5 ans est indépendant — il court à partir de l'ouverture du PEA-PME, pas du PEA classique.</li>
+          <li><strong>1 PEA-PME par personne</strong>, cumulable avec le PEA classique.</li>
+        </ul>
+
+        <h3>Qu'est-ce qu'on peut y mettre ?</h3>
+        <ul>
+          <li>Actions de PME et ETI européennes cotées dont la capitalisation boursière est inférieure à 1 milliard d'euros.</li>
+          <li>ETF et fonds labellisés "PEA-PME" investis dans ces catégories d'entreprises.</li>
+          <li>Obligations convertibles et titres participatifs de PME/ETI éligibles.</li>
+        </ul>
+
+        <h3>À qui s'adresse le PEA-PME ?</h3>
+        <p>Le PEA-PME est moins populaire que le PEA classique pour une bonne raison : l'univers d'investissement est plus petit, moins liquide, et les ETF disponibles sont moins diversifiés. C'est un produit à envisager dans deux cas :</p>
+        <ol>
+          <li><strong>Tu as rempli ton PEA classique</strong> (150 000€ versés) et tu veux continuer à investir dans une enveloppe fiscalement avantageuse.</li>
+          <li><strong>Tu crois spécifiquement dans les petites capitalisations européennes</strong> et tu veux une exposition ciblée à ce segment de marché.</li>
+        </ol>
+        <div class="guide-callout">
+          <p><strong>Conseil :</strong> Ne t'occupe pas du PEA-PME tant que tu n'as pas rempli ton PEA classique. Priorité au PEA classique, dont l'univers d'investissement (ETF MSCI World, S&P 500 via swap) est bien plus large et performant sur le long terme.</p>
+        </div>
+
+        <!-- ===================== SECTION 13 : ERREURS CLASSIQUES ===================== -->
+        <h2 id="erreurs-pea">Les erreurs classiques à éviter avec le PEA</h2>
+        <p>Ces erreurs peuvent te coûter des centaines voire des milliers d'euros. Voici les plus fréquentes chez les débutants :</p>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #1 : Acheter un ETF non éligible</strong><br>
+          L'iShares MSCI World (IE...) n'est pas éligible. Si ton courtier le rejette, tout va bien. Si par erreur l'ordre passe, tu risques une régularisation fiscale avec redressement. Vérifie toujours l'éligibilité avant de cliquer sur "Acheter".</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #2 : Retirer avant 5 ans sans vraie urgence</strong><br>
+          Retirer avant les 5 ans clôture ton PEA et te soumet à la flat tax de 31,4% sur tous tes gains. Pire : tu perds ton ancienneté. Si tu as besoin d'argent, explore d'abord d'autres options (livret, compte courant, assurance-vie) avant de toucher au PEA.</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #3 : Ne pas ouvrir parce qu'on "n'a pas assez d'argent"</strong><br>
+          C'est l'erreur la plus coûteuse sur le long terme. Le PEA peut s'ouvrir avec 1€ et le délai de 5 ans commence immédiatement. Chaque mois d'attente est un mois de délai fiscal perdu. Ouvre-le maintenant, tu verseras plus tard.</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #4 : Payer trop de frais de courtage</strong><br>
+          Faire des ordres de 50€ avec 5€ de frais = 10% de frais d'entrée. C'est destructeur. Soit tu groupes tes investissements en ordres moins fréquents mais plus importants, soit tu utilises un courtier sans frais sur les ETF (Trade Republic).</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #5 : Faire trop d'ordres (le trading)</strong><br>
+          Le PEA n'est pas un compte de trading. Chaque achat/vente interne ne génère pas d'impôt, c'est vrai. Mais le market timing ne fonctionne pas. Les études montrent systématiquement que les investisseurs qui tradent le plus sous-performent ceux qui achètent et gardent. Investis régulièrement, ne regarde pas tous les jours.</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #6 : Confondre versements et valeur du portefeuille</strong><br>
+          Le plafond de 150 000€ porte sur les versements, pas sur la valeur. Si tu as versé 150 000€ et que ton PEA vaut 300 000€, tu n'as aucun problème. Mais si tu as retiré puis revers, attention : le montant retiré reste décompté du plafond (les retraits ne "libèrent" pas le plafond).</p>
+        </div>
+
+        <div class="guide-warning">
+          <p><strong>Erreur #7 : Oublier la clause bénéficiaire en cas de décès</strong><br>
+          Contrairement à l'assurance-vie, le PEA ne permet pas de désigner des bénéficiaires spécifiques. En cas de décès, le PEA est clôturé et les avoirs entrent dans la succession. Les héritiers paieront les droits de succession habituels. Si la transmission patrimoniale est une priorité, l'assurance-vie est mieux adaptée pour cette fonction.</p>
+        </div>
+
+        <!-- ===================== SECTION 14 : VIDÉO ===================== -->
         <!-- VIDÉO -->
         <div class="guide-video">
           <div class="guide-video-header">
-            <div class="guide-video-yt-icon">▶</div>
+            <div class="guide-video-yt-icon">&#9654;</div>
             <div>
               <div class="guide-video-title">Ouvrir son PEA en 2026 · Ma vidéo complète</div>
               <div class="guide-video-sub">Julien Invest · YouTube</div>
@@ -231,10 +784,69 @@
           </div>
           <!-- Quand la vidéo est prête : <div class="guide-video-embed"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe></div> -->
           <div class="guide-video-placeholder">
-            <span style="font-size:48px;">▶️</span>
+            <span style="font-size:48px;">&#9654;&#65039;</span>
             <span>Vidéo YouTube à venir</span>
             <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener" class="btn btn-secondary btn--sm" style="margin-top:8px; color:rgba(255,255,255,0.7); border-color:rgba(255,255,255,0.2);">Voir ma chaîne YouTube</a>
           </div>
+        </div>
+
+        <!-- ===================== SECTION 15 : FAQ ===================== -->
+        <h2 id="faq-pea">FAQ : les questions les plus posées sur le PEA</h2>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Peut-on avoir plusieurs PEA ?</summary>
+            <p>Non. La loi française autorise <strong>un seul PEA classique par personne</strong>. Si tu es en couple, chaque membre du foyer peut avoir son propre PEA — un couple peut donc avoir deux PEA classiques (et deux PEA-PME). En revanche, détenir deux PEA classiques au nom d'une même personne est illégal et entraîne la clôture immédiate avec régularisation fiscale. Les courtiers vérifient auprès du Trésor Public avant l'ouverture.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Que se passe-t-il si je retire avant 5 ans pour une urgence ?</summary>
+            <p>Toute sortie d'argent avant 5 ans entraîne la clôture automatique du PEA (sauf exceptions légales). Tes gains seront taxés à la flat tax de 31,4% (12,8% IR + 18,6% PS). Tu perds aussi l'ancienneté du PEA et tu dois en rouvrir un nouveau si tu veux recommencer. Les exceptions légales qui permettent un retrait anticipé sans clôture sont : la création ou reprise d'une entreprise, l'invalidité de 2e ou 3e catégorie, le licenciement, la mise à la retraite anticipée, et le décès du conjoint ou partenaire de PACS. Dans ces cas, les gains restent soumis aux prélèvements sociaux (18,6%) mais pas à l'IR.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Le PEA est-il transmissible en cas de décès ?</summary>
+            <p>Le PEA est clôturé automatiquement au décès du titulaire. Les avoirs sont liquidés et entrent dans la succession ordinaire. Les héritiers paieront les droits de succession selon les règles habituelles (abattements, barèmes). Le PEA ne bénéficie pas de la clause bénéficiaire de l'assurance-vie — il n'y a pas de transmission "hors succession". Si tu veux optimiser la transmission patrimoniale, l'assurance-vie est le meilleur outil complémentaire au PEA.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Peut-on mettre des actions américaines (Apple, Amazon, Tesla) dans un PEA ?</summary>
+            <p>Non, pas en direct. Les actions de sociétés dont le siège est hors de l'UE/EEE ne sont pas éligibles au PEA. Tu ne peux pas acheter directement du Apple, Amazon, Tesla, Google ou Microsoft dans un PEA. En revanche, tu peux avoir une <strong>exposition indirecte</strong> à ces entreprises via un ETF MSCI World éligible PEA (qui réplique le MSCI World via swap). Un ETF comme l'Amundi MSCI World PEA te donne une exposition à environ 65-70% d'entreprises américaines incluant toutes les grandes technos, depuis ton PEA.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Comment déclarer les gains du PEA aux impôts ?</summary>
+            <p>Tant que tu ne fais aucun retrait de ton PEA, tu n'as rien à déclarer. Les gains et dividendes qui se forment à l'intérieur ne sont pas imposables et n'apparaissent pas dans ta déclaration de revenus. En revanche, si tu effectues un retrait (partiel ou total), ton courtier t'envoie en début d'année un <strong>Imprimé Fiscal Unique (IFU)</strong> qui récapitule les montants à déclarer. Ces données sont souvent pré-remplies automatiquement dans la déclaration en ligne sur impots.gouv.fr. Tu n'as généralement rien à calculer toi-même.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Que se passe-t-il si mon courtier PEA fait faillite ?</summary>
+            <p>Tes titres (ETF, actions) sont juridiquement séparés des actifs du courtier. En cas de faillite, tes titres te sont restitués ou transférés vers un autre courtier — ils n'entrent pas dans la masse des créanciers. La loi française impose aux courtiers de tenir les titres de leurs clients en compte séparé. En plus, le Fonds de Garantie des Dépôts et de Résolution (FGDR) couvre les dépôts en espèces non encore investis jusqu'à <strong>70 000€ par établissement</strong> pour les instruments financiers. La faillite d'un courtier est donc bien moins catastrophique qu'une faillite bancaire pour un épargnant en actions.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Peut-on faire du PEA et de l'assurance-vie en même temps ?</summary>
+            <p>Oui, absolument — et c'est même <strong>recommandé</strong>. PEA et assurance-vie sont complémentaires, pas concurrents. Le PEA excelle pour les actions (ETF MSCI World), offre la meilleure fiscalité sur les plus-values après 5 ans, mais ne permet pas la désignation de bénéficiaires et clôture au décès. L'assurance-vie permet d'investir en fonds euros (capital garanti), en unités de compte (actions, immobilier), bénéficie d'une fiscalité avantageuse après 8 ans, et permet de transmettre jusqu'à 152 500€ par bénéficiaire sans droits de succession. La stratégie optimale : PEA pour la croissance boursière, assurance-vie pour la diversification (fonds euros + immobilier) et la transmission.</p>
+          </details>
+        </div>
+
+        <div class="guide-faq-item">
+          <details>
+            <summary>Quel montant minimum pour ouvrir un PEA ?</summary>
+            <p>Légalement, il n'y a aucun minimum. Certains courtiers exigent un premier versement symbolique (1€ chez Trade Republic, parfois 100€ ou 300€ chez d'autres). En pratique, l'idéal est d'ouvrir avec le minimum possible dès que tu as décidé quel courtier choisir — même 1€ — pour faire démarrer le compteur des 5 ans. Tu verseras des sommes plus importantes ensuite. Ce qui compte, c'est la date d'ouverture, pas le montant initial.</p>
+          </details>
         </div>
 
         <!-- CTA FORMATION -->
@@ -259,6 +871,14 @@
           <a href="#courtiers">Quel courtier ?</a>
           <a href="#etapes">Étape par étape</a>
           <a href="#que-mettre">Que mettre dedans ?</a>
+          <a href="#timeline">La timeline fiscale</a>
+          <a href="#simulation-fiscale">Simulation PEA vs CTO</a>
+          <a href="#simulateur-pea">Simulateur fiscal</a>
+          <a href="#etf-eligibles">ETF éligibles PEA</a>
+          <a href="#apres-5-ans">Après 5 ans</a>
+          <a href="#pea-pme">Le PEA-PME</a>
+          <a href="#erreurs-pea">Erreurs à éviter</a>
+          <a href="#faq-pea">FAQ PEA</a>
         </div>
         <div class="guide-sidebar-cta">
           <p>Ouvre ton PEA et investis ton premier euro avec un plan d'action précis.</p>
