@@ -46,6 +46,9 @@
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
     .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    @media (max-width: 560px) { .compare-table--wide { min-width: 520px; } }
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
@@ -391,7 +394,8 @@
         <h2 id="comparatif">PER vs PEA vs assurance vie</h2>
         <p>Le PER ne remplace ni le PEA ni l'assurance vie. Ce sont trois outils aux objectifs différents. Le tableau suivant les met côte à côte pour t'aider à voir lequel sert quel projet.</p>
 
-        <table class="compare-table">
+        <div class="table-scroll">
+        <table class="compare-table compare-table--wide">
           <thead>
             <tr><th>Critère</th><th>PER individuel</th><th>PEA</th><th>Assurance vie</th></tr>
           </thead>
@@ -434,6 +438,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
 
         <p>Pour aller plus loin sur ces deux dernières enveloppes, deux articles dédiés : <a href="article-pea-vs-cto.html">PEA vs CTO</a> pour comprendre le compte-titres face au PEA, et <a href="article-assurance-vie-pea.html">assurance vie ou PEA</a> pour leur comparatif détaillé. La logique générale reste la même : le PER se justifie quand tu as déjà sécurisé ta liquidité ailleurs et que ta TMI rend la déduction réellement profitable.</p>
 
