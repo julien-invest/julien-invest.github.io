@@ -37,20 +37,20 @@
     .aud-nostore { display:inline-flex; align-items:center; gap:7px; margin-top:14px; font-size:13px; color:var(--grey-2); background:var(--white); border:1px solid var(--grey-5); border-radius:100px; padding:7px 16px; }
     .aud-mention { font-size:13px; color:var(--grey-3); margin-top:10px; }
     .aud-main { padding: 48px 0 70px; background: var(--white); }
-    .aud-grid { display:grid; grid-template-columns: 400px 1fr; gap:32px; align-items:start; }
-    @media (max-width:900px){ .aud-grid { grid-template-columns:1fr; } }
+    .aud-form-wrap { max-width:760px; margin:0 auto; }
 
     /* form */
-    .aud-axis { border:1.5px solid var(--grey-5); border-radius:var(--radius-lg); padding:22px; margin-bottom:18px; background:var(--off-white); }
-    .aud-axis-head { display:flex; align-items:flex-start; gap:12px; margin-bottom:16px; }
+    .aud-axis { border:1.5px solid var(--grey-5); border-radius:var(--radius-lg); padding:26px; margin-bottom:18px; background:var(--off-white); }
+    .aud-axis-head { display:flex; align-items:flex-start; gap:12px; margin-bottom:20px; }
     .aud-axis-num { flex:none; width:32px; height:32px; border-radius:50%; background:var(--lavender); color:var(--navy); font-family:var(--font-head); font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; }
-    .aud-axis-title { font-family:var(--font-head); font-weight:800; font-size:16px; color:var(--navy); margin-bottom:2px; }
+    .aud-axis-title { font-family:var(--font-head); font-weight:800; font-size:17px; color:var(--navy); margin-bottom:2px; }
     .aud-axis-desc { font-size:13px; color:var(--grey-3); }
-    .aud-q { margin-bottom:14px; }
-    .aud-q:last-child { margin-bottom:0; }
+    .aud-axis-questions { display:grid; grid-template-columns:1fr; gap:20px; }
+    @media (min-width:760px){ .aud-axis-questions { grid-template-columns:1fr 1fr; gap:24px; } }
     .aud-q-text { font-size:14px; color:var(--grey-1); margin-bottom:10px; line-height:1.45; }
     .aud-opts { display:flex; flex-direction:column; gap:8px; }
-    .aud-opt { text-align:left; padding:11px 14px; border:1.5px solid var(--grey-5); border-radius:var(--radius-md); background:var(--white); color:var(--grey-1); font-size:13.5px; font-family:var(--font-body); line-height:1.4; cursor:pointer; transition:border-color .15s, background .15s, transform .1s; }
+    .aud-opt { display:flex; align-items:flex-start; gap:10px; text-align:left; padding:11px 14px; border:1.5px solid var(--grey-5); border-radius:var(--radius-md); background:var(--white); color:var(--grey-1); font-size:13.5px; font-family:var(--font-body); line-height:1.4; cursor:pointer; transition:border-color .15s, background .15s, transform .1s; }
+    .aud-opt-icon { flex:none; }
     .aud-opt:hover { border-color:var(--lavender); transform:translateY(-1px); }
     .aud-opt.sel-green { background:rgba(160,231,197,0.25); border-color:var(--mint); color:var(--navy); font-weight:600; }
     .aud-opt.sel-orange { background:rgba(240,192,64,0.18); border-color:var(--gold); color:var(--navy); font-weight:600; }
@@ -63,18 +63,19 @@
     .aud-counter { font-size:12px; color:var(--grey-3); margin-top:10px; }
 
     /* results */
-    .aud-results { display:none; }
+    .aud-results { display:none; max-width:900px; margin:0 auto; }
     .aud-results.visible { display:block; animation: aud-fade .35s ease; }
     @keyframes aud-fade { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-    .aud-results-empty { border:1.5px dashed var(--grey-5); border-radius:var(--radius-lg); padding:60px 30px; text-align:center; color:var(--grey-3); font-size:14px; }
-    .aud-score-panel { background:var(--off-white); border:1.5px solid var(--grey-5); border-radius:var(--radius-lg); padding:32px; text-align:center; margin-bottom:22px; }
+    .aud-results-sep { border:none; border-top:1px solid var(--grey-5); max-width:900px; margin:46px auto; }
+    .aud-results-title { font-family:var(--font-head); font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--grey-3); text-align:center; margin-bottom:24px; }
+    .aud-score-panel { background:var(--off-white); border:1.5px solid var(--grey-5); border-radius:var(--radius-lg); padding:36px; text-align:center; margin-bottom:28px; }
     .aud-score-circle { width:140px; height:140px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; border:4px solid var(--grey-5); transition: border-color .3s, background .3s; }
     .aud-score-circle.green { border-color:var(--mint); background:rgba(160,231,197,0.18); }
     .aud-score-circle.orange { border-color:var(--gold); background:rgba(240,192,64,0.14); }
     .aud-score-circle.red { border-color:#E8501A; background:rgba(232,80,26,0.1); }
     .aud-score-num { font-family:var(--font-display); font-style:italic; font-size:48px; color:var(--navy); line-height:1; }
     .aud-score-num span { font-size:22px; opacity:0.55; }
-    .aud-verdict { font-family:var(--font-head); font-weight:700; font-size:16px; color:var(--navy); margin-bottom:18px; }
+    .aud-verdict { font-family:var(--font-head); font-weight:700; font-size:17px; color:var(--navy); margin-bottom:18px; }
     .aud-dots { display:flex; justify-content:center; gap:10px; }
     .aud-dot { display:flex; flex-direction:column; align-items:center; gap:6px; }
     .aud-dot-circle { width:18px; height:18px; border-radius:50%; }
@@ -83,7 +84,9 @@
     .aud-dot-circle.red { background:#E8501A; }
     .aud-dot-label { font-size:10px; color:var(--grey-3); font-family:var(--font-head); }
 
-    .aud-rec { border:1.5px solid var(--grey-5); border-radius:var(--radius-md); padding:20px 22px; margin-bottom:14px; }
+    .aud-recs-grid { display:grid; grid-template-columns:1fr; gap:14px; }
+    @media (min-width:760px){ .aud-recs-grid { grid-template-columns:1fr 1fr; } }
+    .aud-rec { border:1.5px solid var(--grey-5); border-radius:var(--radius-md); padding:20px 22px; }
     .aud-rec-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
     .aud-rec-title { font-family:var(--font-head); font-weight:700; font-size:14.5px; color:var(--navy); }
     .aud-badge { font-size:11px; font-family:var(--font-head); font-weight:700; padding:4px 11px; border-radius:100px; white-space:nowrap; }
@@ -198,38 +201,34 @@
 
   <section class="aud-main">
     <div class="container">
-      <div class="aud-grid">
 
-        <!-- FORMULAIRE -->
-        <div id="aud-form"></div>
+      <!-- FORMULAIRE -->
+      <div class="aud-form-wrap" id="aud-form"></div>
 
-        <!-- RÉSULTATS -->
-        <div>
-          <div class="aud-results-empty" id="aud-empty">
-            Réponds aux 12 questions pour obtenir ton score et tes recommandations personnalisées.
+      <!-- RÉSULTATS -->
+      <div class="aud-results" id="aud-results">
+        <hr class="aud-results-sep">
+        <div class="aud-results-title">Ton résultat</div>
+
+        <div class="aud-score-panel">
+          <div class="aud-score-circle" id="aud-score-circle">
+            <div class="aud-score-num" id="aud-score-num">0<span>/6</span></div>
           </div>
-          <div class="aud-results" id="aud-results">
-            <div class="aud-score-panel">
-              <div class="aud-score-circle" id="aud-score-circle">
-                <div class="aud-score-num" id="aud-score-num">0<span>/6</span></div>
-              </div>
-              <div class="aud-verdict" id="aud-verdict"></div>
-              <div class="aud-dots" id="aud-dots"></div>
-            </div>
-
-            <div id="aud-recs"></div>
-
-            <div class="aud-cta" id="aud-cta"></div>
-
-            <button class="aud-restart" id="aud-restart">Refaire l'audit →</button>
-
-            <p class="aud-disclaimer">
-              Cet audit est un outil éducatif d'auto-évaluation. Il ne constitue pas un conseil en investissement personnalisé et ne remplace pas l'avis d'un professionnel. Investir comporte un risque de perte en capital. Aucune donnée saisie n'est collectée, stockée ni transmise : tout est calculé localement dans ton navigateur.
-            </p>
-          </div>
+          <div class="aud-verdict" id="aud-verdict"></div>
+          <div class="aud-dots" id="aud-dots"></div>
         </div>
 
+        <div class="aud-recs-grid" id="aud-recs"></div>
+
+        <div class="aud-cta" id="aud-cta"></div>
+
+        <button class="aud-restart" id="aud-restart">Refaire l'audit →</button>
+
+        <p class="aud-disclaimer">
+          Cet audit est un outil éducatif d'auto-évaluation. Il ne constitue pas un conseil en investissement personnalisé et ne remplace pas l'avis d'un professionnel. Investir comporte un risque de perte en capital. Aucune donnée saisie n'est collectée, stockée ni transmise : tout est calculé localement dans ton navigateur.
+        </p>
       </div>
+
     </div>
   </section>
 
@@ -468,15 +467,20 @@
         formHTML += '<div class="aud-axis-num">' + (ai + 1) + '</div>';
         formHTML += '<div><div class="aud-axis-title">' + axis.title + '</div><div class="aud-axis-desc">' + axis.desc + '</div></div>';
         formHTML += '</div>';
+        formHTML += '<div class="aud-axis-questions">';
         axis.questions.forEach(function (q, qi) {
-          formHTML += '<div class="aud-q">';
+          formHTML += '<div>';
           formHTML += '<div class="aud-q-text">' + q.text + '</div>';
           formHTML += '<div class="aud-opts" data-axis="' + ai + '" data-q="' + qi + '">';
           q.opts.forEach(function (opt) {
-            formHTML += '<button type="button" class="aud-opt" data-value="' + opt.v + '">' + opt.label + '</button>';
+            const m = opt.label.match(/^(\S+)\s+(.*)$/);
+            const icon = m ? m[1] : '';
+            const text = m ? m[2] : opt.label;
+            formHTML += '<button type="button" class="aud-opt" data-value="' + opt.v + '"><span class="aud-opt-icon">' + icon + '</span><span>' + text + '</span></button>';
           });
           formHTML += '</div></div>';
         });
+        formHTML += '</div>';
         formHTML += '</div>';
       });
       formHTML += '<div class="aud-submit-wrap">';
@@ -517,7 +521,6 @@
       }
 
       // ---------- SCORING & RESULTS ----------
-      const emptyEl = document.getElementById('aud-empty');
       const resultsEl = document.getElementById('aud-results');
       const scoreCircle = document.getElementById('aud-score-circle');
       const scoreNum = document.getElementById('aud-score-num');
@@ -536,8 +539,8 @@
       submitBtn.addEventListener('click', function () {
         if (submitBtn.disabled) return;
         computeResults();
-        emptyEl.style.display = 'none';
         resultsEl.classList.add('visible');
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
 
       function axisSignal(sum) {
@@ -615,7 +618,6 @@
         });
         updateCounter();
         resultsEl.classList.remove('visible');
-        emptyEl.style.display = 'block';
         window.scrollTo({ top: formEl.offsetTop - 140, behavior: 'smooth' });
       });
 

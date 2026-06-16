@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le DCA : la méthode d'investissement la plus simple qui existe | Julien Invest</title>
+  <meta name="description" content="Dollar Cost Averaging : la méthode pour investir régulièrement sans stress, sans timing de marché, et sans expertise. Simulateur interactif inclus.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Le DCA : la méthode d'investissement la plus simple qui existe | Julien Invest">
+  <meta property="og:description" content="Investir régulièrement un montant fixe, sans chercher le bon moment. Le DCA expliqué simplement avec un simulateur interactif.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-dca.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Le DCA expliqué simplement | Julien Invest">
+  <meta name="twitter:description" content="La méthode pour investir tous les mois sans stress. Simulateur interactif inclus.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Le DCA : la méthode d'investissement la plus simple qui existe",
+  "description": "Dollar Cost Averaging : la méthode pour investir régulièrement sans stress, sans timing de marché, et sans expertise. Simulateur interactif inclus.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .dca-table-scroll .compare-table { margin: 0; min-width: 620px; }
+
+    /* ── Simulateur DCA (scoped) ── */
+    .simulator-block {
+      --s-navy: #1A1A4E;
+      --s-lav: #C8B4E8;
+      --s-mint: #A0E7C5;
+      --s-gold: #F0C040;
+      --s-lav-light: #ede8f8;
+      --s-mint-light: #e6f8f1;
+      background: var(--s-lav-light);
+      border: 1px solid rgba(200,180,232,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 24px 0 16px;
+    }
+    .dca-sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; }
+    @media (max-width: 560px) { .dca-sim-grid { grid-template-columns: 1fr; } }
+    .dca-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--s-navy); font-size: 14px; margin-bottom: 10px; }
+    .dca-field-input { display: flex; align-items: center; gap: 10px; }
+    .dca-field-input input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .dca-field-input input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(26,26,78,0.35); }
+    .dca-field-input input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; }
+    .dca-field-input input[type=number] { width: 92px; padding: 7px 9px; border: 1px solid rgba(200,180,232,0.8); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--s-navy); background: #fff; text-align: right; }
+    .dca-field-input input[type=number]::-webkit-outer-spin-button,
+    .dca-field-input input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+
+    .dca-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    @media (max-width: 560px) { .dca-results { grid-template-columns: 1fr; } }
+    .dca-res { border-radius: var(--radius-md); padding: 16px 18px; text-align: center; }
+    .dca-res-invest { background: #fff; border: 1px solid rgba(200,180,232,0.7); }
+    .dca-res-final { background: linear-gradient(135deg, rgba(200,180,232,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(200,180,232,0.8); }
+    .dca-res-gain { background: var(--s-mint-light); border: 1px solid rgba(160,231,197,0.8); }
+    .dca-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6F6F99; margin-bottom: 8px; }
+    .dca-res-num { font-family: var(--font-head); font-weight: 800; color: var(--s-navy); font-size: clamp(19px,4vw,24px); line-height: 1.15; }
+    .dca-res-gain .dca-res-num { color: #0a8f5b; }
+
+    .dca-chart-wrap { position: relative; height: 320px; margin-top: 26px; background: #fff; border-radius: var(--radius-md); padding: 16px 14px; border: 1px solid rgba(200,180,232,0.5); }
+    @media (max-width: 560px) { .dca-chart-wrap { height: 260px; } }
+    .dca-legal { font-size: 12px; color: #9a9ab0; line-height: 1.6; margin: 16px 0 0; }
+
+    /* ── Étapes numérotées DCA (scoped) ── */
+    .dca-step { display: flex; gap: 16px; margin: 0 0 22px; }
+    .dca-step-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .dca-step-body h3 { margin-top: 4px !important; }
+    .dca-step-body h3 { font-family: var(--font-head); font-size: 17px; color: var(--navy); margin: 4px 0 8px; }
+    .dca-step-body p { margin-bottom: 0; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-dca.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Faut-il faire un DCA mensuel ou hebdomadaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mensuel, dans la quasi-totalité des cas. La fréquence hebdomadaire n'apporte pas d'avantage statistique significatif, elle multiplie les ordres de bourse, et elle est plus difficile à automatiser proprement. Le virement mensuel post-salaire est le rythme le plus simple et le plus durable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que le DCA fonctionne aussi avec les cryptos ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, et c'est probablement encore plus pertinent qu'avec les ETF, justement parce que la volatilité des cryptos est extrême. Un DCA sur BTC ou ETH dans une enveloppe dédiée, avec une allocation raisonnable de ton portefeuille global (5 à 15% maximum pour un profil standard), est une approche cohérente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel montant minimum pour commencer un DCA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il n'y a pas de minimum absolu. Sur certains courtiers, tu peux programmer un DCA dès 1€ par mois sur un ETF. En pratique, en dessous de 50€ par mois, les frais fixes de certains courtiers peuvent rogner la performance. L'important est d'ouvrir le PEA et de commencer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que faire si mon salaire est irrégulier ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deux options. Soit tu programmes un montant minimal garanti, soit tu fais un DCA flexible en virant un pourcentage fixe de tes revenus du mois. Dans tous les cas, l'essentiel est de ne jamais investir de l'argent dont tu pourrais avoir besoin à court terme."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il arrêter le DCA quand on s'approche de l'objectif ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, progressivement. Quand tu approches de l'horizon auquel tu veux utiliser cet argent, il est prudent de réduire la part en actions et d'augmenter la part en actifs moins volatils. Ce processus s'appelle le glide path ou trajectoire de désensibilisation."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Comparateur ETF</a></li>
+      <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Stratégie</span>
+        <h1>Le DCA : <em>la méthode la plus simple</em> pour investir sans stress</h1>
+        <p class="article-meta-date">Publié le 16 juin 2026 · 12 min de lecture</p>
+        <p>Investir un montant fixe chaque mois, peu importe ce que fait le marché. Pas de timing, pas d'expertise requise, pas de décisions à prendre. C'est ça le DCA, et c'est probablement la stratégie la plus puissante à la portée de n'importe quel débutant.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Stratégie</span>
+        <p>Investir un montant fixe chaque mois, peu importe ce que fait le marché. Pas de timing, pas d'expertise requise, pas de décisions à prendre. C'est ça le DCA. Et c'est probablement la stratégie la plus puissante à la portée de n'importe quel débutant. Voici comment elle fonctionne, pourquoi elle bat presque toujours le market timing, et comment la mettre en place en pratique, avec un simulateur pour visualiser ton propre plan.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#definition">C'est quoi le DCA exactement ?</a></li>
+            <li><a href="#pourquoi">Pourquoi le DCA bat presque toujours le market timing</a></li>
+            <li><a href="#mecanique">La mécanique concrète : comment ça marche mois par mois</a></li>
+            <li><a href="#simulateur">Simulateur DCA interactif</a></li>
+            <li><a href="#dca-vs-lumpsum">DCA vs Lump Sum : le comparatif honnête</a></li>
+            <li><a href="#execution">Mettre en place son DCA en pratique : le guide pas à pas</a></li>
+            <li><a href="#erreurs">Les 5 erreurs qui sabotent un DCA pourtant bien parti</a></li>
+            <li><a href="#psychologie">La psychologie du DCA : pourquoi c'est plus dur que ça n'y paraît</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="definition">C'est quoi le DCA exactement ?</h2>
+        <p>DCA signifie Dollar Cost Averaging. En français, on parle parfois d'investissement programmé ou de versements réguliers. Le principe est d'une simplicité désarmante : tu choisis un montant fixe, tu choisis une fréquence (généralement mensuelle), et tu investis ce montant de façon automatique, quoi qu'il arrive sur les marchés.</p>
+        <p>Pas besoin de regarder les cours. Pas besoin de lire les journaux financiers. Pas besoin de décider chaque mois si c'est le bon moment. Le DCA retire la décision de l'équation, et c'est précisément sa force.</p>
+        <p>La stratégie opposée s'appelle le Lump Sum, ou investissement en une seule fois. Tu as 10 000€ disponibles et tu les investis d'un coup, au moment que tu juges le plus opportun. En théorie, c'est plus performant si tu tombes sur le bon moment. En pratique, trouver ce bon moment de façon répétée est impossible, même pour les professionnels.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le DCA ne cherche pas à battre le marché. Il cherche à ne jamais le rater. C'est une stratégie de participation, pas de spéculation.</p>
+        </div>
+
+        <h2 id="pourquoi">Pourquoi le DCA bat presque toujours le market timing</h2>
+        <p>La question revient constamment : "est-ce que je devrais attendre que le marché baisse pour investir ?" La réponse honnête : non, et voici pourquoi.</p>
+        <p>Les marchés passent environ 75% du temps à monter sur longues périodes. Attendre une baisse, c'est statistiquement rater 3 mois de hausse pour chaque mois de baisse que tu anticipes. Et quand la baisse arrive, l'instinct humain pousse à attendre encore, parce qu'on a peur que ça baisse encore plus.</p>
+        <p>Le marché américain, mesuré par le S&P 500, a connu des krachs de 30%, 40%, 50%. Dans chaque cas, quelques années plus tard, les cours avaient non seulement récupéré mais atteint de nouveaux records. L'investisseur en DCA a continué d'acheter tout au long de la baisse, réduisant son prix de revient moyen. L'investisseur qui attendait "le bon moment pour rentrer" a souvent raté la reprise.</p>
+        <p>Une étude de Vanguard sur des données historiques longues montre que le Lump Sum surperforme le DCA dans environ 2/3 des cas, sur des marchés en tendance haussière. Mais elle montre aussi que la différence de performance est modeste (quelques pourcents sur 10 ans), alors que l'avantage comportemental du DCA est énorme : un investisseur en DCA est bien moins susceptible de paniquer et de vendre lors d'un krach, parce qu'il a une routine, pas une exposition concentrée.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le DCA n'est pas la stratégie mathématiquement optimale dans un marché parfaitement haussier. C'est la stratégie psychologiquement optimale pour des humains qui ont des émotions, des biais, et qui ne peuvent pas prédire l'avenir.</p>
+        </div>
+
+        <h2 id="mecanique">La mécanique concrète : comment ça marche mois par mois</h2>
+        <p>Voici ce qui se passe quand tu fais un DCA de 200€ par mois sur un ETF MSCI World fictif, sur 4 mois consécutifs avec des prix variables :</p>
+
+        <div class="dca-table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Mois</th><th>Prix de la part</th><th>Montant investi</th><th>Parts achetées</th><th>Parts cumulées</th><th>Valeur du portefeuille</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Janvier</td><td>100€</td><td>200€</td><td>2,00</td><td>2,00</td><td>200€</td></tr>
+              <tr><td>Février</td><td>80€ (baisse de 20%)</td><td>200€</td><td>2,50</td><td>4,50</td><td>360€</td></tr>
+              <tr><td>Mars</td><td>70€ (baisse de 30%)</td><td>200€</td><td>2,86</td><td>7,36</td><td>515€</td></tr>
+              <tr><td>Avril</td><td>110€ (hausse de 10%)</td><td>200€</td><td>1,82</td><td>9,18</td><td>1 010€</td></tr>
+              <tr><td><strong>Total</strong></td><td><strong>Prix moyen : 87€</strong></td><td><strong>800€ investis</strong></td><td><strong>9,18 parts</strong></td><td>—</td><td><strong>1 010€ (hausse de 26%)</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Remarque ce qui se passe en février et mars : le marché baisse, mais tu continues d'investir. Résultat, tu achètes plus de parts pour le même budget. Ton prix de revient moyen descend à 87€ par part, alors que le prix final en avril est de 110€. Tu es en plus-value alors même que le marché n'a pas encore récupéré son niveau initial de 100€.</p>
+        <p>C'est l'effet du DCA : les baisses de marché deviennent des opportunités d'achat automatiques, sans que tu aies à prendre de décision.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Dans cet exemple, sans DCA et avec un investissement unique en janvier à 100€, le portefeuille vaudrait aussi 1 010€ après avoir investi 800€. Mais en avril, si tu avais tout investi en janvier, tu aurais vécu 3 mois à regarder ton portefeuille fondre de 30%. Avec le DCA, tu n'as pas eu ce moment de panique, et statistiquement, les investisseurs qui paniquent vendent au plus bas.</p>
+        </div>
+
+        <h2 id="simulateur">Simulateur DCA interactif</h2>
+        <p>Simule ta propre stratégie DCA. Modifie les paramètres et observe en temps réel comment ton capital évolue sur la durée choisie.</p>
+
+        <div class="simulator-block" id="dca-sim">
+          <div class="dca-sim-grid">
+            <div class="dca-field">
+              <div class="dca-field-label"><span>Montant mensuel</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="dca-pmt-range" min="10" max="2000" step="10" value="200">
+                <input type="number" id="dca-pmt-num" min="10" max="2000" step="10" value="200"> €
+              </div>
+            </div>
+            <div class="dca-field">
+              <div class="dca-field-label"><span>Durée</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="dca-years-range" min="1" max="40" step="1" value="20">
+                <input type="number" id="dca-years-num" min="1" max="40" step="1" value="20"> ans
+              </div>
+            </div>
+            <div class="dca-field">
+              <div class="dca-field-label"><span>Rendement annuel estimé</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="dca-rate-range" min="1" max="15" step="0.5" value="8">
+                <input type="number" id="dca-rate-num" min="1" max="15" step="0.5" value="8"> %
+              </div>
+            </div>
+            <div class="dca-field">
+              <div class="dca-field-label"><span>Versement initial (optionnel)</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="dca-pv-range" min="0" max="50000" step="100" value="0">
+                <input type="number" id="dca-pv-num" min="0" max="50000" step="100" value="0"> €
+              </div>
+            </div>
+          </div>
+
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Capital total investi</div>
+              <div class="dca-res-num" id="dca-invested">—</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Valeur finale estimée</div>
+              <div class="dca-res-num" id="dca-final">—</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Intérêts générés</div>
+              <div class="dca-res-num" id="dca-gain">—</div>
+            </div>
+          </div>
+
+          <div class="dca-chart-wrap">
+            <canvas id="dca-chart"></canvas>
+          </div>
+
+          <p class="dca-legal">Simulation indicative basée sur un rendement annuel constant. Les marchés réels sont volatils. Les performances passées ne garantissent pas les performances futures. Ce simulateur ne constitue pas un conseil en investissement.</p>
+        </div>
+
+        <h2 id="dca-vs-lumpsum">DCA vs Lump Sum : le comparatif honnête</h2>
+        <p>La question mérite une réponse franche plutôt qu'un mensonge pieux. Voici les faits.</p>
+        <p>Si tu as une somme importante disponible dès maintenant, les études historiques montrent que l'investir en une fois (Lump Sum) surperforme le DCA étalé sur 12 mois dans environ 2 cas sur 3, simplement parce que les marchés montent plus souvent qu'ils ne baissent sur longue période. Chaque mois que tu attends pour déployer ta somme est potentiellement un mois de hausse raté.</p>
+        <p>Cela dit, cette supériorité du Lump Sum s'efface dans plusieurs cas concrets qui représentent la réalité de la plupart des gens :</p>
+        <p>Premièrement, si tu n'as pas de grosse somme disponible d'un coup. La grande majorité des investisseurs n'ont pas 50 000€ à placer en janvier. Ils ont 200€, 500€ ou 1 000€ par mois. Dans ce cas, le DCA n'est pas une stratégie : c'est la réalité de leur situation.</p>
+        <p>Deuxièmement, si tu commences à investir juste avant un krach. Investir 20 000€ en septembre 2007 ou février 2020 juste avant une chute de 40 à 50% est une expérience traumatisante qui pousse à vendre. Un DCA mensuel lisse ce risque psychologique.</p>
+        <p>Troisièmement, si tu as tendance à prendre des décisions émotionnelles. L'automatisation du DCA enlève les décisions. Moins de décisions égale moins d'erreurs.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>Critère</th><th>DCA</th><th>Lump Sum</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Capital requis</td><td class="yes">Aucun : adapté à chaque revenu</td><td>Important : nécessite une somme disponible</td></tr>
+            <tr><td>Performance attendue</td><td>Légèrement inférieure en marché haussier</td><td class="yes">Légèrement supérieure en marché haussier</td></tr>
+            <tr><td>Risque psychologique</td><td class="yes">Faible : automatisé, pas de décision mensuelle</td><td class="no">Élevé : exposition immédiate totale</td></tr>
+            <tr><td>Comportement en krach</td><td class="yes">Achat automatique à la baisse, prix moyen réduit</td><td class="no">Exposition pleine à la baisse dès le départ</td></tr>
+            <tr><td>Adapté à qui</td><td>Salariés, débutants, tout profil</td><td>Héritage, cession d'actif, épargne accumulée</td></tr>
+            <tr><td>Discipline requise</td><td class="yes">Faible : set and forget</td><td>Haute : résister à la tentation de timer</td></tr>
+          </tbody>
+        </table>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Pour 95% des gens qui lisent cet article, le DCA n'est pas un choix entre deux stratégies. C'est la seule stratégie adaptée à leur situation : ils investissent ce qu'ils peuvent chaque mois, pas une somme accumulée. La vraie question n'est pas DCA ou Lump Sum, c'est commencer maintenant ou continuer à attendre.</p>
+        </div>
+
+        <h2 id="execution">Mettre en place son DCA en pratique : le guide pas à pas</h2>
+        <p>Voici le chemin exact à suivre, dans l'ordre, pour mettre en place un DCA qui tourne seul.</p>
+
+        <div class="dca-step">
+          <div class="dca-step-num">1</div>
+          <div class="dca-step-body">
+            <h3>Étape 1 : ouvrir un PEA chez un courtier en ligne</h3>
+            <p>Si tu n'as pas encore de PEA, c'est la première chose à faire. Fortuneo, Bourse Direct et Trade Republic proposent des PEA sans frais d'ouverture et sans frais de tenue de compte. Le délai de 5 ans pour bénéficier de l'exonération d'IR commence à l'ouverture du compte, pas au premier versement. Chaque mois sans PEA ouvert est un mois de compteur perdu. À noter : depuis 2026, les gains du PEA après 5 ans sont exonérés d'impôt sur le revenu mais soumis aux prélèvements sociaux à 18,6%.</p>
+          </div>
+        </div>
+        <div class="dca-step">
+          <div class="dca-step-num">2</div>
+          <div class="dca-step-body">
+            <h3>Étape 2 : choisir un seul ETF pour commencer</h3>
+            <p>Un seul ETF suffit au départ. Le plus simple et le plus diversifié : un ETF MSCI World, qui réplique la performance de 1 500 entreprises dans 23 pays développés. Sur PEA, ce sera forcément un ETF à réplication synthétique (car le PEA est limité aux valeurs européennes, mais les ETF synthétiques contournent cette contrainte légalement). Exemples : Amundi MSCI World UCITS ETF (code CW8), ou l'équivalent chez Lyxor ou Ossiam. Utilise le <a href="comparateur-etf.html">comparateur ETF</a> du site pour identifier les meilleures options selon les frais et la taille du fonds.</p>
+          </div>
+        </div>
+        <div class="dca-step">
+          <div class="dca-step-num">3</div>
+          <div class="dca-step-body">
+            <h3>Étape 3 : décider de son montant mensuel</h3>
+            <p>Pas besoin d'une grosse somme. Ce qui compte, c'est la régularité. La règle simple : investis entre 10% et 20% de tes revenus nets si tu peux. Si c'est impossible aujourd'hui, commence à 50€ ou 100€. Le montant peut augmenter plus tard, le principal est de prendre l'habitude. Ne commence jamais avec de l'argent dont tu pourrais avoir besoin dans les 3 prochaines années.</p>
+          </div>
+        </div>
+        <div class="dca-step">
+          <div class="dca-step-num">4</div>
+          <div class="dca-step-body">
+            <h3>Étape 4 : programmer le virement automatique</h3>
+            <p>C'est l'étape la plus importante et la plus sous-estimée. Va dans les paramètres de ta banque et programme un virement automatique vers ton PEA, le même jour chaque mois (le 5 ou le 10 du mois, par exemple, juste après ton salaire). Le virement doit être automatique et non conditionnel. Tu ne dois jamais avoir à décider chaque mois si tu investis ou non : la décision a été prise une fois pour toutes.</p>
+          </div>
+        </div>
+        <div class="dca-step">
+          <div class="dca-step-num">5</div>
+          <div class="dca-step-body">
+            <h3>Étape 5 : ne plus y toucher</h3>
+            <p>Sérieusement. Ni pendant les hausses (tentation de prendre ses bénéfices trop tôt), ni pendant les baisses (tentation de vendre pour "limiter les pertes"). Le DCA ne fonctionne que si tu t'y tiens. Désactive les notifications de cours sur ton téléphone. Regarde ton portefeuille une fois par trimestre maximum, uniquement pour vérifier que le virement automatique s'est bien déclenché.</p>
+          </div>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>L'étape 4 est celle qui sépare les gens qui investissent vraiment de ceux qui "vont le faire bientôt". Un virement automatique programmé ne se reporte pas, ne se saute pas un mois parce que le marché a l'air incertain, et ne connaît pas le biais de l'inaction.</p>
+        </div>
+
+        <h2 id="erreurs">Les 5 erreurs qui sabotent un DCA pourtant bien parti</h2>
+        <p>Le DCA est simple mais pas infaillible. Ces erreurs sont commises par la quasi-totalité des débutants à un moment ou un autre.</p>
+
+        <h3>Erreur 1 : arrêter le DCA pendant un krach</h3>
+        <p>C'est l'erreur cardinale. Quand le marché perd 30%, l'instinct dit : "arrête d'investir, attends que ça remonte." C'est exactement l'inverse de ce que le DCA est censé faire. Un krach, c'est une période de soldes. Tu achètes plus de parts pour le même prix. Arrêter ton DCA pendant un krach revient à arrêter d'aller au supermarché parce que les prix ont baissé.</p>
+
+        <h3>Erreur 2 : modifier son montant à la hausse quand ça monte</h3>
+        <p>Le marché est en hausse depuis 6 mois, tu te dis que tu veux en profiter davantage et tu doubles ton montant mensuel. C'est du market timing déguisé. Si la hausse continue, tu as l'air malin. Si le marché corrige juste après ton augmentation, tu as investi plus au plus haut. Garde un montant stable ou augmente-le progressivement selon l'évolution de tes revenus, pas selon les marchés.</p>
+
+        <h3>Erreur 3 : multiplier les ETF inutilement</h3>
+        <p>Le DCA fonctionne mieux avec un ou deux ETF maximum au départ. Certains débutants, au bout de quelques mois, ajoutent un ETF Nasdaq, puis un ETF pays émergents, puis un ETF small caps. Résultat : un portefeuille de 12 ETF avec des chevauchements importants, des frais cumulés plus élevés et une complexité qui pousse à l'inaction. Un ETF MSCI World couvre déjà 85% de la capitalisation mondiale.</p>
+
+        <h3>Erreur 4 : ne pas réinvestir les dividendes</h3>
+        <p>Si tu as choisi un ETF distributif (qui verse des dividendes), veille à les réinvestir manuellement. Les ETF capitalisants (Acc) font ça automatiquement. Laisser les dividendes dormir en cash dans ton PEA sans les réinvestir casse l'effet des intérêts composés.</p>
+
+        <h3>Erreur 5 : confondre diversification et dilution</h3>
+        <p>Certains font un DCA sur leur PEA, un autre sur une assurance vie, un troisième sur un CTO, et un quatrième sur un compte crypto. Résultat : quatre petits DCA sans impact réel, au lieu d'un DCA concentré sur l'enveloppe prioritaire. Commence par saturer le PEA, puis ouvre d'autres enveloppes si besoin.</p>
+
+        <h2 id="psychologie">La psychologie du DCA : pourquoi c'est plus dur que ça n'y paraît</h2>
+        <p>Sur le papier, le DCA est la stratégie la plus simple qui existe. Dans les faits, l'exécuter fidèlement pendant 10, 15 ou 20 ans est un défi psychologique que beaucoup sous-estiment.</p>
+        <p>Le premier obstacle, c'est la douleur d'investir pendant une baisse. Quand ton portefeuille perd 25% de valeur et que tu continues d'acheter chaque mois, tu as l'impression de mettre de l'argent dans un trou noir. Intellectuellement, tu sais que tu achètes à bon prix. Émotionnellement, tu souffres de voir tes économies fondre. Cette dissonance est normale et elle touche tout le monde, y compris les investisseurs expérimentés.</p>
+        <p>Le deuxième obstacle, c'est la comparaison sociale. Pendant les périodes de bulle, tu vas entendre des connaissances se vanter de gains spectaculaires sur des actions individuelles ou des cryptos. Ton ETF MSCI World qui progresse de 8% par an semblera terne à côté. C'est une illusion : les gens racontent leurs gains, pas leurs pertes. Et 95% des stock pickers individuels font moins bien que l'indice sur 15 ans.</p>
+        <p>Le troisième obstacle, c'est l'illusion du contrôle. Investir manuellement, en choisissant le moment et le montant chaque mois, donne un sentiment de maîtrise. Automatiser le virement semble passif, voire paresseux. En réalité, l'automatisation est la décision active la plus efficace que tu puisses prendre : tu décides une fois de supprimer toutes les mauvaises décisions futures.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le DCA ne fonctionne pas parce qu'il est mathématiquement parfait. Il fonctionne parce qu'il est humainement tenable. Une stratégie moyenne appliquée avec discipline pendant 20 ans bat n'importe quelle stratégie brillante abandonnée au bout de 18 mois.</p>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Faut-il faire un DCA mensuel ou hebdomadaire ?</summary>
+            <p>Mensuel, dans la quasi-totalité des cas. La fréquence hebdomadaire n'apporte pas d'avantage statistique significatif, elle multiplie les ordres de bourse (donc les frais de courtage si ton courtier en facture), et elle est plus difficile à automatiser proprement. Le virement mensuel post-salaire est le rythme le plus simple et le plus durable.</p>
+          </details>
+          <details>
+            <summary>Est-ce que le DCA fonctionne aussi avec les cryptos ?</summary>
+            <p>Oui, et c'est probablement encore plus pertinent qu'avec les ETF, justement parce que la volatilité des cryptos est extrême. Acheter du Bitcoin ou de l'Ethereum en DCA mensuel plutôt qu'en Lump Sum réduit significativement le risque d'entrer au pire moment. Cela dit, la classe d'actifs est structurellement différente des actions : la volatilité est plus forte, les drawdowns peuvent être plus longs, et le risque de perte totale est réel sur les altcoins. Un DCA sur BTC ou ETH dans une enveloppe dédiée, avec une allocation raisonnable de ton portefeuille global (5 à 15% maximum pour un profil standard), est une approche cohérente.</p>
+          </details>
+          <details>
+            <summary>Quel montant minimum pour commencer un DCA ?</summary>
+            <p>Il n'y a pas de minimum absolu. Sur Trade Republic par exemple, tu peux programmer un DCA dès 1€ par mois sur un ETF. En pratique, en dessous de 50€ par mois, les frais fixes de certains courtiers peuvent rogner la performance. L'important n'est pas le montant de départ : c'est d'ouvrir le PEA et de commencer. Le montant augmentera avec le temps.</p>
+          </details>
+          <details>
+            <summary>Que faire si mon salaire est irrégulier ?</summary>
+            <p>Deux options. Soit tu programmes un montant minimal garanti (ce que tu peux investir même dans un mauvais mois), soit tu fais un DCA flexible : tu vires un pourcentage fixe de tes revenus du mois, pas un montant fixe. La deuxième option est moins automatisable mais plus juste par rapport à ta situation réelle. Dans tous les cas, l'essentiel est de ne jamais investir de l'argent dont tu pourrais avoir besoin à court terme.</p>
+          </details>
+          <details>
+            <summary>Faut-il arrêter le DCA quand on s'approche de l'objectif ?</summary>
+            <p>Oui, progressivement. Quand tu approches de l'horizon auquel tu veux utiliser cet argent (retraite, achat immobilier, liberté financière), il est prudent de réduire la part en actions et d'augmenter la part en actifs moins volatils (fonds en euros, obligations). Ce processus s'appelle le glide path ou trajectoire de désensibilisation. Ce n'est pas lié au DCA en lui-même mais à la gestion de l'horizon temporel de tes objectifs.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_ARTICLE_DCA par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_ARTICLE_DCA = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_ARTICLE_DCA && VIDEO_ID_ARTICLE_DCA!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_DCA+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-cta">
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="https://julien-invest.github.io/article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  (function(){
+    var euro = function(v){ return Math.round(v).toLocaleString('fr-FR') + '€'; };
+
+    var fields = {
+      pmt:   { range: 'dca-pmt-range',   num: 'dca-pmt-num' },
+      years: { range: 'dca-years-range', num: 'dca-years-num' },
+      rate:  { range: 'dca-rate-range',  num: 'dca-rate-num' },
+      pv:    { range: 'dca-pv-range',    num: 'dca-pv-num' }
+    };
+
+    function clamp(el, v){
+      var min = parseFloat(el.min), max = parseFloat(el.max);
+      if (isNaN(v)) v = min;
+      if (v < min) v = min;
+      if (v > max) v = max;
+      return v;
+    }
+
+    var chart = null;
+
+    function compute(){
+      var pmt   = parseFloat(document.getElementById('dca-pmt-num').value)   || 0;
+      var years = parseInt(document.getElementById('dca-years-num').value, 10) || 1;
+      var rate  = parseFloat(document.getElementById('dca-rate-num').value)  || 0;
+      var pv    = parseFloat(document.getElementById('dca-pv-num').value)    || 0;
+
+      var r = (rate / 100) / 12;           // taux mensuel
+      var labels = [], invested = [], portfolio = [];
+
+      for (var y = 0; y <= years; y++){
+        var n = y * 12;                    // nombre de mois écoulés
+        var inv = pv + pmt * n;
+        var port;
+        if (r === 0){
+          port = pv + pmt * n;
+        } else {
+          port = pv * Math.pow(1 + r, n) + pmt * (Math.pow(1 + r, n) - 1) / r;
+        }
+        labels.push(y);
+        invested.push(Math.round(inv));
+        portfolio.push(Math.round(port));
+      }
+
+      var totalInvested = invested[invested.length - 1];
+      var finalValue = portfolio[portfolio.length - 1];
+      var gain = finalValue - totalInvested;
+
+      document.getElementById('dca-invested').textContent = euro(totalInvested);
+      document.getElementById('dca-final').textContent = euro(finalValue);
+      document.getElementById('dca-gain').textContent = euro(gain);
+
+      renderChart(labels, invested, portfolio);
+    }
+
+    function renderChart(labels, invested, portfolio){
+      var canvas = document.getElementById('dca-chart');
+      if (!canvas || typeof Chart === 'undefined') return;
+      var ctx = canvas.getContext('2d');
+
+      var grad = ctx.createLinearGradient(0, 0, 0, canvas.height || 320);
+      grad.addColorStop(0, 'rgba(160,231,197,0.45)');
+      grad.addColorStop(1, 'rgba(160,231,197,0.05)');
+
+      if (chart){
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = invested;
+        chart.data.datasets[1].data = portfolio;
+        chart.update();
+        return;
+      }
+
+      chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [
+            {
+              label: 'Capital investi',
+              data: invested,
+              borderColor: '#C8B4E8',
+              backgroundColor: '#C8B4E8',
+              borderWidth: 2,
+              pointRadius: 0,
+              tension: 0.15,
+              fill: false
+            },
+            {
+              label: 'Valeur du portefeuille',
+              data: portfolio,
+              borderColor: '#1A1A4E',
+              backgroundColor: grad,
+              borderWidth: 2.5,
+              pointRadius: 0,
+              tension: 0.15,
+              fill: '-1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { labels: { font: { family: 'Plus Jakarta Sans, sans-serif', weight: '600' }, usePointStyle: true, pointStyle: 'circle', boxWidth: 8 } },
+            tooltip: {
+              callbacks: {
+                title: function(items){ return items[0].label + (items[0].label === '1' ? ' an' : ' ans'); },
+                label: function(c){ return c.dataset.label + ' : ' + Math.round(c.parsed.y).toLocaleString('fr-FR') + '€'; }
+              }
+            }
+          },
+          scales: {
+            x: { title: { display: true, text: 'Années', font: { family: 'DM Sans, sans-serif' } }, grid: { display: false } },
+            y: {
+              ticks: { callback: function(v){ return (v >= 1000 ? (v/1000) + 'k' : v) + '€'; }, font: { family: 'DM Sans, sans-serif' } },
+              grid: { color: '#EEF1F8' }
+            }
+          }
+        }
+      });
+    }
+
+    // Synchronisation slider <-> input numérique + recalcul temps réel
+    Object.keys(fields).forEach(function(key){
+      var range = document.getElementById(fields[key].range);
+      var num = document.getElementById(fields[key].num);
+      range.addEventListener('input', function(){ num.value = range.value; compute(); });
+      num.addEventListener('input', function(){
+        var v = clamp(num, parseFloat(num.value));
+        range.value = v;
+        compute();
+      });
+      num.addEventListener('blur', function(){ num.value = clamp(num, parseFloat(num.value)); compute(); });
+    });
+
+    if (typeof Chart !== 'undefined') {
+      compute();
+    } else {
+      window.addEventListener('load', compute);
+    }
+  })();
+  </script>
+</body>
+</html>

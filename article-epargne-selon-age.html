@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combien épargner selon ton âge ? Les cibles 2026 pour la France | Julien Invest</title>
+  <meta name="description" content="25 ans : 15 000€. 30 ans : 42 000€. 40 ans : 135 000€. Les paliers d'épargne par âge calibrés sur le revenu médian français, avec simulateur interactif.">
+  <meta property="og:title" content="Combien épargner selon ton âge ? Les cibles 2026 | Julien Invest">
+  <meta property="og:description" content="25 ans : 15 000€. 30 ans : 42 000€. 40 ans : 135 000€. Découvre si tu es en avance ou en retard, avec les chiffres réels français.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://julien-invest.github.io/article-epargne-selon-age.html">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Combien épargner selon ton âge ? Les cibles 2026 | Julien Invest">
+  <meta name="twitter:description" content="25 ans : 15 000€. 30 ans : 42 000€. 40 ans : 135 000€. Découvre si tu es en avance ou en retard, avec les chiffres réels français.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Combien épargner selon ton âge ? Les cibles 2026 pour la France",
+  "description": "Les paliers d'épargne par âge calibrés sur le revenu médian français, de 25 à 50 ans, avec simulateur interactif.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Table des matières sticky (scoped) ── */
+    @media (min-width: 1100px) {
+      .article-toc.is-sticky { position: sticky; top: 96px; }
+    }
+
+    /* ── Encart deux colonnes (scoped) ── */
+    .age-twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 32px; }
+    @media (max-width: 600px) { .age-twocol { grid-template-columns: 1fr; } }
+    .age-col { border-radius: var(--radius-md); padding: 20px 22px; border: 1px solid; }
+    .age-col-bad { background: rgba(220,38,38,0.06); border-color: rgba(220,38,38,0.25); }
+    .age-col-good { background: rgba(5,150,105,0.06); border-color: rgba(5,150,105,0.25); }
+    .age-col-title { font-family: var(--font-head); font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .age-col-bad .age-col-title { color: #DC2626; }
+    .age-col-good .age-col-title { color: #059669; }
+    .age-col p { font-size: 14px; color: var(--grey-1); line-height: 1.7; margin: 0; }
+
+    /* ── Graphique cible vs réalité (scoped) ── */
+    .age-chart-wrap { margin: 28px 0 12px; }
+    .age-chart-legend { display: flex; gap: 22px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+    .age-chart-legend span { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--grey-2); }
+    .age-chart-legend i { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+    .age-chart-legend .lg-cible { background: var(--navy); }
+    .age-chart-legend .lg-reel { background: #DC2626; }
+    #age-chart { width: 100%; height: auto; display: block; }
+    #age-chart .bar { cursor: pointer; transition: opacity 0.15s; }
+    #age-chart .bar:hover { opacity: 0.82; }
+    .age-chart-tooltip {
+      position: absolute; pointer-events: none; background: var(--navy); color: #fff;
+      font-family: var(--font-head); font-size: 12px; font-weight: 600; padding: 7px 11px;
+      border-radius: 8px; white-space: nowrap; transform: translate(-50%, -120%);
+      opacity: 0; transition: opacity 0.12s; z-index: 5; box-shadow: 0 6px 20px rgba(26,26,78,0.25);
+    }
+    .age-chart-pos { position: relative; }
+
+    /* ── Simulateur (scoped) ── */
+    .age-sim {
+      background: var(--lavender-lt);
+      border: 1px solid rgba(147,197,253,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 28px 0 16px;
+    }
+    .age-sim-field { margin-bottom: 22px; }
+    .age-sim-field:last-of-type { margin-bottom: 8px; }
+    .age-sim-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 15px; margin-bottom: 10px; }
+    .age-sim-value { font-size: 18px; color: var(--navy-mid); }
+    .age-sim input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .age-sim input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 8px rgba(26,61,124,0.4); border: 3px solid #fff; }
+    .age-sim input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--navy); cursor: pointer; border: 3px solid #fff; }
+    .age-sim-results { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+    @media (max-width: 540px) { .age-sim-results { grid-template-columns: 1fr; } }
+    .age-res { border-radius: var(--radius-md); padding: 16px 18px; }
+    .age-res-cible { background: linear-gradient(135deg, rgba(212,192,255,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(147,197,253,0.7); grid-column: 1 / -1; }
+    .age-res-median { background: #fff; border: 1px solid var(--grey-5); }
+    .age-res-gap { border: 1px solid; }
+    .age-res-gap.is-late { background: rgba(220,38,38,0.07); border-color: rgba(220,38,38,0.3); }
+    .age-res-gap.is-ahead { background: rgba(5,150,105,0.07); border-color: rgba(5,150,105,0.3); }
+    .age-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey-3); margin-bottom: 7px; }
+    .age-res-num { font-family: var(--font-head); font-weight: 800; color: var(--navy); font-size: clamp(20px,4vw,26px); line-height: 1.15; }
+    .age-res-gap.is-late .age-res-num { color: #DC2626; }
+    .age-res-gap.is-ahead .age-res-num { color: #059669; }
+    .age-res-sub { font-size: 12px; color: var(--grey-3); margin-top: 4px; }
+    .age-sim-foot { margin-top: 18px; font-size: 14px; }
+    .age-sim-foot a { color: var(--navy); font-weight: 700; text-decoration: none; }
+    .age-sim-foot a:hover { text-decoration: underline; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .age-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .age-table-scroll .compare-table { margin: 0; min-width: 540px; }
+
+    /* ── Articles liés (scoped) ── */
+    .age-related { margin: 48px 0 0; border-top: 1px solid var(--grey-5); padding-top: 28px; }
+    .age-related-title { font-family: var(--font-head); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-3); margin-bottom: 14px; }
+    .age-related a { display: block; font-family: var(--font-head); font-weight: 700; color: var(--navy); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--grey-5); font-size: 16px; }
+    .age-related a:hover { color: var(--navy-mid); }
+    .age-related a::after { content: " →"; color: var(--lavender); }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-epargne-selon-age.html">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Combien doit-on épargner par mois pour atteindre ces cibles ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour un revenu de 2 000€ nets, viser entre 15 et 20% du salaire net, soit 300 à 400€ par mois, placés régulièrement en ETF monde via un PEA. Ce montant seul, avec un rendement de 7% par an sur 30 ans, génère plus de 360 000€."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que l'immobilier compte dans ces chiffres ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Ces paliers concernent l'épargne financière investie (PEA, assurance vie, CTO, livrets). La valeur de ta résidence principale n'est pas prise en compte, car elle ne génère pas de revenus et ne peut pas être mobilisée facilement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À quel âge commencer à investir ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le plus tôt possible. Chaque année de capitalisation supplémentaire double presque ton capital final sur un horizon de 30 ans, à rendement constant. Ouvrir un PEA à 22 ans avec 50€ déclenche le compteur fiscal des 5 ans et installe l'habitude avant que les charges de vie ne s'accumulent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que faire si j'ai 40 ans et zéro épargne investie ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commencer immédiatement. L'horizon est encore de 25 ans. Un DCA mensuel régulier en ETF monde, même modeste, sur un PEA ou une assurance vie, produit un résultat significatif sur cette durée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ces chiffres prennent-ils en compte la retraite par répartition ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partiellement. La règle de Fidelity suppose qu'on souhaite maintenir son niveau de vie à la retraite. En France, le système par répartition réduit le besoin d'épargne privée, mais compte tenu des projections démographiques, il est raisonnable de ne pas compter uniquement dessus."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Comparateur ETF</a></li>
+      <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Débutants</span>
+        <h1>Combien épargner selon ton âge ?<br><em>Les cibles 2026 pour la France</em></h1>
+        <p class="article-meta-date">Publié le 16 juin 2026</p>
+        <p>25 ans : 15 000€. 30 ans : 42 000€. 50 ans : 270 000€. Des cibles calculées sur le revenu médian français, palier par palier, avec les chiffres réels de ce que les Français ont vraiment à chaque âge.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Débutants</span>
+        <p>25 ans : 15 000€. 30 ans : 42 000€. 50 ans : 270 000€. Ces chiffres ne sortent pas de nulle part. Ce sont des cibles calculées sur le revenu médian français et la règle de Fidelity, adaptées à la réalité des salaires et des débuts de carrière en France. On te donne tout, palier par palier, avec les chiffres de ce que les Français ont vraiment à chaque âge.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#origine">D'où viennent ces chiffres ?</a></li>
+            <li><a href="#p25">Palier 25 ans : poser les bases</a></li>
+            <li><a href="#p30">Palier 30 ans : le premier carrefour</a></li>
+            <li><a href="#p35">Palier 35 ans : la fenêtre qui se referme</a></li>
+            <li><a href="#p40">Palier 40 ans : rattraper ou consolider</a></li>
+            <li><a href="#p45">Palier 45 ans : le pic de dépenses</a></li>
+            <li><a href="#p50">Palier 50 ans : la dernière ligne droite</a></li>
+            <li><a href="#ecart">L'écart entre cible et réalité en France</a></li>
+            <li><a href="#revenu">Ton chiffre dépend de ton revenu</a></li>
+            <li><a href="#retard">Être en retard ne veut pas dire être hors course</a></li>
+            <li><a href="#simulateur">Simulateur interactif : calcule ta cible</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="origine">D'où viennent ces chiffres ?</h2>
+        <p>On te dit d'épargner depuis que tu as l'âge de travailler. Mais personne ne te dit combien. Ni si tu es en avance. Ni si tu es en retard. Cette opacité génère deux comportements aussi mauvais l'un que l'autre : la procrastination pour ceux qui n'ont pas de repère, et la sur-épargne pour ceux qui s'imposent une privation inutile sans savoir si elle est justifiée.</p>
+        <p>Les paliers présentés dans cet article reposent sur deux bases.</p>
+        <p>La première est la règle de Fidelity, du nom du gestionnaire d'actifs américain qui l'a formalisée. Elle recommande d'avoir épargné l'équivalent de son salaire annuel net à 30 ans, 3 fois à 40 ans, 6 fois à 50 ans, et 10 fois à 65 ans. Elle part d'un objectif simple : disposer d'un capital suffisant pour maintenir son niveau de vie à la retraite sans dépendre uniquement du régime public.</p>
+        <p>La deuxième est l'adaptation française. Le salaire net médian en France tourne autour de 2 000€ par mois, soit 24 000€ par an. Les paliers sont recalculés sur cette base, et non sur des données américaines. Les débuts de carrière en France sont aussi différents : études longues, premiers salaires plus faibles, loyers élevés dans les grandes villes. Les paliers tiennent compte de cette réalité.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Ces cibles sont des repères pour un revenu médian de 2 000€ nets par mois. Si ton revenu est différent, utilise le simulateur en section 11 pour calculer ta cible personnelle.</p>
+        </div>
+
+        <h2 id="p25">Palier 25 ans : poser les bases</h2>
+        <p>À 25 ans, l'objectif n'est pas encore d'avoir un portefeuille d'investissement structuré. C'est d'avoir posé deux fondations concrètes.</p>
+        <p>La première, c'est le fonds d'urgence. Trois à six mois de dépenses fixes accessibles immédiatement, placés sur un livret A ou un LDDS. Cet argent n'est pas destiné à fructifier : il est là pour absorber les imprévus sans toucher à tes investissements.</p>
+        <p>La deuxième, c'est d'avoir commencé à investir, même modestement. Ouvrir un PEA avec 50€ par mois à 25 ans, c'est déclencher le compteur des 5 ans. C'est aussi prendre l'habitude, avant que les charges de la vie adulte ne s'accumulent.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 25 ans</td><td>10 000€ à 20 000€</td><td>~4 500€ (médiane)</td></tr>
+            <tr><td>Dont fonds d'urgence</td><td>6 000€ à 8 000€</td><td>Variable</td></tr>
+            <tr><td>Dont déjà investi</td><td>2 000€ à 10 000€</td><td>~1 200€</td></tr>
+          </tbody>
+        </table>
+
+        <p>La médiane française à 25 ans est d'environ 4 500€. C'est un chiffre logique : études longues, premiers salaires faibles, loyer, remboursement d'un éventuel crédit étudiant. Être à 4 500€ à 25 ans ne signifie pas qu'on est en retard. Cela signifie qu'il faut mettre un plan en place maintenant, avant que les années ne passent sans stratégie.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Si tu as entre 10 000 et 20 000€ à 25 ans, tu es en avance sur la grande majorité de ta génération. Si tu es en dessous, tu es dans la norme. Mais le moment d'agir, c'est maintenant.</p>
+        </div>
+
+        <h2 id="p30">Palier 30 ans : le premier carrefour</h2>
+        <p>30 ans est l'âge pivot. C'est le moment où les intérêts composés commencent à peser. Si tu investis régulièrement depuis 25 ans, les premières années de capitalisation sont derrière toi. Si tu n'as pas encore commencé, tu es encore largement à temps, mais chaque année supplémentaire d'inaction a désormais un coût visible.</p>
+        <p>La cible à 30 ans correspond à environ 1,5 à 2 fois ton salaire annuel net. Pour un revenu médian de 2 000€/mois, c'est une fourchette de 35 000 à 50 000€.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 30 ans</td><td>35 000€ à 50 000€</td><td>~12 000€ (médiane)</td></tr>
+            <tr><td>PEA ouvert depuis</td><td>Au moins 25 ans</td><td>Rarement avant 28 ans</td></tr>
+            <tr><td>Taux d'épargne recommandé</td><td>15 à 20% du net</td><td>~8% en moyenne</td></tr>
+          </tbody>
+        </table>
+
+        <p>L'écart entre la cible et la réalité à 30 ans est le plus révélateur. La médiane française se situe autour de 12 000€. L'écart avec la cible basse (35 000€) dépasse 20 000€. Ce n'est pas un verdict négatif : c'est un signal clair que la décennie 30-40 ans est celle où le différentiel se creuse ou se comble.</p>
+        <p>Ce qui fait la différence à 30 ans, ce ne sont pas les rendements. C'est le taux d'épargne. Passer de 5% à 15% du salaire net, c'est la décision qui compte le plus dans cette tranche d'âge.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>30 ans est le premier vrai carrefour. Les décisions prises entre 25 et 35 ans ont un impact massif sur les 20 années suivantes. L'écart entre ceux qui ont un plan et les autres commence à se creuser ici.</p>
+        </div>
+
+        <h2 id="p35">Palier 35 ans : la fenêtre qui se referme</h2>
+        <p>À 35 ans, il reste encore 30 ans avant 65 ans. C'est beaucoup. Assez pour qu'un investissement en ETF monde en DCA régulier transforme un retard initial en patrimoine solide. Mais c'est aussi l'âge où les charges de vie adulte atteignent souvent leur pic : crédit immobilier, enfants, voiture. Le budget épargne subit une pression maximale au moment où la régularité devient critique.</p>
+        <p>La cible à 35 ans est d'environ 3 fois le salaire annuel net, soit entre 70 000 et 100 000€ pour un revenu médian.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 35 ans</td><td>70 000€ à 100 000€</td><td>~28 000€ (médiane)</td></tr>
+            <tr><td>Dont portefeuille investi</td><td>50 000€ à 75 000€</td><td>~12 000€</td></tr>
+            <tr><td>Horizon restant</td><td>30 ans</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <p>La médiane française à 35 ans tourne autour de 28 000€. L'immobilier absorbe souvent l'essentiel de l'effort financier de cette décennie. Ce n'est pas forcément une erreur, mais l'épargne financière investie reste en moyenne très en dessous de la cible. L'apport immobilier et les travaux ont priorité dans les esprits. L'investissement en bourse est souvent relégué à "quand j'aurai plus de marge".</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>35 ans est le dernier palier où il reste encore 30 ans de capitalisation devant soi. Commencer une vraie stratégie ici change encore significativement le résultat à 65 ans.</p>
+        </div>
+
+        <h2 id="p40">Palier 40 ans : rattraper ou consolider</h2>
+        <p>À 40 ans, le ton change. Il reste 25 ans avant 65 ans. C'est encore suffisant pour construire un patrimoine solide, mais les marges d'erreur commencent à se réduire. Un euro non investi à 40 ans n'a plus le même potentiel qu'un euro non investi à 30 ans. L'urgence devient concrète.</p>
+        <p>La cible à 40 ans est de 5 à 6 fois le salaire annuel net, soit entre 120 000 et 150 000€ pour un revenu médian.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 40 ans</td><td>120 000€ à 150 000€</td><td>~45 000€ (médiane)</td></tr>
+            <tr><td>Dont portefeuille investi</td><td>80 000€ à 110 000€</td><td>~18 000€</td></tr>
+            <tr><td>Horizon restant</td><td>25 ans</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <p>La médiane du patrimoine financier des 40 ans français tourne autour de 45 000€. C'est l'immobilier qui domine, pas l'épargne investie. L'écart avec la cible dépasse 80 000€. C'est un écart comblable, mais il nécessite une action immédiate et une allocation sérieuse.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>40 ans : il reste 25 ans de capitalisation. C'est encore beaucoup si on agit maintenant. Mais chaque année qui passe coûte plus cher qu'à 30 ans.</p>
+        </div>
+
+        <h2 id="p45">Palier 45 ans : le pic de dépenses</h2>
+        <p>45 ans est souvent l'âge le plus difficile budgétairement. Les enfants sont en études supérieures ou au lycée. Le crédit immobilier est encore en cours. La retraite paraît encore lointaine dans les priorités. Et pourtant, c'est précisément là que l'effort d'épargne doit s'intensifier.</p>
+        <p>La cible à 45 ans est de 7 à 8 fois le salaire annuel net, soit entre 175 000 et 210 000€ pour un revenu médian.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 45 ans</td><td>175 000€ à 210 000€</td><td>~72 000€ (médiane)</td></tr>
+            <tr><td>Horizon restant</td><td>20 ans</td><td></td></tr>
+            <tr><td>Taux d'épargne recommandé</td><td>20 à 25% du net</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <p>La médiane française à 45 ans se situe autour de 72 000€ de patrimoine financier. L'écart avec la cible dépasse 100 000€. Ce n'est pas irattrapable. Avec un taux d'épargne de 20% et une allocation en ETF actions, 20 ans de capitalisation permettent encore de combler une grande partie de cet écart.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>45 ans avec 20 ans devant soi, c'est encore une fenêtre sérieuse. Mais les marges d'erreur se réduisent. L'allocation et la régularité deviennent critiques.</p>
+        </div>
+
+        <h2 id="p50">Palier 50 ans : la dernière ligne droite</h2>
+        <p>À 50 ans, le contexte change à plusieurs niveaux. Les enfants commencent à quitter le foyer. Le crédit immobilier est souvent en fin de vie. Les revenus sont à leur pic dans la plupart des carrières. C'est structurellement le meilleur moment pour épargner massivement. Beaucoup ne le font pas, soit parce qu'ils pensent qu'il est trop tard, soit parce qu'ils relâchent l'effort.</p>
+        <p>La cible à 50 ans est de 10 à 12 fois le salaire annuel net, soit entre 240 000 et 300 000€ pour un revenu médian.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th></th><th>Cible (revenu médian)</th><th>Réalité France</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Épargne totale à 50 ans</td><td>240 000€ à 300 000€</td><td>~108 000€ (médiane)</td></tr>
+            <tr><td>Horizon restant</td><td>15 ans</td><td></td></tr>
+            <tr><td>Stratégie d'allocation</td><td>Progressivement sécurisée</td><td></td></tr>
+          </tbody>
+        </table>
+
+        <p>La médiane du patrimoine financier des 50 ans français est d'environ 108 000€. L'immobilier représente souvent l'essentiel du patrimoine global, mais l'épargne investie reste insuffisante pour une retraite autonome. Il reste 15 ans. C'est court pour les intérêts composés, mais suffisant pour un effort soutenu.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>À 50 ans, le taux d'épargne doit monter. Les enfants quittent le foyer, les revenus sont souvent à leur pic. C'est la dernière opportunité majeure de capitalisation avant la retraite.</p>
+        </div>
+
+        <h2 id="ecart">L'écart entre cible et réalité en France</h2>
+        <p>Ce n'est pas un problème individuel. C'est un problème structurel. La majorité des Français sont en dessous des cibles à chaque palier. Les raisons sont connues : loyers élevés dans les grandes villes, études longues, accès à la propriété prioritaire sur l'investissement financier, absence d'éducation financière dans le système scolaire.</p>
+        <p>La conclusion n'est pas de culpabiliser. C'est de comprendre que la norme sociale n'est pas un repère fiable pour évaluer sa situation patrimoniale.</p>
+
+        <div class="age-chart-wrap age-chart-pos">
+          <div class="age-chart-legend">
+            <span><i class="lg-cible"></i> Cible</span>
+            <span><i class="lg-reel"></i> Réalité France</span>
+          </div>
+          <svg id="age-chart" viewBox="0 0 720 380" role="img" aria-label="Comparaison par âge entre la cible d'épargne et la réalité médiane française, de 25 à 50 ans"></svg>
+          <div class="age-chart-tooltip" id="age-chart-tip"></div>
+        </div>
+
+        <p>Regarder ce graphique n'est pas confortable. Ce n'est pas son rôle. Son rôle est de te donner une image honnête de l'écart. La bonne nouvelle : l'écart à 25 ou 30 ans est comblable. La mauvaise : il se creuse avec l'âge, et il devient de plus en plus coûteux à combler.</p>
+
+        <h2 id="revenu">Ton chiffre dépend de ton revenu</h2>
+        <p>Les paliers ci-dessus sont calibrés sur 2 000€ nets par mois. Ce n'est pas ton salaire. La règle s'adapte à ton revenu réel.</p>
+        <p>La logique est simple : les cibles sont exprimées en multiples de ton salaire annuel net. Si tu gagnes 1 500€/mois (18 000€/an), tes cibles sont proportionnellement plus basses. Si tu gagnes 4 000€/mois (48 000€/an), elles sont plus hautes. Appliquer les chiffres de quelqu'un d'autre à ta situation est l'erreur la plus courante.</p>
+
+        <div class="age-table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Âge</th><th>1 500€/mois</th><th>2 000€/mois</th><th>3 000€/mois</th><th>4 500€/mois</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>25 ans</td><td>7 000 à 14 000€</td><td>10 000 à 20 000€</td><td>15 000 à 30 000€</td><td>22 000 à 45 000€</td></tr>
+              <tr><td>30 ans</td><td>22 000 à 32 000€</td><td>35 000 à 50 000€</td><td>55 000 à 75 000€</td><td>80 000 à 115 000€</td></tr>
+              <tr><td>35 ans</td><td>45 000 à 65 000€</td><td>70 000 à 100 000€</td><td>105 000 à 150 000€</td><td>160 000 à 225 000€</td></tr>
+              <tr><td>40 ans</td><td>75 000 à 95 000€</td><td>120 000 à 150 000€</td><td>180 000 à 225 000€</td><td>270 000 à 340 000€</td></tr>
+              <tr><td>50 ans</td><td>155 000 à 190 000€</td><td>240 000 à 300 000€</td><td>360 000 à 450 000€</td><td>540 000 à 675 000€</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>La règle : viser 1,5 à 2 fois ton salaire annuel net à 30 ans. 3 à 4 fois à 40 ans. 6 à 7 fois à 50 ans. Le simulateur en section 11 calcule ta cible exacte.</p>
+        </div>
+
+        <h2 id="retard">Être en retard ne veut pas dire être hors course</h2>
+        <p>La majorité des lecteurs de cet article sont en dessous de la cible pour leur âge. C'est la norme statistique, pas l'exception. L'enjeu n'est pas de se comparer à un idéal. C'est de mettre en place une trajectoire.</p>
+        <p>Deux leviers permettent de combler l'écart, dans cet ordre de priorité.</p>
+        <p>Le premier est le taux d'épargne. Passer de 5% à 15% du revenu net, c'est tripler le flux d'investissement sans toucher à l'allocation. C'est le levier le plus puissant, et le seul totalement sous ton contrôle.</p>
+        <p>Le deuxième est l'allocation. Épargner sur un livret A à 3% ne permet pas de rattraper 10 ans de sous-capitalisation. L'inflation efface le gain réel. Une allocation en ETF actions monde sur un PEA ou une assurance vie, avec un horizon de 10 à 20 ans, est ce qui permet aux intérêts composés de travailler réellement.</p>
+
+        <div class="age-twocol">
+          <div class="age-col age-col-bad">
+            <div class="age-col-title">Ce qui ne marche pas</div>
+            <p>Épargner sur un livret à 3% en espérant rattraper 10 ans de sous-capitalisation. L'inflation efface le gain réel, année après année.</p>
+          </div>
+          <div class="age-col age-col-good">
+            <div class="age-col-title">Ce qui fonctionne</div>
+            <p>Augmenter le taux d'épargne de 5 à 10 points, investir en ETF via PEA, et laisser les intérêts composés faire le reste sur 10 à 20 ans.</p>
+          </div>
+        </div>
+
+        <p>Il n'existe pas de rattrapage miracle. Mais il existe une trajectoire claire : épargner plus, investir mieux, et commencer maintenant. Chaque mois supplémentaire à ne rien faire a un coût réel, quantifiable.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>La seule vraie erreur : attendre encore. Chaque mois à ne rien faire coûte plus cher que tout le reste.</p>
+        </div>
+
+        <h2 id="simulateur">Calcule ta cible personnelle</h2>
+        <p>Les paliers ci-dessus sont des repères pour un revenu médian. Ton chiffre réel dépend de ton âge et de ton revenu mensuel net. Le simulateur ci-dessous calcule ta cible instantanément.</p>
+
+        <div class="age-sim">
+          <div class="age-sim-field">
+            <label class="age-sim-label" for="age-input">Mon âge <span class="age-sim-value"><span id="age-out">30</span> ans</span></label>
+            <input type="range" id="age-input" min="20" max="60" step="1" value="30">
+          </div>
+          <div class="age-sim-field">
+            <label class="age-sim-label" for="rev-input">Mon revenu mensuel net <span class="age-sim-value"><span id="rev-out">2 000</span> €</span></label>
+            <input type="range" id="rev-input" min="1000" max="8000" step="100" value="2000">
+          </div>
+
+          <div class="age-sim-results">
+            <div class="age-res age-res-cible">
+              <div class="age-res-lbl">Ta cible à cet âge</div>
+              <div class="age-res-num"><span id="cible-bas">—</span> à <span id="cible-haut">—</span></div>
+              <div class="age-res-sub">Soit <span id="cible-mult">—</span> de ton salaire annuel net (<span id="annuel">—</span>/an).</div>
+            </div>
+            <div class="age-res age-res-median">
+              <div class="age-res-lbl">La médiane France à cet âge</div>
+              <div class="age-res-num" id="median-fr">—</div>
+              <div class="age-res-sub">Patrimoine financier médian observé.</div>
+            </div>
+            <div class="age-res age-res-gap is-late" id="gap-box">
+              <div class="age-res-lbl" id="gap-lbl">L'écart médian à combler</div>
+              <div class="age-res-num" id="gap-num">—</div>
+              <div class="age-res-sub" id="gap-sub">Entre la cible moyenne et la médiane française.</div>
+            </div>
+          </div>
+
+          <p class="age-sim-foot">Pour aller plus loin, le calculateur complet est disponible ici <a href="https://julien-invest.github.io/calculateur.html">→</a></p>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Combien doit-on épargner par mois pour atteindre ces cibles ?</summary>
+            <p>Pour un revenu de 2 000€ nets, viser entre 15 et 20% du salaire net, soit 300 à 400€ par mois, placés régulièrement en ETF monde via un PEA. Ce montant seul, avec un rendement de 7% par an sur 30 ans, génère plus de 360 000€.</p>
+          </details>
+          <details>
+            <summary>Est-ce que l'immobilier compte dans ces chiffres ?</summary>
+            <p>Non. Ces paliers concernent l'épargne financière investie (PEA, assurance vie, CTO, livrets). La valeur de ta résidence principale n'est pas prise en compte, car elle ne génère pas de revenus et ne peut pas être mobilisée facilement. Si tu es propriétaire et que ton patrimoine financier est en dessous de la cible, ce n'est pas une double peine : c'est une réalité fréquente en France.</p>
+          </details>
+          <details>
+            <summary>À quel âge commencer à investir ?</summary>
+            <p>Le plus tôt possible. Pas pour une raison abstraite : parce que chaque année de capitalisation supplémentaire double presque ton capital final sur un horizon de 30 ans, à rendement constant. Ouvrir un PEA à 22 ans avec 50€, c'est déclencher le compteur fiscal des 5 ans et prendre l'habitude avant que les charges de vie ne s'accumulent.</p>
+          </details>
+          <details>
+            <summary>Que faire si j'ai 40 ans et zéro épargne investie ?</summary>
+            <p>Commencer immédiatement, sans se flageller. L'horizon est encore de 25 ans. Un DCA mensuel régulier en ETF monde, même modeste, sur un PEA ou une assurance vie, produit un résultat significatif sur cette durée. Ce qui compte, c'est de ne pas attendre encore.</p>
+          </details>
+          <details>
+            <summary>Ces chiffres prennent-ils en compte la retraite par répartition ?</summary>
+            <p>Partiellement. La règle de Fidelity suppose qu'on souhaite maintenir son niveau de vie à la retraite, avec ou sans la retraite publique. En France, le système par répartition réduit le besoin d'épargne privée par rapport aux pays sans retraite publique. Mais compte tenu des projections démographiques et des réformes à venir, il est raisonnable de ne pas compter uniquement dessus.</p>
+          </details>
+        </div>
+
+        <div class="age-related">
+          <div class="age-related-title">À lire aussi</div>
+          <a href="https://julien-invest.github.io/article-interets-composes.html">Les intérêts composés : le secret des riches enfin expliqué</a>
+          <a href="https://julien-invest.github.io/article-debuter-investissement.html">Comment débuter en bourse sans faire d'erreur</a>
+          <a href="https://julien-invest.github.io/article-pea-vs-cto.html">PEA vs CTO : lequel choisir selon ton profil ?</a>
+        </div>
+
+        <div class="article-cta">
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour mettre en place ta trajectoire d'épargne, sans jargon et à ton rythme.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  (function(){
+    var euro = function(v){ return Math.round(v).toLocaleString('fr-FR'); };
+
+    /* ── Graphique cible vs réalité ── */
+    var data = [
+      { age: 25, cible: 15000,  reel: 4500 },
+      { age: 30, cible: 42000,  reel: 12000 },
+      { age: 35, cible: 85000,  reel: 28000 },
+      { age: 40, cible: 135000, reel: 45000 },
+      { age: 45, cible: 190000, reel: 72000 },
+      { age: 50, cible: 270000, reel: 108000 }
+    ];
+    var svg = document.getElementById('age-chart');
+    var tip = document.getElementById('age-chart-tip');
+    if (svg) {
+      var W = 720, H = 380, padL = 56, padR = 16, padT = 20, padB = 46;
+      var plotW = W - padL - padR, plotH = H - padT - padB;
+      var maxV = 270000;
+      var navy = getComputedStyle(document.documentElement).getPropertyValue('--navy').trim() || '#1A3D7C';
+      var red = '#DC2626';
+      var ns = 'http://www.w3.org/2000/svg';
+      function el(name, attrs){ var e = document.createElementNS(ns, name); for (var k in attrs){ e.setAttribute(k, attrs[k]); } return e; }
+
+      // axes lines
+      svg.appendChild(el('line', { x1: padL, y1: padT, x2: padL, y2: padT + plotH, stroke: '#C8C8DC', 'stroke-width': 1 }));
+      svg.appendChild(el('line', { x1: padL, y1: padT + plotH, x2: W - padR, y2: padT + plotH, stroke: '#C8C8DC', 'stroke-width': 1 }));
+
+      // gridlines + y labels
+      var steps = [0, 90000, 180000, 270000];
+      steps.forEach(function(s){
+        var y = padT + plotH - (s / maxV) * plotH;
+        if (s > 0) svg.appendChild(el('line', { x1: padL, y1: y, x2: W - padR, y2: y, stroke: '#EEF1F8', 'stroke-width': 1 }));
+        var t = el('text', { x: padL - 10, y: y + 4, 'text-anchor': 'end', 'font-family': 'Plus Jakarta Sans, sans-serif', 'font-size': 11, fill: '#6F6F99' });
+        t.textContent = (s/1000) + 'k€';
+        svg.appendChild(t);
+      });
+
+      var groupW = plotW / data.length;
+      var barW = 26, gap = 8;
+      data.forEach(function(d, i){
+        var cx = padL + groupW * i + groupW / 2;
+        var x1 = cx - barW - gap/2;
+        var x2 = cx + gap/2;
+        var h1 = (d.cible / maxV) * plotH;
+        var h2 = (d.reel / maxV) * plotH;
+
+        function addBar(x, h, color, label, val){
+          var r = el('rect', { x: x, y: padT + plotH - h, width: barW, height: h, rx: 4, fill: color, 'class': 'bar' });
+          function show(ev){
+            tip.innerHTML = label + ' · ' + d.age + ' ans : <strong>' + euro(val) + '€</strong>';
+            tip.style.opacity = 1;
+            var box = svg.getBoundingClientRect();
+            var wrap = svg.parentElement.getBoundingClientRect();
+            var scale = box.width / W;
+            tip.style.left = ((x + barW/2) * scale + (box.left - wrap.left)) + 'px';
+            tip.style.top = ((padT + plotH - h) * scale + (box.top - wrap.top)) + 'px';
+          }
+          function hide(){ tip.style.opacity = 0; }
+          r.addEventListener('mouseenter', show);
+          r.addEventListener('mousemove', show);
+          r.addEventListener('mouseleave', hide);
+          r.addEventListener('touchstart', show, { passive: true });
+          svg.appendChild(r);
+        }
+        addBar(x1, h1, navy, 'Cible', d.cible);
+        addBar(x2, h2, red, 'Réalité France', d.reel);
+
+        var t = el('text', { x: cx, y: padT + plotH + 26, 'text-anchor': 'middle', 'font-family': 'DM Sans, sans-serif', 'font-size': 12, fill: '#3A526A' });
+        t.textContent = d.age + ' ans';
+        svg.appendChild(t);
+      });
+    }
+
+    /* ── Simulateur ── */
+    var tranches = [
+      { min: 20, max: 24, low: 0.35, high: 0.75, median: 1500,   lbl: '0,35 à 0,75 fois' },
+      { min: 25, max: 29, low: 0.6,  high: 1.0,  median: 4500,   lbl: '0,6 à 1 fois' },
+      { min: 30, max: 34, low: 1.5,  high: 2.0,  median: 12000,  lbl: '1,5 à 2 fois' },
+      { min: 35, max: 39, low: 3.0,  high: 4.0,  median: 28000,  lbl: '3 à 4 fois' },
+      { min: 40, max: 44, low: 5.0,  high: 6.0,  median: 45000,  lbl: '5 à 6 fois' },
+      { min: 45, max: 49, low: 7.0,  high: 8.5,  median: 72000,  lbl: '7 à 8,5 fois' },
+      { min: 50, max: 55, low: 10.0, high: 12.5, median: 108000, lbl: '10 à 12,5 fois' },
+      { min: 56, max: 60, low: 11.0, high: 14.0, median: 140000, lbl: '11 à 14 fois' }
+    ];
+    function trancheFor(age){
+      for (var i = 0; i < tranches.length; i++){ if (age >= tranches[i].min && age <= tranches[i].max) return tranches[i]; }
+      return tranches[tranches.length - 1];
+    }
+
+    var ageIn = document.getElementById('age-input');
+    var revIn = document.getElementById('rev-input');
+    function update(){
+      var age = parseInt(ageIn.value, 10);
+      var rev = parseInt(revIn.value, 10);
+      document.getElementById('age-out').textContent = age;
+      document.getElementById('rev-out').textContent = euro(rev);
+
+      var annual = rev * 12;
+      var t = trancheFor(age);
+      var bas = annual * t.low;
+      var haut = annual * t.high;
+      var avg = (bas + haut) / 2;
+      var gap = avg - t.median;
+
+      document.getElementById('cible-bas').textContent = euro(bas) + '€';
+      document.getElementById('cible-haut').textContent = euro(haut) + '€';
+      document.getElementById('cible-mult').textContent = t.lbl;
+      document.getElementById('annuel').textContent = euro(annual) + '€';
+      document.getElementById('median-fr').textContent = euro(t.median) + '€';
+
+      var gapBox = document.getElementById('gap-box');
+      var gapNum = document.getElementById('gap-num');
+      var gapLbl = document.getElementById('gap-lbl');
+      var gapSub = document.getElementById('gap-sub');
+      if (gap > 0){
+        gapBox.classList.add('is-late');
+        gapBox.classList.remove('is-ahead');
+        gapLbl.textContent = "L'écart médian à combler";
+        gapNum.textContent = euro(gap) + '€';
+        gapSub.textContent = "Écart entre la cible moyenne et la médiane française à cet âge.";
+      } else {
+        gapBox.classList.add('is-ahead');
+        gapBox.classList.remove('is-late');
+        gapLbl.textContent = "Médiane au-dessus de la cible";
+        gapNum.textContent = euro(Math.abs(gap)) + '€';
+        gapSub.textContent = "La médiane française dépasse la cible moyenne à cet âge.";
+      }
+    }
+    if (ageIn && revIn){
+      ageIn.addEventListener('input', update);
+      revIn.addEventListener('input', update);
+      update();
+    }
+  })();
+  </script>
+</body>
+</html>
