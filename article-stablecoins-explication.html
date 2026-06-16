@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stablecoins : à quoi ça sert vraiment et comment ça marche | Julien Invest</title>
+  <meta name="description" content="Stablecoins (USDT, USDC, DAI) : mécanisme, types de garantie, risque de dépeg, cadre MiCA en 2026 et vraie utilité pour un particulier. L'explication complète sans hype.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Stablecoins : à quoi ça sert vraiment et comment ça marche | Julien Invest">
+  <meta property="og:description" content="Stablecoins (USDT, USDC, DAI) : mécanisme, types de garantie, risque de dépeg, cadre MiCA en 2026 et vraie utilité pour un particulier. L'explication complète sans hype.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-stablecoins-explication.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stablecoins : à quoi ça sert vraiment et comment ça marche | Julien Invest">
+  <meta name="twitter:description" content="USDT, USDC, DAI : mécanisme, risque de dépeg, cadre MiCA 2026. L'explication complète sans hype.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stablecoins : à quoi ça sert vraiment et comment ça marche",
+  "description": "Stablecoins (USDT, USDC, DAI) : mécanisme, types de garantie, risque de dépeg, cadre MiCA en 2026 et vraie utilité pour un particulier. L'explication complète sans hype.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-16",
+  "dateModified": "2026-06-16"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#FDE68A,#F59E0B); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #78350F; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-stablecoins-explication.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Un stablecoin peut-il perdre sa valeur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Le cas Terra/UST en mai 2022 l'a démontré : environ 40 milliards de dollars de valeur ont été effacés en moins d'une semaine quand le mécanisme algorithmique du stablecoin s'est effondré."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre USDT et USDC ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux sont adossés au dollar. USDC (Circle) est généralement présenté comme plus transparent, attesté par Deloitte et conforme au cadre européen MiCA. USDT (Tether) reste le plus gros et le plus liquide du marché, mais a connu davantage de tensions réglementaires, notamment en Europe."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les stablecoins sont-ils imposés comme les autres cryptos en France ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'imposition se déclenche au moment de la cession contre une monnaie ayant cours légal comme l'euro, pas lors d'un échange crypto contre crypto. Convertir du Bitcoin en stablecoin n'est donc pas un fait générateur d'imposition en soi. Pour le détail complet, lis l'article fiscalité des investissements."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on faire fructifier ses stablecoins et quel est le risque ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, via des protocoles ou des plateformes qui proposent un rendement sur dépôt. Mais ce rendement rémunère toujours un risque réel : risque de défaut de la contrepartie, risque de piratage, ou risque que le protocole sous-jacent soit défaillant. Rendement ne veut jamais dire sécurité."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un stablecoin régulé MiCA est-il sans risque ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. MiCA réduit l'opacité sur les réserves et impose des obligations de transparence et d'audit, mais ne supprime ni le risque de contrepartie (l'émetteur peut tout de même rencontrer des difficultés) ni le risque technologique."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+      <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Crypto</span>
+        <h1>Stablecoins :<br><em>à quoi ça sert vraiment et comment ça marche</em></h1>
+        <p class="article-meta-date">Publié le 16 juin 2026 · 12 min de lecture</p>
+        <p>USDT, USDC, DAI : on entend ces noms partout dans la crypto. Voici ce qu'ils sont réellement, comment ils fonctionnent, et pourquoi le mot "stable" n'est pas une garantie.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Crypto</span>
+
+        <p>Tu n'as peut-être jamais touché à la crypto, ou alors seulement au Bitcoin. Pourtant, il y a de bonnes chances que tu aies déjà croisé le mot "stablecoin" sans vraiment comprendre à quoi il sert. Ce n'est pas un détail technique réservé aux traders : le marché des stablecoins a dépassé 320 milliards de dollars en avril 2026, selon les données croisées de CoinGecko et DeFiLlama. En 2025, ces tokens ont traité environ 46 000 milliards de dollars de volume de transactions, davantage que certains réseaux de paiement traditionnels. Autrement dit, une infrastructure financière entière s'est construite autour d'un objet que peu de gens savent expliquer correctement.</p>
+        <p>Cet article n'est pas une invitation à investir. Un stablecoin n'est pas un placement, c'est un outil. L'objectif ici est de démystifier ce qu'il y a derrière, ses risques réels, et le cadre réglementaire qui s'applique en Europe en 2026. Rappel essentiel avant de continuer : Julien Invest n'est pas conseiller en investissement financier (CIF), et la crypto comporte un risque de perte totale.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#definition">Un stablecoin, c'est quoi exactement</a></li>
+            <li><a href="#types">Les 3 grands types de stablecoins et leurs mécanismes</a></li>
+            <li><a href="#terra">Le cas d'école Terra/UST</a></li>
+            <li><a href="#depeg">Le risque de dépeg expliqué</a></li>
+            <li><a href="#mica">La réglementation MiCA en 2026</a></li>
+            <li><a href="#utilite">À quoi servent vraiment les stablecoins pour un particulier</a></li>
+            <li><a href="#livret">Stablecoins vs livret bancaire</a></li>
+            <li><a href="#checklist">Comment évaluer un stablecoin avant de l'utiliser</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="definition">Un stablecoin, c'est quoi exactement</h2>
+        <p>Un stablecoin est une cryptomonnaie conçue pour conserver une valeur stable, en général indexée 1 pour 1 sur une monnaie comme le dollar ou l'euro. C'est l'inverse complet du Bitcoin ou de l'Ethereum, qui sont volatils par nature et dont le prix peut varier de plusieurs pourcents en une journée. Un stablecoin, lui, vise à valoir toujours à peu près 1 dollar ou 1 euro, ni plus ni moins.</p>
+        <p>Ce choix de conception répond à un besoin précis : pouvoir détenir un actif numérique, échangeable instantanément sur la blockchain, sans subir les variations de prix d'un Bitcoin ou d'un Ethereum. Un point à connaître : selon la Banque centrale européenne, près de 99% de l'offre mondiale de stablecoins est aujourd'hui libellée en dollars. Les stablecoins en euros existent, mais restent marginaux. Cette asymétrie a son importance : elle veut dire que la majorité de cette infrastructure repose sur la monnaie américaine, pas sur l'euro.</p>
+        <p>Sur le plan technique, un stablecoin n'est qu'un jeton qui circule sur une blockchain, exactement comme le Bitcoin ou l'Ethereum. Ce qui change, ce n'est pas la technologie sous-jacente, mais la promesse attachée au jeton : une promesse de stabilité de valeur, tenue ou non selon la solidité de ce qui se trouve derrière. C'est pour cette raison qu'on ne peut pas juger un stablecoin uniquement sur son nom ou sa popularité. Deux stablecoins peuvent afficher le même prix de 1 dollar à un instant donné tout en portant des niveaux de risque très différents, selon la nature exacte de leur garantie.</p>
+
+        <h2 id="types">Les 3 grands types de stablecoins et leurs mécanismes</h2>
+        <p>Tous les stablecoins ne se valent pas. Leur solidité dépend entièrement de ce qui se trouve derrière le token, c'est à dire de la nature de leur garantie. On distingue trois grandes familles.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>Type</th><th>Mécanisme</th><th>Exemple</th><th>Niveau de risque</th><th>Transparence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Adossé à des réserves fiat</td><td>1 token = 1 dollar (ou équivalent) détenu en cash et bons du Trésor</td><td>USDT, USDC</td><td class="mid">Moyen (dépend de l'émetteur)</td><td class="mid">Variable selon l'émetteur</td></tr>
+            <tr><td>Adossé à des cryptos en surcollatéral</td><td>Pour 100 émis, on bloque davantage en crypto (150 et plus) pour absorber la volatilité</td><td>DAI</td><td class="mid">Moyen (dépend du marché crypto)</td><td class="yes">Élevée (vérifiable on-chain)</td></tr>
+            <tr><td>Algorithmique</td><td>Maintien du peg par un mécanisme automatique, sans réserve réelle suffisante</td><td>Ex-UST (Terra)</td><td class="no">Élevé</td><td class="no">Faible</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Les stablecoins adossés à des réserves fiat</h3>
+        <p>C'est la catégorie dominante. Chaque token émis est censé être couvert par 1 dollar d'actifs réels : du cash, des bons du Trésor américain, parfois d'autres instruments à court terme. USDT (émis par Tether) pèse environ 188 milliards de dollars et domine le marché avec près de 58% de part. USDC (émis par Circle) arrive en deuxième position avec environ 78 milliards de dollars. À eux deux, ces deux stablecoins représentent plus de 90% du marché total, la Banque des règlements internationaux (BIS) évoquant même plus de 95% pour les deux plus gros acteurs réunis.</p>
+        <p>La différence entre les deux se joue sur la transparence. USDC publie des attestations régulières de ses réserves, vérifiées par le cabinet Deloitte, et est généralement présenté comme le plus transparent des deux. USDT a longtemps été critiqué pour le flou entourant la composition exacte de ses réserves, même s'il reste le plus liquide et le plus utilisé au monde.</p>
+
+        <h3>Les stablecoins adossés à des cryptos en surcollatéral</h3>
+        <p>Ici, la garantie n'est pas du cash mais d'autres cryptomonnaies, typiquement de l'Ethereum. Pour compenser la volatilité de cette garantie, le système exige un surcollatéral : pour émettre l'équivalent de 100 en stablecoin, l'utilisateur doit bloquer davantage en crypto, par exemple 150 ou plus. Si la valeur de la garantie chute trop, le système liquide automatiquement la position pour préserver le peg. DAI est l'exemple le plus connu de cette catégorie. Elle reste nettement plus petite que les stablecoins fiat : l'ensemble des stablecoins crypto-adossés ne pesait qu'environ 19 milliards de dollars début 2025.</p>
+
+        <h3>Les stablecoins algorithmiques</h3>
+        <p>Cette troisième catégorie tente de maintenir le peg sans réserve réelle suffisante, en s'appuyant sur un mécanisme automatique d'offre et de demande, souvent couplé à un second token. C'est la catégorie qui a le plus largement échoué, comme le montre l'exemple détaillé plus bas. Le marché résiduel de ces stablecoins ne représentait plus qu'environ 500 millions de dollars début 2026, une part dérisoire comparée aux 320 milliards du marché total.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le mot "stable" décrit un objectif, pas une garantie. La solidité d'un stablecoin dépend entièrement de ce qui se trouve derrière le token : du cash vérifiable, de la crypto surcollatéralisée, ou rien de solide du tout.</p>
+        </div>
+
+        <h2 id="terra">Le cas d'école Terra/UST : comment un stablecoin algorithmique peut s'effondrer</h2>
+        <p>En mai 2022, le stablecoin algorithmique UST (de l'écosystème Terra) a perdu son ancrage au dollar. Son mécanisme reposait sur un jeu d'arbitrage avec un second token, LUNA : pour maintenir UST à 1 dollar, le protocole permettait de frapper (créer) ou brûler (détruire) du LUNA contre de l'UST, en théorie pour ramener automatiquement le prix vers 1 dollar.</p>
+        <p>Le problème, c'est que ce mécanisme ne reposait sur aucune réserve réelle suffisante. Pour attirer les dépôts, le protocole Anchor associé à l'écosystème promettait des rendements d'environ 20% par an, un niveau totalement non soutenable sur la durée. Tant que la confiance et les nouveaux entrants affluaient, le système tenait. Quand la confiance s'est retournée, début mai 2022, le mécanisme est entré dans ce qu'on a appelé une "spirale de la mort" : UST a décroché sous 1 dollar, ce qui a poussé à frapper toujours plus de LUNA pour tenter de le ramener au peg, ce qui a fait exploser l'offre de LUNA, ce qui a fait s'effondrer son prix, ce qui a accéléré encore la perte de confiance dans UST. Les deux tokens se sont effondrés ensemble, dans une boucle qui s'auto-alimentait.</p>
+
+        <figure class="article-figure">
+          <svg viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma de la spirale de la mort de Terra et UST en mai 2022">
+            <defs>
+              <marker id="arrow1" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L8,3 L0,6" fill="none" stroke="#DC2626" stroke-width="1.5"/>
+              </marker>
+            </defs>
+            <rect x="20" y="20" width="240" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="140" y="40" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#7F1D1D">UST décroche sous 1$</text>
+            <text x="140" y="58" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">(panique de marché)</text>
+
+            <line x1="260" y1="45" x2="340" y2="45" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+            <rect x="340" y="20" width="240" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="460" y="40" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#7F1D1D">On frappe du LUNA</text>
+            <text x="460" y="58" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">pour racheter UST</text>
+
+            <line x1="460" y1="70" x2="460" y2="110" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+            <rect x="340" y="110" width="240" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="460" y="130" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#7F1D1D">L'offre de LUNA explose</text>
+            <text x="460" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">dilution massive</text>
+
+            <line x1="340" y1="135" x2="260" y2="135" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+            <rect x="20" y="110" width="240" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="140" y="130" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#7F1D1D">Le prix de LUNA s'effondre</text>
+            <text x="140" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">quasiment à zéro</text>
+
+            <line x1="140" y1="160" x2="140" y2="200" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+            <rect x="20" y="200" width="240" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.5"/>
+            <text x="140" y="220" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#7F1D1D">La confiance disparaît</text>
+            <text x="140" y="238" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">retraits massifs</text>
+
+            <line x1="260" y1="225" x2="340" y2="225" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrow1)"/>
+
+            <rect x="340" y="200" width="240" height="50" rx="10" fill="#7F1D1D" stroke="#7F1D1D" stroke-width="1.5"/>
+            <text x="460" y="220" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="white">UST décroche encore plus</text>
+            <text x="460" y="238" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="white">la boucle se referme</text>
+
+            <text x="300" y="300" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#4A4A6A">Environ 40 milliards de dollars effacés en moins d'une semaine (mai 2022)</text>
+          </svg>
+          <figcaption>La spirale de la mort de Terra/UST : un mécanisme algorithmique sans réserve réelle s'auto-détruit quand la confiance se retourne.</figcaption>
+        </figure>
+
+        <p>Le résultat : environ 40 milliards de dollars de valeur ont été effacés en moins d'une semaine. Le fondateur de Terra, Do Kwon, a été condamné en décembre 2025 à 15 ans de prison pour fraude. La leçon de cet épisode reste valable aujourd'hui : un rendement élevé et un peg qui semble tenir "par magie", sans réserve réelle vérifiable, sont un signal d'alarme à prendre au sérieux, quel que soit le projet.</p>
+
+        <h2 id="depeg">Le risque de dépeg expliqué</h2>
+        <p>Le "dépeg" (décrochage), c'est le moment où un stablecoin s'écarte durablement de sa valeur cible, par exemple quand un token censé valoir 1 dollar se négocie à 0,95 ou 0,80 dollar. Ça peut arriver pour plusieurs raisons : une panique de marché qui pousse tout le monde à vendre en même temps, un doute sérieux sur la composition réelle des réserves de l'émetteur, ou un simple manque de liquidité qui empêche les rachats au prix attendu.</p>
+        <p>Comment repérer un dépeg ou un risque de dépeg avant qu'il ne devienne grave : surveille si le prix s'écarte durablement de 1 dollar (un écart ponctuel de quelques centimes pendant quelques minutes est normal sur les marchés, un écart qui dure est un signal), et reste attentif à l'opacité sur les réserves. Un émetteur qui ne publie aucun rapport vérifiable, ou qui change régulièrement de cabinet d'audit, mérite la méfiance.</p>
+        <p>Un dépeg n'est pas toujours définitif. Certains stablecoins ont déjà connu des décrochages temporaires de quelques jours avant de revenir à leur valeur cible, notamment lors de tensions de marché passagères ou de doutes sur une banque partenaire. D'autres, comme UST, n'ont jamais retrouvé leur peg. La différence entre les deux cas tient presque toujours à la même chose : la qualité et la liquidité réelle des réserves. Un émetteur capable de prouver rapidement qu'il détient bien les actifs nécessaires rassure le marché et limite la durée du décrochage. Un émetteur incapable de le prouver, ou qui ne dispose simplement pas de ces réserves, voit la situation s'aggraver.</p>
+
+        <figure class="article-figure">
+          <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graphique illustrant un dépeg : le prix devrait rester à 1 dollar, décroche brutalement, puis tente de revenir">
+            <line x1="50" y1="20" x2="50" y2="180" stroke="#C8C8DC" stroke-width="1"/>
+            <line x1="50" y1="180" x2="470" y2="180" stroke="#C8C8DC" stroke-width="1"/>
+            <line x1="50" y1="60" x2="470" y2="60" stroke="#A0E7C5" stroke-width="1.5" stroke-dasharray="4,4"/>
+            <text x="475" y="64" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#059669">1,00 $ (peg cible)</text>
+            <polyline points="50,60 150,61 200,59 230,130 260,158 300,150 350,110 400,80 450,68" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="230" cy="130" r="4" fill="#DC2626"/>
+            <text x="230" y="116" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">Choc de confiance</text>
+            <circle cx="260" cy="158" r="4" fill="#7F1D1D"/>
+            <text x="260" y="200" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#7F1D1D">Point bas du dépeg</text>
+            <circle cx="450" cy="68" r="4" fill="#B45309"/>
+            <text x="430" y="55" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#B45309">Tentative de retour au peg</text>
+          </svg>
+          <figcaption>Illustration d'un dépeg : le prix décroche du peg cible, puis tente un retour progressif sans garantie d'y arriver pleinement.</figcaption>
+        </figure>
+
+        <h2 id="mica">La réglementation MiCA en 2026 : ce qui change en Europe</h2>
+        <p>MiCA (Markets in Crypto-Assets) est le premier cadre réglementaire complet de l'Union européenne pour les crypto-actifs. Les règles spécifiques aux stablecoins s'appliquent depuis le 30 juin 2024, et le cadre complet pour les prestataires de services sur crypto-actifs (CASP) depuis le 30 décembre 2024.</p>
+        <p>MiCA distingue deux familles de stablecoins. Les <strong>EMT</strong> (e-money tokens, ou jetons de monnaie électronique) sont adossés à une seule monnaie officielle, comme l'euro ou le dollar : l'EURC de Circle en est un exemple. Les <strong>ART</strong> (asset-referenced tokens, ou jetons référencés à des actifs) sont adossés à un panier d'actifs ou à plusieurs monnaies à la fois.</p>
+        <p>Le cadre impose des obligations concrètes aux émetteurs : maintenir des réserves entièrement liquides couvrant l'intégralité des tokens émis, publier des rapports de transparence réguliers, se soumettre à des audits, et garantir un droit de rachat au porteur. Les émetteurs d'EMT doivent en outre être agréés comme établissement de crédit ou établissement de monnaie électronique. Une période transitoire pour les prestataires court jusqu'au 1er juillet 2026 dans la plupart des États membres, dont la France. Après cette date, plus aucun arrangement transitoire ne s'applique.</p>
+        <p>Conséquence déjà visible sur le terrain : certains stablecoins jugés non conformes, USDT en tête, ont été retirés ou restreints sur des plateformes régulées en Europe. À l'inverse, Circle a obtenu un agrément en France pour USDC et EURC. Si tu utilises une plateforme régulée pour acheter ou détenir des cryptos, tu trouveras celles que j'utilise sur la page <a href="parrainage.html">parrainages</a>.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>En Europe, le cadre se durcit. Un stablecoin régulé et transparent n'est pas un stablecoin sans risque, mais il réduit le risque d'opacité totale sur les réserves, ce qui n'est pas rien.</p>
+        </div>
+
+        <h2 id="utilite">À quoi servent vraiment les stablecoins pour un particulier</h2>
+        <p>Une fois le mécanisme compris, reste la question pratique : à quoi ça sert concrètement, en dehors du trading ?</p>
+        <p><strong>Passerelle d'entrée et de sortie.</strong> Un stablecoin permet de circuler entre l'univers crypto et les euros sans repasser systématiquement par sa banque à chaque mouvement. C'est l'usage le plus courant pour qui investit déjà en crypto, par exemple en Bitcoin (lire à ce sujet l'article <a href="article-bitcoin-2026.html">Bitcoin en 2026</a>).</p>
+        <p><strong>Abri temporaire contre la volatilité.</strong> Convertir une position crypto volatile en stablecoin permet de se mettre à l'abri des mouvements de marché sans revenir en euros. Une nuance fiscale s'impose ici, à formuler avec prudence : en France, tant que tu ne reconvertis pas en monnaie ayant cours légal, il n'y a en principe pas de cession imposable lors d'un échange crypto contre crypto. Mais il faut conserver une trace précise de toutes les opérations et se référer à sa situation personnelle. Pour le détail complet du régime fiscal applicable aux cryptos, lis l'article <a href="article-fiscalite-investissement.html">fiscalité des investissements</a>.</p>
+        <p><strong>Paiement et transfert international.</strong> Les stablecoins permettent des transferts rapides à l'échelle mondiale, sans passer par les circuits bancaires classiques. C'est un usage réel, mais qu'il ne faut pas survendre : la rapidité d'un transfert ne dit rien de la solidité de l'émetteur derrière le token utilisé.</p>
+        <p>Un point à garder en tête à chaque fois qu'on te propose un rendement sur stablecoins : rendement n'égale jamais sécurité. Un rendement provient toujours d'un risque pris quelque part, qu'il s'agisse d'un prêt à un tiers, d'un protocole automatisé, ou d'une contrepartie qui peut faire défaut.</p>
+
+        <h2 id="livret">Stablecoins vs livret bancaire : pourquoi ce n'est pas comparable</h2>
+        <p>Un livret réglementé (livret A, LDDS) est garanti par l'État et totalement liquide : tu récupères ton capital, sans risque de perte, à tout moment. Un stablecoin ne fonctionne pas du tout sur ce principe. Il déplace simplement le risque ailleurs : tu échanges le risque de marché propre aux cryptos volatiles contre un risque de contrepartie. Ce risque de contrepartie, c'est la possibilité que l'émetteur du stablecoin fasse défaut, gèle les fonds, ou que ses réserves ne valent en réalité pas ce qu'il prétend.</p>
+        <p>Aucun mécanisme public de garantie des dépôts, comparable à celui qui protège un compte bancaire en France jusqu'à 100 000€, ne couvre un stablecoin. Si l'émetteur s'effondre, il n'existe pas de filet de sécurité étatique pour récupérer ton argent.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Un stablecoin n'élimine pas le risque, il le transforme. Le risque de marché (la volatilité) est remplacé par un risque de contrepartie et un risque réglementaire. Ce n'est ni mieux ni pire en soi, mais ce n'est clairement pas un substitut à un livret garanti.</p>
+        </div>
+
+        <h2 id="checklist">Comment évaluer un stablecoin avant de l'utiliser</h2>
+        <p>Si tu utilises déjà des stablecoins, ou que tu envisages de le faire, quelques questions simples permettent de te faire une idée raisonnable de la solidité de celui que tu as en face de toi. Aucune de ces questions ne donne une garantie absolue, mais l'absence de réponse claire à plusieurs d'entre elles doit t'alerter.</p>
+        <ul>
+          <li><strong>Qui est l'émetteur, et est-il identifiable ?</strong> Une société clairement identifiée, avec un siège social connu et une activité déclarée, n'est pas une garantie de sérieux absolu, mais c'est un strict minimum. Un émetteur totalement anonyme ne devrait inspirer aucune confiance.</li>
+          <li><strong>Les réserves sont-elles auditées par un tiers indépendant ?</strong> Une attestation régulière, publiée par un cabinet d'audit reconnu, vaut beaucoup plus qu'une simple déclaration sur un site web.</li>
+          <li><strong>Que contiennent réellement les réserves ?</strong> Du cash et des bons du Trésor à court terme sont nettement plus liquides et plus sûrs que des actifs complexes ou peu liquides. Quand la composition exacte n'est pas publique, c'est un signal d'alerte.</li>
+          <li><strong>Le stablecoin est-il conforme MiCA en Europe ?</strong> Pour un usage en Europe en 2026, la conformité au cadre MiCA est un filtre supplémentaire utile, même s'il ne dispense pas de vérifier le reste.</li>
+          <li><strong>Le droit de rachat au porteur est-il garanti et rapide ?</strong> Un stablecoin qui ne peut pas être racheté rapidement contre la monnaie de référence perd une partie de son intérêt pratique.</li>
+        </ul>
+        <p>Ces vérifications prennent quelques minutes et évitent d'agir uniquement sur la base d'un nom familier ou d'une habitude. Le mot "stable" sur l'étiquette ne remplace jamais ce travail de vérification.</p>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Un stablecoin peut-il perdre sa valeur ?</summary>
+            <p>Oui. Le cas Terra/UST en mai 2022 l'a démontré : environ 40 milliards de dollars de valeur ont été effacés en moins d'une semaine quand le mécanisme algorithmique du stablecoin s'est effondré.</p>
+          </details>
+          <details>
+            <summary>Quelle différence entre USDT et USDC ?</summary>
+            <p>Les deux sont adossés au dollar. USDC est généralement présenté comme plus transparent, attesté par Deloitte et conforme au cadre européen MiCA. USDT reste le plus gros et le plus liquide du marché, mais a connu davantage de tensions réglementaires, notamment en Europe.</p>
+          </details>
+          <details>
+            <summary>Les stablecoins sont-ils imposés comme les autres cryptos en France ?</summary>
+            <p>L'imposition se déclenche au moment de la cession contre une monnaie ayant cours légal comme l'euro, pas lors d'un échange crypto contre crypto. Pour le détail complet, lis l'article <a href="article-fiscalite-investissement.html">fiscalité des investissements</a>.</p>
+          </details>
+          <details>
+            <summary>Peut-on faire fructifier ses stablecoins et quel est le risque ?</summary>
+            <p>Oui, via des protocoles ou des plateformes qui proposent un rendement sur dépôt. Mais ce rendement rémunère toujours un risque réel : défaut de la contrepartie, piratage, ou protocole défaillant.</p>
+          </details>
+          <details>
+            <summary>Un stablecoin régulé MiCA est-il sans risque ?</summary>
+            <p>Non. MiCA réduit l'opacité sur les réserves mais ne supprime ni le risque de contrepartie ni le risque technologique.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_STABLECOINS = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_STABLECOINS && VIDEO_ID_STABLECOINS!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_STABLECOINS+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-cta">
+          <h2>Comprends la crypto avant d'y mettre un euro</h2>
+          <p>La formation Julien Invest t'apprend à construire un patrimoine solide et diversifié, en plaçant chaque actif, y compris la crypto, à sa juste place dans ta stratégie.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
