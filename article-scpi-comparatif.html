@@ -45,28 +45,30 @@
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    /* Tables */
     .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
     .table-scroll .compare-table { margin: 0; }
-    @media (max-width: 560px) { .compare-table--wide { min-width: 520px; } }
+    @media (max-width: 560px) { .compare-table--wide { min-width: 780px; } }
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
     .compare-table .yes { color: #059669; font-weight: 700; }
     .compare-table .no { color: #DC2626; font-weight: 700; }
     .compare-table .mid { color: #B45309; font-weight: 700; }
+    /* Figures */
     .scpi-figure { margin: 28px 0 34px; }
     .scpi-figure figcaption { font-size: 13px; color: var(--grey-1); text-align: center; margin-top: 10px; font-style: italic; }
     .scpi-svg { width: 100%; height: auto; display: block; }
     .scpi-note { background: var(--pearl); border-radius: 12px; padding: 16px 20px; font-size: 13px; color: var(--grey-1); line-height: 1.65; margin: 0 0 32px; }
     .scpi-note strong { color: var(--navy); }
-    /* Tableau interactif SCPI */
+    /* Interactive table */
     .scpi-tool-howto { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 12px; padding: 16px 20px; font-size: 14px; color: var(--grey-1); line-height: 1.65; margin: 24px 0 16px; }
     .scpi-tool-howto strong { color: var(--navy); }
     .scpi-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; margin-bottom: 14px; }
     .scpi-control { display: flex; flex-direction: column; gap: 4px; }
     .scpi-control label { font-size: 12px; font-weight: 700; font-family: var(--font-head); color: var(--navy); }
-    .scpi-control select, .scpi-control input { padding: 9px 12px; border: 1.5px solid var(--grey-5); border-radius: 10px; font-size: 14px; font-family: inherit; color: var(--navy); background: #fff; min-width: 180px; }
+    .scpi-control select, .scpi-control input { padding: 9px 12px; border: 1.5px solid var(--grey-5); border-radius: 10px; font-size: 14px; font-family: inherit; color: var(--navy); background: #fff; min-width: 160px; }
     .scpi-control select:focus, .scpi-control input:focus { outline: none; border-color: var(--navy); }
     .scpi-count { font-size: 13px; color: var(--grey-3); margin: 0 0 10px; }
     #scpi-table th button { all: unset; cursor: pointer; display: flex; align-items: center; gap: 5px; width: 100%; color: #fff; font-family: var(--font-head); font-size: 13px; font-weight: 700; }
@@ -74,6 +76,41 @@
     #scpi-table th .scpi-arrow { font-size: 10px; opacity: 0.55; }
     #scpi-table th[aria-sort] .scpi-arrow { opacity: 1; }
     #scpi-table td { white-space: nowrap; }
+    /* Stats bar */
+    .scpi-stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .scpi-stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .scpi-stat { background: #fff; padding: 20px 12px; text-align: center; }
+    .scpi-stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
+    .scpi-stat-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
+    /* Flow infographic */
+    .scpi-flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; background: var(--pearl); border-radius: 16px; padding: 20px 12px; gap: 0; }
+    .scpi-flow-step { text-align: center; padding: 10px 10px; }
+    .scpi-flow-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; font-size: 20px; }
+    .scpi-flow-label { font-family: var(--font-head); font-weight: 700; font-size: 12px; color: var(--navy); }
+    .scpi-flow-sub { font-size: 10px; color: var(--grey-2); margin-top: 1px; max-width: 80px; }
+    .scpi-flow-arrow { font-size: 18px; color: var(--grey-3); display: flex; align-items: center; padding: 0 2px; }
+    /* Profile cards */
+    .scpi-profile-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0 36px; }
+    @media (max-width: 560px) { .scpi-profile-grid { grid-template-columns: 1fr; } }
+    .scpi-card { border-radius: 16px; padding: 20px 18px; border: 1.5px solid var(--grey-5); position: relative; background: #fff; overflow: hidden; }
+    .scpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+    .scpi-card--proven::before { background: linear-gradient(90deg,#059669,#10B981); }
+    .scpi-card--sante::before { background: linear-gradient(90deg,#0EA5E9,#22D3EE); }
+    .scpi-card--nofees::before { background: linear-gradient(90deg,#7C3AED,#A855F7); }
+    .scpi-card--growth::before { background: linear-gradient(90deg,#F59E0B,#EF4444); }
+    .scpi-card-badge { display: inline-block; font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 10px; border-radius: 100px; margin-bottom: 9px; }
+    .scpi-card--proven .scpi-card-badge { background: #D1FAE5; color: #065F46; }
+    .scpi-card--sante .scpi-card-badge { background: #E0F2FE; color: #0369A1; }
+    .scpi-card--nofees .scpi-card-badge { background: #EDE9FE; color: #4C1D95; }
+    .scpi-card--growth .scpi-card-badge { background: #FEF3C7; color: #92400E; }
+    .scpi-card-name { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 2px; line-height: 1.2; }
+    .scpi-card-sg { font-size: 11px; color: var(--grey-2); margin-bottom: 13px; }
+    .scpi-card-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; margin-bottom: 12px; }
+    .scpi-metric { background: var(--pearl); border-radius: 8px; padding: 9px 11px; }
+    .scpi-metric-val { font-family: var(--font-head); font-weight: 800; font-size: 14px; color: var(--navy); line-height: 1.2; }
+    .scpi-metric-lbl { font-size: 10px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+    .scpi-card-note { font-size: 12px; color: var(--grey-1); line-height: 1.6; border-top: 1px solid var(--grey-5); padding-top: 11px; margin-top: 6px; }
+    .scpi-card-warning { font-size: 12px; color: #92400E; background: #FEF3C7; border-radius: 8px; padding: 8px 10px; margin-top: 9px; line-height: 1.5; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-scpi-comparatif.html">
   <script type="application/ld+json">
@@ -227,78 +264,176 @@
       <div class="article-body">
         <span class="article-tag">Immobilier</span>
 
-        <p>Une SCPI (société civile de placement immobilier), c'est de la pierre-papier : tu achètes des parts d'une société qui détient et loue de l'immobilier (bureaux, commerces, entrepôts, santé, logement), et tu touches en retour une quote-part des loyers. Pas de syndic à gérer, pas de locataire à relancer, pas d'apport pour acheter un immeuble entier. C'est l'argument de vente, et il est réel.</p>
+        <p>Une SCPI (société civile de placement immobilier), c'est de la pierre-papier : tu achètes des parts d'une société qui détient et loue de l'immobilier, et tu touches une quote-part des loyers. Pas de syndic, pas de locataire à relancer. En 2025, le marché SCPI représente 89 milliards d'euros de capitalisation et plus de 230 fonds disponibles — dont plus de 60 référencés sur <a href="parrainage.html">Louve Invest</a> seul. Le taux de distribution moyen est de 4,91%. Mais comme toujours, la moyenne cache l'essentiel.</p>
 
-        <p>Le problème commence au moment de comparer. Sur tous les sites, dans toutes les pubs, un seul chiffre est mis en avant : le rendement, c'est-à-dire le taux de distribution. C'est le critère le plus visible, et c'est aussi le pire pris isolément. En 2024, selon l'ASPIM (l'association professionnelle des sociétés de gestion), le taux de distribution moyen des SCPI a été de 4,72% (contre 4,52% en 2023). Pourtant, sur la même année, le rendement global immobilier moyen a été de -1,1%, parce que la valeur de réalisation moyenne des parts a baissé d'environ 5,8%. Autrement dit : en moyenne, les épargnants ont touché des loyers, mais leur capital a fondu plus vite. Le rendement affiché peut masquer une baisse de la valeur des parts.</p>
+        <div class="scpi-stats-bar">
+          <div class="scpi-stat"><div class="scpi-stat-num">232</div><div class="scpi-stat-label">SCPI sur le marché</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">89 Md€</div><div class="scpi-stat-label">Capitalisation totale</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">4,91%</div><div class="scpi-stat-label">TD moyen 2025</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">60+</div><div class="scpi-stat-label">SCPI sur Louve Invest</div></div>
+        </div>
 
-        <p>Cet article s'adresse à quelqu'un qui maîtrise déjà les bases : ETF, PEA, assurance vie. Si ce n'est pas encore ton cas, commence par <a href="article-debuter-investissement.html">débuter en bourse</a> et par <a href="article-dca.html">investir progressivement avec le DCA</a>. Ici, on entre directement dans la méthode pour comparer des SCPI sans se faire avoir par un chiffre. Les performances passées ne préjugent pas des performances futures, et une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.</p>
+        <p>Le problème commence au moment de comparer. Un seul chiffre est mis en avant : le <strong>taux de distribution</strong>. C'est le critère le plus visible, et le pire pris seul. En 2024, le taux de distribution moyen a été de 4,72%, mais le rendement global immobilier moyen était de −1,1% : les épargnants ont touché des loyers, mais leur capital a fondu plus vite. Cet article te donne les vrais critères et un tableau interactif de 10 SCPI avec les données vérifiées.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#fonctionnement">Comment marche une SCPI (rappel court)</a></li>
+            <li><a href="#fonctionnement">Comment marche une SCPI</a></li>
             <li><a href="#criteres">Les critères qui comptent vraiment</a></li>
-            <li><a href="#tableau">Le tableau interactif : trier et filtrer 6 SCPI</a></li>
+            <li><a href="#profils">4 profils de SCPI à connaître</a></li>
+            <li><a href="#tableau">Tableau interactif : 10 SCPI comparées</a></li>
             <li><a href="#piege-rendement">Le piège du rendement élevé</a></li>
-            <li><a href="#frais-entree">Frais d'entrée 0% vs 10 à 12% : comment trancher</a></li>
+            <li><a href="#frais-reels">Visualiser les frais réels</a></li>
+            <li><a href="#frais-entree">Frais d'entrée 0% vs 10 à 12%</a></li>
             <li><a href="#risques">Les risques à ne pas oublier</a></li>
-            <li><a href="#methode">Comment utiliser tout ça (méthode)</a></li>
+            <li><a href="#methode">Comment utiliser tout ça</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="fonctionnement">Comment marche une SCPI (rappel court)</h2>
-        <p>Une société de gestion collecte l'épargne de milliers d'investisseurs, achète des immeubles avec, les loue, et reverse les loyers nets de charges et de frais aux porteurs de parts. Tu n'es pas propriétaire d'un bien précis, tu détiens une fraction d'un parc immobilier mutualisé. Trois mécanismes à comprendre avant de comparer.</p>
+        <h2 id="fonctionnement">Comment marche une SCPI</h2>
 
-        <p><strong>Les revenus, ce sont les loyers nets.</strong> La société encaisse les loyers, retire ses frais de gestion et ses charges, puis distribue le reste. Ce flux n'est jamais garanti : il dépend du taux d'occupation des immeubles et de la santé des locataires.</p>
+        <div class="scpi-flow">
+          <div class="scpi-flow-step">
+            <div class="scpi-flow-icon" style="background:#EDE9FE;">💶</div>
+            <div class="scpi-flow-label">Toi</div>
+            <div class="scpi-flow-sub">Achètes des parts</div>
+          </div>
+          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-step">
+            <div class="scpi-flow-icon" style="background:#D1FAE5;">🏢</div>
+            <div class="scpi-flow-label">La SCPI</div>
+            <div class="scpi-flow-sub">Collecte et investit</div>
+          </div>
+          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-step">
+            <div class="scpi-flow-icon" style="background:#E0F2FE;">🏗️</div>
+            <div class="scpi-flow-label">Immeubles</div>
+            <div class="scpi-flow-sub">Bureaux, santé, commerces…</div>
+          </div>
+          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-step">
+            <div class="scpi-flow-icon" style="background:#FEF9C3;">🔑</div>
+            <div class="scpi-flow-label">Locataires</div>
+            <div class="scpi-flow-sub">Paient les loyers</div>
+          </div>
+          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-step">
+            <div class="scpi-flow-icon" style="background:#D1FAE5;">💰</div>
+            <div class="scpi-flow-label">Toi</div>
+            <div class="scpi-flow-sub">Reçois des revenus</div>
+          </div>
+        </div>
 
-        <p><strong>Les frais d'entrée sont souvent élevés.</strong> Sur beaucoup de SCPI, acheter des parts coûte entre 8% et 12% de frais de souscription, prélevés au moment de l'achat. Sur certaines SCPI récentes, ils sont annoncés à 0%, mais on verra plus loin que la gratuité affichée cache souvent d'autres frais.</p>
+        <p>Une société de gestion collecte l'épargne de milliers d'investisseurs, achète des immeubles, les loue, et reverse les loyers nets aux porteurs de parts. Tu n'es pas propriétaire d'un bien précis : tu détiens une fraction d'un parc mutualisé. Trois points clés avant de comparer.</p>
 
-        <p><strong>Capital variable ou capital fixe.</strong> La plupart des SCPI grand public sont à capital variable : la société émet de nouvelles parts au fil de la collecte et les rachète quand un porteur veut sortir. La liquidité dépend donc de l'équilibre entre ceux qui entrent et ceux qui sortent. Si une SCPI décollecte (plus de retraits que d'achats), revendre ses parts peut prendre du temps. Une SCPI n'est pas un placement liquide : revendre n'est ni garanti ni immédiat.</p>
+        <p><strong>Les revenus ce sont les loyers nets.</strong> La société prélève ses frais de gestion et charges, puis distribue le reste. Ce flux n'est jamais garanti : il dépend du taux d'occupation et de la santé des locataires.</p>
 
-        <p><strong>La fiscalité passe par les revenus fonciers.</strong> Les revenus d'une SCPI détenue en direct sont imposés comme des revenus fonciers, au barème de l'impôt sur le revenu (à ta tranche marginale d'imposition) plus 17,2% de prélèvements sociaux. Pour une tranche marginale élevée, le rendement net après impôt fond fortement. On y revient dans la section risques. Pour la logique des enveloppes, vois <a href="article-fiscalite-investissement.html">la fiscalité des investissements 2026</a>, <a href="article-per-plan-epargne-retraite.html">le guide du PER</a> et <a href="article-assurance-vie-pea.html">le comparatif assurance vie et PEA</a>.</p>
+        <p><strong>Les frais d'entrée sont souvent élevés.</strong> Sur la plupart des SCPI traditionnelles, acheter des parts coûte entre 10% et 12%. Certaines SCPI récentes les affichent à 0% — mais la gratuité affichée cache souvent d'autres frais.</p>
+
+        <p><strong>Capital variable et risque de liquidité.</strong> La plupart des SCPI sont à capital variable : elles rachètent les parts quand un porteur veut sortir. Si une SCPI décollecte (plus de retraits que d'entrées), revendre peut prendre du temps, voire se faire à perte. <strong>Une SCPI n'est pas un placement liquide.</strong></p>
+
+        <p><strong>Fiscalité des revenus fonciers.</strong> Les revenus d'une SCPI détenue en direct sont imposés au barème de l'IR (ta tranche marginale) + 17,2% de prélèvements sociaux. Pour une TMI à 30%, cela représente 47,2% d'imposition sur les loyers bruts. En assurance vie ou PER, la fiscalité est différente : vois <a href="article-fiscalite-investissement.html">la fiscalité des investissements 2026</a>.</p>
 
         <h2 id="criteres">Les critères qui comptent vraiment</h2>
-        <p>Comparer deux SCPI sur leur seul taux de distribution revient à choisir une voiture sur sa vitesse de pointe. Ça dit quelque chose, mais ça ne dit pas l'essentiel. Voici les critères à regarder, du plus trompeur au plus solide.</p>
+
+        <figure class="scpi-figure">
+          <svg class="scpi-svg" viewBox="0 0 700 210" role="img" aria-label="Pyramide des critères SCPI du plus fiable (TRI) au moins fiable seul (taux de distribution)" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="210" rx="14" fill="#F7F5FA"/>
+            <polygon points="350,16 448,58 252,58" fill="#059669" opacity="0.88"/>
+            <text x="350" y="43" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TRI (taux de rendement interne) sur 10 ans</text>
+            <polygon points="252,63 448,63 480,103 220,103" fill="#0EA5E9" opacity="0.82"/>
+            <text x="350" y="88" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">Frais complets · Ancienneté · Capitalisation</text>
+            <polygon points="220,108 480,108 520,148 180,148" fill="#7C3AED" opacity="0.78"/>
+            <text x="350" y="133" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TOF · Report à nouveau · Endettement · Diversification</text>
+            <polygon points="180,153 520,153 570,193 130,193" fill="#F59E0B" opacity="0.82"/>
+            <text x="350" y="178" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#5C3B00">Taux de distribution seul — le moins fiable isolément</text>
+            <text x="580" y="38" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">★ Le plus fiable</text>
+            <text x="575" y="183" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309" font-weight="700">⚠ Trompeur seul</text>
+          </svg>
+          <figcaption>Pyramide de fiabilité : le TRI intègre tout — revenus, évolution du prix de part, frais. Le taux de distribution seul ignore le capital.</figcaption>
+        </figure>
 
         <h3>Le taux de distribution (TD)</h3>
-        <p>C'est le chiffre roi des publicités. Sa définition : taux de distribution = dividende annuel divisé par le prix de part. Il répond à une question simple : pour 100 euros investis, combien de loyers ai-je touchés cette année ? Ses deux limites sont majeures. D'abord, il ignore complètement l'évolution du prix de part : une SCPI peut afficher 5% de TD et te faire perdre de l'argent si la valeur de la part baisse, exactement ce qui s'est passé en moyenne sur le marché en 2024. Ensuite, il est brut de fiscalité : ce que tu touches réellement dépend de ta tranche marginale d'imposition.</p>
+        <p>Dividende annuel ÷ prix de part. Il dit combien tu as touché en loyers pour 100€ investis. Deux failles majeures : il ignore l'évolution du prix de part (une SCPI peut afficher 5% et te faire perdre de l'argent si la part baisse) et il est brut de fiscalité.</p>
 
         <h3>Le TRI (taux de rendement interne)</h3>
-        <p>C'est LE critère de comparaison. Le TRI intègre tout ce que le taux de distribution ignore : les revenus distribués, l'évolution de la valeur de la part ET les frais (entrée et gestion), le tout sur une durée donnée, idéalement 10 ans. C'est la performance réelle, nette, telle qu'un porteur l'a effectivement vécue sur la période. Son problème majeur, et il est de taille : une SCPI jeune n'a pas de TRI sur un cycle complet. Une SCPI lancée en 2022 ou 2023 ne peut afficher ni TRI 10 ans, ni recul sur une phase de baisse de l'immobilier. Impossible donc de juger sa performance réelle, quoi qu'annonce son taux de distribution.</p>
+        <p>Le vrai critère. Il intègre les revenus distribués, l'évolution du prix de part <em>et</em> les frais sur une durée. C'est la performance réelle. Son seul défaut : une SCPI jeune n'a pas de TRI sur un cycle complet. Impossible de la juger honnêtement.</p>
 
-        <h3>Les frais de souscription</h3>
-        <p>Entre 0% et environ 12% selon les SCPI. Attention à ne pas les voir comme des frais purement perdus : ils sont surtout immobilisés. Sur un horizon long (8 à 10 ans et plus), ils s'amortissent dans la performance globale. Sur un horizon court, en revanche, ils la plombent : sortir au bout de deux ou trois ans avec 10% de frais d'entrée déjà payés laisse peu de chances d'être gagnant. Et une SCPI sans frais d'entrée n'est pas gratuite : les frais sont déplacés ailleurs (commission de retrait à la sortie, frais de gestion plus élevés, durée de détention recommandée).</p>
+        <h3>Frais de souscription · Frais de gestion · Délai de jouissance</h3>
+        <p>Les frais de souscription (0 à 12%) sont prélevés à l'achat. Les frais de gestion (8 à 18%) sont prélevés chaque année sur les loyers. Le délai de jouissance (0 à 6 mois) est la période sans revenus après achat. Ces trois éléments réduisent le rendement réel de façon concrète et prévisible.</p>
 
-        <h3>Les frais de gestion</h3>
-        <p>Prélevés chaque année sur les loyers, souvent entre 10% et 18%. Ils rémunèrent la société de gestion. Ils ne sortent pas de ta poche directement, mais réduisent le loyer qui te revient. Des frais de gestion élevés sont fréquents sur les SCPI récentes qui n'ont pas de frais d'entrée : c'est l'un des endroits où la gratuité d'entrée se rattrape.</p>
-
-        <h3>La capitalisation et l'ancienneté</h3>
-        <p>Une grande capitalisation (plusieurs milliards d'euros) combinée à un historique long (plusieurs cycles immobiliers) signifie deux choses : une vraie mutualisation du risque (beaucoup d'immeubles, beaucoup de locataires) et un recul réel sur la capacité de la société à traverser les crises. À l'inverse, une petite SCPI récente n'a ni track record ni mutualisation comparable. Ce n'est pas disqualifiant en soi, mais ça change la nature du pari.</p>
-
-        <h3>Le délai de jouissance</h3>
-        <p>C'est la période (de 3 à 6 mois sur les SCPI du tableau ci-dessous) pendant laquelle les parts achetées ne génèrent pas encore de revenus. Tu as payé, mais les loyers ne tombent qu'après ce délai. Un détail qui compte pour le rendement réel de ta première année.</p>
-
-        <h3>Les critères au-delà du tableau</h3>
-        <p>Cinq indicateurs complémentaires, que les bons rapports de gestion publient et qu'un comparatif sérieux regarde :</p>
-        <ul>
-          <li><strong>Le taux d'occupation financier (TOF)</strong> : la part des loyers effectivement perçus par rapport à ce qui serait encaissé si tout le parc était loué. Un TOF élevé, proche de 95% et plus, est rassurant.</li>
-          <li><strong>Le report à nouveau (RAN)</strong> : les réserves mises de côté par la SCPI pour lisser les distributions futures. Un RAN confortable permet d'amortir une année difficile sans couper brutalement le dividende.</li>
-          <li><strong>L'endettement de la SCPI</strong> : un levier mesuré peut doper la performance, mais un endettement élevé amplifie aussi le risque en cas de baisse des valeurs ou de hausse des taux.</li>
-          <li><strong>La collecte et la liquidité du marché secondaire</strong> : une SCPI qui décollecte (plus de retraits que d'entrées) peut peiner à rembourser les parts de ceux qui veulent sortir.</li>
-          <li><strong>La diversification géographique et sectorielle</strong> : être réparti sur plusieurs pays et plusieurs types d'immobilier réduit la dépendance à un seul marché.</li>
-        </ul>
+        <h3>TOF, capitalisation, ancienneté</h3>
+        <p>Le <strong>TOF</strong> (taux d'occupation financier) mesure la part des loyers effectivement perçus vs le potentiel maximal. Un TOF supérieur à 95% est rassurant. Une grande capitalisation avec un long historique signifie mutualisation réelle et recul sur les cycles immobiliers.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Le taux de distribution est le chiffre le plus visible et le moins fiable pris seul : il ignore l'évolution du prix de part et il est brut de fiscalité. Le TRI, net de frais et tenant compte de l'évolution du prix de part, dit la vérité sur la performance. Et il n'existe pas pour une SCPI trop jeune, ce qui devrait rendre prudent face à un rendement élevé sans historique.</p>
+          <p>Le taux de distribution est le chiffre le plus visible et le moins fiable pris seul. Le TRI dit la vérité. Et il n'existe pas pour une SCPI trop jeune — ce qui devrait rendre prudent face à tout rendement élevé sans historique.</p>
         </div>
 
-        <h2 id="tableau">Le tableau interactif : trier et filtrer 6 SCPI</h2>
-        <p>Voici six SCPI parmi les plus connues, allant de la grande SCPI ancienne et diversifiée à la jeune SCPI à très haut rendement affiché. L'objectif n'est pas de te dire laquelle choisir (ce serait un conseil personnalisé, et Julien Invest n'est pas conseiller en investissement financier), mais de te montrer comment les vrais critères se comportent quand on les met côte à côte.</p>
+        <h2 id="profils">4 profils de SCPI à connaître</h2>
+        <p>Avant d'entrer dans le tableau, voici quatre profils représentatifs disponibles sur <a href="parrainage.html">Louve Invest</a>, avec leurs métriques vérifiées. Ce ne sont ni des classements ni des recommandations. Chaque SCPI comporte des risques de perte en capital et d'illiquidité.</p>
+
+        <div class="scpi-profile-grid">
+          <div class="scpi-card scpi-card--proven">
+            <span class="scpi-card-badge">Classique prouvée</span>
+            <div class="scpi-card-name">Corum Origin</div>
+            <div class="scpi-card-sg">Corum AM · créée 2012 · Europe diversifiée</div>
+            <div class="scpi-card-metrics">
+              <div class="scpi-metric"><div class="scpi-metric-val">6,50%</div><div class="scpi-metric-lbl">TD 2025</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">6,75%</div><div class="scpi-metric-lbl">TRI 10 ans ✓</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">12% / 13,20%</div><div class="scpi-metric-lbl">Frais souscr. / gest.</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">96,23%</div><div class="scpi-metric-lbl">TOF</div></div>
+            </div>
+            <div class="scpi-card-note">La seule du tableau à afficher un TRI 10 ans vérifié sur un cycle immobilier complet incluant la correction 2023-2024. 167 immeubles dans 13 pays européens. Frais d'entrée élevés à amortir sur 10 ans+. Prix de part : 1 135€.</div>
+          </div>
+
+          <div class="scpi-card scpi-card--sante">
+            <span class="scpi-card-badge">Thématique santé</span>
+            <div class="scpi-card-name">Pierval Santé</div>
+            <div class="scpi-card-sg">Euryale AM · créée 2013 · Santé Europe · 252 biens</div>
+            <div class="scpi-card-metrics">
+              <div class="scpi-metric"><div class="scpi-metric-val">4,06%</div><div class="scpi-metric-lbl">TD 2025</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">2,91%</div><div class="scpi-metric-lbl">TRI 5 ans</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">8,40%</div><div class="scpi-metric-lbl">Frais gest. ↓ les + bas</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">94,59%</div><div class="scpi-metric-lbl">TOF</div></div>
+            </div>
+            <div class="scpi-card-note">EHPAD, cliniques, cabinets médicaux. Baux très longs (WALT 15 ans), locataires défensifs. Frais de gestion parmi les plus bas du marché (8,40%). TRI 5 ans de 2,91% impacté par la correction immobilière 2023-2024. Capitalisation : 3,30 Md€.</div>
+          </div>
+
+          <div class="scpi-card scpi-card--nofees">
+            <span class="scpi-card-badge">0% frais d'entrée · ISR</span>
+            <div class="scpi-card-name">Iroko Zen</div>
+            <div class="scpi-card-sg">Iroko · créée 2020 · Europe ISR · 177 actifs · 411 locataires</div>
+            <div class="scpi-card-metrics">
+              <div class="scpi-metric"><div class="scpi-metric-val">7,14%</div><div class="scpi-metric-lbl">TD 2025</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">7,49%</div><div class="scpi-metric-lbl">TRI 5 ans ✓</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">0%</div><div class="scpi-metric-lbl">Frais souscription</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">97,11%</div><div class="scpi-metric-lbl">TOF ↑</div></div>
+            </div>
+            <div class="scpi-card-note">0% à l'entrée, mais frais de gestion 14,40% et commission de retrait de 6% si revente avant 6 ans (règle en vigueur depuis sept. 2026). TOF parmi les plus élevés du tableau. Label ISR. Mensuel. Capi : 1,50 Md€.</div>
+          </div>
+
+          <div class="scpi-card scpi-card--growth">
+            <span class="scpi-card-badge">⚠ 0% frais · haut rendement récent</span>
+            <div class="scpi-card-name">Remake Live</div>
+            <div class="scpi-card-sg">Remake AM · créée 2022 · Europe · 71 actifs · 9 pays</div>
+            <div class="scpi-card-metrics">
+              <div class="scpi-metric"><div class="scpi-metric-val">7,05%</div><div class="scpi-metric-lbl">TD 2025</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">7,33%</div><div class="scpi-metric-lbl">TRI depuis lancement</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">0%*</div><div class="scpi-metric-lbl">Frais souscription</div></div>
+              <div class="scpi-metric"><div class="scpi-metric-val">18%</div><div class="scpi-metric-lbl">Frais gestion ↑ les + élevés</div></div>
+            </div>
+            <div class="scpi-card-note">*0% à l'entrée mais 5% de commission de retrait si vente dans les 5 premières années. TOF excellent (99,16%). Frais de gestion les plus élevés du tableau. Bonne performance depuis le lancement, mais sans historique sur un cycle complet.</div>
+            <div class="scpi-card-warning">⚠ Pas de TRI sur 10 ans. Performance non vérifiée sur une phase de correction immobilière.</div>
+          </div>
+        </div>
+
+        <h2 id="tableau">Tableau interactif : 10 SCPI comparées</h2>
+        <p>Dix SCPI représentatives du marché, des données vérifiées d'après les bulletins trimestriels et <a href="parrainage.html">Louve Invest</a>. Ce n'est ni un classement ni une recommandation. Julien Invest n'est pas CIF.</p>
 
         <div class="scpi-tool-howto">
-          <strong>Mode d'emploi.</strong> Clique sur un en-tête de colonne pour trier (un second clic inverse le sens, la flèche indique le tri actif). Trie par <strong>TRI 10 ans</strong> pour la performance long terme : les SCPI marquées « trop récente » n'ont pas encore d'historique sur un cycle complet et sont toujours renvoyées en fin de liste, dans les deux sens du tri (comme les valeurs « nc », non communiquées). Utilise le menu <strong>Frais d'entrée</strong> et le champ de recherche pour filtrer par nom de SCPI ou par société de gestion.
+          <strong>Mode d'emploi.</strong> Clique sur un en-tête pour trier. Trie par <strong>TRI</strong> : les SCPI sans TRI disponible (trop récentes ou nc) sont renvoyées en fin de liste dans les deux sens. Filtre par frais d'entrée, secteur ou utilise la recherche libre.
         </div>
 
         <div class="scpi-controls">
@@ -306,13 +441,22 @@
             <label for="scpi-filter-frais">Frais d'entrée</label>
             <select id="scpi-filter-frais">
               <option value="all">Toutes</option>
-              <option value="zero">Sans frais d'entrée (0%)</option>
+              <option value="zero">0% frais d'entrée</option>
               <option value="avec">Avec frais d'entrée</option>
             </select>
           </div>
           <div class="scpi-control">
-            <label for="scpi-search">Recherche (nom ou société de gestion)</label>
-            <input type="text" id="scpi-search" placeholder="Ex : Corum, Iroko, Atland…" autocomplete="off">
+            <label for="scpi-filter-secteur">Secteur</label>
+            <select id="scpi-filter-secteur">
+              <option value="all">Tous</option>
+              <option value="diversifie">Diversifiée</option>
+              <option value="sante">Santé</option>
+              <option value="commerce">Commerce</option>
+            </select>
+          </div>
+          <div class="scpi-control">
+            <label for="scpi-search">Recherche libre</label>
+            <input type="text" id="scpi-search" placeholder="Ex : Corum, Iroko, Euryale…" autocomplete="off">
           </div>
         </div>
         <p class="scpi-count" id="scpi-count"></p>
@@ -321,217 +465,418 @@
           <table class="compare-table compare-table--wide" id="scpi-table">
             <thead>
               <tr>
-                <th scope="col"><button type="button" data-key="nom" data-type="text">SCPI <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="sg" data-type="text">Société de gestion <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="creation" data-type="num">Création <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="typo" data-type="text">Typologie <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="td" data-type="num">Taux de distribution 2024 <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="tri" data-type="num">TRI 10 ans <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="fsousc" data-type="num">Frais de souscription <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="fgest" data-type="num">Frais de gestion <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="capi" data-type="num">Capitalisation <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="prix" data-type="num">Prix de part <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
-                <th scope="col"><button type="button" data-key="jouissance" data-type="num">Délai de jouissance <span class="scpi-arrow" aria-hidden="true">↕</span></button></th>
+                <th><button type="button" data-key="nom" data-type="text">SCPI <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="sg" data-type="text">Soc. gestion <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="creation" data-type="num">Création <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="td" data-type="num">TD 2024/25 <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="tri" data-type="num">TRI <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="fsousc" data-type="num">Frais souscr. <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="fgest" data-type="num">Frais gest. <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="capi" data-type="num">Capi. <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="tof" data-type="num">TOF <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="prix" data-type="num">Prix/part <span class="scpi-arrow">↕</span></button></th>
+                <th><button type="button" data-key="jouissance" data-type="num">Jouissance <span class="scpi-arrow">↕</span></button></th>
               </tr>
             </thead>
             <tbody id="scpi-tbody">
-              <tr data-nom="Corum Origin" data-sg="Corum AM" data-frais="avec">
-                <td>Corum Origin</td>
-                <td>Corum AM</td>
+              <tr data-nom="Corum Origin" data-sg="Corum AM" data-frais="avec" data-secteur="diversifie">
+                <td><strong>Corum Origin</strong></td><td>Corum AM</td>
                 <td data-sort="2012">2012</td>
-                <td>Diversifiée (Europe)</td>
-                <td data-sort="6.05">6,05%</td>
-                <td data-sort="6.75" class="yes">6,75%</td>
-                <td data-sort="11.96">11,96%</td>
-                <td data-sort="12.40">12,40%</td>
-                <td data-sort="3790">3,79 Md€</td>
+                <td data-sort="6.50">6,50%</td>
+                <td data-sort="6.75" class="yes">6,75% (10 ans)</td>
+                <td data-sort="12">12%</td>
+                <td data-sort="13.20">13,20%</td>
+                <td data-sort="3794">3,79 Md€</td>
+                <td data-sort="96.23" class="yes">96,23%</td>
                 <td data-sort="1135">1 135 €</td>
                 <td data-sort="6">6 mois</td>
               </tr>
-              <tr data-nom="Épargne Pierre" data-sg="Atland Voisin" data-frais="avec">
-                <td>Épargne Pierre</td>
-                <td>Atland Voisin</td>
+              <tr data-nom="Épargne Pierre" data-sg="Atland Voisin" data-frais="avec" data-secteur="diversifie">
+                <td>Épargne Pierre</td><td>Atland Voisin</td>
                 <td data-sort="2013">2013</td>
-                <td>Diversifiée régionale (France)</td>
                 <td data-sort="5.28">5,28%</td>
-                <td data-sort="5.46" class="yes">5,46%</td>
+                <td data-sort="5.45" class="yes">5,45% (10 ans)</td>
                 <td data-sort="10">10%</td>
                 <td data-sort="12">12%</td>
-                <td data-sort="2700">2,7 Md€</td>
+                <td data-sort="2803">2,80 Md€</td>
+                <td data-sort="94.41">94,41%</td>
                 <td data-sort="208">208 €</td>
-                <td data-sort="6">6 mois</td>
+                <td data-sort="0">0 mois*</td>
               </tr>
-              <tr data-nom="Transitions Europe" data-sg="Arkéa REIM" data-frais="avec">
-                <td>Transitions Europe</td>
-                <td>Arkéa REIM</td>
-                <td data-sort="2022">2022</td>
-                <td>Diversifiée (Europe)</td>
-                <td data-sort="8.25">8,25%</td>
-                <td>trop récente</td>
-                <td data-sort="10">10%</td>
-                <td data-sort="12">12%</td>
-                <td data-sort="543">543 M€</td>
-                <td data-sort="200">200 €</td>
-                <td data-sort="5">5 mois</td>
-              </tr>
-              <tr data-nom="Iroko Zen" data-sg="Iroko" data-frais="zero">
-                <td>Iroko Zen</td>
-                <td>Iroko</td>
-                <td data-sort="2020">2020</td>
-                <td>Diversifiée ISR (Europe de l'Ouest)</td>
-                <td data-sort="7.32">7,32%</td>
-                <td>trop récente</td>
-                <td data-sort="0" class="yes">0%</td>
-                <td data-sort="14.4" class="mid">14,4%</td>
-                <td data-sort="842">842 M€</td>
-                <td data-sort="204">204 €</td>
-                <td data-sort="3">3 mois</td>
-              </tr>
-              <tr data-nom="Remake Live" data-sg="Remake AM" data-frais="zero">
-                <td>Remake Live</td>
-                <td>Remake AM</td>
-                <td data-sort="2022">2022</td>
-                <td>Diversifiée (Europe)</td>
-                <td data-sort="7.50">7,50%</td>
-                <td>trop récente</td>
-                <td data-sort="0" class="yes">0% (retrait 5% les 5 premières années)</td>
-                <td data-sort="18" class="no">18%</td>
-                <td data-sort="647">647 M€</td>
+              <tr data-nom="Pierval Santé" data-sg="Euryale AM" data-frais="avec" data-secteur="sante">
+                <td>Pierval Santé</td><td>Euryale AM</td>
+                <td data-sort="2013">2013</td>
+                <td data-sort="4.06">4,06%</td>
+                <td data-sort="2.91" class="mid">2,91% (5 ans)</td>
+                <td data-sort="10.51">10,51%</td>
+                <td data-sort="8.40" class="yes">8,40%</td>
+                <td data-sort="3301">3,30 Md€</td>
+                <td data-sort="94.04">94,04%</td>
                 <td data-sort="204">204 €</td>
                 <td data-sort="4">4 mois</td>
               </tr>
-              <tr data-nom="Comète" data-sg="Alderan" data-frais="avec">
-                <td>Comète</td>
-                <td>Alderan</td>
-                <td data-sort="2023">2023</td>
-                <td>Diversifiée internationale</td>
-                <td data-sort="10.62">10,62%</td>
+              <tr data-nom="NCap Régions" data-sg="Norma Capital" data-frais="avec" data-secteur="diversifie">
+                <td>NCap Régions</td><td>Norma Capital</td>
+                <td data-sort="2015">2015</td>
+                <td data-sort="5.72">5,72%</td>
+                <td data-sort="6.00" class="yes">6,00% (PGA)</td>
+                <td data-sort="10">10%</td>
+                <td data-sort="12">12%</td>
+                <td data-sort="1084">1,08 Md€</td>
+                <td data-sort="91.7" class="mid">91,7%</td>
+                <td data-sort="682">682 €</td>
+                <td data-sort="5">5 mois</td>
+              </tr>
+              <tr data-nom="Corum XL" data-sg="Corum AM" data-frais="avec" data-secteur="diversifie">
+                <td>Corum XL</td><td>Corum AM</td>
+                <td data-sort="2016">2016</td>
+                <td data-sort="5.30">5,30%</td>
+                <td data-sort="4.15" class="mid">4,15% (5 ans)</td>
+                <td data-sort="12" class="no">12%</td>
+                <td data-sort="13.20">13,20%</td>
+                <td data-sort="2139">2,14 Md€</td>
+                <td data-sort="95.02">95,02%</td>
+                <td data-sort="195">195 €</td>
+                <td data-sort="6">6 mois</td>
+              </tr>
+              <tr data-nom="Iroko Zen" data-sg="Iroko" data-frais="zero" data-secteur="diversifie">
+                <td>Iroko Zen</td><td>Iroko</td>
+                <td data-sort="2020">2020</td>
+                <td data-sort="7.14">7,14%</td>
+                <td data-sort="7.49" class="yes">7,49% (5 ans)</td>
+                <td data-sort="0" class="yes">0% (sortie 5% &lt;3 ans)</td>
+                <td data-sort="14.40" class="mid">14,40%</td>
+                <td data-sort="1356">1,36 Md€</td>
+                <td data-sort="97.37" class="yes">97,37%</td>
+                <td data-sort="204">204 €</td>
+                <td data-sort="3">3 mois</td>
+              </tr>
+              <tr data-nom="Paref Prima" data-sg="Paref Gestion" data-frais="avec" data-secteur="commerce">
+                <td>Paref Prima</td><td>Paref Gestion</td>
+                <td data-sort="2015">2015 (fus. 2024)</td>
+                <td data-sort="5.00">5,00%</td>
+                <td data-sort="3.88" class="mid">3,88% (5 ans)</td>
+                <td data-sort="10">10%</td>
+                <td data-sort="12.48">12,48%</td>
+                <td data-sort="934">934 M€</td>
+                <td data-sort="94.30">94,30%</td>
+                <td data-sort="272">272 €</td>
+                <td data-sort="0">0 mois</td>
+              </tr>
+              <tr data-nom="Transitions Europe" data-sg="Arkéa REIM" data-frais="avec" data-secteur="diversifie">
+                <td>Transitions Europe</td><td>Arkéa REIM</td>
+                <td data-sort="2022">2022</td>
+                <td data-sort="7.60">7,60%</td>
                 <td>trop récente</td>
                 <td data-sort="10">10%</td>
-                <td>nc</td>
-                <td data-sort="120.8">120,8 M€</td>
+                <td data-sort="12">12%</td>
+                <td data-sort="1100">1,10 Md€</td>
+                <td data-sort="98" class="yes">98%</td>
+                <td data-sort="202">202 €</td>
+                <td data-sort="5">5 mois</td>
+              </tr>
+              <tr data-nom="Remake Live" data-sg="Remake AM" data-frais="zero" data-secteur="diversifie">
+                <td>Remake Live</td><td>Remake AM</td>
+                <td data-sort="2022">2022</td>
+                <td data-sort="7.05">7,05%</td>
+                <td data-sort="7.33" class="yes">7,33% (depuis lancement)</td>
+                <td data-sort="0" class="yes">0% (sortie 5% &lt;5 ans)</td>
+                <td data-sort="18" class="no">18%</td>
+                <td data-sort="846">846 M€</td>
+                <td data-sort="98.86" class="yes">98,86%</td>
+                <td data-sort="204">204 €</td>
+                <td data-sort="3">3 mois</td>
+              </tr>
+              <tr data-nom="Comète" data-sg="Alderan" data-frais="avec" data-secteur="diversifie">
+                <td>Comète</td><td>Alderan</td>
+                <td data-sort="2023">2023</td>
+                <td data-sort="9.00">9,00%</td>
+                <td>trop récente</td>
+                <td data-sort="10">10%</td>
+                <td data-sort="13.20">13,20%</td>
+                <td data-sort="519.6">519,6 M€</td>
+                <td data-sort="99.1" class="yes">99,1%</td>
                 <td data-sort="250">250 €</td>
+                <td data-sort="5">5 mois</td>
+              </tr>
+              <tr data-nom="Reason" data-sg="MNK Partners" data-frais="avec" data-secteur="diversifie">
+                <td>Reason</td><td>MNK Partners</td>
+                <td data-sort="2024">2024</td>
+                <td data-sort="12.90">12,90%</td>
+                <td>trop récente</td>
+                <td data-sort="12" class="no">12%</td>
+                <td data-sort="13">13%</td>
+                <td data-sort="31">31 M€ ⚠</td>
+                <td data-sort="100" class="yes">100%</td>
+                <td data-sort="1">1,01 €</td>
+                <td data-sort="5">5 mois</td>
+              </tr>
+              <tr data-nom="Wemo One" data-sg="Wemo REIM" data-frais="avec" data-secteur="diversifie">
+                <td>Wemo One</td><td>Wemo REIM</td>
+                <td data-sort="2024">avr. 2024</td>
+                <td data-sort="15.27">15,27%</td>
+                <td>trop récente</td>
+                <td data-sort="10">10%</td>
+                <td data-sort="13.20">13,20%</td>
+                <td data-sort="75">75 M€ ⚠</td>
+                <td data-sort="100" class="yes">100%</td>
+                <td data-sort="210">210 €</td>
                 <td data-sort="6">6 mois</td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <p class="scpi-note">
-          <strong>Note de méthodologie.</strong> Données collectées en juin 2026 à partir de sources publiques : ASPIM, bulletins trimestriels des sociétés de gestion, agrégateurs spécialisés. Les chiffres sont indiqués au titre de l'exercice 2024, sauf le prix de part (2025). Ces valeurs sont susceptibles d'écarts selon les sources et les dates d'arrêté. La mention « nc » signifie non communiqué de façon fiable ; « trop récente » signifie qu'aucun TRI sur 10 ans n'existe (SCPI lancée après 2015). Le taux de distribution de Comète est ici de 10,62% ; la méthode de calcul de l'ASPIM donne 11,18%, ce qui illustre la sensibilité d'un même chiffre à la méthode retenue. Ce tableau n'est ni un classement de qualité, ni une recommandation : les performances passées ne préjugent pas des performances futures, et une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.
-        </p>
+        <p class="scpi-note"><strong>Sources et méthodologie.</strong> Données collectées en juin 2026 d'après les bulletins trimestriels des sociétés de gestion, l'ASPIM, les fiches publiées sur <a href="parrainage.html">Louve Invest</a> et <a href="https://francescpi.com/comparatif-scpi" target="_blank" rel="noopener">FranceSCPI</a>. Le TD de Corum Origin et de la plupart des SCPI reflète l'exercice 2025. Le TRI de Remake Live est calculé depuis le lancement (2022), pas sur 10 ans ; le « PGA » de NCap Régions est la performance globale annualisée, métrique similaire au TRI. L'astérisque sur Épargne Pierre (jouissance 0 mois) correspond à une mesure temporaire jusqu'au 31/07/2026. La capitalisation de Reason (31 M€) et Wemo One (75 M€) est indiquée ⚠ en raison de leur taille très faible. « trop récente » = pas de TRI 10 ans disponible. Ni classement ni recommandation. Les performances passées ne préjugent pas des performances futures. Une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.</p>
 
         <h2 id="piege-rendement">Le piège du rendement élevé</h2>
-        <p>Trie le tableau par taux de distribution, du plus haut au plus bas. En tête : Comète à 10,62%, Remake Live à 7,50%, Iroko Zen à 7,32%, Transitions Europe à 8,25%. Trie ensuite par année de création. Le constat saute aux yeux : les SCPI à très haut rendement affiché sont presque toutes jeunes, créées en 2020, 2022 ou 2023. Aucune n'affiche de TRI sur 10 ans (la colonne indique « trop récente »), donc aucune n'a traversé un cycle immobilier complet, y compris une phase de baisse comme celle de 2024.</p>
+        <p>Trie le tableau par taux de distribution du plus haut au plus bas. En tête : Wemo One à 15,27%, Reason à 12,90%, Comète à 9%, Transitions Europe à 7,60%. Trie ensuite par année de création. Le constat saute aux yeux : les SCPI à très haut rendement affiché sont toutes nées en 2022, 2023 ou 2024. Aucune n'a de TRI sur 10 ans.</p>
 
-        <p>Regardons les chiffres de près. <strong>Comète</strong> (Alderan) affiche 10,62%, le plus haut du tableau, mais elle a été créée en 2023, pèse seulement 120,8 millions d'euros de capitalisation, n'a aucun TRI et ne communique même pas ses frais de gestion (« nc »). <strong>Iroko Zen</strong> séduit avec 0% de frais d'entrée, mais ses frais de gestion sont de 14,4%. <strong>Remake Live</strong> affiche aussi 0% de frais d'entrée, mais avec une commission de retrait de 5% les cinq premières années et des frais de gestion de 18%, les plus élevés du tableau.</p>
-
-        <p>En face, <strong>Corum Origin</strong> (Corum AM) affiche « seulement » 6,05% de taux de distribution. Mais elle a été créée en 2012, pèse 3,79 milliards d'euros, et surtout elle est l'une des rares du tableau à publier un TRI 10 ans : 6,75% au 31 décembre 2024. C'est une performance réelle, vécue par des porteurs sur une décennie complète, frais compris. Comparer le 10,62% affiché de Comète au 6,05% de Corum, c'est comparer une promesse de deux ans à un résultat de dix ans.</p>
+        <p><strong>Wemo One</strong> (Wemo REIM) affiche 15,27% — le plus haut du tableau. Elle a été créée en avril 2024, soit à peine plus d'un an d'existence au moment de la collecte des données. Sa capitalisation est de 75 M€, soit 50 fois moins que Corum Origin. <strong>Reason</strong> (MNK Partners, 2024) affiche 12,90% pour seulement 31 M€ de capitalisation — une mutualisation quasi-inexistante sur 9 immeubles et 13 locataires. <strong>Corum Origin</strong> (2012) affiche « seulement » 6,50%, mais c'est une performance réelle sur 13 ans, vérifiée sur plusieurs cycles dont la correction 2023-2024, avec un TRI 10 ans de 6,75% et 167 immeubles dans 13 pays.</p>
 
         <figure class="scpi-figure">
-          <svg class="scpi-svg" viewBox="0 0 700 320" role="img" aria-label="Graphique comparant le taux de distribution affiché et l'ancienneté des SCPI : les plus hauts rendements sont les plus jeunes, sans TRI 10 ans" xmlns="http://www.w3.org/2000/svg">
-            <rect x="0" y="0" width="700" height="320" fill="#F7F5FA" rx="14"/>
-            <text x="350" y="30" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="15" font-weight="800" fill="#0D0D2E">Taux de distribution affiché vs ancienneté et TRI</text>
-            <text x="350" y="50" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#555">plus le rendement affiché est haut, plus la SCPI est jeune (et sans TRI sur 10 ans)</text>
-
+          <svg class="scpi-svg" viewBox="0 0 700 360" role="img" aria-label="Graphique à bulles : taille = capitalisation, x = ancienneté, y = taux de distribution. Les SCPI récentes à haut rendement ont de petites bulles." xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="360" rx="14" fill="#F7F5FA"/>
+            <text x="350" y="24" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">TD affiché vs ancienneté — taille de bulle = capitalisation</text>
+            <text x="350" y="42" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Plus grosses bulles = plus capitalisées = meilleure mutualisation du risque</text>
             <!-- axes -->
-            <line x1="70" y1="270" x2="660" y2="270" stroke="#C9C2D8" stroke-width="1.5"/>
-            <line x1="70" y1="80" x2="70" y2="270" stroke="#C9C2D8" stroke-width="1.5"/>
-            <text x="70" y="290" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#555">ancienne</text>
-            <text x="640" y="290" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#555">récente</text>
-            <text x="40" y="180" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#555" transform="rotate(-90 40 180)">TD 2024</text>
-
-            <!-- points : x = ancienneté (2012 gauche -> 2023 droite), y = TD -->
-            <!-- Corum 2012 6,05% -->
-            <circle cx="110" cy="227" r="9" fill="#059669"/>
-            <text x="110" y="250" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Corum</text>
-            <text x="110" y="216" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#059669">6,05% · TRI 6,75%</text>
-            <!-- Épargne Pierre 2013 5,28% -->
-            <circle cx="160" cy="238" r="9" fill="#059669"/>
-            <text x="160" y="261" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Ép. Pierre</text>
-            <!-- Iroko 2020 7,32% -->
-            <circle cx="470" cy="208" r="9" fill="#B45309"/>
-            <text x="470" y="200" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Iroko 7,32%</text>
-            <!-- Transitions 2022 8,25% -->
-            <circle cx="560" cy="194" r="9" fill="#B45309"/>
-            <text x="560" y="186" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Transitions 8,25%</text>
-            <!-- Remake 2022 7,50% -->
-            <circle cx="540" cy="205" r="9" fill="#B45309"/>
-            <!-- Comète 2023 10,62% -->
-            <circle cx="620" cy="158" r="9" fill="#DC2626"/>
-            <text x="620" y="150" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Comète 10,62%</text>
-            <text x="620" y="178" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="9" fill="#DC2626">aucun TRI</text>
-
-            <!-- légende -->
-            <circle cx="100" cy="305" r="6" fill="#059669"/><text x="112" y="309" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#555">TRI 10 ans disponible</text>
-            <circle cx="320" cy="305" r="6" fill="#DC2626"/><text x="332" y="309" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#555">jeune, aucun TRI sur un cycle complet</text>
+            <line x1="62" y1="300" x2="680" y2="300" stroke="#C9C2D8" stroke-width="1.5"/>
+            <line x1="62" y1="68" x2="62" y2="300" stroke="#C9C2D8" stroke-width="1.5"/>
+            <!-- x-axis labels: 2012→2025, 62 to 680 = 618px / 13 ans = 47.5px/an -->
+            <text x="62" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2012</text>
+            <text x="204" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2015</text>
+            <text x="347" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2018</text>
+            <text x="490" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2021</text>
+            <text x="585" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2023</text>
+            <text x="633" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2024</text>
+            <!-- y-axis labels: 4% (y=295) to 16% (y=75), 220px / 12% = 18.3px per % -->
+            <text x="50" y="298" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">4%</text>
+            <text x="50" y="262" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">6%</text>
+            <text x="50" y="225" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">8%</text>
+            <text x="50" y="188" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">10%</text>
+            <text x="50" y="152" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">12%</text>
+            <text x="50" y="114" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">14%</text>
+            <text x="50" y="77" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">16%</text>
+            <!-- zones -->
+            <rect x="62" y="68" width="330" height="232" fill="#D1FAE5" opacity="0.28" rx="4"/>
+            <text x="220" y="83" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">TRI vérifié ✓</text>
+            <rect x="410" y="68" width="270" height="232" fill="#FEF3C7" opacity="0.4" rx="4"/>
+            <text x="545" y="83" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309" font-weight="700">⚠ Pas de TRI 10 ans</text>
+            <!-- Bulles — x = 62 + (year-2012)*47.5 ; y = 298 - (td-4)*18.33 -->
+            <!-- Corum Origin 2012, 6.50%, 3.79Md€, r=44 → x=62, y=252 -->
+            <circle cx="62" cy="252" r="44" fill="#059669" opacity="0.72"/>
+            <text x="62" y="248" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Corum</text>
+            <text x="62" y="259" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="white">Origin</text>
+            <text x="62" y="270" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">6,50% · TRI 6,75%</text>
+            <!-- Pierval Santé 2013, 4.06%, 3.30Md€, r=41 → x=110, y=297 -->
+            <circle cx="110" cy="297" r="41" fill="#0EA5E9" opacity="0.55"/>
+            <text x="158" y="315" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#0369A1">Pierval</text>
+            <text x="158" y="326" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#0369A1">Santé 4,06%</text>
+            <line x1="151" y1="300" x2="155" y2="311" stroke="#0369A1" stroke-width="0.8"/>
+            <!-- Épargne Pierre 2013, 5.28%, 2.80Md€, r=38 → x=110, y=275 -->
+            <circle cx="100" cy="275" r="38" fill="#059669" opacity="0.55"/>
+            <text x="144" y="261" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#065F46">Ép. Pierre</text>
+            <text x="144" y="272" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#065F46">5,28%</text>
+            <line x1="138" y1="269" x2="141" y2="264" stroke="#065F46" stroke-width="0.8"/>
+            <!-- NCap Régions 2015, 5.72%, 1.08Md€, r=24 → x=204, y=267 -->
+            <circle cx="204" cy="267" r="24" fill="#059669" opacity="0.65"/>
+            <text x="204" y="264" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">NCap</text>
+            <text x="204" y="273" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">5,72%</text>
+            <!-- Paref Prima 2015, 5.00%, 934M€, r=22 → x=225, y=280 -->
+            <circle cx="225" cy="280" r="22" fill="#059669" opacity="0.52"/>
+            <text x="225" y="278" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">Paref 5%</text>
+            <!-- Corum XL 2016, 5.30%, 2.14Md€, r=33 → x=252, y=274 -->
+            <circle cx="252" cy="274" r="33" fill="#059669" opacity="0.52"/>
+            <text x="252" y="270" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Corum XL</text>
+            <text x="252" y="281" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">5,30%</text>
+            <!-- Iroko Zen 2020, 7.14%, 1.36Md€, r=26 → x=442, y=241 -->
+            <circle cx="442" cy="241" r="26" fill="#7C3AED" opacity="0.78"/>
+            <text x="442" y="237" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Iroko Zen</text>
+            <text x="442" y="248" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,14% · TRI 7,49%</text>
+            <!-- Transitions Europe 2022, 7.60%, 1.10Md€, r=24 → x=518, y=232 -->
+            <circle cx="518" cy="232" r="24" fill="#F59E0B" opacity="0.85"/>
+            <text x="518" y="228" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Trans.</text>
+            <text x="518" y="238" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,60%</text>
+            <!-- Remake Live 2022, 7.05%, 846M€, r=21 → x=560, y=242 -->
+            <circle cx="560" cy="242" r="21" fill="#F59E0B" opacity="0.82"/>
+            <text x="560" y="239" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Remake</text>
+            <text x="560" y="249" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,05%</text>
+            <!-- Comète 2023, 9.00%, 519.6M€, r=16 → x=585, y=207 — labels au-dessus de la bulle -->
+            <circle cx="585" cy="207" r="16" fill="#DC2626" opacity="0.85"/>
+            <text x="585" y="181" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Comète</text>
+            <text x="585" y="191" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#DC2626">9%</text>
+            <!-- Reason 2024, 12.90%, 31M€, r=5 → x=632, y=135 — label à gauche, text-anchor end -->
+            <circle cx="632" cy="135" r="5" fill="#DC2626" opacity="0.95"/>
+            <line x1="627" y1="137" x2="600" y2="150" stroke="#DC2626" stroke-dasharray="2,2" stroke-width="0.8"/>
+            <text x="598" y="147" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Reason</text>
+            <text x="598" y="158" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#DC2626">12,9% · 31M€</text>
+            <!-- Wemo One 2024, 15.27%, 75M€, r=7 → x=632, y=92 — label à gauche, text-anchor end -->
+            <circle cx="632" cy="92" r="7" fill="#7F1D1D" opacity="0.9"/>
+            <line x1="625" y1="96" x2="600" y2="110" stroke="#7F1D1D" stroke-dasharray="2,2" stroke-width="0.8"/>
+            <text x="598" y="107" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#7F1D1D">Wemo One</text>
+            <text x="598" y="118" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#7F1D1D">15,27% · 75M€</text>
+            <!-- Légende -->
+            <circle cx="80" cy="345" r="6" fill="#059669" opacity="0.72"/><text x="92" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">TRI disponible</text>
+            <circle cx="200" cy="345" r="6" fill="#7C3AED" opacity="0.78"/><text x="212" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">0% frais d'entrée</text>
+            <circle cx="320" cy="345" r="6" fill="#F59E0B" opacity="0.85"/><text x="332" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Récente, pas de TRI 10 ans</text>
+            <circle cx="490" cy="345" r="6" fill="#DC2626"/><text x="502" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Très petite capitalisation ⚠</text>
           </svg>
-          <figcaption>Les rendements les plus élevés du tableau appartiennent aux SCPI les plus jeunes, celles qui n'ont précisément aucun TRI sur 10 ans.</figcaption>
+          <figcaption>Wemo One (15,27%) et Reason (12,9%), créées en 2024, sont à peine visibles tellement leur capitalisation est faible. Comparer leur TD à celui de Corum Origin, c'est comparer une promesse de 1 an à un résultat sur 13 ans.</figcaption>
         </figure>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Un taux de distribution de 8 à 10% sur une SCPI de deux ans n'est pas un « meilleur rendement », c'est une promesse non encore vérifiée par un cycle immobilier complet. Tant qu'il n'existe pas de TRI sur plusieurs années, frais compris, le chiffre affiché ne prouve rien sur la performance réelle que tu toucheras.</p>
+          <p>Un taux de distribution de 10% sur une SCPI de deux ans n'est pas une performance : c'est une promesse non vérifiée sur un cycle complet. Compare toujours le TD au TRI, et regarde la capitalisation pour évaluer la mutualisation réelle du risque.</p>
         </div>
 
+        <h2 id="frais-reels">Visualiser les frais réels</h2>
+        <p>Les frais d'une SCPI ne se lisent pas sur une seule ligne. Voici la structure complète des deux modèles opposés du tableau : <strong>Corum Origin</strong> (frais d'entrée élevés, gestion modérée) contre <strong>Remake Live</strong> (0% à l'entrée, frais de gestion les plus élevés du tableau).</p>
+
+        <figure class="scpi-figure">
+          <svg class="scpi-svg" viewBox="0 0 700 270" role="img" aria-label="Comparaison des structures de frais entre Corum Origin et Remake Live" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="270" rx="14" fill="#F7F5FA"/>
+            <text x="350" y="26" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Structure des frais réels : deux modèles opposés</text>
+            <!-- Corum Origin — carte x=40 à x=320 -->
+            <rect x="40" y="42" width="280" height="210" rx="10" fill="white" stroke="#C8B4E8" stroke-width="1.5"/>
+            <text x="180" y="62" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Corum Origin</text>
+            <!-- barres : max 90px → texte commence à x=156, max disponible = 320-156-8 = 156px -->
+            <rect x="56" y="74" width="90" height="18" rx="4" fill="#1A1A4E" opacity="0.85"/>
+            <text x="152" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Souscription : 11,96% ⚠</text>
+            <rect x="56" y="100" width="28" height="18" rx="4" fill="#7C3AED" opacity="0.7"/>
+            <text x="152" y="113" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Gestion : 12,40%/an</text>
+            <text x="152" y="139" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669">Retrait : 0% ✓</text>
+            <rect x="56" y="152" width="50" height="18" rx="4" fill="#F59E0B" opacity="0.7"/>
+            <text x="152" y="165" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 6 mois</text>
+            <text x="180" y="206" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#059669" font-weight="700">✓ Sortie sans frais après 5 ans</text>
+            <text x="180" y="222" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Horizon optimal : 10 ans+</text>
+            <!-- Remake Live — carte x=380 à x=660 -->
+            <rect x="380" y="42" width="280" height="210" rx="10" fill="white" stroke="#FDE68A" stroke-width="1.5"/>
+            <text x="520" y="62" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Remake Live</text>
+            <!-- texte centré pour 0% (pas de barre) -->
+            <text x="520" y="91" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669">Souscription : 0% ✓</text>
+            <!-- barres : max 50px → texte à x=450, max = 660-450-8 = 202px -->
+            <rect x="392" y="100" width="50" height="18" rx="4" fill="#7C3AED" opacity="0.7"/>
+            <text x="448" y="113" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Gestion : 18%/an ⚠ les + élevés</text>
+            <rect x="392" y="126" width="40" height="18" rx="4" fill="#DC2626" opacity="0.6"/>
+            <text x="448" y="139" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Retrait : 5% si &lt; 5 ans ⚠</text>
+            <rect x="392" y="152" width="28" height="18" rx="4" fill="#F59E0B" opacity="0.7"/>
+            <text x="448" y="165" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 3 mois</text>
+            <text x="520" y="206" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#B45309" font-weight="700">⚠ Sortie avant 5 ans = −5%</text>
+            <text x="520" y="222" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Frais de gestion les + élevés du marché</text>
+          </svg>
+          <figcaption>Corum paie à l'entrée, Remake paie sur la durée et à la sortie anticipée. Ni l'un ni l'autre n'est universellement moins cher : tout dépend de ton horizon.</figcaption>
+        </figure>
+
+        <h3>Ce que ça donne concrètement sur 10 ans</h3>
+        <p>Pour 10 000€ investis, sur 10 ans, en supposant un TD constant (6% pour Corum, 7% pour Remake) et une valeur de part stable :</p>
+
+        <div class="table-scroll">
+          <table class="compare-table compare-table--wide">
+            <thead><tr>
+              <th>SCPI</th><th>Capital après frais d'entrée</th><th>Loyers bruts 10 ans</th><th>Frais gestion prélevés</th><th>Frais retrait (à 10 ans)</th><th>Bilan net estimé</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Corum Origin</strong></td>
+                <td>8 804 € (−11,96%)</td><td>~5 280 €</td><td>~655 € (12,40% des loyers)</td><td class="yes">0 €</td><td class="yes">~13 430 €</td>
+              </tr>
+              <tr>
+                <td><strong>Remake Live</strong></td>
+                <td>10 000 € (0%)</td><td>~7 000 €</td><td>~1 260 € (18% des loyers)</td><td class="yes">0 € (> 5 ans)</td><td class="yes">~15 740 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="scpi-note"><strong>Important.</strong> Simulation indicative basée sur des hypothèses de TD constant et de valeur de part stable. En réalité, le prix de part évolue (hausse ou baisse), la distribution peut varier, et la fiscalité (revenus fonciers imposables à ta TMI + 17,2%) n'est pas prise en compte. Ce n'est pas un conseil en investissement. Les performances passées ne préjugent pas des performances futures.</p>
+
         <h2 id="frais-entree">Frais d'entrée 0% vs 10 à 12% : comment trancher</h2>
-        <p>Le « 0% de frais d'entrée » est devenu un argument marketing massif. Iroko Zen et Remake Live l'affichent dans le tableau, face à Corum Origin et ses 11,96%. Tentant de conclure que les premières sont moins chères. C'est une erreur de lecture.</p>
+        <p>Le « 0% de frais d'entrée » est devenu un argument marketing massif. C'est tentant de conclure qu'Iroko Zen ou Remake Live sont moins chères que Corum Origin. C'est une erreur de lecture.</p>
 
-        <p>Une SCPI sans frais d'entrée n'est pas une SCPI gratuite : les frais sont déplacés ailleurs. Chez Remake Live, ils prennent la forme d'une commission de retrait de 5% les cinq premières années (tu paies en sortant, pas en entrant) et de frais de gestion de 18%. Chez Iroko Zen, ce sont des frais de gestion de 14,4%, supérieurs à la moyenne. Le modèle « pas de frais d'entrée » s'accompagne souvent d'une durée de détention recommandée : c'est la condition pour que la société se rémunère via la gestion sur la durée.</p>
+        <p>Une SCPI sans frais d'entrée n'est pas gratuite : les frais sont déplacés ailleurs. Chez Remake Live : commission de retrait de 5% dans les cinq premières années et frais de gestion de 18%. Chez Iroko Zen : frais de gestion de 14,40% et commission de retrait de 6% avant 6 ans (depuis septembre 2026).</p>
 
-        <p>Comment trancher ? Tout dépend de ton horizon. Des frais d'entrée de 10 à 12% s'amortissent sur 8 à 10 ans et plus : étalés sur une longue détention, ils pèsent peu chaque année. Sur un horizon court, ils sont rédhibitoires. À l'inverse, le « 0% à l'entrée » avantage celui qui pourrait vouloir sortir tôt, mais il se paie en frais de gestion plus lourds année après année. Il n'y a pas de modèle universellement gagnant : il y a un modèle adapté à ta durée de détention prévue.</p>
+        <p><strong>Comment trancher ?</strong> Des frais d'entrée de 10 à 12% s'amortissent sur 8 à 10 ans. Sur un horizon court, ils sont rédhibitoires. Le modèle « 0% à l'entrée » avantage celui qui pourrait sortir tôt, mais il se paie en frais de gestion plus lourds chaque année. Pas de modèle universellement gagnant : il y a un modèle adapté à ton horizon de détention.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Pas de frais d'entrée ne veut pas dire moins cher : ça veut dire frais déplacés ailleurs, vers la sortie (commission de retrait) ou vers la gestion annuelle (frais de gestion plus élevés). Avant de comparer deux SCPI sur leurs frais d'entrée, regarde l'ensemble des frais et croise-les avec ton horizon de détention.</p>
+          <p>0% de frais d'entrée ≠ moins cher. Ça veut dire frais déplacés (gestion annuelle + retrait anticipé). Avant de comparer deux SCPI sur leurs frais d'entrée, regarde l'ensemble des frais sur la durée que tu envisages réellement.</p>
         </div>
 
         <h2 id="risques">Les risques à ne pas oublier</h2>
-        <p>Une SCPI n'est pas un livret. Voici les risques réels, à intégrer avant tout versement.</p>
+        <p>Une SCPI n'est pas un livret. Voici les risques réels à intégrer avant tout versement.</p>
         <ul>
-          <li><strong>Le risque de perte en capital.</strong> Le prix de part peut baisser. En 2024, selon l'ASPIM, la valeur de réalisation moyenne des parts a reculé d'environ 5,8%, et les SCPI de bureaux ont vu leur valeur de réalisation baisser d'environ 9,5%. Le rendement affiché ne protège pas contre cette baisse.</li>
-          <li><strong>Le risque d'illiquidité.</strong> Revendre des parts n'est ni garanti ni immédiat. Si la SCPI décollecte, la sortie peut prendre du temps, voire se faire à un prix défavorable.</li>
-          <li><strong>Les frais d'entrée élevés.</strong> Jusqu'à environ 12%, ils rendent les sorties précoces presque toujours perdantes.</li>
-          <li><strong>La sensibilité aux taux d'intérêt.</strong> Quand les taux montent, la valeur des immeubles tend à baisser et les SCPI endettées sont les plus exposées. La correction de 2023 et 2024 est venue de là.</li>
-          <li><strong>La fiscalité des revenus fonciers.</strong> Les loyers d'une SCPI en direct sont imposés au barème de l'impôt sur le revenu (à ta tranche marginale) plus 17,2% de prélèvements sociaux. Pour une tranche marginale élevée, le rendement net après impôt peut être amputé de moitié ou plus. Loger des parts en assurance vie ou en PER change cette fiscalité : vois <a href="article-fiscalite-investissement.html">la fiscalité des investissements 2026</a>, <a href="article-per-plan-epargne-retraite.html">le guide du PER</a> et <a href="article-assurance-vie-pea.html">le comparatif assurance vie et PEA</a>.</li>
+          <li><strong>Risque de perte en capital.</strong> Le prix de part peut baisser. En 2024, la valeur de réalisation moyenne a reculé d'environ 5,8% (source ASPIM). Le TD affiché ne protège pas contre cette baisse.</li>
+          <li><strong>Risque d'illiquidité.</strong> Revendre n'est ni garanti ni immédiat. Si la SCPI décollecte, la sortie peut prendre plusieurs mois, voire se faire à prix défavorable.</li>
+          <li><strong>Frais d'entrée élevés.</strong> Jusqu'à 12%, ils rendent les sorties précoces presque toujours perdantes.</li>
+          <li><strong>Sensibilité aux taux d'intérêt.</strong> Quand les taux montent, la valeur des immeubles tend à baisser. C'est ce qui s'est passé en 2023-2024 : les SCPI de bureaux ont vu leur valeur de réalisation baisser d'environ 9,5%.</li>
+          <li><strong>Fiscalité des revenus fonciers.</strong> Les loyers d'une SCPI en direct sont taxés à ta TMI + 17,2%. Pour une TMI à 30%, ça représente 47,2% d'imposition sur les loyers bruts. Enveloppes assurance vie ou PER : fiscalité différente. Vois <a href="article-fiscalite-investissement.html">la fiscalité des investissements 2026</a>, <a href="article-per-plan-epargne-retraite.html">le guide du PER</a> et <a href="article-assurance-vie-pea.html">le comparatif assurance vie et PEA</a>.</li>
         </ul>
 
         <h2 id="methode">Comment utiliser tout ça (méthode)</h2>
-        <p>Pas de recette magique, mais une méthode lucide pour aborder les SCPI sans se faire piéger par un chiffre. Ce qui suit décrit une logique générale, pas une recommandation adaptée à ta situation : Julien Invest n'est pas conseiller en investissement financier (CIF).</p>
-
+        <p>Pas de recette magique. Une méthode lucide. Ce qui suit décrit une logique générale, pas une recommandation : Julien Invest n'est pas CIF.</p>
         <ol>
-          <li><strong>Raisonne sur un horizon de 10 ans et plus.</strong> Les frais d'entrée et le délai de jouissance n'ont de sens amorti que sur la durée. Si tu peux avoir besoin de cet argent à court terme, une SCPI n'est pas le bon outil : c'est illiquide.</li>
-          <li><strong>Commence par les fondations.</strong> D'abord un fonds d'urgence, puis un socle d'investissement diversifié, par exemple en ETF investis régulièrement. La SCPI vient en complément, pas en premier. Pour cette base, vois <a href="article-debuter-investissement.html">débuter en bourse</a> et <a href="article-dca.html">le DCA</a>.</li>
-          <li><strong>Compare sur le TRI, les frais, le track record et la diversification, pas sur le taux de distribution seul.</strong> Une SCPI sans TRI sur un cycle complet est un pari, pas une performance prouvée.</li>
-          <li><strong>Diversifie entre plusieurs SCPI et plusieurs sociétés de gestion.</strong> Ne concentre pas tout sur une seule, surtout récente.</li>
-          <li><strong>Soigne l'enveloppe fiscale.</strong> En direct, les revenus fonciers sont lourdement taxés à tranche marginale élevée. L'assurance vie ou le PER peuvent changer la donne selon ta situation.</li>
+          <li><strong>Raisonne sur 10 ans et plus.</strong> Si tu peux avoir besoin de cet argent à court terme, une SCPI n'est pas le bon outil.</li>
+          <li><strong>Commence par les fondations.</strong> Fonds d'urgence, puis socle ETF en DCA. La SCPI vient en complément. Vois <a href="article-debuter-investissement.html">débuter en bourse</a> et <a href="article-dca.html">le DCA</a>.</li>
+          <li><strong>Compare sur le TRI, les frais complets et la capitalisation.</strong> Un TD élevé sans TRI sur 10 ans est un pari, pas une performance prouvée.</li>
+          <li><strong>Diversifie entre plusieurs SCPI et sociétés de gestion.</strong> Ne concentre pas tout sur une seule, surtout récente.</li>
+          <li><strong>Soigne l'enveloppe fiscale.</strong> En direct, les revenus fonciers sont lourdement taxés à TMI élevée. L'assurance vie ou le PER peuvent changer la donne.</li>
         </ol>
 
-        <p>Si tu envisages d'ouvrir une SCPI via une plateforme, des services comme <a href="parrainage.html">Louve Invest</a> permettent d'investir en SCPI en ligne, en direct ou au sein d'une assurance vie, avec un bonus de 25 euros à l'ouverture (détails sur la page <a href="parrainage.html">parrainages</a>). Compare toujours les contrats et les frais avant de te lancer. Ce n'est pas une recommandation personnalisée : les performances passées ne préjugent pas des performances futures, et une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.</p>
+        <p>Pour investir en SCPI en ligne, <a href="parrainage.html">Louve Invest</a> référence plus de 60 SCPI en direct ou en assurance vie, avec un cashback à l'investissement (détails sur la page <a href="parrainage.html">parrainages</a>). Compare toujours les contrats et les frais. Ce n'est pas une recommandation personnalisée. Les performances passées ne préjugent pas des performances futures.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
             <summary>Quel est le meilleur critère pour comparer des SCPI ?</summary>
-            <p>Le TRI (taux de rendement interne) sur 10 ans, et non le taux de distribution pris seul. Le TRI intègre les revenus distribués, l'évolution de la valeur de la part et les frais sur une durée. Le taux de distribution, lui, ignore l'évolution du prix de part (une SCPI peut afficher 5% et faire perdre de l'argent si la part baisse) et il est brut de fiscalité. Les performances passées ne préjugent pas des performances futures.</p>
+            <p>Le TRI (taux de rendement interne) sur 10 ans, et non le taux de distribution pris seul. Le TRI intègre les revenus distribués, l'évolution de la valeur de la part et les frais sur une durée. Le taux de distribution ignore l'évolution du prix de part et est brut de fiscalité. Les performances passées ne préjugent pas des performances futures.</p>
           </details>
           <details>
             <summary>Une SCPI qui affiche 8 à 10% de rendement est-elle meilleure ?</summary>
-            <p>Pas forcément. Les SCPI à très haut taux de distribution sont presque toutes jeunes (créées en 2022 ou 2023), n'ont pas de TRI sur un cycle immobilier complet et affichent souvent des frais de gestion élevés. Un rendement de 8 à 10% sur une SCPI de deux ans n'est pas une performance vérifiée, c'est une promesse non encore confirmée par la durée. Une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.</p>
+            <p>Pas forcément. Les SCPI à très haut taux de distribution sont presque toutes jeunes (créées en 2022 ou 2023), n'ont pas de TRI sur un cycle immobilier complet et affichent souvent des frais de gestion élevés. Un rendement de 8 à 10% sur une SCPI de deux ans n'est pas une performance vérifiée. Une SCPI comporte un risque de perte en capital, un risque d'illiquidité et des frais.</p>
           </details>
           <details>
             <summary>Les SCPI sans frais d'entrée sont-elles plus avantageuses ?</summary>
-            <p>Pas mécaniquement. Une SCPI sans frais d'entrée n'est pas gratuite : les frais sont souvent déplacés vers la sortie (commission de retrait) ou vers la gestion annuelle (frais de gestion plus élevés), avec parfois une durée de détention recommandée. Sur un horizon long, des frais d'entrée de 10 à 12% s'amortissent ; sur un horizon court, ils plombent la performance. Tout dépend donc de ton horizon de détention.</p>
+            <p>Pas mécaniquement. Une SCPI sans frais d'entrée n'est pas gratuite : les frais sont souvent déplacés vers la sortie (commission de retrait) ou vers la gestion annuelle (frais de gestion plus élevés). Sur un horizon long, des frais d'entrée de 10 à 12% s'amortissent. Tout dépend de ton horizon de détention.</p>
           </details>
           <details>
             <summary>Comment sont imposés les revenus d'une SCPI ?</summary>
-            <p>Les revenus d'une SCPI détenue en direct sont imposés comme des revenus fonciers : au barème de l'impôt sur le revenu (à ta tranche marginale d'imposition) plus 17,2% de prélèvements sociaux. Pour une tranche marginale élevée, cela ampute fortement le rendement net. Il est possible de loger des parts de SCPI dans une assurance vie ou un PER pour une fiscalité différente. Pour creuser, vois <a href="article-fiscalite-investissement.html">la fiscalité des investissements 2026</a>, <a href="article-per-plan-epargne-retraite.html">le guide du PER</a> et <a href="article-assurance-vie-pea.html">le comparatif assurance vie et PEA</a>. Ceci n'est pas un conseil personnalisé.</p>
+            <p>Les revenus d'une SCPI détenue en direct sont imposés comme des revenus fonciers : au barème de l'impôt sur le revenu (ta tranche marginale) plus 17,2% de prélèvements sociaux. Pour une TMI à 30%, cela donne une imposition totale de 47,2% sur les loyers bruts. Il est possible de loger des parts de SCPI dans une assurance vie ou un PER pour une fiscalité différente. Ceci n'est pas un conseil personnalisé.</p>
           </details>
           <details>
             <summary>Les SCPI comportent-elles un risque de perte ?</summary>
-            <p>Oui. Le prix de part peut baisser : selon l'ASPIM, la valeur de réalisation moyenne des parts a reculé d'environ 5,8% en 2024, et le rendement global immobilier moyen a été de -1,1% sur l'année malgré un taux de distribution moyen de 4,72%. À cela s'ajoutent un risque d'illiquidité (revente non garantie et non immédiate) et des frais d'entrée parfois élevés. Les performances passées ne préjugent pas des performances futures.</p>
+            <p>Oui. Le prix de part peut baisser : selon l'ASPIM, la valeur de réalisation moyenne des parts a reculé d'environ 5,8% en 2024. À cela s'ajoutent un risque d'illiquidité et des frais d'entrée parfois élevés. Les performances passées ne préjugent pas des performances futures.</p>
+          </details>
+          <details>
+            <summary>Qu'est-ce que le TOF et pourquoi ça compte ?</summary>
+            <p>Le TOF (taux d'occupation financier) mesure la part des loyers effectivement perçus par rapport au potentiel maximal si tous les locaux étaient loués. Un TOF de 97% signifie que 97% des loyers possibles ont été encaissés. Un TOF faible (en dessous de 90%) peut signaler des locaux vides, des baisses de loyers ou des concessions accordées aux locataires — autant d'éléments qui réduisent ta distribution réelle.</p>
           </details>
         </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_SCPI = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_SCPI && VIDEO_ID_SCPI!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_SCPI+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
 
         <div class="article-cta">
           <h2>Comprends avant d'investir</h2>
@@ -607,26 +952,29 @@
       if (!tbody) return;
       var rows = Array.prototype.slice.call(tbody.querySelectorAll('tr'));
       var selFrais = document.getElementById('scpi-filter-frais');
+      var selSecteur = document.getElementById('scpi-filter-secteur');
       var search = document.getElementById('scpi-search');
       var countEl = document.getElementById('scpi-count');
 
       var sortState = { key: null, dir: 1 };
 
       function cellByKey(row, key) {
-        var idx = { nom:0, sg:1, creation:2, typo:3, td:4, tri:5, fsousc:6, fgest:7, capi:8, prix:9, jouissance:10 }[key];
+        var idx = { nom:0, sg:1, creation:2, td:3, tri:4, fsousc:5, fgest:6, capi:7, tof:8, prix:9, jouissance:10 }[key];
         return row.cells[idx];
       }
 
       function applyFilter() {
         var fr = selFrais ? selFrais.value : 'all';
+        var sec = selSecteur ? selSecteur.value : 'all';
         var q = search ? search.value.trim().toLowerCase() : '';
         var shown = 0;
         rows.forEach(function (row) {
           var okFrais = (fr === 'all') || (row.getAttribute('data-frais') === fr);
+          var okSecteur = (sec === 'all') || (row.getAttribute('data-secteur') === sec);
           var nom = (row.getAttribute('data-nom') || '').toLowerCase();
           var sg = (row.getAttribute('data-sg') || '').toLowerCase();
           var okSearch = (q === '') || (nom.indexOf(q) !== -1) || (sg.indexOf(q) !== -1);
-          if (okFrais && okSearch) { row.style.display = ''; shown++; }
+          if (okFrais && okSecteur && okSearch) { row.style.display = ''; shown++; }
           else { row.style.display = 'none'; }
         });
         if (countEl) {
@@ -683,6 +1031,7 @@
       });
 
       if (selFrais) selFrais.addEventListener('change', applyFilter);
+      if (selSecteur) selSecteur.addEventListener('change', applyFilter);
       if (search) search.addEventListener('input', applyFilter);
 
       applyFilter();

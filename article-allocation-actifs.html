@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construire son portefeuille : guide d'allocation d'actifs 2026 | Julien Invest</title>
+  <meta name="description" content="Comment répartir son argent entre ETF, fonds euros, SCPI et liquidités selon ton horizon et ton profil. Le guide complet pour bâtir une allocation cohérente en 2026.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Construire son portefeuille : guide d'allocation d'actifs 2026 | Julien Invest">
+  <meta property="og:description" content="Comment répartir son argent entre ETF, fonds euros, SCPI et liquidités selon ton horizon et ton profil. Le guide complet pour bâtir une allocation cohérente en 2026.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-allocation-actifs.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Construire son portefeuille : guide d'allocation d'actifs 2026 | Julien Invest">
+  <meta name="twitter:description" content="Comment répartir son argent entre ETF, fonds euros, SCPI et liquidités selon ton horizon et ton profil. Le guide complet pour bâtir une allocation cohérente en 2026.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Construire son portefeuille : guide d'allocation d'actifs 2026",
+  "description": "Comment répartir son argent entre ETF, fonds euros, SCPI et liquidités selon ton horizon et ton profil. Le guide complet pour bâtir une allocation cohérente en 2026.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-17",
+  "dateModified": "2026-06-17"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    @media (max-width: 560px) { .compare-table--wide { min-width: 640px; } }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+    .article-retenir { background: var(--pearl); border-left: 4px solid var(--lavender); border-radius: 0 12px 12px 0; padding: 18px 20px; margin: 28px 0 36px; }
+    .article-retenir-label { font-size: 11px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; color: var(--lavender); margin-bottom: 8px; }
+    .article-retenir p { margin-bottom: 0; }
+
+    .alloc-figure { margin: 28px 0 34px; }
+    .alloc-figure figcaption { font-size: 13px; color: var(--grey-1); text-align: center; margin-top: 10px; font-style: italic; }
+    .alloc-svg { width: 100%; height: auto; display: block; }
+    .profil-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 24px 0 36px; }
+    @media (max-width:640px) { .profil-grid { grid-template-columns: 1fr; } }
+    .profil-card { background: white; border-radius: 14px; border: 1.5px solid var(--grey-5); padding: 18px; }
+    .profil-card-label { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); margin-bottom: 6px; }
+    .profil-card-name { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--navy); margin-bottom: 10px; }
+    .profil-alloc { display: flex; flex-direction: column; gap: 6px; }
+    .profil-bar-row { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+    .profil-bar-label { width: 110px; flex-shrink: 0; color: var(--grey-2); }
+    .profil-bar-track { flex: 1; height: 10px; background: var(--grey-5); border-radius: 100px; overflow: hidden; }
+    .profil-bar-fill { height: 100%; border-radius: 100px; }
+    .profil-bar-pct { width: 38px; text-align: right; font-weight: 700; color: var(--navy); font-family: var(--font-head); }
+    .profil-card-note { font-size: 11px; color: var(--grey-2); margin-top: 12px; font-style: italic; line-height: 1.5; }
+    .article-links-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 28px 0 36px; }
+    @media (max-width:560px) { .article-links-grid { grid-template-columns: 1fr; } }
+    .article-link-card { display: flex; flex-direction: column; background: var(--pearl); border-radius: 12px; padding: 16px 18px; text-decoration: none; border: 1.5px solid transparent; transition: border-color 0.2s; }
+    .article-link-card:hover { border-color: var(--lavender); }
+    .article-link-card-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); margin-bottom: 6px; }
+    .article-link-card-title { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+    .article-link-card-desc { font-size: 12px; color: var(--grey-1); margin-top: 5px; line-height: 1.5; }
+    .enveloppe-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .enveloppe-table th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-family: var(--font-head); font-size: 12px; }
+    .enveloppe-table td { padding: 10px 14px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .enveloppe-table tr:nth-child(even) td { background: var(--pearl); }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-allocation-actifs.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quelle est la meilleure allocation d'actifs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Il n'en existe pas. La meilleure allocation est celle que tu respectes sur la durée. Un portefeuille 100% ETF monde que tu gardes 15 ans surpassera souvent un portefeuille \"optimisé\" abandonné au bout de 2 ans lors d'une crise. Les performances passées ne préjugent pas des performances futures. Ce n'est pas un conseil en investissement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il des obligations dans son portefeuille ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour un investisseur avec un long horizon (10 ans+), les ETF actions sont généralement plus performants que les obligations long terme. Les fonds euros d'assurance vie jouent un rôle similaire à celui des obligations (stabilisation) avec l'avantage d'un capital garanti. À chacun d'évaluer selon son horizon et sa tolérance au risque."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle part mettre en actions vs fonds euros ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une règle approximative utilisée par certains investisseurs : 100 moins ton âge = % en actions. À 30 ans : 70% actions, 30% défensif. Ce n'est qu'un point de départ. Ton horizon réel et ta tolérance au risque sont plus importants que ton âge. Ce n'est pas un conseil personnalisé."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand rééquilibrer son portefeuille ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une fois par an suffit pour la plupart des investisseurs passifs. Ou quand une classe d'actifs dévie de plus de 5 points de sa cible. Dans la pratique, diriger les nouveaux versements vers la poche sous-pondérée évite souvent de vendre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il inclure des SCPI dans son allocation ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seulement si tu as un horizon d'au moins 8-10 ans (les frais d'entrée de 10-12% ne s'amortissent que sur la durée) et que tu cherches des revenus réguliers. Les SCPI ne sont pas liquides : revendre n'est ni garanti ni immédiat."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on tout mettre dans un seul ETF monde ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est l'approche de nombreux investisseurs passifs. Un ETF MSCI World couvre ~1 600 entreprises dans 23 pays développés. C'est une diversification très large. La principale limite : pas d'exposition aux marchés émergents et forte concentration sur les États-Unis (~70%). Un ETF monde est néanmoins un excellent point de départ."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+      <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Stratégie</span>
+        <h1>Construire son portefeuille<br><em>allocation d'actifs pas à pas</em></h1>
+        <p class="article-meta-date">Publié le 17 juin 2026 · 14 min de lecture</p>
+        <p>Avant de choisir un ETF ou une SCPI, il y a une question plus importante : comment répartir son argent entre les grandes classes d'actifs ? C'est l'allocation d'actifs. C'est la décision qui détermine 90% de ton résultat long terme.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Stratégie</span>
+
+        <p>La recherche académique (notamment les travaux de Brinson, Hood et Beebower, 1986) montre que l'allocation d'actifs explique plus de 90% de la variabilité des rendements d'un portefeuille long terme. Autrement dit : ton choix entre ETF monde, fonds euros et SCPI est plus important que de savoir si tu prends l'ETF Amundi ou l'ETF Lyxor.</p>
+
+        <p>L'allocation d'actifs, c'est la répartition de ton capital entre les grandes familles : liquidités, actions (via ETF), immobilier (direct ou SCPI), obligations/fonds euros. Chaque famille a un rôle différent : sécurité, croissance, protection contre l'inflation, revenus.</p>
+
+        <p>Cet article est le guide chapeau qui relie tout. Il renvoie vers les articles spécialisés à chaque étape. Commence par lire celui-ci si tu veux comprendre la logique globale avant de t'intéresser aux détails.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#classes">Les 4 grandes classes d'actifs</a></li>
+            <li><a href="#regle">La règle de base : horizon + tolérance au risque</a></li>
+            <li><a href="#profils">Les 3 profils types</a></li>
+            <li><a href="#enveloppes">Les enveloppes : dans quoi mettre quoi</a></li>
+            <li><a href="#construction">Construire son allocation étape par étape</a></li>
+            <li><a href="#reequilibrage">Le rééquilibrage annuel</a></li>
+            <li><a href="#liens">Liens vers les articles spécialisés</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="classes">Les 4 grandes classes d'actifs</h2>
+
+        <figure class="alloc-figure">
+          <svg class="alloc-svg" viewBox="0 0 700 200" role="img" aria-label="Les 4 grandes classes d'actifs : liquidités, actions, immobilier, obligations" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="700" height="200" fill="#F7F5FA" rx="14"/>
+
+            <!-- Colonne 1 : Liquidités -->
+            <rect x="16" y="16" width="155" height="168" rx="10" fill="#D1FAE5"/>
+            <text x="94" y="42" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#065F46">Liquidités</text>
+            <text x="94" y="60" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#047857">Sécurité, disponibilité</text>
+            <line x1="30" y1="70" x2="157" y2="70" stroke="#6EE7B7" stroke-width="1"/>
+            <text x="94" y="88" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#065F46">Livret A, LDDS, LEP</text>
+            <text x="94" y="104" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#065F46">fonds monétaires</text>
+            <text x="94" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#065F46">Rendement : 2-3%</text>
+            <text x="94" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#047857">Risque : très faible</text>
+
+            <!-- Colonne 2 : Actions (ETF) -->
+            <rect x="183" y="16" width="155" height="168" rx="10" fill="#EDE9FE"/>
+            <text x="261" y="42" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#4C1D95">Actions (ETF)</text>
+            <text x="261" y="60" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#6D28D9">Croissance long terme</text>
+            <line x1="197" y1="70" x2="324" y2="70" stroke="#C4B5FD" stroke-width="1"/>
+            <text x="261" y="88" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#4C1D95">ETF MSCI World</text>
+            <text x="261" y="104" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#4C1D95">S&amp;P 500, CW8</text>
+            <text x="261" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#4C1D95">Historique : 8-10%/an</text>
+            <text x="261" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#6D28D9">Risque : volatil (10 ans+)</text>
+
+            <!-- Colonne 3 : Immobilier (SCPI) -->
+            <rect x="350" y="16" width="155" height="168" rx="10" fill="#FEF3C7"/>
+            <text x="428" y="42" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#78350F">Immobilier (SCPI)</text>
+            <text x="428" y="60" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#92400E">Revenus, inflation</text>
+            <line x1="364" y1="70" x2="491" y2="70" stroke="#FCD34D" stroke-width="1"/>
+            <text x="428" y="88" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#78350F">SCPI de rendement</text>
+            <text x="428" y="104" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#78350F">LMNP direct</text>
+            <text x="428" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#78350F">Rendement : 4-7% TD</text>
+            <text x="428" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#92400E">Risque : illiquidité</text>
+
+            <!-- Colonne 4 : Obligations / Fonds euros -->
+            <rect x="517" y="16" width="167" height="168" rx="10" fill="#DBEAFE"/>
+            <text x="601" y="42" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="800" fill="#1E3A5F">Oblig. / Fonds €</text>
+            <text x="601" y="60" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#1D4ED8">Stabilisation, garanti</text>
+            <line x1="531" y1="70" x2="670" y2="70" stroke="#93C5FD" stroke-width="1"/>
+            <text x="601" y="88" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#1E3A5F">Fonds euros AV</text>
+            <text x="601" y="104" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#1E3A5F">ETF obligataire</text>
+            <text x="601" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700" fill="#1E3A5F">Rendement : 2,5-4%</text>
+            <text x="601" y="148" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#1D4ED8">Risque : faible à modéré</text>
+          </svg>
+          <figcaption>Les 4 grandes familles d'actifs et leurs caractéristiques principales. Chaque famille a un rôle distinct dans un portefeuille équilibré.</figcaption>
+        </figure>
+
+        <p>Ces 4 familles se comportent différemment selon les cycles économiques. Les actions chutent lors des crises mais rebondissent sur le long terme. Les fonds euros et liquidités restent stables mais perdent du pouvoir d'achat face à l'inflation. La diversification entre elles réduit la volatilité globale du portefeuille sans nécessairement sacrifier la performance.</p>
+
+        <h2 id="regle">La règle de base : horizon + tolérance au risque</h2>
+
+        <p>Deux facteurs déterminent ton allocation.</p>
+
+        <p><strong>L'horizon de placement</strong> : Pour du capital dont tu peux te passer 15 ans, tu peux prendre plus de risque. Pour du capital dont tu pourrais avoir besoin dans 3 ans, il faut moins de volatilité.</p>
+
+        <p><strong>Ta tolérance au risque</strong> : Pas la tolérance que tu t'imagines avoir, mais celle que tu auras vraiment quand ton portefeuille perdra 30% en quelques mois. C'est arrivé en mars 2020 (COVID), en 2022 (remontée des taux), ça arrivera encore.</p>
+
+        <figure class="alloc-figure">
+          <svg class="alloc-svg" viewBox="0 0 700 180" role="img" aria-label="Graphique : plus l'horizon est long, plus la part actions recommandée est élevée" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="700" height="180" fill="#F7F5FA" rx="14"/>
+
+            <!-- Axes -->
+            <line x1="80" y1="20" x2="80" y2="145" stroke="#CBD5E1" stroke-width="1.5"/>
+            <line x1="80" y1="145" x2="660" y2="145" stroke="#CBD5E1" stroke-width="1.5"/>
+
+            <!-- Axe labels -->
+            <text x="370" y="170" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B">Horizon de placement →</text>
+            <text x="20" y="85" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#64748B" transform="rotate(-90,20,85)">% actions →</text>
+
+            <!-- Graduation Y -->
+            <text x="72" y="148" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#94A3B8">0%</text>
+            <text x="72" y="100" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#94A3B8">50%</text>
+            <text x="72" y="30" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#94A3B8">100%</text>
+            <line x1="76" y1="97" x2="84" y2="97" stroke="#CBD5E1" stroke-width="1"/>
+            <line x1="76" y1="27" x2="84" y2="27" stroke="#CBD5E1" stroke-width="1"/>
+
+            <!-- Courbe -->
+            <polyline points="140,127 340,90 590,30" fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Zone de gradient sous la courbe -->
+            <polygon points="140,127 340,90 590,30 590,145 140,145" fill="#7C3AED" opacity="0.08"/>
+
+            <!-- Points -->
+            <circle cx="140" cy="127" r="7" fill="#7C3AED"/>
+            <circle cx="340" cy="90" r="7" fill="#7C3AED"/>
+            <circle cx="590" cy="30" r="7" fill="#7C3AED"/>
+
+            <!-- Labels points -->
+            <rect x="90" y="96" width="120" height="38" rx="7" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+            <text x="150" y="111" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Horizon 3 ans</text>
+            <text x="150" y="126" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#7C3AED">20-30% actions</text>
+
+            <rect x="270" y="59" width="120" height="38" rx="7" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+            <text x="330" y="74" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Horizon 7 ans</text>
+            <text x="330" y="89" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#7C3AED">50-60% actions</text>
+
+            <rect x="518" y="22" width="132" height="38" rx="7" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+            <text x="584" y="37" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" font-weight="700" fill="#0D0D2E">Horizon 15 ans+</text>
+            <text x="584" y="52" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#7C3AED">80-100% actions</text>
+          </svg>
+          <figcaption>Plus l'horizon est long, plus les marchés actions ont le temps de rebondir d'une correction, et plus la part actions peut être élevée.</figcaption>
+        </figure>
+
+        <p>Ces pourcentages sont indicatifs. Il n'existe pas d'allocation universelle. Une personne avec 2 enfants et un crédit immobilier en cours ne prend pas les mêmes risques qu'un célibataire sans charges. Ce que montre ce graphique, c'est la logique : plus l'horizon est long, plus les marchés actions ont le temps de rebondir d'une correction, et plus la part actions peut être élevée. Ceci n'est pas un conseil en investissement.</p>
+
+        <h2 id="profils">Les 3 profils types</h2>
+
+        <p>Ces 3 exemples illustrent comment l'allocation change selon le profil. Aucun n'est parfait pour toi — ils servent de point de départ pour construire ta propre répartition. Les performances passées ne préjugent pas des performances futures. Ce n'est pas un conseil personnalisé.</p>
+
+        <div class="profil-grid">
+
+          <!-- Card 1 : Débutant -->
+          <div class="profil-card">
+            <div class="profil-card-label">Profil 1</div>
+            <div class="profil-card-name">Débutant · Horizon 10+ ans</div>
+            <div class="profil-alloc">
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">ETF actions monde</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:70%;background:#7C3AED;"></div>
+                </div>
+                <span class="profil-bar-pct">70%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">Fonds euros / AV</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:20%;background:#0EA5E9;"></div>
+                </div>
+                <span class="profil-bar-pct">20%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">Liquidités</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:10%;background:#059669;"></div>
+                </div>
+                <span class="profil-bar-pct">10%</span>
+              </div>
+            </div>
+            <p class="profil-card-note">Simple, passive, efficace. Un seul ETF monde (type CW8 ou MWRD) + fonds euros pour stabiliser + fonds d'urgence à part.</p>
+          </div>
+
+          <!-- Card 2 : Intermédiaire -->
+          <div class="profil-card">
+            <div class="profil-card-label">Profil 2</div>
+            <div class="profil-card-name">Intermédiaire · Horizon 7-10 ans</div>
+            <div class="profil-alloc">
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">ETF actions monde</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:50%;background:#7C3AED;"></div>
+                </div>
+                <span class="profil-bar-pct">50%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">ETF oblig. / Fonds €</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:20%;background:#0EA5E9;"></div>
+                </div>
+                <span class="profil-bar-pct">20%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">SCPI</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:20%;background:#F59E0B;"></div>
+                </div>
+                <span class="profil-bar-pct">20%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">Liquidités</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:10%;background:#059669;"></div>
+                </div>
+                <span class="profil-bar-pct">10%</span>
+              </div>
+            </div>
+            <p class="profil-card-note">Diversification immobilière ajoutée. Voir l'article SCPI pour choisir.</p>
+          </div>
+
+          <!-- Card 3 : Avancé -->
+          <div class="profil-card">
+            <div class="profil-card-label">Profil 3</div>
+            <div class="profil-card-name">Avancé · Horizon 15 ans+</div>
+            <div class="profil-alloc">
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">ETF actions</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:60%;background:#7C3AED;"></div>
+                </div>
+                <span class="profil-bar-pct">60%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">SCPI</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:20%;background:#F59E0B;"></div>
+                </div>
+                <span class="profil-bar-pct">20%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">Fonds € / oblig.</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:10%;background:#0EA5E9;"></div>
+                </div>
+                <span class="profil-bar-pct">10%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">PER / Retraite</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:5%;background:#DC2626;"></div>
+                </div>
+                <span class="profil-bar-pct">5%</span>
+              </div>
+              <div class="profil-bar-row">
+                <span class="profil-bar-label">Liquidités</span>
+                <div class="profil-bar-track">
+                  <div class="profil-bar-fill" style="width:5%;background:#059669;"></div>
+                </div>
+                <span class="profil-bar-pct">5%</span>
+              </div>
+            </div>
+            <p class="profil-card-note">Plus complexe. Plusieurs lignes d'ETF pour diversifier. PER pour optimiser la fiscalité.</p>
+          </div>
+
+        </div>
+
+        <h2 id="enveloppes">Les enveloppes : dans quoi mettre quoi</h2>
+
+        <p>L'allocation d'actifs répond à "quoi acheter". Les enveloppes fiscales répondent à "où le mettre". Les deux décisions sont liées.</p>
+
+        <div class="table-scroll">
+          <table class="enveloppe-table">
+            <thead>
+              <tr>
+                <th>Enveloppe</th>
+                <th>Ce qu'on y met</th>
+                <th>Avantage fiscal</th>
+                <th>Plafond</th>
+                <th>À ouvrir en priorité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PEA</strong></td>
+                <td>ETF actions européens et monde (UCITS)</td>
+                <td>Après 5 ans : 17,2% seulement (pas d'IR)</td>
+                <td>150 000€ de versements</td>
+                <td>✓ En 1er si tu investis en actions</td>
+              </tr>
+              <tr>
+                <td><strong>Assurance vie</strong></td>
+                <td>Fonds euros + UC (ETF, SCPI)</td>
+                <td>Abattement après 8 ans, avantage successoral</td>
+                <td>Pas de plafond (fonds euros limités selon contrat)</td>
+                <td>✓ Pour fonds euros + immobilier</td>
+              </tr>
+              <tr>
+                <td><strong>PER</strong></td>
+                <td>ETF + fonds euros + SCPI</td>
+                <td>Déduction des versements à l'IS (selon TMI)</td>
+                <td>Plafond annuel selon revenus</td>
+                <td>Selon TMI — voir article PER</td>
+              </tr>
+              <tr>
+                <td><strong>CTO</strong></td>
+                <td>Tout (actions monde, ETF étrangers, oblig.)</td>
+                <td>Flat tax 30%</td>
+                <td>Pas de plafond</td>
+                <td>Quand PEA est plein ou pour actifs non éligibles</td>
+              </tr>
+              <tr>
+                <td><strong>Livret A / LDDS</strong></td>
+                <td>Épargne court terme</td>
+                <td>Intérêts défiscalisés</td>
+                <td>22 950€ (LA) + 12 000€ (LDDS)</td>
+                <td>✓ Pour le fonds d'urgence</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>La règle de base : remplis d'abord le Livret A pour le fonds d'urgence, puis ouvre un PEA pour les ETF actions, puis une assurance vie pour diversifier. Le CTO vient ensuite, quand le PEA est plein ou pour des actifs non éligibles.</p>
+
+        <h2 id="construction">Construire son allocation étape par étape</h2>
+
+        <ol>
+          <li><p><strong>Sécurise d'abord le fonds d'urgence</strong> : 3 à 6 mois de dépenses sur Livret A ou LDDS. Cette poche ne fait pas partie de ton allocation d'investissement — c'est une assurance. → <a href="article-fonds-urgence.html">Lire l'article fonds d'urgence</a></p></li>
+          <li><p><strong>Ouvre ton PEA et commence à investir en ETF</strong> : Un seul ETF monde diversifié (type MSCI World) suffit pour commencer. Investis régulièrement (DCA mensuel). → <a href="article-etf-monde-2026.html">ETF Monde 2026</a> · <a href="article-dca.html">La méthode DCA</a></p></li>
+          <li><p><strong>Ajoute une assurance vie pour stabiliser</strong> : Un fonds euros donne du rendement garanti et réduit la volatilité globale de ton portefeuille. → <a href="article-assurance-vie-pea.html">Assurance vie vs PEA</a></p></li>
+          <li><p><strong>Envisage les SCPI si tu cherches des revenus réguliers</strong> : À partir d'un horizon de 8-10 ans minimum. Attention aux frais d'entrée et à l'illiquidité. → <a href="article-scpi-comparatif.html">Comparer les SCPI</a></p></li>
+          <li><p><strong>Rééquilibre une fois par an</strong> : Si les actions ont bien performé, leur part peut être passée de 70% à 80% de ton portefeuille. Un rééquilibrage annuel ramène les proportions à la cible initiale. Simple, efficace, automatique.</p></li>
+        </ol>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>La perfection est l'ennemi du bien. Un portefeuille simple (1 ETF monde + fonds euros + fonds d'urgence) appliqué avec régularité battra souvent un portefeuille complexe mal suivi. Commence simple, complexifie seulement si tu as une raison précise.</p>
+        </div>
+
+        <h2 id="reequilibrage">Le rééquilibrage annuel</h2>
+
+        <p>Le rééquilibrage consiste à vendre ce qui a surperformé et à acheter ce qui a sous-performé pour revenir à ton allocation cible. Dans la pratique, pour un investisseur régulier qui fait du DCA, il suffit souvent de diriger les nouveaux versements vers la poche sous-pondérée, sans vendre.</p>
+
+        <figure class="alloc-figure">
+          <svg class="alloc-svg" viewBox="0 0 700 140" role="img" aria-label="Schéma avant/après rééquilibrage : retour à l'allocation cible" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="700" height="140" fill="#F7F5FA" rx="14"/>
+
+            <!-- Titre colonnes -->
+            <text x="175" y="22" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#DC2626">Avant rééquilibrage</text>
+            <text x="350" y="22" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#0D0D2E">Cible</text>
+            <text x="535" y="22" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" font-weight="700" fill="#059669">Après rééquilibrage</text>
+
+            <!-- AVANT -->
+            <!-- ETF 82% -->
+            <rect x="80" y="36" width="189" height="18" rx="4" fill="#7C3AED"/>
+            <text x="86" y="49" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="white" font-weight="700">ETF 82%</text>
+            <!-- Fonds euros 13% -->
+            <rect x="80" y="62" width="30" height="18" rx="4" fill="#0EA5E9"/>
+            <text x="80" y="87" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#0EA5E9">13%</text>
+            <!-- SCPI 5% -->
+            <rect x="80" y="94" width="11" height="18" rx="4" fill="#F59E0B"/>
+            <text x="80" y="125" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#F59E0B">5%</text>
+
+            <!-- Flèche -->
+            <text x="285" y="76" font-family="Plus Jakarta Sans, sans-serif" font-size="18" fill="#7C3AED">→</text>
+
+            <!-- CIBLE -->
+            <!-- ETF 70% -->
+            <rect x="310" y="36" width="161" height="18" rx="4" fill="#7C3AED" opacity="0.6"/>
+            <text x="316" y="49" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="white" font-weight="700">ETF 70%</text>
+            <!-- Fonds euros 20% -->
+            <rect x="310" y="62" width="46" height="18" rx="4" fill="#0EA5E9" opacity="0.6"/>
+            <text x="310" y="87" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#0369A1">20%</text>
+            <!-- SCPI 10% -->
+            <rect x="310" y="94" width="23" height="18" rx="4" fill="#F59E0B" opacity="0.6"/>
+            <text x="310" y="125" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#B45309">10%</text>
+
+            <!-- Flèche -->
+            <text x="460" y="76" font-family="Plus Jakarta Sans, sans-serif" font-size="18" fill="#059669">→</text>
+
+            <!-- APRÈS -->
+            <!-- ETF 70% -->
+            <rect x="480" y="36" width="161" height="18" rx="4" fill="#7C3AED"/>
+            <text x="486" y="49" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="white" font-weight="700">ETF 70%</text>
+            <!-- Fonds euros 20% -->
+            <rect x="480" y="62" width="46" height="18" rx="4" fill="#0EA5E9"/>
+            <text x="480" y="87" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#0369A1">20%</text>
+            <!-- SCPI 10% -->
+            <rect x="480" y="94" width="23" height="18" rx="4" fill="#F59E0B"/>
+            <text x="480" y="125" font-family="Plus Jakarta Sans, sans-serif" font-size="10" fill="#B45309">10%</text>
+          </svg>
+          <figcaption>Un rééquilibrage annuel ramène les proportions à la cible, en vendant ce qui a surperformé et en achetant ce qui est sous-pondéré.</figcaption>
+        </figure>
+
+        <p>Fréquence recommandée : une fois par an. Ou quand une poche dévie de plus de 5 points de sa cible.</p>
+
+        <h2 id="liens">Les articles spécialisés</h2>
+
+        <p>Chaque composante de ton allocation mérite un article dédié. Voici les guides correspondants sur Julien Invest.</p>
+
+        <div class="article-links-grid">
+          <a href="article-debuter-investissement.html" class="article-link-card">
+            <span class="article-link-card-tag">Débutants</span>
+            <span class="article-link-card-title">Débuter en bourse</span>
+            <span class="article-link-card-desc">Le guide de départ pour construire tes bases</span>
+          </a>
+          <a href="article-fonds-urgence.html" class="article-link-card">
+            <span class="article-link-card-tag">Débutants</span>
+            <span class="article-link-card-title">Le fonds d'urgence</span>
+            <span class="article-link-card-desc">Combien mettre de côté et où le placer avant d'investir</span>
+          </a>
+          <a href="article-etf-monde-2026.html" class="article-link-card">
+            <span class="article-link-card-tag">ETF</span>
+            <span class="article-link-card-title">ETF Monde 2026</span>
+            <span class="article-link-card-desc">Les meilleurs ETF MSCI World pour le PEA et le CTO</span>
+          </a>
+          <a href="article-dca.html" class="article-link-card">
+            <span class="article-link-card-tag">Stratégie</span>
+            <span class="article-link-card-title">La méthode DCA</span>
+            <span class="article-link-card-desc">Investir régulièrement pour lisser le risque de marché</span>
+          </a>
+          <a href="article-assurance-vie-pea.html" class="article-link-card">
+            <span class="article-link-card-tag">Enveloppes</span>
+            <span class="article-link-card-title">Assurance vie vs PEA</span>
+            <span class="article-link-card-desc">Laquelle choisir, laquelle ouvrir en premier</span>
+          </a>
+          <a href="article-per-plan-epargne-retraite.html" class="article-link-card">
+            <span class="article-link-card-tag">Enveloppes</span>
+            <span class="article-link-card-title">Le guide du PER</span>
+            <span class="article-link-card-desc">Plan Épargne Retraite : qui est concerné, comment l'utiliser</span>
+          </a>
+          <a href="article-scpi-comparatif.html" class="article-link-card">
+            <span class="article-link-card-tag">Immobilier</span>
+            <span class="article-link-card-title">Comparer les SCPI</span>
+            <span class="article-link-card-desc">Tableau interactif de 12 SCPI avec frais et TRI</span>
+          </a>
+          <a href="article-fiscalite-investissement.html" class="article-link-card">
+            <span class="article-link-card-tag">Fiscalité</span>
+            <span class="article-link-card-title">Fiscalité des investissements</span>
+            <span class="article-link-card-desc">Flat tax, TMI, PFU : comment sont imposés tes gains</span>
+          </a>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+
+        <div class="article-faq">
+          <details>
+            <summary>Quelle est la meilleure allocation d'actifs ?</summary>
+            <p>Il n'en existe pas. La meilleure allocation est celle que tu respectes sur la durée. Un portefeuille 100% ETF monde que tu gardes 15 ans surpassera souvent un portefeuille "optimisé" abandonné au bout de 2 ans lors d'une crise. Les performances passées ne préjugent pas des performances futures. Ce n'est pas un conseil en investissement.</p>
+          </details>
+          <details>
+            <summary>Faut-il des obligations dans son portefeuille ?</summary>
+            <p>Pour un investisseur avec un long horizon (10 ans+), les ETF actions sont généralement plus performants que les obligations long terme. Les fonds euros d'assurance vie jouent un rôle similaire à celui des obligations (stabilisation) avec l'avantage d'un capital garanti. À chacun d'évaluer selon son horizon et sa tolérance au risque.</p>
+          </details>
+          <details>
+            <summary>Quelle part mettre en actions vs fonds euros ?</summary>
+            <p>Une règle approximative utilisée par certains investisseurs : 100 moins ton âge = % en actions. À 30 ans : 70% actions, 30% défensif. Ce n'est qu'un point de départ. Ton horizon réel et ta tolérance au risque sont plus importants que ton âge. Ce n'est pas un conseil personnalisé.</p>
+          </details>
+          <details>
+            <summary>Quand rééquilibrer son portefeuille ?</summary>
+            <p>Une fois par an suffit pour la plupart des investisseurs passifs. Ou quand une classe d'actifs dévie de plus de 5 points de sa cible. Dans la pratique, diriger les nouveaux versements vers la poche sous-pondérée évite souvent de vendre.</p>
+          </details>
+          <details>
+            <summary>Faut-il inclure des SCPI dans son allocation ?</summary>
+            <p>Seulement si tu as un horizon d'au moins 8-10 ans (les frais d'entrée de 10-12% ne s'amortissent que sur la durée) et que tu cherches des revenus réguliers. Les SCPI ne sont pas liquides : revendre n'est ni garanti ni immédiat. Voir l'article SCPI pour comparer les options.</p>
+          </details>
+          <details>
+            <summary>Peut-on tout mettre dans un seul ETF monde ?</summary>
+            <p>C'est l'approche de nombreux investisseurs passifs. Un ETF MSCI World couvre ~1 600 entreprises dans 23 pays développés. C'est une diversification très large. La principale limite : pas d'exposition aux marchés émergents (Chine, Inde...) et forte concentration sur les États-Unis (~70%). Un ETF monde est néanmoins un excellent point de départ.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_ALLOCATION = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_ALLOCATION && VIDEO_ID_ALLOCATION!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ALLOCATION+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-cta">
+          <h2>Construis ton allocation, pas juste un portefeuille</h2>
+          <p>La formation Julien Invest t'accompagne de A à Z : allocation d'actifs, choix des ETF, enveloppes fiscales, DCA mensuel — tout ce qu'il faut pour investir avec méthode et sérénité.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-interets-composes.html">Intérêts composés</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité placements 2026</a>
+          <a href="article-impots-france.html">Tous les impôts en France</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
