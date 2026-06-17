@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Frais Bancaires 2026 : combien tu perds vraiment | Julien Invest</title>
+  <meta name="description" content="Calcule l'impact réel des frais de gestion de ta banque sur 20 ans. Comparaison fonds actifs vs ETF PEA. Fiscalité 2026 intégrée. Outil gratuit.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Calculateur Frais Bancaires 2026 : combien tu perds vraiment | Julien Invest">
+  <meta property="og:description" content="Calcule l'impact réel des frais de gestion de ta banque sur 20 ans. Comparaison fonds actifs vs ETF PEA. Fiscalité 2026 intégrée. Outil gratuit.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/calculateur-frais.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculateur Frais Bancaires 2026 | Julien Invest">
+  <meta name="twitter:description" content="Combien ta banque te coûte vraiment sur 20 ans ? Calcule ton manque à gagner vs ETF PEA.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/calculateur-frais.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment sont calculés les frais de gestion d'un fonds actif ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les frais de gestion annuels (TER ou ratio de frais totaux) sont prélevés directement sur la valeur de la part du fonds, chaque année, que la performance soit positive ou négative. Par exemple, un fonds à 2 % de frais annuels voit la valeur de ses parts réduite de 2 % chaque année au profit de la société de gestion. Ces frais sont invisibles sur les relevés car ils sont intégrés dans la valeur de la part."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre frais d'entrée et frais de gestion ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les frais d'entrée (ou droits d'entrée) sont prélevés une seule fois à chaque versement, sur le montant investi avant placement. Un fonds avec 3 % de frais d'entrée ne place que 97 € pour chaque 100 € versés. Les frais de gestion annuels, eux, sont prélevés chaque année sur la totalité du capital investi, qu'il y ait ou non un nouveau versement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un ETF à 0,3 % de frais est-il vraiment moins cher qu'un fonds à 2 % ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sur un an, la différence de 1,7 % peut sembler modeste. Mais sur 30 ans, l'effet cumulatif via les intérêts composés est considérable. Un capital de 10 000 € investi à 7 % brut pendant 30 ans donne 76 123 € avec 0 % de frais, 52 277 € avec 1,5 % de frais (différence de 23 846 €), et seulement 43 219 € avec 2,5 % de frais (différence de 32 904 €). Les frais sont la seule variable totalement contrôlable par l'investisseur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je transférer mon assurance vie vers un PEA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, il n'est pas possible de transférer directement une assurance vie vers un PEA. Ce sont deux enveloppes fiscales distinctes. Tu peux en revanche racheter tout ou partie de ton assurance vie (avec les implications fiscales qui en découlent selon l'ancienneté du contrat) et verser ensuite les fonds sur un PEA. Un conseiller financier indépendant peut t'aider à choisir la meilleure stratégie selon ta situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment ouvrir un PEA sans frais en France ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plusieurs courtiers en ligne proposent des PEA avec 0 € de frais de courtage ou des frais très réduits : XTB (0 € jusqu'à 100 000 € de transactions par mois), Trade Republic (1 € fixe par ordre), Fortuneo (frais parmi les plus compétitifs sur Euronext). L'ouverture est entièrement en ligne et prend généralement moins de 15 minutes. Aucun dépôt minimum n'est requis chez la plupart de ces courtiers."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <style>
+    /* ── HERO ── */
+    .frais-hero {
+      background: var(--pearl);
+      padding: 140px 0 60px;
+      border-bottom: 1px solid var(--grey-5);
+      position: relative;
+      overflow: hidden;
+    }
+    .frais-hero::before {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(160,231,197,0.18) 0%, transparent 65%);
+      bottom: -80px; right: -60px;
+      pointer-events: none;
+    }
+    .frais-hero-inner { max-width: 780px; position: relative; }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-head);
+      font-size: 12px;
+      color: var(--grey-3);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--grey-3); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--grey-4); }
+    .frais-hero h1 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(32px, 4.5vw, 56px);
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .frais-hero-sub {
+      font-size: 18px;
+      color: var(--grey-2);
+      line-height: 1.7;
+      max-width: 660px;
+    }
+
+    /* ── ÉDUCATIF ── */
+    .edu-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .edu-card {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+    .edu-card-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lavender);
+      margin-bottom: 10px;
+    }
+    .edu-card h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .edu-card p { font-size: 14px; color: var(--grey-2); line-height: 1.65; }
+    .edu-highlight {
+      background: var(--pearl);
+      border-left: 3px solid var(--lavender);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      padding: 8px 12px;
+      margin-top: 10px;
+      font-size: 13px;
+      font-family: var(--font-head);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ── TOOL ── */
+    .tool-wrap {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-xl);
+      padding: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tool-title {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 6px;
+    }
+    .tool-h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: var(--navy);
+      margin-bottom: 36px;
+    }
+
+    /* ── INPUTS 2 COL ── */
+    .frais-inputs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+    .frais-col {
+      background: var(--off-white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+    .frais-col-title {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--grey-5);
+      margin-bottom: 18px;
+    }
+    .frais-col-title.bad { color: #C0392B; }
+    .frais-col-title.good { color: #0D6B42; }
+    .sim-field { margin-bottom: 18px; }
+    .sim-field:last-child { margin-bottom: 0; }
+    .sim-field-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .sim-field label {
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--grey-1);
+    }
+    .sim-field-val {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .sim-slider {
+      width: 100%;
+      appearance: none;
+      height: 4px;
+      background: var(--grey-5);
+      border-radius: 4px;
+      outline: none;
+      margin-bottom: 5px;
+    }
+    .sim-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--navy);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(26,61,124,0.25);
+    }
+    .sim-slider::-moz-range-thumb {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--navy);
+      cursor: pointer;
+      border: none;
+    }
+    .sim-field-range {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--grey-3);
+      font-family: var(--font-head);
+    }
+    .sim-field-sub {
+      font-size: 11px;
+      color: var(--grey-3);
+      margin-top: 3px;
+    }
+    .sim-input-readonly {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--grey-5);
+      border: 1.5px solid var(--grey-4);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--grey-3);
+      cursor: not-allowed;
+      box-sizing: border-box;
+    }
+    .tooltip-label {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .tooltip-icon {
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: var(--grey-4);
+      color: white;
+      font-size: 9px;
+      font-family: var(--font-head);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: help;
+      flex-shrink: 0;
+    }
+    .common-inputs-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background: var(--pearl);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      align-items: end;
+    }
+    .common-inputs-row .sim-field { margin-bottom: 0; }
+
+    /* ── OUTPUTS GRANDS ── */
+    .frais-outputs {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .frais-out-card {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+    }
+    .frais-out-card.highlight {
+      border-color: #E85050;
+      background: rgba(232,80,80,0.04);
+    }
+    .frais-out-card.highlight-good {
+      border-color: #A0E7C5;
+      background: rgba(160,231,197,0.07);
+    }
+    .frais-out-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 8px;
+    }
+    .frais-out-val {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--navy);
+    }
+    .frais-out-val.bad { color: #C0392B; }
+    .frais-out-val.good { color: #0D6B42; }
+    .frais-out-sub {
+      font-size: 12px;
+      color: var(--grey-3);
+      margin-top: 4px;
+      font-family: var(--font-head);
+    }
+
+    /* ── PHRASE RÉSULTAT ── */
+    .result-phrase {
+      background: var(--gradient-brand);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .result-phrase p {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.55;
+      margin: 0;
+    }
+    .result-phrase strong { font-size: 19px; }
+
+    /* ── CHART ── */
+    .chart-wrap {
+      position: relative;
+      height: 300px;
+      margin-bottom: 16px;
+    }
+
+    /* ── DÉTAIL TABLEAU (dépliable) ── */
+    .detail-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1.5px solid var(--grey-4);
+      border-radius: 100px;
+      padding: 8px 18px;
+      font-family: var(--font-head);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--grey-2);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 16px;
+    }
+    .detail-toggle:hover { border-color: var(--navy); color: var(--navy); }
+    .detail-table-wrap {
+      display: none;
+      overflow-x: auto;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--grey-5);
+      margin-bottom: 20px;
+    }
+    .detail-table-wrap.open { display: block; }
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 640px;
+    }
+    .detail-table th {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: right;
+    }
+    .detail-table th:first-child { text-align: left; }
+    .detail-table td {
+      padding: 9px 14px;
+      text-align: right;
+      border-bottom: 1px solid var(--grey-5);
+      color: var(--grey-1);
+      font-family: var(--font-head);
+      font-size: 13px;
+    }
+    .detail-table td:first-child { text-align: left; font-weight: 600; }
+    .detail-table tr:nth-child(even) td { background: var(--off-white); }
+    .detail-table td.red { color: #C0392B; }
+    .detail-table td.green { color: #0D6B42; }
+
+    /* ── AFFILIATION ── */
+    .affil-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 0;
+    }
+    .affil-card {
+      background: var(--white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .affil-card-name {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.04em;
+    }
+    .affil-feature {
+      font-size: 14px;
+      color: var(--grey-2);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .affil-feature::before {
+      content: '✓';
+      color: var(--mint);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .affil-code {
+      background: var(--pearl);
+      border: 1px dashed var(--grey-4);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.1em;
+    }
+    .affil-note {
+      font-size: 12px;
+      color: var(--grey-3);
+      line-height: 1.6;
+      border-top: 1px solid var(--grey-5);
+      padding-top: 16px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--grey-5); }
+    .faq-item:first-child { border-top: 1px solid var(--grey-5); }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--navy);
+      gap: 16px;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+    }
+    .faq-q-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--pearl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .faq-q-icon { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner { padding: 0 0 20px; font-size: 15px; color: var(--grey-2); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-dark {
+      background: var(--gradient-dark);
+      border-radius: var(--radius-xl);
+      padding: 60px 40px;
+      text-align: center;
+    }
+    .cta-dark h2 {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(24px, 3vw, 40px);
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .cta-dark p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .cta-dark-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── DISCLAIMER ── */
+    .page-disclaimer {
+      background: var(--pearl);
+      border: 1px solid var(--grey-5);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+    }
+    .page-disclaimer p { font-size: 12px; color: var(--grey-3); line-height: 1.65; margin: 0; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .frais-inputs-grid { grid-template-columns: 1fr; }
+      .frais-outputs { grid-template-columns: 1fr 1fr; }
+      .common-inputs-row { grid-template-columns: 1fr; }
+      .edu-grid-2x2 { grid-template-columns: 1fr; }
+      .affil-grid { grid-template-columns: 1fr; }
+      .tool-wrap { padding: 24px 18px; }
+    }
+    @media (max-width: 680px) {
+      .frais-hero { padding: 120px 0 44px; }
+      .frais-outputs { grid-template-columns: 1fr; }
+      .cta-dark { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+      <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+      <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+      <li><a href="audit.html">Audit de portefeuille</a></li>
+      <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+      <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+      <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="frais-hero">
+    <div class="container">
+      <div class="frais-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <a href="calculateur.html">Outils</a>
+          <span>›</span>
+          <span>Calculateur de frais</span>
+        </div>
+        <h1>Calculateur de frais : combien ta banque te coûte vraiment ?</h1>
+        <p class="frais-hero-sub">
+          Un fonds actif à 2 % de frais annuels face à un ETF à 0,3 %.
+          Sur 30 ans, la différence peut dépasser 100 000 €. Calcule ton propre manque à gagner.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION ÉDUCATIVE
+  ═══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header reveal" style="max-width:600px;text-align:left;margin-bottom:32px;">
+        <span class="t-label">Comprendre les frais</span>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-size:clamp(26px,3vw,38px);color:var(--navy);margin-top:8px;">Ce que personne ne te montre dans tes relevés</h2>
+      </div>
+      <div class="edu-grid-2x2 reveal">
+
+        <div class="edu-card">
+          <div class="edu-card-label">Les 4 types de frais</div>
+          <h3>Ce qui mange ta performance</h3>
+          <p>
+            <strong>Frais d'entrée :</strong> prélevés sur chaque versement dès le premier jour, avant investissement.<br><br>
+            <strong>Frais de gestion annuels :</strong> prélevés chaque année sur la totalité du capital, performance positive ou non.<br><br>
+            <strong>Frais de courtage :</strong> prélevés à chaque ordre de bourse passé.<br><br>
+            <strong>Frais de sortie :</strong> parfois prélevés au rachat, rares sur les ETF mais fréquents sur certains contrats.
+          </p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-label">L'effet composé inversé</div>
+          <h3>L'effet composé des frais (dans le mauvais sens)</h3>
+          <p>
+            1,5 % de frais annuels sur 30 ans ne représente pas 45 % de coût cumulé. L'effet de capitalisation
+            des frais est bien supérieur.
+          </p>
+          <div class="edu-highlight">10 000 € à 7 % brut pendant 30 ans = 76 123 €<br>
+          À 5,5 % net (après 1,5 % de frais) = 52 277 €<br>
+          Différence = 23 846 €, soit 31 % du capital final</div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-label">Réalité 2026</div>
+          <h3>ETF vs fonds actifs en France</h3>
+          <p>
+            Les ETF monde sur PEA (Amundi CW8, Lyxor Core MSCI World) affichent 0,12 % à 0,38 % de frais
+            annuels. Les fonds actifs distribués en assurance vie bancaire oscillent entre 1,8 % et 2,5 %.
+            Des courtiers comme XTB ou Fortuneo proposent 0 € de frais d'entrée sur les ETF.
+          </p>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-label">Pourquoi ce silence ?</div>
+          <h3>Pourquoi les banques ne te montrent jamais ce calcul</h3>
+          <p>
+            Les frais sont prélevés directement sur la valeur de part : aucune ligne "frais" n'apparaît
+            sur ton relevé. Ce sont des rétrocommissions versées à la banque distributrice par la
+            société de gestion. Plus tes frais sont élevés, plus ta banque gagne. L'autonomie
+            de l'investisseur commence par lire les frais réels.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       OUTIL INTERACTIF
+  ═══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--off-white);" id="calculateur">
+    <div class="container">
+      <div class="tool-wrap reveal">
+        <div class="tool-title">Outil interactif</div>
+        <h2 class="tool-h2">Calcule ton manque à gagner réel</h2>
+
+        <!-- Paramètres communs -->
+        <div class="common-inputs-row">
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-capital">Capital initial</label>
+              <span class="sim-field-val" id="val-capital">10 000 €</span>
+            </div>
+            <input type="range" id="sl-capital" class="sim-slider" min="0" max="100000" step="500" value="10000">
+            <div class="sim-field-range"><span>0 €</span><span>100 k€</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-monthly">Versement mensuel</label>
+              <span class="sim-field-val" id="val-monthly">300 €</span>
+            </div>
+            <input type="range" id="sl-monthly" class="sim-slider" min="0" max="3000" step="50" value="300">
+            <div class="sim-field-range"><span>0 €</span><span>3 000 €</span></div>
+          </div>
+          <div class="sim-field">
+            <div class="sim-field-header">
+              <label for="sl-years">Durée</label>
+              <span class="sim-field-val" id="val-years">25 ans</span>
+            </div>
+            <input type="range" id="sl-years" class="sim-slider" min="5" max="40" step="1" value="25">
+            <div class="sim-field-range"><span>5 ans</span><span>40 ans</span></div>
+          </div>
+        </div>
+
+        <!-- Rendement brut commun -->
+        <div style="background:var(--pearl);border:1px solid var(--grey-5);border-radius:var(--radius-md);padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+          <div class="sim-field" style="flex:1;min-width:200px;margin-bottom:0;">
+            <div class="sim-field-header">
+              <label for="sl-return">Rendement brut marché annuel</label>
+              <span class="sim-field-val" id="val-return">7,0 %</span>
+            </div>
+            <input type="range" id="sl-return" class="sim-slider" min="3" max="12" step="0.5" value="7">
+            <div class="sim-field-range"><span>3 %</span><span>12 %</span></div>
+          </div>
+          <p style="font-size:12px;color:var(--grey-3);max-width:260px;margin:0;">Même rendement brut supposé pour les deux scénarios. Les frais représentent la différence.</p>
+        </div>
+
+        <!-- 2 colonnes scénarios -->
+        <div class="frais-inputs-grid">
+
+          <!-- Col gauche : Fonds actifs -->
+          <div class="frais-col">
+            <div class="frais-col-title bad">Fonds actifs (banque traditionnelle)</div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label class="tooltip-label">
+                  Frais d'entrée
+                  <span class="tooltip-icon" title="Prélevés sur chaque versement dès le premier jour">?</span>
+                </label>
+                <span class="sim-field-val" id="val-entry">3,0 %</span>
+              </div>
+              <input type="range" id="sl-entry" class="sim-slider" min="0" max="5" step="0.1" value="3">
+              <div class="sim-field-range"><span>0 %</span><span>5 %</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label class="tooltip-label">
+                  Frais de gestion annuels
+                  <span class="tooltip-icon" title="Prélevés chaque année sur la totalité du capital">?</span>
+                </label>
+                <span class="sim-field-val" id="val-mgmt">2,0 %</span>
+              </div>
+              <input type="range" id="sl-mgmt" class="sim-slider" min="0" max="3.5" step="0.1" value="2">
+              <div class="sim-field-range"><span>0 %</span><span>3,5 %</span></div>
+            </div>
+          </div>
+
+          <!-- Col droite : ETF PEA -->
+          <div class="frais-col">
+            <div class="frais-col-title good">ETF sur PEA (courtier en ligne)</div>
+
+            <div class="sim-field">
+              <label>Frais d'entrée ETF</label>
+              <input class="sim-input-readonly" value="0 % · 0 € chez XTB ou Fortuneo" readonly style="margin-top:8px;">
+            </div>
+
+            <div class="sim-field">
+              <label>Frais de gestion ETF</label>
+              <input class="sim-input-readonly" value="0,25 % · ETF World type Amundi CW8" readonly style="margin-top:8px;">
+            </div>
+
+            <div class="sim-field" style="margin-top:12px;">
+              <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-family:var(--font-head);font-size:13px;font-weight:600;color:var(--grey-1);">
+                <input type="checkbox" id="cb-pea" checked style="width:16px;height:16px;accent-color:var(--navy);cursor:pointer;">
+                PEA ouvert depuis plus de 5 ans
+              </label>
+              <div class="sim-field-sub">18,6 % PS sur les plus-values. Non coché : flat tax 30 %.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Outputs principaux -->
+        <div class="frais-outputs">
+          <div class="frais-out-card">
+            <div class="frais-out-label">Capital final, fonds actifs</div>
+            <div class="frais-out-val" id="out-fonds">&nbsp;</div>
+            <div class="frais-out-sub">Net de frais, avant impôts</div>
+          </div>
+          <div class="frais-out-card highlight-good">
+            <div class="frais-out-label">Capital final, ETF PEA</div>
+            <div class="frais-out-val good" id="out-etf">&nbsp;</div>
+            <div class="frais-out-sub">Net de frais et d'impôts PEA</div>
+          </div>
+          <div class="frais-out-card highlight">
+            <div class="frais-out-label">Différence en ta faveur</div>
+            <div class="frais-out-val bad" id="out-diff">&nbsp;</div>
+            <div class="frais-out-sub" id="out-months">&nbsp;</div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;align-items:center;">
+          <div style="background:rgba(232,80,80,0.07);border:1px solid rgba(232,80,80,0.2);border-radius:var(--radius-sm);padding:12px 18px;">
+            <span style="font-family:var(--font-head);font-size:12px;color:var(--grey-3);">Frais totaux payés à la banque</span><br>
+            <span style="font-family:var(--font-head);font-size:20px;font-weight:800;color:#C0392B;" id="out-fees-total">&nbsp;</span>
+          </div>
+          <div style="background:var(--pearl);border:1px solid var(--grey-5);border-radius:var(--radius-sm);padding:12px 18px;">
+            <span style="font-family:var(--font-head);font-size:12px;color:var(--grey-3);">Versements totaux</span><br>
+            <span style="font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--navy);" id="out-invested">&nbsp;</span>
+          </div>
+        </div>
+
+        <!-- Phrase dynamique -->
+        <div class="result-phrase">
+          <p id="result-phrase-text">En <strong id="rp-years">25</strong> ans, les frais de gestion de ta banque t'auront coûté <strong id="rp-fees">&nbsp;</strong>. C'est <strong id="rp-months">&nbsp;</strong> mois de salaire médian que tu aurais pu garder.</p>
+        </div>
+
+        <!-- Graphique -->
+        <div class="chart-wrap">
+          <canvas id="chart-frais"></canvas>
+        </div>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin:12px 0 24px;">
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-2);font-family:var(--font-head);">
+            <div style="width:12px;height:12px;background:#1A3D7C;border-radius:2px;"></div>Versements totaux
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-2);font-family:var(--font-head);">
+            <div style="width:12px;height:12px;background:#93C5FD;border-radius:2px;"></div>Gains fonds actifs
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-2);font-family:var(--font-head);">
+            <div style="width:12px;height:12px;background:#E85050;border-radius:2px;"></div>Frais payés
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-2);font-family:var(--font-head);">
+            <div style="width:12px;height:12px;background:#A0E7C5;border-radius:2px;"></div>Gains ETF PEA
+          </div>
+          <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--grey-2);font-family:var(--font-head);">
+            <div style="width:12px;height:12px;background:#D0D0D0;border-radius:2px;"></div>Impôts PEA
+          </div>
+        </div>
+
+        <!-- Détail année par année -->
+        <button class="detail-toggle" id="btn-detail">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          Voir le détail année par année
+        </button>
+        <div class="detail-table-wrap" id="detail-table-wrap">
+          <table class="detail-table" id="detail-table">
+            <thead>
+              <tr>
+                <th>Année</th>
+                <th>Versements cumulés</th>
+                <th>Capital brut fonds</th>
+                <th>Frais cumulés</th>
+                <th>Capital net fonds</th>
+                <th>Capital ETF PEA net</th>
+              </tr>
+            </thead>
+            <tbody id="detail-tbody"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ENCART AFFILIÉS
+  ═══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="section-header reveal" style="max-width:600px;text-align:left;margin-bottom:28px;">
+        <span class="t-label">Ouvrir un PEA</span>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-size:clamp(22px,2.5vw,32px);color:var(--navy);margin-top:8px;">Sans frais d'entrée ni frais de courtage</h2>
+      </div>
+      <div class="affil-grid reveal">
+
+        <div class="affil-card">
+          <div class="affil-card-name">XTB</div>
+          <div class="affil-feature">0 € de frais de courtage jusqu'à 100 000 € de transactions par mois</div>
+          <div class="affil-feature">PEA disponible depuis 2025</div>
+          <div class="affil-feature">Plateforme régulée, accessible depuis la France</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:11px;color:var(--grey-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;">Code parrainage</div>
+            <div class="affil-code">JULIEN</div>
+          </div>
+          <a href="parrainage.html" class="btn btn-gradient" style="justify-content:center;">
+            Ouvrir un PEA chez XTB
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="affil-card">
+          <div class="affil-card-name">Fortuneo</div>
+          <div class="affil-feature">Jusqu'à 140 € offerts à l'ouverture</div>
+          <div class="affil-feature">Frais de courtage parmi les plus bas du marché sur Euronext</div>
+          <div class="affil-feature">Plus de 600 ETF éligibles PEA disponibles</div>
+          <div>
+            <div style="font-family:var(--font-head);font-size:11px;color:var(--grey-3);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.1em;">Code parrainage</div>
+            <div class="affil-code">13385764</div>
+          </div>
+          <a href="parrainage.html" class="btn btn-gradient" style="justify-content:center;">
+            Ouvrir un PEA chez Fortuneo
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+      </div>
+      <p class="affil-note" style="margin-top:16px;max-width:720px;">
+        Ces liens sont des liens affiliés. Julien Invest perçoit une commission si tu ouvres un compte via ces liens,
+        sans frais supplémentaires pour toi. Les courtiers sont sélectionnés pour leur pertinence pédagogique,
+        pas uniquement pour leur commission.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FAQ
+  ═══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--off-white);" id="faq">
+    <div class="container">
+      <div class="section-header reveal" style="max-width:600px;text-align:left;margin-bottom:36px;">
+        <span class="t-label">Questions fréquentes</span>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-size:clamp(24px,2.8vw,36px);color:var(--navy);margin-top:8px;">Tout comprendre sur les frais de gestion</h2>
+      </div>
+      <div class="faq-list reveal" style="max-width:800px;">
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Comment sont calculés les frais de gestion d'un fonds actif ?
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Les frais de gestion annuels sont prélevés directement sur la valeur de la part du fonds,
+              chaque année, que la performance soit positive ou négative. Par exemple, un fonds à 2 % de
+              frais annuels voit la valeur de ses parts réduite de 2 % chaque année au profit de la société
+              de gestion. Ces frais sont invisibles sur les relevés car ils sont intégrés dans la valeur
+              de la part, pas dans une ligne "frais" séparée.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Quelle est la différence entre frais d'entrée et frais de gestion ?
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Les frais d'entrée (ou droits d'entrée) sont prélevés une seule fois à chaque versement :
+              un fonds avec 3 % de frais d'entrée ne place que 97 € pour chaque 100 € versés.
+              Les frais de gestion annuels, eux, sont prélevés chaque année sur la totalité du capital
+              investi, qu'il y ait ou non un nouveau versement. C'est leur cumul sur de longues années
+              qui produit l'effet dévastateur sur le capital final.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Un ETF à 0,3 % de frais est-il vraiment moins cher qu'un fonds à 2 % ?
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              La différence de 1,7 % peut sembler faible. Mais sur 30 ans, l'effet de capitalisation
+              est considérable. Un capital de 10 000 € à 7 % brut pendant 30 ans donne :
+              76 123 € sans frais, 52 277 € avec 1,5 % de frais, 43 219 € avec 2,5 % de frais.
+              Les frais sont la seule variable totalement contrôlable par l'investisseur.
+              Les rendements futurs sont incertains ; les frais, eux, sont certains et irrémédiables.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Puis-je transférer mon assurance vie vers un PEA ?
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Non, il n'est pas possible de transférer directement une assurance vie vers un PEA.
+              Ce sont deux enveloppes fiscales distinctes. Tu peux en revanche racheter tout ou partie
+              de ton assurance vie et verser ensuite les fonds sur un PEA, en tenant compte des
+              implications fiscales selon l'ancienneté du contrat. Un conseiller financier indépendant
+              peut t'aider à choisir la meilleure stratégie selon ta situation personnelle.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">
+            Comment ouvrir un PEA sans frais en France ?
+            <span class="faq-q-icon">+</span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-inner">
+              Plusieurs courtiers en ligne proposent des PEA avec 0 € de frais de courtage ou des frais
+              très réduits : XTB (0 € jusqu'à 100 000 € de transactions par mois), Trade Republic (1 €
+              fixe par ordre), Fortuneo (frais parmi les plus compétitifs sur Euronext). L'ouverture est
+              entièrement en ligne et prend généralement moins de 15 minutes. Aucun dépôt minimum n'est
+              requis chez la plupart de ces courtiers.
+              <br><br>
+              <a href="comparatif-pea.html" class="btn btn-secondary btn--sm" style="margin-top:8px;">Voir le comparatif PEA complet</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="cta-dark reveal">
+        <h2>Prêt à arrêter de payer des frais que tu ne vois pas ?</h2>
+        <p>
+          La formation De 0 à Investisseur t'apprend à construire un portefeuille ETF optimisé,
+          avec les bonnes enveloppes fiscales et les bons courtiers. 147 € pour ne plus jamais payer trop de frais.
+        </p>
+        <div class="cta-dark-btns">
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation · 147 €
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+          <a href="simulateur-inflation.html" class="btn btn-secondary btn--lg" style="color:rgba(255,255,255,0.8);border-color:rgba(255,255,255,0.3);">
+            Voir le simulateur inflation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       DISCLAIMER LÉGAL
+  ═══════════════════════════════════════════ -->
+  <section class="section--sm" style="background:var(--off-white);">
+    <div class="container">
+      <div class="page-disclaimer">
+        <p>
+          Les informations et outils proposés sur cette page sont fournis à titre pédagogique uniquement.
+          Ils ne constituent pas un conseil en investissement au sens des articles L321-1 et D321-1
+          du Code Monétaire et Financier. Tout investissement comporte un risque de perte en capital.
+          Les simulations présentées sont basées sur des hypothèses et ne préjugent pas des performances futures.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">
+            Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest
+          </div>
+          <p class="footer-brand-desc">
+            L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Outils</h4>
+          <a href="simulateur-inflation.html">Simulateur Inflation</a>
+          <a href="calculateur-frais.html">Calculateur de frais</a>
+          <a href="comparatif-pea.html">Comparatif PEA 2026</a>
+          <a href="calculateur.html#interets-composes">Intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Liberté financière</a>
+          <a href="comparateur-etf.html">Comparateur ETF</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          <strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle.
+          Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF.
+          Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques,
+          y compris la perte en capital. Les performances passées ne préjugent pas des performances futures.
+        </p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a href="formation.html" class="btn btn-gradient btn--lg">
+      Accéder à la formation
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+    </a>
+  </div>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  // ═══════════════════════════════════════════
+  // CALCULATEUR FRAIS — Logique JS
+  // ═══════════════════════════════════════════
+  (function () {
+    const ETF_FEES = 0.0025;
+    const SALAIRE_MEDIAN = 2500;
+
+    const state = {
+      capital: 10000,
+      monthly: 300,
+      years: 25,
+      grossReturn: 7,
+      entryFee: 3,
+      mgmtFee: 2,
+      pea: true
+    };
+
+    function calcFV_monthly(C0, monthly, annualRate, years) {
+      if (years === 0) return C0;
+      if (annualRate <= 0) return C0 + monthly * 12 * years;
+      const r = annualRate / 100;
+      const rm = Math.pow(1 + r, 1 / 12) - 1;
+      const n = years * 12;
+      return C0 * Math.pow(1 + r, years) + monthly * (Math.pow(1 + rm, n) - 1) / rm;
+    }
+
+    function calcFonds(C0, monthly, grossReturn, entryFee, mgmtFee, years) {
+      const entry = entryFee / 100;
+      const effectiveReturn = grossReturn - mgmtFee;
+      const C0_net = C0 * (1 - entry);
+      const monthly_net = monthly * (1 - entry);
+      return calcFV_monthly(C0_net, monthly_net, effectiveReturn, years);
+    }
+
+    function calcFondsBrut(C0, monthly, grossReturn, years) {
+      return calcFV_monthly(C0, monthly, grossReturn, years);
+    }
+
+    function calcETFPEA(C0, monthly, grossReturn, years, isPEA) {
+      const etfNetReturn = grossReturn - 0.25;
+      const gross = calcFV_monthly(C0, monthly, etfNetReturn, years);
+      const totalInvested = C0 + monthly * 12 * years;
+      const gains = Math.max(0, gross - totalInvested);
+      const taxRate = isPEA ? 0.186 : 0.30;
+      return gross - gains * taxRate;
+    }
+
+    function fmt(v) {
+      return Math.round(v).toLocaleString('fr-FR') + ' €';
+    }
+    function fmtNum(v) {
+      return (Math.round(v * 10) / 10).toFixed(1).replace('.', ',');
+    }
+
+    let chartInstance = null;
+
+    function buildChartData() {
+      const { capital: C0, monthly, years, grossReturn, entryFee, mgmtFee, pea } = state;
+      const totalInvested = C0 + monthly * 12 * years;
+      const fondsNet = calcFonds(C0, monthly, grossReturn, entryFee, mgmtFee, years);
+      const fondsBrut = calcFondsBrut(C0, monthly, grossReturn, years);
+      const feesTotal = fondsBrut - fondsNet;
+      const fondsGains = Math.max(0, fondsNet - totalInvested);
+      const etfNet = calcETFPEA(C0, monthly, grossReturn, years, pea);
+      const etfGross = calcFV_monthly(C0, monthly, grossReturn - 0.25, years);
+      const etfGains = Math.max(0, etfGross - totalInvested);
+      const etfTaxRate = pea ? 0.186 : 0.30;
+      const etfTax = Math.max(0, etfGains) * etfTaxRate;
+
+      return {
+        labels: ['Fonds actifs (banque)', 'ETF PEA (courtier en ligne)'],
+        datasets: [
+          {
+            label: 'Versements totaux',
+            data: [totalInvested, totalInvested],
+            backgroundColor: '#1A3D7C'
+          },
+          {
+            label: 'Gains nets fonds actifs',
+            data: [Math.max(0, fondsGains), 0],
+            backgroundColor: '#93C5FD'
+          },
+          {
+            label: 'Frais payés à la banque',
+            data: [feesTotal, 0],
+            backgroundColor: '#E85050'
+          },
+          {
+            label: 'Gains ETF PEA',
+            data: [0, Math.max(0, etfGains)],
+            backgroundColor: '#A0E7C5'
+          },
+          {
+            label: 'Impôts PEA',
+            data: [0, etfTax],
+            backgroundColor: '#D0D0D0'
+          }
+        ]
+      };
+    }
+
+    function initChart() {
+      const ctx = document.getElementById('chart-frais').getContext('2d');
+      const data = buildChartData();
+      chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => ctx.dataset.label + ' : ' + Math.round(ctx.raw).toLocaleString('fr-FR') + ' €'
+              }
+            }
+          },
+          scales: {
+            x: {
+              stacked: true,
+              grid: { display: false },
+              ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 12 }, color: '#3A526A' }
+            },
+            y: {
+              stacked: true,
+              grid: { color: 'rgba(226,238,255,0.7)' },
+              ticks: {
+                font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 },
+                color: '#6F6F99',
+                callback: (v) => Math.round(v / 1000) + ' k€'
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function updateChart() {
+      if (!chartInstance) return;
+      const data = buildChartData();
+      chartInstance.data = data;
+      chartInstance.update('none');
+    }
+
+    function buildDetailTable() {
+      const { capital: C0, monthly, years, grossReturn, entryFee, mgmtFee, pea } = state;
+      const entry = entryFee / 100;
+      const effReturn = grossReturn - mgmtFee;
+      const tbody = document.getElementById('detail-tbody');
+      tbody.innerHTML = '';
+
+      for (let y = 1; y <= years; y++) {
+        const invested = C0 + monthly * 12 * y;
+        const brut = calcFondsBrut(C0, monthly, grossReturn, y);
+        const net = calcFonds(C0, monthly, grossReturn, entryFee, mgmtFee, y);
+        const fees = brut - net;
+        const etfNet = calcETFPEA(C0, monthly, grossReturn, y, pea);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>An ${y}</td>
+          <td>${fmt(invested)}</td>
+          <td>${fmt(brut)}</td>
+          <td class="red">${fmt(fees)}</td>
+          <td>${fmt(net)}</td>
+          <td class="green">${fmt(etfNet)}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function compute() {
+      const { capital: C0, monthly, years, grossReturn, entryFee, mgmtFee, pea } = state;
+      const totalInvested = C0 + monthly * 12 * years;
+      const fondsNet = calcFonds(C0, monthly, grossReturn, entryFee, mgmtFee, years);
+      const fondsBrut = calcFondsBrut(C0, monthly, grossReturn, years);
+      const feesTotal = Math.max(0, fondsBrut - fondsNet);
+      const etfNet = calcETFPEA(C0, monthly, grossReturn, years, pea);
+      const diff = etfNet - fondsNet;
+      const diffMonths = diff / SALAIRE_MEDIAN;
+
+      document.getElementById('out-fonds').textContent = fmt(fondsNet);
+      document.getElementById('out-etf').textContent = fmt(etfNet);
+      document.getElementById('out-diff').textContent = fmt(diff);
+      document.getElementById('out-diff').className = 'frais-out-val ' + (diff >= 0 ? 'good' : 'bad');
+      document.getElementById('out-months').textContent = Math.round(diffMonths) + ' mois de salaire médian';
+      document.getElementById('out-fees-total').textContent = fmt(feesTotal);
+      document.getElementById('out-invested').textContent = fmt(totalInvested);
+
+      document.getElementById('rp-years').textContent = years;
+      document.getElementById('rp-fees').textContent = fmt(feesTotal);
+      document.getElementById('rp-months').textContent = Math.round(feesTotal / SALAIRE_MEDIAN);
+
+      updateChart();
+      if (document.getElementById('detail-table-wrap').classList.contains('open')) {
+        buildDetailTable();
+      }
+    }
+
+    function bindSlider(sliderId, displayId, key, formatFn) {
+      const slider = document.getElementById(sliderId);
+      const display = document.getElementById(displayId);
+      slider.addEventListener('input', () => {
+        state[key] = parseFloat(slider.value);
+        display.textContent = formatFn(parseFloat(slider.value));
+        compute();
+      });
+    }
+
+    function init() {
+      bindSlider('sl-capital', 'val-capital', 'capital', v => Math.round(v).toLocaleString('fr-FR') + ' €');
+      bindSlider('sl-monthly', 'val-monthly', 'monthly', v => Math.round(v).toLocaleString('fr-FR') + ' €');
+      bindSlider('sl-years', 'val-years', 'years', v => Math.round(v) + ' ans');
+      bindSlider('sl-return', 'val-return', 'grossReturn', v => fmtNum(v) + ' %');
+      bindSlider('sl-entry', 'val-entry', 'entryFee', v => fmtNum(v) + ' %');
+      bindSlider('sl-mgmt', 'val-mgmt', 'mgmtFee', v => fmtNum(v) + ' %');
+
+      document.getElementById('cb-pea').addEventListener('change', function () {
+        state.pea = this.checked;
+        compute();
+      });
+
+      document.getElementById('btn-detail').addEventListener('click', function () {
+        const wrap = document.getElementById('detail-table-wrap');
+        wrap.classList.toggle('open');
+        this.innerHTML = wrap.classList.contains('open')
+          ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg> Masquer le détail'
+          : '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg> Voir le détail année par année';
+        if (wrap.classList.contains('open')) buildDetailTable();
+      });
+
+      function tryInit() {
+        if (typeof Chart !== 'undefined') {
+          initChart();
+          compute();
+        } else {
+          setTimeout(tryInit, 100);
+        }
+      }
+      tryInit();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+
+    // FAQ
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.faq-q').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const item = this.closest('.faq-item');
+          const isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('open');
+            i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    });
+
+  })();
+  </script>
+</body>
+</html>
