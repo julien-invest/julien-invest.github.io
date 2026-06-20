@@ -1773,12 +1773,16 @@ a:hover > .platform-logo {
 
 /* ── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
-  .hero-photo-wrap { order: -1; display: flex; justify-content: center; }
+  .hero { min-height: auto; padding-top: 72px; padding-bottom: 24px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 16px; padding: 12px 0 0; }
+  .hero-photo-wrap { order: 3; display: flex; justify-content: center; }
   .hero-photo-card { max-width: 260px; margin: 0 auto; }
   .hero-content { display: contents; }
-  .hero-label { order: -2; display: flex; justify-content: center; padding-top: 8px; }
-  .hero-title, .hero-sub, .hero-actions, .hero-stats { order: 0; }
+  .hero-label { order: 1; display: flex; justify-content: center; padding-top: 0; margin-bottom: 4px; }
+  .hero-title { order: 2; margin-bottom: 8px; }
+  .hero-sub { order: 3; margin-bottom: 8px; }
+  .hero-actions { order: 4; }
+  .hero-stats { order: 5; }
   .hero-badge-tl { left: 0; }
   .hero-badge-br { right: 0; }
   .about-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -1864,6 +1868,52 @@ a:hover > .platform-logo {
   padding: 7px 0;
 }
 .nav-mobile ul a:hover { color: var(--navy); }
+
+/* ── MOBILE ACCORDION (Calculateurs) ─────────────── */
+.mob-accordion { list-style: none; text-align: center; }
+.mob-accordion-trigger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-head);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--grey-3);
+  letter-spacing: -0.03em;
+  padding: 7px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  transition: color var(--transition);
+}
+.mob-accordion-trigger:hover,
+.mob-accordion.open .mob-accordion-trigger { color: var(--navy); }
+.mob-accordion-arrow {
+  display: inline-block;
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+.mob-accordion.open .mob-accordion-arrow { transform: rotate(180deg); }
+.mob-accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: var(--off-white);
+  border-radius: var(--radius-sm);
+  margin: 0 -16px 4px;
+}
+.mob-accordion.open .mob-accordion-panel { max-height: 600px; }
+.mob-accordion-panel li { margin-bottom: 0; }
+.mob-accordion-panel a {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--navy) !important;
+  padding: 8px 16px !important;
+  opacity: 0.8;
+}
+.mob-accordion-panel a:hover { opacity: 1; }
 
 /* Fix hero stat last item (hardcoded 100%) */
 .hero-stat-val span[data-target="0"] { display: none; }
@@ -2402,12 +2452,18 @@ a:hover > .platform-logo {
   border: 1px solid var(--grey-5);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
-  min-width: 240px;
+  min-width: 520px;
   padding: 8px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
   z-index: 1001;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.nav-dropdown-item.featured,
+.nav-dropdown-sep {
+  grid-column: 1 / -1;
 }
 .nav-item-dropdown:hover .nav-dropdown,
 .nav-item-dropdown:focus-within .nav-dropdown {

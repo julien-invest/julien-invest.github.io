@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMNP vs location nue : quelle fiscalité choisir pour votre bien locatif ? | Julien Invest</title>
+  <meta name="description" content="Comparatif fiscal complet entre LMNP et location nue en 2026 : micro-foncier, micro-BIC, régime réel, amortissement. Cas pratique chiffré sur un bien à 200 000 €, pièges à éviter.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="LMNP vs location nue : quelle fiscalité choisir pour votre bien locatif ? | Julien Invest">
+  <meta property="og:description" content="Comparatif fiscal complet entre LMNP et location nue en 2026 : micro-foncier, micro-BIC, régime réel, amortissement. Cas pratique chiffré sur un bien à 200 000 €, pièges à éviter.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-lmnp-vs-location-nue.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LMNP vs location nue : quelle fiscalité choisir pour votre bien locatif ?">
+  <meta name="twitter:description" content="LMNP ou location nue ? Le comparatif fiscal complet avec cas pratique chiffré, amortissement expliqué et pièges à éviter en 2026.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LMNP vs location nue : quelle fiscalité choisir pour votre bien locatif ?",
+  "description": "Comparatif fiscal complet entre LMNP et location nue en 2026 : micro-foncier, micro-BIC, régime réel, amortissement. Cas pratique chiffré sur un bien à 200 000 €.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#064E3B,#10B981); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: white; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    /* Tables */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    @media (max-width: 560px) { .compare-table--wide { min-width: 680px; } }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+    /* Figures */
+    .scpi-figure { margin: 28px 0 34px; }
+    .scpi-figure figcaption { font-size: 13px; color: var(--grey-1); text-align: center; margin-top: 10px; font-style: italic; }
+    .cf-svg { width: 100%; height: auto; display: block; }
+    .scpi-note { background: var(--pearl); border-radius: 12px; padding: 16px 20px; font-size: 13px; color: var(--grey-1); line-height: 1.65; margin: 0 0 32px; }
+    .scpi-note strong { color: var(--navy); }
+    /* Stats bar */
+    .scpi-stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .scpi-stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .scpi-stat { background: #fff; padding: 20px 12px; text-align: center; }
+    .scpi-stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
+    .scpi-stat-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-lmnp-vs-location-nue.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que le LMNP et comment ça fonctionne ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le LMNP (loueur en meublé non professionnel) est un statut fiscal qui s'applique quand vous louez un logement meublé (avec l'ensemble des meubles nécessaires à la vie courante listés par décret) et que vos recettes annuelles ne dépassent pas 23 000 € ou restent inférieures aux autres revenus d'activité du foyer. Vous relevez alors des bénéfices industriels et commerciaux (BIC) et non des revenus fonciers. Le principal avantage est le régime réel : vous pouvez déduire les charges et pratiquer l'amortissement comptable du bien, du mobilier et des travaux, ce qui génère souvent un résultat fiscal nul ou proche de zéro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vaut-il mieux choisir le micro-BIC ou le régime réel en LMNP ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le micro-BIC (abattement forfaitaire de 50% sur les recettes, plafond 77 700 €/an en 2026) est simple et ne nécessite pas de comptabilité. Le régime réel est plus intéressant dès que vos charges réelles et amortissements dépassent 50% de vos recettes — ce qui est presque toujours le cas pour un appartement acquis à crédit ou avec un mobilier neuf. En pratique, pour un bien de 200 000 € loué 900 €/mois, le régime réel LMNP génère souvent un résultat imposable nul grâce à l'amortissement, contre 5 400 € de bénéfice imposable en micro-BIC. Cela justifie le coût d'un expert-comptable (600 à 1 200 €/an)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle est la différence entre le déficit foncier (location nue) et l'amortissement LMNP ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ce sont deux mécanismes différents. Le déficit foncier (location nue au réel) permet de déduire les charges réelles du revenu global dans la limite de 10 700 €/an (20 400 € pour travaux énergétiques). Il ne couvre pas l'amortissement du bien. En LMNP réel, l'amortissement est une charge comptable annuelle (environ 2,5 à 3,3 % de la valeur du bien pour les murs, 14 à 20 % pour le mobilier) qui réduit le bénéfice BIC — sans sortie d'argent réelle. La différence clé : l'amortissement LMNP ne crée pas de déficit imputable sur le revenu global, mais il annule l'imposition des loyers, ce que le micro-foncier ne peut pas faire."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quand bascule-t-on du LMNP au LMP (loueur meublé professionnel) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le statut LMP (loueur meublé professionnel) s'applique quand deux conditions sont réunies simultanément : les recettes locatives meublées annuelles dépassent 23 000 € ET ces recettes sont supérieures aux autres revenus professionnels du foyer fiscal. Le LMP offre des avantages (imputation des déficits sur le revenu global sans limite, exonération de plus-value sous conditions), mais il implique des cotisations sociales TNS (travailleur non salarié) calculées sur le bénéfice, soit environ 35 à 45 % de cotisations. C'est un changement de statut automatique, pas un choix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La CFE est-elle due en LMNP ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. La cotisation foncière des entreprises (CFE) est due dès la première année d'activité en LMNP, y compris au régime réel et au micro-BIC. Son montant varie selon la commune (de quelques dizaines d'euros à plusieurs centaines) et la valeur locative du bien. Une exonération existe pour les loueurs dont les recettes sont inférieures à 5 000 €/an. La CFE est déductible en régime réel LMNP comme charge. Il faut déclarer son activité au greffe du tribunal de commerce (formulaire P0i) dans les 15 jours suivant le début de l'activité."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on passer de la location nue au LMNP sans vendre le bien ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, à condition que le bail en cours arrive à son terme (le bail nu dure 3 ans renouvelables, contre 1 an pour le meublé). À l'échéance du bail, vous pouvez meubler le logement et le relouer sous statut LMNP. Il faut alors déclarer l'activité BIC, choisir entre micro-BIC et régime réel, et équiper le logement conformément au décret du 31 juillet 2015 (liste des meubles obligatoires). Les charges de transition (achat du mobilier, honoraires comptables, CFE) doivent être intégrées dans le calcul de rentabilité. Ce changement peut être intéressant fiscalement mais il modifie les conditions du bail et la durée de préavis."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Immobilier</span>
+        <h1>LMNP vs location nue :<br><em>quelle fiscalité choisir ?</em></h1>
+        <p class="article-meta-date">Publié le 20 juin 2026 · 14 min de lecture</p>
+        <p>Vous possédez un bien locatif et vous vous demandez si le meublé ou le nu vous coûte moins d'impôts. La réponse dépend de votre situation — mais les chiffres parlent clairement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Immobilier</span>
+
+        <p>Deux propriétaires, même bien, même loyer, même tranche marginale d'imposition — et pourtant l'un paie des milliers d'euros d'impôts de plus que l'autre. La différence : le statut fiscal choisi. En France, louer un bien immobilier relève soit des <strong>revenus fonciers</strong> (location nue), soit des <strong>bénéfices industriels et commerciaux</strong> (location meublée, statut LMNP). Ces deux univers fiscaux ont des règles, des avantages et des pièges très différents.</p>
+
+        <div class="scpi-stats-bar">
+          <div class="scpi-stat"><div class="scpi-stat-num">50%</div><div class="scpi-stat-label">Économie fiscale LMNP (réel)</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">77 700 €</div><div class="scpi-stat-label">Seuil micro-BIC 2026</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">23 000 €</div><div class="scpi-stat-label">Seuil LMP (recettes annuelles)</div></div>
+          <div class="scpi-stat"><div class="scpi-stat-num">30 ans</div><div class="scpi-stat-label">Durée amortissement bien</div></div>
+        </div>
+
+        <p>Cet article compare les deux régimes de manière concrète, avec un cas pratique chiffré sur un appartement de 200 000 € loué 900 €/mois, et vous donne les clés pour choisir le statut adapté à votre situation. Julien Invest n'est pas CIF. Ces éléments ont une vocation éducative et ne constituent pas un conseil personnalisé.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#comparaison-fiscale">Comparaison fiscale : visualisation côte à côte</a></li>
+            <li><a href="#regimes">Les 4 régimes fiscaux expliqués</a></li>
+            <li><a href="#amortissement">L'amortissement LMNP expliqué</a></li>
+            <li><a href="#profils">Profils conseillés : LMNP ou location nue ?</a></li>
+            <li><a href="#cas-pratique">Cas pratique chiffré</a></li>
+            <li><a href="#pieges">Pièges à éviter</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="comparaison-fiscale">Comparaison fiscale : même bien, écart massif</h2>
+
+        <p>Pour illustrer l'enjeu, prenons un appartement acheté 200 000 € loué 900 €/mois, soit 10 800 € de recettes brutes annuelles. Propriétaire à la TMI 30%. Voici l'écart entre location nue (micro-foncier) et LMNP au régime réel.</p>
+
+        <figure class="scpi-figure">
+          <svg class="cf-svg" viewBox="0 0 700 360" role="img" aria-label="Comparaison fiscale location nue vs LMNP réel sur un bien de 200 000 € loué 900 €/mois" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="360" rx="14" fill="#F7F5FA"/>
+            <text x="350" y="30" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="#0D0D2E">Impact fiscal comparé — bien 200 000 €, loyer 900 €/mois, TMI 30%</text>
+
+            <!-- Colonne gauche : Location nue -->
+            <rect x="30" y="46" width="300" height="298" rx="12" fill="#FFF5F5" stroke="#FECACA" stroke-width="1.5"/>
+            <text x="180" y="72" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#991B1B">Location nue — Micro-foncier</text>
+
+            <!-- Revenu brut bar -->
+            <text x="46" y="98" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Recettes brutes</text>
+            <rect x="46" y="104" width="240" height="18" rx="3" fill="#0D0D2E" opacity="0.75"/>
+            <text x="291" y="117" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#0D0D2E">10 800 €</text>
+
+            <!-- Abattement 30% -->
+            <text x="46" y="138" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Abattement forfaitaire 30%</text>
+            <rect x="46" y="144" width="72" height="18" rx="3" fill="#DC2626" opacity="0.5"/>
+            <text x="291" y="157" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#DC2626">− 3 240 €</text>
+
+            <!-- Base imposable -->
+            <text x="46" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Base imposable</text>
+            <rect x="46" y="186" width="168" height="18" rx="3" fill="#B45309" opacity="0.6"/>
+            <text x="291" y="199" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#B45309">7 560 €</text>
+
+            <!-- Impôt TMI 30% -->
+            <text x="46" y="222" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">IR à TMI 30%</text>
+            <rect x="46" y="228" width="68" height="18" rx="3" fill="#DC2626" opacity="0.7"/>
+            <text x="291" y="241" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#DC2626">2 268 €</text>
+
+            <!-- PS 17.2% -->
+            <text x="46" y="260" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Prélèvements sociaux 17,2%</text>
+            <rect x="46" y="266" width="41" height="18" rx="3" fill="#DC2626" opacity="0.5"/>
+            <text x="291" y="279" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#DC2626">1 300 €</text>
+
+            <!-- Total impôt -->
+            <rect x="46" y="296" width="258" height="32" rx="6" fill="#FEE2E2"/>
+            <text x="175" y="318" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="#991B1B">IMPÔT TOTAL : 3 568 €/an</text>
+
+            <!-- Colonne droite : LMNP réel -->
+            <rect x="370" y="46" width="300" height="298" rx="12" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+            <text x="520" y="72" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#065F46">LMNP — Régime réel</text>
+
+            <!-- Revenu brut bar -->
+            <text x="386" y="98" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Recettes brutes</text>
+            <rect x="386" y="104" width="240" height="18" rx="3" fill="#0D0D2E" opacity="0.75"/>
+            <text x="631" y="117" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#0D0D2E">10 800 €</text>
+
+            <!-- Charges déductibles -->
+            <text x="386" y="138" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Charges (taxe foncière, assurance…)</text>
+            <rect x="386" y="144" width="50" height="18" rx="3" fill="#059669" opacity="0.4"/>
+            <text x="631" y="157" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#059669">− 2 000 €</text>
+
+            <!-- Amortissement -->
+            <text x="386" y="178" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Amortissement bien + mobilier</text>
+            <rect x="386" y="184" width="192" height="18" rx="3" fill="#059669" opacity="0.65"/>
+            <text x="631" y="197" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#059669">− 8 000 €</text>
+
+            <!-- Résultat fiscal -->
+            <text x="386" y="222" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Résultat fiscal BIC</text>
+            <rect x="386" y="228" width="8" height="18" rx="3" fill="#059669" opacity="0.3"/>
+            <text x="631" y="241" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#059669">≈ 0 €</text>
+
+            <!-- PS sur 0 -->
+            <text x="386" y="260" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Prélèvements sociaux</text>
+            <text x="631" y="277" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#059669">≈ 0 €</text>
+
+            <!-- Total impôt -->
+            <rect x="386" y="296" width="258" height="32" rx="6" fill="#DCFCE7"/>
+            <text x="515" y="318" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="#065F46">IMPÔT TOTAL : ~0 €/an</text>
+
+            <!-- Flèche écart -->
+            <text x="350" y="340" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#065F46">Économie annuelle estimée : ~ 3 500 €</text>
+          </svg>
+          <figcaption>Simulation indicative. Bien 200 000 €, loyer 900 €/mois, TMI 30%. Amortissement bien : ~6 000 €/an (murs), mobilier : ~2 000 €/an. Le résultat LMNP réel peut varier selon les charges réelles. Ce n'est pas un conseil fiscal.</figcaption>
+        </figure>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Sur un appartement loué 900 €/mois, la différence entre micro-foncier et LMNP réel peut dépasser 3 000 € d'impôt par an — soit plus d'un mois de loyer économisé chaque année grâce au seul choix du régime fiscal.</p>
+        </div>
+
+        <h2 id="regimes">Les 4 régimes fiscaux expliqués</h2>
+
+        <p>Deux grandes catégories : la <strong>location nue</strong> relève des revenus fonciers (IR), la <strong>location meublée</strong> relève des bénéfices industriels et commerciaux (BIC). Chacune propose un régime simplifié (forfaitaire) et un régime réel (charges déductibles).</p>
+
+        <div class="table-scroll">
+          <table class="compare-table compare-table--wide">
+            <thead>
+              <tr>
+                <th>Régime</th>
+                <th>Type</th>
+                <th>Abattement / déduction</th>
+                <th>Plafond recettes</th>
+                <th>Amortissement</th>
+                <th>Complexité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Micro-foncier</strong></td>
+                <td>Location nue</td>
+                <td class="mid">Abattement 30% forfaitaire</td>
+                <td>15 000 €/an</td>
+                <td class="no">Non</td>
+                <td class="yes">Simple</td>
+              </tr>
+              <tr>
+                <td><strong>Réel foncier</strong></td>
+                <td>Location nue</td>
+                <td class="yes">Charges réelles déductibles</td>
+                <td>Aucun</td>
+                <td class="no">Non</td>
+                <td class="mid">Moyen</td>
+              </tr>
+              <tr>
+                <td><strong>Micro-BIC</strong></td>
+                <td>LMNP meublé</td>
+                <td class="yes">Abattement 50% forfaitaire</td>
+                <td class="yes">77 700 €/an</td>
+                <td class="no">Non</td>
+                <td class="yes">Simple</td>
+              </tr>
+              <tr>
+                <td><strong>Réel BIC (LMNP)</strong></td>
+                <td>LMNP meublé</td>
+                <td class="yes">Charges + amortissement</td>
+                <td>Aucun</td>
+                <td class="yes">Oui ✓</td>
+                <td class="no">Expert-comptable requis</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Micro-foncier (location nue)</h3>
+        <p>Le micro-foncier s'applique automatiquement si vos recettes foncières annuelles ne dépassent pas <strong>15 000 €</strong>. L'administration fiscale applique un abattement forfaitaire de <strong>30%</strong> sur vos recettes brutes, et vous déclarez 70% en revenus imposables. Simple, mais peu efficace : vous ne pouvez pas déduire les vraies charges si elles dépassent 30%, et vous n'avez aucun amortissement. Pour un loyer de 900 €/mois, le revenu imposable est de 7 560 €. À TMI 30% + 17,2% de prélèvements sociaux : environ 3 568 € d'impôt annuel.</p>
+
+        <h3>Régime réel foncier (location nue)</h3>
+        <p>Vous optez pour le régime réel si vos recettes dépassent 15 000 € ou si vous estimez que vos charges réelles sont supérieures à 30% des loyers. Vous déduisez toutes les charges réelles : intérêts d'emprunt, taxe foncière, assurance, frais de gestion, travaux d'entretien. Le <strong>déficit foncier</strong> (charges supérieures aux loyers) est imputable sur votre revenu global dans la limite de <strong>10 700 €/an</strong> (porté à 20 400 € pour les travaux de rénovation énergétique jusqu'en 2025, sous conditions). L'excédent est reportable sur les revenus fonciers des 10 années suivantes. Avantage réel surtout pendant les années avec travaux importants ou avec un gros emprunt.</p>
+
+        <h3>Micro-BIC (LMNP meublé)</h3>
+        <p>Si vos recettes de location meublée ne dépassent pas <strong>77 700 €/an</strong> (en 2026), vous pouvez opter pour le micro-BIC : abattement forfaitaire de <strong>50%</strong> sur les recettes brutes. Les meublés de tourisme classés bénéficient d'un abattement majoré de <strong>71%</strong> (plafond 188 700 €). Résultat : vous n'êtes imposé que sur la moitié de vos loyers. Pour 10 800 € de recettes, la base imposable est de 5 400 €. C'est déjà bien meilleur que le micro-foncier, mais moins efficace que le réel si l'amortissement est important.</p>
+
+        <h3>Régime réel BIC (LMNP)</h3>
+        <p>C'est le régime le plus avantageux fiscalement pour la plupart des bailleurs en meublé qui ont acquis leur bien à un prix significatif. Vous déduisez toutes les charges (intérêts, assurance, taxe foncière, frais de comptabilité, CFE) <strong>et</strong> vous pratiquez l'<strong>amortissement comptable</strong> du bien, du mobilier et des travaux. En pratique, l'amortissement efface souvent la quasi-totalité du bénéfice imposable, rendant le résultat fiscal nul ou proche de zéro — sans pour autant réduire votre trésorerie (l'amortissement est une charge fictive). Inconvénient : nécessite la tenue d'une comptabilité et le recours à un expert-comptable (600 à 1 200 €/an).</p>
+
+        <p class="scpi-note"><strong>Dépassement du plafond micro-foncier.</strong> Si vos recettes foncières nues dépassent 15 000 €, vous basculez automatiquement au régime réel foncier l'année suivante. Pour le micro-BIC, le dépassement du seuil de 77 700 € fait basculer au régime réel BIC. Ces seuils s'apprécient par foyer fiscal et par catégorie (foncier ou BIC).</p>
+
+        <h2 id="amortissement">L'amortissement LMNP expliqué</h2>
+
+        <p>C'est le coeur de l'avantage fiscal LMNP au réel. L'amortissement comptable consiste à répartir le coût d'acquisition d'un actif sur sa durée d'utilisation estimée. Pour un bien immobilier, le fisc considère que les murs se "consomment" sur 30 à 40 ans — ce qui génère chaque année une charge comptable sans sortie d'argent réelle.</p>
+
+        <figure class="scpi-figure">
+          <svg class="cf-svg" viewBox="0 0 700 310" role="img" aria-label="Schéma de l'amortissement LMNP : bien 200 000 €, mobilier 20 000 €, travaux 15 000 €, durées et montants annuels" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="310" rx="14" fill="#F0FDF4"/>
+            <text x="350" y="28" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="14" font-weight="800" fill="#064E3B">Comment l'amortissement annule l'imposition — bien à 200 000 €</text>
+
+            <!-- Axe vertical = montant annuel d'amortissement -->
+            <!-- Bien : 180 000 € (murs) / 30 ans = 6 000 €/an sur 30 ans -->
+            <!-- Mobilier : 20 000 € / 7 ans = 2 857 €/an sur 7 ans -->
+            <!-- Travaux : 15 000 € / 12 ans = 1 250 €/an sur 12 ans -->
+
+            <!-- Légende -->
+            <rect x="40" y="46" width="14" height="14" rx="2" fill="#059669"/>
+            <text x="60" y="58" font-family="Plus Jakarta Sans,sans-serif" font-size="12" fill="#064E3B" font-weight="700">Bien immobilier (murs) : 180 000 € ÷ 30 ans = 6 000 €/an</text>
+            <rect x="40" y="68" width="14" height="14" rx="2" fill="#0EA5E9"/>
+            <text x="60" y="80" font-family="Plus Jakarta Sans,sans-serif" font-size="12" fill="#0369A1" font-weight="700">Mobilier : 20 000 € ÷ 7 ans = 2 857 €/an</text>
+            <rect x="40" y="90" width="14" height="14" rx="2" fill="#F59E0B"/>
+            <text x="60" y="102" font-family="Plus Jakarta Sans,sans-serif" font-size="12" fill="#92400E" font-weight="700">Travaux : 15 000 € ÷ 12 ans = 1 250 €/an</text>
+
+            <!-- Ligne de base = 0 amortissement = y=270 -->
+            <!-- Année 1-7 : 6 000 + 2 857 + 1 250 = 10 107 €  -->
+            <!-- Année 8-12 : 6 000 + 1 250 = 7 250 €  -->
+            <!-- Année 13-30 : 6 000 € -->
+            <!-- Loyers = 10 800 €/an = barre de référence -->
+
+            <!-- Axes -->
+            <line x1="60" y1="270" x2="660" y2="270" stroke="#BBF7D0" stroke-width="1.5"/>
+            <line x1="60" y1="130" x2="660" y2="130" stroke="#DC2626" stroke-width="1" stroke-dasharray="5,3" opacity="0.7"/>
+            <text x="662" y="133" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#DC2626" font-weight="700">Loyers 10 800 €</text>
+
+            <!-- Axe Y labels : 0 à 12 000 €, 140px = 12 000. 1 € = 0.01167px -->
+            <text x="52" y="272" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">0 €</text>
+            <text x="52" y="225" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">4 k€</text>
+            <text x="52" y="178" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">8 k€</text>
+            <text x="52" y="131" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">12 k€</text>
+
+            <!-- Barres empilées : 30 années, width=17px, gap=2px, start x=62 -->
+            <!-- Calcul : y_base=270, 1€=11.67px -->
+            <!-- Années 1-7 : travaux=14.6px, mobilier=33.3px, bien=70px, total=117.9px -->
+            <!-- Années 8-12 : mobilier=0, travaux=14.6px, bien=70px, total=84.6px -->
+            <!-- Années 13-30 : bien=70px -->
+
+            <!-- Barres années 1-7 -->
+            <rect x="62"  y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="62"  y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="62"  y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="81"  y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="81"  y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="81"  y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="100" y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="100" y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="100" y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="119" y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="119" y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="119" y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="138" y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="138" y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="138" y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="157" y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="157" y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="157" y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="176" y="152" width="17" height="118" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="176" y="119" width="17" height="33"  rx="0" fill="#0EA5E9" opacity="0.8"/>
+            <rect x="176" y="104" width="17" height="15"  rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <!-- Barres années 8-12 : bien + travaux -->
+            <rect x="197" y="185" width="17" height="85" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="197" y="170" width="17" height="15" rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="216" y="185" width="17" height="85" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="216" y="170" width="17" height="15" rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="235" y="185" width="17" height="85" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="235" y="170" width="17" height="15" rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="254" y="185" width="17" height="85" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="254" y="170" width="17" height="15" rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <rect x="273" y="185" width="17" height="85" rx="0" fill="#059669" opacity="0.8"/>
+            <rect x="273" y="170" width="17" height="15" rx="0" fill="#F59E0B" opacity="0.8"/>
+
+            <!-- Barres années 13-30 : bien seul -->
+            <rect x="292" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="311" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="330" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="349" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="368" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="387" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="406" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="425" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="444" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="463" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="482" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="501" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="520" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="539" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="558" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="577" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="596" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+            <rect x="615" y="200" width="17" height="70" rx="0" fill="#059669" opacity="0.65"/>
+
+            <!-- Annotations périodes -->
+            <text x="120" y="290" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#064E3B" font-weight="700">Années 1-7</text>
+            <text x="120" y="301" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#555">~10 100 €/an</text>
+            <text x="235" y="290" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#064E3B" font-weight="700">Années 8-12</text>
+            <text x="235" y="301" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#555">~7 250 €/an</text>
+            <text x="490" y="290" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#064E3B" font-weight="700">Années 13-30</text>
+            <text x="490" y="301" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#555">6 000 €/an</text>
+          </svg>
+          <figcaption>L'amortissement est une charge fictive qui réduit le bénéfice BIC sans sortie d'argent. Sur les 7 premières années, les amortissements cumulés (~10 100 €/an) dépassent souvent les recettes nettes de charges — résultat fiscal quasi nul.</figcaption>
+        </figure>
+
+        <p>L'amortissement se calcule composante par composante :</p>
+        <ul>
+          <li><strong>Terrain :</strong> non amortissable (généralement estimé à 10-20% de la valeur totale)</li>
+          <li><strong>Construction (murs) :</strong> environ 2,5 à 3,3% par an, soit une durée de 30 à 40 ans</li>
+          <li><strong>Mobilier et équipements :</strong> 14 à 20% par an, soit 5 à 7 ans</li>
+          <li><strong>Travaux de rénovation :</strong> selon leur nature, 6,7 à 10% par an (10 à 15 ans)</li>
+        </ul>
+
+        <p>L'amortissement non utilisé (si le résultat BIC serait négatif) n'est pas perdu : il est reportable sur les exercices futurs sans limite de durée. C'est un différé d'imposition, pas une annulation définitive : à la revente, la plus-value immobilière est calculée sur le prix de cession moins le prix d'achat (et non le prix comptablement amorti), selon le régime des plus-values des particuliers — avec abattements pour durée de détention.</p>
+
+        <h2 id="profils">Profils conseillés : LMNP ou location nue ?</h2>
+
+        <div class="table-scroll">
+          <table class="compare-table compare-table--wide">
+            <thead>
+              <tr>
+                <th>Critère</th>
+                <th>LMNP (réel)</th>
+                <th>Location nue (réel)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gestion locative</strong></td>
+                <td class="mid">Plus contraignante (mobilier, rotation plus forte)</td>
+                <td class="yes">Bail 3 ans, locataire stable</td>
+              </tr>
+              <tr>
+                <td><strong>Rentabilité nette d'impôt</strong></td>
+                <td class="yes">Excellente si régime réel (impôt quasi nul)</td>
+                <td class="mid">Correcte si déficit foncier ou faibles revenus</td>
+              </tr>
+              <tr>
+                <td><strong>Flexibilité à la revente</strong></td>
+                <td class="yes">Plus-value des particuliers (abattements classiques)</td>
+                <td class="yes">Idem, plus-value des particuliers</td>
+              </tr>
+              <tr>
+                <td><strong>Charges comptables</strong></td>
+                <td class="no">Expert-comptable obligatoire au réel (600-1 200 €/an)</td>
+                <td class="yes">Déclaration 2044, sans comptabilité formelle</td>
+              </tr>
+              <tr>
+                <td><strong>Meilleur profil investisseur</strong></td>
+                <td>TMI 30%+, bien d'une certaine valeur, horizon long</td>
+                <td>Travaux importants, déficit foncier, bien ancien</td>
+              </tr>
+              <tr>
+                <td><strong>Recettes &lt; 15 000 €/an</strong></td>
+                <td class="yes">Micro-BIC (50% d'abattement) disponible</td>
+                <td class="mid">Micro-foncier (30% d'abattement) seulement</td>
+              </tr>
+              <tr>
+                <td><strong>Risque de requalification</strong></td>
+                <td class="no">LMP si recettes &gt; 23 000 € et &gt; revenus du foyer</td>
+                <td class="yes">Aucun risque de requalification</td>
+              </tr>
+              <tr>
+                <td><strong>TVA applicable ?</strong></td>
+                <td class="mid">Parfois (para-hôtellerie, certains meublés de tourisme)</td>
+                <td class="yes">Non (exonération de TVA)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="scpi-note"><strong>Cas du bien avec travaux importants en location nue.</strong> Si vous achetez un bien à rénover, la location nue au régime réel peut générer un déficit foncier massif les premières années (travaux déductibles), imputable sur le revenu global jusqu'à 10 700 €/an. C'est l'une des rares situations où la location nue au réel peut être plus intéressante à court terme que le LMNP.</p>
+
+        <h2 id="cas-pratique">Cas pratique chiffré : appartement 200 000 €</h2>
+
+        <p>Voici le calcul sur les 3 principaux régimes pour un appartement acheté 200 000 € (dont 20 000 € de mobilier), loué 900 €/mois (10 800 €/an de recettes), TMI 30%. Charges estimées : 2 000 €/an (taxe foncière, assurance, frais de gestion).</p>
+
+        <div class="table-scroll">
+          <table class="compare-table compare-table--wide">
+            <thead>
+              <tr>
+                <th>Étape de calcul</th>
+                <th>Micro-foncier (nu)</th>
+                <th>Nu réel (foncier)</th>
+                <th>LMNP réel (BIC)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Recettes brutes</strong></td>
+                <td>10 800 €</td>
+                <td>10 800 €</td>
+                <td>10 800 €</td>
+              </tr>
+              <tr>
+                <td><strong>Abattement / déductions</strong></td>
+                <td>−3 240 € (30% forfait)</td>
+                <td>−2 000 € (charges réelles)</td>
+                <td>−2 000 € (charges réelles)</td>
+              </tr>
+              <tr>
+                <td><strong>Amortissement</strong></td>
+                <td class="no">Non applicable</td>
+                <td class="no">Non applicable</td>
+                <td class="yes">−8 000 € (bien + mobilier)</td>
+              </tr>
+              <tr>
+                <td><strong>Base imposable</strong></td>
+                <td class="no">7 560 €</td>
+                <td class="mid">8 800 €</td>
+                <td class="yes">800 € (≈ 0 €)</td>
+              </tr>
+              <tr>
+                <td><strong>IR (TMI 30%)</strong></td>
+                <td class="no">2 268 €</td>
+                <td class="no">2 640 €</td>
+                <td class="yes">240 €</td>
+              </tr>
+              <tr>
+                <td><strong>Prélèvements sociaux (17,2%)</strong></td>
+                <td class="no">1 300 €</td>
+                <td class="no">1 514 €</td>
+                <td class="yes">138 €</td>
+              </tr>
+              <tr>
+                <td><strong>Impôt total annuel estimé</strong></td>
+                <td class="no">~3 568 €</td>
+                <td class="no">~4 154 €</td>
+                <td class="yes">~378 €</td>
+              </tr>
+              <tr>
+                <td><strong>Économie vs micro-foncier</strong></td>
+                <td>Référence</td>
+                <td class="no">−586 € (moins bien !)</td>
+                <td class="yes">+3 190 € économisés</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="scpi-note"><strong>Précisions importantes.</strong> Ces calculs sont des estimations indicatives. L'amortissement de 8 000 € inclut environ 6 000 € pour les murs (180 000 € ÷ 30 ans) et 2 000 € pour le mobilier (14 000 € ÷ 7 ans — en supposant 6 000 € non amortissables pour le terrain). Les charges déductibles réelles varient. Les prélèvements sociaux sur revenus BIC dépendent du régime (17,2% de CSG-CRDS sur les bénéfices BIC si revenus du patrimoine). En réalité, avec un emprunt en cours, les intérêts déductibles réduiraient encore davantage la base imposable. Ce n'est pas un conseil fiscal — consultez un expert-comptable pour votre situation.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le régime réel foncier (nu) sans travaux est souvent <em>moins</em> avantageux que le micro-foncier, car les charges réelles sont souvent inférieures à 30% des loyers sur un bien sans gros travaux. C'est l'erreur classique : opter pour le réel foncier sans vérifier que vos charges dépassent bien l'abattement forfaitaire.</p>
+        </div>
+
+        <h2 id="pieges">Pièges à éviter</h2>
+
+        <h3>1. La requalification en LMP (loueur meublé professionnel)</h3>
+        <p>Si vos recettes de location meublée dépassent <strong>23 000 €/an</strong> ET excèdent les autres revenus d'activité de votre foyer fiscal, vous basculez automatiquement en statut LMP. Ce changement est automatique — vous ne le choisissez pas. Conséquences : vous devez payer des <strong>cotisations sociales TNS</strong> (travailleur non salarié), calculées sur le bénéfice BIC, à un taux d'environ 35 à 45%. Les avantages du LMP (imputation des déficits sur le revenu global sans limite, exonération de plus-value après 5 ans sous conditions de recettes) ne compensent pas toujours la charge sociale supplémentaire. Si vous approchez du seuil, un suivi comptable rigoureux est indispensable.</p>
+
+        <h3>2. Les cotisations sociales au-delà de 23 000 €</h3>
+        <p>En LMNP (sous le seuil LMP), vos revenus de location meublée sont des revenus du patrimoine et supportent les prélèvements sociaux au taux de 17,2% sur le bénéfice BIC — mais <em>pas</em> de cotisations TNS. Au-dessus du seuil LMP, vous entrez dans le régime social des indépendants, ce qui change fondamentalement la rentabilité de l'opération. Une simulation préalable est nécessaire avant de franchir ce seuil.</p>
+
+        <h3>3. La TVA sur certaines locations meublées</h3>
+        <p>La location meublée "simple" (sans prestations para-hôtelières) est exonérée de TVA. En revanche, si vous proposez des prestations supplémentaires — petit-déjeuner, nettoyage régulier des locaux, fourniture de linge de maison, réception de clientèle — vous pouvez être soumis à la TVA au titre de la para-hôtellerie. Les meublés de tourisme classés avec services para-hôteliers sont également concernés. Dans ces cas, vous êtes assujetti à la TVA (taux 10% en général) et devez la facturer, la déclarer et la reverser à l'administration fiscale — ce qui génère une complexité administrative et comptable significative.</p>
+
+        <h3>4. La CFE (cotisation foncière des entreprises)</h3>
+        <p>Dès votre première location meublée, vous devez déclarer votre activité au greffe du tribunal de commerce (formulaire P0i) dans les 15 jours. La CFE est ensuite due chaque année, quel que soit votre régime (micro-BIC ou réel). Elle est calculée sur la valeur locative des biens. Son montant varie fortement selon les communes. Elle est exonérée si vos recettes annuelles restent inférieures à 5 000 €. En régime réel, la CFE est déductible en tant que charge d'exploitation. N'oubliez pas de la provisionner dans votre calcul de rentabilité — elle peut représenter plusieurs centaines d'euros selon la localisation.</p>
+
+        <h3>5. La durée d'engagement au régime réel</h3>
+        <p>En location nue, si vous optez pour le régime réel foncier, vous êtes engagé pour une durée minimale de 3 ans. En LMNP, l'option pour le réel BIC est annuelle mais son changement peut avoir des conséquences comptables. Par ailleurs, le bilan d'ouverture lors du passage au réel LMNP doit être établi soigneusement : la valorisation initiale des composantes (bien, mobilier, travaux) déterminera les amortissements futurs. Une erreur à ce stade peut coûter cher fiscalement sur le long terme.</p>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Qu'est-ce que le LMNP et comment ça fonctionne ?</summary>
+            <p>Le LMNP (loueur en meublé non professionnel) est un statut fiscal qui s'applique quand vous louez un logement meublé et que vos recettes annuelles ne dépassent pas 23 000 € ou restent inférieures aux autres revenus d'activité du foyer. Vous relevez des bénéfices industriels et commerciaux (BIC). Le principal avantage au régime réel est l'amortissement comptable du bien, du mobilier et des travaux, qui génère souvent un résultat fiscal nul ou proche de zéro.</p>
+          </details>
+          <details>
+            <summary>Vaut-il mieux choisir le micro-BIC ou le régime réel en LMNP ?</summary>
+            <p>Le micro-BIC (abattement forfaitaire de 50%, plafond 77 700 €/an) est simple et ne nécessite pas de comptabilité. Le régime réel est plus intéressant dès que vos charges réelles et amortissements dépassent 50% de vos recettes — ce qui est presque toujours le cas pour un appartement acquis à crédit ou avec un mobilier neuf. En pratique, pour un bien de 200 000 € loué 900 €/mois, le régime réel LMNP génère souvent un résultat imposable nul, contre 5 400 € de bénéfice imposable en micro-BIC.</p>
+          </details>
+          <details>
+            <summary>Quelle est la différence entre déficit foncier et amortissement LMNP ?</summary>
+            <p>Ce sont deux mécanismes différents. Le déficit foncier (location nue au réel) permet de déduire les charges réelles du revenu global jusqu'à 10 700 €/an. Il ne couvre pas l'amortissement du bien. En LMNP réel, l'amortissement est une charge comptable annuelle (environ 2,5 à 3,3% de la valeur du bien) qui réduit le bénéfice BIC sans sortie d'argent réelle. L'amortissement LMNP ne crée pas de déficit imputable sur le revenu global, mais il annule l'imposition des loyers.</p>
+          </details>
+          <details>
+            <summary>Quand bascule-t-on du LMNP au LMP ?</summary>
+            <p>Le statut LMP s'applique quand deux conditions sont réunies simultanément : les recettes meublées annuelles dépassent 23 000 € ET ces recettes sont supérieures aux autres revenus professionnels du foyer fiscal. Le LMP implique des cotisations sociales TNS d'environ 35 à 45% du bénéfice. C'est un changement automatique, pas un choix.</p>
+          </details>
+          <details>
+            <summary>La CFE est-elle due en LMNP ?</summary>
+            <p>Oui. La cotisation foncière des entreprises est due dès la première année d'activité en LMNP, y compris au micro-BIC. Son montant varie selon la commune. Une exonération existe si les recettes sont inférieures à 5 000 €/an. Vous devez déclarer votre activité au greffe du tribunal de commerce (formulaire P0i) dans les 15 jours suivant le début de l'activité.</p>
+          </details>
+          <details>
+            <summary>Peut-on passer de la location nue au LMNP sans vendre le bien ?</summary>
+            <p>Oui, à condition que le bail arrive à son terme. Le bail nu dure 3 ans renouvelables, contre 1 an pour le meublé. À l'échéance, vous pouvez meubler le logement et le relouer sous statut LMNP. Il faut déclarer l'activité BIC, choisir son régime et équiper le logement conformément au décret du 31 juillet 2015. Les charges de transition doivent être intégrées dans le calcul de rentabilité.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video-lmnp" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-lmnp-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_LMNP = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video-lmnp'); if(!f) return;
+            const soon=document.getElementById('article-video-lmnp-soon');
+            const has=VIDEO_ID_LMNP && VIDEO_ID_LMNP!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_LMNP+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-cta">
+          <h2>Maîtrise la fiscalité de tes investissements</h2>
+          <p>Régimes fiscaux, amortissements, prélèvements sociaux, enveloppes adaptées : la formation Julien Invest t'explique comment optimiser la fiscalité de tes placements immobiliers et financiers, sans jargon.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <h2 style="margin-top:56px;">Articles liés</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin:20px 0 40px;">
+          <a href="article-scpi-comparatif.html" style="display:block;background:var(--pearl);border-radius:12px;padding:18px 16px;border:1.5px solid var(--grey-5);text-decoration:none;">
+            <div style="font-family:var(--font-head);font-weight:800;font-size:14px;color:var(--navy);margin-bottom:6px;">SCPI : comment comparer</div>
+            <div style="font-size:12px;color:var(--grey-2);line-height:1.5;">TRI, frais, capitalisation : les vrais critères pour comparer les SCPI en 2026.</div>
+          </a>
+          <a href="article-fiscalite-investissement.html" style="display:block;background:var(--pearl);border-radius:12px;padding:18px 16px;border:1.5px solid var(--grey-5);text-decoration:none;">
+            <div style="font-family:var(--font-head);font-weight:800;font-size:14px;color:var(--navy);margin-bottom:6px;">Fiscalité des placements 2026</div>
+            <div style="font-size:12px;color:var(--grey-2);line-height:1.5;">PEA, CTO, assurance vie, LMNP : la fiscalité de chaque enveloppe expliquée.</div>
+          </a>
+          <a href="article-crowdfunding-immobilier.html" style="display:block;background:var(--pearl);border-radius:12px;padding:18px 16px;border:1.5px solid var(--grey-5);text-decoration:none;">
+            <div style="font-family:var(--font-head);font-weight:800;font-size:14px;color:var(--navy);margin-bottom:6px;">Crowdfunding immobilier</div>
+            <div style="font-size:12px;color:var(--grey-2);line-height:1.5;">Risques, rendements, plateformes : le guide complet du crowdfunding immo.</div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité placements 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-lmnp-vs-location-nue.html">LMNP vs location nue</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

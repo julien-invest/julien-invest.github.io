@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investir 50 000 € ou un héritage : DCA ou tout investir d'un coup ? | Julien Invest</title>
+  <meta name="description" content="Héritage, prime, vente immobilière : comment investir une grosse somme sans se tromper ? Lump sum vs DCA, enveloppes fiscales, cas pratiques chiffrés.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Investir 50 000 € ou un héritage : DCA ou tout investir d'un coup ? | Julien Invest">
+  <meta property="og:description" content="Guide pratique pour investir une grosse somme (héritage, prime, vente immobilière) sans se tromper. Lump sum vs DCA, enveloppes fiscales, cas pratiques.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-investir-grosse-somme.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investir 50 000 € ou un héritage : DCA ou tout d'un coup ? | Julien Invest">
+  <meta name="twitter:description" content="Guide pratique pour investir une grosse somme. Lump sum vs DCA, enveloppes fiscales, cas pratiques chiffrés.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Investir 50 000 € ou un héritage : DCA ou tout investir d'un coup ?",
+  "description": "Héritage, prime, vente immobilière : comment investir une grosse somme sans se tromper ? Lump sum vs DCA, enveloppes fiscales, cas pratiques chiffrés.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#1E1B4B,#6D28D9); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #fff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; min-width: 580px; }
+
+    /* Stats bar */
+    .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin: 32px 0 40px; }
+    @media (max-width: 640px) { .stats-bar { grid-template-columns: 1fr 1fr; } }
+    .stat-card { background: var(--pearl); border-radius: var(--radius-md); padding: 20px 18px; text-align: center; border: 1px solid var(--grey-5); }
+    .stat-card-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(22px,3.5vw,30px); color: var(--navy); line-height: 1.1; margin-bottom: 6px; }
+    .stat-card-label { font-family: var(--font-head); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #6F6F99; }
+
+    /* Checklist */
+    .checklist { margin: 24px 0 32px; display: flex; flex-direction: column; gap: 14px; }
+    .checklist-item { display: flex; align-items: flex-start; gap: 16px; background: var(--pearl); border-radius: var(--radius-md); padding: 18px 20px; border: 1px solid var(--grey-5); }
+    .checklist-num { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg,#1E1B4B,#6D28D9); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+    .checklist-body { flex: 1; }
+    .checklist-body strong { font-family: var(--font-head); font-size: 15px; color: var(--navy); display: block; margin-bottom: 4px; }
+    .checklist-body span { font-size: 14px; color: var(--grey-1); line-height: 1.6; }
+
+    /* Erreurs courantes */
+    .error-cards { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+    .error-card { display: flex; gap: 16px; align-items: flex-start; border-left: 4px solid #DC2626; background: #fff5f5; border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 18px 20px; }
+    .error-card-icon { flex-shrink: 0; font-size: 22px; line-height: 1; }
+    .error-card-body strong { font-family: var(--font-head); font-size: 15px; color: #991b1b; display: block; margin-bottom: 4px; }
+    .error-card-body span { font-size: 14px; color: var(--grey-1); line-height: 1.6; }
+
+    /* Cas pratiques */
+    .cas-pratique { border: 1px solid var(--grey-5); border-radius: var(--radius-lg); padding: 28px 26px; margin-bottom: 24px; }
+    .cas-pratique-header { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .cas-pratique-icon { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#1E1B4B,#6D28D9); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+    .cas-pratique-header h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 0; }
+    .cas-pratique ul { padding-left: 0; list-style: none; margin-bottom: 0; }
+    .cas-pratique ul li { font-size: 14px; color: var(--grey-1); line-height: 1.7; margin-bottom: 6px; padding-left: 18px; position: relative; }
+    .cas-pratique ul li::before { content: "→"; position: absolute; left: 0; color: #6D28D9; font-weight: 700; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-investir-grosse-somme.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Vaut-il mieux investir un héritage d'un coup ou en plusieurs fois ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les études historiques (notamment celle de Vanguard en 2012) montrent que le lump sum surperforme le DCA dans environ 68% des cas sur 12 mois glissants. Cela dit, la différence de performance est modeste (quelques pourcents) et le DCA réduit considérablement le risque psychologique d'investir juste avant un krach. Si tu as du mal à accepter de voir ton portefeuille baisser fortement dès le départ, un DCA sur 6 à 12 mois est un très bon compromis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel est le plafond du PEA en 2026 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le plafond de versement du PEA est de 150 000 € pour un PEA classique (bancaire ou assurance). Les plus-values et dividendes peuvent faire dépasser ce montant en valeur de marché, il n'y a pas de plafond sur la valeur du portefeuille. Au-delà des 150 000 €, tu peux continuer à investir via une assurance-vie ou un CTO."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Dans quel ordre ouvrir les enveloppes pour une grosse somme ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 30% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il rembourser ses dettes avant d'investir une grosse somme ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, pour les dettes à taux élevé. Un crédit à la consommation à 8-15% ou un découvert bancaire : rembourse en priorité. Le rendement garanti du remboursement de dettes chères dépasse souvent le rendement espéré des marchés. En revanche, un crédit immobilier à taux fixe sous 3% peut être conservé si les marchés offrent un rendement historique de 7-8%/an : c'est un arbitrage personnel, pas une règle absolue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment éviter la paralysie décisionnelle face à une grosse somme ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La paralysie vient souvent de vouloir trouver le moment parfait. Or il n'existe pas. La règle pratique : passe les 2 premières semaines à construire ton plan (checklist, enveloppes, allocation). Puis mets en place ton investissement, en lump sum ou en DCA sur 12 mois maximum. Chaque mois supplémentaire sur un livret à 3% quand les marchés font historiquement 7-8%/an te coûte en rendement potentiel. L'action imparfaite bat l'inaction parfaite."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quel ETF choisir pour investir 50 000 € ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour une grosse somme, la simplicité est ta meilleure alliée. Un ETF MSCI World (comme l'Amundi CW8 sur PEA ou un ETF World éligible assurance-vie) couvre 85% de la capitalisation mondiale en un seul produit. Si tu veux affiner, tu peux compléter avec 10-20% d'ETF pays émergents. Évite de sur-diversifier : 2-3 ETF maximum suffisent largement. Utilise le comparateur ETF du site pour choisir selon les frais et la taille du fonds."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Comparateur ETF</a></li>
+          <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Stratégie</span>
+        <h1>Investir 50 000 € ou un héritage : <em>DCA ou tout investir d'un coup ?</em></h1>
+        <p class="article-meta-date">Publié le 20 juin 2026 · 14 min de lecture</p>
+        <p>Tu viens de recevoir un héritage, une prime exceptionnelle ou le produit d'une vente immobilière. Soudain, tu te retrouves avec une grosse somme à investir. Faut-il tout placer d'un coup ou étaler sur plusieurs mois ? Voici le guide complet pour ne pas te tromper.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">STRATÉGIE</span>
+
+        <p>Recevoir soudainement une grosse somme d'argent est une excellente nouvelle. C'est aussi l'une des situations les plus stressantes pour un investisseur : la peur de mal faire, d'investir au mauvais moment, de perdre ce que tu n'as pas gagné. Ce guide répond à toutes les questions concrètes que tu te poses, avec des données factuelles et des cas pratiques chiffrés.</p>
+
+        <!-- Stats bar -->
+        <div class="stats-bar">
+          <div class="stat-card">
+            <div class="stat-card-num">68%</div>
+            <div class="stat-card-label">Des études favorisent le lump sum</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">12 mois</div>
+            <div class="stat-card-label">Horizon DCA recommandé</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">7%/an</div>
+            <div class="stat-card-label">Rendement historique ETF Monde</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-num">3-6 mois</div>
+            <div class="stat-card-label">Fonds d'urgence d'abord</div>
+          </div>
+        </div>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#avant-investir">Checklist "avant d'investir" : 5 étapes non négociables</a></li>
+            <li><a href="#lumpsum-vs-dca">Lump sum vs DCA : ce que disent les données</a></li>
+            <li><a href="#simulation">Simulation : 50 000 € sur 10 ans, les deux scénarios</a></li>
+            <li><a href="#allocation">Allocation recommandée selon ton montant et profil</a></li>
+            <li><a href="#piege-paralysie">Le piège de la paralysie : les 3 erreurs à éviter</a></li>
+            <li><a href="#enveloppes">Guide enveloppes fiscales pour grosse somme</a></li>
+            <li><a href="#cas-pratiques">Cas pratiques : héritage 80 k€, prime 30 k€, vente immo 200 k€</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="avant-investir">Checklist "avant d'investir" : 5 étapes non négociables</h2>
+        <p>Avant de placer un seul euro, il y a cinq questions à se poser dans l'ordre. Ce n'est pas facultatif. Ces étapes protègent autant ton argent que ta sérénité.</p>
+
+        <div class="checklist">
+          <div class="checklist-item">
+            <div class="checklist-num">1</div>
+            <div class="checklist-body">
+              <strong>Fonds d'urgence constitué ?</strong>
+              <span>Avant d'investir quoi que ce soit, assure-toi d'avoir 3 à 6 mois de dépenses courantes sur un livret A ou LDDS, hors de portée des marchés. Si tu n'as pas ce filet, constitue-le d'abord. Investir sans fonds d'urgence, c'est risquer de devoir liquider tes positions au pire moment (en plein krach) pour une dépense imprévue.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-num">2</div>
+            <div class="checklist-body">
+              <strong>Dettes coûteuses remboursées ?</strong>
+              <span>Crédit conso, découvert, prêt personnel à plus de 5-6% : rembourse en priorité. Le rendement garanti du désendettement dépasse souvent le rendement espéré des marchés. Un crédit immobilier à taux fixe sous 3% peut être conservé — c'est un arbitrage personnel, pas une règle absolue.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-num">3</div>
+            <div class="checklist-body">
+              <strong>Horizon de placement supérieur à 5 ans ?</strong>
+              <span>Les marchés actions peuvent baisser de 30 à 50% sur 1 ou 2 ans avant de récupérer. Si tu as besoin de cet argent dans moins de 5 ans (achat immobilier, projet de vie), n'investis pas la totalité en actions. Un fonds en euros ou des obligations pour la part à court terme, les actions pour le long terme.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-num">4</div>
+            <div class="checklist-body">
+              <strong>Enveloppes fiscales choisies ?</strong>
+              <span>PEA, assurance-vie, CTO, PER : chaque enveloppe a ses règles et ses avantages. La décision doit être prise avant d'investir, pas après. Un PEA ouvert aujourd'hui commence son compteur de 5 ans immédiatement, même avec un versement symbolique de 100 €. Voir la section enveloppes fiscales ci-dessous.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="checklist-num">5</div>
+            <div class="checklist-body">
+              <strong>Allocation décidée ?</strong>
+              <span>Quelle proportion en actions ? En obligations ? En immobilier ? En cash ? Cette décision dépend de ton profil de risque, de ton horizon et de ta capacité émotionnelle à voir une forte baisse sans paniquer. La section allocation ci-dessous te donne un cadre de référence selon ton montant et ton profil.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Ces 5 étapes peuvent te prendre une à deux semaines. C'est du temps bien investi. Une mauvaise décision hâtive sur 50 000 € peut coûter plusieurs milliers d'euros. Mais attention : une fois ces étapes validées, agis. L'inaction prolongée est aussi une erreur.</p>
+        </div>
+
+        <h2 id="lumpsum-vs-dca">Lump sum vs DCA : ce que disent les données</h2>
+        <p>La question centrale quand tu as une grosse somme : tout investir maintenant (lump sum) ou étaler sur 6 à 12 mois (DCA) ? Voici la réponse honnête, basée sur les données.</p>
+
+        <h3>Ce que dit l'étude Vanguard</h3>
+        <p>En 2012, Vanguard a publié une analyse comparative sur des données historiques longues (marchés US, UK et australien). Résultat : sur des périodes glissantes de 12 mois, le lump sum surperforme le DCA dans <strong>environ 68% des cas</strong>, et ce quel que soit le marché étudié. La raison est simple : les marchés montent environ 75% du temps sur longue période. Chaque mois que tu attends pour déployer ta somme est potentiellement un mois de hausse raté.</p>
+        <p>La différence de performance n'est pas énorme : environ 2,3% en faveur du lump sum sur 12 mois en moyenne. Mais elle est statistiquement robuste et reproductible sur différentes périodes et différents marchés.</p>
+
+        <h3>Quand le DCA reste pertinent</h3>
+        <p>Cette supériorité statistique du lump sum ne signifie pas qu'il faut l'appliquer mécaniquement dans tous les cas. Le DCA reste une option très valable si :</p>
+        <ul>
+          <li>Tu as un profil de risque faible et la perspective de voir ton portefeuille baisser de 30% dès le premier mois te ferait paniquer et vendre.</li>
+          <li>Tu investis dans un contexte de valorisations historiquement élevées des marchés (ratio CAPE Shiller supérieur à 30-35).</li>
+          <li>La somme représente plusieurs années de revenus et la perte psychologique d'un krach immédiat serait difficile à absorber.</li>
+          <li>Tu es dans une période de forte incertitude économique ou géopolitique qui justifie une entrée progressive.</li>
+        </ul>
+        <p>Dans ces cas, un DCA sur 6 à 12 mois est un compromis raisonnable : tu renonces à quelques pourcents de performance potentielle en échange d'une stabilité psychologique qui te permet de tenir ta stratégie sur le long terme.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le lump sum gagne en moyenne. Le DCA gagne en tranquillité d'esprit. Si la tranquillité d'esprit est le prix à payer pour ne pas paniquer et vendre au pire moment, c'est un excellent investissement en soi. Ne fais jamais de DCA sur plus de 12 mois : au-delà, l'effet de lissage devient négligeable et l'opportunité manquée trop importante.</p>
+        </div>
+
+        <div class="table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Critère</th><th>Lump Sum</th><th>DCA 12 mois</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Performance historique moyenne</td><td class="yes">Supérieure dans ~68% des cas</td><td>Inférieure de ~2% sur 12 mois</td></tr>
+              <tr><td>Risque psychologique</td><td class="no">Élevé : exposition immédiate totale</td><td class="yes">Faible : entrée progressive</td></tr>
+              <tr><td>Risque de krach immédiat</td><td class="no">Maximum : tout exposé dès le jour 1</td><td class="yes">Lissé : une partie en cash pendant la transition</td></tr>
+              <tr><td>Opportunité manquée</td><td class="yes">Minimale : investi dès le départ</td><td class="no">Réelle : les parts en attente dorment</td></tr>
+              <tr><td>Complexité d'exécution</td><td class="yes">Simple : une seule opération</td><td>Modérée : 12 ordres mensuels à programmer</td></tr>
+              <tr><td>Adapté si…</td><td>Profil dynamique, horizon long, résistance émotionnelle</td><td>Profil prudent, somme représentant plusieurs années de revenus</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 id="simulation">Simulation : 50 000 € sur 10 ans, les deux scénarios</h2>
+        <p>Voici ce que donnent les deux stratégies sur 10 ans avec 50 000 € investis, en supposant un rendement annuel moyen de 7% (rendement historique de référence pour un ETF MSCI World sur longue période).</p>
+
+        <!-- SVG Lump Sum vs DCA -->
+        <svg viewBox="0 0 700 340" width="100%" height="auto" class="cf-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Simulation lump sum vs DCA sur 10 ans, 50 000 €">
+          <!-- Fond -->
+          <rect width="700" height="340" rx="14" fill="#EEF4FF"/>
+          <!-- Titre -->
+          <text x="350" y="32" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14" fill="#1A1A4E">Simulation 50 000 € — Lump Sum vs DCA sur 12 mois — Rendement 7%/an</text>
+
+          <!-- Grille horizontale -->
+          <line x1="70" y1="60" x2="660" y2="60" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="100" x2="660" y2="100" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="140" x2="660" y2="140" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="180" x2="660" y2="180" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="220" x2="660" y2="220" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="70" y1="260" x2="660" y2="260" stroke="#C8D8F8" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Axe Y labels (en k€) -->
+          <text x="62" y="64" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">100k</text>
+          <text x="62" y="104" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">90k</text>
+          <text x="62" y="144" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">80k</text>
+          <text x="62" y="184" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">70k</text>
+          <text x="62" y="224" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">60k</text>
+          <text x="62" y="264" text-anchor="end" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">50k</text>
+
+          <!-- Axe X : années 0 à 10 -->
+          <!-- Valeurs lump sum à 7%/an : 50000*(1.07)^n -->
+          <!-- an0=50000 an1=53500 an2=57245 an3=61252 an4=65540 an5=70128 an6=75037 an7=80290 an8=85910 an9=91925 an10=98391 -->
+          <!-- Mapping : y = 264 - (val - 50000) / (100000 - 50000) * (264 - 60) = 264 - (val-50000)/50000*204 -->
+          <!-- Lump sum points : (70,264) (129,250.7) (188,235.9) (247,219.5) (306,201.4) (365,181.5) (424,159.5) (483,135.2) (542,108.5) (601,79.1) (660,47.4) -->
+
+          <!-- DCA sur 12 mois : déploiement progressif de 50000/12=4167/mois pendant 12 mois, puis intérêts composés sur le reste.
+               Valeur estimée à 10 ans ≈ 92000 (données article) -->
+          <!-- On simule : DCA démarre à 50000 à t=0 mais monte plus lentement la 1ère année car argent pas encore investi -->
+          <!-- an0=50000 an1=51500 an2=55105 an3=58962 an4=63090 an5=67507 an6=72232 an7=77289 an8=82699 an9=88488 an10=92000 -->
+          <!-- Mapping DCA : an0=264 an1=260.8 an2=252.7 an3=243.7 an4=233.6 an5=222.4 an6=209.9 an7=196.1 an8=181 an9=164.4 an10=152 -->
+
+          <!-- Zone de remplissage lump sum (bleu) -->
+          <polygon points="70,264 129,250.7 188,235.9 247,219.5 306,201.4 365,181.5 424,159.5 483,135.2 542,108.5 601,79.1 660,47.4 660,264" fill="rgba(99,102,241,0.12)"/>
+          <!-- Zone de remplissage DCA (vert) -->
+          <polygon points="70,264 129,260.8 188,252.7 247,243.7 306,233.6 365,222.4 424,209.9 483,196.1 542,181 601,164.4 660,152 660,264" fill="rgba(16,185,129,0.10)"/>
+
+          <!-- Courbe lump sum (bleue) -->
+          <polyline points="70,264 129,250.7 188,235.9 247,219.5 306,201.4 365,181.5 424,159.5 483,135.2 542,108.5 601,79.1 660,47.4"
+            fill="none" stroke="#4F46E5" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <!-- Courbe DCA (verte) -->
+          <polyline points="70,264 129,260.8 188,252.7 247,243.7 306,233.6 365,222.4 424,209.9 483,196.1 542,181 601,164.4 660,152"
+            fill="none" stroke="#10B981" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6,3"/>
+
+          <!-- Point final lump sum -->
+          <circle cx="660" cy="47.4" r="5" fill="#4F46E5"/>
+          <!-- Annotation lump sum -->
+          <rect x="560" y="26" width="110" height="36" rx="6" fill="#4F46E5"/>
+          <text x="615" y="40" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#fff">Lump Sum</text>
+          <text x="615" y="55" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#fff">≈ 98 400 €</text>
+
+          <!-- Point final DCA -->
+          <circle cx="660" cy="152" r="5" fill="#10B981"/>
+          <!-- Annotation DCA -->
+          <rect x="562" y="130" width="108" height="36" rx="6" fill="#10B981"/>
+          <text x="616" y="144" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#fff">DCA 12 mois</text>
+          <text x="616" y="159" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#fff">≈ 92 000 €</text>
+
+          <!-- Axe X labels -->
+          <text x="70" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">An 0</text>
+          <text x="129" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">1</text>
+          <text x="188" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">2</text>
+          <text x="247" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">3</text>
+          <text x="306" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">4</text>
+          <text x="365" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5</text>
+          <text x="424" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">6</text>
+          <text x="483" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">7</text>
+          <text x="542" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">8</text>
+          <text x="601" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">9</text>
+          <text x="660" y="285" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10</text>
+          <text x="365" y="305" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#9CA3AF">Années</text>
+
+          <!-- Légende -->
+          <line x1="90" y1="322" x2="115" y2="322" stroke="#4F46E5" stroke-width="2.5"/>
+          <text x="120" y="326" font-family="'DM Sans', sans-serif" font-size="12" fill="#1A1A4E">Lump Sum (tout au départ)</text>
+          <line x1="330" y1="322" x2="355" y2="322" stroke="#10B981" stroke-width="2.5" stroke-dasharray="6,3"/>
+          <text x="360" y="326" font-family="'DM Sans', sans-serif" font-size="12" fill="#1A1A4E">DCA sur 12 mois</text>
+        </svg>
+
+        <p style="font-size:12px;color:#9a9ab0;line-height:1.6;margin-top:8px;">Simulation indicative basée sur un rendement annuel constant de 7%. La courbe DCA suppose un déploiement linéaire sur 12 mois. Les marchés réels sont volatils. Les performances passées ne garantissent pas les performances futures.</p>
+
+        <p>La différence entre les deux stratégies représente environ 6 400 € sur 10 ans, soit environ 6,5% du capital initial. C'est réel, mais c'est aussi le prix que tu peux choisir de payer pour une meilleure résistance psychologique. Ce n'est pas une erreur : c'est un choix.</p>
+
+        <h2 id="allocation">Allocation recommandée selon ton montant et profil</h2>
+        <p>Voici un tableau de référence pour calibrer ton allocation selon la taille de ta somme et ton profil de risque. Ces pourcentages sont des points de départ, pas des vérités absolues.</p>
+
+        <!-- SVG allocation tableau -->
+        <svg viewBox="0 0 700 310" width="100%" height="auto" class="cf-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau d'allocation recommandée selon montant et profil">
+          <!-- Fond -->
+          <rect width="700" height="310" rx="14" fill="#F8F6FF"/>
+
+          <!-- Titre -->
+          <text x="350" y="30" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14" fill="#1A1A4E">Allocation recommandée — Montant × Profil de risque</text>
+
+          <!-- En-tête colonnes -->
+          <rect x="0" y="42" width="700" height="38" rx="0" fill="#1A1A4E"/>
+          <text x="116" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil prudent</text>
+          <text x="350" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil équilibré</text>
+          <text x="584" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil dynamique</text>
+          <!-- Séparateur col -->
+          <line x1="234" y1="42" x2="234" y2="310" stroke="#E5E7EB" stroke-width="1"/>
+          <line x1="468" y1="42" x2="468" y2="310" stroke="#E5E7EB" stroke-width="1"/>
+
+          <!-- Ligne étiquette col "montant" -->
+          <line x1="0" y1="80" x2="700" y2="80" stroke="#E5E7EB" stroke-width="1"/>
+
+          <!-- Ligne 1 : < 20 k€ -->
+          <rect x="0" y="80" width="700" height="76" fill="#FDFCFF"/>
+          <rect x="0" y="80" width="700" height="76" fill="rgba(109,40,217,0.04)"/>
+          <!-- Étiquette -->
+          <text x="30" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">&lt; 20 000 €</text>
+          <text x="30" y="122" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Petite somme</text>
+          <!-- Prudent -->
+          <text x="116" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">60% ETF World</text>
+          <text x="116" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig</text>
+          <text x="116" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Cash/Fonds €</text>
+          <!-- Équilibré -->
+          <text x="350" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">80% ETF World</text>
+          <text x="350" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Oblig</text>
+          <text x="350" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Cash</text>
+          <!-- Dynamique -->
+          <text x="584" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">90% ETF World</text>
+          <text x="584" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Émergents</text>
+          <text x="584" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
+
+          <!-- Ligne 2 : 20-100 k€ -->
+          <line x1="0" y1="156" x2="700" y2="156" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="0" y="156" width="700" height="76" fill="#FDFCFF"/>
+          <text x="30" y="181" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">20 000–100 000 €</text>
+          <text x="30" y="198" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Somme significative</text>
+          <!-- Prudent -->
+          <text x="116" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">50% ETF World</text>
+          <text x="116" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig</text>
+          <text x="116" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% SCPI / 10% Cash</text>
+          <!-- Équilibré -->
+          <text x="350" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">70% ETF World</text>
+          <text x="350" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Oblig</text>
+          <text x="350" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% SCPI / 5% Cash</text>
+          <!-- Dynamique -->
+          <text x="584" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">85% ETF World</text>
+          <text x="584" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Émergents</text>
+          <text x="584" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
+
+          <!-- Ligne 3 : > 100 k€ -->
+          <line x1="0" y1="232" x2="700" y2="232" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="0" y="232" width="700" height="78" rx="0" fill="rgba(16,185,129,0.04)"/>
+          <text x="30" y="257" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">&gt; 100 000 €</text>
+          <text x="30" y="274" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Grosse somme</text>
+          <!-- Prudent -->
+          <text x="116" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">40% ETF World</text>
+          <text x="116" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig / 20% SCPI</text>
+          <text x="116" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Cash / Fonds €</text>
+          <!-- Équilibré -->
+          <text x="350" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">60% ETF World</text>
+          <text x="350" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Oblig / 15% SCPI</text>
+          <text x="350" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Cash</text>
+          <!-- Dynamique -->
+          <text x="584" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">75% ETF World</text>
+          <text x="584" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Émergents / 10% SCPI</text>
+          <text x="584" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
+        </svg>
+
+        <p style="font-size:12px;color:#9a9ab0;line-height:1.6;margin-top:8px;">Ces allocations sont indicatives et ne constituent pas un conseil personnalisé. Ton allocation doit tenir compte de ta situation fiscale, patrimoniale et familiale. Ces chiffres supposent un horizon de placement supérieur à 8 ans pour la poche actions.</p>
+
+        <h2 id="piege-paralysie">Le piège de la paralysie : les 3 erreurs à éviter</h2>
+        <p>Face à une grosse somme, la paralysie décisionnelle est l'ennemi numéro un. Voici les trois erreurs les plus fréquentes et les plus coûteuses.</p>
+
+        <div class="error-cards">
+          <div class="error-card">
+            <div class="error-card-icon">⏳</div>
+            <div class="error-card-body">
+              <strong>Attendre le "bon moment" pour investir</strong>
+              <span>C'est l'erreur classique. Attendre une correction, attendre que les élections soient passées, attendre que le marché "se stabilise". Le problème : il y a toujours une bonne raison d'attendre. Et pendant ce temps, ton argent sur livret à 3% perd contre un marché qui fait historiquement 7-8%/an. Une étude de Charles Schwab montre que même le pire des market timers (qui investit toujours au pire moment de l'année) surperforme largement quelqu'un qui reste en cash sur 20 ans.</span>
+            </div>
+          </div>
+          <div class="error-card">
+            <div class="error-card-icon">🏦</div>
+            <div class="error-card-body">
+              <strong>Tout laisser sur le livret A ou en assurance-vie fonds euros</strong>
+              <span>Le livret A rapporte 2,4% en 2026, le fonds euros moyen 2,5-3%. C'est mieux que rien, mais sur 10 ans avec 50 000 €, l'écart avec un portefeuille actions est de plusieurs dizaines de milliers d'euros. Laisser 50 000 € sur livret pendant 2 ans "le temps de réfléchir" te coûte en moyenne 4 000 à 5 000 € de rendement potentiel manqué chaque année. L'inaction a un coût réel, même si elle ne se voit pas dans ton relevé de compte.</span>
+            </div>
+          </div>
+          <div class="error-card">
+            <div class="error-card-icon">🎲</div>
+            <div class="error-card-body">
+              <strong>Sur-diversifier inutilement le portefeuille</strong>
+              <span>Certains, face à une grosse somme, se sentent obligés de construire un portefeuille très complexe : 8 ETF, plusieurs contrats d'assurance-vie, des SCPI, des obligations individuelles, quelques actions en direct. Le résultat : un portefeuille difficile à suivre, coûteux à rééquilibrer, et souvent moins performant qu'un simple ETF MSCI World. La simplicité est une stratégie. Deux ou trois lignes bien choisies suffisent largement pour une grosse somme.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>La paralysie est rationnalisée sous des formes infiniment variées : "le marché est trop haut", "il faut d'abord que je comprenne mieux", "je vais attendre la rentrée". Toutes ces formules ont en commun de reporter indéfiniment une décision qui bénéficierait de l'action immédiate. Fixe-toi un délai : plan établi sous 2 semaines, déploiement lancé le mois suivant.</p>
+        </div>
+
+        <h2 id="enveloppes">Guide enveloppes fiscales pour grosse somme</h2>
+        <p>Le choix des enveloppes fiscales est souvent la décision la plus impactante sur la durée. Voici l'ordre de priorité recommandé et les caractéristiques clés de chaque enveloppe.</p>
+
+        <h3>L'ordre de priorité</h3>
+        <p><strong>1. PEA en priorité</strong> — Ouvre un PEA et verse jusqu'au plafond de 150 000 € (versements cumulés). Après 5 ans, les plus-values sont exonérées d'impôt sur le revenu (seuls les prélèvements sociaux à 17,2% restent dus). C'est l'enveloppe la plus avantageuse fiscalement pour les actions européennes et les ETF synthétiques éligibles. Si tu n'as pas encore de PEA, ouvre-le maintenant même avec 100 € : le compteur de 5 ans commence à l'ouverture.</p>
+        <p><strong>2. Assurance-vie pour le surplus et la succession</strong> — Pas de plafond de versement. L'assurance-vie offre un avantage successoral majeur : jusqu'à 152 500 € par bénéficiaire sont transmis hors droits de succession pour les versements effectués avant 70 ans. Ouvre plusieurs contrats chez différents assureurs si ta somme est importante. Après 8 ans de détention, tu bénéficies d'un abattement annuel de 4 600 € (9 200 € pour un couple) sur les gains lors des retraits.</p>
+        <p><strong>3. PER si tu es fortement imposé</strong> — Le Plan d'Épargne Retraite permet de déduire les versements de ton revenu imposable, dans la limite de 10% des revenus N-1 (plafond 37 094 € en 2026). Si tu es dans la tranche à 30% ou 41%, la déduction fiscale immédiate est très avantageuse. Attention : l'argent est bloqué jusqu'à la retraite (sauf cas de déblocage anticipé).</p>
+        <p><strong>4. CTO pour le reste</strong> — Pas de plafond, tous les actifs accessibles. Flat tax de 30% sur les plus-values et dividendes (prélèvement forfaitaire unique). Moins avantageux fiscalement que le PEA ou l'AV, mais indispensable si tu dépasses les plafonds des autres enveloppes ou si tu investis en dehors des ETF éligibles PEA.</p>
+
+        <div class="table-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr><th>Enveloppe</th><th>Plafond versement</th><th>Fiscalité sortie</th><th>Liquidité</th><th>Avantage clé</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>PEA</strong></td>
+                <td>150 000 €</td>
+                <td class="yes">Exonéré IR après 5 ans (+17,2% PS)</td>
+                <td>Libre après 5 ans sans clôture</td>
+                <td>Meilleure fiscalité actions long terme</td>
+              </tr>
+              <tr>
+                <td><strong>Assurance-vie</strong></td>
+                <td>Aucun</td>
+                <td class="yes">Abattement 4 600 €/an après 8 ans</td>
+                <td>Libre à tout moment</td>
+                <td>Succession : 152 500 €/bénéf. hors droits</td>
+              </tr>
+              <tr>
+                <td><strong>PER</strong></td>
+                <td>10% revenus N-1 (max 37 094 € en 2026)</td>
+                <td>IR à la sortie (retraite)</td>
+                <td class="no">Bloqué jusqu'à retraite (sauf cas)</td>
+                <td>Déduction fiscale immédiate des versements</td>
+              </tr>
+              <tr>
+                <td><strong>CTO</strong></td>
+                <td>Aucun</td>
+                <td>Flat tax 30% sur gains</td>
+                <td class="yes">Totale, immédiate</td>
+                <td>Accès à tous les actifs mondiaux</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Pour une grosse somme comme un héritage, le couple PEA + assurance-vie est souvent la solution optimale. Le PEA pour la performance fiscale sur les actions, l'assurance-vie pour la flexibilité, la succession et le surplus au-delà des 150 000 €. Le CTO intervient en dernier recours ou pour des besoins spécifiques (actions non éligibles PEA, ETF non disponibles en AV).</p>
+        </div>
+
+        <h2 id="cas-pratiques">Cas pratiques : exemples chiffrés pas à pas</h2>
+        <p>Voici trois situations concrètes avec le plan d'action recommandé étape par étape.</p>
+
+        <div class="cas-pratique">
+          <div class="cas-pratique-header">
+            <div class="cas-pratique-icon">🏠</div>
+            <h3>Héritage de 80 000 €</h3>
+          </div>
+          <p style="font-size:14px;color:var(--grey-1);margin-bottom:12px;">Contexte : tu hérites de 80 000 € à 35 ans. Tu es salarié, TMI 30%, tu n'as pas de PEA. Horizon 15 ans minimum.</p>
+          <ul>
+            <li>Étape 1 : constituer ou compléter le fonds d'urgence à 3-6 mois de dépenses (si ce n'est pas déjà fait). Si tu avais déjà un fonds, tu gardes les 80 000 € intacts.</li>
+            <li>Étape 2 : ouvrir un PEA chez Fortuneo ou Bourse Direct. Verser 70 000 € sur le PEA en lump sum sur un ETF MSCI World (Amundi CW8 ou similaire). Le compteur de 5 ans commence immédiatement.</li>
+            <li>Étape 3 : ouvrir une assurance-vie (Linxea Spirit 2, Lucya Cardif ou équivalent). Verser les 10 000 € restants sur une allocation 80% UC actions / 20% fonds euros. Le compteur de 8 ans commence pour l'avantage successoral.</li>
+            <li>Résultat estimé à 15 ans à 7%/an : PEA ≈ 192 000 €, AV ≈ 27 000 €, soit un total d'environ 219 000 € pour 80 000 € investis. Fiscalité sortie PEA : 17,2% sur les 122 000 € de plus-values seulement.</li>
+          </ul>
+        </div>
+
+        <div class="cas-pratique">
+          <div class="cas-pratique-header">
+            <div class="cas-pratique-icon">💼</div>
+            <h3>Prime exceptionnelle de 30 000 €</h3>
+          </div>
+          <p style="font-size:14px;color:var(--grey-1);margin-bottom:12px;">Contexte : tu reçois une prime de 30 000 € bruts (environ 21 000 € nets après impôt). Tu as déjà un PEA avec 5 000 € dedans. TMI 30%.</p>
+          <ul>
+            <li>Étape 1 : vérifier le fonds d'urgence. Si ok, aller directement à l'investissement.</li>
+            <li>Étape 2 : compléter le PEA existant. Verser 15 000 € supplémentaires sur le PEA (le plafond de 150 000 € est loin). ETF MSCI World, lump sum si tu as plus de 5 ans devant toi, DCA sur 6 mois si tu es dans une phase de valorisations élevées.</li>
+            <li>Étape 3 : verser 6 000 € sur une assurance-vie si tu n'en as pas encore (pour ouvrir le compteur de 8 ans et diversifier l'enveloppe).</li>
+            <li>Si tu es fortement imposé : envisager 3 000 à 5 000 € sur PER pour déduire une partie de la prime de ton revenu imposable (économie fiscale à 30% = 900 à 1 500 € d'impôt en moins immédiatement).</li>
+          </ul>
+        </div>
+
+        <div class="cas-pratique">
+          <div class="cas-pratique-header">
+            <div class="cas-pratique-icon">🔑</div>
+            <h3>Vente immobilière : 200 000 € à déployer</h3>
+          </div>
+          <p style="font-size:14px;color:var(--grey-1);margin-bottom:12px;">Contexte : tu vends un appartement hors résidence principale. Après fiscalité de la plus-value immobilière, il te reste 200 000 € nets à investir. Tu n'as pas de PEA. TMI 41%.</p>
+          <ul>
+            <li>Étape 1 : fonds d'urgence déjà constitué (tu es propriétaire depuis des années, probablement ok). Sinon, prélever 15 000 € sur livret A/LDDS immédiatement.</li>
+            <li>Étape 2 : ouvrir un PEA et verser le maximum légal : 150 000 €. ETF MSCI World en lump sum ou DCA sur 6 mois si l'horizon émotionnel le nécessite. Cette enveloppe génère la meilleure fiscalité long terme.</li>
+            <li>Étape 3 : avec les 50 000 € restants, ouvrir deux contrats d'assurance-vie (chez deux assureurs différents pour diversifier les risques assureur) : 25 000 € chacun. Allocation 70% UC / 30% fonds euros pour garder de la stabilité sur cette part.</li>
+            <li>Étape 4 : étant en TMI 41%, étudier sérieusement le PER cette année : jusqu'à 37 094 € déductibles des revenus. Économie d'impôt potentielle de plus de 15 000 €. À discuter avec un conseiller fiscal pour valider.</li>
+            <li>Résultat estimé à 10 ans (hors PER) : PEA 150 000 € → environ 295 000 €. AV 50 000 € → environ 83 000 €. Total ≈ 378 000 € pour 200 000 € investis.</li>
+          </ul>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Vaut-il mieux investir un héritage d'un coup ou en plusieurs fois ?</summary>
+            <p>Les études historiques (notamment celle de Vanguard en 2012) montrent que le lump sum surperforme le DCA dans environ 68% des cas sur 12 mois glissants. Cela dit, la différence de performance est modeste (quelques pourcents) et le DCA réduit considérablement le risque psychologique d'investir juste avant un krach. Si tu as du mal à accepter de voir ton portefeuille baisser fortement dès le départ, un DCA sur 6 à 12 mois est un très bon compromis.</p>
+          </details>
+          <details>
+            <summary>Quel est le plafond du PEA en 2026 ?</summary>
+            <p>Le plafond de versement du PEA est de 150 000 € pour un PEA classique (bancaire ou assurance). Les plus-values et dividendes peuvent faire dépasser ce montant en valeur de marché, il n'y a pas de plafond sur la valeur du portefeuille. Au-delà des 150 000 €, tu peux continuer à investir via une assurance-vie ou un CTO.</p>
+          </details>
+          <details>
+            <summary>Dans quel ordre ouvrir les enveloppes pour une grosse somme ?</summary>
+            <p>L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 30% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus).</p>
+          </details>
+          <details>
+            <summary>Faut-il rembourser ses dettes avant d'investir une grosse somme ?</summary>
+            <p>Oui, pour les dettes à taux élevé. Un crédit à la consommation à 8-15% ou un découvert bancaire : rembourse en priorité. Le rendement garanti du remboursement de dettes chères dépasse souvent le rendement espéré des marchés. En revanche, un crédit immobilier à taux fixe sous 3% peut être conservé si les marchés offrent un rendement historique de 7-8%/an : c'est un arbitrage personnel, pas une règle absolue.</p>
+          </details>
+          <details>
+            <summary>Comment éviter la paralysie décisionnelle face à une grosse somme ?</summary>
+            <p>La paralysie vient souvent de vouloir trouver le moment parfait. Or il n'existe pas. La règle pratique : passe les 2 premières semaines à construire ton plan (checklist, enveloppes, allocation). Puis mets en place ton investissement, en lump sum ou en DCA sur 12 mois maximum. Chaque mois supplémentaire sur un livret à 3% quand les marchés font historiquement 7-8%/an te coûte en rendement potentiel. L'action imparfaite bat l'inaction parfaite.</p>
+          </details>
+          <details>
+            <summary>Quel ETF choisir pour investir 50 000 € ?</summary>
+            <p>Pour une grosse somme, la simplicité est ta meilleure alliée. Un ETF MSCI World (comme l'Amundi CW8 sur PEA ou un ETF World éligible assurance-vie) couvre 85% de la capitalisation mondiale en un seul produit. Si tu veux affiner, tu peux compléter avec 10-20% d'ETF pays émergents. Évite de sur-diversifier : 2-3 ETF maximum suffisent largement. Utilise le <a href="comparateur-etf.html">comparateur ETF</a> du site pour choisir selon les frais et la taille du fonds.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video-grosse-somme" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-gs-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_GROSSE_SOMME = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video-grosse-somme'); if(!f) return;
+            const soon=document.getElementById('article-video-gs-soon');
+            const has=VIDEO_ID_GROSSE_SOMME && VIDEO_ID_GROSSE_SOMME!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_GROSSE_SOMME+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <!-- Cross-links -->
+        <div style="background:var(--pearl);border-radius:var(--radius-lg);padding:28px 26px;margin-top:48px;border:1px solid var(--grey-5);">
+          <p style="font-family:var(--font-head);font-weight:700;color:var(--navy);font-size:15px;margin-bottom:16px;">Articles complémentaires</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="article-dca.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-size:14px;font-family:var(--font-head);font-weight:600;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              Le DCA : la méthode la plus simple pour investir sans stress
+            </a>
+            <a href="article-etf-monde-2026.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-size:14px;font-family:var(--font-head);font-weight:600;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              Meilleurs ETF Monde 2026 : le comparatif complet
+            </a>
+            <a href="article-allocation-actifs.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-size:14px;font-family:var(--font-head);font-weight:600;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="4"/><line x1="12" y1="20" x2="12" y2="10"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              Allocation d'actifs : construire un portefeuille solide
+            </a>
+          </div>
+        </div>
+
+        <div class="article-cta">
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour déployer ta grosse somme sereinement, choisir tes enveloppes et construire un portefeuille durable, sans jargon et à ton rythme.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA &amp; versements réguliers</a>
+          <a href="article-investir-grosse-somme.html">Investir 50 000 € ou un héritage</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

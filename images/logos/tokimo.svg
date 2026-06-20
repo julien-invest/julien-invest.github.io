@@ -1,0 +1,7 @@
+<svg width="110" height="28" viewBox="0 0 110 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Token/hexagon icon -->
+  <polygon points="11,1 21,6 21,18 11,23 1,18 1,6" fill="#7C3AED"/>
+  <text x="7" y="18" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="13" font-weight="800" fill="white">T</text>
+  <!-- TOKIMO text -->
+  <text x="28" y="20" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="15" font-weight="800" fill="#0D0D2E" letter-spacing="0.5">tokimo</text>
+</svg>

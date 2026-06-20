@@ -1,0 +1,9 @@
+<svg width="160" height="28" viewBox="0 0 160 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- House/brick icon -->
+  <polygon points="11,2 22,12 0,12" fill="#0EA5E9"/>
+  <rect x="2" y="12" width="18" height="13" rx="1" fill="#0EA5E9" opacity="0.85"/>
+  <rect x="7" y="17" width="6" height="8" rx="1" fill="white"/>
+  <!-- Text -->
+  <text x="28" y="13" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="9" font-weight="700" fill="#555" letter-spacing="0.3">LA PREMIÈRE</text>
+  <text x="28" y="24" font-family="Plus Jakarta Sans, system-ui, sans-serif" font-size="11" font-weight="800" fill="#0D0D2E" letter-spacing="0.3">BRIQUE</text>
+</svg>

@@ -83,12 +83,13 @@
     .scpi-stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
     .scpi-stat-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
     /* Flow infographic */
-    .scpi-flow { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; margin: 20px 0 28px; background: var(--pearl); border-radius: 16px; padding: 20px 12px; gap: 0; }
-    .scpi-flow-step { text-align: center; padding: 10px 10px; }
-    .scpi-flow-icon { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; font-size: 20px; }
-    .scpi-flow-label { font-family: var(--font-head); font-weight: 700; font-size: 12px; color: var(--navy); }
-    .scpi-flow-sub { font-size: 10px; color: var(--grey-2); margin-top: 1px; max-width: 80px; }
-    .scpi-flow-arrow { font-size: 18px; color: var(--grey-3); display: flex; align-items: center; padding: 0 2px; }
+    .scpi-flow { display: flex; align-items: center; justify-content: center; flex-wrap: nowrap; margin: 20px 0 28px; background: linear-gradient(135deg,#F0EEF8,#E8F5EE); border-radius: 16px; padding: 20px 10px; gap: 0; border: 1px solid #E2DDEF; overflow-x: auto; }
+    .scpi-flow-step { text-align: center; padding: 8px 8px; flex-shrink: 0; }
+    .scpi-flow-icon { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 7px; font-size: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+    .scpi-flow-label { font-family: var(--font-head); font-weight: 800; font-size: 11px; color: var(--navy); }
+    .scpi-flow-sub { font-size: 9px; color: var(--grey-2); margin-top: 2px; max-width: 74px; line-height: 1.4; }
+    .scpi-flow-arrow { color: var(--grey-3); display: flex; align-items: center; padding: 0; margin-top: -14px; flex-shrink: 0; }
+    .scpi-flow-arrow svg { width: 18px; height: 18px; }
     /* Profile cards */
     .scpi-profile-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0 36px; }
     @media (max-width: 560px) { .scpi-profile-grid { grid-template-columns: 1fr; } }
@@ -103,6 +104,9 @@
     .scpi-card--sante .scpi-card-badge { background: #E0F2FE; color: #0369A1; }
     .scpi-card--nofees .scpi-card-badge { background: #EDE9FE; color: #4C1D95; }
     .scpi-card--growth .scpi-card-badge { background: #FEF3C7; color: #92400E; }
+    .scpi-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 2px; }
+    .scpi-card-logo { height: 30px; display: flex; align-items: center; flex-shrink: 0; padding: 4px 6px; background: #f8f8f8; border-radius: 6px; border: 1px solid var(--grey-5); }
+    .scpi-card-logo img { height: 22px; width: auto; max-width: 80px; object-fit: contain; }
     .scpi-card-name { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 2px; line-height: 1.2; }
     .scpi-card-sg { font-size: 11px; color: var(--grey-2); margin-bottom: 13px; }
     .scpi-card-metrics { display: grid; grid-template-columns: repeat(2,1fr); gap: 7px; margin-bottom: 12px; }
@@ -244,15 +248,20 @@
       <li><a href="coaching.html">Coaching</a></li>
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="parrainage.html">Parrainages</a></li>
-      <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
-      <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
-      <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
-      <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
-      <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
-      <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
-      <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
-      <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
-      <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+        </ul>
+      </li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="ressources.html#guides">Guides thématiques</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -314,25 +323,25 @@
             <div class="scpi-flow-label">Toi</div>
             <div class="scpi-flow-sub">Achètes des parts</div>
           </div>
-          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
           <div class="scpi-flow-step">
             <div class="scpi-flow-icon" style="background:#D1FAE5;">🏢</div>
             <div class="scpi-flow-label">La SCPI</div>
             <div class="scpi-flow-sub">Collecte et investit</div>
           </div>
-          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
           <div class="scpi-flow-step">
             <div class="scpi-flow-icon" style="background:#E0F2FE;">🏗️</div>
             <div class="scpi-flow-label">Immeubles</div>
             <div class="scpi-flow-sub">Bureaux, santé, commerces…</div>
           </div>
-          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
           <div class="scpi-flow-step">
             <div class="scpi-flow-icon" style="background:#FEF9C3;">🔑</div>
             <div class="scpi-flow-label">Locataires</div>
             <div class="scpi-flow-sub">Paient les loyers</div>
           </div>
-          <div class="scpi-flow-arrow">→</div>
+          <div class="scpi-flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></div>
           <div class="scpi-flow-step">
             <div class="scpi-flow-icon" style="background:#D1FAE5;">💰</div>
             <div class="scpi-flow-label">Toi</div>
@@ -353,18 +362,22 @@
         <h2 id="criteres">Les critères qui comptent vraiment</h2>
 
         <figure class="scpi-figure">
-          <svg class="scpi-svg" viewBox="0 0 700 210" role="img" aria-label="Pyramide des critères SCPI du plus fiable (TRI) au moins fiable seul (taux de distribution)" xmlns="http://www.w3.org/2000/svg">
-            <rect width="700" height="210" rx="14" fill="#F7F5FA"/>
-            <polygon points="350,16 448,58 252,58" fill="#059669" opacity="0.88"/>
-            <text x="350" y="43" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TRI (taux de rendement interne) sur 10 ans</text>
-            <polygon points="252,63 448,63 480,103 220,103" fill="#0EA5E9" opacity="0.82"/>
-            <text x="350" y="88" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">Frais complets · Ancienneté · Capitalisation</text>
-            <polygon points="220,108 480,108 520,148 180,148" fill="#7C3AED" opacity="0.78"/>
-            <text x="350" y="133" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TOF · Report à nouveau · Endettement · Diversification</text>
-            <polygon points="180,153 520,153 570,193 130,193" fill="#F59E0B" opacity="0.82"/>
-            <text x="350" y="178" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#5C3B00">Taux de distribution seul — le moins fiable isolément</text>
-            <text x="580" y="38" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">★ Le plus fiable</text>
-            <text x="575" y="183" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309" font-weight="700">⚠ Trompeur seul</text>
+          <svg class="scpi-svg" viewBox="0 0 700 228" role="img" aria-label="Pyramide des critères SCPI du plus fiable (TRI) au moins fiable seul (taux de distribution)" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="228" rx="14" fill="#F7F5FA"/>
+            <!-- Niveaux de la pyramide -->
+            <polygon points="350,14 450,56 250,56" fill="#059669" opacity="0.88"/>
+            <text x="350" y="41" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TRI (taux de rendement interne) sur 10 ans</text>
+            <polygon points="250,61 450,61 484,101 216,101" fill="#0EA5E9" opacity="0.82"/>
+            <text x="350" y="86" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">Frais complets · Ancienneté · Capitalisation</text>
+            <polygon points="216,106 484,106 524,146 176,146" fill="#7C3AED" opacity="0.78"/>
+            <text x="350" y="131" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="white">TOF · Report à nouveau · Endettement · Diversification</text>
+            <polygon points="176,151 524,151 576,191 124,191" fill="#F59E0B" opacity="0.82"/>
+            <text x="350" y="176" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" font-weight="700" fill="#5C3B00">Taux de distribution seul — le moins fiable isolément</text>
+            <!-- Légende intégrée en bas, dans les marges du SVG -->
+            <circle cx="148" cy="213" r="5" fill="#059669" opacity="0.88"/>
+            <text x="158" y="217" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">★ Sommet = le plus fiable</text>
+            <circle cx="416" cy="213" r="5" fill="#F59E0B" opacity="0.9"/>
+            <text x="426" y="217" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309" font-weight="700">⚠ Base = trompeur pris seul</text>
           </svg>
           <figcaption>Pyramide de fiabilité : le TRI intègre tout — revenus, évolution du prix de part, frais. Le taux de distribution seul ignore le capital.</figcaption>
         </figure>
@@ -391,7 +404,10 @@
 
         <div class="scpi-profile-grid">
           <div class="scpi-card scpi-card--proven">
-            <span class="scpi-card-badge">Classique prouvée</span>
+            <div class="scpi-card-top">
+              <span class="scpi-card-badge">Classique prouvée</span>
+              <div class="scpi-card-logo"><img src="images/logos/corum.svg" alt="Corum AM" loading="lazy"></div>
+            </div>
             <div class="scpi-card-name">Corum Origin</div>
             <div class="scpi-card-sg">Corum AM · créée 2012 · Europe diversifiée</div>
             <div class="scpi-card-metrics">
@@ -404,7 +420,10 @@
           </div>
 
           <div class="scpi-card scpi-card--sante">
-            <span class="scpi-card-badge">Thématique santé</span>
+            <div class="scpi-card-top">
+              <span class="scpi-card-badge">Thématique santé</span>
+              <div class="scpi-card-logo"><img src="images/logos/euryale.svg" alt="Euryale AM" loading="lazy"></div>
+            </div>
             <div class="scpi-card-name">Pierval Santé</div>
             <div class="scpi-card-sg">Euryale AM · créée 2013 · Santé Europe · 252 biens</div>
             <div class="scpi-card-metrics">
@@ -417,7 +436,10 @@
           </div>
 
           <div class="scpi-card scpi-card--nofees">
-            <span class="scpi-card-badge">0% frais d'entrée · ISR</span>
+            <div class="scpi-card-top">
+              <span class="scpi-card-badge">0% frais d'entrée · ISR</span>
+              <div class="scpi-card-logo"><img src="images/logos/iroko.svg" alt="Iroko" loading="lazy"></div>
+            </div>
             <div class="scpi-card-name">Iroko Zen</div>
             <div class="scpi-card-sg">Iroko · créée 2020 · Europe ISR · 177 actifs · 411 locataires</div>
             <div class="scpi-card-metrics">
@@ -430,7 +452,10 @@
           </div>
 
           <div class="scpi-card scpi-card--growth">
-            <span class="scpi-card-badge">⚠ 0% frais · haut rendement récent</span>
+            <div class="scpi-card-top">
+              <span class="scpi-card-badge">⚠ 0% frais · haut rendement récent</span>
+              <div class="scpi-card-logo"><img src="images/logos/remake.svg" alt="Remake AM" loading="lazy"></div>
+            </div>
             <div class="scpi-card-name">Remake Live</div>
             <div class="scpi-card-sg">Remake AM · créée 2022 · Europe · 71 actifs · 9 pays</div>
             <div class="scpi-card-metrics">
@@ -650,91 +675,94 @@
         <p><strong>Wemo One</strong> (Wemo REIM) affiche 15,27% — le plus haut du tableau. Elle a été créée en avril 2024, soit à peine plus d'un an d'existence au moment de la collecte des données. Sa capitalisation est de 75 M€, soit 50 fois moins que Corum Origin. <strong>Reason</strong> (MNK Partners, 2024) affiche 12,90% pour seulement 31 M€ de capitalisation — une mutualisation quasi-inexistante sur 9 immeubles et 13 locataires. <strong>Corum Origin</strong> (2012) affiche « seulement » 6,50%, mais c'est une performance réelle sur 13 ans, vérifiée sur plusieurs cycles dont la correction 2023-2024, avec un TRI 10 ans de 6,75% et 167 immeubles dans 13 pays.</p>
 
         <figure class="scpi-figure">
-          <svg class="scpi-svg" viewBox="0 0 700 360" role="img" aria-label="Graphique à bulles : taille = capitalisation, x = ancienneté, y = taux de distribution. Les SCPI récentes à haut rendement ont de petites bulles." xmlns="http://www.w3.org/2000/svg">
-            <rect width="700" height="360" rx="14" fill="#F7F5FA"/>
+          <svg class="scpi-svg" viewBox="0 0 700 370" role="img" aria-label="Graphique à bulles : taille = capitalisation, x = ancienneté, y = taux de distribution. Les SCPI récentes à haut rendement ont de petites bulles." xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="370" rx="14" fill="#F7F5FA"/>
             <text x="350" y="24" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">TD affiché vs ancienneté — taille de bulle = capitalisation</text>
             <text x="350" y="42" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#555">Plus grosses bulles = plus capitalisées = meilleure mutualisation du risque</text>
             <!-- axes -->
-            <line x1="62" y1="300" x2="680" y2="300" stroke="#C9C2D8" stroke-width="1.5"/>
-            <line x1="62" y1="68" x2="62" y2="300" stroke="#C9C2D8" stroke-width="1.5"/>
+            <line x1="62" y1="308" x2="680" y2="308" stroke="#C9C2D8" stroke-width="1.5"/>
+            <line x1="62" y1="68" x2="62" y2="308" stroke="#C9C2D8" stroke-width="1.5"/>
             <!-- x-axis labels: 2012→2025, 62 to 680 = 618px / 13 ans = 47.5px/an -->
-            <text x="62" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2012</text>
-            <text x="204" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2015</text>
-            <text x="347" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2018</text>
-            <text x="490" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2021</text>
-            <text x="585" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2023</text>
-            <text x="633" y="316" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2024</text>
-            <!-- y-axis labels: 4% (y=295) to 16% (y=75), 220px / 12% = 18.3px per % -->
-            <text x="50" y="298" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">4%</text>
-            <text x="50" y="262" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">6%</text>
-            <text x="50" y="225" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">8%</text>
-            <text x="50" y="188" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">10%</text>
-            <text x="50" y="152" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">12%</text>
-            <text x="50" y="114" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">14%</text>
-            <text x="50" y="77" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">16%</text>
+            <text x="62"  y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2012</text>
+            <text x="204" y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2015</text>
+            <text x="347" y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2018</text>
+            <text x="490" y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2021</text>
+            <text x="585" y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2023</text>
+            <text x="633" y="323" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">2024</text>
+            <!-- y-axis labels: 4% (y=302) to 16% (y=82), 220px / 12% = 18.3px per % -->
+            <text x="50" y="306" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">4%</text>
+            <text x="50" y="269" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">6%</text>
+            <text x="50" y="233" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">8%</text>
+            <text x="50" y="196" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">10%</text>
+            <text x="50" y="159" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">12%</text>
+            <text x="50" y="122" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">14%</text>
+            <text x="50" y="85"  text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">16%</text>
             <!-- zones -->
-            <rect x="62" y="68" width="330" height="232" fill="#D1FAE5" opacity="0.28" rx="4"/>
+            <rect x="62" y="68" width="330" height="240" fill="#D1FAE5" opacity="0.28" rx="4"/>
             <text x="220" y="83" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">TRI vérifié ✓</text>
-            <rect x="410" y="68" width="270" height="232" fill="#FEF3C7" opacity="0.4" rx="4"/>
+            <rect x="410" y="68" width="270" height="240" fill="#FEF3C7" opacity="0.4" rx="4"/>
             <text x="545" y="83" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309" font-weight="700">⚠ Pas de TRI 10 ans</text>
-            <!-- Bulles — x = 62 + (year-2012)*47.5 ; y = 298 - (td-4)*18.33 -->
-            <!-- Corum Origin 2012, 6.50%, 3.79Md€, r=44 → x=62, y=252 -->
-            <circle cx="62" cy="252" r="44" fill="#059669" opacity="0.72"/>
-            <text x="62" y="248" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Corum</text>
-            <text x="62" y="259" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="white">Origin</text>
-            <text x="62" y="270" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">6,50% · TRI 6,75%</text>
-            <!-- Pierval Santé 2013, 4.06%, 3.30Md€, r=41 → x=110, y=297 -->
-            <circle cx="110" cy="297" r="41" fill="#0EA5E9" opacity="0.55"/>
-            <text x="158" y="315" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#0369A1">Pierval</text>
-            <text x="158" y="326" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#0369A1">Santé 4,06%</text>
-            <line x1="151" y1="300" x2="155" y2="311" stroke="#0369A1" stroke-width="0.8"/>
-            <!-- Épargne Pierre 2013, 5.28%, 2.80Md€, r=38 → x=110, y=275 -->
-            <circle cx="100" cy="275" r="38" fill="#059669" opacity="0.55"/>
-            <text x="144" y="261" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#065F46">Ép. Pierre</text>
-            <text x="144" y="272" text-anchor="start" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#065F46">5,28%</text>
-            <line x1="138" y1="269" x2="141" y2="264" stroke="#065F46" stroke-width="0.8"/>
-            <!-- NCap Régions 2015, 5.72%, 1.08Md€, r=24 → x=204, y=267 -->
-            <circle cx="204" cy="267" r="24" fill="#059669" opacity="0.65"/>
-            <text x="204" y="264" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">NCap</text>
-            <text x="204" y="273" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">5,72%</text>
-            <!-- Paref Prima 2015, 5.00%, 934M€, r=22 → x=225, y=280 -->
-            <circle cx="225" cy="280" r="22" fill="#059669" opacity="0.52"/>
-            <text x="225" y="278" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">Paref 5%</text>
-            <!-- Corum XL 2016, 5.30%, 2.14Md€, r=33 → x=252, y=274 -->
-            <circle cx="252" cy="274" r="33" fill="#059669" opacity="0.52"/>
-            <text x="252" y="270" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Corum XL</text>
-            <text x="252" y="281" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">5,30%</text>
-            <!-- Iroko Zen 2020, 7.14%, 1.36Md€, r=26 → x=442, y=241 -->
-            <circle cx="442" cy="241" r="26" fill="#7C3AED" opacity="0.78"/>
-            <text x="442" y="237" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="white">Iroko Zen</text>
-            <text x="442" y="248" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,14% · TRI 7,49%</text>
-            <!-- Transitions Europe 2022, 7.60%, 1.10Md€, r=24 → x=518, y=232 -->
-            <circle cx="518" cy="232" r="24" fill="#F59E0B" opacity="0.85"/>
-            <text x="518" y="228" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Trans.</text>
-            <text x="518" y="238" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,60%</text>
-            <!-- Remake Live 2022, 7.05%, 846M€, r=21 → x=560, y=242 -->
-            <circle cx="560" cy="242" r="21" fill="#F59E0B" opacity="0.82"/>
-            <text x="560" y="239" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Remake</text>
-            <text x="560" y="249" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">7,05%</text>
-            <!-- Comète 2023, 9.00%, 519.6M€, r=16 → x=585, y=207 — labels au-dessus de la bulle -->
-            <circle cx="585" cy="207" r="16" fill="#DC2626" opacity="0.85"/>
-            <text x="585" y="181" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Comète</text>
-            <text x="585" y="191" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#DC2626">9%</text>
-            <!-- Reason 2024, 12.90%, 31M€, r=5 → x=632, y=135 — label à gauche, text-anchor end -->
-            <circle cx="632" cy="135" r="5" fill="#DC2626" opacity="0.95"/>
-            <line x1="627" y1="137" x2="600" y2="150" stroke="#DC2626" stroke-dasharray="2,2" stroke-width="0.8"/>
-            <text x="598" y="147" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Reason</text>
-            <text x="598" y="158" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#DC2626">12,9% · 31M€</text>
-            <!-- Wemo One 2024, 15.27%, 75M€, r=7 → x=632, y=92 — label à gauche, text-anchor end -->
-            <circle cx="632" cy="92" r="7" fill="#7F1D1D" opacity="0.9"/>
-            <line x1="625" y1="96" x2="600" y2="110" stroke="#7F1D1D" stroke-dasharray="2,2" stroke-width="0.8"/>
-            <text x="598" y="107" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#7F1D1D">Wemo One</text>
-            <text x="598" y="118" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#7F1D1D">15,27% · 75M€</text>
+            <!-- Bulles réduites (×0.55) — x = 62+(year-2012)*47.5 ; y = 306-(td-4)*18.33 -->
+            <!-- 2013 décalés horizontalement pour éviter le chevauchement -->
+            <!-- Corum Origin 2012, 6.50%, 3.79Md€, r=24 → cx=70, cy=260 -->
+            <circle cx="70" cy="260" r="24" fill="#059669" opacity="0.82"/>
+            <text x="70" y="256" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Corum Origin</text>
+            <text x="70" y="267" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="white">6,50% · TRI ✓</text>
+            <!-- Épargne Pierre 2013, 5.28%, 2.80Md€, r=21 → cx=108, cy=284 — label en haut-droite -->
+            <circle cx="108" cy="284" r="21" fill="#059669" opacity="0.55"/>
+            <line x1="122" y1="272" x2="138" y2="260" stroke="#065F46" stroke-width="0.8"/>
+            <text x="140" y="257" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#065F46">Ép. Pierre</text>
+            <text x="140" y="267" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#065F46">5,28%</text>
+            <!-- Pierval Santé 2013, 4.06%, 3.30Md€, r=22 → cx=140, cy=305 — label à droite -->
+            <circle cx="140" cy="305" r="22" fill="#0EA5E9" opacity="0.55"/>
+            <line x1="162" y1="301" x2="178" y2="295" stroke="#0369A1" stroke-width="0.8"/>
+            <text x="180" y="292" font-family="Plus Jakarta Sans,sans-serif" font-size="9" font-weight="700" fill="#0369A1">Pierval Santé</text>
+            <text x="180" y="302" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#0369A1">4,06%</text>
+            <!-- NCap Régions 2015, 5.72%, 1.08Md€, r=13 → cx=204, cy=275 — label au-dessus -->
+            <circle cx="204" cy="275" r="13" fill="#059669" opacity="0.7"/>
+            <line x1="204" y1="262" x2="204" y2="251" stroke="#065F46" stroke-width="0.8"/>
+            <text x="204" y="248" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#065F46">NCap 5,72%</text>
+            <!-- Paref Prima 2015, 5.00%, 934M€, r=12 → cx=228, cy=288 — label en bas-droite -->
+            <circle cx="228" cy="288" r="12" fill="#059669" opacity="0.52"/>
+            <line x1="238" y1="296" x2="248" y2="304" stroke="#065F46" stroke-width="0.8"/>
+            <text x="250" y="308" font-family="Plus Jakarta Sans,sans-serif" font-size="8" fill="#065F46">Paref 5%</text>
+            <!-- Corum XL 2016, 5.30%, 2.14Md€, r=18 → cx=257, cy=282 -->
+            <circle cx="257" cy="282" r="18" fill="#059669" opacity="0.55"/>
+            <text x="257" y="279" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Corum XL</text>
+            <text x="257" y="289" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="white">5,30%</text>
+            <!-- Iroko Zen 2020, 7.14%, 1.36Md€, r=14 → cx=442, cy=249 -->
+            <circle cx="442" cy="249" r="14" fill="#7C3AED" opacity="0.85"/>
+            <text x="442" y="246" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="white">Iroko Zen</text>
+            <text x="442" y="256" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="white">7,14% TRI ✓</text>
+            <!-- Transitions Europe 2022, 7.60%, 1.10Md€, r=13 → cx=518, cy=240 — label au-dessus -->
+            <circle cx="518" cy="240" r="13" fill="#F59E0B" opacity="0.85"/>
+            <line x1="518" y1="227" x2="518" y2="216" stroke="#B45309" stroke-width="0.8"/>
+            <text x="518" y="213" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#B45309">Trans. Eu.</text>
+            <text x="518" y="222" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="#B45309">7,60%</text>
+            <!-- Remake Live 2022, 7.05%, 846M€, r=12 → cx=553, cy=250 — label en bas -->
+            <circle cx="553" cy="250" r="12" fill="#F59E0B" opacity="0.82"/>
+            <line x1="553" y1="262" x2="553" y2="272" stroke="#B45309" stroke-width="0.8"/>
+            <text x="553" y="280" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#B45309">Remake</text>
+            <text x="553" y="289" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="#B45309">7,05%</text>
+            <!-- Comète 2023, 9.00%, 519.6M€, r=9 → cx=585, cy=214 — label à gauche -->
+            <circle cx="585" cy="214" r="9" fill="#DC2626" opacity="0.85"/>
+            <line x1="576" y1="210" x2="562" y2="200" stroke="#DC2626" stroke-width="0.8"/>
+            <text x="560" y="197" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Comète 9%</text>
+            <!-- Reason 2024, 12.90%, 31M€, r=3 → cx=632, cy=142 — label à gauche -->
+            <circle cx="632" cy="142" r="3" fill="#DC2626" opacity="0.95"/>
+            <line x1="629" y1="142" x2="613" y2="148" stroke="#DC2626" stroke-dasharray="2,2" stroke-width="0.8"/>
+            <text x="611" y="145" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#DC2626">Reason</text>
+            <text x="611" y="155" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="#DC2626">12,9% · 31M€</text>
+            <!-- Wemo One 2024, 15.27%, 75M€, r=4 → cx=636, cy=100 — label à gauche -->
+            <circle cx="636" cy="100" r="4" fill="#7F1D1D" opacity="0.9"/>
+            <line x1="632" y1="101" x2="616" y2="109" stroke="#7F1D1D" stroke-dasharray="2,2" stroke-width="0.8"/>
+            <text x="614" y="106" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="8" font-weight="700" fill="#7F1D1D">Wemo One</text>
+            <text x="614" y="116" text-anchor="end" font-family="Plus Jakarta Sans,sans-serif" font-size="7" fill="#7F1D1D">15,27% · 75M€</text>
             <!-- Légende -->
-            <circle cx="80" cy="345" r="6" fill="#059669" opacity="0.72"/><text x="92" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">TRI disponible</text>
-            <circle cx="200" cy="345" r="6" fill="#7C3AED" opacity="0.78"/><text x="212" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">0% frais d'entrée</text>
-            <circle cx="320" cy="345" r="6" fill="#F59E0B" opacity="0.85"/><text x="332" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Récente, pas de TRI 10 ans</text>
-            <circle cx="490" cy="345" r="6" fill="#DC2626"/><text x="502" y="349" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Très petite capitalisation ⚠</text>
+            <circle cx="80"  cy="353" r="6" fill="#059669" opacity="0.82"/><text x="92"  y="357" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">TRI disponible</text>
+            <circle cx="205" cy="353" r="6" fill="#7C3AED" opacity="0.85"/><text x="217" y="357" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">0% frais d'entrée</text>
+            <circle cx="335" cy="353" r="6" fill="#F59E0B" opacity="0.85"/><text x="347" y="357" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Récente, pas de TRI 10 ans</text>
+            <circle cx="510" cy="353" r="6" fill="#DC2626"/><text x="522" y="357" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Très petite capitalisation ⚠</text>
           </svg>
           <figcaption>Wemo One (15,27%) et Reason (12,9%), créées en 2024, sont à peine visibles tellement leur capitalisation est faible. Comparer leur TD à celui de Corum Origin, c'est comparer une promesse de 1 an à un résultat sur 13 ans.</figcaption>
         </figure>
@@ -748,36 +776,50 @@
         <p>Les frais d'une SCPI ne se lisent pas sur une seule ligne. Voici la structure complète des deux modèles opposés du tableau : <strong>Corum Origin</strong> (frais d'entrée élevés, gestion modérée) contre <strong>Remake Live</strong> (0% à l'entrée, frais de gestion les plus élevés du tableau).</p>
 
         <figure class="scpi-figure">
-          <svg class="scpi-svg" viewBox="0 0 700 270" role="img" aria-label="Comparaison des structures de frais entre Corum Origin et Remake Live" xmlns="http://www.w3.org/2000/svg">
-            <rect width="700" height="270" rx="14" fill="#F7F5FA"/>
+          <svg class="scpi-svg" viewBox="0 0 700 290" role="img" aria-label="Comparaison des structures de frais entre Corum Origin et Remake Live" xmlns="http://www.w3.org/2000/svg">
+            <rect width="700" height="290" rx="14" fill="#F7F5FA"/>
             <text x="350" y="26" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Structure des frais réels : deux modèles opposés</text>
-            <!-- Corum Origin — carte x=40 à x=320 -->
-            <rect x="40" y="42" width="280" height="210" rx="10" fill="white" stroke="#C8B4E8" stroke-width="1.5"/>
+            <!-- Échelle commune : 110px = 18% (max). 1% = 6,11px. Jouissance : 50px = 6 mois. -->
+            <!-- Corum Origin — carte x=30 à x=330 -->
+            <rect x="30" y="42" width="300" height="230" rx="10" fill="white" stroke="#C8B4E8" stroke-width="1.5"/>
             <text x="180" y="62" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Corum Origin</text>
-            <!-- barres : max 90px → texte commence à x=156, max disponible = 320-156-8 = 156px -->
-            <rect x="56" y="74" width="90" height="18" rx="4" fill="#1A1A4E" opacity="0.85"/>
-            <text x="152" y="87" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Souscription : 11,96% ⚠</text>
-            <rect x="56" y="100" width="28" height="18" rx="4" fill="#7C3AED" opacity="0.7"/>
-            <text x="152" y="113" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Gestion : 12,40%/an</text>
-            <text x="152" y="139" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669">Retrait : 0% ✓</text>
-            <rect x="56" y="152" width="50" height="18" rx="4" fill="#F59E0B" opacity="0.7"/>
-            <text x="152" y="165" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 6 mois</text>
-            <text x="180" y="206" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#059669" font-weight="700">✓ Sortie sans frais après 5 ans</text>
-            <text x="180" y="222" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Horizon optimal : 10 ans+</text>
-            <!-- Remake Live — carte x=380 à x=660 -->
-            <rect x="380" y="42" width="280" height="210" rx="10" fill="white" stroke="#FDE68A" stroke-width="1.5"/>
+            <!-- Souscription 11,96% → 73px -->
+            <rect x="46" y="74" width="73" height="16" rx="3" fill="#1A1A4E" opacity="0.85"/>
+            <text x="124" y="86" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Souscription : 11,96% ⚠</text>
+            <!-- Gestion 12,40% → 76px -->
+            <rect x="46" y="98" width="76" height="16" rx="3" fill="#7C3AED" opacity="0.7"/>
+            <text x="127" y="110" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Gestion : 12,40%/an</text>
+            <!-- Retrait 0% → pas de barre -->
+            <text x="46" y="134" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">Retrait : 0% ✓</text>
+            <!-- Jouissance 6 mois → 50px -->
+            <rect x="46" y="146" width="50" height="16" rx="3" fill="#F59E0B" opacity="0.7"/>
+            <text x="101" y="158" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 6 mois</text>
+            <!-- Axe de référence -->
+            <line x1="46" y1="170" x2="156" y2="170" stroke="#C9C2D8" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="46" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#aaa">0%</text>
+            <text x="148" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#aaa" text-anchor="middle">18%</text>
+            <text x="180" y="215" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#059669" font-weight="700">✓ Sortie sans frais après 5 ans</text>
+            <text x="180" y="231" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Horizon optimal : 10 ans+</text>
+            <!-- Remake Live — carte x=370 à x=670 -->
+            <rect x="370" y="42" width="300" height="230" rx="10" fill="white" stroke="#FDE68A" stroke-width="1.5"/>
             <text x="520" y="62" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="13" font-weight="800" fill="#0D0D2E">Remake Live</text>
-            <!-- texte centré pour 0% (pas de barre) -->
-            <text x="520" y="91" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669">Souscription : 0% ✓</text>
-            <!-- barres : max 50px → texte à x=450, max = 660-450-8 = 202px -->
-            <rect x="392" y="100" width="50" height="18" rx="4" fill="#7C3AED" opacity="0.7"/>
-            <text x="448" y="113" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Gestion : 18%/an ⚠ les + élevés</text>
-            <rect x="392" y="126" width="40" height="18" rx="4" fill="#DC2626" opacity="0.6"/>
-            <text x="448" y="139" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Retrait : 5% si &lt; 5 ans ⚠</text>
-            <rect x="392" y="152" width="28" height="18" rx="4" fill="#F59E0B" opacity="0.7"/>
-            <text x="448" y="165" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 3 mois</text>
-            <text x="520" y="206" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#B45309" font-weight="700">⚠ Sortie avant 5 ans = −5%</text>
-            <text x="520" y="222" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Frais de gestion les + élevés du marché</text>
+            <!-- Souscription 0% → pas de barre -->
+            <text x="386" y="86" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#059669" font-weight="700">Souscription : 0% ✓</text>
+            <!-- Gestion 18% → 110px (max) -->
+            <rect x="386" y="98" width="110" height="16" rx="3" fill="#7C3AED" opacity="0.7"/>
+            <text x="501" y="110" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Gestion : 18%/an ⚠ les + élevés</text>
+            <!-- Retrait 5% → 31px -->
+            <rect x="386" y="122" width="31" height="16" rx="3" fill="#DC2626" opacity="0.6"/>
+            <text x="422" y="134" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#B45309">Retrait : 5% si &lt; 5 ans ⚠</text>
+            <!-- Jouissance 3 mois → 25px -->
+            <rect x="386" y="146" width="25" height="16" rx="3" fill="#F59E0B" opacity="0.7"/>
+            <text x="416" y="158" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#555">Jouissance : 3 mois</text>
+            <!-- Axe de référence -->
+            <line x1="386" y1="170" x2="496" y2="170" stroke="#C9C2D8" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="386" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#aaa">0%</text>
+            <text x="488" y="180" font-family="Plus Jakarta Sans,sans-serif" font-size="9" fill="#aaa" text-anchor="middle">18%</text>
+            <text x="520" y="215" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="11" fill="#B45309" font-weight="700">⚠ Sortie avant 5 ans = −5%</text>
+            <text x="520" y="231" text-anchor="middle" font-family="Plus Jakarta Sans,sans-serif" font-size="10" fill="#888">Frais de gestion les + élevés du marché</text>
           </svg>
           <figcaption>Corum paie à l'entrée, Remake paie sur la durée et à la sortie anticipée. Ni l'un ni l'autre n'est universellement moins cher : tout dépend de ton horizon.</figcaption>
         </figure>

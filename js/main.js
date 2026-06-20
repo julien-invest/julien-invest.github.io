@@ -40,6 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.remove('open');
       });
     });
+
+    // ── ACCORDION CALCULATEURS ────────────────────
+    const accordion = mobileMenu.querySelector('.mob-accordion');
+    if (accordion) {
+      const trigger = accordion.querySelector('.mob-accordion-trigger');
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        accordion.classList.toggle('open');
+      });
+    }
   }
 
   // ── STICKY CTA MOBILE (index, formation, blog, articles) ──────

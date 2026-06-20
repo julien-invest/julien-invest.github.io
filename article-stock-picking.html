@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock picking : comment analyser une action avant d'investir ? | Julien Invest</title>
+  <meta name="description" content="Guide pratique d'analyse fondamentale simplifiée : PER, PEG, FCF, moat, valorisation. Tout ce qu'il faut savoir avant d'acheter une action en bourse.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Stock picking : comment analyser une action avant d'investir ? | Julien Invest">
+  <meta property="og:description" content="Guide pratique d'analyse fondamentale simplifiée : PER, PEG, FCF, moat, valorisation. Tout ce qu'il faut savoir avant d'acheter une action en bourse.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-stock-picking.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Stock picking : comment analyser une action avant d'investir ? | Julien Invest">
+  <meta name="twitter:description" content="Guide pratique d'analyse fondamentale simplifiée : PER, PEG, FCF, moat, valorisation. Tout ce qu'il faut savoir avant d'acheter une action en bourse.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Stock picking : comment analyser une action avant d'investir ?",
+  "description": "Guide pratique d'analyse fondamentale simplifiée : PER, PEG, FCF, moat, valorisation. Tout ce qu'il faut savoir avant d'acheter une action en bourse.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-20",
+  "dateModified": "2026-06-20"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#1E1B4B,#6D28D9); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #fff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    /* Stats bar */
+    .cf-stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .cf-stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .cf-stat { background: #fff; padding: 20px 12px; text-align: center; }
+    .cf-stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
+    .cf-stat-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
+    /* TOC */
+    .article-toc { background: var(--pearl); border-radius: 12px; padding: 20px 24px; margin: 28px 0 32px; border: 1px solid var(--grey-5); }
+    .article-toc-title { font-family: var(--font-head); font-weight: 800; font-size: 13px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+    .article-toc ol { padding-left: 18px; margin: 0; }
+    .article-toc ol li { font-size: 14px; color: var(--grey-1); line-height: 1.8; margin-bottom: 2px; }
+    .article-toc ol li a { color: var(--navy); text-decoration: none; font-weight: 600; }
+    .article-toc ol li a:hover { text-decoration: underline; }
+    /* Retenir */
+    .article-retenir { background: linear-gradient(135deg,#EDE9FE,#F5F3FF); border-radius: 12px; padding: 18px 20px; margin: 28px 0 32px; border-left: 4px solid #7C3AED; }
+    .article-retenir-label { font-size: 11px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin-bottom: 6px; }
+    .article-retenir p { margin: 0; font-size: 14px; color: var(--navy); line-height: 1.7; }
+    /* Figure */
+    .article-figure { margin: 28px 0 32px; }
+    .article-figure svg { max-width: 100%; height: auto; }
+    .article-figure figcaption { font-size: 13px; color: var(--grey-2); text-align: center; margin-top: 10px; font-style: italic; }
+    /* FAQ */
+    .article-faq { margin: 28px 0 8px; }
+    .article-faq details { border-bottom: 1px solid var(--grey-5); }
+    .article-faq details:first-child { border-top: 1px solid var(--grey-5); }
+    .article-faq summary { padding: 16px 0; font-family: var(--font-head); font-weight: 700; font-size: 15px; color: var(--navy); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .article-faq summary::-webkit-details-marker { display: none; }
+    .article-faq summary::after { content: '+'; font-size: 20px; color: var(--grey-3); flex-shrink: 0; }
+    .article-faq details[open] summary::after { content: '−'; }
+    .article-faq details p { padding: 0 0 16px; margin: 0; font-size: 15px; color: var(--grey-1); line-height: 1.8; }
+    /* Video */
+    .article-video { margin: 44px 0 20px; }
+    .article-video-title { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; }
+    .article-meta-date { font-size: 14px; color: var(--grey-3); margin-bottom: 20px !important; }
+    /* Ratios table */
+    .ratios-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .ratios-table th { background: linear-gradient(135deg,#1E1B4B,#4C1D95); color: white; padding: 12px 14px; text-align: left; font-family: var(--font-head); font-size: 12px; letter-spacing: 0.04em; }
+    .ratios-table td { padding: 11px 14px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); vertical-align: top; }
+    .ratios-table tr:nth-child(even) td { background: var(--pearl); }
+    .ratios-table .ratio-name { font-family: var(--font-head); font-weight: 800; color: var(--navy); font-size: 13px; }
+    .ratios-table .ratio-good { color: #059669; font-weight: 700; font-size: 13px; }
+    .ratios-table .ratio-trap { color: #B45309; font-size: 12px; }
+    /* Steps cards */
+    .steps-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 20px 0 32px; }
+    @media (max-width: 560px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step-card { border-radius: 14px; padding: 20px 18px; border: 1.5px solid var(--grey-5); background: #fff; position: relative; }
+    .step-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: 14px 14px 0 0; }
+    .step-card--1::before { background: linear-gradient(90deg,#4C1D95,#7C3AED); }
+    .step-card--2::before { background: linear-gradient(90deg,#1E40AF,#3B82F6); }
+    .step-card--3::before { background: linear-gradient(90deg,#065F46,#059669); }
+    .step-card--4::before { background: linear-gradient(90deg,#92400E,#F59E0B); }
+    .step-card--5::before { background: linear-gradient(90deg,#9F1239,#F43F5E); }
+    .step-num { font-family: var(--font-head); font-weight: 900; font-size: 28px; line-height: 1; margin-bottom: 8px; }
+    .step-card--1 .step-num { color: #7C3AED; }
+    .step-card--2 .step-num { color: #3B82F6; }
+    .step-card--3 .step-num { color: #059669; }
+    .step-card--4 .step-num { color: #F59E0B; }
+    .step-card--5 .step-num { color: #F43F5E; }
+    .step-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--grey-1); line-height: 1.6; margin: 0; }
+    .step-card--wide { grid-column: 1 / -1; }
+    /* Satellite table */
+    .satellite-table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; }
+    .satellite-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .satellite-table td { padding: 13px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .satellite-table tr:nth-child(even) td { background: var(--pearl); }
+    .satellite-table .pct { font-family: var(--font-head); font-weight: 800; font-size: 18px; color: var(--navy); }
+    /* Checklist */
+    .checklist { list-style: none; padding: 0; margin: 16px 0 32px; }
+    .checklist li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--grey-5); font-size: 15px; color: var(--grey-1); line-height: 1.6; }
+    .checklist li:first-child { border-top: 1px solid var(--grey-5); }
+    .checklist-icon { width: 22px; height: 22px; min-width: 22px; border-radius: 50%; background: #EDE9FE; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .checklist-icon svg { width: 12px; height: 12px; color: #7C3AED; }
+    /* Cross-links */
+    .article-crosslinks { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 36px 0 0; }
+    @media (max-width: 560px) { .article-crosslinks { grid-template-columns: 1fr; } }
+    .crosslink-card { border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; text-decoration: none; display: block; transition: border-color 0.2s, box-shadow 0.2s; }
+    .crosslink-card:hover { border-color: #7C3AED; box-shadow: 0 4px 16px rgba(124,58,237,0.10); }
+    .crosslink-label { font-size: 11px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; color: #7C3AED; margin-bottom: 6px; }
+    .crosslink-title { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); line-height: 1.4; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-stock-picking.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Le stock picking est il rentable pour un particulier ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les statistiques sont sévères : 88% des fonds actions US gérés par des professionnels sous-performent le S&P 500 sur 15 ans selon SPIVA 2024. Les particuliers font statistiquement encore moins bien à cause des biais émotionnels et de l'asymétrie d'information. Cela ne veut pas dire que c'est impossible, mais il faut partir avec les yeux ouverts sur la difficulté réelle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'actions faut il pour être diversifié ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Entre 15 et 20 actions réparties dans des secteurs différents suffisent à éliminer environ 80% du risque idiosyncratique (lié à chaque entreprise individuelle). En dessous de 10, la concentration expose à des pertes sévères si une seule position tourne mal. Au-delà de 25-30, la gestion devient chronophage sans gain notable de diversification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est ce qu'un bon PER ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le PER (Price to Earnings Ratio) se lit toujours en contexte sectoriel. Un PER de 10-12 est souvent considéré comme value, 15-20 comme standard proche de la moyenne historique du S&P 500 (environ 17x). Un PER supérieur à 30-40 signifie que le marché anticipe une forte croissance future : si cette croissance ne se matérialise pas, la chute peut être brutale. Comparez toujours au secteur et à l'historique de l'entreprise."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment calculer le Free Cash Flow ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FCF = Bénéfice net + Amortissements - CapEx - Variation du BFR. En pratique, on le trouve directement dans le tableau des flux de trésorerie du rapport annuel. Un FCF positif et croissant est un signe de santé financière réelle, car contrairement au bénéfice net, il est difficile à manipuler comptablement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est ce que la stratégie satellite ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La stratégie core-satellite consiste à construire un portefeuille dont 80 à 90% est investi dans des ETF larges (le coeur, core) et 10 à 20% dans des positions plus ciblées : actions individuelles, ETF sectoriels, paris spécifiques (le satellite). Cette approche permet de pratiquer le stock picking sur une fraction du capital sans mettre en danger la performance globale du portefeuille."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre PER et PEG ratio ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le PER mesure combien tu paies pour 1 euro de bénéfice aujourd'hui. Le PEG corrige ce chiffre par le taux de croissance attendu des bénéfices : PEG = PER / taux de croissance. Un PEG inférieur à 1 est souvent interprété comme une situation potentiellement sous-valorisée. Par exemple, une entreprise avec un PER de 20 et une croissance attendue de 25% par an a un PEG de 0,8, ce qui paraît plus raisonnable qu'un PER de 20 avec 5% de croissance."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Comparateur ETF</a></li>
+          <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Stratégie</span>
+        <h1>Stock picking : comment analyser<br><em>une action avant d'investir ?</em></h1>
+        <p class="article-meta-date">Publié le 20 juin 2026</p>
+        <p>Le guide complet d'analyse fondamentale pour particuliers : PER, PEG, FCF, moat, valorisation. Et pourquoi commencer honnêtement par les statistiques.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Stratégie</span>
+
+        <p>Choisir soi-même ses actions, ça fait rêver. L'idée de dénicher la prochaine grande entreprise avant tout le monde, de battre le marché par la rigueur de son analyse, de construire un portefeuille à son image. La réalité est plus nuancée : les statistiques sont brutales pour les gérants professionnels, et encore plus pour les particuliers. Pourtant, certains investisseurs continuent à pratiquer le stock picking avec méthode et résultats. Ce guide te donne le cadre pour comprendre comment analyser une action, les ratios essentiels, et surtout comment intégrer cette pratique intelligemment dans une stratégie globale.</p>
+
+        <div class="cf-stats-bar">
+          <div class="cf-stat">
+            <div class="cf-stat-num">&lt; 1%</div>
+            <div class="cf-stat-label">De gérants actifs battent le marché sur 15 ans</div>
+          </div>
+          <div class="cf-stat">
+            <div class="cf-stat-num">15-20</div>
+            <div class="cf-stat-label">Actions pour diversifier</div>
+          </div>
+          <div class="cf-stat">
+            <div class="cf-stat-num">PER · PEG · FCF</div>
+            <div class="cf-stat-label">3 ratios essentiels</div>
+          </div>
+          <div class="cf-stat">
+            <div class="cf-stat-num">5 ans min.</div>
+            <div class="cf-stat-label">Horizon recommandé par position</div>
+          </div>
+        </div>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#risque-rendement">Risque vs rendement : situer le stock picking</a></li>
+            <li><a href="#5-etapes">Les 5 étapes d'analyse fondamentale</a></li>
+            <li><a href="#per">Comprendre le PER et la valorisation</a></li>
+            <li><a href="#ratios">Tableau des 8 ratios financiers essentiels</a></li>
+            <li><a href="#honnetete">Stock picking vs ETF : soyons honnêtes</a></li>
+            <li><a href="#satellite">Le framework satellite : comment l'intégrer</a></li>
+            <li><a href="#checklist">Checklist avant d'acheter une action</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="risque-rendement">Risque vs rendement : situer le stock picking</h2>
+        <p>Avant tout cadre d'analyse, il faut situer le stock picking dans le spectre des stratégies d'investissement. Plus tu concentres ton capital sur un petit nombre d'entreprises, plus ton rendement potentiel peut s'éloigner du marché — dans les deux sens. La diversification via les ETF réduit le risque idiosyncratique sans sacrifier le rendement moyen de long terme. Chaque approche a sa logique, à condition de la choisir en connaissance de cause.</p>
+
+        <figure class="article-figure">
+          <svg class="cf-svg" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" role="img" aria-label="Graphique risque versus rendement : nuage de points positionnant différentes stratégies d'investissement">
+            <!-- Background -->
+            <rect width="520" height="300" fill="#FAFAFA" rx="12"/>
+            <!-- Grid lines -->
+            <line x1="60" y1="20" x2="60" y2="240" stroke="#E5E7EB" stroke-width="1"/>
+            <line x1="60" y1="240" x2="490" y2="240" stroke="#E5E7EB" stroke-width="1"/>
+            <line x1="60" y1="180" x2="490" y2="180" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <line x1="60" y1="120" x2="490" y2="120" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <line x1="60" y1="60" x2="490" y2="60" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <line x1="180" y1="20" x2="180" y2="240" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <line x1="300" y1="20" x2="300" y2="240" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <line x1="420" y1="20" x2="420" y2="240" stroke="#E5E7EB" stroke-width="0.7" stroke-dasharray="4,3"/>
+            <!-- Axis labels -->
+            <text x="275" y="268" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#6B7280" font-weight="600">Risque</text>
+            <text x="20" y="130" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#6B7280" font-weight="600" transform="rotate(-90,20,130)">Rendement espéré</text>
+            <!-- Arrow axes -->
+            <line x1="60" y1="240" x2="490" y2="240" stroke="#9CA3AF" stroke-width="1.5"/>
+            <polygon points="490,237 490,243 496,240" fill="#9CA3AF"/>
+            <line x1="60" y1="240" x2="60" y2="20" stroke="#9CA3AF" stroke-width="1.5"/>
+            <polygon points="57,20 63,20 60,14" fill="#9CA3AF"/>
+            <!-- ETF Monde : bas risque, rendement moyen -->
+            <circle cx="140" cy="165" r="18" fill="#10B981" fill-opacity="0.18" stroke="#059669" stroke-width="2"/>
+            <circle cx="140" cy="165" r="7" fill="#059669"/>
+            <text x="140" y="150" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#065F46">ETF Monde</text>
+            <!-- Actions diversifiées : risque moyen, rendement moyen-haut -->
+            <circle cx="255" cy="125" r="18" fill="#3B82F6" fill-opacity="0.15" stroke="#2563EB" stroke-width="2"/>
+            <circle cx="255" cy="125" r="7" fill="#2563EB"/>
+            <text x="255" y="110" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#1D4ED8">Actions</text>
+            <text x="255" y="122" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="600" fill="#1D4ED8">diversifiées</text>
+            <!-- Actions concentrées : risque élevé, rendement potentiellement élevé -->
+            <circle cx="370" cy="82" r="18" fill="#F59E0B" fill-opacity="0.18" stroke="#D97706" stroke-width="2"/>
+            <circle cx="370" cy="82" r="7" fill="#D97706"/>
+            <text x="370" y="67" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#92400E">Actions</text>
+            <text x="370" y="79" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="600" fill="#92400E">concentrées</text>
+            <!-- Trading court terme : risque extrême -->
+            <circle cx="455" cy="52" r="18" fill="#EF4444" fill-opacity="0.15" stroke="#DC2626" stroke-width="2"/>
+            <circle cx="455" cy="52" r="7" fill="#DC2626"/>
+            <text x="455" y="37" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#991B1B">Trading</text>
+            <text x="455" y="49" text-anchor="middle" font-family="Syne, sans-serif" font-size="10" font-weight="600" fill="#991B1B">court terme</text>
+            <!-- Efficient frontier hint -->
+            <path d="M100,200 Q200,150 300,110 Q380,80 460,55" fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-dasharray="6,4"/>
+            <!-- Legend -->
+            <rect x="64" y="26" width="8" height="8" rx="2" fill="#059669"/>
+            <text x="76" y="34" font-family="DM Sans, sans-serif" font-size="11" fill="#374151">ETF monde (cœur de portefeuille)</text>
+          </svg>
+          <figcaption>Plus la concentration augmente, plus le risque et la dispersion des rendements s'élargissent. Le trading court terme a un espérance de rendement ajusté au risque négative après frais.</figcaption>
+        </figure>
+
+        <h2 id="5-etapes">Les 5 étapes d'analyse fondamentale</h2>
+        <p>L'analyse fondamentale consiste à évaluer la valeur intrinsèque d'une entreprise à partir de ses données réelles — bilan, compte de résultat, flux de trésorerie, positionnement concurrentiel. Voici les cinq piliers à examiner avant toute décision d'achat.</p>
+
+        <div class="steps-grid">
+          <div class="step-card step-card--1">
+            <div class="step-num">01</div>
+            <div class="step-title">Business model</div>
+            <p class="step-desc">La règle d'or de Buffett : si tu ne peux pas expliquer simplement comment l'entreprise gagne de l'argent, n'investis pas. Identifie les clients, le produit ou service vendu, les sources de revenus récurrents ou ponctuels, et le modèle de marge. Un bon business model se comprend en cinq lignes.</p>
+          </div>
+          <div class="step-card step-card--2">
+            <div class="step-num">02</div>
+            <div class="step-title">Moat / avantage concurrentiel</div>
+            <p class="step-desc">Le "moat" (fossé défensif) est ce qui protège les marges de l'entreprise sur le long terme. Il peut s'agir d'une marque forte (Apple, LVMH), d'un effet réseau (Visa, Meta), de brevets (pharma, semi-conducteurs), de coûts de changement élevés (logiciels B2B), ou d'un avantage de coût structurel. Sans moat, la concurrence érode les marges.</p>
+          </div>
+          <div class="step-card step-card--3">
+            <div class="step-num">03</div>
+            <div class="step-title">Santé financière</div>
+            <p class="step-desc">Vérifie que l'entreprise génère du Free Cash Flow positif, que sa dette nette reste en dessous de 2-3x l'EBITDA, et que ses marges sont stables ou en progression. Un bilan sain, c'est la capacité à traverser les crises sans diluer les actionnaires ou faire faillite. Le FCF est le signal le plus difficile à falsifier comptablement.</p>
+          </div>
+          <div class="step-card step-card--4">
+            <div class="step-num">04</div>
+            <div class="step-title">Valorisation</div>
+            <p class="step-desc">Même une excellente entreprise peut être un mauvais investissement si tu la paies trop cher. Calcule le PER, compare-le à la moyenne sectorielle et au PEG ratio. Pour aller plus loin, applique un DCF simplifié en actualisant les flux de trésorerie futurs. Une marge de sécurité d'au moins 20-30% par rapport à ta valeur estimée est prudente.</p>
+          </div>
+          <div class="step-card step-card--5 step-card--wide">
+            <div class="step-num">05</div>
+            <div class="step-title">Management et gouvernance</div>
+            <p class="step-desc">Les dirigeants sont les gérants de ton capital. Évalue leur track record : allocation du capital (dividendes, rachats d'actions, acquisitions), transparence dans la communication aux actionnaires, alignement des intérêts (ont-ils des actions dans l'entreprise ?). Méfie-toi des rémunérations déconnectées de la performance, des acquisitions récurrentes à prix élevé, ou des changements fréquents d'équipe dirigeante.</p>
+          </div>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>L'analyse fondamentale ne garantit pas de battre le marché. Elle te protège des erreurs évidentes : payer trop cher une entreprise de mauvaise qualité, ou ignorer un risque de bilan visible dans les chiffres.</p>
+        </div>
+
+        <h2 id="per">Comprendre le PER et la valorisation</h2>
+        <p>Le PER (Price to Earnings Ratio) est le ratio de valorisation le plus utilisé. Il se calcule en divisant le prix de l'action par le bénéfice par action. Un PER de 20 signifie que tu paies 20 euros pour chaque euro de bénéfice annuel. Plus le PER est élevé, plus le marché anticipe une croissance future importante — et plus la déception peut être sévère si cette croissance ne se matérialise pas.</p>
+        <p>Le PER moyen historique du S&P 500 est d'environ <strong>17x</strong>. Le Shiller PE (CAPE), qui lisse les bénéfices sur 10 ans, se situait autour de 28x début 2024. Ces niveaux élevés signifient que les rendements futurs attendus sur les actions américaines sont mécaniquement plus faibles que ceux des 20 dernières années — mais ils ne disent pas quand le marché va corriger.</p>
+
+        <figure class="article-figure">
+          <svg class="cf-svg" viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" role="img" aria-label="Zones de valorisation du PER : de sous-valorisé à bulle spéculative">
+            <rect width="520" height="260" fill="#FAFAFA" rx="12"/>
+            <!-- Background zones -->
+            <rect x="60" y="30" width="100" height="170" fill="#D1FAE5" rx="4" opacity="0.6"/>
+            <rect x="160" y="30" width="140" height="170" fill="#DBEAFE" rx="4" opacity="0.6"/>
+            <rect x="300" y="30" width="100" height="170" fill="#FEF3C7" rx="4" opacity="0.6"/>
+            <rect x="400" y="30" width="90" height="170" fill="#FEE2E2" rx="4" opacity="0.6"/>
+            <!-- Zone labels -->
+            <text x="110" y="22" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#065F46">VALUE</text>
+            <text x="230" y="22" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#1D4ED8">STANDARD</text>
+            <text x="350" y="22" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#92400E">GROWTH</text>
+            <text x="445" y="22" text-anchor="middle" font-family="Syne, sans-serif" font-size="11" font-weight="700" fill="#991B1B">BULLE</text>
+            <!-- Curve: rendement attendu décroit avec le PER -->
+            <path d="M70,60 Q110,62 160,100 Q230,145 300,175 Q380,205 490,215" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Points on curve -->
+            <circle cx="110" cy="64" r="6" fill="#059669"/>
+            <circle cx="230" cy="130" r="6" fill="#2563EB"/>
+            <circle cx="350" cy="180" r="6" fill="#D97706"/>
+            <circle cx="450" cy="212" r="6" fill="#DC2626"/>
+            <!-- PER labels on x-axis -->
+            <text x="110" y="215" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="800" fill="#065F46">PER 10</text>
+            <text x="230" y="215" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="800" fill="#1D4ED8">PER 20</text>
+            <text x="350" y="215" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="800" fill="#92400E">PER 35</text>
+            <text x="450" y="215" text-anchor="middle" font-family="Syne, sans-serif" font-size="12" font-weight="800" fill="#991B1B">PER 50+</text>
+            <!-- Axis -->
+            <line x1="60" y1="200" x2="500" y2="200" stroke="#D1D5DB" stroke-width="1.5"/>
+            <!-- Rendement label -->
+            <text x="15" y="135" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#6B7280" font-weight="600" transform="rotate(-90,15,135)">Rendement attendu</text>
+            <!-- Examples -->
+            <text x="110" y="48" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#065F46">Décote possible</text>
+            <text x="230" y="118" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1D4ED8">~moy. S&amp;P 500</text>
+            <text x="350" y="168" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#92400E">Croissance forte</text>
+            <text x="450" y="200" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#991B1B">requise</text>
+            <!-- Caption area -->
+            <text x="275" y="245" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#9CA3AF">PER (Price to Earnings Ratio)</text>
+          </svg>
+          <figcaption>Plus le PER est élevé, plus la croissance future doit être au rendez-vous pour justifier la valorisation. Un PER élevé n'est pas forcément un problème — c'est une dette de performance envers les actionnaires.</figcaption>
+        </figure>
+
+        <p>Le <strong>PEG ratio</strong> corrige cette limite du PER en tenant compte de la croissance attendue. PEG = PER / taux de croissance des bénéfices. Un PEG inférieur à 1 est souvent interprété comme potentiellement sous-valorisé : par exemple, une entreprise avec un PER de 24 et une croissance attendue de 30% par an a un PEG de 0,8 — plus attrayant qu'une entreprise avec un PER de 15 et seulement 5% de croissance (PEG = 3).</p>
+
+        <h2 id="ratios">Les 8 ratios financiers essentiels</h2>
+        <p>Ces ratios se lisent toujours en contexte : comparaison sectorielle, évolution sur 3-5 ans, cohérence avec le business model. Un ratio isolé ne dit rien.</p>
+
+        <table class="ratios-table">
+          <thead>
+            <tr>
+              <th>Ratio</th>
+              <th>Définition</th>
+              <th>Valeur "bonne"</th>
+              <th>Piège à éviter</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="ratio-name">PER</span></td>
+              <td>Prix / Bénéfice par action</td>
+              <td><span class="ratio-good">10–20x</span></td>
+              <td><span class="ratio-trap">PER bas peut signifier déclin ou manipulation comptable</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">PEG</span></td>
+              <td>PER / Taux de croissance bénéfices</td>
+              <td><span class="ratio-good">&lt; 1</span></td>
+              <td><span class="ratio-trap">Dépend des estimations de croissance, souvent trop optimistes</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">P/B</span></td>
+              <td>Prix / Valeur comptable (book value)</td>
+              <td><span class="ratio-good">1–3x</span></td>
+              <td><span class="ratio-trap">Peu pertinent pour les entreprises à actifs immatériels (tech, pharma)</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">EV/EBITDA</span></td>
+              <td>Valeur d'entreprise / EBITDA</td>
+              <td><span class="ratio-good">6–12x (secteur dépendant)</span></td>
+              <td><span class="ratio-trap">L'EBITDA ignore les amortissements et le CapEx, peut flatter les industries capitalistiques</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">FCF yield</span></td>
+              <td>Free Cash Flow / Capitalisation boursière</td>
+              <td><span class="ratio-good">&gt; 4–5%</span></td>
+              <td><span class="ratio-trap">Un FCF yield très élevé peut cacher un CapEx en déclin (désinvestissement)</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">Dette nette / EBITDA</span></td>
+              <td>Endettement relatif à la capacité bénéficiaire</td>
+              <td><span class="ratio-good">&lt; 2x</span></td>
+              <td><span class="ratio-trap">Certains secteurs (utilities, immobilier) tolèrent un levier plus élevé structurellement</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">Marge nette</span></td>
+              <td>Bénéfice net / Chiffre d'affaires</td>
+              <td><span class="ratio-good">&gt; 10% (hors distribution)</span></td>
+              <td><span class="ratio-trap">Peut être gonflée ponctuellement par des cessions d'actifs ou des avantages fiscaux</span></td>
+            </tr>
+            <tr>
+              <td><span class="ratio-name">ROE</span></td>
+              <td>Bénéfice net / Capitaux propres</td>
+              <td><span class="ratio-good">&gt; 15%</span></td>
+              <td><span class="ratio-trap">Un ROE très élevé peut résulter d'un levier excessif plutôt que d'une vraie rentabilité opérationnelle</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="honnetete">Stock picking vs ETF : soyons honnêtes</h2>
+        <p>Avant d'aller plus loin dans la méthode, il faut regarder les statistiques en face. La SPIVA Scorecard S&P (2024) est impitoyable : <strong>88% des fonds actions US large cap sous-performent le S&P 500 sur 15 ans</strong>. En France, environ 75% des fonds actions France sous-performent leur indice sur 10 ans. Ces gérants ont accès à des analystes à plein temps, aux dirigeants des entreprises, aux modèles propriétaires. Et pourtant.</p>
+
+        <p>Pourquoi les particuliers font encore moins bien en moyenne ? Plusieurs biais émotionnels jouent contre eux :</p>
+        <ul>
+          <li><strong>Sur-confiance (overconfidence)</strong> : on surestime sa capacité à identifier des informations que le marché n'a pas encore intégrées dans le prix.</li>
+          <li><strong>Effet de disposition</strong> : on vend trop tôt ses gagnants (pour "encaisser le gain") et on garde trop longtemps ses perdants (en espérant un retour à la normale). C'est l'exact inverse de ce qu'il faudrait faire.</li>
+          <li><strong>Home bias</strong> : on surpondère les entreprises françaises ou européennes que l'on connaît, sous-exposant son portefeuille aux marchés mondiaux.</li>
+          <li><strong>Asymétrie d'information</strong> : quand une information devient accessible à un particulier, les professionnels l'ont intégrée dans le prix depuis plusieurs semaines.</li>
+        </ul>
+
+        <p>Alors pourquoi certains veulent quand même pratiquer le stock picking ? Les raisons légitimes existent. <strong>L'intérêt intellectuel</strong> : analyser des entreprises est un exercice formateur, qui développe une compréhension économique concrète. <strong>La conviction forte</strong> : sur des secteurs ou des entreprises où tu as une expertise professionnelle réelle, ton edge informationnel peut exister. <strong>La stratégie satellite</strong> : réserver 10-20% du portefeuille aux actions individuelles permet de pratiquer sans mettre en danger l'ensemble du patrimoine. Warren Buffett lui-même, dans sa lettre aux actionnaires de 2013, recommande les index funds pour la grande majorité des investisseurs particuliers.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le stock picking n'est pas irrationnel, à condition d'être honnête sur ses chances et de le pratiquer sur une fraction limitée du portefeuille. L'erreur est de faire du stock picking avec 100% de son capital en croyant qu'on fait de la gestion active éclairée.</p>
+        </div>
+
+        <h2 id="satellite">Le framework satellite : comment l'intégrer</h2>
+        <p>La stratégie core-satellite consiste à scinder son portefeuille en deux parties aux objectifs distincts. Le <strong>cœur (core)</strong> représente l'essentiel du capital, investi en ETF larges et diversifiés pour capturer la performance du marché à faibles frais. Le <strong>satellite</strong> est une poche plus restreinte, réservée aux paris ciblés : actions individuelles, ETF sectoriels ou thématiques, stratégies spécifiques.</p>
+
+        <table class="satellite-table">
+          <thead>
+            <tr>
+              <th>Poche</th>
+              <th>Allocation</th>
+              <th>Instruments</th>
+              <th>Objectif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cœur (Core)</strong></td>
+              <td><span class="pct">80–90%</span></td>
+              <td>ETF Monde (MSCI World), ETF Emerging Markets, ETF Europe</td>
+              <td>Capturer la performance globale du marché, minimiser les frais et la dispersion</td>
+            </tr>
+            <tr>
+              <td><strong>Satellite</strong></td>
+              <td><span class="pct">10–20%</span></td>
+              <td>Actions individuelles (15-20 max), ETF sectoriels, positions thématiques</td>
+              <td>Exprimer des convictions spécifiques, enrichir l'expérience d'investisseur, potentiellement surperformer sur une fraction du capital</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p>Pour la poche satellite actions individuelles, quelques règles de gestion s'imposent. <strong>Position maximale</strong> : ne jamais dépasser 3-5% du portefeuille total sur une seule ligne. <strong>Diversification sectorielle</strong> : si tu détiens 10 actions, assure-toi qu'elles ne sont pas toutes dans la même industrie. <strong>Horizon</strong> : investis uniquement sur des entreprises que tu comptes conserver au minimum 5 ans. <strong>Taille minimale</strong> : au-dessous de 15-20 actions, le risque idiosyncratique devient significatif et commence à peser sur la performance globale.</p>
+
+        <p>Cette approche permet de pratiquer le stock picking sérieusement sans que les erreurs inévitables (et elles seront là) ne dévastent l'ensemble de ton patrimoine. Le cœur ETF protège ; le satellite forme et potentiellement performe.</p>
+
+        <h2 id="checklist">Checklist avant d'acheter une action</h2>
+        <p>Avant de placer un ordre d'achat, passe cette liste méthodiquement. Si plus de deux cases sont cochées en négatif, c'est un signal d'alerte.</p>
+
+        <ul class="checklist">
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Je comprends le business model</strong> en moins de 5 lignes, et je peux expliquer comment l'entreprise gagne de l'argent à quelqu'un qui ne connaît pas le secteur.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Le Free Cash Flow est positif</strong> sur les 3 derniers exercices et en tendance stable ou croissante. Je l'ai vérifié dans le tableau des flux de trésorerie du rapport annuel.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>La dette nette reste en dessous de 2-3x l'EBITDA</strong> et l'entreprise n'a pas de refinancement majeur à court terme dans un contexte de taux élevés.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Le PER est cohérent avec le secteur</strong> et justifié par le taux de croissance attendu (PEG &lt; 1,5 idéalement). Je ne paye pas une prime excessivement spéculative.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>J'ai identifié un moat clair</strong> qui protège les marges sur le long terme et que je peux formuler en une phrase concrète.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>J'ai identifié un catalyseur</strong> : pourquoi cette action est-elle susceptible de progresser dans les prochains 12 à 36 mois ? (lancement produit, expansion géographique, retournement de marge, re-rating sectoriel…)</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>La position ne dépasse pas 3-5% de mon portefeuille total</strong>, satellite compris. Si cette action perd 50%, l'impact sur l'ensemble doit rester absorbable.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Mon horizon d'investissement est d'au moins 5 ans</strong> sur cette position. Je n'investis pas de l'argent dont j'aurai besoin à court terme.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>Le management est aligné</strong> avec les actionnaires : les dirigeants détiennent des actions ou des options avec vésting long, leur rémunération est corrélée à la performance réelle, les acquisitions passées ont créé de la valeur.</span>
+          </li>
+          <li>
+            <span class="checklist-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+            <span><strong>J'ai documenté ma thèse d'investissement par écrit</strong>, avec les conditions qui me feraient changer d'avis. Si ces conditions se réalisent, je vendrai sans me laisser piéger par l'effet de disposition.</span>
+          </li>
+        </ul>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Le stock picking est il rentable pour un particulier ?</summary>
+            <p>Les statistiques sont sévères : 88% des fonds actions US gérés par des professionnels sous-performent le S&P 500 sur 15 ans selon SPIVA 2024. Les particuliers font statistiquement encore moins bien à cause des biais émotionnels et de l'asymétrie d'information. Cela ne veut pas dire que c'est impossible, mais il faut partir avec les yeux ouverts sur la difficulté réelle.</p>
+          </details>
+          <details>
+            <summary>Combien d'actions faut il pour être diversifié ?</summary>
+            <p>Entre 15 et 20 actions réparties dans des secteurs différents suffisent à éliminer environ 80% du risque idiosyncratique (lié à chaque entreprise individuelle). En dessous de 10, la concentration expose à des pertes sévères si une seule position tourne mal. Au-delà de 25-30, la gestion devient chronophage sans gain notable de diversification.</p>
+          </details>
+          <details>
+            <summary>Qu'est ce qu'un bon PER ?</summary>
+            <p>Le PER (Price to Earnings Ratio) se lit toujours en contexte sectoriel. Un PER de 10-12 est souvent considéré comme value, 15-20 comme standard proche de la moyenne historique du S&P 500 (environ 17x). Un PER supérieur à 30-40 signifie que le marché anticipe une forte croissance future : si cette croissance ne se matérialise pas, la chute peut être brutale. Comparez toujours au secteur et à l'historique de l'entreprise.</p>
+          </details>
+          <details>
+            <summary>Comment calculer le Free Cash Flow ?</summary>
+            <p>FCF = Bénéfice net + Amortissements - CapEx - Variation du BFR. En pratique, on le trouve directement dans le tableau des flux de trésorerie du rapport annuel. Un FCF positif et croissant est un signe de santé financière réelle, car contrairement au bénéfice net, il est difficile à manipuler comptablement.</p>
+          </details>
+          <details>
+            <summary>Qu'est ce que la stratégie satellite ?</summary>
+            <p>La stratégie core-satellite consiste à construire un portefeuille dont 80 à 90% est investi dans des ETF larges (le cœur, core) et 10 à 20% dans des positions plus ciblées : actions individuelles, ETF sectoriels, paris spécifiques (le satellite). Cette approche permet de pratiquer le stock picking sur une fraction du capital sans mettre en danger la performance globale du portefeuille.</p>
+          </details>
+          <details>
+            <summary>Quelle différence entre PER et PEG ratio ?</summary>
+            <p>Le PER mesure combien tu paies pour 1 euro de bénéfice aujourd'hui. Le PEG corrige ce chiffre par le taux de croissance attendu des bénéfices : PEG = PER / taux de croissance. Un PEG inférieur à 1 est souvent interprété comme une situation potentiellement sous-valorisée. Par exemple, une entreprise avec un PER de 20 et une croissance attendue de 25% par an a un PEG de 0,8, ce qui paraît plus raisonnable qu'un PER de 20 avec 5% de croissance.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_STOCK_PICKING = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_STOCK_PICKING && VIDEO_ID_STOCK_PICKING!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_STOCK_PICKING+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <h3>Pour aller plus loin</h3>
+        <div class="article-crosslinks">
+          <a href="article-dividendes-vs-etf.html" class="crosslink-card">
+            <div class="crosslink-label">Stratégie</div>
+            <div class="crosslink-title">Dividendes vs ETF de capitalisation : que choisir ?</div>
+          </a>
+          <a href="article-etf-monde-2026.html" class="crosslink-card">
+            <div class="crosslink-label">ETF</div>
+            <div class="crosslink-title">Quel ETF Monde choisir en 2026 ?</div>
+          </a>
+          <a href="article-allocation-actifs.html" class="crosslink-card">
+            <div class="crosslink-label">Stratégie</div>
+            <div class="crosslink-title">Allocation d'actifs : construire son portefeuille</div>
+          </a>
+        </div>
+
+        <div class="article-cta">
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour construire un portefeuille solide, comprendre les ratios financiers et éviter les erreurs coûteuses.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dividendes-vs-etf.html">Dividendes vs ETF</a>
+          <a href="article-stock-picking.html">Stock picking</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
