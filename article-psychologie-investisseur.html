@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bitcoin en 2026 : ce que tu dois vraiment savoir | Julien Invest</title>
-  <meta name="description" content="Halving, ETF Bitcoin spot, adoption institutionnelle : tout ce que l'investisseur particulier doit savoir sur Bitcoin en 2026.">
+  <title>Psychologie de l'investisseur : les biais qui détruisent ton rendement | Julien Invest</title>
+  <meta name="description" content="Loss aversion, FOMO, panique en krach, biais de confirmation : comprends les pièges mentaux qui font sous-performer 90 % des investisseurs — et comment les éviter.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Bitcoin en 2026 : ce que tu dois vraiment savoir | Julien Invest">
-  <meta property="og:description" content="Halving, ETF Bitcoin spot, adoption institutionnelle : tout ce que l'investisseur particulier doit savoir sur Bitcoin en 2026.">
+  <meta property="og:title" content="Psychologie de l'investisseur : les biais qui détruisent ton rendement | Julien Invest">
+  <meta property="og:description" content="Les biais cognitifs qui font perdre de l'argent aux investisseurs, et comment les surmonter.">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="og:url" content="https://julien-invest.github.io/article-bitcoin-2026.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-psychologie-investisseur.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bitcoin en 2026 : ce que tu dois vraiment savoir | Julien Invest">
-  <meta name="twitter:description" content="Halving, ETF Bitcoin spot, adoption institutionnelle : le guide complet 2026.">
+  <meta name="twitter:title" content="Psychologie de l'investisseur : les biais qui détruisent ton rendement">
+  <meta name="twitter:description" content="Loss aversion, FOMO, panique en krach : les pièges mentaux de l'investisseur et comment les éviter.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Bitcoin en 2026 : ce que tu dois vraiment savoir",
-  "description": "Halving, ETF Bitcoin spot, adoption institutionnelle, tout ce que l'investisseur particulier doit savoir sur Bitcoin en 2026.",
+  "headline": "Psychologie de l'investisseur : les biais qui détruisent ton rendement",
+  "description": "Loss aversion, FOMO, panique en krach : comprends les pièges mentaux qui font sous-performer 90 % des investisseurs.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-05-28",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -38,12 +38,24 @@
     .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
     .article-body ul { padding-left: 20px; margin-bottom: 16px; }
     .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
-    .article-tag { display: inline-block; background: linear-gradient(135deg,#FDE68A,#F59E0B); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #78350F; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
-
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .highlight { color: #059669; font-weight: 700; }
+    .compare-table .danger { color: #DC2626; font-weight: 700; }
+    .biais-card { border-left: 4px solid var(--lavender); background: var(--pearl); border-radius: 0 12px 12px 0; padding: 20px 24px; margin: 20px 0; }
+    .biais-card-name { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .biais-card-def { font-size: 14px; color: var(--grey-2); font-style: italic; margin-bottom: 10px; }
+    .biais-card-example { font-size: 15px; color: var(--grey-1); line-height: 1.7; }
+    .biais-antidote { background: linear-gradient(135deg,#D4C0FF 0%,#A0E7C5 100%); border-radius: 10px; padding: 10px 16px; margin-top: 12px; font-size: 13px; font-weight: 600; color: var(--navy); }
     /* ── Takeaway final (injected) ── */
     .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
     .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
@@ -61,81 +73,14 @@
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-bitcoin-2026.html">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Julien Invest",
-  "url": "https://julien-invest.github.io/",
-  "logo": "https://julien-invest.github.io/images/og-cover.png",
-  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
-  "sameAs": [
-    "https://www.tiktok.com/@julien_invest_",
-    "https://www.instagram.com/julien_invest",
-    "https://www.youtube.com/@jueth7215",
-    "https://www.linkedin.com/in/julien-denis-849541251/"
-  ],
-  "founder": { "@type": "Person", "name": "Julien Denis" }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Le Bitcoin est il un bon investissement en 2026 ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Personne ne peut le garantir. Le Bitcoin est un actif spéculatif et très volatil, qui peut perdre une grande partie de sa valeur. Il peut éventuellement représenter une petite part d'un patrimoine, pour qui accepte le risque de perte totale, mais jamais le cœur d'une stratégie."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment sont taxées les cryptomonnaies en 2026 ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Chaque vente de crypto contre des euros est imposée au PFU, soit 31,4% depuis 2026. Un échange d'une crypto contre une autre n'est pas imposable tant que tu ne reviens pas en euros. Tu es exonéré si tes cessions annuelles restent sous 305€."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle part de mon patrimoine mettre en Bitcoin ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Seulement ce que tu acceptes de perdre entièrement, souvent évoqué autour de quelques pourcents au maximum. La priorité reste le fonds d'urgence et un socle diversifié comme un ETF monde. La crypto vient tout en haut de la pyramide, pas à la base."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Faut il un portefeuille matériel pour ses cryptos ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Pour des montants significatifs, oui, c'est recommandé. Un portefeuille matériel stocke tes clés hors ligne et te protège des piratages de plateformes. Laisser de grosses sommes sur un exchange, c'est s'exposer à un risque évitable."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Échanger une crypto contre une autre est il imposable ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non, pas en France tant que tu ne reviens pas en euros. L'imposition se déclenche uniquement lors d'une cession contre une monnaie comme l'euro. Mais tu dois conserver une trace de toutes tes opérations pour ta déclaration."
-      }
-    }
-  ]
-}
-  </script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-psychologie-investisseur.html">
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          Julien<span class="nav-logo-dot"></span>Invest
-        </a>
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
         <ul class="nav-links">
           <li><a href="formation.html" class="nav-link">Formation</a></li>
           <li><a href="coaching.html" class="nav-link">Coaching</a></li>
@@ -208,14 +153,9 @@
           <li><a href="ressources.html" class="nav-link">Ressources</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="formation.html" class="btn btn-gradient btn--sm">
-            Accéder à la formation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
         </div>
-        <button class="nav-hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -230,22 +170,7 @@
         <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
         <ul class="mob-accordion-panel">
           <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
-          <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
-          <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
-          <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
-          <li><a href="comparateur-etf.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg> Comparateur ETF</a></li>
-          <li><a href="audit.html"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg> Audit de portefeuille</a></li>
-          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
-          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
-          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
-          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
-          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
-          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
-          <li><a href="simulateur-rente.html">Rente passive</a></li>
-        </ul>
-      </li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="ressources.html#guides">Guides thématiques</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="ressources.html">Ressources</a></li>
     </ul>
@@ -257,10 +182,10 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Crypto</span>
-        <h1>Bitcoin en 2026 :<br><em>ce que tu dois vraiment savoir</em></h1>
-        <p class="article-meta-date">Publié le 28 mai 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Halving, ETF spot, adoption institutionnelle. Le point complet sur Bitcoin pour l'investisseur particulier, sans hype ni catastrophisme.</p>
+        <span class="t-label">Guide débutants</span>
+        <h1>Psychologie de l'investisseur<br><em>les biais qui détruisent ton rendement</em></h1>
+        <p class="article-meta-date">Publié le 21 juin 2026</p>
+        <p>Les études montrent que l'investisseur moyen sous-performe son propre portefeuille de 1,5 à 2 % par an. La raison n'est pas le choix des actifs — c'est le comportement.</p>
       </div>
     </div>
   </section>
@@ -268,110 +193,148 @@
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Crypto</span>
-        <p>Le Bitcoin fascine autant qu'il inquiète. Entre ceux qui y voient l'avenir de la monnaie et ceux qui crient à la bulle, difficile de se faire un avis posé. Cet article n'est ni un appel à acheter, ni un réquisitoire : c'est une remise à plat, pour comprendre ce qu'est vraiment le Bitcoin en 2026, ses risques, sa fiscalité, et la place raisonnable qu'il peut éventuellement occuper dans un patrimoine. Rappel important : la crypto est très volatile et comporte un risque de perte totale.</p>
+        <span class="article-tag">Débutants</span>
+
+        <p>Tu peux avoir le meilleur portefeuille du monde — des ETF diversifiés, des frais minimes, une allocation optimale. Si tu vends en panique lors du prochain krach, ou si tu achètes une action parce que tout le monde en parle, tu sous-performeras. La finance comportementale l'a démontré des dizaines de fois : notre cerveau n'est pas câblé pour investir rationnellement. Ce guide t'explique pourquoi — et comment y remédier.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#cest-quoi">Le Bitcoin, c'est quoi au juste</a></li>
-            <li><a href="#pourquoi">Pourquoi certains y croient</a></li>
-            <li><a href="#risques">Les risques à regarder en face</a></li>
-            <li><a href="#fiscalite">La fiscalité crypto en 2026</a></li>
-            <li><a href="#place">Quelle place dans un patrimoine</a></li>
-            <li><a href="#securite">Acheter et sécuriser ses cryptos</a></li>
-            <li><a href="#erreurs">Les erreurs de débutant à éviter</a></li>
+            <li><a href="#gap">L'écart de performance : le problème concret</a></li>
+            <li><a href="#loss-aversion">La peur de perdre (loss aversion)</a></li>
+            <li><a href="#fomo">Le FOMO : acheter au plus haut</a></li>
+            <li><a href="#confirmation">Le biais de confirmation</a></li>
+            <li><a href="#ancrage">L'ancrage et le biais de récence</a></li>
+            <li><a href="#krach">Comment se comporter en krach</a></li>
+            <li><a href="#solutions">Les 5 règles anti-biais</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="cest-quoi">Le Bitcoin, c'est quoi au juste</h2>
-        <p>Le Bitcoin est une monnaie numérique décentralisée, créée en 2009. Décentralisée signifie qu'aucune banque centrale ni aucun État ne la contrôle : elle fonctionne sur un réseau d'ordinateurs répartis dans le monde, qui valident les transactions et les inscrivent dans un registre public et infalsifiable, la blockchain.</p>
-        <p>Sa caractéristique la plus commentée, c'est sa rareté programmée. Il n'existera jamais plus de 21 millions de bitcoins. Cette offre limitée, inscrite dans le code, est ce qui pousse ses partisans à le comparer à de l'or numérique : un actif rare, que personne ne peut imprimer à volonté.</p>
+        <h2 id="gap">L'écart de performance : le problème concret</h2>
+        <p>DALBAR, une société américaine d'études financières, publie chaque année le même constat : sur 20 ans, le S&P 500 a rapporté environ 10 %/an. L'investisseur moyen dans ces mêmes fonds n'a capturé que 5 à 6 %/an. La différence — 4 à 5 points par an — s'appelle le <strong>Behavior Gap</strong>, l'écart comportemental.</p>
 
-        <h2 id="pourquoi">Pourquoi certains y croient</h2>
-        <p>Les arguments en faveur du Bitcoin reposent sur quelques idées. D'abord, la protection contre l'inflation et la création monétaire : face à des monnaies que les banques centrales peuvent émettre sans limite, un actif au nombre fixe attire ceux qui craignent l'érosion de leur épargne. Ensuite, l'aspect mondial et accessible : on peut envoyer du Bitcoin partout, sans intermédiaire, à toute heure.</p>
-        <p>Enfin, certains y voient un pari sur l'adoption croissante des actifs numériques par les particuliers, les entreprises et même certains États. Ces arguments sont réels, mais ils ne valent pas certitude. Le Bitcoin reste une technologie jeune, dont l'avenir est tout sauf garanti.</p>
-
-        <div class="article-retenir">
-          <div class="article-retenir-label">★ À retenir</div>
-          <p>Le Bitcoin n'est pas un produit d'épargne garanti, c'est un actif spéculatif et volatil. On peut s'y intéresser par conviction ou par curiosité, mais jamais en y mettant un argent dont on a besoin à court terme.</p>
-        </div>
-
-        <h2 id="risques">Les risques à regarder en face</h2>
-        <p>Avant tout enthousiasme, il faut connaître les risques, et ils sont sérieux. La volatilité d'abord : le Bitcoin peut perdre 50%, voire plus, en quelques mois, puis remonter tout aussi violemment. Ces montagnes russes sont éprouvantes psychologiquement et peuvent ruiner ceux qui investissent sous le coup de l'émotion ou avec de l'argent emprunté.</p>
-        <p>Viennent ensuite le risque réglementaire, car les États peuvent durcir les règles, le risque technologique et de sécurité, avec les piratages de plateformes ou les pertes de clés, et enfin le risque de perte totale. Contrairement à un livret, rien ne garantit ton capital. Le Bitcoin doit donc rester une part très minoritaire d'un patrimoine, pour ceux qui acceptent pleinement ces risques.</p>
+        <p>Sur 100 000 € investis pendant 20 ans, cela représente une différence de plus de <strong>200 000 €</strong> en capital final. Pas à cause des frais, pas à cause du choix des actifs. À cause du comportement : vendre au mauvais moment, acheter après une hausse, rester cash trop longtemps.</p>
 
         <figure class="article-figure">
-          <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration de la volatilité du Bitcoin : une courbe de prix en dents de scie, avec de fortes hausses et de fortes baisses">
-            <line x1="40" y1="15" x2="40" y2="170" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="40" y1="170" x2="440" y2="170" stroke="#C8C8DC" stroke-width="1"/>
-            <polyline points="40,150 90,90 130,120 175,40 215,110 260,60 300,140 345,55 390,100 430,30" fill="none" stroke="#F0C040" stroke-width="2.5" stroke-linejoin="round"/>
-            <text x="240" y="192" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Le prix du Bitcoin : de fortes hausses et de fortes baisses</text>
+          <svg viewBox="0 0 460 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Behavior Gap : écart entre performance du marché et performance réelle de l'investisseur">
+            <line x1="50" y1="20" x2="50" y2="165" stroke="#C8C8DC" stroke-width="1"/>
+            <line x1="50" y1="165" x2="430" y2="165" stroke="#C8C8DC" stroke-width="1"/>
+            <path d="M50 160 C 130 155, 200 130, 280 90 S 380 40, 430 18" fill="none" stroke="#A0E7C5" stroke-width="3"/>
+            <path d="M50 160 C 100 158, 160 148, 220 132 S 340 100, 430 72" fill="none" stroke="#C8B4E8" stroke-width="2.5" stroke-dasharray="6,4"/>
+            <text x="432" y="14" font-family="DM Sans, sans-serif" font-size="11" fill="#3FAE7E">Marché : ~10%/an</text>
+            <text x="432" y="68" font-family="DM Sans, sans-serif" font-size="11" fill="#7A5BC0">Investisseur réel : ~5%/an</text>
+            <text x="240" y="185" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">20 ans →</text>
           </svg>
-          <figcaption>La volatilité du Bitcoin, illustrée. Le passé ne préjuge en rien de l'avenir.</figcaption>
+          <figcaption>Le Behavior Gap : l'investisseur moyen sous-performe le marché de 4 à 5 %/an, uniquement à cause de son comportement.</figcaption>
         </figure>
 
-        <h2 id="fiscalite">La fiscalité crypto en 2026</h2>
-        <p>En France, les cryptomonnaies ont leur propre régime fiscal, mais elles suivent la hausse de 2026. Chaque cession imposable, c'est à dire chaque vente de crypto contre des euros, est taxée au PFU, soit 31,4% depuis le 1er janvier 2026, contre 30% auparavant. À noter : un échange d'une crypto contre une autre n'est, lui, pas imposable tant que tu ne reviens pas en euros.</p>
+        <h2 id="loss-aversion">La peur de perdre (loss aversion)</h2>
+
+        <div class="biais-card">
+          <div class="biais-card-name">Loss aversion — Aversion à la perte</div>
+          <div class="biais-card-def">La douleur de perdre 100 € est psychologiquement deux fois plus intense que le plaisir de gagner 100 €.</div>
+          <div class="biais-card-example">
+            Conséquence concrète : un investisseur qui voit son portefeuille baisser de 20 % ressent une souffrance bien plus forte que le plaisir qu'il a ressenti lors de la hausse de 20 %. Résultat : il vend à la baisse pour "arrêter la douleur", et rate le rebond.
+          </div>
+          <div class="biais-antidote">🛡 Antidote : ne regarde pas ton portefeuille tous les jours. Plus tu regardes, plus tu es exposé aux fluctuations, plus tu prends de mauvaises décisions. Une revue mensuelle ou trimestrielle suffit.</div>
+        </div>
+
+        <p>L'étude de Kahneman et Tversky (prix Nobel d'économie 2002) a formalisé ce biais. Ce n'est pas une faiblesse personnelle — c'est une caractéristique universelle du cerveau humain, héritée de millions d'années d'évolution où éviter les pertes (prédateurs, nourriture) était prioritaire sur la recherche de gains.</p>
+
+        <h2 id="fomo">Le FOMO : acheter au plus haut</h2>
+
+        <div class="biais-card">
+          <div class="biais-card-name">FOMO — Fear Of Missing Out</div>
+          <div class="biais-card-def">La peur de rater une opportunité pousse à investir après une forte hausse, quand le risque est en réalité maximal.</div>
+          <div class="biais-card-example">
+            Exemple type : Bitcoin passe de 30 000 $ à 80 000 $ en quelques mois. Les médias en parlent partout. Des amis affichent leurs gains. Tu achètes à 80 000 $ — pile au sommet — et tu vends à 40 000 $ six mois plus tard, stressé et déçu.
+          </div>
+          <div class="biais-antidote">🛡 Antidote : le DCA (investissement régulier mensuel). Tu investis automatiquement chaque mois, quelle que soit l'actualité. Ça supprime le besoin de "choisir le bon moment".</div>
+        </div>
+
+        <p>Le FOMO est amplifié par les réseaux sociaux, où les gens partagent leurs gains mais jamais leurs pertes. Tu vois une image déformée de la réalité : tout le monde semble gagner de l'argent facilement, sauf toi. C'est faux — mais ton cerveau ne le sait pas.</p>
+
+        <h2 id="confirmation">Le biais de confirmation</h2>
+
+        <div class="biais-card">
+          <div class="biais-card-name">Biais de confirmation</div>
+          <div class="biais-card-def">On cherche inconsciemment les informations qui confirment ce qu'on croit déjà, et on ignore les signaux contraires.</div>
+          <div class="biais-card-example">
+            Exemple type : tu as acheté des actions Tesla. Tu lis ensuite tous les articles positifs sur Tesla, tu follows des fans de l'action sur Twitter, et tu rejettes les analyses critiques comme "biais des shorts". Tu n'es plus en train d'analyser — tu cherches à te rassurer.
+          </div>
+          <div class="biais-antidote">🛡 Antidote : pour chaque investissement, cherche activement les arguments contre. Demande-toi : "Qu'est-ce que les gens qui n'achètent pas disent ?" Si tu ne peux pas répondre à cette question, tu n'as pas assez analysé.</div>
+        </div>
+
+        <h2 id="ancrage">L'ancrage et le biais de récence</h2>
+
+        <div class="biais-card">
+          <div class="biais-card-name">Biais d'ancrage</div>
+          <div class="biais-card-def">On s'accroche à un prix de référence (souvent son prix d'achat) pour évaluer si un actif est "cher" ou "bon marché".</div>
+          <div class="biais-card-example">
+            Exemple : tu as acheté une action à 100 €. Elle tombe à 60 €. Tu refuses de vendre parce qu'"elle valait 100 €". Mais le marché se fiche de ton prix d'achat. La vraie question est : si tu n'avais pas cette action, l'achèterais-tu à 60 € aujourd'hui ?
+          </div>
+          <div class="biais-antidote">🛡 Antidote : évalue chaque actif indépendamment de ton prix d'achat. La seule question pertinente : est-ce que ses fondamentaux justifient son prix actuel ?</div>
+        </div>
+
+        <div class="biais-card">
+          <div class="biais-card-name">Biais de récence</div>
+          <div class="biais-card-def">On surpondère les événements récents et on pense que le futur ressemblera au passé immédiat.</div>
+          <div class="biais-card-example">
+            Après 3 ans de hausse, on pense que la bourse monte toujours. Après un krach, on pense qu'elle ne remontera jamais. Les deux sont faux.
+          </div>
+          <div class="biais-antidote">🛡 Antidote : rappelle-toi régulièrement l'historique long terme. Le S&P 500 a connu 14 récessions depuis 1945 — et il a toujours fini par remonter. La bourse à 10 ans ne perd jamais.</div>
+        </div>
+
+        <h2 id="krach">Comment se comporter en krach</h2>
+        <p>Le vrai test de l'investisseur ne se passe pas quand les marchés montent. Il se passe quand ils chutent de 30, 40 ou 50 %. Voici ce qui se passe réellement dans la tête des gens lors d'un krach, et comment ne pas faire les erreurs classiques.</p>
+
         <table class="compare-table">
           <thead>
-            <tr><th>Situation</th><th>Imposable ?</th><th>Taux 2026</th></tr>
+            <tr><th>Réaction instinctive</th><th>Ce que ça provoque</th><th>La bonne réaction</th></tr>
           </thead>
           <tbody>
-            <tr><td>Vente de crypto contre des euros</td><td class="no">Oui</td><td>31,4% (PFU)</td></tr>
-            <tr><td>Échange crypto contre crypto</td><td class="yes">Non</td><td>Pas d'imposition</td></tr>
-            <tr><td>Cessions annuelles sous 305€</td><td class="yes">Non</td><td>Exonéré</td></tr>
+            <tr><td>Vendre pour "limiter les pertes"</td><td class="danger">Cristalliser la perte, rater le rebond</td><td>Ne rien faire</td></tr>
+            <tr><td>Surveiller le portfolio quotidiennement</td><td class="danger">Stress maximal, décisions émotionnelles</td><td>Couper les notifications</td></tr>
+            <tr><td>Attendre que "ça remonte" pour réinvestir</td><td class="danger">Manquer les meilleures journées de rebond</td><td>Continuer le DCA normalement</td></tr>
+            <tr><td>Chercher la "cause" du krach pour prédire la suite</td><td class="danger">Biais de récence et faux sentiment de contrôle</td><td>Accepter l'incertitude</td></tr>
+            <tr><td>Investir plus agressivement pour "se refaire"</td><td class="danger">Surexposition au risque au pire moment</td><td>Respecter son allocation cible</td></tr>
           </tbody>
         </table>
-        <p>Quelques règles clés : tu dois déclarer chaque cession, même petite, et l'administration a accès aux données des plateformes françaises. Les pertes d'une année se compensent avec les gains de la même année, mais ne se reportent pas. Pour le détail des taux et des autres enveloppes, lis l'article <a href="article-fiscalite-investissement.html">fiscalité des investissements</a>.</p>
-
-        <h2 id="place">Quelle place dans un patrimoine</h2>
-        <p>La question n'est pas de savoir si le Bitcoin va monter ou descendre, personne ne le sait. La vraie question est : quelle part de ton patrimoine peux tu te permettre de perdre entièrement sans que cela change ta vie ? Pour la plupart des gens, la réponse se situe entre 0% et une petite fraction, souvent évoquée autour de quelques pourcents maximum.</p>
-        <p>Avant même de penser au Bitcoin, l'ordre des priorités reste le même : un fonds d'urgence solide, puis un socle d'investissement diversifié et peu risqué, typiquement un ETF monde dans un PEA. Le Bitcoin, s'il a une place, vient tout en haut de la pyramide, avec de l'argent dont la perte ne te ferait pas vaciller. Pour bâtir ce socle d'abord, commence par <a href="article-debuter-investissement.html">apprendre à débuter en bourse</a>.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>La règle d'or avec la crypto : n'investis jamais plus que ce que tu acceptes de perdre totalement. Le Bitcoin peut être un petit pari de conviction, jamais le cœur d'une stratégie patrimoniale sérieuse.</p>
+          <p>Lors des plus grands krachs (2000, 2008, 2020), les investisseurs qui ont <strong>continué d'investir régulièrement</strong> ont obtenu les meilleurs rendements sur 10 ans. Ceux qui ont vendu à la baisse ont raté les 10 meilleures journées de rebond — qui concentrent souvent 50 % du rendement annuel.</p>
         </div>
 
-        <h2 id="securite">Acheter et sécuriser ses cryptos</h2>
-        <p>Si tu décides de t'exposer au Bitcoin, deux étapes comptent. L'achat se fait sur une plateforme régulée, sérieuse, idéalement enregistrée auprès des autorités françaises. Tu trouveras les plateformes que j'utilise sur la page <a href="parrainage.html">parrainages</a>. Évite les plateformes obscures qui promettent monts et merveilles.</p>
-        <p>La sécurisation, ensuite, est cruciale. Laisser ses cryptos sur une plateforme, c'est s'exposer au risque de piratage ou de blocage. Pour des montants significatifs, beaucoup utilisent un portefeuille matériel, un petit appareil physique qui stocke tes clés hors ligne. C'est la différence entre garder son argent dans la rue et le mettre dans un coffre. La prudence n'est jamais excessive en crypto.</p>
+        <h2 id="solutions">Les 5 règles anti-biais</h2>
+        <p>La connaissance des biais ne suffit pas à les supprimer — notre cerveau reste le même. Ce qui fonctionne, ce sont des <strong>systèmes et règles prédéfinies</strong> qui retirent l'émotion de l'équation.</p>
 
-        <h2 id="erreurs">Les erreurs de débutant à éviter</h2>
-        <ul>
-          <li><strong>Investir de l'argent dont tu as besoin.</strong> La volatilité peut te forcer à vendre au pire moment. Seule la part que tu peux perdre a sa place ici.</li>
-          <li><strong>Acheter sous le coup de l'euphorie.</strong> Acheter parce que tout le monde en parle et que ça monte est le meilleur moyen d'entrer au sommet.</li>
-          <li><strong>Utiliser de l'effet de levier.</strong> Le trading à levier sur crypto liquide des débutants tous les jours. À fuir absolument.</li>
-          <li><strong>Négliger la sécurité.</strong> Laisser des sommes importantes sur une plateforme, sans protection, c'est prendre un risque inutile.</li>
-          <li><strong>Tout miser sur la crypto.</strong> Sans socle diversifié ni fonds d'urgence, c'est mettre tout son avenir financier sur un actif imprévisible.</li>
-        </ul>
-        <p>Le Bitcoin peut intéresser un investisseur averti, en pleine connaissance des risques et avec une part mesurée. Mais la base d'un patrimoine solide reste la méthode passive, diversifiée et fiscalement optimisée. C'est exactement ce que t'apprend la <a href="formation.html">formation</a>.</p>
-
-        <p>Pour aller plus loin sur l'univers crypto au-delà du Bitcoin : comprends à quoi servent vraiment les <a href="article-stablecoins-explication.html">stablecoins</a> comme USDT ou USDC, et pourquoi la grande majorité des <a href="article-risque-altcoins.html">altcoins</a> sont structurellement voués à disparaître.</p>
+        <ol>
+          <li><strong>Automatise tes investissements.</strong> Un virement automatique mensuel vers ton PEA le 5 de chaque mois ne te demande aucune décision. Tu ne peux pas paniquer ou FOMO sur quelque chose qui se fait sans toi.</li>
+          <li><strong>Définis une allocation cible par écrit.</strong> "70 % ETF monde, 20 % ETF obligations, 10 % or" écrit quelque part te donne un ancrage objectif quand les marchés bougent.</li>
+          <li><strong>Évite de regarder ton portefeuille trop souvent.</strong> La corrélation entre la fréquence de consultation et les mauvaises décisions est documentée. Une fois par mois maximum.</li>
+          <li><strong>Coupe les notifications financières.</strong> Les alertes cours et les news en temps réel déclenchent exactement les biais que tu veux éviter. Désabonne-toi.</li>
+          <li><strong>Écris ta thèse d'investissement avant d'acheter.</strong> "J'achète cet ETF parce que... et je vendrai si..." Une thèse écrite te protège du biais de confirmation et de l'impulsivité.</li>
+        </ol>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Le Bitcoin est il un bon investissement en 2026 ?</summary>
-            <p>Personne ne peut le garantir. Le Bitcoin est un actif spéculatif et très volatil, qui peut perdre une grande partie de sa valeur. Il peut éventuellement représenter une petite part d'un patrimoine, pour qui accepte le risque de perte totale, mais jamais le cœur d'une stratégie.</p>
+            <summary>Est-ce que les professionnels sont aussi sujets aux biais cognitifs ?</summary>
+            <p>Oui, même les gérants professionnels sont concernés. C'est l'une des raisons pour lesquelles 80 % des fonds actifs sous-performent leur indice de référence sur 15 ans. La gestion passive (ETF) retire l'humain de l'équation — ce qui est souvent un avantage.</p>
           </details>
           <details>
-            <summary>Comment sont taxées les cryptomonnaies en 2026 ?</summary>
-            <p>Chaque vente de crypto contre des euros est imposée au PFU, soit 31,4% depuis 2026. Un échange d'une crypto contre une autre n'est pas imposable tant que tu ne reviens pas en euros. Tu es exonéré si tes cessions annuelles restent sous 305€.</p>
+            <summary>Comment distinguer une vraie décision rationnelle d'une décision émotionnelle ?</summary>
+            <p>Pose-toi cette question : "Est-ce que je prendrais cette décision si les marchés étaient fermés depuis 6 mois et que je ne voyais pas les cours ?" Si la réponse est non, c'est probablement une décision émotionnelle liée aux mouvements récents.</p>
           </details>
           <details>
-            <summary>Quelle part de mon patrimoine mettre en Bitcoin ?</summary>
-            <p>Seulement ce que tu acceptes de perdre entièrement, souvent évoqué autour de quelques pourcents au maximum. La priorité reste le fonds d'urgence et un socle diversifié comme un ETF monde. La crypto vient tout en haut de la pyramide, pas à la base.</p>
+            <summary>Vaut-il mieux ne jamais regarder son portefeuille ?</summary>
+            <p>Non. Une revue trimestrielle ou semestrielle est saine pour vérifier l'allocation et rééquilibrer si nécessaire. Ce qui est nuisible, c'est la surveillance quotidienne ou hebdomadaire, qui maximise l'exposition aux fluctuations sans apporter d'information utile.</p>
           </details>
           <details>
-            <summary>Faut il un portefeuille matériel pour ses cryptos ?</summary>
-            <p>Pour des montants significatifs, oui, c'est recommandé. Un portefeuille matériel stocke tes clés hors ligne et te protège des piratages de plateformes. Laisser de grosses sommes sur un exchange, c'est s'exposer à un risque évitable.</p>
-          </details>
-          <details>
-            <summary>Échanger une crypto contre une autre est il imposable ?</summary>
-            <p>Non, pas en France tant que tu ne reviens pas en euros. L'imposition se déclenche uniquement lors d'une cession contre une monnaie comme l'euro. Mais tu dois conserver une trace de toutes tes opérations pour ta déclaration.</p>
+            <summary>Le DCA protège-t-il vraiment des biais ?</summary>
+            <p>Oui, c'est son principal avantage psychologique. En investissant un montant fixe chaque mois automatiquement, tu n'as plus à décider "quand" investir — ce qui supprime le market timing et la tentation de réagir aux news. Tu achètes plus de parts quand c'est bas, moins quand c'est haut, sans t'en rendre compte.</p>
           </details>
         </div>
 
@@ -384,17 +347,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_BITCOIN par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_BITCOIN = "VIDEO_ID";
+          const VIDEO_ID_PSYCHO = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_BITCOIN && VIDEO_ID_ARTICLE_BITCOIN!=="VIDEO_ID";
+            const has=VIDEO_ID_PSYCHO && VIDEO_ID_PSYCHO!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_BITCOIN+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_PSYCHO+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -403,42 +365,43 @@
           })();
         </script>
 
-                <div class="article-takeaway">
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
-            <li>Le halving d'avril 2024 a divisé les nouvelles émissions par 2 — historiquement un catalyseur de cycle haussier sur 12-18 mois.</li>
-            <li>Les ETF Bitcoin spot approuvés aux États-Unis en janvier 2024 ont ouvert le marché aux investisseurs institutionnels.</li>
-            <li>La fiscalité crypto en France : flat tax 30 % sur les plus-values lors de cession vers des euros (pas entre cryptos).</li>
-            <li>Règle de base : ne jamais mettre plus de 5-10 % de son patrimoine en crypto, même si l'on est convaincu.</li>
-            <li>Sécuriser ses cryptos sur un hardware wallet (Ledger, Trezor) est indispensable pour les montants significatifs.</li>
+            <li>L'investisseur moyen sous-performe son propre portefeuille de 4 à 5 %/an à cause de ses comportements — pas à cause du choix des actifs.</li>
+            <li>La loss aversion est le biais le plus destructeur : la douleur de perdre est 2× plus intense que le plaisir de gagner, ce qui pousse à vendre au pire moment.</li>
+            <li>Le FOMO pousse à acheter après une forte hausse (au plus haut) — le DCA automatique est le meilleur antidote.</li>
+            <li>En krach : ne pas vendre, couper les notifications, continuer ses versements automatiques. Les meilleurs rendements à 10 ans appartiennent à ceux qui sont restés investis.</li>
+            <li>Les règles prédéfinies (allocation cible écrite, automatisation, revue trimestrielle) battent toujours la prise de décision émotionnelle.</li>
           </ul>
         </div>
 
         <div class="article-cta">
-          <h2>Passe de la théorie à la pratique</h2>
-          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <h2>Investir sans se laisser piéger par ses émotions</h2>
+          <p>La formation Julien Invest t'aide à construire un système d'investissement automatisé qui retire l'émotion de l'équation — pour investir sereinement sur le long terme.</p>
           <a href="formation.html" class="btn btn-gradient btn--lg">
             Accéder à la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
+
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-stablecoins-explication.html" class="article-related-card">
-              <span class="article-related-tag">Crypto</span>
-              <div class="article-related-name">Stablecoins : à quoi ça sert vraiment ?</div>
+            <a href="article-dca.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">Le DCA : la méthode d'investissement la plus simple pour investir sans stress</div>
               <div class="article-related-meta">12 min · Lire →</div>
             </a>
-            <a href="article-risque-altcoins.html" class="article-related-card">
-              <span class="article-related-tag">Crypto</span>
-              <div class="article-related-name">Altcoins : pourquoi la majorité va disparaître</div>
-              <div class="article-related-meta">12 min · Lire →</div>
+            <a href="article-5-erreurs-debutants.html" class="article-related-card">
+              <span class="article-related-tag">Débutants</span>
+              <div class="article-related-name">5 erreurs de débutants qui coûtent cher (et comment les éviter)</div>
+              <div class="article-related-meta">8 min · Lire →</div>
             </a>
-            <a href="article-or-metaux-precieux.html" class="article-related-card">
-              <span class="article-related-tag">Métaux précieux</span>
-              <div class="article-related-name">Or et métaux précieux : lingot, pièce ou ETC ?</div>
-              <div class="article-related-meta">12 min · Lire →</div>
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">Comment construire une allocation d'actifs solide</div>
+              <div class="article-related-meta">14 min · Lire →</div>
             </a>
           </div>
         </div>
@@ -465,23 +428,15 @@
           <a href="formation.html">Formation</a>
           <a href="coaching.html">Coaching</a>
           <a href="a-propos.html">À propos</a>
-          <a href="parrainage.html">Parrainages</a>
-          <a href="calculateur.html">Calculateur</a>
           <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
           <h4>Articles</h4>
-          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
-          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
-          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
-          <a href="article-risque-altcoins.html">Risque des altcoins</a>
-          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
-          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
           <a href="article-debuter-investissement.html">Débuter en bourse</a>
-          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
-          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
-          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
-          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-interets-composes.html">Intérêts composés</a>
+          <a href="article-dca.html">La méthode DCA</a>
+          <a href="article-psychologie-investisseur.html">Psychologie investisseur</a>
+          <a href="article-5-erreurs-debutants.html">5 erreurs de débutants</a>
         </div>
         <div class="footer-col">
           <h4>Légal</h4>

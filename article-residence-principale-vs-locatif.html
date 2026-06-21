@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PEA vs CTO : lequel choisir selon ton profil | Julien Invest</title>
-  <meta name="description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <title>Résidence principale vs investissement locatif : que choisir ? | Julien Invest</title>
+  <meta name="description" content="Acheter sa résidence principale ou investir dans le locatif ? Coût réel de la RP, rendement locatif net, fiscalité, effet de levier : l'analyse complète pour décider selon ta situation.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta property="og:description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <meta property="og:title" content="Résidence principale vs investissement locatif | Julien Invest">
+  <meta property="og:description" content="Acheter sa RP ou investir dans le locatif ? L'analyse complète : coûts réels, rendement, fiscalité, flexibilité.">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="og:url" content="https://julien-invest.github.io/article-pea-vs-cto.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-residence-principale-vs-locatif.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta name="twitter:description" content="Comparatif complet PEA vs CTO pour faire le bon choix d'enveloppe fiscale.">
+  <meta name="twitter:title" content="Résidence principale vs investissement locatif : que choisir ?">
+  <meta name="twitter:description" content="Le débat tranché : acheter sa RP ou investir dans le locatif ? Analyse coûts, rendements et fiscalité.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "PEA vs CTO : lequel choisir selon ton profil",
-  "description": "PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds, le comparatif complet pour faire le bon choix.",
+  "headline": "Résidence principale vs investissement locatif : que choisir ?",
+  "description": "Acheter sa résidence principale ou investir dans le locatif ? Coût réel, rendement, fiscalité : l'analyse complète.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-02-03",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -38,8 +38,10 @@
     .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
     .article-body ul { padding-left: 20px; margin-bottom: 16px; }
     .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
-    .article-tag { display: inline-block; background: linear-gradient(135deg,#A0E7C5,#34D399); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #064E3B; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
@@ -47,9 +49,13 @@
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
-    .compare-table .yes { color: #059669; font-weight: 700; }
-    .compare-table .no { color: #DC2626; font-weight: 700; }
-
+    .compare-table .highlight { color: #059669; font-weight: 700; }
+    .compare-table .danger { color: #DC2626; font-weight: 700; }
+    .compare-table .neutral { color: #D97706; font-weight: 700; }
+    .scenario-box { border-radius: 16px; padding: 24px 28px; margin: 24px 0; border: 1.5px solid var(--grey-5); }
+    .scenario-box-title { font-family: var(--font-head); font-weight: 800; font-size: 14px; color: var(--navy); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+    .scenario-box-result { font-family: var(--font-head); font-weight: 800; font-size: 28px; color: var(--navy); margin-top: 12px; }
+    .scenario-box-result span { font-size: 14px; font-weight: 600; color: var(--grey-2); }
     /* ── Takeaway final (injected) ── */
     .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
     .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
@@ -67,81 +73,14 @@
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-pea-vs-cto.html">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Julien Invest",
-  "url": "https://julien-invest.github.io/",
-  "logo": "https://julien-invest.github.io/images/og-cover.png",
-  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
-  "sameAs": [
-    "https://www.tiktok.com/@julien_invest_",
-    "https://www.instagram.com/julien_invest",
-    "https://www.youtube.com/@jueth7215",
-    "https://www.linkedin.com/in/julien-denis-849541251/"
-  ],
-  "founder": { "@type": "Person", "name": "Julien Denis" }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Peut-on avoir un PEA et un CTO en même temps ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Que se passe-t-il si je retire de mon PEA avant 5 ans ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Le plafond de 150 000€ concerne-t-il aussi les gains ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Un ETF monde peut-il vraiment tenir dans un PEA ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle enveloppe choisir si je débute avec un petit budget ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin."
-      }
-    }
-  ]
-}
-  </script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-residence-principale-vs-locatif.html">
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          Julien<span class="nav-logo-dot"></span>Invest
-        </a>
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
         <ul class="nav-links">
           <li><a href="formation.html" class="nav-link">Formation</a></li>
           <li><a href="coaching.html" class="nav-link">Coaching</a></li>
@@ -214,14 +153,9 @@
           <li><a href="ressources.html" class="nav-link">Ressources</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="formation.html" class="btn btn-gradient btn--sm">
-            Accéder à la formation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
         </div>
-        <button class="nav-hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -263,10 +197,10 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Enveloppes fiscales</span>
-        <h1>PEA vs CTO :<br><em>lequel choisir selon ton profil</em></h1>
-        <p class="article-meta-date">Publié le 3 février 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Avantages fiscaux, contraintes, plafonds. Le comparatif complet pour choisir la bonne enveloppe dès le départ.</p>
+        <span class="t-label">Immobilier</span>
+        <h1>Résidence principale vs locatif<br><em>le vrai débat, enfin tranché</em></h1>
+        <p class="article-meta-date">Publié le 21 juin 2026</p>
+        <p>Acheter sa résidence principale est souvent présenté comme le meilleur investissement. La réalité est beaucoup plus nuancée — et dépend entièrement de ta situation.</p>
       </div>
     </div>
   </section>
@@ -274,169 +208,169 @@
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Enveloppes</span>
-        <p>Tu veux investir en bourse mais tu hésites entre un PEA et un compte titres ordinaire ? C'est la première vraie décision de tout investisseur français, et elle a un impact énorme sur ce qu'il te restera vraiment, une fois l'impôt payé. Bonne nouvelle : une fois que tu as compris la logique des deux enveloppes, le choix devient évident. On déroule tout, simplement, avec des chiffres à jour de la fiscalité 2026.</p>
+        <span class="article-tag">Immobilier</span>
+
+        <p>C'est l'un des débats les plus fréquents entre investisseurs : faut-il acheter sa résidence principale ou rester locataire et investir dans le locatif (ou en bourse) ? Les deux camps ont de bons arguments. Mais la plupart des comparaisons omettent des éléments cruciaux : le coût réel de la propriété, l'effet de levier, la fiscalité, et surtout la dimension personnelle. Ce guide analyse les deux options honnêtement.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#pea">Le PEA, l'enveloppe préférée des Français</a></li>
-            <li><a href="#cto">Le compte titres ordinaire, la liberté totale</a></li>
-            <li><a href="#fiscalite">La fiscalité 2026, le vrai point de bascule</a></li>
-            <li><a href="#exemple">L'écart en euros sur un cas concret</a></li>
-            <li><a href="#combiner">La stratégie qui combine les deux</a></li>
-            <li><a href="#profils">Quelle enveloppe selon ton profil</a></li>
-            <li><a href="#couts">Combien ça coûte vraiment</a></li>
-            <li><a href="#dividendes">PEA, dividendes et capitalisation</a></li>
-            <li><a href="#erreurs">Les erreurs à éviter</a></li>
-            <li><a href="#pratique">Passer à l'action en 4 étapes</a></li>
+            <li><a href="#cout-rp">Le vrai coût de la résidence principale</a></li>
+            <li><a href="#rp-investissement">La RP est-elle un investissement ?</a></li>
+            <li><a href="#locatif">L'investissement locatif : rendement réel</a></li>
+            <li><a href="#effet-levier">L'avantage commun : l'effet de levier</a></li>
+            <li><a href="#fiscalite">Fiscalité comparée</a></li>
+            <li><a href="#profils">Quel profil pour quelle stratégie</a></li>
+            <li><a href="#troisieme-voie">La troisième voie : locataire + investisseur</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="pea">Le PEA, l'enveloppe préférée des Français</h2>
-        <p>Le Plan d'Épargne en Actions est une enveloppe fiscale créée pour encourager l'investissement en actions européennes. Ce n'est pas un produit en soi : c'est un contenant dans lequel tu loges des actions et des ETF éligibles. Tant que ton argent reste à l'intérieur, tu ne paies aucun impôt sur tes gains, même quand tu vends pour racheter autre chose.</p>
-        <p>L'avantage massif arrive après 5 ans de détention : tes plus values et tes dividendes deviennent <strong>exonérés d'impôt sur le revenu</strong>. Il ne reste plus que les prélèvements sociaux. C'est ce qui en fait l'outil numéro un pour faire grossir un portefeuille sur le long terme.</p>
-        <h3>Ses limites à connaître</h3>
-        <ul>
-          <li>Plafond de versements de 150 000€ (les plus values peuvent dépasser ce montant).</li>
-          <li>Un seul PEA par personne, et il faut être résident fiscal français.</li>
-          <li>Uniquement des actions et ETF européens éligibles. Pas d'actions américaines en direct, pas de crypto.</li>
-          <li>Un retrait avant 5 ans entraîne en principe la clôture du plan.</li>
-        </ul>
-        <p>La contrainte européenne fait peur, à tort. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux tout en restant éligibles au PEA grâce à la réplication synthétique. On en reparle dans le <a href="guides/guide-pea.html">guide complet du PEA</a> et dans l'article <a href="article-etf-physique-vs-synthetique.html">ETF physique ou synthétique</a>.</p>
+        <h2 id="cout-rp">Le vrai coût de la résidence principale</h2>
+        <p>Le premier problème avec l'achat de la résidence principale, c'est qu'on sous-estime massivement son coût réel. Le prix affiché n'est que le début.</p>
+
+        <div class="scenario-box">
+          <div class="scenario-box-title">Exemple : appartement 300 000 € à Paris</div>
+          <table class="compare-table" style="margin:0;">
+            <thead><tr><th>Poste de coût</th><th>Montant estimé</th></tr></thead>
+            <tbody>
+              <tr><td>Prix d'achat</td><td>300 000 €</td></tr>
+              <tr><td>Frais de notaire (~8 %)</td><td>24 000 €</td></tr>
+              <tr><td>Frais d'agence (si applicable)</td><td>15 000 €</td></tr>
+              <tr><td>Travaux et aménagements</td><td>15 000 €</td></tr>
+              <tr><td>Intérêts du crédit sur 20 ans (taux ~3,5 %)</td><td>~118 000 €</td></tr>
+              <tr><td>Taxe foncière (sur 20 ans)</td><td>~30 000 €</td></tr>
+              <tr><td>Charges de copropriété (sur 20 ans)</td><td>~40 000 €</td></tr>
+              <tr><td>Entretien / grosses réparations</td><td>~20 000 €</td></tr>
+              <tr><td><strong>Coût total réel</strong></td><td class="danger"><strong>~562 000 €</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>Pour un bien acheté 300 000 €, le coût total sur 20 ans dépasse 560 000 €. La valorisation du bien doit donc être significative pour rentabiliser financièrement l'opération. Ce calcul ne compte pas le capital mobilisé dans l'apport, qui aurait pu être investi ailleurs.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Le PEA est l'enveloppe à ouvrir en priorité quand tu débutes. Même si tu n'as que 100€ à y mettre, ouvre le aujourd'hui : le compteur des 5 ans démarre à l'ouverture, pas au premier gros versement.</p>
+          <p>Le prix d'achat ne représente que 53 % du coût réel de la résidence principale sur 20 ans. Les frais annexes (notaire, intérêts, charges, entretien) doublent presque la facture.</p>
         </div>
 
-        <h2 id="cto">Le compte titres ordinaire, la liberté totale</h2>
-        <p>Le compte titres ordinaire (CTO) est l'enveloppe sans aucune restriction. Pas de plafond, pas de contrainte géographique, pas de délai fiscal. Tu peux y loger des actions américaines en direct, des ETF du monde entier, des ETP sur le Bitcoin ou l'or, de l'immobilier coté, à peu près tout ce qui se négocie en bourse.</p>
-        <p>La contrepartie, c'est la fiscalité. Chaque vente avec plus value est imposée immédiatement, sans attendre que tu retires l'argent vers ton compte courant. Le CTO est donc l'outil de la flexibilité, pas celui de l'optimisation fiscale.</p>
-        <h3>Quand le CTO devient indispensable</h3>
+        <h2 id="rp-investissement">La RP est-elle un investissement ?</h2>
+        <p>La réponse courte : <strong>partiellement</strong>. La résidence principale a des caractéristiques hybrides.</p>
+
+        <h3>Arguments pour : la RP comme investissement</h3>
         <ul>
-          <li>Tu as rempli ton PEA à 150 000€ de versements.</li>
-          <li>Tu veux des ETF non éligibles au PEA (un S&P 500 physique, un Nasdaq, des marchés émergents en direct).</li>
-          <li>Tu veux des actions américaines en direct ou des ETP Bitcoin.</li>
-          <li>Tu investis à deux et tu veux un compte commun, ce que le PEA, strictement individuel, interdit.</li>
+          <li><strong>Exonération de plus-value.</strong> C'est le seul actif immobilier dont la revente n'est pas soumise à l'impôt sur les plus-values (quelle que soit la durée de détention).</li>
+          <li><strong>Épargne forcée.</strong> Rembourser un crédit immobilier crée une discipline d'épargne que beaucoup de gens n'ont pas autrement.</li>
+          <li><strong>Protection contre l'inflation locative.</strong> Une fois propriétaire, ton logement ne coûte plus jamais plus cher (hors charges et entretien).</li>
+          <li><strong>Transmission facilitée.</strong> La RP peut être transmise avec des abattements fiscaux avantageux.</li>
         </ul>
 
-        <h2 id="fiscalite">La fiscalité 2026, le vrai point de bascule</h2>
-        <p>Depuis le 1er janvier 2026, la loi de financement de la Sécurité sociale a relevé les prélèvements sociaux sur les revenus du capital, qui passent de 17,2% à 18,6%. Concrètement, voici ce que tu paies sur tes gains selon l'enveloppe.</p>
+        <h3>Arguments contre : la RP n'est pas un investissement</h3>
+        <ul>
+          <li><strong>Aucun revenu généré.</strong> Un investissement produit des revenus. Ton appartement dans lequel tu vis ne génère rien.</li>
+          <li><strong>Concentration du risque.</strong> Mettre l'essentiel de son patrimoine dans un seul actif, dans une seule ville, est l'inverse de la diversification.</li>
+          <li><strong>Illiquidité.</strong> Tu ne peux pas vendre 10 % de ta maison en cas de besoin. C'est une immobilisation totale du capital.</li>
+          <li><strong>Rendement locatif implicite faible.</strong> Le loyer "évité" par la propriété est souvent en dessous du coût d'opportunité du capital engagé.</li>
+        </ul>
+
+        <h2 id="locatif">L'investissement locatif : rendement réel</h2>
+        <p>L'investissement locatif a l'avantage de générer des revenus, mais son rendement réel est souvent surestimé. Voici ce que les chiffres donnent réellement.</p>
+
         <table class="compare-table">
           <thead>
-            <tr><th>Critère</th><th>PEA</th><th>CTO</th></tr>
+            <tr><th>Type de rendement</th><th>Calcul</th><th>Valeur typique</th></tr>
           </thead>
           <tbody>
-            <tr><td>Plafond de versements</td><td>150 000€</td><td class="yes">Aucun</td></tr>
-            <tr><td>Fiscalité après 5 ans</td><td class="yes">18,6% (PS seulement)</td><td class="no">31,4% (PFU)</td></tr>
-            <tr><td>Fiscalité avant 5 ans</td><td class="no">31,4% + clôture</td><td>31,4%</td></tr>
-            <tr><td>ETF monde éligibles</td><td class="yes">Oui (synthétiques)</td><td class="yes">Oui (tous)</td></tr>
-            <tr><td>Actions américaines en direct</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Crypto et ETP</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Nombre de comptes</td><td>1 par personne</td><td class="yes">Illimité</td></tr>
+            <tr><td>Rendement brut</td><td>Loyers annuels / Prix d'achat</td><td class="neutral">4 à 6 %</td></tr>
+            <tr><td>Rendement net de charges</td><td>Brut – taxe foncière – charges – entretien</td><td class="neutral">3 à 4,5 %</td></tr>
+            <tr><td>Rendement net de fiscalité</td><td>Net de charges – impôts (TMI + PS)</td><td class="danger">1,5 à 3 %</td></tr>
+            <tr><td>Rendement net net (après vacance)</td><td>En tenant compte d'un mois vide/an</td><td class="danger">1 à 2,5 %</td></tr>
           </tbody>
         </table>
-        <p>La flat tax (ou PFU, prélèvement forfaitaire unique) du CTO est donc de 31,4% : 12,8% d'impôt sur le revenu plus 18,6% de prélèvements sociaux. Sur un PEA de plus de 5 ans, il ne reste que les 18,6% de prélèvements sociaux. L'écart de 12,8 points, c'est exactement la part d'impôt sur le revenu que le PEA t'évite.</p>
 
-        <h2 id="exemple">L'écart en euros sur un cas concret</h2>
-        <p>Prenons un exemple parlant. Tu investis 500€ par mois pendant 20 ans à 7% par an. Ton capital final tourne autour de 245 000€, dont environ <strong>120 000€ de plus values</strong>. Voici l'impôt à la sortie selon l'enveloppe.</p>
-        <ul>
-          <li><strong>Sur PEA :</strong> 120 000 x 18,6% = <strong>22 320€</strong> d'impôt.</li>
-          <li><strong>Sur CTO :</strong> 120 000 x 31,4% = <strong>37 680€</strong> d'impôt.</li>
-        </ul>
-        <p>Soit <strong>15 360€ d'écart</strong>, juste parce que tu as choisi la bonne enveloppe au départ. Et plus tes gains grossissent, plus l'écart se creuse.</p>
+        <p>Un rendement brut de 5 % peut fondre à 2 % net net après fiscalité (TMI 30 % + 17,2 % de prélèvements sociaux), charges non récupérables, vacance locative et travaux de remise en état entre locataires.</p>
 
-        <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison de l'impôt payé à la sortie sur 120 000€ de plus values : 22 320€ en PEA contre 37 680€ en CTO">
-            <line x1="60" y1="20" x2="60" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="60" y1="190" x2="430" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <rect x="120" y="89" width="80" height="101" rx="4" fill="#A0E7C5"/>
-            <rect x="280" y="20" width="80" height="170" rx="4" fill="#C8B4E8"/>
-            <text x="160" y="80" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">22 320€</text>
-            <text x="320" y="11" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">37 680€</text>
-            <text x="160" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">PEA (18,6%)</text>
-            <text x="320" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">CTO (31,4%)</text>
-          </svg>
-          <figcaption>Impôt à la sortie sur 120 000€ de plus values, fiscalité 2026.</figcaption>
-        </figure>
-        <p>Tu peux refaire ce calcul avec tes propres chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>, puis comparer l'impôt exact selon l'enveloppe avec le <a href="calculateur.html#fiscalite">simulateur fiscal PEA, CTO, assurance vie</a>.</p>
+        <p>Ce n'est pas rien — surtout avec l'effet de levier du crédit — mais c'est loin du "5 % garanti" que beaucoup imaginent.</p>
 
-        <h2 id="combiner">La stratégie qui combine les deux</h2>
-        <p>La plupart des investisseurs avancés n'opposent pas PEA et CTO : ils utilisent les deux, dans cet ordre.</p>
-        <ul>
-          <li><strong>Le PEA en priorité</strong> pour le cœur de ton épargne long terme, avec un ETF monde. C'est là que la fiscalité travaille pour toi.</li>
-          <li><strong>Le CTO en complément</strong> une fois le PEA plein, ou pour des actifs non éligibles (un ETF sectoriel, des marchés émergents, un ETP Bitcoin).</li>
-        </ul>
-        <p>L'assurance vie joue un troisième rôle, surtout pour la transmission et après 8 ans. Pour comparer les trois enveloppes côte à côte, lis <a href="article-assurance-vie-pea.html">assurance vie ou PEA</a> et explore le <a href="comparateur-etf.html">comparateur ETF</a> pour choisir les fonds qui rentrent dans chaque enveloppe.</p>
+        <h2 id="effet-levier">L'avantage commun : l'effet de levier</h2>
+        <p>Ce qui rend l'immobilier (RP comme locatif) puissant, ce n'est pas son rendement intrinsèque — c'est l'effet de levier du crédit. Tu contrôles un actif de 300 000 € avec seulement 30 000 € d'apport. Si le bien prend 10 % de valeur, tu gagnes 30 000 € sur 30 000 € investis — soit 100 % de rentabilité sur ton apport.</p>
+
+        <p>Mais l'effet de levier fonctionne dans les deux sens : si le bien perd 10 %, tu perds 30 000 € sur 30 000 €. Et contrairement à un ETF, tu ne peux pas liquider partiellement la position.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Ce n'est pas PEA contre CTO, c'est PEA puis CTO. Tu remplis d'abord l'enveloppe la plus avantageuse fiscalement, et tu débordes sur le compte titres seulement quand tu as une bonne raison de le faire.</p>
+          <p>L'effet de levier du crédit immobilier est un avantage considérable — en bourse, les particuliers ne peuvent généralement pas emprunter à 3,5 % sur 20 ans pour investir. C'est le principal argument financier en faveur de l'immobilier par rapport aux marchés financiers.</p>
         </div>
 
-        <h2 id="erreurs">Les erreurs à éviter</h2>
+        <h2 id="fiscalite">Fiscalité comparée</h2>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Critère</th><th>Résidence principale</th><th>Investissement locatif</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Plus-value à la revente</td><td class="highlight">Exonérée</td><td class="danger">IR + 17,2 % PS (avec abattements)</td></tr>
+            <tr><td>Revenus générés</td><td>Aucun (loyer évité non imposé)</td><td class="danger">Imposés à la TMI + 17,2 % PS (nu)</td></tr>
+            <tr><td>Option LMNP</td><td>N/A</td><td class="highlight">Amortissements réducteurs d'impôt</td></tr>
+            <tr><td>IFI</td><td class="neutral">Abattement 30 %</td><td class="danger">Inclus à 100 % dans l'assiette IFI</td></tr>
+            <tr><td>Transmission</td><td class="highlight">Très avantageux</td><td class="neutral">Avantages partiels selon structure</td></tr>
+          </tbody>
+        </table>
+
+        <p>L'exonération de plus-value sur la résidence principale est un avantage fiscal énorme. C'est le seul placement en France qui permet de réaliser des gains potentiellement colossaux sans impôt. En revanche, le locatif nu est fiscalement pénalisant pour les contribuables à TMI élevée — le LMNP au réel change la donne.</p>
+
+        <h2 id="profils">Quel profil pour quelle stratégie</h2>
+        <p>Il n'y a pas de réponse universelle. Voici les profils pour lesquels chaque option fait davantage sens.</p>
+
+        <h3>La RP fait sens si :</h3>
         <ul>
-          <li><strong>Attendre d'avoir de l'argent pour ouvrir son PEA.</strong> Ouvre le tout de suite, même avec 100€, pour lancer le compteur fiscal des 5 ans.</li>
-          <li><strong>Mettre des ETF non éligibles dans le PEA.</strong> Vérifie toujours l'éligibilité PEA avant d'acheter, sinon l'ordre est refusé ou le fonds inadapté.</li>
-          <li><strong>Tout mettre en CTO par méconnaissance.</strong> Tu paies alors 12,8 points d'impôt en plus, sans aucune contrepartie si tu vises le long terme.</li>
-          <li><strong>Faire un retrait sur un PEA de moins de 5 ans.</strong> Tu déclenches la clôture et tu perds le bénéfice du compteur. Garde ton fonds d'urgence ailleurs, sur un livret.</li>
+          <li>Tu es stabilisé géographiquement (au moins 7 à 10 ans dans la même ville).</li>
+          <li>Les loyers dans ta ville sont proches du coût du crédit (Paris est souvent l'inverse).</li>
+          <li>Tu as une aversion au risque élevée et valorises la stabilité du logement.</li>
+          <li>Tu veux constituer un patrimoine transmissible avec avantage fiscal.</li>
         </ul>
 
-        <h2 id="profils">Quelle enveloppe selon ton profil</h2>
-        <p>Il n'y a pas de réponse unique, mais des situations claires. Voici trois cas typiques.</p>
-        <h3>Tu débutes avec quelques centaines d'euros par mois</h3>
-        <p>Ouvre un PEA, mets en place un versement programmé sur un ETF monde éligible, et oublie le CTO pour l'instant. Tu profites de la meilleure fiscalité sans te compliquer la vie. C'est 90% des cas.</p>
-        <h3>Tu veux des actions américaines ou de la crypto</h3>
-        <p>Le PEA ne le permet pas. Un CTO devient nécessaire pour les actions américaines en direct ou un ETP Bitcoin. Garde l'essentiel de ton épargne long terme sur le PEA, et utilise le CTO comme satellite, pour la part que tu acceptes de voir plus taxée.</p>
-        <h3>Tu as déjà rempli ton PEA</h3>
-        <p>Bravo, tu as versé 150 000€. À partir de là, le CTO prend le relais pour continuer à investir. Tu peux aussi ouvrir une assurance vie pour préparer la transmission et profiter de l'abattement après 8 ans.</p>
-
-        <h2 id="couts">Combien ça coûte vraiment de détenir un PEA ou un CTO</h2>
-        <p>La fiscalité n'est pas le seul coût à surveiller. Les frais de ton courtier grignotent ton rendement année après année, et sur 20 ans, quelques dixièmes de pourcent font une vraie différence. Trois types de frais à regarder de près.</p>
+        <h3>Le locatif fait sens si :</h3>
         <ul>
-          <li><strong>Les frais de courtage</strong> : ce que tu paies à chaque ordre. Chez les courtiers récents, c'est souvent 1€ par ordre, parfois zéro sur certains ETF.</li>
-          <li><strong>Les droits de garde</strong> : des frais annuels sur la valeur du compte. Les bons courtiers en ligne les ont supprimés, fuis ceux qui en facturent encore.</li>
-          <li><strong>Les frais internes de l'ETF</strong> (le TER) : entre 0,05% et 0,40% par an selon le fonds. Tu ne les vois pas passer, mais ils sont prélevés en continu.</li>
+          <li>Tu es mobile professionnellement (tu préfères rester locataire de ta résidence).</li>
+          <li>Tu trouves un bien avec un rendement net correct (4 % net minimum).</li>
+          <li>Tu utilises le LMNP au réel pour neutraliser la fiscalité via l'amortissement.</li>
+          <li>Tu peux gérer la relation locataire (ou déléguer à un gestionnaire, au coût d'environ 8 % des loyers).</li>
         </ul>
-        <p>À enveloppe égale, deux investisseurs avec les mêmes versements peuvent finir avec des dizaines de milliers d'euros d'écart, juste à cause des frais. C'est tout l'enjeu du choix du courtier et de l'ETF. Le <a href="comparateur-etf.html">comparateur ETF</a> te montre l'impact des frais sur le capital final, et l'article <a href="article-dividendes-vs-etf.html">dividendes ou ETF capitalisant</a> explique pourquoi le capitalisant limite la friction fiscale.</p>
 
-        <h2 id="dividendes">PEA, dividendes et capitalisation</h2>
-        <p>Dans un PEA, tu n'es pas imposé tant que tu ne retires pas. Un dividende versé par une action de ton PEA est donc réinvesti sans aucun frottement fiscal. Sur un CTO, à l'inverse, chaque dividende est imposé l'année où il tombe, même si tu comptes le réinvestir.</p>
-        <p>C'est pour ça que beaucoup d'investisseurs privilégient les ETF capitalisants : le fonds réinvestit automatiquement les dividendes en interne, et l'effet des intérêts composés tourne à plein régime. Tu ne paies l'impôt qu'au moment où tu vends, potentiellement des décennies plus tard. Dans un PEA détenu plus de 5 ans, cet impôt se limite aux 18,6% de prélèvements sociaux.</p>
+        <h2 id="troisieme-voie">La troisième voie : locataire + investisseur en bourse</h2>
+        <p>Elle est souvent ignorée dans le débat RP vs locatif, mais elle mérite d'être posée clairement. Si le loyer de ta résidence est nettement inférieur au coût d'un crédit équivalent, rester locataire et investir le différentiel en ETF peut être plus rentable sur 20 ans.</p>
 
-        <h2 id="pratique">Passer à l'action en 4 étapes</h2>
-        <ol>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher. Compare les options dans la page <a href="parrainage.html">parrainages et courtiers</a>.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste, vers un ETF monde éligible PEA.</li>
-          <li>Quand ton PEA approche du plafond, ou si tu veux un actif non éligible, ouvre un CTO en complément.</li>
-          <li>Laisse le temps et les intérêts composés faire le travail. Tu ne touches à rien, tu restes investi.</li>
-        </ol>
-        <p>Si tu veux la méthode complète, étape par étape, avec le choix des ETF et l'automatisation, c'est tout l'objet de la <a href="formation.html">formation</a>.</p>
+        <h3>Exemple chiffré</h3>
+        <ul>
+          <li>Loyer mensuel d'un appartement à Lyon : 1 000 €</li>
+          <li>Mensualité de crédit pour acheter cet appartement (300 000 €, 20 ans, 3,5 %) : 1 740 €</li>
+          <li>Différentiel mensuel disponible pour investir : 740 €</li>
+          <li>740 €/mois sur 20 ans à 8 %/an (ETF monde historique) → environ <strong>439 000 €</strong></li>
+        </ul>
+        <p>À comparer avec la plus-value nette réelle de l'appartement sur 20 ans (après remboursement du capital, frais de vente, charges accumulées). Dans de nombreuses villes françaises, la troisième voie est financièrement compétitive — surtout dans les grandes métropoles où le prix d'achat est très élevé par rapport aux loyers.</p>
 
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Il n'y a pas d'option universellement supérieure. La question clé : dans ta ville, le loyer est-il proche ou très inférieur au coût du crédit ? Plus l'écart est grand, plus rester locataire et investir le différentiel devient intéressant.</p>
+        </div>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Peut-on avoir un PEA et un CTO en même temps ?</summary>
-            <p>Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint.</p>
+            <summary>Peut-on acheter sa RP ET investir dans le locatif ?</summary>
+            <p>Oui, et c'est souvent la stratégie adoptée par les investisseurs patrimoniaux. On achète sa RP pour la stabilité et l'exonération de plus-value, puis on investit dans un ou deux biens locatifs avec l'effet de levier. Les deux ne sont pas mutuellement exclusifs — mais il faut avoir la capacité d'endettement pour les deux.</p>
           </details>
           <details>
-            <summary>Que se passe-t-il si je retire de mon PEA avant 5 ans ?</summary>
-            <p>En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA.</p>
+            <summary>Dans quelles villes le locatif est-il le plus intéressant ?</summary>
+            <p>Les villes avec un bon rapport rendement/prix sont généralement des villes secondaires ou tertiaires : Bordeaux périphérie, Nantes, Rennes, Strasbourg, Mulhouse, Saint-Étienne. Paris, Lyon centre et Nice ont des prix trop élevés pour des rendements locatifs corrects — sauf pour les LMNP meublés de tourisme.</p>
           </details>
           <details>
-            <summary>Le plafond de 150 000€ concerne-t-il aussi les gains ?</summary>
-            <p>Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème.</p>
+            <summary>La RP est-elle toujours exonérée de plus-value ?</summary>
+            <p>Oui, tant que le bien est ta résidence principale au moment de la vente. La condition principale : c'est ton logement habituel et effectif. Si tu loues ton bien avant de le vendre, l'exonération peut être remise en cause pour la période de location.</p>
           </details>
           <details>
-            <summary>Un ETF monde peut-il vraiment tenir dans un PEA ?</summary>
-            <p>Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française.</p>
-          </details>
-          <details>
-            <summary>Quelle enveloppe choisir si je débute avec un petit budget ?</summary>
-            <p>Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin.</p>
+            <summary>Que faire si on n'a pas assez pour acheter sa RP ?</summary>
+            <p>Considère l'investissement locatif en premier (dans une ville moins chère que celle où tu résides) tout en restant locataire de ta résidence. Cette stratégie, appelée "locataire-investisseur", permet de bénéficier de l'effet de levier immobilier sans se bloquer géographiquement.</p>
           </details>
         </div>
 
@@ -449,17 +383,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_PEA_CTO par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_PEA_CTO = "VIDEO_ID";
+          const VIDEO_ID_RP = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_PEA_CTO && VIDEO_ID_ARTICLE_PEA_CTO!=="VIDEO_ID";
+            const has=VIDEO_ID_RP && VIDEO_ID_RP!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_PEA_CTO+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_RP+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -468,42 +401,43 @@
           })();
         </script>
 
-                <div class="article-takeaway">
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
-            <li>PEA : exonération IR après 5 ans, plafond 150 000 €, mais limité aux actions européennes (+ ETF synthétiques).</li>
-            <li>CTO : aucune limite de versement, accès à tous les marchés mondiaux, mais flat tax 30 % sur chaque plus-value.</li>
-            <li>Sur un gain de 15 000 €, le PEA économise environ 1 900 € vs CTO — l'avantage fiscal est concret et mesurable.</li>
-            <li>Le PEA est presque toujours la priorité N°1 pour les actions — CTO seulement pour ce qui n'est pas éligible PEA.</li>
-            <li>Avoir les deux est possible et souvent optimal : PEA pour la croissance long terme, CTO pour les actifs non éligibles.</li>
+            <li>Le coût réel de la RP sur 20 ans est presque le double du prix d'achat quand on intègre frais de notaire, intérêts, charges et entretien.</li>
+            <li>L'avantage majeur de la RP : l'exonération totale de plus-value à la revente — unique en France, potentiellement énorme.</li>
+            <li>Le rendement net net d'un investissement locatif nu oscille entre 1 et 3 % après fiscalité et charges — l'effet de levier du crédit compense cette faiblesse.</li>
+            <li>Rester locataire et investir le différentiel mensuel en ETF peut battre financièrement l'achat de la RP dans les métropoles où les loyers sont très inférieurs aux mensualités de crédit.</li>
+            <li>La clé : combien d'années vas-tu rester dans la même ville ? En dessous de 7 ans, les frais de notaire et de transaction rendent l'achat de la RP peu rentable.</li>
           </ul>
         </div>
 
         <div class="article-cta">
-          <h2>Passe de la théorie à la pratique</h2>
-          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <h2>Construis ta stratégie patrimoniale</h2>
+          <p>Immobilier, bourse, enveloppes fiscales : la formation Julien Invest t'aide à construire une stratégie cohérente selon ta situation, ton horizon et tes objectifs.</p>
           <a href="formation.html" class="btn btn-gradient btn--lg">
             Accéder à la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
+
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-pea-guide-pratique.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">PEA 2026 : ouvrir, alimenter, choisir ses ETF</div>
-              <div class="article-related-meta">14 min · Lire →</div>
+            <a href="article-lmnp-vs-location-nue.html" class="article-related-card">
+              <span class="article-related-tag">Immobilier</span>
+              <div class="article-related-name">LMNP vs location nue : quel régime fiscal choisir ?</div>
+              <div class="article-related-meta">13 min · Lire →</div>
+            </a>
+            <a href="article-scpi-comparatif.html" class="article-related-card">
+              <span class="article-related-tag">Immobilier</span>
+              <div class="article-related-name">SCPI : comment comparer et choisir en 2026</div>
+              <div class="article-related-meta">11 min · Lire →</div>
             </a>
             <a href="article-fiscalite-investissement.html" class="article-related-card">
-              <span class="article-related-tag">Fiscalité</span>
-              <div class="article-related-name">Fiscalité des investissements : flat tax ou barème ?</div>
-              <div class="article-related-meta">8 min · Lire →</div>
-            </a>
-            <a href="article-assurance-vie-pea.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">Assurance-vie ou PEA : le comparatif complet</div>
-              <div class="article-related-meta">9 min · Lire →</div>
+              <span class="article-related-tag">Enveloppes fiscales</span>
+              <div class="article-related-name">Fiscalité des investissements : le guide complet 2026</div>
+              <div class="article-related-meta">14 min · Lire →</div>
             </a>
           </div>
         </div>
@@ -529,24 +463,15 @@
           <a href="index.html">Accueil</a>
           <a href="formation.html">Formation</a>
           <a href="coaching.html">Coaching</a>
-          <a href="a-propos.html">À propos</a>
-          <a href="parrainage.html">Parrainages</a>
-          <a href="calculateur.html">Calculateur</a>
           <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
-          <h4>Articles</h4>
-          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
-          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
-          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
-          <a href="article-risque-altcoins.html">Risque des altcoins</a>
-          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
-          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
-          <a href="article-debuter-investissement.html">Débuter en bourse</a>
-          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
-          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
-          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
-          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <h4>Articles immobilier</h4>
+          <a href="article-lmnp-vs-location-nue.html">LMNP vs location nue</a>
+          <a href="article-scpi-comparatif.html">SCPI : comparatif</a>
+          <a href="article-scpi-vs-crowdfunding.html">SCPI vs crowdfunding</a>
+          <a href="article-crowdfunding-immobilier.html">Crowdfunding immobilier</a>
+          <a href="article-residence-principale-vs-locatif.html">RP vs locatif</a>
         </div>
         <div class="footer-col">
           <h4>Légal</h4>

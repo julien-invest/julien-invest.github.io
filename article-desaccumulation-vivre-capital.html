@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PEA vs CTO : lequel choisir selon ton profil | Julien Invest</title>
-  <meta name="description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <title>Désaccumulation : comment vivre de son capital | Julien Invest</title>
+  <meta name="description" content="Règle des 4 %, SWR, ordre de retrait des enveloppes, fiscalité à la sortie : le guide complet pour passer de l'accumulation à la phase de retrait et vivre de ses investissements.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta property="og:description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <meta property="og:title" content="Désaccumulation : comment vivre de son capital | Julien Invest">
+  <meta property="og:description" content="Règle des 4 %, ordre de retrait des enveloppes, fiscalité à la sortie : comment passer à la vie de rentier.">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="og:url" content="https://julien-invest.github.io/article-pea-vs-cto.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-desaccumulation-vivre-capital.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta name="twitter:description" content="Comparatif complet PEA vs CTO pour faire le bon choix d'enveloppe fiscale.">
+  <meta name="twitter:title" content="Désaccumulation : comment vivre de son capital">
+  <meta name="twitter:description" content="Règle des 4 %, SWR, ordre de retrait : le guide pour vivre de ses placements.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "PEA vs CTO : lequel choisir selon ton profil",
-  "description": "PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds, le comparatif complet pour faire le bon choix.",
+  "headline": "Désaccumulation : comment vivre de son capital",
+  "description": "Règle des 4 %, ordre de retrait des enveloppes, fiscalité à la sortie : le guide complet pour passer à la désaccumulation.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-02-03",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -38,8 +38,10 @@
     .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
     .article-body ul { padding-left: 20px; margin-bottom: 16px; }
     .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
-    .article-tag { display: inline-block; background: linear-gradient(135deg,#A0E7C5,#34D399); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #064E3B; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
@@ -47,9 +49,17 @@
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
-    .compare-table .yes { color: #059669; font-weight: 700; }
-    .compare-table .no { color: #DC2626; font-weight: 700; }
-
+    .compare-table .highlight { color: #059669; font-weight: 700; }
+    .compare-table .danger { color: #DC2626; font-weight: 700; }
+    .swr-box { background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%); border-radius: 16px; padding: 32px; text-align: center; margin: 28px 0; }
+    .swr-box .swr-pct { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 72px; font-weight: 800; color: white; line-height: 1; letter-spacing: -0.04em; }
+    .swr-box .swr-label { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.6; }
+    .envelope-step { display: flex; align-items: flex-start; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--grey-5); }
+    .envelope-step:last-child { border-bottom: none; }
+    .envelope-step-num { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--navy); color: white; font-family: var(--font-head); font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+    .envelope-step-content { flex: 1; }
+    .envelope-step-title { font-family: var(--font-head); font-weight: 700; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .envelope-step-desc { font-size: 14px; color: var(--grey-2); line-height: 1.6; }
     /* ── Takeaway final (injected) ── */
     .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
     .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
@@ -67,81 +77,14 @@
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-pea-vs-cto.html">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Julien Invest",
-  "url": "https://julien-invest.github.io/",
-  "logo": "https://julien-invest.github.io/images/og-cover.png",
-  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
-  "sameAs": [
-    "https://www.tiktok.com/@julien_invest_",
-    "https://www.instagram.com/julien_invest",
-    "https://www.youtube.com/@jueth7215",
-    "https://www.linkedin.com/in/julien-denis-849541251/"
-  ],
-  "founder": { "@type": "Person", "name": "Julien Denis" }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Peut-on avoir un PEA et un CTO en même temps ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Que se passe-t-il si je retire de mon PEA avant 5 ans ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Le plafond de 150 000€ concerne-t-il aussi les gains ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Un ETF monde peut-il vraiment tenir dans un PEA ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle enveloppe choisir si je débute avec un petit budget ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin."
-      }
-    }
-  ]
-}
-  </script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-desaccumulation-vivre-capital.html">
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          Julien<span class="nav-logo-dot"></span>Invest
-        </a>
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
         <ul class="nav-links">
           <li><a href="formation.html" class="nav-link">Formation</a></li>
           <li><a href="coaching.html" class="nav-link">Coaching</a></li>
@@ -214,14 +157,9 @@
           <li><a href="ressources.html" class="nav-link">Ressources</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="formation.html" class="btn btn-gradient btn--sm">
-            Accéder à la formation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
         </div>
-        <button class="nav-hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -263,10 +201,10 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Enveloppes fiscales</span>
-        <h1>PEA vs CTO :<br><em>lequel choisir selon ton profil</em></h1>
-        <p class="article-meta-date">Publié le 3 février 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Avantages fiscaux, contraintes, plafonds. Le comparatif complet pour choisir la bonne enveloppe dès le départ.</p>
+        <span class="t-label">Retraite &amp; Liberté</span>
+        <h1>Désaccumulation<br><em>comment vivre de son capital</em></h1>
+        <p class="article-meta-date">Publié le 21 juin 2026</p>
+        <p>Tout le monde parle d'accumuler. Personne n'explique comment passer à la phase suivante : retirer son argent sans l'épuiser, dans le bon ordre, avec le moins d'impôts possible.</p>
       </div>
     </div>
   </section>
@@ -274,169 +212,162 @@
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Enveloppes</span>
-        <p>Tu veux investir en bourse mais tu hésites entre un PEA et un compte titres ordinaire ? C'est la première vraie décision de tout investisseur français, et elle a un impact énorme sur ce qu'il te restera vraiment, une fois l'impôt payé. Bonne nouvelle : une fois que tu as compris la logique des deux enveloppes, le choix devient évident. On déroule tout, simplement, avec des chiffres à jour de la fiscalité 2026.</p>
+        <span class="article-tag">Retraite &amp; Liberté</span>
+
+        <p>Tu as passé des années à accumuler — à épargner, investir, laisser fructifier. Maintenant la vraie question : comment transformer ce capital en revenus durables sans le dilapider en quelques années ? La désaccumulation est la face cachée de l'investissement. Elle est rarement enseignée, souvent mal gérée. Ce guide te donne les bases pour y penser dès maintenant.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#pea">Le PEA, l'enveloppe préférée des Français</a></li>
-            <li><a href="#cto">Le compte titres ordinaire, la liberté totale</a></li>
-            <li><a href="#fiscalite">La fiscalité 2026, le vrai point de bascule</a></li>
-            <li><a href="#exemple">L'écart en euros sur un cas concret</a></li>
-            <li><a href="#combiner">La stratégie qui combine les deux</a></li>
-            <li><a href="#profils">Quelle enveloppe selon ton profil</a></li>
-            <li><a href="#couts">Combien ça coûte vraiment</a></li>
-            <li><a href="#dividendes">PEA, dividendes et capitalisation</a></li>
-            <li><a href="#erreurs">Les erreurs à éviter</a></li>
-            <li><a href="#pratique">Passer à l'action en 4 étapes</a></li>
+            <li><a href="#swr">La règle des 4 % (SWR)</a></li>
+            <li><a href="#ajustements">Ajustements pour la France</a></li>
+            <li><a href="#ordre">L'ordre de retrait des enveloppes</a></li>
+            <li><a href="#fiscalite">La fiscalité à la sortie</a></li>
+            <li><a href="#risques">Risques de la désaccumulation</a></li>
+            <li><a href="#strategies">Stratégies concrètes</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="pea">Le PEA, l'enveloppe préférée des Français</h2>
-        <p>Le Plan d'Épargne en Actions est une enveloppe fiscale créée pour encourager l'investissement en actions européennes. Ce n'est pas un produit en soi : c'est un contenant dans lequel tu loges des actions et des ETF éligibles. Tant que ton argent reste à l'intérieur, tu ne paies aucun impôt sur tes gains, même quand tu vends pour racheter autre chose.</p>
-        <p>L'avantage massif arrive après 5 ans de détention : tes plus values et tes dividendes deviennent <strong>exonérés d'impôt sur le revenu</strong>. Il ne reste plus que les prélèvements sociaux. C'est ce qui en fait l'outil numéro un pour faire grossir un portefeuille sur le long terme.</p>
-        <h3>Ses limites à connaître</h3>
-        <ul>
-          <li>Plafond de versements de 150 000€ (les plus values peuvent dépasser ce montant).</li>
-          <li>Un seul PEA par personne, et il faut être résident fiscal français.</li>
-          <li>Uniquement des actions et ETF européens éligibles. Pas d'actions américaines en direct, pas de crypto.</li>
-          <li>Un retrait avant 5 ans entraîne en principe la clôture du plan.</li>
-        </ul>
-        <p>La contrainte européenne fait peur, à tort. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux tout en restant éligibles au PEA grâce à la réplication synthétique. On en reparle dans le <a href="guides/guide-pea.html">guide complet du PEA</a> et dans l'article <a href="article-etf-physique-vs-synthetique.html">ETF physique ou synthétique</a>.</p>
+        <h2 id="swr">La règle des 4 % (SWR)</h2>
+        <p>La règle des 4 % est issue de l'étude Trinity (1998), qui a analysé les retraits sur un portefeuille investi en actions et obligations américaines depuis 1925. Résultat : retirer <strong>4 % de son capital initial chaque année</strong> (ajusté à l'inflation) permet au portefeuille de survivre dans 95 % des scénarios historiques sur 30 ans.</p>
 
-        <div class="article-retenir">
-          <div class="article-retenir-label">★ À retenir</div>
-          <p>Le PEA est l'enveloppe à ouvrir en priorité quand tu débutes. Même si tu n'as que 100€ à y mettre, ouvre le aujourd'hui : le compteur des 5 ans démarre à l'ouverture, pas au premier gros versement.</p>
+        <div class="swr-box">
+          <div class="swr-pct">4 %</div>
+          <div class="swr-label">du capital initial, retiré chaque année<br>= durabilité du capital sur 30 ans dans 95 % des scénarios historiques</div>
         </div>
 
-        <h2 id="cto">Le compte titres ordinaire, la liberté totale</h2>
-        <p>Le compte titres ordinaire (CTO) est l'enveloppe sans aucune restriction. Pas de plafond, pas de contrainte géographique, pas de délai fiscal. Tu peux y loger des actions américaines en direct, des ETF du monde entier, des ETP sur le Bitcoin ou l'or, de l'immobilier coté, à peu près tout ce qui se négocie en bourse.</p>
-        <p>La contrepartie, c'est la fiscalité. Chaque vente avec plus value est imposée immédiatement, sans attendre que tu retires l'argent vers ton compte courant. Le CTO est donc l'outil de la flexibilité, pas celui de l'optimisation fiscale.</p>
-        <h3>Quand le CTO devient indispensable</h3>
+        <p>Concrètement, si tu as 500 000 € investis, tu peux retirer 20 000 €/an (1 667 €/mois) indéfiniment. Si tu as 1 000 000 €, tu peux retirer 40 000 €/an (3 333 €/mois).</p>
+
+        <p>Le capital cible pour la liberté financière se calcule donc : <strong>dépenses annuelles × 25</strong>. Pour 2 000 €/mois (24 000 €/an), il te faut 600 000 €.</p>
+
+        <h2 id="ajustements">Ajustements pour la France</h2>
+        <p>L'étude Trinity est basée sur des données américaines. La France a des spécificités importantes :</p>
+
         <ul>
-          <li>Tu as rempli ton PEA à 150 000€ de versements.</li>
-          <li>Tu veux des ETF non éligibles au PEA (un S&P 500 physique, un Nasdaq, des marchés émergents en direct).</li>
-          <li>Tu veux des actions américaines en direct ou des ETP Bitcoin.</li>
-          <li>Tu investis à deux et tu veux un compte commun, ce que le PEA, strictement individuel, interdit.</li>
+          <li><strong>Fiscalité des retraits :</strong> les revenus financiers en France sont taxés à 30 % (flat tax). Ton retrait brut doit couvrir tes besoins nets après impôts. Si tu veux 2 000 € nets/mois, tes retraits doivent être d'environ 2 860 €/mois bruts (selon les enveloppes utilisées).</li>
+          <li><strong>Système de retraite :</strong> si tu as cotisé, tu toucheras une pension d'État à 62-67 ans. Cela réduit le capital nécessaire pour la période avant la retraite officielle.</li>
+          <li><strong>Horizon plus long :</strong> si tu arrêtes de travailler à 40 ans (FIRE), ton capital doit durer 50 ans, pas 30. La règle des 4 % devient la règle des 3,5 % pour ce scénario.</li>
         </ul>
 
-        <h2 id="fiscalite">La fiscalité 2026, le vrai point de bascule</h2>
-        <p>Depuis le 1er janvier 2026, la loi de financement de la Sécurité sociale a relevé les prélèvements sociaux sur les revenus du capital, qui passent de 17,2% à 18,6%. Concrètement, voici ce que tu paies sur tes gains selon l'enveloppe.</p>
         <table class="compare-table">
           <thead>
-            <tr><th>Critère</th><th>PEA</th><th>CTO</th></tr>
+            <tr><th>Horizon de retrait</th><th>Taux de retrait sûr</th><th>Capital nécessaire pour 2 000 €/mois nets</th></tr>
           </thead>
           <tbody>
-            <tr><td>Plafond de versements</td><td>150 000€</td><td class="yes">Aucun</td></tr>
-            <tr><td>Fiscalité après 5 ans</td><td class="yes">18,6% (PS seulement)</td><td class="no">31,4% (PFU)</td></tr>
-            <tr><td>Fiscalité avant 5 ans</td><td class="no">31,4% + clôture</td><td>31,4%</td></tr>
-            <tr><td>ETF monde éligibles</td><td class="yes">Oui (synthétiques)</td><td class="yes">Oui (tous)</td></tr>
-            <tr><td>Actions américaines en direct</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Crypto et ETP</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Nombre de comptes</td><td>1 par personne</td><td class="yes">Illimité</td></tr>
+            <tr><td>30 ans (retraite classique)</td><td class="highlight">4 %</td><td>~860 000 €</td></tr>
+            <tr><td>40 ans (FIRE tardif, ~50 ans)</td><td>3,5 %</td><td>~980 000 €</td></tr>
+            <tr><td>50 ans (FIRE early, ~40 ans)</td><td>3 %</td><td>~1 140 000 €</td></tr>
           </tbody>
         </table>
-        <p>La flat tax (ou PFU, prélèvement forfaitaire unique) du CTO est donc de 31,4% : 12,8% d'impôt sur le revenu plus 18,6% de prélèvements sociaux. Sur un PEA de plus de 5 ans, il ne reste que les 18,6% de prélèvements sociaux. L'écart de 12,8 points, c'est exactement la part d'impôt sur le revenu que le PEA t'évite.</p>
 
-        <h2 id="exemple">L'écart en euros sur un cas concret</h2>
-        <p>Prenons un exemple parlant. Tu investis 500€ par mois pendant 20 ans à 7% par an. Ton capital final tourne autour de 245 000€, dont environ <strong>120 000€ de plus values</strong>. Voici l'impôt à la sortie selon l'enveloppe.</p>
+        <p><em>Capital calculé en tenant compte de la flat tax 30 % pour passer de 2 000 € bruts à 2 000 € nets. Ces estimations supposent un portefeuille investi à 70-80 % en actions.</em></p>
+
+        <h2 id="ordre">L'ordre de retrait des enveloppes</h2>
+        <p>Tu as probablement plusieurs enveloppes : PEA, assurance-vie, CTO, PER, livrets. L'ordre dans lequel tu les vides a un impact fiscal majeur. Voici la logique générale.</p>
+
+        <div class="envelope-step">
+          <div class="envelope-step-num">1</div>
+          <div class="envelope-step-content">
+            <div class="envelope-step-title">Livrets réglementés (Livret A, LEP, LDDS)</div>
+            <div class="envelope-step-desc">Commence par vider tes livrets. Aucune fiscalité, aucun impact. Ils ne croissent qu'à 2,4–3,5 % — autant les utiliser en premier pendant que ton portefeuille boursier continue de croître.</div>
+          </div>
+        </div>
+        <div class="envelope-step">
+          <div class="envelope-step-num">2</div>
+          <div class="envelope-step-content">
+            <div class="envelope-step-title">Assurance-vie après 8 ans (abattement annuel)</div>
+            <div class="envelope-step-desc">Après 8 ans de détention, tu bénéficies d'un abattement annuel de 4 600 € (9 200 € pour un couple) sur les gains retirés. Utilise cet abattement chaque année — il ne se cumule pas. C'est une source de revenus partiellement exonérée.</div>
+          </div>
+        </div>
+        <div class="envelope-step">
+          <div class="envelope-step-num">3</div>
+          <div class="envelope-step-content">
+            <div class="envelope-step-title">PEA après 5 ans (exonération d'IR sur les plus-values)</div>
+            <div class="envelope-step-desc">Les retraits du PEA après 5 ans sont exonérés d'impôt sur le revenu (seuls les 17,2 % de prélèvements sociaux s'appliquent). C'est la source de revenus la plus avantageuse fiscalement pour les gros gains. À utiliser en troisième pour préserver l'avantage fiscal du PEA le plus longtemps possible.</div>
+          </div>
+        </div>
+        <div class="envelope-step">
+          <div class="envelope-step-num">4</div>
+          <div class="envelope-step-content">
+            <div class="envelope-step-title">CTO (Compte-Titres Ordinaire)</div>
+            <div class="envelope-step-desc">Les retraits du CTO sont soumis à la flat tax 30 % (IR 12,8 % + PS 17,2 %) sur les plus-values. À utiliser après les enveloppes exonérées, ou si tu as besoin de montants supérieurs aux plafonds des autres enveloppes.</div>
+          </div>
+        </div>
+        <div class="envelope-step">
+          <div class="envelope-step-num">5</div>
+          <div class="envelope-step-content">
+            <div class="envelope-step-title">PER (Plan d'Épargne Retraite)</div>
+            <div class="envelope-step-desc">Le PER est conçu pour être liquidé à la retraite. Les retraits sont imposés comme des revenus (barème IR), mais si tu as déduit les versements à l'entrée, l'avantage fiscal est déjà pris. À liquider selon tes besoins en tenant compte de ton TMI à la retraite.</div>
+          </div>
+        </div>
+
+        <h2 id="fiscalite">La fiscalité à la sortie</h2>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Enveloppe</th><th>Fiscalité des retraits</th><th>Avantage principal</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Livrets réglementés</td><td class="highlight">0 %</td><td>Disponibilité immédiate, aucune fiscalité</td></tr>
+            <tr><td>PEA (après 5 ans)</td><td class="highlight">17,2 % PS uniquement</td><td>Exonération IR sur plus-values</td></tr>
+            <tr><td>Assurance-vie (après 8 ans)</td><td class="highlight">Abattement 4 600 €/an, puis 7,5 %+PS</td><td>Abattement annuel + fiscalité préférentielle</td></tr>
+            <tr><td>CTO</td><td>30 % flat tax</td><td>Flexibilité totale, pas de plafond</td></tr>
+            <tr><td>PER</td><td>Barème IR sur capital + gains</td><td>Déduction à l'entrée, optimisation TMI</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="risques">Risques de la désaccumulation</h2>
+
+        <h3>Le risque de séquence (sequence of returns risk)</h3>
+        <p>C'est le risque le moins connu mais le plus important. Si les marchés chutent fortement dans les premières années de ta désaccumulation, tu vends des actifs au plus bas pour financer tes retraits. Le portefeuille se réduit plus vite, et même une hausse ultérieure ne compense pas les parts vendues au creux.</p>
+        <p>Exemple : un krach de -40 % la première année de retraite est beaucoup plus destructeur que le même krach la 15e année.</p>
+
+        <h3>Le risque de longévité</h3>
+        <p>Tu pourrais vivre plus longtemps que prévu. Si tu planifies sur 30 ans et tu en vis 40, il manquera 10 ans de revenus. D'où l'importance d'un taux de retrait conservateur (3,5 % plutôt que 4 %) pour les FIRE early.</p>
+
+        <h3>Solutions pratiques</h3>
         <ul>
-          <li><strong>Sur PEA :</strong> 120 000 x 18,6% = <strong>22 320€</strong> d'impôt.</li>
-          <li><strong>Sur CTO :</strong> 120 000 x 31,4% = <strong>37 680€</strong> d'impôt.</li>
+          <li><strong>Garder 1 à 2 ans de dépenses en liquidités.</strong> En cas de krach, tu puises dans les liquidités plutôt que de vendre des actifs au plus bas. Le portefeuille a le temps de se redresser.</li>
+          <li><strong>Adapter les retraits à la conjoncture.</strong> En année de krach, réduire temporairement ses retraits de 10-20 % prolonge considérablement la durée de vie du capital.</li>
+          <li><strong>Conserver une petite activité.</strong> Même 500-800 €/mois de revenus d'activité (freelance, consulting, etc.) réduit massivement la pression sur le portefeuille.</li>
         </ul>
-        <p>Soit <strong>15 360€ d'écart</strong>, juste parce que tu as choisi la bonne enveloppe au départ. Et plus tes gains grossissent, plus l'écart se creuse.</p>
-
-        <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison de l'impôt payé à la sortie sur 120 000€ de plus values : 22 320€ en PEA contre 37 680€ en CTO">
-            <line x1="60" y1="20" x2="60" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="60" y1="190" x2="430" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <rect x="120" y="89" width="80" height="101" rx="4" fill="#A0E7C5"/>
-            <rect x="280" y="20" width="80" height="170" rx="4" fill="#C8B4E8"/>
-            <text x="160" y="80" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">22 320€</text>
-            <text x="320" y="11" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">37 680€</text>
-            <text x="160" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">PEA (18,6%)</text>
-            <text x="320" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">CTO (31,4%)</text>
-          </svg>
-          <figcaption>Impôt à la sortie sur 120 000€ de plus values, fiscalité 2026.</figcaption>
-        </figure>
-        <p>Tu peux refaire ce calcul avec tes propres chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>, puis comparer l'impôt exact selon l'enveloppe avec le <a href="calculateur.html#fiscalite">simulateur fiscal PEA, CTO, assurance vie</a>.</p>
-
-        <h2 id="combiner">La stratégie qui combine les deux</h2>
-        <p>La plupart des investisseurs avancés n'opposent pas PEA et CTO : ils utilisent les deux, dans cet ordre.</p>
-        <ul>
-          <li><strong>Le PEA en priorité</strong> pour le cœur de ton épargne long terme, avec un ETF monde. C'est là que la fiscalité travaille pour toi.</li>
-          <li><strong>Le CTO en complément</strong> une fois le PEA plein, ou pour des actifs non éligibles (un ETF sectoriel, des marchés émergents, un ETP Bitcoin).</li>
-        </ul>
-        <p>L'assurance vie joue un troisième rôle, surtout pour la transmission et après 8 ans. Pour comparer les trois enveloppes côte à côte, lis <a href="article-assurance-vie-pea.html">assurance vie ou PEA</a> et explore le <a href="comparateur-etf.html">comparateur ETF</a> pour choisir les fonds qui rentrent dans chaque enveloppe.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Ce n'est pas PEA contre CTO, c'est PEA puis CTO. Tu remplis d'abord l'enveloppe la plus avantageuse fiscalement, et tu débordes sur le compte titres seulement quand tu as une bonne raison de le faire.</p>
+          <p>La désaccumulation n'est pas le contraire de l'accumulation. C'est une phase distincte avec ses propres risques. Le planifier 5 à 10 ans à l'avance — bien avant d'en avoir besoin — est la meilleure décision que tu puisses prendre.</p>
         </div>
 
-        <h2 id="erreurs">Les erreurs à éviter</h2>
+        <h2 id="strategies">Stratégies concrètes</h2>
+
+        <h3>La méthode des "sceaux" (bucket strategy)</h3>
+        <p>Divise ton capital en trois parties selon l'horizon de temps :</p>
         <ul>
-          <li><strong>Attendre d'avoir de l'argent pour ouvrir son PEA.</strong> Ouvre le tout de suite, même avec 100€, pour lancer le compteur fiscal des 5 ans.</li>
-          <li><strong>Mettre des ETF non éligibles dans le PEA.</strong> Vérifie toujours l'éligibilité PEA avant d'acheter, sinon l'ordre est refusé ou le fonds inadapté.</li>
-          <li><strong>Tout mettre en CTO par méconnaissance.</strong> Tu paies alors 12,8 points d'impôt en plus, sans aucune contrepartie si tu vises le long terme.</li>
-          <li><strong>Faire un retrait sur un PEA de moins de 5 ans.</strong> Tu déclenches la clôture et tu perds le bénéfice du compteur. Garde ton fonds d'urgence ailleurs, sur un livret.</li>
+          <li><strong>Seau 1 (0-2 ans) :</strong> Livrets + fonds euros. Aucune volatilité, disponible immédiatement. 2 ans de dépenses.</li>
+          <li><strong>Seau 2 (3-10 ans) :</strong> Obligations + ETF diversifiés prudents. Croissance modérée, volatilité limitée.</li>
+          <li><strong>Seau 3 (10 ans+) :</strong> ETF actions monde. Croissance maximale, volatilité acceptée sur cet horizon.</li>
         </ul>
+        <p>En phase de retrait, tu puises dans le seau 1 pour tes dépenses courantes. Quand le seau 1 se vide, tu renfloues depuis le seau 2. En cas de krach, tu ne touches pas au seau 3 — tu attends le rebond.</p>
 
-        <h2 id="profils">Quelle enveloppe selon ton profil</h2>
-        <p>Il n'y a pas de réponse unique, mais des situations claires. Voici trois cas typiques.</p>
-        <h3>Tu débutes avec quelques centaines d'euros par mois</h3>
-        <p>Ouvre un PEA, mets en place un versement programmé sur un ETF monde éligible, et oublie le CTO pour l'instant. Tu profites de la meilleure fiscalité sans te compliquer la vie. C'est 90% des cas.</p>
-        <h3>Tu veux des actions américaines ou de la crypto</h3>
-        <p>Le PEA ne le permet pas. Un CTO devient nécessaire pour les actions américaines en direct ou un ETP Bitcoin. Garde l'essentiel de ton épargne long terme sur le PEA, et utilise le CTO comme satellite, pour la part que tu acceptes de voir plus taxée.</p>
-        <h3>Tu as déjà rempli ton PEA</h3>
-        <p>Bravo, tu as versé 150 000€. À partir de là, le CTO prend le relais pour continuer à investir. Tu peux aussi ouvrir une assurance vie pour préparer la transmission et profiter de l'abattement après 8 ans.</p>
-
-        <h2 id="couts">Combien ça coûte vraiment de détenir un PEA ou un CTO</h2>
-        <p>La fiscalité n'est pas le seul coût à surveiller. Les frais de ton courtier grignotent ton rendement année après année, et sur 20 ans, quelques dixièmes de pourcent font une vraie différence. Trois types de frais à regarder de près.</p>
-        <ul>
-          <li><strong>Les frais de courtage</strong> : ce que tu paies à chaque ordre. Chez les courtiers récents, c'est souvent 1€ par ordre, parfois zéro sur certains ETF.</li>
-          <li><strong>Les droits de garde</strong> : des frais annuels sur la valeur du compte. Les bons courtiers en ligne les ont supprimés, fuis ceux qui en facturent encore.</li>
-          <li><strong>Les frais internes de l'ETF</strong> (le TER) : entre 0,05% et 0,40% par an selon le fonds. Tu ne les vois pas passer, mais ils sont prélevés en continu.</li>
-        </ul>
-        <p>À enveloppe égale, deux investisseurs avec les mêmes versements peuvent finir avec des dizaines de milliers d'euros d'écart, juste à cause des frais. C'est tout l'enjeu du choix du courtier et de l'ETF. Le <a href="comparateur-etf.html">comparateur ETF</a> te montre l'impact des frais sur le capital final, et l'article <a href="article-dividendes-vs-etf.html">dividendes ou ETF capitalisant</a> explique pourquoi le capitalisant limite la friction fiscale.</p>
-
-        <h2 id="dividendes">PEA, dividendes et capitalisation</h2>
-        <p>Dans un PEA, tu n'es pas imposé tant que tu ne retires pas. Un dividende versé par une action de ton PEA est donc réinvesti sans aucun frottement fiscal. Sur un CTO, à l'inverse, chaque dividende est imposé l'année où il tombe, même si tu comptes le réinvestir.</p>
-        <p>C'est pour ça que beaucoup d'investisseurs privilégient les ETF capitalisants : le fonds réinvestit automatiquement les dividendes en interne, et l'effet des intérêts composés tourne à plein régime. Tu ne paies l'impôt qu'au moment où tu vends, potentiellement des décennies plus tard. Dans un PEA détenu plus de 5 ans, cet impôt se limite aux 18,6% de prélèvements sociaux.</p>
-
-        <h2 id="pratique">Passer à l'action en 4 étapes</h2>
-        <ol>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher. Compare les options dans la page <a href="parrainage.html">parrainages et courtiers</a>.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste, vers un ETF monde éligible PEA.</li>
-          <li>Quand ton PEA approche du plafond, ou si tu veux un actif non éligible, ouvre un CTO en complément.</li>
-          <li>Laisse le temps et les intérêts composés faire le travail. Tu ne touches à rien, tu restes investi.</li>
-        </ol>
-        <p>Si tu veux la méthode complète, étape par étape, avec le choix des ETF et l'automatisation, c'est tout l'objet de la <a href="formation.html">formation</a>.</p>
-
+        <h3>La règle des 4 % dynamique</h3>
+        <p>Plutôt qu'un retrait fixe, adapte tes retraits à la valeur du portefeuille. Si le portefeuille a bien progressé, tu peux retirer un peu plus. Si il a chuté, tu serre temporairement la ceinture. Cette flexibilité augmente significativement les chances de succès sur 40-50 ans.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Peut-on avoir un PEA et un CTO en même temps ?</summary>
-            <p>Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint.</p>
+            <summary>Faut-il continuer à investir en actions pendant la désaccumulation ?</summary>
+            <p>Oui, généralement. Un retrait à la retraite à 60 ans peut durer 30 ans. Sur un horizon de 30 ans, un portefeuille 100 % obligataire a historiquement de moins bons résultats qu'un portefeuille mixte 60/40. Maintenir 50-70 % en actions est raisonnable en début de retraite, pour basculer progressivement vers plus d'obligations avec l'âge.</p>
           </details>
           <details>
-            <summary>Que se passe-t-il si je retire de mon PEA avant 5 ans ?</summary>
-            <p>En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA.</p>
+            <summary>La règle des 4 % est-elle sûre en Europe ?</summary>
+            <p>Elle est légèrement moins sûre en Europe qu'aux États-Unis car les marchés européens ont été plus volatils historiquement. Pour un portefeuille investi en ETF monde (donc incluant les USA), un taux de 3,5 % est souvent recommandé pour plus de sécurité, surtout sur des horizons supérieurs à 30 ans.</p>
           </details>
           <details>
-            <summary>Le plafond de 150 000€ concerne-t-il aussi les gains ?</summary>
-            <p>Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème.</p>
+            <summary>Que se passe-t-il si je vis plus longtemps que prévu ?</summary>
+            <p>C'est le risque de longévité. Les solutions : choisir un taux de retrait conservateur (3 % au lieu de 4 %), conserver une activité même partielle, ou avoir un patrimoine immobilier que tu peux liquider si nécessaire. Une rente viagère peut aussi être envisagée pour garantir un revenu à vie, au prix d'une moindre flexibilité.</p>
           </details>
           <details>
-            <summary>Un ETF monde peut-il vraiment tenir dans un PEA ?</summary>
-            <p>Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française.</p>
-          </details>
-          <details>
-            <summary>Quelle enveloppe choisir si je débute avec un petit budget ?</summary>
-            <p>Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin.</p>
+            <summary>Comment gérer la flat tax sur mes retraits de CTO ?</summary>
+            <p>En optimisant l'ordre de retrait : utilise d'abord les enveloppes exonérées ou à faible fiscalité (PEA, assurance-vie avec abattement) avant de toucher au CTO. Sur le CTO, tu peux aussi optimiser en vendant des positions à perte (loss harvesting) pour compenser les plus-values et réduire l'assiette taxable.</p>
           </details>
         </div>
 
@@ -449,17 +380,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_PEA_CTO par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_PEA_CTO = "VIDEO_ID";
+          const VIDEO_ID_DESACC = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_PEA_CTO && VIDEO_ID_ARTICLE_PEA_CTO!=="VIDEO_ID";
+            const has=VIDEO_ID_DESACC && VIDEO_ID_DESACC!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_PEA_CTO+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_DESACC+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -468,42 +398,43 @@
           })();
         </script>
 
-                <div class="article-takeaway">
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
-            <li>PEA : exonération IR après 5 ans, plafond 150 000 €, mais limité aux actions européennes (+ ETF synthétiques).</li>
-            <li>CTO : aucune limite de versement, accès à tous les marchés mondiaux, mais flat tax 30 % sur chaque plus-value.</li>
-            <li>Sur un gain de 15 000 €, le PEA économise environ 1 900 € vs CTO — l'avantage fiscal est concret et mesurable.</li>
-            <li>Le PEA est presque toujours la priorité N°1 pour les actions — CTO seulement pour ce qui n'est pas éligible PEA.</li>
-            <li>Avoir les deux est possible et souvent optimal : PEA pour la croissance long terme, CTO pour les actifs non éligibles.</li>
+            <li>La règle des 4 % : retirer 4 % de son capital initial chaque année permet au portefeuille de survivre 30 ans dans 95 % des scénarios historiques. Pour 40-50 ans, descendre à 3-3,5 %.</li>
+            <li>L'ordre optimal de retrait en France : livrets d'abord → assurance-vie (abattement annuel) → PEA (exonération IR) → CTO (flat tax) → PER.</li>
+            <li>Le risque de séquence (krach en début de retraite) est le plus dangereux : garder 1-2 ans de dépenses en liquidités protège contre ce scénario.</li>
+            <li>La bucket strategy (sceaux 0-2 ans / 3-10 ans / 10+ ans) est une solution pratique pour gérer la volatilité en phase de retrait.</li>
+            <li>La désaccumulation se planifie idéalement 5 à 10 ans avant d'en avoir besoin — pas à la veille du passage à la retraite.</li>
           </ul>
         </div>
 
         <div class="article-cta">
-          <h2>Passe de la théorie à la pratique</h2>
-          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <h2>Construis ton plan vers la liberté financière</h2>
+          <p>La formation Julien Invest t'aide à planifier les deux phases : l'accumulation et la désaccumulation, avec les bonnes enveloppes et la bonne fiscalité.</p>
           <a href="formation.html" class="btn btn-gradient btn--lg">
             Accéder à la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
+
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-pea-guide-pratique.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">PEA 2026 : ouvrir, alimenter, choisir ses ETF</div>
-              <div class="article-related-meta">14 min · Lire →</div>
+            <a href="article-liberte-financiere.html" class="article-related-card">
+              <span class="article-related-tag">Retraite &amp; Liberté</span>
+              <div class="article-related-name">Liberté financière : calcule ton capital FIRE</div>
+              <div class="article-related-meta">10 min · Lire →</div>
             </a>
-            <a href="article-fiscalite-investissement.html" class="article-related-card">
-              <span class="article-related-tag">Fiscalité</span>
-              <div class="article-related-name">Fiscalité des investissements : flat tax ou barème ?</div>
-              <div class="article-related-meta">8 min · Lire →</div>
+            <a href="article-per-plan-epargne-retraite.html" class="article-related-card">
+              <span class="article-related-tag">Enveloppes fiscales</span>
+              <div class="article-related-name">PER : le guide complet du plan d'épargne retraite</div>
+              <div class="article-related-meta">13 min · Lire →</div>
             </a>
-            <a href="article-assurance-vie-pea.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">Assurance-vie ou PEA : le comparatif complet</div>
-              <div class="article-related-meta">9 min · Lire →</div>
+            <a href="article-retraite-capitalisation.html" class="article-related-card">
+              <span class="article-related-tag">Retraite &amp; Liberté</span>
+              <div class="article-related-name">Retraite par capitalisation : tout comprendre</div>
+              <div class="article-related-meta">11 min · Lire →</div>
             </a>
           </div>
         </div>
@@ -529,24 +460,14 @@
           <a href="index.html">Accueil</a>
           <a href="formation.html">Formation</a>
           <a href="coaching.html">Coaching</a>
-          <a href="a-propos.html">À propos</a>
-          <a href="parrainage.html">Parrainages</a>
-          <a href="calculateur.html">Calculateur</a>
           <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
-          <h4>Articles</h4>
-          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
-          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
-          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
-          <a href="article-risque-altcoins.html">Risque des altcoins</a>
-          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
-          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
-          <a href="article-debuter-investissement.html">Débuter en bourse</a>
-          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
-          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
-          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
-          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <h4>Articles retraite</h4>
+          <a href="article-liberte-financiere.html">Liberté financière</a>
+          <a href="article-retraite-capitalisation.html">Retraite par capitalisation</a>
+          <a href="article-per-plan-epargne-retraite.html">PER guide complet</a>
+          <a href="article-desaccumulation-vivre-capital.html">Vivre de son capital</a>
         </div>
         <div class="footer-col">
           <h4>Légal</h4>

@@ -323,6 +323,11 @@
       margin-bottom: 5px;
     }
     .calc-interp-body { margin: 0; }
+    #ic-attente-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 600px) {
+      #ic-attente-grid { grid-template-columns: 1fr; }
+      .ic-presets { flex-direction: column; align-items: flex-start; }
+    }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/calculateur.html">
   <script type="application/ld+json">
@@ -395,6 +400,22 @@
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
                 <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
               </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
               <div class="nav-dropdown-sep"></div>
               <a href="ressources.html#guides" class="nav-dropdown-item">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
@@ -436,6 +457,10 @@
           <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
           <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
           <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
@@ -482,6 +507,14 @@
         <h2>Simulateur d'<em class="t-display">intérêts composés</em></h2>
         <p>Ajuste les curseurs : le graphique et les résultats se mettent à jour en temps réel.</p>
       </div>
+      <div class="ic-presets" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px;">
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-3);white-space:nowrap;">Profil type :</span>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="ic-preset-btn" data-initial="1000" data-monthly="100" data-rate="7" data-years="20" style="padding:7px 18px;border-radius:100px;border:1.5px solid var(--grey-5);background:var(--white);font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--grey-2);cursor:pointer;transition:all 0.18s;">Débutant</button>
+          <button class="ic-preset-btn" data-initial="5000" data-monthly="300" data-rate="7" data-years="25" style="padding:7px 18px;border-radius:100px;border:1.5px solid var(--grey-5);background:var(--white);font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--grey-2);cursor:pointer;transition:all 0.18s;">Régulier</button>
+          <button class="ic-preset-btn" data-initial="10000" data-monthly="500" data-rate="8" data-years="30" style="padding:7px 18px;border-radius:100px;border:1.5px solid var(--grey-5);background:var(--white);font-family:var(--font-head);font-size:12px;font-weight:700;color:var(--grey-2);cursor:pointer;transition:all 0.18s;">Ambitieux</button>
+        </div>
+      </div>
       <div class="calc-3col">
         <!-- COL 1 : Sliders -->
         <div class="calc-col-inputs">
@@ -517,6 +550,24 @@
             </div>
             <input type="range" id="sl-years" min="1" max="40" step="1" value="20" class="sim-slider">
             <div class="sim-field-range"><span>1 an</span><span>40 ans</span></div>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label style="display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none;">
+              <span style="position:relative;display:inline-block;width:40px;height:22px;flex-shrink:0;">
+                <input type="checkbox" id="ic-inflation-toggle" style="opacity:0;width:0;height:0;position:absolute;">
+                <span id="ic-toggle-track" style="position:absolute;inset:0;background:var(--grey-5);border-radius:100px;transition:background 0.2s;"></span>
+                <span id="ic-toggle-thumb" style="position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:transform 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.18);"></span>
+              </span>
+              <span style="font-family:var(--font-head);font-size:13px;font-weight:600;color:var(--grey-1);">Afficher la courbe inflation</span>
+            </label>
+            <div id="ic-inflation-field" style="display:none;margin-top:14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <label for="ic-inflation-rate" style="font-family:var(--font-head);font-size:13px;font-weight:600;color:var(--grey-1);">Inflation annuelle</label>
+                <span style="font-family:var(--font-head);font-size:14px;font-weight:700;color:var(--navy);" id="ic-val-inflation">2,0 %</span>
+              </div>
+              <input type="range" id="ic-inflation-rate" min="0.5" max="6" step="0.5" value="2" class="sim-slider">
+              <div class="sim-field-range"><span>0,5 %</span><span>6 %</span></div>
+            </div>
           </div>
           <p class="calc-recap-compact" id="recap-sentence"></p>
         </div>
@@ -581,6 +632,32 @@
         <div>
           <div class="calc-interp-title">Ce que ça veut dire pour toi</div>
           <p class="calc-interp-body" id="interp-ic-text"></p>
+        </div>
+      </div>
+
+      <!-- COÛT DE L'ATTENTE -->
+      <div style="margin-top:32px;background:rgba(147,197,253,0.1);border:1.5px solid rgba(147,197,253,0.4);border-radius:var(--radius-lg);padding:28px 32px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--lavender)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span style="font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--navy);">Le coût de l'attente</span>
+        </div>
+        <p style="font-size:13px;color:var(--grey-2);line-height:1.65;margin-bottom:20px;">Chaque année de retard réduit ton capital final. Voilà ce que tu perds en attendant avant de commencer avec tes paramètres actuels.</p>
+        <div id="ic-attente-grid">
+          <div style="background:var(--white);border:1.5px solid var(--grey-5);border-radius:var(--radius-md);padding:16px;text-align:center;">
+            <div style="font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey-3);margin-bottom:8px;">Si tu attends 1 an</div>
+            <div style="font-family:var(--font-head);font-size:20px;font-weight:800;color:#B91C1C;" id="ic-attente-1">0 €</div>
+            <div style="font-size:11px;color:var(--grey-3);margin-top:4px;">perdus</div>
+          </div>
+          <div style="background:var(--white);border:1.5px solid var(--grey-5);border-radius:var(--radius-md);padding:16px;text-align:center;">
+            <div style="font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey-3);margin-bottom:8px;">Si tu attends 2 ans</div>
+            <div style="font-family:var(--font-head);font-size:20px;font-weight:800;color:#B91C1C;" id="ic-attente-2">0 €</div>
+            <div style="font-size:11px;color:var(--grey-3);margin-top:4px;">perdus</div>
+          </div>
+          <div style="background:var(--white);border:1.5px solid var(--grey-5);border-radius:var(--radius-md);padding:16px;text-align:center;">
+            <div style="font-family:var(--font-head);font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--grey-3);margin-bottom:8px;">Si tu attends 5 ans</div>
+            <div style="font-family:var(--font-head);font-size:20px;font-weight:800;color:#B91C1C;" id="ic-attente-5">0 €</div>
+            <div style="font-size:11px;color:var(--grey-3);margin-top:4px;">perdus</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1021,6 +1098,151 @@
         if (el) el.addEventListener('input', interpIC);
       });
       interpIC();
+    });
+  </script>
+  <!-- Presets, inflation toggle et coût de l'attente -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (!document.getElementById('sl-initial')) return;
+
+      function fmtEuro(n) {
+        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(Math.abs(n)));
+      }
+
+      function calcFinal(initial, monthly, ratePct, years) {
+        var r = ratePct / 100 / 12;
+        var n = years * 12;
+        var fi = initial * Math.pow(1 + r, n);
+        var fm = r > 0 ? monthly * ((Math.pow(1 + r, n) - 1) / r) : monthly * n;
+        return fi + fm;
+      }
+
+      function getSliders() {
+        return {
+          initial: parseFloat(document.getElementById('sl-initial').value),
+          monthly: parseFloat(document.getElementById('sl-monthly').value),
+          rate:    parseFloat(document.getElementById('sl-rate').value),
+          years:   parseInt(document.getElementById('sl-years').value)
+        };
+      }
+
+      // ── PRESETS ──
+      document.querySelectorAll('.ic-preset-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.getElementById('sl-initial').value = btn.dataset.initial;
+          document.getElementById('sl-monthly').value = btn.dataset.monthly;
+          document.getElementById('sl-rate').value    = btn.dataset.rate;
+          document.getElementById('sl-years').value   = btn.dataset.years;
+          ['sl-initial','sl-monthly','sl-rate','sl-years'].forEach(function (id) {
+            document.getElementById(id).dispatchEvent(new Event('input', { bubbles: true }));
+          });
+          document.querySelectorAll('.ic-preset-btn').forEach(function(b) {
+            b.style.background = 'var(--white)';
+            b.style.color      = 'var(--grey-2)';
+            b.style.borderColor = 'var(--grey-5)';
+          });
+          btn.style.background  = 'var(--navy)';
+          btn.style.color       = '#fff';
+          btn.style.borderColor = 'var(--navy)';
+        });
+      });
+
+      // ── INFLATION TOGGLE ──
+      var toggle = document.getElementById('ic-inflation-toggle');
+      var track  = document.getElementById('ic-toggle-track');
+      var thumb  = document.getElementById('ic-toggle-thumb');
+      var field  = document.getElementById('ic-inflation-field');
+      var valEl  = document.getElementById('ic-val-inflation');
+      var rateEl = document.getElementById('ic-inflation-rate');
+
+      toggle.addEventListener('change', function () {
+        var on = toggle.checked;
+        track.style.background = on ? 'var(--navy)' : 'var(--grey-5)';
+        thumb.style.transform  = on ? 'translateX(18px)' : 'translateX(0)';
+        field.style.display    = on ? 'block' : 'none';
+        updateInflationCurve();
+      });
+
+      rateEl.addEventListener('input', function () {
+        var v = parseFloat(rateEl.value);
+        valEl.textContent = v.toFixed(1).replace('.', ',') + ' %';
+        updateInflationCurve();
+      });
+
+      function updateInflationCurve() {
+        var chartInstance = null;
+        if (typeof Chart !== 'undefined' && Chart.getChart) {
+          chartInstance = Chart.getChart('chart-main');
+        }
+        if (!chartInstance) return;
+
+        var datasets = chartInstance.data.datasets;
+        var inflDatasetIndex = datasets.findIndex(function(d) { return d._isInflation; });
+
+        if (!toggle.checked) {
+          if (inflDatasetIndex !== -1) {
+            datasets.splice(inflDatasetIndex, 1);
+            chartInstance.update('active');
+          }
+          return;
+        }
+
+        var s = getSliders();
+        var inflRate = parseFloat(rateEl.value);
+        var netRate  = Math.max(0, s.rate - inflRate);
+        var labels   = chartInstance.data.labels;
+        var inflData = [];
+        for (var i = 0; i < labels.length; i++) {
+          var yr = i + 1;
+          inflData.push(Math.round(calcFinal(s.initial, s.monthly, netRate, yr)));
+        }
+
+        var inflDataset = {
+          _isInflation: true,
+          type: 'line',
+          label: 'Capital réel (inflation déduite)',
+          data: inflData,
+          borderColor: 'rgba(240,192,64,0.9)',
+          borderDash: [8, 4],
+          borderWidth: 2.5,
+          pointRadius: 0,
+          fill: false,
+          tension: 0.4,
+          order: 0
+        };
+
+        if (inflDatasetIndex !== -1) {
+          datasets[inflDatasetIndex] = inflDataset;
+        } else {
+          datasets.push(inflDataset);
+        }
+        chartInstance.update('active');
+      }
+
+      // ── COÛT DE L'ATTENTE ──
+      function updateAttente() {
+        var s = getSliders();
+        if (s.years <= 1) { return; }
+        var total = calcFinal(s.initial, s.monthly, s.rate, s.years);
+        var t1 = calcFinal(s.initial, s.monthly, s.rate, Math.max(1, s.years - 1));
+        var t2 = calcFinal(s.initial, s.monthly, s.rate, Math.max(1, s.years - 2));
+        var t5 = calcFinal(s.initial, s.monthly, s.rate, Math.max(1, s.years - 5));
+        document.getElementById('ic-attente-1').textContent = fmtEuro(total - t1);
+        document.getElementById('ic-attente-2').textContent = fmtEuro(total - t2);
+        document.getElementById('ic-attente-5').textContent = fmtEuro(total - t5);
+      }
+
+      ['sl-initial','sl-monthly','sl-rate','sl-years'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('input', function () {
+            updateInflationCurve();
+            updateAttente();
+          });
+        }
+      });
+
+      updateAttente();
     });
   </script>
   <!-- Interprétation contextuelle — Simulateur 2 Liberté Financière (FIRE) -->

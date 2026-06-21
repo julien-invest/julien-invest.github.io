@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur crédit immobilier 2026 | Julien Invest</title>
+  <meta name="description" content="Calcule tes mensualités, le coût total de ton crédit immobilier et visualise le tableau d'amortissement. Taux, assurance, apport : simulation complète gratuite 2026.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Simulateur crédit immobilier 2026 | Julien Invest">
+  <meta property="og:description" content="Mensualités, coût total, tableau d'amortissement : calcule ton prêt immobilier en temps réel.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/simulateur-credit-immobilier.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simulateur crédit immobilier 2026 | Julien Invest">
+  <meta name="twitter:description" content="Calcule tes mensualités et le coût total de ton prêt immobilier. Outil gratuit 2026.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/simulateur-credit-immobilier.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    .ci-hero {
+      background: var(--pearl);
+      padding: 140px 0 64px;
+      border-bottom: 1px solid var(--grey-5);
+      position: relative; overflow: hidden;
+    }
+    .ci-hero::before {
+      content: ''; position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(160,231,197,0.15) 0%, transparent 65%);
+      bottom: -100px; right: -80px; pointer-events: none;
+    }
+    .ci-hero-inner { max-width: 780px; position: relative; }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: 12px; color: var(--grey-3);
+      margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--grey-3); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--grey-4); }
+    .ci-hero h1 {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(34px, 4.5vw, 58px);
+      color: var(--navy); line-height: 1.1; margin-bottom: 20px;
+    }
+    .ci-hero-sub { font-size: 18px; color: var(--grey-2); line-height: 1.7; max-width: 640px; }
+
+    /* ── TOOL ── */
+    .ci-tool-section { padding: 56px 0; background: var(--white); }
+    .tool-wrap {
+      background: var(--white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-sm);
+    }
+    .tool-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 8px;
+    }
+    .tool-h2 {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(22px, 2.5vw, 30px); color: var(--navy); margin-bottom: 36px;
+    }
+
+    /* ── LAYOUT ── */
+    .ci-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    @media (max-width: 960px) { .ci-layout { grid-template-columns: 1fr; } }
+    .ci-inputs-col {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 28px; min-width: 0;
+    }
+    .ci-right-col { min-width: 0; }
+    @media (max-width: 720px) { .tool-wrap { padding: 16px; } }
+    .ci-col-title {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-3);
+      padding-bottom: 12px; border-bottom: 1px solid var(--grey-5); margin-bottom: 20px;
+    }
+    .sim-field { margin-bottom: 20px; }
+    .sim-field:last-child { margin-bottom: 0; }
+    .sim-field-header {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+    }
+    .sim-field label {
+      font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--grey-1);
+    }
+    .sim-field-val {
+      font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy);
+    }
+    .sim-slider {
+      width: 100%; appearance: none; height: 4px;
+      background: var(--grey-5); border-radius: 4px; outline: none; margin-bottom: 6px;
+    }
+    .sim-slider::-webkit-slider-thumb {
+      appearance: none; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--navy); cursor: pointer; box-shadow: 0 2px 8px rgba(26,61,124,0.25);
+    }
+    .sim-slider::-moz-range-thumb {
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--navy); cursor: pointer; border: none;
+    }
+    .sim-field-range {
+      display: flex; justify-content: space-between;
+      font-size: 11px; color: var(--grey-3); font-family: var(--font-head);
+    }
+
+    /* ── DURÉE QUICK BUTTONS ── */
+    .ci-dur-btns { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .ci-dur-btn {
+      padding: 6px 14px; border-radius: 100px;
+      border: 1.5px solid var(--grey-5); background: var(--white);
+      font-family: var(--font-head); font-size: 12px; font-weight: 700; color: var(--grey-2);
+      cursor: pointer; transition: all 0.18s;
+    }
+    .ci-dur-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .ci-dur-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+    /* ── RIGHT COL ── */
+    .ci-right-col { display: flex; flex-direction: column; gap: 24px; }
+
+    /* ── RÉSULTATS PRINCIPAUX ── */
+    .ci-res-main {
+      background: var(--navy); border-radius: var(--radius-lg);
+      padding: 24px 28px; display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) { .ci-res-main { grid-template-columns: 1fr; } }
+    .ci-res-item { text-align: center; }
+    .ci-res-item-label {
+      font-family: var(--font-head); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 6px;
+    }
+    .ci-res-item-val {
+      font-family: var(--font-head); font-size: 26px; font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .ci-res-item-val.val-sm { font-size: 18px; }
+    .ci-res-rows-wrap {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 20px 24px;
+    }
+    .ci-res-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 9px 0; border-bottom: 1px solid var(--grey-5); font-size: 13px;
+    }
+    .ci-res-row:last-child { border-bottom: none; }
+    .ci-res-row-label { color: var(--grey-2); }
+    .ci-res-row-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+    .ci-res-row-val.val-loss { color: #B91C1C; }
+    .ci-info-box {
+      background: rgba(160,231,197,0.10); border: 1px solid rgba(160,231,197,0.4);
+      border-radius: var(--radius-md); padding: 16px 20px;
+      font-size: 13px; color: var(--navy); line-height: 1.7;
+    }
+    .ci-info-box strong { font-family: var(--font-head); font-weight: 700; }
+
+    /* ── CHART ── */
+    .ci-chart-wrap {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 24px;
+    }
+    .ci-chart-title {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 20px;
+    }
+    .ci-chart-canvas-wrap { position: relative; height: 260px; }
+
+    /* ── AMORTISSEMENT ── */
+    .ci-amort-section { padding: 48px 0 64px; background: var(--pearl); border-top: 1px solid var(--grey-5); }
+    .ci-amort-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .ci-amort-title { font-family: var(--font-head); font-size: 18px; font-weight: 800; color: var(--navy); }
+    .ci-amort-toggle-btn {
+      padding: 9px 18px; border-radius: 100px;
+      border: 1.5px solid var(--grey-5); background: var(--white);
+      font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--grey-2);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .ci-amort-toggle-btn:hover, .ci-amort-toggle-btn.active { border-color: var(--navy); color: var(--navy); background: var(--pearl); }
+    .ci-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1.5px solid var(--grey-5); }
+    .ci-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+    .ci-table thead th {
+      background: var(--navy); padding: 12px 16px;
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7);
+      text-align: right; white-space: nowrap;
+    }
+    .ci-table thead th:first-child { text-align: left; }
+    .ci-table tbody tr:nth-child(even) { background: var(--off-white); }
+    .ci-table tbody tr { border-bottom: 1px solid var(--grey-5); }
+    .ci-table tbody td { padding: 10px 16px; font-size: 13px; color: var(--grey-1); text-align: right; }
+    .ci-table tbody td:first-child { text-align: left; font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+    .ci-table tbody td.td-interest { color: #7C3AED; }
+    .ci-table tbody td.td-capital { color: #0D6B42; }
+
+    /* ── EDU ── */
+    .ci-edu-section { padding: 56px 0; background: var(--white); border-top: 1px solid var(--grey-5); }
+    .ci-edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 720px) { .ci-edu-grid { grid-template-columns: 1fr; } }
+    .ci-edu-card {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 28px;
+    }
+    .ci-edu-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); margin-bottom: 10px;
+    }
+    .ci-edu-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .ci-edu-card p { font-size: 14px; color: var(--grey-2); line-height: 1.65; }
+    .ci-eco-box {
+      margin-top: 14px; padding: 12px 16px;
+      background: rgba(160,231,197,0.15); border-radius: var(--radius-sm);
+      font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--navy);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link active">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="ci-hero">
+    <div class="container">
+      <div class="ci-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a><span>›</span>
+          <a href="calculateur.html">Calculateurs</a><span>›</span>
+          <span>Crédit immobilier</span>
+        </div>
+        <h1>Simulateur <em>crédit immobilier</em> 2026</h1>
+        <p class="ci-hero-sub">Mensualités, coût total des intérêts, coût de l'assurance et tableau d'amortissement complet. Ajuste les paramètres en temps réel pour comparer plusieurs scénarios.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL -->
+  <section class="ci-tool-section">
+    <div class="container--wide">
+      <div class="tool-wrap">
+        <div class="tool-label">Simulateur gratuit</div>
+        <div class="tool-h2">Calcule le coût réel de ton prêt</div>
+
+        <div class="ci-layout">
+          <!-- COL INPUTS -->
+          <div class="ci-inputs-col">
+            <div class="ci-col-title">Paramètres du prêt</div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="ci-montant">Montant du bien</label>
+                <span class="sim-field-val" id="ci-val-montant">200 000 €</span>
+              </div>
+              <input type="range" id="ci-montant" min="10000" max="1000000" step="5000" value="200000" class="sim-slider">
+              <div class="sim-field-range"><span>10 k€</span><span>1 M€</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="ci-apport">Apport personnel</label>
+                <span class="sim-field-val" id="ci-val-apport">20 000 €</span>
+              </div>
+              <input type="range" id="ci-apport" min="0" max="500000" step="1000" value="20000" class="sim-slider">
+              <div class="sim-field-range"><span>0 €</span><span>500 k€</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="ci-taux">Taux d'intérêt annuel</label>
+                <span class="sim-field-val" id="ci-val-taux">3,30 %</span>
+              </div>
+              <input type="range" id="ci-taux" min="0.5" max="8" step="0.05" value="3.3" class="sim-slider">
+              <div class="sim-field-range"><span>0,5 %</span><span>8 %</span></div>
+            </div>
+
+            <div class="sim-field">
+              <label style="font-family:var(--font-head);font-size:13px;font-weight:600;color:var(--grey-1);display:block;margin-bottom:10px;">Durée du prêt</label>
+              <div class="ci-dur-btns" id="ci-dur-btns">
+                <button class="ci-dur-btn" data-val="10">10 ans</button>
+                <button class="ci-dur-btn" data-val="15">15 ans</button>
+                <button class="ci-dur-btn active" data-val="20">20 ans</button>
+                <button class="ci-dur-btn" data-val="25">25 ans</button>
+              </div>
+              <div class="sim-field-header" style="margin-top:8px;">
+                <span style="font-family:var(--font-head);font-size:12px;color:var(--grey-3);">Ou ajuste avec le curseur</span>
+                <span class="sim-field-val" id="ci-val-duree">20 ans</span>
+              </div>
+              <input type="range" id="ci-duree" min="5" max="30" step="1" value="20" class="sim-slider">
+              <div class="sim-field-range"><span>5 ans</span><span>30 ans</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="ci-assurance">Taux assurance emprunteur</label>
+                <span class="sim-field-val" id="ci-val-assurance">0,25 %</span>
+              </div>
+              <input type="range" id="ci-assurance" min="0" max="1" step="0.01" value="0.25" class="sim-slider">
+              <div class="sim-field-range"><span>0 %</span><span>1 %</span></div>
+            </div>
+          </div>
+
+          <!-- COL RÉSULTATS -->
+          <div class="ci-right-col">
+            <!-- MENSUALITÉS PRINCIPALES -->
+            <div class="ci-res-main">
+              <div class="ci-res-item">
+                <div class="ci-res-item-label">Mensualité hors assurance</div>
+                <div class="ci-res-item-val" id="ci-mensualite">0 €</div>
+              </div>
+              <div class="ci-res-item">
+                <div class="ci-res-item-label">Mensualité totale (avec assurance)</div>
+                <div class="ci-res-item-val" id="ci-mensualite-totale">0 €</div>
+              </div>
+              <div class="ci-res-item">
+                <div class="ci-res-item-label">Capital emprunté</div>
+                <div class="ci-res-item-val val-sm" id="ci-capital">0 €</div>
+              </div>
+              <div class="ci-res-item">
+                <div class="ci-res-item-label">Taux d'endettement indicatif</div>
+                <div class="ci-res-item-val val-sm" id="ci-taux-endettement">—</div>
+              </div>
+            </div>
+
+            <!-- DÉTAIL DES COÛTS -->
+            <div class="ci-res-rows-wrap">
+              <div class="ci-col-title" style="border-bottom:1px solid var(--grey-5);padding-bottom:12px;margin-bottom:16px;">Coût total du crédit</div>
+              <div class="ci-res-row">
+                <span class="ci-res-row-label">Capital remboursé</span>
+                <span class="ci-res-row-val" id="ci-capital-total">0 €</span>
+              </div>
+              <div class="ci-res-row">
+                <span class="ci-res-row-label">Total des intérêts</span>
+                <span class="ci-res-row-val val-loss" id="ci-interets-total">0 €</span>
+              </div>
+              <div class="ci-res-row">
+                <span class="ci-res-row-label">Total assurance emprunteur</span>
+                <span class="ci-res-row-val val-loss" id="ci-assurance-total">0 €</span>
+              </div>
+              <div class="ci-res-row" style="border-top:2px solid var(--grey-5);margin-top:4px;padding-top:12px;">
+                <span class="ci-res-row-label" style="font-weight:700;color:var(--navy);">Coût total du crédit</span>
+                <span class="ci-res-row-val" style="font-size:18px;" id="ci-cout-total">0 €</span>
+              </div>
+              <div class="ci-res-row">
+                <span class="ci-res-row-label">Ratio coût / capital</span>
+                <span class="ci-res-row-val" id="ci-ratio">0 %</span>
+              </div>
+            </div>
+
+            <!-- INFO DYNAMIQUE ── -->
+            <div class="ci-info-box" id="ci-info-box">
+              Ajuste les paramètres pour voir l'impact sur le coût total.
+            </div>
+
+            <!-- GRAPHIQUE -->
+            <div class="ci-chart-wrap">
+              <div class="ci-chart-title">Répartition capital remboursé vs intérêts payés</div>
+              <div class="ci-chart-canvas-wrap">
+                <canvas id="ci-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABLEAU AMORTISSEMENT -->
+  <section class="ci-amort-section">
+    <div class="container--wide">
+      <div class="ci-amort-header">
+        <div class="ci-amort-title">Tableau d'amortissement</div>
+        <button class="ci-amort-toggle-btn" id="ci-amort-toggle">Voir toutes les années</button>
+      </div>
+      <div class="ci-table-wrap">
+        <table class="ci-table">
+          <thead>
+            <tr>
+              <th>Période</th>
+              <th>Mensualité</th>
+              <th>Intérêts</th>
+              <th>Capital remboursé</th>
+              <th>Capital restant dû</th>
+            </tr>
+          </thead>
+          <tbody id="ci-amort-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDU SECTION -->
+  <section class="ci-edu-section">
+    <div class="container">
+      <div style="margin-bottom:36px;">
+        <div class="tool-label" style="margin-bottom:10px;">À savoir</div>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-size:clamp(26px,3vw,38px);color:var(--navy);">Ce que ton banquier ne te dit pas toujours</h2>
+      </div>
+      <div class="ci-edu-grid">
+        <div class="ci-edu-card">
+          <div class="ci-edu-label">Assurance emprunteur</div>
+          <h3>Un coût souvent sous-estimé</h3>
+          <p>L'assurance emprunteur peut représenter 20 à 30 % du coût total du crédit. Sur un prêt de 180 000 € à 3,3 % sur 20 ans avec une assurance à 0,25 %, la facture d'assurance dépasse 9 000 €. La loi Lemoine te permet depuis 2022 de changer d'assurance à tout moment sans frais : comparer les offres peut économiser plusieurs milliers d'euros.</p>
+          <div class="ci-eco-box" id="ci-edu-assurance-detail">Renseigne tes paramètres pour voir l'impact de l'assurance.</div>
+        </div>
+        <div class="ci-edu-card">
+          <div class="ci-edu-label">Durée vs taux</div>
+          <h3>L'impact de la durée sur le coût total</h3>
+          <p>Allonger la durée du prêt réduit les mensualités mais augmente considérablement le coût total des intérêts. Sur un même capital emprunté, passer de 20 à 25 ans peut ajouter des dizaines de milliers d'euros d'intérêts supplémentaires. À l'inverse, rembourser 5 ans plus tôt libère du capital pour investir.</p>
+          <div class="ci-eco-box" id="ci-edu-duree-detail">Renseigne tes paramètres pour voir l'impact de la durée.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="calculateur.html">Calculateurs</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Simulateurs</h4>
+          <a href="calculateur.html#interets-composes">Intérêts composés</a>
+          <a href="simulateur-frais.html">Simulateur frais</a>
+          <a href="simulateur-credit-immobilier.html">Crédit immobilier</a>
+          <a href="simulateur-rente.html">Rente passive</a>
+          <a href="comparateur-courtiers.html">Comparateur courtiers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var chartInstance = null;
+    var amortData = [];
+    var showAllYears = false;
+
+    function fmt(n) {
+      return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n));
+    }
+    function fmtPct(n) { return n.toFixed(2).replace('.', ',') + ' %'; }
+
+    function buildAmort(capital, rMensuel, n, mensualite) {
+      var rows = [];
+      var remaining = capital;
+      for (var m = 1; m <= n; m++) {
+        var interet = remaining * rMensuel;
+        var cap = mensualite - interet;
+        remaining = Math.max(0, remaining - cap);
+        rows.push({ m: m, mensualite: mensualite, interet: interet, cap: cap, remaining: remaining });
+      }
+      return rows;
+    }
+
+    function compute() {
+      var montant    = parseFloat(document.getElementById('ci-montant').value);
+      var apport     = parseFloat(document.getElementById('ci-apport').value);
+      var taux       = parseFloat(document.getElementById('ci-taux').value);
+      var duree      = parseInt(document.getElementById('ci-duree').value);
+      var assurance  = parseFloat(document.getElementById('ci-assurance').value);
+
+      var capital = Math.max(0, montant - apport);
+      var r = taux / 100 / 12;
+      var n = duree * 12;
+
+      document.getElementById('ci-val-montant').textContent = fmt(montant);
+      document.getElementById('ci-val-apport').textContent = fmt(apport);
+      document.getElementById('ci-val-taux').textContent = taux.toFixed(2).replace('.', ',') + ' %';
+      document.getElementById('ci-val-duree').textContent = duree + ' ans';
+      document.getElementById('ci-val-assurance').textContent = fmtPct(assurance);
+
+      if (capital <= 0) {
+        document.getElementById('ci-mensualite').textContent = '0 €';
+        document.getElementById('ci-mensualite-totale').textContent = '0 €';
+        document.getElementById('ci-capital').textContent = fmt(capital);
+        return;
+      }
+
+      var mensualite = r > 0
+        ? capital * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1)
+        : capital / n;
+
+      var mensualiteAssurance = capital * assurance / 100 / 12;
+      var mensualiteTotale = mensualite + mensualiteAssurance;
+      var totalInterets = Math.max(0, mensualite * n - capital);
+      var totalAssurance = mensualiteAssurance * n;
+      var coutTotal = totalInterets + totalAssurance;
+      var ratio = capital > 0 ? coutTotal / capital * 100 : 0;
+
+      document.getElementById('ci-mensualite').textContent = fmt(mensualite);
+      document.getElementById('ci-mensualite-totale').textContent = fmt(mensualiteTotale);
+      document.getElementById('ci-capital').textContent = fmt(capital);
+      document.getElementById('ci-capital-total').textContent = fmt(capital);
+      document.getElementById('ci-interets-total').textContent = fmt(totalInterets);
+      document.getElementById('ci-assurance-total').textContent = fmt(totalAssurance);
+      document.getElementById('ci-cout-total').textContent = fmt(coutTotal);
+      document.getElementById('ci-ratio').textContent = ratio.toFixed(1).replace('.', ',') + ' %';
+      document.getElementById('ci-taux-endettement').textContent = '(sur base ' + fmt(mensualiteTotale) + '/mois)';
+
+      // Info dynamique
+      var assurancePct = coutTotal > 0 ? Math.round(totalAssurance / coutTotal * 100) : 0;
+      document.getElementById('ci-info-box').innerHTML =
+        'Ton crédit de <strong>' + fmt(capital) + '</strong> sur <strong>' + duree + ' ans</strong> te coûte <strong>' + fmt(coutTotal) + '</strong> en plus du capital emprunté. ' +
+        "L'assurance représente <strong>" + assurancePct + ' %</strong> du coût total. ' +
+        'Ta mensualité totale est de <strong>' + fmt(mensualiteTotale) + '</strong>/mois.';
+
+      // Edu box assurance
+      document.getElementById('ci-edu-assurance-detail').textContent =
+        "Sur ce prêt, l'assurance coûte " + fmt(totalAssurance) + ' en tout, soit ' + assurancePct + ' % du coût total du crédit. Comparer les offres peut réduire ce montant de 30 à 60 %.';
+
+      // Edu box durée : économie si -5 ans
+      if (duree > 5) {
+        var dureeReduite = Math.max(5, duree - 5);
+        var nReduit = dureeReduite * 12;
+        var mensualiteReduite = r > 0
+          ? capital * r * Math.pow(1 + r, nReduit) / (Math.pow(1 + r, nReduit) - 1)
+          : capital / nReduit;
+        var interetsReduits = Math.max(0, mensualiteReduite * nReduit - capital);
+        var eco = totalInterets - interetsReduits;
+        document.getElementById('ci-edu-duree-detail').textContent =
+          'En réduisant la durée de ' + duree + ' à ' + dureeReduite + ' ans, tu économiserais ' + fmt(eco) + " d'intérêts. Tes mensualités passeraient de " + fmt(mensualite) + ' à ' + fmt(mensualiteReduite) + '.';
+      } else {
+        document.getElementById('ci-edu-duree-detail').textContent = 'Renseigne une durée supérieure à 5 ans pour voir le comparatif.';
+      }
+
+      // Build amort data
+      amortData = buildAmort(capital, r, n, mensualite);
+      renderAmort();
+
+      // Chart data by year
+      var labels = [], dataCapCum = [], dataIntCum = [];
+      var cumCap = 0, cumInt = 0;
+      for (var m = 1; m <= n; m++) {
+        cumCap += amortData[m - 1].cap;
+        cumInt += amortData[m - 1].interet;
+        if (m % 12 === 0) {
+          labels.push('An ' + (m / 12));
+          dataCapCum.push(Math.round(cumCap));
+          dataIntCum.push(Math.round(cumInt));
+        }
+      }
+
+      if (chartInstance) {
+        chartInstance.data.labels = labels;
+        chartInstance.data.datasets[0].data = dataCapCum;
+        chartInstance.data.datasets[1].data = dataIntCum;
+        chartInstance.update('active');
+        return;
+      }
+      var ctx = document.getElementById('ci-chart').getContext('2d');
+      function mkChart() {
+        chartInstance = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [
+              { label: 'Capital remboursé (cumulé)', data: dataCapCum, backgroundColor: 'rgba(160,231,197,0.85)', borderColor: 'rgba(160,231,197,1)', borderWidth: 0, borderRadius: { topLeft: 0, topRight: 0, bottomLeft: 3, bottomRight: 3 }, stack: 'stack' },
+              { label: 'Intérêts payés (cumulés)', data: dataIntCum, backgroundColor: 'rgba(147,197,253,0.85)', borderColor: 'rgba(147,197,253,1)', borderWidth: 0, borderRadius: { topLeft: 3, topRight: 3, bottomLeft: 0, bottomRight: 0 }, stack: 'stack' }
+            ]
+          },
+          options: {
+            responsive: true, maintainAspectRatio: false,
+            animation: { duration: 300, easing: 'easeOutQuart' },
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+              legend: { position: 'top', align: 'start', labels: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 12, weight: '600' }, color: '#3A526A', usePointStyle: true, pointStyle: 'circle', padding: 16 } },
+              tooltip: {
+                backgroundColor: '#1A3D7C',
+                titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 12, weight: '700' },
+                bodyFont: { family: "'DM Sans', sans-serif", size: 12 },
+                padding: 12, cornerRadius: 10,
+                callbacks: {
+                  label: function(item) {
+                    return ' ' + item.dataset.label + ' : ' + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(item.raw);
+                  }
+                }
+              }
+            },
+            scales: {
+              x: { stacked: true, grid: { display: false }, ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#6F6F99', maxTicksLimit: 12 } },
+              y: { stacked: true, grid: { color: 'rgba(226,238,255,0.8)' }, ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#6F6F99', callback: function(v) { return v >= 1000 ? Math.round(v / 1000) + 'k€' : v + '€'; } } }
+            }
+          }
+        });
+      }
+      if (typeof Chart !== 'undefined') { mkChart(); }
+      else { var t = setInterval(function() { if (typeof Chart !== 'undefined') { clearInterval(t); mkChart(); } }, 100); }
+    }
+
+    function renderAmort() {
+      var tbody = document.getElementById('ci-amort-tbody');
+      tbody.innerHTML = '';
+      if (!amortData.length) return;
+
+      if (!showAllYears) {
+        // First 12 months
+        for (var m = 0; m < Math.min(12, amortData.length); m++) {
+          var d = amortData[m];
+          var tr = document.createElement('tr');
+          tr.innerHTML = '<td>Mois ' + d.m + '</td><td>' + fmt(d.mensualite) + '</td><td class="td-interest">' + fmt(d.interet) + '</td><td class="td-capital">' + fmt(d.cap) + '</td><td>' + fmt(d.remaining) + '</td>';
+          tbody.appendChild(tr);
+        }
+      } else {
+        // Annual view
+        var capital = parseFloat(document.getElementById('ci-montant').value) - parseFloat(document.getElementById('ci-apport').value);
+        var remaining = capital;
+        var duree = parseInt(document.getElementById('ci-duree').value);
+        for (var yr = 1; yr <= duree; yr++) {
+          var annualInt = 0, annualCap = 0, annualMens = 0;
+          for (var mo = (yr - 1) * 12; mo < yr * 12 && mo < amortData.length; mo++) {
+            annualInt  += amortData[mo].interet;
+            annualCap  += amortData[mo].cap;
+            annualMens += amortData[mo].mensualite;
+          }
+          remaining = Math.max(0, remaining - annualCap);
+          var tr2 = document.createElement('tr');
+          tr2.innerHTML = '<td>Année ' + yr + '</td><td>' + fmt(annualMens / 12) + '/mois</td><td class="td-interest">' + fmt(annualInt) + '</td><td class="td-capital">' + fmt(annualCap) + '</td><td>' + fmt(remaining) + '</td>';
+          tbody.appendChild(tr2);
+        }
+      }
+    }
+
+    // Dur quick buttons
+    document.getElementById('ci-dur-btns').addEventListener('click', function(e) {
+      var btn = e.target.closest('.ci-dur-btn');
+      if (!btn) return;
+      document.querySelectorAll('.ci-dur-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('ci-duree').value = btn.dataset.val;
+      compute();
+    });
+
+    // Sync slider with quick buttons
+    document.getElementById('ci-duree').addEventListener('input', function() {
+      var val = this.value;
+      document.querySelectorAll('.ci-dur-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.val === val);
+      });
+    });
+
+    // Amort toggle
+    document.getElementById('ci-amort-toggle').addEventListener('click', function() {
+      showAllYears = !showAllYears;
+      this.textContent = showAllYears ? 'Voir les 12 premières mensualités' : 'Voir toutes les années';
+      this.classList.toggle('active', showAllYears);
+      renderAmort();
+    });
+
+    var ids = ['ci-montant', 'ci-apport', 'ci-taux', 'ci-duree', 'ci-assurance'];
+    ids.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', compute);
+    });
+
+    compute();
+  });
+  </script>
+</body>
+</html>

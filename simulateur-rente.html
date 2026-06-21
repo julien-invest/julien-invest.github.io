@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur rente passive 2026 | Julien Invest</title>
+  <meta name="description" content="Calcule ta rente passive à partir de ton capital, ou le capital nécessaire pour vivre de tes investissements. Règle des 4 %, taux de retrait, projections 30 ans.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Simulateur rente passive 2026 | Julien Invest">
+  <meta property="og:description" content="Combien de capital pour vivre de tes rentes ? Simule ta liberté financière avec la règle des 4 %.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/simulateur-rente.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Simulateur rente passive 2026 | Julien Invest">
+  <meta name="twitter:description" content="Capital cible, rente mensuelle, projections 30 ans : simule ta liberté financière.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/simulateur-rente.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    .sr-hero {
+      background: var(--pearl); padding: 140px 0 64px;
+      border-bottom: 1px solid var(--grey-5); position: relative; overflow: hidden;
+    }
+    .sr-hero::before {
+      content: ''; position: absolute;
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(240,192,64,0.12) 0%, transparent 65%);
+      bottom: -80px; right: -60px; pointer-events: none;
+    }
+    .sr-hero-inner { max-width: 780px; position: relative; }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: 12px; color: var(--grey-3);
+      margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--grey-3); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--grey-4); }
+    .sr-hero h1 {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(34px, 4.5vw, 58px); color: var(--navy); line-height: 1.1; margin-bottom: 20px;
+    }
+    .sr-hero-sub { font-size: 18px; color: var(--grey-2); line-height: 1.7; max-width: 640px; }
+
+    /* MODE TOGGLE */
+    .sr-mode-bar { padding: 36px 0 0; background: var(--white); }
+    .sr-mode-inner { max-width: 640px; margin: 0 auto; }
+    .sr-mode-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-3);
+      text-align: center; margin-bottom: 16px;
+    }
+    .sr-mode-toggle {
+      display: flex; background: var(--grey-5);
+      border-radius: 100px; padding: 4px; gap: 4px;
+    }
+    .sr-mode-btn {
+      flex: 1; padding: 12px 20px; border-radius: 100px; border: none;
+      font-family: var(--font-head); font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.22s; background: transparent; color: var(--grey-2);
+    }
+    .sr-mode-btn.active {
+      background: var(--navy); color: #fff;
+      box-shadow: 0 4px 16px rgba(26,61,124,0.25);
+    }
+
+    /* TOOL */
+    .sr-tool-section { padding: 40px 0 56px; background: var(--white); }
+    .tool-wrap {
+      background: var(--white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-sm);
+    }
+    .tool-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 8px;
+    }
+    .tool-h2 {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(22px, 2.5vw, 30px); color: var(--navy); margin-bottom: 36px;
+    }
+
+    /* LAYOUT */
+    .sr-layout { display: grid; grid-template-columns: 360px 1fr; gap: 32px; align-items: start; }
+    @media (max-width: 960px) { .sr-layout { grid-template-columns: 1fr; } }
+    .sr-inputs-col {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 28px; min-width: 0;
+    }
+    .sr-right-col { min-width: 0; }
+    @media (max-width: 720px) { .tool-wrap { padding: 16px; } }
+    .ci-col-title {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-3);
+      padding-bottom: 12px; border-bottom: 1px solid var(--grey-5); margin-bottom: 20px;
+    }
+    .sim-field { margin-bottom: 20px; }
+    .sim-field:last-child { margin-bottom: 0; }
+    .sim-field-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .sim-field label { font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--grey-1); }
+    .sim-field-val { font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); }
+    .sim-slider {
+      width: 100%; appearance: none; height: 4px;
+      background: var(--grey-5); border-radius: 4px; outline: none; margin-bottom: 6px;
+    }
+    .sim-slider::-webkit-slider-thumb {
+      appearance: none; width: 18px; height: 18px; border-radius: 50%;
+      background: var(--navy); cursor: pointer; box-shadow: 0 2px 8px rgba(26,61,124,0.25);
+    }
+    .sim-slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--navy); cursor: pointer; border: none; }
+    .sim-field-range { display: flex; justify-content: space-between; font-size: 11px; color: var(--grey-3); font-family: var(--font-head); }
+
+    /* RÉSULTATS */
+    .sr-right-col { display: flex; flex-direction: column; gap: 20px; }
+    .sr-res-main {
+      background: var(--navy); border-radius: var(--radius-lg); padding: 28px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 600px) { .sr-res-main { grid-template-columns: 1fr; } }
+    .sr-res-item { text-align: center; }
+    .sr-res-item-label {
+      font-family: var(--font-head); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px;
+    }
+    .sr-res-item-val {
+      font-family: var(--font-head); font-size: 30px; font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1;
+      background: var(--gradient-brand);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .sr-res-item-val.val-sm { font-size: 20px; }
+
+    .sr-res-rows {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 20px 24px;
+    }
+    .sr-res-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--grey-5); font-size: 13px; }
+    .sr-res-row:last-child { border-bottom: none; }
+    .sr-res-row-label { color: var(--grey-2); }
+    .sr-res-row-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); }
+
+    /* ALERTE TAUX ÉLEVÉ */
+    .sr-alert {
+      display: none; background: rgba(239,68,68,0.08); border: 1.5px solid rgba(239,68,68,0.3);
+      border-radius: var(--radius-md); padding: 16px 20px;
+      font-size: 13px; color: #7F1D1D; line-height: 1.7;
+    }
+    .sr-alert.visible { display: block; }
+    .sr-alert strong { font-family: var(--font-head); }
+
+    /* INFO BOX */
+    .sr-info-box {
+      background: rgba(160,231,197,0.10); border: 1px solid rgba(160,231,197,0.4);
+      border-radius: var(--radius-md); padding: 16px 20px;
+      font-size: 13px; color: var(--navy); line-height: 1.7;
+    }
+    .sr-info-box strong { font-family: var(--font-head); font-weight: 700; }
+
+    /* PROJECTIONS */
+    .sr-proj-wrap {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 24px;
+    }
+    .sr-proj-title {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 20px;
+    }
+    .sr-proj-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .sr-proj-grid { grid-template-columns: 1fr; } }
+    .sr-proj-card {
+      background: var(--white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-md); padding: 16px; text-align: center;
+    }
+    .sr-proj-card-horizon { font-family: var(--font-head); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 8px; }
+    .sr-proj-card-val { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 4px; }
+    .sr-proj-card-sub { font-size: 11px; color: var(--grey-3); }
+
+    /* CHART */
+    .sr-chart-wrap {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 24px;
+    }
+    .sr-chart-title {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 20px;
+    }
+    .sr-chart-canvas-wrap { position: relative; height: 240px; }
+
+    /* MODE B spécifique */
+    .sr-field-modeB { display: none; }
+    body.mode-b .sr-field-modeA { display: none; }
+    body.mode-b .sr-field-modeB { display: block; }
+
+    /* 4% RULE */
+    .sr-rule-section { padding: 56px 0; background: var(--pearl); border-top: 1px solid var(--grey-5); }
+    .sr-rule-inner { max-width: 760px; }
+    .sr-rule-box {
+      background: var(--white); border: 2px solid var(--gold);
+      border-radius: var(--radius-lg); padding: 32px 36px;
+    }
+    .sr-rule-box .tool-label { color: var(--gold); }
+    .sr-rule-box h3 { font-family: var(--font-head); font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+    .sr-rule-box p { font-size: 14px; color: var(--grey-2); line-height: 1.75; margin-bottom: 14px; }
+    .sr-rule-box p:last-child { margin-bottom: 0; }
+    .sr-rule-highlight {
+      display: inline-block; background: var(--pearl);
+      border-radius: var(--radius-sm); padding: 3px 10px;
+      font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 14px;
+    }
+    .sr-rule-formula {
+      background: var(--navy); border-radius: var(--radius-md);
+      padding: 16px 24px; margin: 16px 0;
+      font-family: var(--font-head); font-size: 15px; font-weight: 700; color: #fff; text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link active">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="sr-hero">
+    <div class="container">
+      <div class="sr-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a><span>›</span>
+          <a href="calculateur.html">Calculateurs</a><span>›</span>
+          <span>Rente passive</span>
+        </div>
+        <h1>Simulateur <em>rente passive</em> 2026</h1>
+        <p class="sr-hero-sub">Calcule la rente mensuelle que génère ton capital, ou le capital nécessaire pour vivre de tes investissements. Projections sur 10, 20 et 30 ans avec la règle des 4 %.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODE TOGGLE -->
+  <div class="sr-mode-bar">
+    <div class="container">
+      <div class="sr-mode-inner">
+        <div class="sr-mode-label">Choisis ton mode de calcul</div>
+        <div class="sr-mode-toggle">
+          <button class="sr-mode-btn active" id="btn-modeA" onclick="setMode('a')">Capital vers rente</button>
+          <button class="sr-mode-btn" id="btn-modeB" onclick="setMode('b')">Rente vers capital cible</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL -->
+  <section class="sr-tool-section">
+    <div class="container--wide">
+      <div class="tool-wrap">
+        <div class="tool-label" id="sr-mode-label">Mode A</div>
+        <div class="tool-h2" id="sr-mode-title">Quelle rente génère ton capital ?</div>
+
+        <div class="sr-layout">
+          <!-- INPUTS -->
+          <div class="sr-inputs-col">
+            <div class="ci-col-title">Paramètres</div>
+
+            <!-- MODE A : Capital existant -->
+            <div class="sim-field sr-field-modeA" id="field-capital">
+              <div class="sim-field-header">
+                <label for="sr-capital">Capital investi</label>
+                <span class="sim-field-val" id="sr-val-capital">300 000 €</span>
+              </div>
+              <input type="range" id="sr-capital" min="10000" max="2000000" step="5000" value="300000" class="sim-slider">
+              <div class="sim-field-range"><span>10 k€</span><span>2 M€</span></div>
+            </div>
+
+            <!-- MODE B : Rente souhaitée -->
+            <div class="sim-field sr-field-modeB" id="field-rente-cible">
+              <div class="sim-field-header">
+                <label for="sr-rente-cible">Rente mensuelle souhaitée</label>
+                <span class="sim-field-val" id="sr-val-rente-cible">2 000 €</span>
+              </div>
+              <input type="range" id="sr-rente-cible" min="500" max="20000" step="100" value="2000" class="sim-slider">
+              <div class="sim-field-range"><span>500 €</span><span>20 k€</span></div>
+            </div>
+
+            <!-- MODE B : Épargne mensuelle -->
+            <div class="sim-field sr-field-modeB" id="field-epargne-mensuelle">
+              <div class="sim-field-header">
+                <label for="sr-epargne-mensuelle">Épargne mensuelle disponible</label>
+                <span class="sim-field-val" id="sr-val-epargne-mensuelle">500 €</span>
+              </div>
+              <input type="range" id="sr-epargne-mensuelle" min="0" max="5000" step="50" value="500" class="sim-slider">
+              <div class="sim-field-range"><span>0 €</span><span>5 000 €</span></div>
+            </div>
+
+            <!-- COMMUNS -->
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="sr-rendement">Rendement annuel moyen</label>
+                <span class="sim-field-val" id="sr-val-rendement">7,0 %</span>
+              </div>
+              <input type="range" id="sr-rendement" min="1" max="12" step="0.5" value="7" class="sim-slider">
+              <div class="sim-field-range"><span>1 %</span><span>12 %</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="sr-retrait">Taux de retrait annuel</label>
+                <span class="sim-field-val" id="sr-val-retrait">4,0 %</span>
+              </div>
+              <input type="range" id="sr-retrait" min="1" max="10" step="0.5" value="4" class="sim-slider">
+              <div class="sim-field-range"><span>1 %</span><span>10 %</span></div>
+            </div>
+
+            <div class="sim-field">
+              <div class="sim-field-header">
+                <label for="sr-fiscalite">Prélèvements sur retraits</label>
+                <span class="sim-field-val" id="sr-val-fiscalite">30 %</span>
+              </div>
+              <input type="range" id="sr-fiscalite" min="0" max="50" step="1" value="30" class="sim-slider">
+              <div class="sim-field-range"><span>0 %</span><span>50 %</span></div>
+            </div>
+          </div>
+
+          <!-- RÉSULTATS -->
+          <div class="sr-right-col">
+
+            <!-- ALERTE TAUX AGRESSIF -->
+            <div class="sr-alert" id="sr-alert">
+              <strong>Attention : taux de retrait élevé.</strong> Au-delà de 5 % par an, les études historiques montrent un risque significatif d'épuisement du capital avant 30 ans. La règle des 4 % est considérée comme le maximum prudent pour une retraite de 30 ans. Envisage de réduire ton taux de retrait ou d'augmenter ton capital de départ.
+            </div>
+
+            <!-- RÉSULTATS PRINCIPAUX -->
+            <div class="sr-res-main">
+              <div class="sr-res-item">
+                <div class="sr-res-item-label" id="sr-res-main-label-a">Rente mensuelle brute</div>
+                <div class="sr-res-item-val" id="sr-res-main-a">0 €</div>
+              </div>
+              <div class="sr-res-item">
+                <div class="sr-res-item-label" id="sr-res-main-label-b">Rente mensuelle nette</div>
+                <div class="sr-res-item-val" id="sr-res-main-b">0 €</div>
+              </div>
+              <div class="sr-res-item">
+                <div class="sr-res-item-label" id="sr-res-sub-label-a">Rente annuelle brute</div>
+                <div class="sr-res-item-val val-sm" id="sr-res-sub-a">0 €</div>
+              </div>
+              <div class="sr-res-item">
+                <div class="sr-res-item-label" id="sr-res-sub-label-b">Taux réel vs capital</div>
+                <div class="sr-res-item-val val-sm" id="sr-res-sub-b">—</div>
+              </div>
+            </div>
+
+            <!-- DÉTAIL -->
+            <div class="sr-res-rows" id="sr-res-rows">
+              <div class="ci-col-title" style="border-bottom:1px solid var(--grey-5);padding-bottom:12px;margin-bottom:16px;" id="sr-rows-title">Détail du calcul</div>
+              <div class="sr-res-row">
+                <span class="sr-res-row-label" id="sr-row1-label">Capital de départ</span>
+                <span class="sr-res-row-val" id="sr-row1-val">0 €</span>
+              </div>
+              <div class="sr-res-row">
+                <span class="sr-res-row-label">Rendement annuel</span>
+                <span class="sr-res-row-val" id="sr-row2-val">0 %</span>
+              </div>
+              <div class="sr-res-row">
+                <span class="sr-res-row-label">Taux de retrait</span>
+                <span class="sr-res-row-val" id="sr-row3-val">0 %</span>
+              </div>
+              <div class="sr-res-row">
+                <span class="sr-res-row-label">Retrait annuel brut</span>
+                <span class="sr-res-row-val" id="sr-row4-val">0 €</span>
+              </div>
+              <div class="sr-res-row" id="sr-row-modeB-extra" style="display:none;">
+                <span class="sr-res-row-label">Années pour atteindre le capital</span>
+                <span class="sr-res-row-val" id="sr-row5-val">0 ans</span>
+              </div>
+            </div>
+
+            <!-- INFO BOX -->
+            <div class="sr-info-box" id="sr-info-box">Ajuste les paramètres pour voir le résultat.</div>
+
+            <!-- PROJECTIONS -->
+            <div class="sr-proj-wrap">
+              <div class="sr-proj-title">Capital projeté (après retraits)</div>
+              <div class="sr-proj-grid">
+                <div class="sr-proj-card">
+                  <div class="sr-proj-card-horizon">Dans 10 ans</div>
+                  <div class="sr-proj-card-val" id="sr-proj-10">0 €</div>
+                  <div class="sr-proj-card-sub">capital restant</div>
+                </div>
+                <div class="sr-proj-card">
+                  <div class="sr-proj-card-horizon">Dans 20 ans</div>
+                  <div class="sr-proj-card-val" id="sr-proj-20">0 €</div>
+                  <div class="sr-proj-card-sub">capital restant</div>
+                </div>
+                <div class="sr-proj-card">
+                  <div class="sr-proj-card-horizon">Dans 30 ans</div>
+                  <div class="sr-proj-card-val" id="sr-proj-30">0 €</div>
+                  <div class="sr-proj-card-sub">capital restant</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CHART -->
+            <div class="sr-chart-wrap">
+              <div class="sr-chart-title">Évolution du capital sur 30 ans</div>
+              <div class="sr-chart-canvas-wrap">
+                <canvas id="sr-chart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÈGLE DES 4 % -->
+  <section class="sr-rule-section">
+    <div class="container">
+      <div class="sr-rule-inner">
+        <div class="sr-rule-box">
+          <div class="tool-label">Rappel académique</div>
+          <h3>La règle des 4 % : ce qu'elle signifie vraiment</h3>
+          <p>Issue de l'étude Trinity (1998), la règle des 4 % stipule qu'un portefeuille d'actions et d'obligations a un taux de succès supérieur à 95 % sur 30 ans si l'on retire chaque année au maximum 4 % du capital initial. Elle a été construite sur des données historiques américaines et reste une référence solide, mais pas une garantie.</p>
+          <div class="sr-rule-formula">Capital cible = Rente annuelle souhaitée ÷ 0,04</div>
+          <p>Exemple : pour vivre avec <span class="sr-rule-highlight">2 000 € nets/mois</span>, en comptant 30 % de fiscalité, il faut retirer environ <span class="sr-rule-highlight">2 857 € bruts/mois</span>, soit 34 286 € par an. Le capital cible est donc <span class="sr-rule-highlight">857 000 €</span> environ. Ce capital, investi à 7 % annuels en ETF diversifiés, rapporte chaque année plus qu'il n'en retire, permettant de maintenir le capital dans la durée.</p>
+          <p>Limites à connaître : la règle des 4 % est basée sur des marchés américains avec des rendements historiquement élevés. Un taux de retrait de 3 % à 3,5 % est souvent recommandé pour les retraités anticipés européens ou pour des horizons supérieurs à 30 ans. Au-delà de 5 %, le risque de ruine du portefeuille augmente significativement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="calculateur.html">Calculateurs</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Simulateurs</h4>
+          <a href="calculateur.html#interets-composes">Intérêts composés</a>
+          <a href="simulateur-frais.html">Simulateur frais</a>
+          <a href="simulateur-credit-immobilier.html">Crédit immobilier</a>
+          <a href="simulateur-rente.html">Rente passive</a>
+          <a href="comparateur-courtiers.html">Comparateur courtiers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  var srMode = 'a';
+  var srChart = null;
+
+  function setMode(m) {
+    srMode = m;
+    document.getElementById('btn-modeA').classList.toggle('active', m === 'a');
+    document.getElementById('btn-modeB').classList.toggle('active', m === 'b');
+
+    var modeAFields = document.querySelectorAll('.sr-field-modeA');
+    var modeBFields = document.querySelectorAll('.sr-field-modeB');
+    modeAFields.forEach(function(el) { el.style.display = m === 'a' ? 'block' : 'none'; });
+    modeBFields.forEach(function(el) { el.style.display = m === 'b' ? 'block' : 'none'; });
+    document.getElementById('sr-row-modeB-extra').style.display = m === 'b' ? 'flex' : 'none';
+
+    if (m === 'a') {
+      document.getElementById('sr-mode-label').textContent = 'Mode A';
+      document.getElementById('sr-mode-title').textContent = 'Quelle rente génère ton capital ?';
+      document.getElementById('sr-res-main-label-a').textContent = 'Rente mensuelle brute';
+      document.getElementById('sr-res-main-label-b').textContent = 'Rente mensuelle nette';
+      document.getElementById('sr-res-sub-label-a').textContent = 'Rente annuelle brute';
+      document.getElementById('sr-res-sub-label-b').textContent = 'Taux réel vs capital';
+      document.getElementById('sr-row1-label').textContent = 'Capital de départ';
+      document.getElementById('sr-rows-title').textContent = 'Détail du calcul';
+      document.getElementById('sr-proj-title') && (document.getElementById('sr-proj-title') ? document.querySelector('.sr-proj-title').textContent = 'Capital projeté (après retraits)' : null);
+    } else {
+      document.getElementById('sr-mode-label').textContent = 'Mode B';
+      document.getElementById('sr-mode-title').textContent = 'Quel capital pour ta rente cible ?';
+      document.getElementById('sr-res-main-label-a').textContent = 'Capital cible';
+      document.getElementById('sr-res-main-label-b').textContent = 'Capital cible (net de fiscalité)';
+      document.getElementById('sr-res-sub-label-a').textContent = 'Rente annuelle nette';
+      document.getElementById('sr-res-sub-label-b').textContent = 'Effort mensuel estimé';
+      document.getElementById('sr-row1-label').textContent = 'Rente mensuelle nette visée';
+      document.getElementById('sr-rows-title').textContent = 'Détail du calcul';
+      document.querySelector('.sr-proj-title').textContent = 'Capital accumulé selon effort';
+    }
+    compute();
+  }
+
+  function fmt(n) {
+    return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n));
+  }
+  function fmtPct(n) { return n.toFixed(1).replace('.', ',') + ' %'; }
+
+  function projectCapital(capital, rendement, retrait, years) {
+    var r = rendement / 100;
+    var ret = retrait / 100;
+    var cap = capital;
+    for (var y = 0; y < years; y++) {
+      cap = cap * (1 + r) - cap * ret;
+      if (cap < 0) { cap = 0; break; }
+    }
+    return cap;
+  }
+
+  function buildChartData(capital, rendement, retrait) {
+    var r = rendement / 100;
+    var ret = retrait / 100;
+    var labels = [], data = [];
+    var cap = capital;
+    for (var y = 0; y <= 30; y++) {
+      labels.push('An ' + y);
+      data.push(Math.max(0, Math.round(cap)));
+      cap = cap * (1 + r) - cap * ret;
+      if (cap < 0) cap = 0;
+    }
+    return { labels: labels, data: data };
+  }
+
+  function yearsToReach(target, monthly, rendement) {
+    if (monthly <= 0) return Infinity;
+    var r = rendement / 100 / 12;
+    var cap = 0;
+    for (var m = 0; m < 600; m++) {
+      cap = cap * (1 + r) + monthly;
+      if (cap >= target) return Math.ceil(m / 12);
+    }
+    return Infinity;
+  }
+
+  function compute() {
+    var rendement   = parseFloat(document.getElementById('sr-rendement').value);
+    var retrait     = parseFloat(document.getElementById('sr-retrait').value);
+    var fiscalite   = parseFloat(document.getElementById('sr-fiscalite').value);
+
+    document.getElementById('sr-val-rendement').textContent = fmtPct(rendement);
+    document.getElementById('sr-val-retrait').textContent   = fmtPct(retrait);
+    document.getElementById('sr-val-fiscalite').textContent = fmtPct(fiscalite);
+
+    var alertEl = document.getElementById('sr-alert');
+    alertEl.classList.toggle('visible', retrait > 5);
+
+    if (srMode === 'a') {
+      var capital = parseFloat(document.getElementById('sr-capital').value);
+      document.getElementById('sr-val-capital').textContent = fmt(capital);
+
+      var renteBrute    = capital * retrait / 100 / 12;
+      var renteNette    = renteBrute * (1 - fiscalite / 100);
+      var renteBruteAnn = renteBrute * 12;
+
+      document.getElementById('sr-res-main-a').textContent = fmt(renteBrute);
+      document.getElementById('sr-res-main-b').textContent = fmt(renteNette);
+      document.getElementById('sr-res-sub-a').textContent  = fmt(renteBruteAnn);
+      document.getElementById('sr-res-sub-b').textContent  = fmtPct(retrait);
+      document.getElementById('sr-row1-val').textContent   = fmt(capital);
+      document.getElementById('sr-row2-val').textContent   = fmtPct(rendement);
+      document.getElementById('sr-row3-val').textContent   = fmtPct(retrait);
+      document.getElementById('sr-row4-val').textContent   = fmt(renteBruteAnn);
+
+      var proj10 = projectCapital(capital, rendement, retrait, 10);
+      var proj20 = projectCapital(capital, rendement, retrait, 20);
+      var proj30 = projectCapital(capital, rendement, retrait, 30);
+      document.getElementById('sr-proj-10').textContent = fmt(proj10);
+      document.getElementById('sr-proj-20').textContent = fmt(proj20);
+      document.getElementById('sr-proj-30').textContent = fmt(proj30);
+
+      var survie = retrait <= rendement ? 'indéfiniment (le capital croît)' : (proj30 > 0 ? 'plus de 30 ans' : 'moins de 30 ans');
+      document.getElementById('sr-info-box').innerHTML =
+        'Avec <strong>' + fmt(capital) + '</strong> placés à <strong>' + fmtPct(rendement) + '</strong> et un retrait de <strong>' + fmtPct(retrait) + '</strong>/an, tu perçois <strong>' + fmt(renteNette) + ' nets/mois</strong>. ' +
+        'Après 30 ans, ton capital sera de <strong>' + fmt(proj30) + '</strong>. Le portefeuille tient <strong>' + survie + '</strong>.';
+
+      var cd = buildChartData(capital, rendement, retrait);
+      updateChart(cd.labels, cd.data);
+
+    } else {
+      var renteCible     = parseFloat(document.getElementById('sr-rente-cible').value);
+      var epargneMensuelle = parseFloat(document.getElementById('sr-epargne-mensuelle').value);
+      document.getElementById('sr-val-rente-cible').textContent       = fmt(renteCible);
+      document.getElementById('sr-val-epargne-mensuelle').textContent = fmt(epargneMensuelle);
+
+      var renteNetteVisee  = renteCible;
+      var renteBrutVisee   = renteNetteVisee / (1 - fiscalite / 100);
+      var renteBrutAnnVisee = renteBrutVisee * 12;
+      var capitalCible     = renteBrutAnnVisee / (retrait / 100);
+      var annees           = yearsToReach(capitalCible, epargneMensuelle, rendement);
+
+      document.getElementById('sr-res-main-a').textContent = fmt(capitalCible);
+      document.getElementById('sr-res-main-b').textContent = fmt(capitalCible);
+      document.getElementById('sr-res-sub-a').textContent  = fmt(renteNetteVisee * 12);
+      document.getElementById('sr-res-sub-b').textContent  = fmt(epargneMensuelle) + '/mois';
+      document.getElementById('sr-row1-val').textContent   = fmt(renteNetteVisee);
+      document.getElementById('sr-row2-val').textContent   = fmtPct(rendement);
+      document.getElementById('sr-row3-val').textContent   = fmtPct(retrait);
+      document.getElementById('sr-row4-val').textContent   = fmt(renteBrutAnnVisee);
+      document.getElementById('sr-row5-val').textContent   = annees === Infinity ? 'Plus de 50 ans' : annees + ' ans';
+
+      var proj10B = 0, proj20B = 0, proj30B = 0;
+      var r = rendement / 100 / 12;
+      var cap2 = 0;
+      for (var m2 = 1; m2 <= 360; m2++) {
+        cap2 = cap2 * (1 + r) + epargneMensuelle;
+        if (m2 === 120) proj10B = cap2;
+        if (m2 === 240) proj20B = cap2;
+        if (m2 === 360) proj30B = cap2;
+      }
+      document.getElementById('sr-proj-10').textContent = fmt(proj10B);
+      document.getElementById('sr-proj-20').textContent = fmt(proj20B);
+      document.getElementById('sr-proj-30').textContent = fmt(proj30B);
+
+      document.getElementById('sr-info-box').innerHTML =
+        'Pour toucher <strong>' + fmt(renteNetteVisee) + ' nets/mois</strong>, il te faut un capital de <strong>' + fmt(capitalCible) + '</strong>. ' +
+        (annees === Infinity
+          ? "Avec <strong>" + fmt(epargneMensuelle) + "/mois</strong>, ce capital est hors d'atteinte sur 50 ans. Augmente ton épargne mensuelle ou révise ton objectif de rente."
+          : "En épargnant <strong>" + fmt(epargneMensuelle) + "/mois</strong> à <strong>" + fmtPct(rendement) + "</strong>, tu l'atteins en <strong>" + annees + " ans</strong>.");
+
+      var labelsB = [], dataB = [];
+      var capB = 0;
+      for (var y2 = 0; y2 <= 30; y2++) {
+        labelsB.push('An ' + y2);
+        dataB.push(Math.round(capB));
+        for (var mo2 = 0; mo2 < 12; mo2++) { capB = capB * (1 + r) + epargneMensuelle; }
+      }
+      updateChart(labelsB, dataB, capitalCible);
+    }
+  }
+
+  function updateChart(labels, data, targetLine) {
+    var datasets = [
+      {
+        label: srMode === 'a' ? 'Capital restant' : 'Capital accumulé',
+        data: data,
+        borderColor: 'rgba(160,231,197,1)',
+        backgroundColor: 'rgba(160,231,197,0.15)',
+        fill: true, tension: 0.4, borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 5
+      }
+    ];
+    if (targetLine !== undefined) {
+      datasets.push({
+        label: 'Capital cible',
+        data: labels.map(function() { return Math.round(targetLine); }),
+        borderColor: 'rgba(240,192,64,0.8)',
+        borderDash: [8, 4], borderWidth: 2, pointRadius: 0, fill: false, tension: 0
+      });
+    }
+
+    if (srChart) {
+      srChart.data.labels = labels;
+      srChart.data.datasets = datasets;
+      srChart.update('active');
+      return;
+    }
+    var ctx = document.getElementById('sr-chart').getContext('2d');
+    function mkChart() {
+      srChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: labels, datasets: datasets },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          animation: { duration: 300, easing: 'easeOutQuart' },
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'top', align: 'start', labels: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 12, weight: '600' }, color: '#3A526A', usePointStyle: true, pointStyle: 'circle', padding: 16 } },
+            tooltip: {
+              backgroundColor: '#1A3D7C', padding: 12, cornerRadius: 10,
+              titleFont: { family: "'Plus Jakarta Sans', sans-serif", size: 12, weight: '700' },
+              bodyFont: { family: "'DM Sans', sans-serif", size: 12 },
+              callbacks: {
+                label: function(item) {
+                  return ' ' + item.dataset.label + ' : ' + new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(item.raw);
+                }
+              }
+            }
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#6F6F99', maxTicksLimit: 10 } },
+            y: { grid: { color: 'rgba(226,238,255,0.8)' }, ticks: { font: { family: "'Plus Jakarta Sans', sans-serif", size: 11 }, color: '#6F6F99', callback: function(v) { return v >= 1000000 ? (v / 1000000).toFixed(1) + 'M€' : v >= 1000 ? Math.round(v / 1000) + 'k€' : v + '€'; } } }
+          }
+        }
+      });
+    }
+    if (typeof Chart !== 'undefined') { mkChart(); }
+    else { var t = setInterval(function() { if (typeof Chart !== 'undefined') { clearInterval(t); mkChart(); } }, 100); }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Init mode A fields visible
+    document.querySelectorAll('.sr-field-modeA').forEach(function(el) { el.style.display = 'block'; });
+    document.querySelectorAll('.sr-field-modeB').forEach(function(el) { el.style.display = 'none'; });
+
+    var ids = ['sr-capital', 'sr-rente-cible', 'sr-epargne-mensuelle', 'sr-rendement', 'sr-retrait', 'sr-fiscalite'];
+    ids.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', compute);
+    });
+    compute();
+  });
+  </script>
+</body>
+</html>

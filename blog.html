@@ -111,10 +111,21 @@
       justify-content: center;
       margin-bottom: 40px;
     }
+    @media (max-width: 700px) {
+      .blog-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 8px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .blog-filters::-webkit-scrollbar { display: none; }
+    }
     .blog-filter-btn {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       padding: 8px 18px;
       border-radius: 100px;
       font-family: var(--font-head);
@@ -124,11 +135,30 @@
       background: var(--white);
       color: var(--grey-2);
       cursor: pointer;
-      transition: border-color 0.18s, background 0.18s, color 0.18s;
+      transition: border-color 0.18s, background 0.18s, color 0.18s, box-shadow 0.18s;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     .blog-filter-btn:hover { border-color: var(--navy); color: var(--navy); background: var(--pearl); }
-    .blog-filter-btn.active { background: var(--navy); border-color: var(--navy); color: white; }
+    .blog-filter-btn.active {
+      background: linear-gradient(135deg, #D4C0FF 0%, #BAD4E3 55%, #A0E7C5 100%);
+      border-color: transparent;
+      color: var(--navy);
+      font-weight: 700;
+      box-shadow: 0 2px 12px rgba(200,180,232,0.35);
+    }
+    .filter-count {
+      font-size: 10px;
+      font-weight: 700;
+      font-family: var(--font-head);
+      background: rgba(26,26,78,0.10);
+      border-radius: 100px;
+      padding: 1px 6px;
+      letter-spacing: 0;
+      min-width: 18px;
+      text-align: center;
+    }
+    .blog-filter-btn.active .filter-count { background: rgba(26,26,78,0.14); }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/blog.html">
   <script type="application/ld+json">
@@ -202,6 +232,22 @@
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
                 <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
               </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
               <div class="nav-dropdown-sep"></div>
               <a href="ressources.html#guides" class="nav-dropdown-item">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
@@ -244,6 +290,10 @@
           <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
           <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
           <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
@@ -273,19 +323,14 @@
 
       <!-- Filtres -->
       <div class="blog-filters reveal">
-        <button class="blog-filter-btn active" data-category="all">Tous</button>
-        <button class="blog-filter-btn" data-category="ETF">ETF</button>
-        <button class="blog-filter-btn" data-category="PEA">PEA</button>
-        <button class="blog-filter-btn" data-category="Fiscalité">Fiscalité</button>
-        <button class="blog-filter-btn" data-category="Crypto">Crypto</button>
-        <button class="blog-filter-btn" data-category="Débutants">Débutants</button>
-        <button class="blog-filter-btn" data-category="Immobilier">Immobilier</button>
-        <button class="blog-filter-btn" data-category="Liberté financière">Liberté financière</button>
-        <button class="blog-filter-btn" data-category="Métaux précieux">Métaux précieux</button>
-        <button class="blog-filter-btn" data-category="Placements alternatifs">Placements alternatifs</button>
-        <button class="blog-filter-btn" data-category="Épargne">Épargne</button>
-        <button class="blog-filter-btn" data-category="Retraite">Retraite</button>
-        <button class="blog-filter-btn" data-category="Stratégie">Stratégie</button>
+        <button class="blog-filter-btn active" data-category="all">Tous <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Débutants">Débutants <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="ETF & Stratégie">ETF &amp; Stratégie <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Enveloppes fiscales">Enveloppes fiscales <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Immobilier">Immobilier <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Retraite & Liberté">Retraite &amp; Liberté <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Crypto">Crypto <span class="filter-count"></span></button>
+        <button class="blog-filter-btn" data-category="Épargne & Alternatifs">Épargne &amp; Alternatifs <span class="filter-count"></span></button>
       </div>
 
       <!-- Grille articles -->
@@ -368,7 +413,7 @@
         </article>
 
         <!-- 5. Brique fondamentale : ETF -->
-        <article class="blog-card" data-category="ETF">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); flex-direction:column; gap:8px;">
             <div style="background:#ffffff; border-radius:14px; padding:12px 28px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:32px; color:#1E3A8A; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">ETF</div>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">L'explication simple</div>
@@ -402,7 +447,7 @@
         </article>
 
         <!-- 7. Article chapeau / hub -->
-        <article class="blog-card" data-category="Stratégie">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1A1A4E 0%, #2D1B69 55%, #7C3AED 100%); flex-direction:column; gap:10px;">
             <div style="background:#fff; border-radius:14px; padding:10px 20px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:28px; color:#2D1B69; letter-spacing:-0.04em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.25);">90%</div>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">de la perf = allocation</div>
@@ -419,7 +464,7 @@
         </article>
 
         <!-- 8. Choix enveloppe 1 -->
-        <article class="blog-card" data-category="PEA">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #064E3B 0%, #059669 100%); flex-direction:column; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="background:#ffffff; border-radius:12px; padding:12px 22px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:26px; color:#064E3B; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">PEA</div>
@@ -440,7 +485,7 @@
         </article>
 
         <!-- 9. Choix enveloppe 2 -->
-        <article class="blog-card" data-category="PEA">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #831843 0%, #DB2777 100%); flex-direction:column; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="background:#fff; border-radius:12px; padding:12px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:24px; color:#831843; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">AV</div>
@@ -499,7 +544,7 @@
         </article>
 
         <!-- 12. ETF avancé -->
-        <article class="blog-card" data-category="ETF">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A8A 0%, #0EA5E9 100%); flex-direction:column; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="background:#ffffff; border-radius:12px; padding:10px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:20px; color:#1E3A8A; letter-spacing:-0.03em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">PHYS.</div>
@@ -520,7 +565,7 @@
         </article>
 
         <!-- 13. Débat stratégie -->
-        <article class="blog-card" data-category="ETF">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #134E4A 0%, #14B8A6 100%); flex-direction:column; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="background:#fff; border-radius:12px; padding:12px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:#134E4A; letter-spacing:-0.04em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">Div.</div>
@@ -541,7 +586,7 @@
         </article>
 
         <!-- 14. Fiscalité investissement -->
-        <article class="blog-card" data-category="Fiscalité">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #7F1D1D 0%, #DC2626 100%); flex-direction:column; gap:10px;">
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="background:#fff; border-radius:12px; padding:10px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:19px; color:#7F1D1D; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">31,4% PFU</div>
@@ -562,7 +607,7 @@
         </article>
 
         <!-- 15. Guide fiscal complet -->
-        <article class="blog-card" data-category="Fiscalité">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1C1917 0%, #78350F 60%, #B45309 100%); flex-direction:column; gap:8px;">
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; justify-content:center;">
               <div style="background:#fff; border-radius:8px; padding:8px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#78350F; letter-spacing:-0.02em; box-shadow:0 4px 14px rgba(0,0,0,0.25);">IR</div>
@@ -584,7 +629,7 @@
         </article>
 
         <!-- 16. PER : produit spécialisé -->
-        <article class="blog-card" data-category="Retraite">
+        <article class="blog-card" data-category="Retraite & Liberté">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1C1917 0%, #78350F 55%, #B45309 100%); flex-direction:column; gap:10px;">
             <div style="background:#fff; border-radius:14px; padding:10px 24px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:36px; color:#78350F; letter-spacing:-0.04em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.25);">PER</div>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Déduction d'impôt ou report ?</div>
@@ -656,7 +701,7 @@
         </article>
 
         <!-- 20. Or et métaux précieux -->
-        <article class="blog-card" data-category="Métaux précieux">
+        <article class="blog-card" data-category="Épargne & Alternatifs">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #78350F 0%, #B45309 40%, #F59E0B 75%, #FDE68A 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:32px;backdrop-filter:blur(4px);">🥇</div>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.75); letter-spacing:0.15em; text-transform:uppercase;">Lingot · ETC · Fiscalité</div>
@@ -673,7 +718,7 @@
         </article>
 
         <!-- 21. Private equity -->
-        <article class="blog-card" data-category="Placements alternatifs">
+        <article class="blog-card" data-category="Épargne & Alternatifs">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 50%, #6366F1 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">
               <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -695,7 +740,7 @@
         </article>
 
         <!-- 22. Inflation et protection du patrimoine -->
-        <article class="blog-card" data-category="Épargne">
+        <article class="blog-card" data-category="Épargne & Alternatifs">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #0C4A6E 0%, #0EA5E9 60%, #38BDF8 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
@@ -714,7 +759,7 @@
         </article>
 
         <!-- 23. Retraite par capitalisation -->
-        <article class="blog-card" data-category="Retraite">
+        <article class="blog-card" data-category="Retraite & Liberté">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #164E63 0%, #0891B2 50%, #06B6D4 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -733,7 +778,7 @@
         </article>
 
         <!-- 24. Objectif liberté financière -->
-        <article class="blog-card" data-category="Liberté financière">
+        <article class="blog-card" data-category="Retraite & Liberté">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #164E63 0%, #0891B2 100%); flex-direction:column; gap:8px;">
             <div style="background:#fff; border-radius:16px; padding:10px 28px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:42px; color:#164E63; letter-spacing:-0.05em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.2);">4%</div>
             <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">La règle de la liberté financière</div>
@@ -806,7 +851,7 @@
         </article>
 
         <!-- 30. Comparatif assurance-vie 2026 -->
-        <article class="blog-card" data-category="Épargne">
+        <article class="blog-card" data-category="Épargne & Alternatifs">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #0C4A6E 0%, #0EA5E9 60%, #38BDF8 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
@@ -825,7 +870,7 @@
         </article>
 
         <!-- 31. Investir une grosse somme / héritage -->
-        <article class="blog-card" data-category="Stratégie">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E1B4B 0%, #4C1D95 60%, #6D28D9 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
@@ -863,7 +908,7 @@
         </article>
 
         <!-- 33. PEA guide pratique -->
-        <article class="blog-card" data-category="PEA">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A5F 0%, #1D4ED8 60%, #3B82F6 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -882,7 +927,7 @@
         </article>
 
         <!-- 34. Succession et transmission -->
-        <article class="blog-card" data-category="Fiscalité">
+        <article class="blog-card" data-category="Enveloppes fiscales">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E1B4B 0%, #312E81 60%, #4338CA 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -900,8 +945,105 @@
           </div>
         </article>
 
+        <!-- 34b. Livret A / LEP / LDDS -->
+        <article class="blog-card" data-category="Débutants">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #064E3B 0%, #059669 55%, #34D399 100%); flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:10px; padding:8px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:#064E3B; letter-spacing:-0.02em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">3,5 %</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:rgba(255,255,255,0.8);">vs</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:10px; padding:8px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:rgba(255,255,255,0.92); letter-spacing:-0.02em;">2,4 %</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">LEP vs Livret A</div>
+            <span class="blog-card-tag">Débutants</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Débutants</span> · <span>9 min de lecture</span></div>
+            <h3 class="blog-card-title">Livret A, LEP, LDDS : quel livret choisir en 2026 ?</h3>
+            <p class="blog-card-desc">Le LEP à 3,5 % est le meilleur placement sans risque en France — mais la moitié des éligibles ne l'ont pas ouvert. Plafonds, conditions, stratégie optimale.</p>
+            <div class="blog-card-footer">
+              <a href="article-livret-a-lep-ldds.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 34c. Psychologie investisseur -->
+        <article class="blog-card" data-category="Débutants">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E1B4B 0%, #4C1D95 55%, #7C3AED 100%); flex-direction:column; gap:8px;">
+            <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;font-size:30px;backdrop-filter:blur(4px);">🧠</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Biais · FOMO · Panique</div>
+            <span class="blog-card-tag">Débutants</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Débutants</span> · <span>11 min de lecture</span></div>
+            <h3 class="blog-card-title">Psychologie de l'investisseur : les biais qui détruisent ton rendement</h3>
+            <p class="blog-card-desc">L'investisseur moyen sous-performe son propre portefeuille de 4 % par an. Pas à cause du choix des actifs — à cause de son comportement. Loss aversion, FOMO, panique en krach : les pièges et leurs antidotes.</p>
+            <div class="blog-card-footer">
+              <a href="article-psychologie-investisseur.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 34d. Résidence principale vs locatif -->
+        <article class="blog-card" data-category="Immobilier">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #14532D 0%, #16A34A 55%, #4ADE80 100%); flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:10px; padding:8px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#14532D; letter-spacing:-0.01em; box-shadow:0 6px 20px rgba(0,0,0,0.2); text-align:center; line-height:1.3;">🏠<br>RP</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:rgba(255,255,255,0.8);">vs</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:10px; padding:8px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:rgba(255,255,255,0.92); text-align:center; line-height:1.3;">🔑<br>LOCATIF</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Le débat tranché</div>
+            <span class="blog-card-tag">Immobilier</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Immobilier</span> · <span>13 min de lecture</span></div>
+            <h3 class="blog-card-title">Résidence principale vs investissement locatif : que choisir ?</h3>
+            <p class="blog-card-desc">Le vrai coût de la résidence principale, rendement net du locatif, fiscalité comparée et la troisième voie souvent ignorée : rester locataire et investir le différentiel en bourse.</p>
+            <div class="blog-card-footer">
+              <a href="article-residence-principale-vs-locatif.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 34e. Désaccumulation / vivre de son capital -->
+        <article class="blog-card" data-category="Retraite & Liberté">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #0D0D2E 0%, #1A1A4E 55%, #4C1D95 100%); flex-direction:column; gap:8px;">
+            <div style="background:#fff; border-radius:14px; padding:10px 26px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:40px; color:#1A1A4E; letter-spacing:-0.04em; line-height:1; box-shadow:0 8px 28px rgba(0,0,0,0.25);">4 %</div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Règle de retrait annuel</div>
+            <span class="blog-card-tag">Retraite &amp; Liberté</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>Retraite &amp; Liberté</span> · <span>12 min de lecture</span></div>
+            <h3 class="blog-card-title">Désaccumulation : comment vivre de son capital sans l'épuiser</h3>
+            <p class="blog-card-desc">Règle des 4 %, ordre de retrait PEA / AV / CTO / PER, risque de séquence, bucket strategy : le guide pour passer de l'accumulation à la liberté financière en France.</p>
+            <div class="blog-card-footer">
+              <a href="article-desaccumulation-vivre-capital.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 34f. Rebalancement de portefeuille -->
+        <article class="blog-card" data-category="ETF & Stratégie">
+          <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 55%, #60A5FA 100%); flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="background:#fff; border-radius:10px; padding:8px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:#1E3A8A; box-shadow:0 6px 20px rgba(0,0,0,0.2);">80%<br><span style="font-size:10px;font-weight:600;color:#2563EB;">Actions</span></div>
+              <div style="font-size:20px;">⇌</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:10px; padding:8px 14px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:16px; color:rgba(255,255,255,0.92);">20%<br><span style="font-size:10px;font-weight:600;color:rgba(255,255,255,0.7);">Oblig.</span></div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Rééquilibrage optimal</div>
+            <span class="blog-card-tag">ETF &amp; Stratégie</span>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span>ETF &amp; Stratégie</span> · <span>10 min de lecture</span></div>
+            <h3 class="blog-card-title">Rebalancement de portefeuille : quand et comment rééquilibrer</h3>
+            <p class="blog-card-desc">Méthode calendaire ou par seuil, rebalancement par les achats, piège fiscal du CTO vs PEA : tout pour maintenir ton allocation cible sans détruire ton rendement net.</p>
+            <div class="blog-card-footer">
+              <a href="article-rebalancement-portefeuille.html" class="blog-card-link">Lire →</a>
+            </div>
+          </div>
+        </article>
+
         <!-- 35. Stock picking -->
-        <article class="blog-card" data-category="Stratégie">
+        <article class="blog-card" data-category="ETF & Stratégie">
           <div class="blog-card-thumb" style="background: linear-gradient(135deg, #1E1B4B 0%, #6D28D9 60%, #7C3AED 100%); flex-direction:column; gap:10px;">
             <div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -980,18 +1122,24 @@
       const filterBtns = document.querySelectorAll('.blog-filter-btn');
       const cards = document.querySelectorAll('#blog-grid .blog-card');
 
+      // Compute and display counts
+      const counts = { all: cards.length };
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+      filterBtns.forEach(btn => {
+        const span = btn.querySelector('.filter-count');
+        if (span) span.textContent = counts[btn.dataset.category] || 0;
+      });
+
       filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           filterBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-
           const category = btn.dataset.category;
           cards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
+            card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
           });
         });
       });

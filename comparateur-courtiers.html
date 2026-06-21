@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur courtiers PEA 2026 | Julien Invest</title>
+  <meta name="description" content="Compare les meilleurs courtiers PEA en 2026 : Fortuneo, Boursorama, Bourse Direct, Degiro, Trade Republic. Frais, fonctionnalités, bonus et conseil selon ton profil.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Quel courtier PEA choisir en 2026 ? Comparateur complet | Julien Invest">
+  <meta property="og:description" content="Compare 5 courtiers sur leurs frais, PEA disponible, ETF gratuits et bonus de bienvenue. Outil gratuit, mise à jour 2026.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/comparateur-courtiers.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comparateur courtiers PEA 2026 | Julien Invest">
+  <meta name="twitter:description" content="Fortuneo, Degiro, Boursorama, Bourse Direct, Trade Republic : quel courtier choisir en 2026 ?">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/comparateur-courtiers.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cc-hero {
+      background: var(--pearl);
+      padding: 140px 0 64px;
+      border-bottom: 1px solid var(--grey-5);
+      position: relative; overflow: hidden;
+    }
+    .cc-hero::before {
+      content: ''; position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(147,197,253,0.18) 0%, transparent 65%);
+      top: -60px; right: -80px; pointer-events: none;
+    }
+    .cc-hero-inner { max-width: 780px; position: relative; }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-size: 12px; color: var(--grey-3);
+      margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--grey-3); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--navy); }
+    .breadcrumb span { color: var(--grey-4); }
+    .cc-hero h1 {
+      font-family: var(--font-display); font-style: italic;
+      font-size: clamp(34px, 4.5vw, 58px);
+      color: var(--navy); line-height: 1.1; margin-bottom: 20px;
+    }
+    .cc-hero-sub { font-size: 18px; color: var(--grey-2); line-height: 1.7; max-width: 640px; }
+
+    /* ── FILTERS ── */
+    .cc-tool-section { padding: 56px 0 72px; background: var(--white); }
+    .cc-filters {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .cc-filter-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 18px; border-radius: 100px;
+      border: 1.5px solid var(--grey-5); background: var(--white);
+      font-family: var(--font-head); font-size: 13px; font-weight: 600; color: var(--grey-2);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .cc-filter-btn:hover { border-color: var(--lavender); color: var(--navy); }
+    .cc-filter-btn.active {
+      background: var(--navy); border-color: var(--navy); color: #fff;
+    }
+    .cc-filter-icon { font-size: 15px; }
+
+    /* ── TABLE DESKTOP ── */
+    .cc-table-wrap { overflow-x: auto; border-radius: var(--radius-lg); border: 1.5px solid var(--grey-5); }
+    .cc-table {
+      width: 100%; border-collapse: collapse; min-width: 720px;
+    }
+    .cc-table thead th {
+      background: var(--off-white); padding: 14px 16px;
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-3);
+      border-bottom: 1.5px solid var(--grey-5); text-align: left; white-space: nowrap;
+    }
+    .cc-table tbody tr { border-bottom: 1px solid var(--grey-5); transition: background 0.15s; }
+    .cc-table tbody tr:last-child { border-bottom: none; }
+    .cc-table tbody tr:hover { background: var(--pearl); }
+    .cc-table tbody tr.row-recommended { background: rgba(147,197,253,0.06); }
+    .cc-table tbody tr.row-recommended:hover { background: rgba(147,197,253,0.12); }
+    .cc-table tbody td { padding: 16px 16px; font-size: 13px; color: var(--grey-1); vertical-align: middle; }
+    .cc-table tbody td.td-name { min-width: 140px; }
+    .cc-name-wrap { display: flex; align-items: center; gap: 10px; }
+    .cc-name { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--navy); }
+    .cc-badge-recommended {
+      display: inline-block; padding: 3px 8px; border-radius: 100px;
+      background: var(--gradient-brand); color: var(--navy);
+      font-family: var(--font-head); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+    }
+    .cc-pea-yes { color: #0D6B42; font-family: var(--font-head); font-weight: 700; }
+    .cc-pea-no  { color: var(--grey-3); font-style: italic; }
+    .cc-note-wrap { display: flex; align-items: center; gap: 4px; }
+    .cc-note-stars { color: #F0C040; font-size: 14px; letter-spacing: -2px; }
+    .cc-note-val { font-family: var(--font-head); font-weight: 700; color: var(--navy); font-size: 13px; margin-left: 2px; }
+    .cc-tag-green { display: inline-block; padding: 2px 8px; border-radius: 100px; background: rgba(160,231,197,0.3); color: #0D6B42; font-family: var(--font-head); font-size: 11px; font-weight: 700; }
+    .cc-tag-grey { display: inline-block; padding: 2px 8px; border-radius: 100px; background: var(--grey-5); color: var(--grey-3); font-family: var(--font-head); font-size: 11px; font-weight: 600; }
+
+    /* ── CARDS MOBILE (shown < 720px) ── */
+    .cc-cards { display: none; flex-direction: column; gap: 16px; }
+    @media (max-width: 720px) {
+      .cc-table-wrap { display: none; }
+      .cc-cards { display: flex; }
+    }
+    .cc-card {
+      background: var(--off-white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 20px 18px;
+    }
+    .cc-card.card-recommended {
+      border-color: rgba(147,197,253,0.7); background: rgba(147,197,253,0.06);
+    }
+    .cc-card-header {
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 14px;
+    }
+    .cc-card-name { font-family: var(--font-head); font-size: 18px; font-weight: 800; color: var(--navy); }
+    .cc-card-type { font-size: 12px; color: var(--grey-3); margin-top: 2px; }
+    .cc-card-rows { display: flex; flex-direction: column; gap: 8px; }
+    .cc-card-row { display: flex; justify-content: space-between; font-size: 13px; padding: 6px 0; border-bottom: 1px solid var(--grey-5); }
+    .cc-card-row:last-child { border-bottom: none; }
+    .cc-card-row-label { color: var(--grey-2); }
+    .cc-card-row-val { font-family: var(--font-head); font-weight: 600; color: var(--navy); text-align: right; max-width: 55%; }
+
+    /* ── RECOMMENDED BLOCK ── */
+    .cc-recommended-block {
+      margin-bottom: 32px;
+      background: rgba(147,197,253,0.08); border: 1.5px solid rgba(147,197,253,0.5);
+      border-radius: var(--radius-lg); padding: 24px 28px;
+      display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;
+    }
+    .cc-rec-left { flex: 1; min-width: 260px; }
+    .cc-rec-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--lavender); margin-bottom: 8px;
+    }
+    .cc-rec-name { font-family: var(--font-head); font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 6px; }
+    .cc-rec-desc { font-size: 14px; color: var(--grey-2); line-height: 1.65; }
+    .cc-rec-right { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+    .cc-rec-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 11px 22px; border-radius: 100px;
+      background: var(--gradient-brand); color: var(--navy);
+      font-family: var(--font-head); font-size: 13px; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .cc-rec-btn:hover { opacity: 0.9; }
+    .cc-rec-code {
+      font-family: var(--font-head); font-size: 12px; color: var(--grey-3); text-align: center;
+    }
+    .cc-rec-code strong { color: var(--navy); }
+
+    /* ── HIDDEN ROW ── */
+    .cc-table tbody tr.hidden-row { display: none; }
+    .cc-card.hidden-card { display: none; }
+
+    /* ── POINTS FORTS/FAIBLES ── */
+    .cc-pf-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;
+    }
+    .cc-pf-item { display: flex; gap: 6px; align-items: flex-start; font-size: 12px; }
+    .cc-pf-icon { flex-shrink: 0; margin-top: 1px; }
+
+    /* ── EDU SECTION ── */
+    .cc-edu-section { padding: 56px 0; background: var(--pearl); border-top: 1px solid var(--grey-5); }
+    .cc-edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 760px) { .cc-edu-grid { grid-template-columns: 1fr; } }
+    .cc-edu-card {
+      background: var(--white); border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-lg); padding: 28px;
+    }
+    .cc-edu-label {
+      font-family: var(--font-head); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--lavender); margin-bottom: 10px;
+    }
+    .cc-edu-card h3 { font-family: var(--font-head); font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .cc-edu-card p { font-size: 14px; color: var(--grey-2); line-height: 1.65; }
+
+    /* ── LEGAL ── */
+    .cc-legal {
+      margin-top: 28px; padding: 14px 18px;
+      background: var(--pearl); border-radius: var(--radius-md);
+      font-size: 11px; color: var(--grey-3); line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link active">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="cc-hero">
+    <div class="container">
+      <div class="cc-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Accueil</a><span>›</span>
+          <a href="calculateur.html">Calculateurs</a><span>›</span>
+          <span>Comparateur courtiers</span>
+        </div>
+        <h1>Quel courtier PEA <em>choisir en 2026 ?</em></h1>
+        <p class="cc-hero-sub">Frais, PEA disponible, ETF gratuits, bonus de bienvenue : compare les 5 principaux courtiers et trouve celui qui correspond à ton profil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOL -->
+  <section class="cc-tool-section">
+    <div class="container">
+
+      <!-- BLOC FORTUNEO RECOMMANDÉ -->
+      <div class="cc-recommended-block">
+        <div class="cc-rec-left">
+          <div class="cc-rec-label">Recommandé par Julien Invest</div>
+          <div class="cc-rec-name">Fortuneo</div>
+          <div class="cc-rec-desc">PEA disponible, 0 € de frais sur les ETF éligibles si tu passes 1 ordre par mois, bonus de bienvenue jusqu'à 140 €, interface mobile complète. Le choix le plus polyvalent pour débuter ou investir régulièrement en DCA.</div>
+        </div>
+        <div class="cc-rec-right">
+          <a href="parrainage.html" class="cc-rec-btn">Ouvrir chez Fortuneo →</a>
+          <div class="cc-rec-code">Code parrainage : <strong>13385764</strong></div>
+        </div>
+      </div>
+
+      <!-- FILTRES -->
+      <div class="cc-filters">
+        <button class="cc-filter-btn active" id="filter-all" onclick="applyFilter('all')">
+          <span class="cc-filter-icon">☰</span> Tous les courtiers
+        </button>
+        <button class="cc-filter-btn" id="filter-pea" onclick="applyFilter('pea')">
+          <span class="cc-filter-icon">🏦</span> Je veux un PEA
+        </button>
+        <button class="cc-filter-btn" id="filter-debutant" onclick="applyFilter('debutant')">
+          <span class="cc-filter-icon">🌱</span> Je débute
+        </button>
+        <button class="cc-filter-btn" id="filter-frais" onclick="applyFilter('frais')">
+          <span class="cc-filter-icon">💸</span> Frais minimaux
+        </button>
+      </div>
+
+      <!-- TABLEAU DESKTOP -->
+      <div class="cc-table-wrap">
+        <table class="cc-table" id="cc-table">
+          <thead>
+            <tr>
+              <th>Courtier</th>
+              <th>Type de compte</th>
+              <th>Frais par ordre</th>
+              <th>ETF gratuits</th>
+              <th>PEA</th>
+              <th>Bonus bienvenue</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody id="cc-tbody">
+            <!-- Injecté par JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CARDS MOBILE -->
+      <div class="cc-cards" id="cc-cards">
+        <!-- Injecté par JS -->
+      </div>
+
+      <!-- MENTION LÉGALE -->
+      <div class="cc-legal">
+        Julien Invest est partenaire affilié de Fortuneo (code 13385764). En utilisant ce lien ou ce code, tu bénéficies d'un bonus de bienvenue et tu soutiens la création de contenu gratuit. Cette recommandation est basée sur une utilisation personnelle et une analyse objective. Elle ne constitue pas un conseil en investissement. Les frais et conditions peuvent évoluer : vérifiez toujours les conditions tarifaires directement sur le site du courtier avant d'ouvrir un compte.
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION PÉDAGOGIQUE -->
+  <section class="cc-edu-section">
+    <div class="container">
+      <div style="margin-bottom:36px;">
+        <div style="font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--grey-3);margin-bottom:10px;">Pourquoi ça compte</div>
+        <h2 style="font-family:var(--font-display);font-style:italic;font-size:clamp(26px,3vw,38px);color:var(--navy);margin-bottom:12px;">Le choix du courtier impacte<br>ta performance à long terme</h2>
+      </div>
+      <div class="cc-edu-grid">
+        <div class="cc-edu-card">
+          <div class="cc-edu-label">Frais de transaction</div>
+          <h3>L'effet du DCA mensuel</h3>
+          <p>Si tu investis 200 €/mois, des frais de 1 € par ordre représentent 0,5% de frais supplémentaires. Sur 1 € de frais avec des ordres à 200 €, c'est acceptable. Mais si le courtier prend 5 €, tu perds d'emblée 2,5% à chaque versement. Sur 20 ans, cela représente plusieurs milliers d'euros.</p>
+        </div>
+        <div class="cc-edu-card">
+          <div class="cc-edu-label">Enveloppe fiscale</div>
+          <h3>PEA ou CTO : une différence massive</h3>
+          <p>Après 5 ans, les gains d'un PEA ne supportent que 18,6% de prélèvements sociaux (contre 30% de flat tax pour un CTO). Sur un capital de 100 000 € avec 50 000 € de plus-values, c'est 5 700 € d'impôt en moins. Certains courtiers n'ont pas de PEA : attention avant d'ouvrir un compte.</p>
+        </div>
+        <div class="cc-edu-card">
+          <div class="cc-edu-label">Frais de garde</div>
+          <h3>Un coût souvent oublié</h3>
+          <p>Certains courtiers facturent des frais de garde (entre 0 et 0,5%/an sur le capital) si tu n'effectues pas assez d'opérations. Ces frais sont prélevés automatiquement et s'ajoutent aux frais de transaction. Un courtier comme Bourse Direct ou Fortuneo n'applique pas de frais de garde actifs : un critère à vérifier avant d'ouvrir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateurs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Simulateurs</h4>
+          <a href="calculateur.html#interets-composes">Intérêts composés</a>
+          <a href="simulateur-frais.html">Simulateur frais</a>
+          <a href="simulateur-credit-immobilier.html">Crédit immobilier</a>
+          <a href="simulateur-rente.html">Rente passive</a>
+          <a href="comparateur-courtiers.html">Comparateur courtiers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  var COURTIERS = [
+    {
+      id: 'fortuneo',
+      name: 'Fortuneo',
+      type: 'Banque en ligne',
+      compte: 'PEA + CTO + AV',
+      pea: true,
+      fraisOrdre: '0 € si 1 ordre/mois (ETF éligibles PEA), sinon à partir de 1,99 €',
+      etfGratuits: 'Oui, ETF PEA éligibles',
+      bonus: "Jusqu'à 140 € (code 13385764)",
+      note: 4.5,
+      profils: ['pea', 'debutant'],
+      recommended: true,
+      pointsForts: ['Bonus bienvenue jusqu\'à 140 €', 'ETF 0 € sur PEA (1 ordre/mois)', 'Banque complète (CB, épargne)'],
+      pointsFaibles: ['Frais de garde si inactif 12 mois']
+    },
+    {
+      id: 'bourse-direct',
+      name: 'Bourse Direct',
+      type: 'Courtier pur',
+      compte: 'PEA + CTO',
+      pea: true,
+      fraisOrdre: 'À partir de 0,99 € par ordre',
+      etfGratuits: 'Non',
+      bonus: 'Aucun',
+      note: 4.2,
+      profils: ['pea', 'frais'],
+      recommended: false,
+      pointsForts: ['Frais très compétitifs', 'Pas de frais de garde', 'Courtier spécialisé bourse'],
+      pointsFaibles: ['Interface moins moderne', 'Pas de services bancaires']
+    },
+    {
+      id: 'degiro',
+      name: 'Degiro',
+      type: 'Courtier CTO',
+      compte: 'CTO uniquement',
+      pea: false,
+      fraisOrdre: '1 € + 0,038 % par ordre',
+      etfGratuits: '1 ETF gratuit/mois (liste sélective)',
+      bonus: 'Aucun',
+      note: 4.0,
+      profils: ['frais'],
+      recommended: false,
+      pointsForts: ['Très faibles frais de courtage', 'Large sélection internationale', '1 ETF gratuit/mois'],
+      pointsFaibles: ['Pas de PEA (fiscalité moins avantageuse)', 'Flat tax 30 % sur tous les gains']
+    },
+    {
+      id: 'boursorama',
+      name: 'Boursorama',
+      type: 'Banque en ligne',
+      compte: 'PEA + CTO + AV',
+      pea: true,
+      fraisOrdre: 'À partir de 0,99 € (paliers selon montant)',
+      etfGratuits: 'Non (frais standard)',
+      bonus: 'Offres ponctuelles',
+      note: 3.8,
+      profils: ['pea', 'debutant'],
+      recommended: false,
+      pointsForts: ['Banque complète reconnue', 'Interface connue et fiable', 'PEA disponible'],
+      pointsFaibles: ['Frais moins compétitifs sur petits montants', 'Moins d\'ETF en accès direct']
+    },
+    {
+      id: 'trade-republic',
+      name: 'Trade Republic',
+      type: 'Néo-courtier',
+      compte: 'CTO uniquement',
+      pea: false,
+      fraisOrdre: '1 € fixe par ordre',
+      etfGratuits: 'Non (1 € sur tous les ordres)',
+      bonus: 'Livret 3,25 %/an',
+      note: 3.9,
+      profils: ['frais'],
+      recommended: false,
+      pointsForts: ['Interface mobile très simple', 'Plans d\'épargne automatiques', 'Compte rémunéré 3,25 %'],
+      pointsFaibles: ['Pas de PEA (flat tax 30 %)', 'Sélection d\'ETF plus limitée']
+    }
+  ];
+
+  function stars(note) {
+    var full = Math.floor(note);
+    var half = note - full >= 0.5 ? 1 : 0;
+    var s = '';
+    for (var i = 0; i < full; i++) s += '★';
+    if (half) s += '½';
+    return s;
+  }
+
+  function renderTable(filter) {
+    var tbody = document.getElementById('cc-tbody');
+    var cards = document.getElementById('cc-cards');
+    tbody.innerHTML = '';
+    cards.innerHTML = '';
+
+    COURTIERS.forEach(function(c) {
+      var visible = filter === 'all' ||
+        (filter === 'pea' && c.pea) ||
+        (filter === 'debutant' && c.profils.indexOf('debutant') !== -1) ||
+        (filter === 'frais' && c.profils.indexOf('frais') !== -1);
+
+      // TABLE ROW
+      var tr = document.createElement('tr');
+      if (c.recommended) tr.className = 'row-recommended';
+      if (!visible) tr.className = (tr.className + ' hidden-row').trim();
+      tr.innerHTML =
+        '<td class="td-name"><div class="cc-name-wrap"><div><div class="cc-name">' + c.name + '</div>' +
+        (c.recommended ? '<div style="margin-top:4px;"><span class="cc-badge-recommended">Recommandé</span></div>' : '') +
+        '</div></div></td>' +
+        '<td>' + c.compte + '</td>' +
+        '<td>' + c.fraisOrdre + '</td>' +
+        '<td>' + (c.etfGratuits.startsWith('Oui') || c.etfGratuits.startsWith('1 ETF') ? '<span class="cc-tag-green">' + c.etfGratuits + '</span>' : '<span class="cc-tag-grey">' + c.etfGratuits + '</span>') + '</td>' +
+        '<td>' + (c.pea ? '<span class="cc-pea-yes">✓ Oui</span>' : '<span class="cc-pea-no">Non</span>') + '</td>' +
+        '<td>' + c.bonus + '</td>' +
+        '<td><div class="cc-note-wrap"><span class="cc-note-stars">' + stars(c.note) + '</span><span class="cc-note-val">' + c.note.toFixed(1) + '</span></div></td>';
+      tbody.appendChild(tr);
+
+      // MOBILE CARD
+      var div = document.createElement('div');
+      div.className = 'cc-card' + (c.recommended ? ' card-recommended' : '') + (visible ? '' : ' hidden-card');
+      div.innerHTML =
+        '<div class="cc-card-header"><div><div class="cc-card-name">' + c.name + '</div><div class="cc-card-type">' + c.type + '</div></div>' +
+        (c.recommended ? '<span class="cc-badge-recommended">Recommandé</span>' : '<div class="cc-note-wrap"><span class="cc-note-stars">' + stars(c.note) + '</span><span class="cc-note-val">' + c.note.toFixed(1) + '</span></div>') +
+        '</div>' +
+        '<div class="cc-card-rows">' +
+        '<div class="cc-card-row"><span class="cc-card-row-label">Comptes disponibles</span><span class="cc-card-row-val">' + c.compte + '</span></div>' +
+        '<div class="cc-card-row"><span class="cc-card-row-label">Frais par ordre</span><span class="cc-card-row-val">' + c.fraisOrdre + '</span></div>' +
+        '<div class="cc-card-row"><span class="cc-card-row-label">PEA disponible</span><span class="cc-card-row-val">' + (c.pea ? '✓ Oui' : 'Non') + '</span></div>' +
+        '<div class="cc-card-row"><span class="cc-card-row-label">ETF gratuits</span><span class="cc-card-row-val">' + c.etfGratuits + '</span></div>' +
+        '<div class="cc-card-row"><span class="cc-card-row-label">Bonus bienvenue</span><span class="cc-card-row-val">' + c.bonus + '</span></div>' +
+        '</div>';
+      cards.appendChild(div);
+    });
+  }
+
+  function applyFilter(filter) {
+    ['all','pea','debutant','frais'].forEach(function(f) {
+      var btn = document.getElementById('filter-' + f);
+      if (btn) btn.classList.toggle('active', f === filter);
+    });
+    renderTable(filter);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderTable('all');
+  });
+  </script>
+</body>
+</html>

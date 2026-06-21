@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PEA vs CTO : lequel choisir selon ton profil | Julien Invest</title>
-  <meta name="description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <title>Rebalancement de portefeuille : quand et comment rééquilibrer | Julien Invest</title>
+  <meta name="description" content="Quand rééquilibrer son portefeuille ETF, méthode calendaire vs par seuil, coût fiscal du rebalancement en CTO vs PEA : le guide complet pour maintenir ton allocation cible.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta property="og:description" content="PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds : le comparatif complet pour faire le bon choix.">
+  <meta property="og:title" content="Rebalancement de portefeuille : quand et comment rééquilibrer | Julien Invest">
+  <meta property="og:description" content="Méthode calendaire, rebalancement par seuil, fiscalité PEA vs CTO : tout sur le rééquilibrage de portefeuille.">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="og:url" content="https://julien-invest.github.io/article-pea-vs-cto.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-rebalancement-portefeuille.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PEA vs CTO : lequel choisir selon ton profil | Julien Invest">
-  <meta name="twitter:description" content="Comparatif complet PEA vs CTO pour faire le bon choix d'enveloppe fiscale.">
+  <meta name="twitter:title" content="Rebalancement de portefeuille : quand et comment rééquilibrer">
+  <meta name="twitter:description" content="Quand et comment rééquilibrer son portefeuille ETF sans se faire piéger par la fiscalité.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "PEA vs CTO : lequel choisir selon ton profil",
-  "description": "PEA ou Compte-Titres Ordinaire ? Avantages fiscaux, contraintes, plafonds, le comparatif complet pour faire le bon choix.",
+  "headline": "Rebalancement de portefeuille : quand et comment rééquilibrer",
+  "description": "Méthode calendaire, rebalancement par seuil, coût fiscal : le guide complet pour maintenir son allocation cible sans détruire son rendement.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-02-03",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-21",
+  "dateModified": "2026-06-21"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -38,8 +38,10 @@
     .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
     .article-body ul { padding-left: 20px; margin-bottom: 16px; }
     .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
-    .article-tag { display: inline-block; background: linear-gradient(135deg,#A0E7C5,#34D399); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #064E3B; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
     .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
@@ -47,9 +49,19 @@
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
-    .compare-table .yes { color: #059669; font-weight: 700; }
-    .compare-table .no { color: #DC2626; font-weight: 700; }
-
+    .compare-table .highlight { color: #059669; font-weight: 700; }
+    .compare-table .danger { color: #DC2626; font-weight: 700; }
+    .compare-table .neutral { color: #D97706; font-weight: 700; }
+    .alloc-visual { display: flex; gap: 6px; margin: 24px 0; border-radius: 12px; overflow: hidden; height: 48px; }
+    .alloc-bar { display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 700; font-size: 13px; color: white; transition: all 0.3s; }
+    .method-card { border-radius: 16px; border: 1.5px solid var(--grey-5); padding: 24px; margin: 16px 0; }
+    .method-card-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: var(--navy); margin-bottom: 8px; }
+    .method-card-desc { font-size: 15px; color: var(--grey-1); line-height: 1.7; margin-bottom: 12px; }
+    .method-pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 560px) { .method-pros-cons { grid-template-columns: 1fr; } }
+    .method-pros { background: #F0FDF4; border-radius: 8px; padding: 12px; font-size: 13px; color: #15803D; }
+    .method-cons { background: #FEF2F2; border-radius: 8px; padding: 12px; font-size: 13px; color: #B91C1C; }
+    .method-pros strong, .method-cons strong { display: block; margin-bottom: 4px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; }
     /* ── Takeaway final (injected) ── */
     .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
     .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
@@ -67,81 +79,14 @@
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-pea-vs-cto.html">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Julien Invest",
-  "url": "https://julien-invest.github.io/",
-  "logo": "https://julien-invest.github.io/images/og-cover.png",
-  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
-  "sameAs": [
-    "https://www.tiktok.com/@julien_invest_",
-    "https://www.instagram.com/julien_invest",
-    "https://www.youtube.com/@jueth7215",
-    "https://www.linkedin.com/in/julien-denis-849541251/"
-  ],
-  "founder": { "@type": "Person", "name": "Julien Denis" }
-}
-  </script>
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Peut-on avoir un PEA et un CTO en même temps ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Que se passe-t-il si je retire de mon PEA avant 5 ans ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Le plafond de 150 000€ concerne-t-il aussi les gains ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Un ETF monde peut-il vraiment tenir dans un PEA ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Quelle enveloppe choisir si je débute avec un petit budget ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin."
-      }
-    }
-  ]
-}
-  </script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-rebalancement-portefeuille.html">
 </head>
 <body>
 
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-          Julien<span class="nav-logo-dot"></span>Invest
-        </a>
+        <a href="index.html" class="nav-logo">Julien<span class="nav-logo-dot"></span>Invest</a>
         <ul class="nav-links">
           <li><a href="formation.html" class="nav-link">Formation</a></li>
           <li><a href="coaching.html" class="nav-link">Coaching</a></li>
@@ -214,14 +159,9 @@
           <li><a href="ressources.html" class="nav-link">Ressources</a></li>
         </ul>
         <div class="nav-cta">
-          <a href="formation.html" class="btn btn-gradient btn--sm">
-            Accéder à la formation
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
-          </a>
+          <a href="formation.html" class="btn btn-gradient btn--sm">Accéder à la formation <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>
         </div>
-        <button class="nav-hamburger" aria-label="Menu">
-          <span></span><span></span><span></span>
-        </button>
+        <button class="nav-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
@@ -263,10 +203,10 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Enveloppes fiscales</span>
-        <h1>PEA vs CTO :<br><em>lequel choisir selon ton profil</em></h1>
-        <p class="article-meta-date">Publié le 3 février 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Avantages fiscaux, contraintes, plafonds. Le comparatif complet pour choisir la bonne enveloppe dès le départ.</p>
+        <span class="t-label">ETF &amp; Stratégie</span>
+        <h1>Rebalancement de portefeuille<br><em>quand et comment rééquilibrer</em></h1>
+        <p class="article-meta-date">Publié le 21 juin 2026</p>
+        <p>Après un an de hausse des actions, ton allocation 80/20 est devenue 90/10 sans que tu t'en rendes compte. Rééquilibrer ou pas ? Et surtout, comment éviter de te faire piéger par la fiscalité ?</p>
       </div>
     </div>
   </section>
@@ -274,169 +214,152 @@
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Enveloppes</span>
-        <p>Tu veux investir en bourse mais tu hésites entre un PEA et un compte titres ordinaire ? C'est la première vraie décision de tout investisseur français, et elle a un impact énorme sur ce qu'il te restera vraiment, une fois l'impôt payé. Bonne nouvelle : une fois que tu as compris la logique des deux enveloppes, le choix devient évident. On déroule tout, simplement, avec des chiffres à jour de la fiscalité 2026.</p>
+        <span class="article-tag">ETF &amp; Stratégie</span>
+
+        <p>Tu construis un portefeuille avec une allocation précise : 80 % ETF actions, 20 % ETF obligations. Un an plus tard, les actions ont monté de 20 %, les obligations sont restées stables. Ton portefeuille est maintenant à 84/16. Tu as <em>dérivé</em> de ta cible. C'est ça, le problème du rebalancement — et c'est un problème que beaucoup d'investisseurs ignorent jusqu'à ce qu'un krach leur rappelle pourquoi leur allocation cible existait.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#pea">Le PEA, l'enveloppe préférée des Français</a></li>
-            <li><a href="#cto">Le compte titres ordinaire, la liberté totale</a></li>
-            <li><a href="#fiscalite">La fiscalité 2026, le vrai point de bascule</a></li>
-            <li><a href="#exemple">L'écart en euros sur un cas concret</a></li>
-            <li><a href="#combiner">La stratégie qui combine les deux</a></li>
-            <li><a href="#profils">Quelle enveloppe selon ton profil</a></li>
-            <li><a href="#couts">Combien ça coûte vraiment</a></li>
-            <li><a href="#dividendes">PEA, dividendes et capitalisation</a></li>
-            <li><a href="#erreurs">Les erreurs à éviter</a></li>
-            <li><a href="#pratique">Passer à l'action en 4 étapes</a></li>
+            <li><a href="#pourquoi">Pourquoi rééquilibrer ?</a></li>
+            <li><a href="#derive">Comprendre la dérive d'allocation</a></li>
+            <li><a href="#methodes">Les deux méthodes de rebalancement</a></li>
+            <li><a href="#fiscalite">L'obstacle fiscal : CTO vs PEA</a></li>
+            <li><a href="#achat-seul">Le rebalancement par les achats</a></li>
+            <li><a href="#pratique">Guide pratique étape par étape</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="pea">Le PEA, l'enveloppe préférée des Français</h2>
-        <p>Le Plan d'Épargne en Actions est une enveloppe fiscale créée pour encourager l'investissement en actions européennes. Ce n'est pas un produit en soi : c'est un contenant dans lequel tu loges des actions et des ETF éligibles. Tant que ton argent reste à l'intérieur, tu ne paies aucun impôt sur tes gains, même quand tu vends pour racheter autre chose.</p>
-        <p>L'avantage massif arrive après 5 ans de détention : tes plus values et tes dividendes deviennent <strong>exonérés d'impôt sur le revenu</strong>. Il ne reste plus que les prélèvements sociaux. C'est ce qui en fait l'outil numéro un pour faire grossir un portefeuille sur le long terme.</p>
-        <h3>Ses limites à connaître</h3>
-        <ul>
-          <li>Plafond de versements de 150 000€ (les plus values peuvent dépasser ce montant).</li>
-          <li>Un seul PEA par personne, et il faut être résident fiscal français.</li>
-          <li>Uniquement des actions et ETF européens éligibles. Pas d'actions américaines en direct, pas de crypto.</li>
-          <li>Un retrait avant 5 ans entraîne en principe la clôture du plan.</li>
-        </ul>
-        <p>La contrainte européenne fait peur, à tort. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux tout en restant éligibles au PEA grâce à la réplication synthétique. On en reparle dans le <a href="guides/guide-pea.html">guide complet du PEA</a> et dans l'article <a href="article-etf-physique-vs-synthetique.html">ETF physique ou synthétique</a>.</p>
+        <h2 id="pourquoi">Pourquoi rééquilibrer ?</h2>
+        <p>L'allocation cible n'est pas un choix arbitraire. Elle reflète ton profil de risque, ton horizon d'investissement, ta capacité à supporter des baisses. Si tu as choisi 70 % actions / 30 % obligations, c'est parce que tu peux encaisser une baisse de -25 % (scénario actions -35 %, obligations +5 %) mais pas -45 %.</p>
+        <p>Sans rebalancement, après une longue période de hausse des actions, tu te retrouves à 90/10 sans l'avoir voulu. En cas de krach, tu es exposé à -40 % là où tu t'étais préparé à -25 %. La panique qui suit est souvent l'origine d'erreurs comportementales coûteuses.</p>
+        <p>Le rebalancement est donc un outil de <strong>gestion du risque</strong> d'abord, et de rendement ensuite.</p>
 
-        <div class="article-retenir">
-          <div class="article-retenir-label">★ À retenir</div>
-          <p>Le PEA est l'enveloppe à ouvrir en priorité quand tu débutes. Même si tu n'as que 100€ à y mettre, ouvre le aujourd'hui : le compteur des 5 ans démarre à l'ouverture, pas au premier gros versement.</p>
-        </div>
+        <h2 id="derive">Comprendre la dérive d'allocation</h2>
+        <p>Voici ce qui se passe concrètement sur un portefeuille de 100 000 € avec une cible 80/20 :</p>
 
-        <h2 id="cto">Le compte titres ordinaire, la liberté totale</h2>
-        <p>Le compte titres ordinaire (CTO) est l'enveloppe sans aucune restriction. Pas de plafond, pas de contrainte géographique, pas de délai fiscal. Tu peux y loger des actions américaines en direct, des ETF du monde entier, des ETP sur le Bitcoin ou l'or, de l'immobilier coté, à peu près tout ce qui se négocie en bourse.</p>
-        <p>La contrepartie, c'est la fiscalité. Chaque vente avec plus value est imposée immédiatement, sans attendre que tu retires l'argent vers ton compte courant. Le CTO est donc l'outil de la flexibilité, pas celui de l'optimisation fiscale.</p>
-        <h3>Quand le CTO devient indispensable</h3>
-        <ul>
-          <li>Tu as rempli ton PEA à 150 000€ de versements.</li>
-          <li>Tu veux des ETF non éligibles au PEA (un S&P 500 physique, un Nasdaq, des marchés émergents en direct).</li>
-          <li>Tu veux des actions américaines en direct ou des ETP Bitcoin.</li>
-          <li>Tu investis à deux et tu veux un compte commun, ce que le PEA, strictement individuel, interdit.</li>
-        </ul>
-
-        <h2 id="fiscalite">La fiscalité 2026, le vrai point de bascule</h2>
-        <p>Depuis le 1er janvier 2026, la loi de financement de la Sécurité sociale a relevé les prélèvements sociaux sur les revenus du capital, qui passent de 17,2% à 18,6%. Concrètement, voici ce que tu paies sur tes gains selon l'enveloppe.</p>
         <table class="compare-table">
           <thead>
-            <tr><th>Critère</th><th>PEA</th><th>CTO</th></tr>
+            <tr><th>Situation</th><th>ETF Actions</th><th>ETF Obligations</th><th>Allocation réelle</th></tr>
           </thead>
           <tbody>
-            <tr><td>Plafond de versements</td><td>150 000€</td><td class="yes">Aucun</td></tr>
-            <tr><td>Fiscalité après 5 ans</td><td class="yes">18,6% (PS seulement)</td><td class="no">31,4% (PFU)</td></tr>
-            <tr><td>Fiscalité avant 5 ans</td><td class="no">31,4% + clôture</td><td>31,4%</td></tr>
-            <tr><td>ETF monde éligibles</td><td class="yes">Oui (synthétiques)</td><td class="yes">Oui (tous)</td></tr>
-            <tr><td>Actions américaines en direct</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Crypto et ETP</td><td class="no">Non</td><td class="yes">Oui</td></tr>
-            <tr><td>Nombre de comptes</td><td>1 par personne</td><td class="yes">Illimité</td></tr>
+            <tr><td>Départ (cible)</td><td>80 000 €</td><td>20 000 €</td><td class="highlight">80 / 20</td></tr>
+            <tr><td>Après +20 % actions, 0 % oblig.</td><td>96 000 €</td><td>20 000 €</td><td class="neutral">83 / 17</td></tr>
+            <tr><td>Après +40 % actions, 0 % oblig.</td><td>112 000 €</td><td>20 000 €</td><td class="danger">85 / 15</td></tr>
+            <tr><td>Après +100 % actions, 0 % oblig.</td><td>160 000 €</td><td>20 000 €</td><td class="danger">89 / 11</td></tr>
           </tbody>
         </table>
-        <p>La flat tax (ou PFU, prélèvement forfaitaire unique) du CTO est donc de 31,4% : 12,8% d'impôt sur le revenu plus 18,6% de prélèvements sociaux. Sur un PEA de plus de 5 ans, il ne reste que les 18,6% de prélèvements sociaux. L'écart de 12,8 points, c'est exactement la part d'impôt sur le revenu que le PEA t'évite.</p>
 
-        <h2 id="exemple">L'écart en euros sur un cas concret</h2>
-        <p>Prenons un exemple parlant. Tu investis 500€ par mois pendant 20 ans à 7% par an. Ton capital final tourne autour de 245 000€, dont environ <strong>120 000€ de plus values</strong>. Voici l'impôt à la sortie selon l'enveloppe.</p>
-        <ul>
-          <li><strong>Sur PEA :</strong> 120 000 x 18,6% = <strong>22 320€</strong> d'impôt.</li>
-          <li><strong>Sur CTO :</strong> 120 000 x 31,4% = <strong>37 680€</strong> d'impôt.</li>
-        </ul>
-        <p>Soit <strong>15 360€ d'écart</strong>, juste parce que tu as choisi la bonne enveloppe au départ. Et plus tes gains grossissent, plus l'écart se creuse.</p>
+        <p>Sans rebalancement sur un marché haussier de 10 ans, un portefeuille initialement à 80/20 peut dériver à 95/5 — ce qui est très différent du profil de risque initialement souhaité.</p>
 
-        <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison de l'impôt payé à la sortie sur 120 000€ de plus values : 22 320€ en PEA contre 37 680€ en CTO">
-            <line x1="60" y1="20" x2="60" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="60" y1="190" x2="430" y2="190" stroke="#C8C8DC" stroke-width="1"/>
-            <rect x="120" y="89" width="80" height="101" rx="4" fill="#A0E7C5"/>
-            <rect x="280" y="20" width="80" height="170" rx="4" fill="#C8B4E8"/>
-            <text x="160" y="80" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">22 320€</text>
-            <text x="320" y="11" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">37 680€</text>
-            <text x="160" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">PEA (18,6%)</text>
-            <text x="320" y="208" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" fill="#4A4A6A">CTO (31,4%)</text>
-          </svg>
-          <figcaption>Impôt à la sortie sur 120 000€ de plus values, fiscalité 2026.</figcaption>
-        </figure>
-        <p>Tu peux refaire ce calcul avec tes propres chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>, puis comparer l'impôt exact selon l'enveloppe avec le <a href="calculateur.html#fiscalite">simulateur fiscal PEA, CTO, assurance vie</a>.</p>
+        <h2 id="methodes">Les deux méthodes de rebalancement</h2>
 
-        <h2 id="combiner">La stratégie qui combine les deux</h2>
-        <p>La plupart des investisseurs avancés n'opposent pas PEA et CTO : ils utilisent les deux, dans cet ordre.</p>
-        <ul>
-          <li><strong>Le PEA en priorité</strong> pour le cœur de ton épargne long terme, avec un ETF monde. C'est là que la fiscalité travaille pour toi.</li>
-          <li><strong>Le CTO en complément</strong> une fois le PEA plein, ou pour des actifs non éligibles (un ETF sectoriel, des marchés émergents, un ETP Bitcoin).</li>
-        </ul>
-        <p>L'assurance vie joue un troisième rôle, surtout pour la transmission et après 8 ans. Pour comparer les trois enveloppes côte à côte, lis <a href="article-assurance-vie-pea.html">assurance vie ou PEA</a> et explore le <a href="comparateur-etf.html">comparateur ETF</a> pour choisir les fonds qui rentrent dans chaque enveloppe.</p>
+        <div class="method-card">
+          <div class="method-card-title">Méthode 1 — Rebalancement calendaire</div>
+          <div class="method-card-desc">Tu rééquilibres à intervalles réguliers prédéfinis : une fois par an (ex : chaque janvier), une fois tous les 6 mois. Indépendamment des cours du marché.</div>
+          <div class="method-pros-cons">
+            <div class="method-pros">
+              <strong>Avantages</strong>
+              Simple à automatiser. Pas de surveillance continue. Idéal pour les investisseurs passifs.
+            </div>
+            <div class="method-cons">
+              <strong>Inconvénients</strong>
+              Peut rééquilibrer inutilement si la dérive est minime. Pas de logique de seuil.
+            </div>
+          </div>
+        </div>
+
+        <div class="method-card">
+          <div class="method-card-title">Méthode 2 — Rebalancement par seuil</div>
+          <div class="method-card-desc">Tu rééquilibres uniquement quand l'allocation s'écarte de plus de X % de la cible (ex : ±5 ou ±10 points). Si ta cible est 80/20 et l'actuel est 88/12, tu agis. Sinon, tu n'as rien à faire.</div>
+          <div class="method-pros-cons">
+            <div class="method-pros">
+              <strong>Avantages</strong>
+              Plus efficace en termes de coûts de transaction. N'agit que quand c'est vraiment nécessaire.
+            </div>
+            <div class="method-cons">
+              <strong>Inconvénients</strong>
+              Nécessite une surveillance régulière du portefeuille. Peut créer trop de transactions en marché volatile.
+            </div>
+          </div>
+        </div>
+
+        <p>En pratique, la <strong>combinaison des deux</strong> fonctionne bien : vérification trimestrielle, action uniquement si l'écart dépasse 5 points de pourcentage.</p>
+
+        <h2 id="fiscalite">L'obstacle fiscal : CTO vs PEA</h2>
+        <p>C'est le point le plus important et le moins souvent expliqué. Le coût d'un rebalancement dépend énormément de l'enveloppe dans laquelle tu investis.</p>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>Enveloppe</th><th>Fiscalité du rebalancement</th><th>Conséquence</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>PEA</td><td class="highlight">Aucune (pas de cession imposable)</td><td class="highlight">Rééquilibrage libre, sans coût fiscal</td></tr>
+            <tr><td>Assurance-vie</td><td class="highlight">Aucune (arbitrage interne)</td><td class="highlight">Rééquilibrage libre, sans coût fiscal</td></tr>
+            <tr><td>CTO</td><td class="danger">30 % flat tax sur les plus-values réalisées</td><td class="danger">Chaque vente déclenche un impôt</td></tr>
+          </tbody>
+        </table>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Ce n'est pas PEA contre CTO, c'est PEA puis CTO. Tu remplis d'abord l'enveloppe la plus avantageuse fiscalement, et tu débordes sur le compte titres seulement quand tu as une bonne raison de le faire.</p>
+          <p>Sur un CTO, rééquilibrer = vendre = payer l'impôt. Si tes actions ETF ont doublé, vendre 10 000 € pour rééquilibrer déclenche 5 000 € de plus-value imposables à 30 % = 1 500 € d'impôts. Ce coût fiscal peut dépasser le bénéfice du rééquilibrage. <strong>Réserve le rebalancement actif au PEA et à l'assurance-vie.</strong></p>
         </div>
 
-        <h2 id="erreurs">Les erreurs à éviter</h2>
+        <h2 id="achat-seul">Le rebalancement par les achats</h2>
+        <p>La méthode la plus efficace et la moins coûteuse fiscalement : ne pas vendre, mais <strong>orienter ses nouveaux achats vers les actifs sous-représentés</strong>.</p>
+
+        <h3>Comment ça fonctionne</h3>
+        <p>Si ton allocation est passée de 80/20 à 84/16 (les actions ont surperformé), au lieu de vendre des actions pour racheter des obligations, tu investis ton prochain versement mensuel entièrement en obligations jusqu'à retrouver ton équilibre.</p>
         <ul>
-          <li><strong>Attendre d'avoir de l'argent pour ouvrir son PEA.</strong> Ouvre le tout de suite, même avec 100€, pour lancer le compteur fiscal des 5 ans.</li>
-          <li><strong>Mettre des ETF non éligibles dans le PEA.</strong> Vérifie toujours l'éligibilité PEA avant d'acheter, sinon l'ordre est refusé ou le fonds inadapté.</li>
-          <li><strong>Tout mettre en CTO par méconnaissance.</strong> Tu paies alors 12,8 points d'impôt en plus, sans aucune contrepartie si tu vises le long terme.</li>
-          <li><strong>Faire un retrait sur un PEA de moins de 5 ans.</strong> Tu déclenches la clôture et tu perds le bénéfice du compteur. Garde ton fonds d'urgence ailleurs, sur un livret.</li>
+          <li>Aucune cession → aucune plus-value réalisée → aucun impôt.</li>
+          <li>Fonctionne parfaitement pendant la phase d'accumulation où tu ajoutes régulièrement de l'argent.</li>
+          <li>Peut prendre plusieurs mois pour corriger une forte dérive si les versements sont petits par rapport au portefeuille.</li>
         </ul>
 
-        <h2 id="profils">Quelle enveloppe selon ton profil</h2>
-        <p>Il n'y a pas de réponse unique, mais des situations claires. Voici trois cas typiques.</p>
-        <h3>Tu débutes avec quelques centaines d'euros par mois</h3>
-        <p>Ouvre un PEA, mets en place un versement programmé sur un ETF monde éligible, et oublie le CTO pour l'instant. Tu profites de la meilleure fiscalité sans te compliquer la vie. C'est 90% des cas.</p>
-        <h3>Tu veux des actions américaines ou de la crypto</h3>
-        <p>Le PEA ne le permet pas. Un CTO devient nécessaire pour les actions américaines en direct ou un ETP Bitcoin. Garde l'essentiel de ton épargne long terme sur le PEA, et utilise le CTO comme satellite, pour la part que tu acceptes de voir plus taxée.</p>
-        <h3>Tu as déjà rempli ton PEA</h3>
-        <p>Bravo, tu as versé 150 000€. À partir de là, le CTO prend le relais pour continuer à investir. Tu peux aussi ouvrir une assurance vie pour préparer la transmission et profiter de l'abattement après 8 ans.</p>
+        <p>Cette technique est particulièrement efficace dans les premières années de constitution du portefeuille, quand les versements mensuels représentent une fraction significative du total. Avec un portefeuille de 10 000 € et des versements de 500 €/mois, 2 mois de versements 100 % obligations suffisent souvent à rééquilibrer.</p>
 
-        <h2 id="couts">Combien ça coûte vraiment de détenir un PEA ou un CTO</h2>
-        <p>La fiscalité n'est pas le seul coût à surveiller. Les frais de ton courtier grignotent ton rendement année après année, et sur 20 ans, quelques dixièmes de pourcent font une vraie différence. Trois types de frais à regarder de près.</p>
+        <h2 id="pratique">Guide pratique étape par étape</h2>
+
+        <h3>Étape 1 : définir son allocation cible et ses seuils</h3>
+        <p>Avant de penser au rebalancement, définis par écrit :</p>
         <ul>
-          <li><strong>Les frais de courtage</strong> : ce que tu paies à chaque ordre. Chez les courtiers récents, c'est souvent 1€ par ordre, parfois zéro sur certains ETF.</li>
-          <li><strong>Les droits de garde</strong> : des frais annuels sur la valeur du compte. Les bons courtiers en ligne les ont supprimés, fuis ceux qui en facturent encore.</li>
-          <li><strong>Les frais internes de l'ETF</strong> (le TER) : entre 0,05% et 0,40% par an selon le fonds. Tu ne les vois pas passer, mais ils sont prélevés en continu.</li>
+          <li>Mon allocation cible : ex. 80 % ETF monde / 20 % ETF obligations</li>
+          <li>Mon seuil d'action : je rééquilibre si un actif s'écarte de plus de 5 ou 10 points de sa cible</li>
+          <li>Ma méthode préférée : rebalancement par les achats en priorité, ventes uniquement dans le PEA/AV si l'écart est trop important</li>
         </ul>
-        <p>À enveloppe égale, deux investisseurs avec les mêmes versements peuvent finir avec des dizaines de milliers d'euros d'écart, juste à cause des frais. C'est tout l'enjeu du choix du courtier et de l'ETF. Le <a href="comparateur-etf.html">comparateur ETF</a> te montre l'impact des frais sur le capital final, et l'article <a href="article-dividendes-vs-etf.html">dividendes ou ETF capitalisant</a> explique pourquoi le capitalisant limite la friction fiscale.</p>
 
-        <h2 id="dividendes">PEA, dividendes et capitalisation</h2>
-        <p>Dans un PEA, tu n'es pas imposé tant que tu ne retires pas. Un dividende versé par une action de ton PEA est donc réinvesti sans aucun frottement fiscal. Sur un CTO, à l'inverse, chaque dividende est imposé l'année où il tombe, même si tu comptes le réinvestir.</p>
-        <p>C'est pour ça que beaucoup d'investisseurs privilégient les ETF capitalisants : le fonds réinvestit automatiquement les dividendes en interne, et l'effet des intérêts composés tourne à plein régime. Tu ne paies l'impôt qu'au moment où tu vends, potentiellement des décennies plus tard. Dans un PEA détenu plus de 5 ans, cet impôt se limite aux 18,6% de prélèvements sociaux.</p>
+        <h3>Étape 2 : vérification trimestrielle</h3>
+        <p>Une fois par trimestre (ex : premier week-end de janvier, avril, juillet, octobre), notes les poids actuels de chaque actif. Compare à la cible. Si l'écart est inférieur à ton seuil, rien à faire. Sinon, passe à l'étape 3.</p>
 
-        <h2 id="pratique">Passer à l'action en 4 étapes</h2>
+        <h3>Étape 3 : agir selon l'enveloppe</h3>
         <ol>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher. Compare les options dans la page <a href="parrainage.html">parrainages et courtiers</a>.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste, vers un ETF monde éligible PEA.</li>
-          <li>Quand ton PEA approche du plafond, ou si tu veux un actif non éligible, ouvre un CTO en complément.</li>
-          <li>Laisse le temps et les intérêts composés faire le travail. Tu ne touches à rien, tu restes investi.</li>
+          <li><strong>Dans le PEA ou l'assurance-vie :</strong> vend l'actif sur-représenté, rachète l'actif sous-représenté. Pas d'impact fiscal.</li>
+          <li><strong>Dans le CTO :</strong> n'utilise pas de ventes pour rééquilibrer sauf si l'écart est très important. Oriente plutôt les nouveaux versements vers l'actif sous-représenté.</li>
+          <li><strong>Cas mixte :</strong> si tu as le même ETF en PEA et en CTO, rééquilibre d'abord dans le PEA.</li>
         </ol>
-        <p>Si tu veux la méthode complète, étape par étape, avec le choix des ETF et l'automatisation, c'est tout l'objet de la <a href="formation.html">formation</a>.</p>
 
+        <h3>Étape 4 : ne pas trop rééquilibrer</h3>
+        <p>Le sur-rebalancement est un piège. Des études montrent que des rééquilibrages trop fréquents (hebdomadaires ou mensuels) réduisent souvent le rendement à long terme. La raison : les tendances de marché ont une persistance à court terme. En vendant ce qui monte pour acheter ce qui baisse trop souvent, tu travailles contre le momentum.</p>
+        <p>La fréquence optimale selon les études : une fois par an, ou quand un seuil de 5-10 % est franchi. Pas plus.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Peut-on avoir un PEA et un CTO en même temps ?</summary>
-            <p>Oui, et c'est même la situation la plus courante chez les investisseurs réguliers. Le PEA sert de socle long terme avec sa fiscalité avantageuse, le CTO complète pour les actifs non éligibles ou une fois le plafond atteint.</p>
+            <summary>Faut-il rééquilibrer si on n'a qu'un seul ETF ?</summary>
+            <p>Non. Si tu as uniquement un ETF monde (ex : MSCI World ou ACWI), l'allocation interne est gérée automatiquement par l'indice — les entreprises dont le poids augmente ont plus de poids dans l'indice. Il n'y a rien à rééquilibrer. Le rebalancement ne concerne que les portefeuilles multi-actifs (actions + obligations, ou plusieurs zones géographiques).</p>
           </details>
           <details>
-            <summary>Que se passe-t-il si je retire de mon PEA avant 5 ans ?</summary>
-            <p>En principe, tout retrait avant 5 ans entraîne la clôture du plan, et les gains sont alors imposés à la flat tax de 31,4%. Il existe quelques cas légaux particuliers (licenciement, invalidité) qui autorisent un retrait sans clôture. C'est pourquoi il vaut mieux garder son épargne de précaution sur un livret, pas dans le PEA.</p>
+            <summary>Le rebalancement améliore-t-il le rendement ?</summary>
+            <p>Pas nécessairement en termes de rendement brut — en fait, sur un marché actions haussier de 20 ans, ne jamais rééquilibrer donne souvent un meilleur rendement brut (car tu laisses les actions continuer à croître). Mais le rebalancement réduit le risque et la volatilité, ce qui a une valeur réelle : un portefeuille moins volatile est plus facile à tenir psychologiquement en cas de krach.</p>
           </details>
           <details>
-            <summary>Le plafond de 150 000€ concerne-t-il aussi les gains ?</summary>
-            <p>Non. Le plafond de 150 000€ porte uniquement sur les versements. Tes plus values peuvent faire grimper la valeur du PEA bien au delà, sans aucun problème.</p>
+            <summary>Quelle allocation cible pour quel profil ?</summary>
+            <p>Il n'y a pas de règle universelle, mais voici les grandes tendances : agressif (long terme, 20+ ans) → 90-100 % actions. Équilibré (10-20 ans) → 70-80 % actions, 20-30 % obligations. Prudent (moins de 10 ans ou proche de la retraite) → 50-60 % actions, 40-50 % obligataire/monétaire. L'important est de définir une allocation que tu peux tenir psychologiquement lors d'un krach de -40 %.</p>
           </details>
           <details>
-            <summary>Un ETF monde peut-il vraiment tenir dans un PEA ?</summary>
-            <p>Oui. Des ETF comme le Amundi MSCI World (CW8) ou le WPEA répliquent les marchés mondiaux via une réplication synthétique tout en restant éligibles au PEA. Tu captes la performance mondiale avec la fiscalité française.</p>
-          </details>
-          <details>
-            <summary>Quelle enveloppe choisir si je débute avec un petit budget ?</summary>
-            <p>Le PEA, sans hésiter. Ouvre le dès aujourd'hui, mets en place un versement programmé sur un ETF monde, et laisse le temps travailler. Tu ajouteras un CTO plus tard si tu en as besoin.</p>
+            <summary>Comment gérer le rebalancement avec des actifs en perte ?</summary>
+            <p>Sur un CTO, vendre un actif en perte est fiscalement intéressant : la perte réalisée vient en déduction des gains imposables de l'année. C'est le principe du "tax loss harvesting". Si un actif est en moins-value, c'est souvent le bon moment de le vendre pour réaliser la perte fiscalement utile, puis de le racheter 30 jours plus tard.</p>
           </details>
         </div>
 
@@ -449,17 +372,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_PEA_CTO par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_PEA_CTO = "VIDEO_ID";
+          const VIDEO_ID_REBAL = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_PEA_CTO && VIDEO_ID_ARTICLE_PEA_CTO!=="VIDEO_ID";
+            const has=VIDEO_ID_REBAL && VIDEO_ID_REBAL!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_PEA_CTO+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_REBAL+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -468,42 +390,43 @@
           })();
         </script>
 
-                <div class="article-takeaway">
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
-            <li>PEA : exonération IR après 5 ans, plafond 150 000 €, mais limité aux actions européennes (+ ETF synthétiques).</li>
-            <li>CTO : aucune limite de versement, accès à tous les marchés mondiaux, mais flat tax 30 % sur chaque plus-value.</li>
-            <li>Sur un gain de 15 000 €, le PEA économise environ 1 900 € vs CTO — l'avantage fiscal est concret et mesurable.</li>
-            <li>Le PEA est presque toujours la priorité N°1 pour les actions — CTO seulement pour ce qui n'est pas éligible PEA.</li>
-            <li>Avoir les deux est possible et souvent optimal : PEA pour la croissance long terme, CTO pour les actifs non éligibles.</li>
+            <li>Le rebalancement sert avant tout à contrôler le risque, pas à maximiser le rendement : sans rééquilibrage, une allocation 70/30 peut dériver à 90/10 après un bull market.</li>
+            <li>Sur PEA et assurance-vie : rééquilibre librement, aucune fiscalité. Sur CTO : évite les ventes pour rééquilibrer, préfère orienter les nouveaux achats vers les actifs sous-représentés.</li>
+            <li>La méthode la plus simple et fiscalement efficace : rebalancer par les achats — investis chaque mois dans l'actif le plus en dessous de sa cible.</li>
+            <li>Fréquence optimale : une révision par trimestre, action uniquement si un actif s'écarte de plus de 5 points de sa cible.</li>
+            <li>Ne pas sur-rééquilibrer : les études montrent qu'un rebalancement annuel ou par seuil bat un rebalancement mensuel en termes de rendement net de coûts.</li>
           </ul>
         </div>
 
         <div class="article-cta">
-          <h2>Passe de la théorie à la pratique</h2>
-          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <h2>Construis et gère ton portefeuille ETF sereinement</h2>
+          <p>La formation Julien Invest t'explique comment définir ton allocation cible, choisir tes ETF, et gérer ton portefeuille sur le long terme — sans te prendre la tête.</p>
           <a href="formation.html" class="btn btn-gradient btn--lg">
             Accéder à la formation
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
           </a>
         </div>
+
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-pea-guide-pratique.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">PEA 2026 : ouvrir, alimenter, choisir ses ETF</div>
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">Comment construire une allocation d'actifs solide</div>
               <div class="article-related-meta">14 min · Lire →</div>
             </a>
-            <a href="article-fiscalite-investissement.html" class="article-related-card">
-              <span class="article-related-tag">Fiscalité</span>
-              <div class="article-related-name">Fiscalité des investissements : flat tax ou barème ?</div>
-              <div class="article-related-meta">8 min · Lire →</div>
-            </a>
-            <a href="article-assurance-vie-pea.html" class="article-related-card">
-              <span class="article-related-tag">PEA</span>
-              <div class="article-related-name">Assurance-vie ou PEA : le comparatif complet</div>
+            <a href="article-etf-physique-vs-synthetique.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">ETF physique vs synthétique : lequel choisir ?</div>
               <div class="article-related-meta">9 min · Lire →</div>
+            </a>
+            <a href="article-pea-guide-pratique.html" class="article-related-card">
+              <span class="article-related-tag">Enveloppes fiscales</span>
+              <div class="article-related-name">PEA guide pratique : ouvrir, alimenter, optimiser</div>
+              <div class="article-related-meta">14 min · Lire →</div>
             </a>
           </div>
         </div>
@@ -529,24 +452,15 @@
           <a href="index.html">Accueil</a>
           <a href="formation.html">Formation</a>
           <a href="coaching.html">Coaching</a>
-          <a href="a-propos.html">À propos</a>
-          <a href="parrainage.html">Parrainages</a>
-          <a href="calculateur.html">Calculateur</a>
           <a href="blog.html">Blog</a>
         </div>
         <div class="footer-col">
-          <h4>Articles</h4>
+          <h4>Articles ETF</h4>
           <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
-          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
-          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
-          <a href="article-risque-altcoins.html">Risque des altcoins</a>
-          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
-          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
-          <a href="article-debuter-investissement.html">Débuter en bourse</a>
-          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
-          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
-          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
-          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-etf-physique-vs-synthetique.html">ETF physique vs synthétique</a>
+          <a href="article-allocation-actifs.html">Allocation d'actifs</a>
+          <a href="article-dca.html">La méthode DCA</a>
+          <a href="article-rebalancement-portefeuille.html">Rebalancement</a>
         </div>
         <div class="footer-col">
           <h4>Légal</h4>

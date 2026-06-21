@@ -193,6 +193,23 @@
     .cf-filter-btn:hover, .cf-filter-btn.active { border-color: #6366F1; color: #4338CA; background: #EEF2FF; }
     .cf-search { flex: 1; min-width: 140px; max-width: 220px; border: 1.5px solid var(--grey-5); border-radius: 100px; padding: 6px 14px; font-size: 13px; color: var(--navy); outline: none; }
     .cf-search:focus { border-color: #6366F1; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-private-equity.html">
 </head>
@@ -248,6 +265,22 @@
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
                 <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
               </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
               <div class="nav-dropdown-sep"></div>
               <a href="ressources.html#guides" class="nav-dropdown-item">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
@@ -290,6 +323,10 @@
           <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
           <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
           <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
@@ -710,11 +747,43 @@
           <p>Tu cherches un placement immobilier alternatif avec un horizon plus court et une fiscalité flat tax 30% ? Consulte notre article sur le <a href="article-crowdfunding-immobilier.html">crowdfunding immobilier</a> (Bricks, La Première Brique, Tokimo). Pour protéger une partie de ton patrimoine contre les crises, see aussi notre guide sur l'<a href="article-or-metaux-precieux.html">or et les métaux précieux</a>.</p>
         </div>
 
+                <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Le private equity surperforme les marchés cotés de 3 à 5 % par an sur longue période — au prix d'une illiquidité totale.</li>
+            <li>La J-curve est inévitable : les premières années affichent des valeurs négatives (frais + déploiement lent) avant la remontée.</li>
+            <li>FCPR fiscal : réduction IR de 18 % du montant investi, blocage 5 ans minimum, accessible dès 1 000 €.</li>
+            <li>ELTIF 2.0 (depuis 2024) : nouveau cadre européen, tickets plus bas, accessible via assurance-vie pour certains.</li>
+            <li>Ne jamais dépasser 5-10 % de son patrimoine financier en private equity — l'illiquidité est un risque permanent.</li>
+          </ul>
+        </div>
+
         <div class="article-cta">
           <h2>Construis un patrimoine diversifié, étape par étape</h2>
           <p>ETF, PEA, assurance-vie, SCPI, PE : la formation couvre tout ce qu'il faut savoir pour bâtir un portefeuille solide sans te perdre dans les produits complexes.</p>
           <a href="formation.html" class="btn btn-gradient">Accéder à la formation →</a>
         </div>
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <div class="article-related-name">Allocation d'actifs : quelle place pour l'alternatif ?</div>
+              <div class="article-related-meta">14 min · Lire →</div>
+            </a>
+            <a href="article-investir-grosse-somme.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <div class="article-related-name">Investir 50 000 € : quelle allocation ?</div>
+              <div class="article-related-meta">11 min · Lire →</div>
+            </a>
+            <a href="article-scpi-comparatif.html" class="article-related-card">
+              <span class="article-related-tag">Immobilier</span>
+              <div class="article-related-name">SCPI : l'alternatif immobilier liquide</div>
+              <div class="article-related-meta">15 min · Lire →</div>
+            </a>
+          </div>
+        </div>
+
 
       </div>
     </div>
