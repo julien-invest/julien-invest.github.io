@@ -2,6 +2,72 @@
    JULIEN INVEST — Main JS
    ============================================= */
 
+/* ── GOOGLE ANALYTICS + CONSENTEMENT COOKIES (CNIL) ──
+   Le suivi ne se déclenche qu'après acceptation explicite.
+   Choix mémorisé dans localStorage (ji-consent: granted | denied). */
+(function () {
+  var GA_ID = 'G-VGHP5MBFBX';
+  var KEY = 'ji-consent';
+
+  function loadGA() {
+    if (window.__jiGaLoaded) return;
+    window.__jiGaLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  var choice = null;
+  try { choice = localStorage.getItem(KEY); } catch (e) {}
+  if (choice === 'granted') { loadGA(); return; }
+  if (choice === 'denied') { return; }
+
+  function buildBanner() {
+    if (document.querySelector('.cookie-consent')) return;
+    var bar = document.createElement('div');
+    bar.className = 'cookie-consent';
+    bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-label', 'Consentement aux cookies de mesure d’audience');
+    bar.innerHTML =
+      '<p class="cookie-consent-text">Ce site utilise des cookies de mesure d’audience (Google Analytics) ' +
+      'pour comprendre comment il est consulté et l’améliorer. Tu peux accepter ou refuser. ' +
+      '<a href="mentions-legales.html">En savoir plus</a>.</p>' +
+      '<div class="cookie-consent-actions">' +
+      '<button type="button" class="cookie-consent-btn cookie-consent-refuse">Refuser</button>' +
+      '<button type="button" class="cookie-consent-btn cookie-consent-accept">Accepter</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+
+    // Les guides sont dans /guides/ : corriger le lien "En savoir plus"
+    if (/\/guides\//.test(window.location.pathname)) {
+      var lnk = bar.querySelector('a');
+      if (lnk) lnk.setAttribute('href', '../mentions-legales.html');
+    }
+
+    function close(decision) {
+      try { localStorage.setItem(KEY, decision); } catch (e) {}
+      bar.classList.remove('visible');
+      setTimeout(function () { bar.remove(); }, 300);
+    }
+    bar.querySelector('.cookie-consent-accept').addEventListener('click', function () {
+      loadGA();
+      close('granted');
+    });
+    bar.querySelector('.cookie-consent-refuse').addEventListener('click', function () {
+      close('denied');
+    });
+    requestAnimationFrame(function () { bar.classList.add('visible'); });
+  }
+
+  if (document.body) buildBanner();
+  else document.addEventListener('DOMContentLoaded', buildBanner);
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── NAV SCROLL ───────────────────────────────
