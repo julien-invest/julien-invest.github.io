@@ -1312,9 +1312,7 @@
         return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n));
       }
       function fmtK(n) {
-        if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.', ',') + ' M€';
-        if (n >= 1000)    return Math.round(n / 1000) + ' k€';
-        return Math.round(n) + ' €';
+        return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Math.round(n));
       }
       function fv(rate, nper, pmt) {
         if (rate === 0) return pmt * nper;

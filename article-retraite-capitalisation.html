@@ -736,9 +736,7 @@
   <script>
   (function() {
     function fmt(n) {
-      if (n >= 1000000) return (n/1000000).toFixed(2).replace('.',',') + ' M€';
-      if (n >= 1000) return Math.round(n/1000) + ' k€';
-      return Math.round(n) + ' €';
+      return Math.round(n).toLocaleString('fr-FR') + ' €';
     }
     function calcCapital(monthly, rate, years) {
       const r = rate / 100 / 12;

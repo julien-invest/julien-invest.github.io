@@ -398,7 +398,7 @@
               <div class="dca-field-label"><span>Montant mensuel</span></div>
               <div class="dca-field-input">
                 <input type="range" id="dca-pmt-range" min="10" max="2000" step="10" value="200">
-                <input type="number" id="dca-pmt-num" min="10" max="2000" step="10" value="200"> €
+                <input type="text" inputmode="numeric" id="dca-pmt-num" min="10" max="2000" step="10" value="200"> €
               </div>
             </div>
             <div class="dca-field">
@@ -419,7 +419,7 @@
               <div class="dca-field-label"><span>Versement initial (optionnel)</span></div>
               <div class="dca-field-input">
                 <input type="range" id="dca-pv-range" min="0" max="50000" step="100" value="0">
-                <input type="number" id="dca-pv-num" min="0" max="50000" step="100" value="0"> €
+                <input type="text" inputmode="numeric" id="dca-pv-num" min="0" max="50000" step="100" value="0"> €
               </div>
             </div>
           </div>
@@ -702,6 +702,8 @@
   <script>
   (function(){
     var euro = function(v){ return Math.round(v).toLocaleString('fr-FR') + '€'; };
+    var fmtInputNum = function(v){ return Math.round(v).toLocaleString('fr-FR'); };
+    var parseInputNum = function(s){ return parseFloat(String(s).replace(/\s/g, '').replace(',', '.')) || 0; };
 
     var fields = {
       pmt:   { range: 'dca-pmt-range',   num: 'dca-pmt-num' },
@@ -721,10 +723,10 @@
     var chart = null;
 
     function compute(){
-      var pmt   = parseFloat(document.getElementById('dca-pmt-num').value)   || 0;
+      var pmt   = parseInputNum(document.getElementById('dca-pmt-num').value);
       var years = parseInt(document.getElementById('dca-years-num').value, 10) || 1;
       var rate  = parseFloat(document.getElementById('dca-rate-num').value)  || 0;
-      var pv    = parseFloat(document.getElementById('dca-pv-num').value)    || 0;
+      var pv    = parseInputNum(document.getElementById('dca-pv-num').value);
 
       var r = (rate / 100) / 12;           // taux mensuel
       var labels = [], invested = [], portfolio = [];
@@ -823,16 +825,27 @@
     }
 
     // Synchronisation slider <-> input numérique + recalcul temps réel
+    var euroFields = { pmt: true, pv: true };
     Object.keys(fields).forEach(function(key){
       var range = document.getElementById(fields[key].range);
       var num = document.getElementById(fields[key].num);
-      range.addEventListener('input', function(){ num.value = range.value; compute(); });
+      var isEuro = !!euroFields[key];
+      range.addEventListener('input', function(){
+        num.value = isEuro ? fmtInputNum(parseFloat(range.value)) : range.value;
+        compute();
+      });
       num.addEventListener('input', function(){
-        var v = clamp(num, parseFloat(num.value));
+        var raw = isEuro ? parseInputNum(num.value) : parseFloat(num.value);
+        var v = clamp(num, raw);
         range.value = v;
         compute();
       });
-      num.addEventListener('blur', function(){ num.value = clamp(num, parseFloat(num.value)); compute(); });
+      num.addEventListener('blur', function(){
+        var raw = isEuro ? parseInputNum(num.value) : parseFloat(num.value);
+        var v = clamp(num, raw);
+        num.value = isEuro ? fmtInputNum(v) : v;
+        compute();
+      });
     });
 
     if (typeof Chart !== 'undefined') {
