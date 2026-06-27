@@ -66,7 +66,42 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur / visuels enrichis (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(22px,4vw,30px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-res-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; background: #A0E7C5; color: var(--navy); padding: 3px 10px; border-radius: 100px; font-family: var(--font-head); }
+    .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
+    @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
+    /* Infographie règles AV vs PEA */
+    .ji-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0 36px; }
+    @media (max-width: 680px) { .ji-rules { grid-template-columns: 1fr; } }
+    .ji-rule-col { border-radius: 16px; padding: 22px; }
+    .ji-rule-col.pea { background: linear-gradient(160deg,#EAF8F1,#D6F2E4); }
+    .ji-rule-col.av { background: linear-gradient(160deg,#F2EBFB,#E4D6F5); }
+    .ji-rule-head { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 16px; }
+    .ji-rule-head svg { flex: none; }
+    .ji-rule-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; font-size: 13.5px; color: var(--grey-1); line-height: 1.5; }
+    .ji-rule-item b { color: var(--navy); }
+    .ji-rule-item .ji-rule-ico { flex: none; margin-top: 1px; }
   </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="canonical" href="https://julien-invest.github.io/article-assurance-vie-pea.html">
   <script type="application/ld+json">
 {
@@ -325,6 +360,45 @@
         </figure>
         <p>Pour chiffrer ta situation précise, le <a href="calculateur.html#fiscalite">simulateur fiscal</a> compare l'impôt à la sortie sur le PEA, le CTO et l'assurance vie.</p>
 
+        <div class="ji-sim" id="avpea-sim">
+          <div class="ji-sim-title">Simulateur : capital net après impôts, PEA vs assurance vie</div>
+          <div class="ji-sim-sub">Compare ce qu'il te reste vraiment, une fois la fiscalité 2026 appliquée à la sortie.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Capital investi <span class="ji-val" id="ap-cap-val">20 000 €</span></label>
+              <input type="range" id="ap-cap" min="1000" max="150000" step="1000" value="20000">
+            </div>
+            <div class="ji-field">
+              <label>Durée <span class="ji-val" id="ap-dur-val">15 ans</span></label>
+              <input type="range" id="ap-dur" min="1" max="30" step="1" value="15">
+            </div>
+            <div class="ji-field">
+              <label>Rendement annuel <span class="ji-val" id="ap-rend-val">6,0 %</span></label>
+              <input type="range" id="ap-rend" min="1" max="12" step="0.5" value="6">
+            </div>
+            <div class="ji-field">
+              <label>Foyer <span class="ji-val" id="ap-foyer-val">Personne seule</span></label>
+              <input type="range" id="ap-foyer" min="0" max="1" step="1" value="0">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card" id="ap-card-pea">
+              <div class="ji-res-label">PEA (> 5 ans)</div>
+              <div class="ji-res-val" id="ap-pea">—</div>
+              <div class="ji-res-sub">Net après 18,6 % de prélèvements sociaux</div>
+              <span class="ji-res-badge" id="ap-pea-badge" style="display:none;">Plus avantageux</span>
+            </div>
+            <div class="ji-res-card" id="ap-card-av">
+              <div class="ji-res-label">Assurance vie (> 8 ans)</div>
+              <div class="ji-res-val" id="ap-av">—</div>
+              <div class="ji-res-sub" id="ap-av-sub">Net après abattement + 24,7 %</div>
+              <span class="ji-res-badge" id="ap-av-badge" style="display:none;">Plus avantageux</span>
+            </div>
+          </div>
+          <div class="ji-chart-wrap"><canvas id="ap-chart"></canvas></div>
+          <p class="ji-sim-note">Hypothèses simplifiées : capital placé une fois, rendement constant, sortie en une fois. AV après 8 ans avec abattement annuel (4 600 € seul / 9 200 € couple) appliqué au gain, puis 7,5 % IR + 17,2 % PS. PEA après 5 ans : 18,6 % de PS, exonéré d'IR. Estimation pédagogique, pas un conseil fiscal personnalisé.</p>
+        </div>
+
         <h2 id="succession">L'atout caché de l'assurance vie : la transmission</h2>
         <p>C'est là que l'assurance vie devient imbattable, et que le PEA ne peut tout simplement pas rivaliser. Les capitaux transmis via une assurance vie bénéficient d'un régime hors succession. Chaque bénéficiaire que tu désignes peut recevoir jusqu'à 152 500€ en totale exonération de droits de succession, pour les primes versées avant tes 70 ans.</p>
         <p>Concrètement, l'assurance vie te permet de transmettre un capital important à tes proches, en dehors du cadre classique de l'héritage, avec une fiscalité très douce. Le PEA, lui, est clôturé au décès et intègre la succession normale. Si la transmission fait partie de tes objectifs, l'assurance vie n'a pas d'équivalent.</p>
@@ -348,6 +422,31 @@
             <tr><td>Avantage successoral</td><td class="no">Non</td><td class="yes">Oui, jusqu'à 152 500€ par bénéficiaire</td></tr>
           </tbody>
         </table>
+
+        <div class="ji-rules">
+          <div class="ji-rule-col pea">
+            <div class="ji-rule-head">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+              PEA — les règles clés
+            </div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Plafond 150 000 €</b> de versements (225 000 € avec le PEA-PME).</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Cap fiscal à 5 ans</b> : avant, retrait = clôture + flat tax 31,4 %.</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Après 5 ans : <b>exonéré d'IR</b>, seuls 18,6 % de PS s'appliquent.</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Actions et <b>ETF européens</b> (monde via ETF synthétiques).</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span>Strictement <b>individuel</b>, clôturé au décès, pas d'atout successoral.</span></div>
+          </div>
+          <div class="ji-rule-col av">
+            <div class="ji-rule-head">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Assurance vie — les règles clés
+            </div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Aucun plafond</b> de versement.</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span><b>Cap fiscal à 8 ans</b> : abattement annuel 4 600 € (9 200 € couple) puis 7,5 % IR + 17,2 % PS.</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>PS restés à <b>17,2 %</b> (non concernée par la hausse 2026).</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Fonds euros + UC : <b>ETF, immobilier, diversification</b>.</span></div>
+            <div class="ji-rule-item"><svg class="ji-rule-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Transmission : <b>152 500 € par bénéficiaire</b> hors succession (primes avant 70 ans).</span></div>
+          </div>
+        </div>
 
         <h2 id="choisir">Laquelle choisir selon ton objectif</h2>
         <p>Tout dépend de ce que tu veux faire de ton argent.</p>
@@ -527,6 +626,77 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const els = {
+      cap: document.getElementById('ap-cap'), dur: document.getElementById('ap-dur'),
+      rend: document.getElementById('ap-rend'), foyer: document.getElementById('ap-foyer'),
+      capV: document.getElementById('ap-cap-val'), durV: document.getElementById('ap-dur-val'),
+      rendV: document.getElementById('ap-rend-val'), foyerV: document.getElementById('ap-foyer-val'),
+      pea: document.getElementById('ap-pea'), av: document.getElementById('ap-av'),
+      avSub: document.getElementById('ap-av-sub'),
+      cardPea: document.getElementById('ap-card-pea'), cardAv: document.getElementById('ap-card-av'),
+      badgePea: document.getElementById('ap-pea-badge'), badgeAv: document.getElementById('ap-av-badge')
+    };
+    if(!els.cap) return;
+    let chart;
+    function netSeries(cap, dur, r, abatt){
+      const pea=[], av=[];
+      for(let y=0; y<=dur; y++){
+        const val = cap*Math.pow(1+r,y);
+        const gain = val-cap;
+        // PEA: exonéré IR après 5 ans, 18,6% PS sur le gain
+        const peaNet = cap + gain*(1-0.186);
+        // AV après 8 ans: abattement annuel sur le gain, puis 7,5%+17,2%=24,7%
+        const taxableGain = Math.max(0, gain-abatt);
+        const avNet = cap + (gain-taxableGain) + taxableGain*(1-0.247);
+        pea.push(Math.round(peaNet)); av.push(Math.round(avNet));
+      }
+      return {pea, av};
+    }
+    function calc(){
+      const cap=+els.cap.value, dur=+els.dur.value, r=+els.rend.value/100, couple=+els.foyer.value===1;
+      const abatt = couple?9200:4600;
+      els.capV.textContent=fmtE(cap);
+      els.durV.textContent=dur+' an'+(dur>1?'s':'');
+      els.rendV.textContent=(+els.rend.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      els.foyerV.textContent=couple?'Couple':'Personne seule';
+      els.avSub.textContent='Net après abattement '+fmtE(abatt)+' + 24,7 %';
+      const s=netSeries(cap,dur,r,abatt);
+      const finPea=s.pea[dur], finAv=s.av[dur];
+      els.pea.textContent=fmtE(finPea);
+      els.av.textContent=fmtE(finAv);
+      const peaWin=finPea>=finAv;
+      els.cardPea.classList.toggle('win',peaWin);
+      els.cardAv.classList.toggle('win',!peaWin);
+      els.badgePea.style.display=peaWin?'inline-block':'none';
+      els.badgeAv.style.display=peaWin?'none':'inline-block';
+      const labels=Array.from({length:dur+1},(_,i)=>'A'+i);
+      if(!chart){
+        chart=new Chart(document.getElementById('ap-chart'),{
+          type:'line',
+          data:{labels,datasets:[
+            {label:'PEA net',data:s.pea,borderColor:'#1A1A4E',backgroundColor:'rgba(160,231,197,0.15)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0},
+            {label:'Assurance vie nette',data:s.av,borderColor:'#9B6FD6',backgroundColor:'rgba(200,180,232,0.12)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0}
+          ]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{labels:{font:{family:'DM Sans'},boxWidth:14}},
+              tooltip:{callbacks:{label:c=>c.dataset.label+': '+fmtE(c.parsed.y)}}},
+            scales:{y:{ticks:{callback:v=>new Intl.NumberFormat('fr-FR',{notation:'compact'}).format(v)+' €',font:{family:'DM Sans'}}},
+              x:{ticks:{font:{family:'DM Sans'},maxTicksLimit:8}}}}
+        });
+      } else {
+        chart.data.labels=labels;
+        chart.data.datasets[0].data=s.pea;
+        chart.data.datasets[1].data=s.av;
+        chart.update();
+      }
+    }
+    [els.cap,els.dur,els.rend,els.foyer].forEach(e=>e.addEventListener('input',calc));
+    if(window.Chart) calc(); else window.addEventListener('load',calc);
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

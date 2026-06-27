@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fiscalité crypto en France 2026 : comment déclarer et combien payer | Julien Invest</title>
-  <meta name="description" content="Fiscalité crypto France 2026 : PFU 30%, formulaire 2086, PAMP, comptes étrangers à déclarer, staking imposé en BNC. Tout ce qu'il faut savoir pour déclarer correctement ses cryptomonnaies.">
+  <meta name="description" content="Fiscalité crypto France 2026 : PFU 31,4%, formulaire 2086, PAMP, comptes étrangers à déclarer, staking imposé en BNC. Tout ce qu'il faut savoir pour déclarer correctement ses cryptomonnaies.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Fiscalité crypto en France 2026 : comment déclarer et combien payer | Julien Invest">
-  <meta property="og:description" content="PFU 30% sur les cessions crypto, formulaire 2086, PAMP, comptes étrangers à déclarer, tout ce qu'il faut savoir pour ne pas avoir de mauvaise surprise au moment de la déclaration.">
+  <meta property="og:description" content="PFU 31,4% sur les cessions crypto, formulaire 2086, PAMP, comptes étrangers à déclarer, tout ce qu'il faut savoir pour ne pas avoir de mauvaise surprise au moment de la déclaration.">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
   <meta property="og:url" content="https://julien-invest.github.io/article-fiscalite-crypto.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Fiscalité crypto France 2026 : déclarer et payer le bon montant | Julien Invest">
-  <meta name="twitter:description" content="PFU 30%, formulaire 2086, PAMP, comptes étrangers : le guide complet pour déclarer tes cryptos sans stress en 2026.">
+  <meta name="twitter:description" content="PFU 31,4%, formulaire 2086, PAMP, comptes étrangers : le guide complet pour déclarer tes cryptos sans stress en 2026.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Fiscalité crypto en France 2026 : comment déclarer et combien payer",
-  "description": "Fiscalité crypto France 2026 : PFU 30%, formulaire 2086, PAMP, comptes étrangers à déclarer, staking imposé en BNC.",
+  "description": "Fiscalité crypto France 2026 : PFU 31,4%, formulaire 2086, PAMP, comptes étrangers à déclarer, staking imposé en BNC.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
   "datePublished": "2026-06-22",
@@ -87,6 +87,40 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur impôt crypto (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(22px,4vw,30px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-res-badge { display: inline-block; margin-top: 8px; font-size: 11px; font-weight: 700; background: #A0E7C5; color: var(--navy); padding: 3px 10px; border-radius: 100px; font-family: var(--font-head); }
+    .ji-verdict { background: var(--navy); color: #fff; border-radius: 12px; padding: 14px 18px; font-size: 14px; font-family: var(--font-head); font-weight: 600; text-align: center; }
+    .ji-verdict b { color: #A0E7C5; }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
+    /* Timeline déclaration */
+    .ji-timeline { margin: 28px 0 36px; }
+    .ji-tl-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 18px; }
+    .ji-tl-steps { display: grid; grid-template-columns: repeat(5,1fr); gap: 0; position: relative; }
+    @media (max-width: 680px) { .ji-tl-steps { grid-template-columns: 1fr; gap: 14px; } }
+    .ji-tl-step { text-align: center; padding: 0 6px; position: relative; }
+    .ji-tl-step .ji-tl-dot { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg,#C8B4E8,#A0E7C5); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; position: relative; z-index: 2; }
+    .ji-tl-step:not(:last-child)::after { content: ''; position: absolute; top: 22px; left: 50%; width: 100%; height: 3px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); z-index: 1; }
+    @media (max-width: 680px) { .ji-tl-step:not(:last-child)::after { display: none; } .ji-tl-step { display: flex; align-items: center; gap: 14px; text-align: left; } .ji-tl-step .ji-tl-dot { margin: 0; } }
+    .ji-tl-name { font-family: var(--font-head); font-weight: 700; font-size: 13px; color: var(--navy); margin-bottom: 4px; }
+    .ji-tl-desc { font-size: 11.5px; color: var(--grey-2); line-height: 1.4; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-fiscalite-crypto.html">
 </head>
@@ -222,7 +256,7 @@
         <span class="t-label">Crypto</span>
         <h1>Fiscalité crypto France 2026 :<br><em>déclarer sans se tromper</em></h1>
         <p class="article-meta-date">Publié le 22 juin 2026 · 13 min de lecture</p>
-        <p>PFU à 30%, formulaire 2086, PAMP, comptes sur plateformes étrangères à déclarer, tout ce qu'il faut savoir pour ne pas avoir de mauvaise surprise lors de ta déclaration d'impôts.</p>
+        <p>PFU à 31,4% depuis 2026, formulaire 2086, PAMP, comptes sur plateformes étrangères à déclarer, tout ce qu'il faut savoir pour ne pas avoir de mauvaise surprise lors de ta déclaration d'impôts.</p>
       </div>
     </div>
   </section>
@@ -232,10 +266,10 @@
       <div class="article-body">
         <span class="article-tag">Crypto</span>
 
-        <p>La France impose les cryptomonnaies depuis la loi de finances pour 2019 (article 150 VH bis du Code général des impôts). Depuis, les règles ont été précisées et sont relativement stables. En 2026, le cadre fiscal est clair : les <strong>plus-values réalisées lors de cessions de crypto-actifs contre des euros (ou d'autres monnaies légales) sont imposées au taux fixe de 30%</strong> (PFU, Prélèvement Forfaitaire Unique). Ce qui change la donne par rapport aux idées reçues, c'est ce qui est ou n'est pas imposable.</p>
+        <p>La France impose les cryptomonnaies depuis la loi de finances pour 2019 (article 150 VH bis du Code général des impôts). Depuis, les règles ont été précisées et sont relativement stables. En 2026, le cadre fiscal est clair : les <strong>plus-values réalisées lors de cessions de crypto-actifs contre des euros (ou d'autres monnaies légales) sont imposées au taux fixe de 31,4%</strong> (PFU, Prélèvement Forfaitaire Unique, en vigueur depuis le 1er janvier 2026 suite à la hausse de 1,4 point des prélèvements sociaux). Ce qui change la donne par rapport aux idées reçues, c'est ce qui est ou n'est pas imposable.</p>
 
         <div class="stats-bar">
-          <div class="stats-bar-item"><div class="stats-bar-num">30%</div><div class="stats-bar-label">PFU sur les cessions (flat tax)</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">31,4%</div><div class="stats-bar-label">PFU sur les cessions (flat tax)</div></div>
           <div class="stats-bar-item"><div class="stats-bar-num">0%</div><div class="stats-bar-label">Échanges crypto/crypto non imposés</div></div>
           <div class="stats-bar-item"><div class="stats-bar-num">2086</div><div class="stats-bar-label">Formulaire à remplir</div></div>
           <div class="stats-bar-item"><div class="stats-bar-num">3916-bis</div><div class="stats-bar-label">Comptes étrangers à déclarer</div></div>
@@ -276,7 +310,7 @@
               <tr>
                 <td>Vendre du Bitcoin contre des euros</td>
                 <td class="no">Oui</td>
-                <td>PFU 30% sur la plus-value</td>
+                <td>PFU 31,4% sur la plus-value</td>
               </tr>
               <tr>
                 <td>Échanger du Bitcoin contre de l'Ethereum</td>
@@ -286,7 +320,7 @@
               <tr>
                 <td>Payer un achat en cryptos (bien ou service)</td>
                 <td class="no">Oui</td>
-                <td>PFU 30%, considéré comme une cession</td>
+                <td>PFU 31,4%, considéré comme une cession</td>
               </tr>
               <tr>
                 <td>Donner des cryptos (don à titre gratuit)</td>
@@ -335,7 +369,7 @@
           <div class="pamp-line"><span class="pamp-label">Vente : 0,5 Bitcoin à 60 000€/BTC</span><span class="pamp-val">30 000€ reçus</span></div>
           <div class="pamp-line"><span class="pamp-label">Quote-part du coût d'acquisition cédée : 50 000 × (30 000 / 90 000)</span><span class="pamp-val">16 667€</span></div>
           <div class="pamp-line"><span class="pamp-label"><strong>Plus-value imposable</strong> : 30 000 − 16 667</span><span class="pamp-val positive">+13 333€</span></div>
-          <div class="pamp-line"><span class="pamp-label"><strong>Impôt dû (PFU 30%)</strong></span><span class="pamp-val tax">4 000€</span></div>
+          <div class="pamp-line"><span class="pamp-label"><strong>Impôt dû (PFU 31,4%)</strong></span><span class="pamp-val tax">4 187€</span></div>
         </div>
 
         <p>Ce calcul doit être répété pour <strong>chaque cession</strong> effectuée dans l'année. Si tu as vendu 50 fois dans l'année, tu as 50 calculs à faire. C'est pourquoi la quasi-totalité des investisseurs actifs utilisent un logiciel dédié (Waltio, Koinly, CoinTracking, Cryptio…) qui automatise ce calcul à partir de l'import de tes historiques de transactions.</p>
@@ -347,19 +381,76 @@
 
         <p>La déclaration des plus-values crypto nécessite deux formulaires en plus de ta déclaration de revenus principale (2042).</p>
 
+        <div class="ji-timeline">
+          <div class="ji-tl-title">Le parcours de ta déclaration, étape par étape</div>
+          <div class="ji-tl-steps">
+            <div class="ji-tl-step">
+              <div class="ji-tl-dot">1</div>
+              <div><div class="ji-tl-name">Export CSV</div><div class="ji-tl-desc">Récupère l'historique de chaque plateforme (Binance, Kraken, Coinbase…).</div></div>
+            </div>
+            <div class="ji-tl-step">
+              <div class="ji-tl-dot">2</div>
+              <div><div class="ji-tl-name">Calcul PAMP</div><div class="ji-tl-desc">Plus-value par cession via la méthode officielle (souvent un logiciel dédié).</div></div>
+            </div>
+            <div class="ji-tl-step">
+              <div class="ji-tl-dot">3</div>
+              <div><div class="ji-tl-name">Formulaire 2086</div><div class="ji-tl-desc">Détaille chaque cession imposable de l'année.</div></div>
+            </div>
+            <div class="ji-tl-step">
+              <div class="ji-tl-dot">4</div>
+              <div><div class="ji-tl-name">2042 C</div><div class="ji-tl-desc">Report du total : case 3AN (plus-value) ou 3BN (moins-value). + 3916-bis comptes étrangers.</div></div>
+            </div>
+            <div class="ji-tl-step">
+              <div class="ji-tl-dot">5</div>
+              <div><div class="ji-tl-name">Paiement</div><div class="ji-tl-desc">PFU 31,4 % calculé automatiquement par l'administration.</div></div>
+            </div>
+          </div>
+        </div>
+
         <h3>Formulaire 2086, Cessions de crypto-actifs</h3>
         <p>C'est le formulaire central. Il détaille <strong>chaque cession imposable</strong> effectuée dans l'année : date, prix de cession, valeur du portefeuille au moment de la cession, coût global d'acquisition, plus-value ou moins-value calculée. Un formulaire à remplir par cession, ou par regroupement cohérent si tu utilises un logiciel fiscal. Le total des plus-values nettes est ensuite reporté sur la 2042 C (case 3AN pour les plus-values, 3BN pour les moins-values).</p>
 
         <h3>Formulaire 2042 C, Report du total</h3>
-        <p>La plus-value nette totale (après imputation des moins-values éventuelles) est reportée en case 3AN. Si tu es en moins-value nette sur l'année, tu reportes en case 3BN. L'impôt au taux de 30% est calculé automatiquement.</p>
+        <p>La plus-value nette totale (après imputation des moins-values éventuelles) est reportée en case 3AN. Si tu es en moins-value nette sur l'année, tu reportes en case 3BN. L'impôt au taux de 31,4% est calculé automatiquement.</p>
 
         <div class="info-box">
-          <strong>Option barème.</strong> Tu peux opter pour le barème progressif de l'IR à la place du PFU (option globale qui s'applique à tous tes revenus de capitaux mobiliers). Cette option peut être avantageuse si ta TMI est inférieure à 11% (tranche à 0% ou 11%). Pour la grande majorité des contribuables, le PFU à 30% reste plus avantageux.
+          <strong>Option barème.</strong> Tu peux opter pour le barème progressif de l'IR à la place du PFU (option globale qui s'applique à tous tes revenus de capitaux mobiliers). Cette option peut être avantageuse si ta TMI est inférieure à 11% (tranche à 0% ou 11%). Pour la grande majorité des contribuables, le PFU à 31,4% reste plus avantageux.
+        </div>
+
+        <div class="ji-sim" id="crypto-sim">
+          <div class="ji-sim-title">Simulateur : PFU 31,4 % vs option barème progressif</div>
+          <div class="ji-sim-sub">Entre ta plus-value nette et ta tranche marginale d'imposition pour voir le régime le plus avantageux.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Plus-value nette imposable <span class="ji-val" id="cr-pv-val">10 000 €</span></label>
+              <input type="range" id="cr-pv" min="500" max="200000" step="500" value="10000">
+            </div>
+            <div class="ji-field">
+              <label>Ta tranche marginale (TMI) <span class="ji-val" id="cr-tmi-val">30 %</span></label>
+              <input type="range" id="cr-tmi" min="0" max="4" step="1" value="2">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card" id="cr-card-pfu">
+              <div class="ji-res-label">PFU (flat tax 31,4 %)</div>
+              <div class="ji-res-val" id="cr-pfu">—</div>
+              <div class="ji-res-sub">12,8 % IR + 18,6 % PS</div>
+              <span class="ji-res-badge" id="cr-pfu-badge" style="display:none;">Plus avantageux</span>
+            </div>
+            <div class="ji-res-card" id="cr-card-bar">
+              <div class="ji-res-label">Option barème</div>
+              <div class="ji-res-val" id="cr-bar">—</div>
+              <div class="ji-res-sub" id="cr-bar-sub">TMI + 18,6 % PS</div>
+              <span class="ji-res-badge" id="cr-bar-badge" style="display:none;">Plus avantageux</span>
+            </div>
+          </div>
+          <div class="ji-verdict" id="cr-verdict">—</div>
+          <p class="ji-sim-note">Calcul simplifié : barème = TMI × plus-value + 18,6 % de PS (sans tenir compte de la CSG déductible ni d'un éventuel abattement). L'option barème est globale et s'applique à tous tes revenus de capitaux mobiliers : à confirmer avec un fiscaliste. Estimation pédagogique, pas un conseil personnalisé.</p>
         </div>
 
         <h2 id="comptes-etrangers">Déclarer ses comptes sur plateformes étrangères</h2>
 
-        <p>C'est l'obligation la moins connue et pourtant l'une des plus importantes. <strong>Tout compte ouvert sur une plateforme crypto établie à l'étranger</strong> (Binance, Kraken, Coinbase, Bybit, OKX…) doit être déclaré à l'administration fiscale française, via le <strong>formulaire 3916-bis</strong>, même si le compte est vide ou n'a généré aucun revenu.</p>
+        <p>C'est l'obligation la moins connue et pourtant l'une des plus importantes. <strong>Tout compte ouvert sur une plateforme crypto établie à l'étranger</strong> (Binance, Kraken, Coinbase, Bybit, OKX…) doit être déclaré à l'administration fiscale française, via le <strong>formulaire 3916-bis</strong>, même si le compte est vide ou n'a généré aucun revenu. En 2026, ces cinq plateformes sont toutes présentes sur la liste blanche de l'AMF et/ou titulaires d'une licence MiCA européenne — elles restent des références valides pour les investisseurs français. OKX a été la première plateforme à décrocher la licence MiCA en France (février 2026).</p>
 
         <p>Ce formulaire doit être joint à ta déclaration de revenus. Il demande :</p>
         <ul>
@@ -368,8 +459,12 @@
           <li>La période d'utilisation</li>
         </ul>
 
+        <div class="info-box">
+          <strong>📌 Mon compte a un IBAN français — dois-je quand même déclarer ?</strong> Oui. Certaines plateformes (Coinbase, Binance, Kraken) proposent désormais aux utilisateurs français un <strong>IBAN au format FR</strong> (IBAN commençant par FR…), via des partenaires bancaires. Cela facilite les virements SEPA, mais ne change rien à l'obligation fiscale : ce qui compte pour le 3916-bis, c'est <strong>l'établissement de la plateforme</strong>, pas le pays du code IBAN. Une plateforme établie à l'étranger avec un IBAN français reste un compte étranger à déclarer.
+        </div>
+
         <div class="danger-box">
-          <strong>⚠ Sanctions en cas d'omission.</strong> L'oubli de déclaration d'un compte étranger est sanctionné d'une amende de <strong>750€ par compte non déclaré</strong> (portée à 1 500€ si la valeur du compte dépasse 50 000€). En cas de fraude délibérée, les sanctions peuvent aller bien au-delà. Depuis 2020, les plateformes ont l'obligation de transmettre les informations sur leurs utilisateurs aux autorités fiscales des pays concernés.
+          <strong>⚠ Sanctions en cas d'omission.</strong> L'oubli de déclaration d'un compte étranger est sanctionné d'une amende de <strong>750€ par compte non déclaré</strong> (portée à 1 500€ si la valeur du compte dépasse 50 000€). En cas de fraude délibérée, les sanctions peuvent aller bien au-delà. Depuis le <strong>1er janvier 2026, la directive DAC8 est entrée en vigueur</strong> : les plateformes crypto ont désormais l'obligation de transmettre automatiquement et systématiquement l'historique complet de tes transactions à l'administration fiscale française. L'administration sait déjà ce que tu as fait — ne pas déclarer devient encore plus risqué.
         </div>
 
         <p>Les wallets personnels (Ledger, MetaMask, cold wallet auto-custodié) ne sont <strong>pas</strong> des comptes à déclarer via le 3916-bis, ce sont des portefeuilles que tu contrôles directement, pas des comptes auprès d'un tiers.</p>
@@ -395,7 +490,7 @@
           <li><strong>Ne pas vendre.</strong> La plus-value n'existe que lors de la cession. Tant que tu hodl, zéro impôt. C'est la première "optimisation", et la plus simple.</li>
           <li><strong>Matérialiser des moins-values.</strong> Si tu es en moins-value sur une position dans l'année, la vendre (et la racheter si tu veux garder la position) matérialise la perte, qui viendra s'imputer sur tes plus-values de l'année. Attention : en crypto, il n'y a pas de règle de "wash sale" comme aux États-Unis, tu peux racheter immédiatement.</li>
           <li><strong>Étaler les cessions.</strong> Si tu anticipes des plus-values importantes, les répartir sur deux exercices fiscaux (avant et après le 31 décembre) peut lisser l'impôt.</li>
-          <li><strong>Option barème si TMI basse.</strong> Si ta TMI est de 11% (ou 0%), l'option pour le barème progressif peut être plus avantageuse que le PFU à 30%.</li>
+          <li><strong>Option barème si TMI basse.</strong> Si ta TMI est de 11% (ou 0%), l'option pour le barème progressif peut être plus avantageuse que le PFU à 31,4%.</li>
         </ul>
 
         <div class="warning-box">
@@ -468,7 +563,7 @@
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
             <li>En France, seules les cessions de cryptos contre de la monnaie fiat (euros) ou l'achat d'un bien sont imposables, les échanges crypto/crypto sont neutres fiscalement.</li>
-            <li>Le taux est le PFU à 30% (12,8% IR + 17,2% PS), calculé sur la plus-value nette selon la méthode PAMP obligatoire.</li>
+            <li>Le taux est le PFU à 31,4% (12,8% IR + 18,6% PS depuis le 1er janvier 2026), calculé sur la plus-value nette selon la méthode PAMP obligatoire.</li>
             <li>Tout compte sur une plateforme étrangère (Binance, Kraken, Coinbase…) doit être déclaré via le formulaire 3916-bis, même vide, amende automatique sinon.</li>
             <li>Les revenus de staking et minage sont imposés en BNC au barème de l'IR, pas au PFU, ce sont deux régimes distincts.</li>
             <li>Les moins-values crypto ne sont imputables que sur les plus-values crypto de la même année, elles ne se reportent pas et ne compensent pas d'autres plus-values mobilières.</li>
@@ -552,6 +647,40 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const g=id=>document.getElementById(id);
+    const pv=g('cr-pv'),tmi=g('cr-tmi');
+    if(!pv) return;
+    const tmiRates=[0,0.11,0.30,0.41,0.45];
+    function calc(){
+      const v=+pv.value, t=tmiRates[+tmi.value];
+      g('cr-pv-val').textContent=fmtE(v);
+      g('cr-tmi-val').textContent=(t*100)+' %';
+      g('cr-bar-sub').textContent=(t*100)+' % IR + 18,6 % PS';
+      const pfu=v*0.314;
+      const bar=v*(t+0.186);
+      g('cr-pfu').textContent=fmtE(pfu);
+      g('cr-bar').textContent=fmtE(bar);
+      const pfuWin=pfu<=bar;
+      g('cr-card-pfu').classList.toggle('win',pfuWin);
+      g('cr-card-bar').classList.toggle('win',!pfuWin);
+      g('cr-pfu-badge').style.display=pfuWin?'inline-block':'none';
+      g('cr-bar-badge').style.display=pfuWin?'none':'inline-block';
+      const eco=Math.abs(pfu-bar);
+      if(Math.round(eco)===0){
+        g('cr-verdict').innerHTML='Les deux régimes sont <b>équivalents</b> dans ce cas.';
+      } else if(pfuWin){
+        g('cr-verdict').innerHTML='Le <b>PFU</b> est plus avantageux : tu économises '+fmtE(eco)+'.';
+      } else {
+        g('cr-verdict').innerHTML="L'<b>option barème</b> est plus avantageuse : tu économises "+fmtE(eco)+'.';
+      }
+    }
+    [pv,tmi].forEach(e=>e.addEventListener('input',calc));
+    calc();
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

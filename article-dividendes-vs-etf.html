@@ -66,7 +66,30 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur enrichi (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(20px,3.5vw,28px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
+    @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
   </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="canonical" href="https://julien-invest.github.io/article-dividendes-vs-etf.html">
   <script type="application/ld+json">
 {
@@ -330,6 +353,48 @@
         </ul>
         <p>La différence approche 6 300€ sur 20 ans, avec seulement 10 000€ de départ. Sur des montants plus importants ou des durées plus longues, l'écart peut facilement dépasser plusieurs dizaines de milliers d'euros. Tu peux modéliser ta propre trajectoire dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>.</p>
 
+        <div class="ji-sim" id="div-sim">
+          <div class="ji-sim-title">Simulateur : dividendes réinvestis (CTO) vs ETF capitalisant</div>
+          <div class="ji-sim-sub">Vois l'écart se creuser quand la flat tax de 31,4 % grignote chaque dividende réinvesti.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Capital de départ <span class="ji-val" id="dv-cap-val">10 000 €</span></label>
+              <input type="range" id="dv-cap" min="1000" max="200000" step="1000" value="10000">
+            </div>
+            <div class="ji-field">
+              <label>Durée <span class="ji-val" id="dv-dur-val">20 ans</span></label>
+              <input type="range" id="dv-dur" min="1" max="40" step="1" value="20">
+            </div>
+            <div class="ji-field">
+              <label>Rendement total <span class="ji-val" id="dv-rend-val">7,0 %</span></label>
+              <input type="range" id="dv-rend" min="2" max="12" step="0.5" value="7">
+            </div>
+            <div class="ji-field">
+              <label>Part en dividendes <span class="ji-val" id="dv-div-val">3,0 %</span></label>
+              <input type="range" id="dv-div" min="0" max="8" step="0.5" value="3">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card win" id="dv-card-etf">
+              <div class="ji-res-label">ETF capitalisant</div>
+              <div class="ji-res-val" id="dv-etf">—</div>
+              <div class="ji-res-sub">Aucune fiscalité avant la vente</div>
+            </div>
+            <div class="ji-res-card" id="dv-card-div">
+              <div class="ji-res-label">Dividendes réinvestis (CTO)</div>
+              <div class="ji-res-val" id="dv-div-res">—</div>
+              <div class="ji-res-sub">Flat tax 31,4 % chaque année</div>
+            </div>
+            <div class="ji-res-card" id="dv-card-ecart">
+              <div class="ji-res-label">Écart de friction fiscale</div>
+              <div class="ji-res-val" id="dv-ecart" style="color:#DC2626;">—</div>
+              <div class="ji-res-sub">Manque à gagner du distribuant</div>
+            </div>
+          </div>
+          <div class="ji-chart-wrap"><canvas id="dv-chart"></canvas></div>
+          <p class="ji-sim-note">Hypothèses : capital placé une fois, rendement constant. Côté CTO, la part dividendes est taxée à 31,4 % chaque année puis le net réinvesti ; le reste du rendement (plus-value latente) n'est pas imposé ici, comme l'ETF capitalisant, pour isoler le seul frottement des dividendes. Estimation pédagogique.</p>
+        </div>
+
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
           <p>Pour la phase de constitution de patrimoine, privilégie les ETF capitalisants. Tu reportes l'impôt au jour de la vente, et dans un PEA de plus de 5 ans, il se limite alors aux prélèvements sociaux de 18,6%.</p>
@@ -349,6 +414,21 @@
           </tbody>
         </table>
         <p>Le verdict est clair pour la phase de construction : le capitalisant l'emporte presque toujours, parce qu'il laisse l'impôt de côté tant que tu ne vends pas. Le distribuant garde son intérêt le jour où tu cherches un revenu, pas une croissance.</p>
+
+        <p>Au-delà de la seule fiscalité, voici comment se comparent les deux stratégies sur l'ensemble des critères qui comptent vraiment :</p>
+        <table class="compare-table">
+          <thead>
+            <tr><th>Critère</th><th>Actions à dividendes</th><th>ETF capitalisant</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fiscalité en accumulation</td><td class="no">Imposée chaque année (CTO)</td><td class="yes">Reportée à la vente</td></tr>
+            <tr><td>Gestion au quotidien</td><td class="no">Réinvestissement manuel</td><td class="yes">Automatique, zéro effort</td></tr>
+            <tr><td>Diversification</td><td>Souvent concentrée (gros payeurs)</td><td class="yes">Large, tout l'indice</td></tr>
+            <tr><td>Flexibilité du revenu</td><td class="yes">Flux régulier sans vendre</td><td>Il faut vendre des parts</td></tr>
+            <tr><td>Effet psychologique</td><td class="yes">Concret, motivant</td><td>Moins visible au quotidien</td></tr>
+            <tr><td>Idéal pour</td><td>Phase de consommation</td><td class="yes">Phase de construction</td></tr>
+          </tbody>
+        </table>
 
         <h2 id="mythe">Le mythe des revenus passifs</h2>
         <p>On voit fleurir partout l'idée de vivre de ses dividendes, de bâtir une rente passive qui tomberait toute seule. La réalité est moins romantique. Pour toucher 1 000€ de dividendes par mois, soit 12 000€ par an, avec un rendement de dividende de 4%, il te faut un capital de 300 000€. Et ces 12 000€ seront imposés chaque année.</p>
@@ -513,6 +593,62 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const g=id=>document.getElementById(id);
+    const cap=g('dv-cap'),dur=g('dv-dur'),rend=g('dv-rend'),divp=g('dv-div');
+    if(!cap) return;
+    let chart;
+    function series(c,d,r,dy){
+      // dy = part dividendes (du rendement total r). plus-value = r - dy.
+      const pv=Math.max(0,r-dy);
+      const etf=[], div=[];
+      let vE=c, vD=c;
+      etf.push(c); div.push(c);
+      for(let y=1;y<=d;y++){
+        vE = vE*(1+r);
+        // CTO dividendes: plus-value latente non taxée + dividende net réinvesti
+        vD = vD*(1+pv) + vD*dy*(1-0.314);
+        etf.push(Math.round(vE)); div.push(Math.round(vD));
+      }
+      return {etf,div};
+    }
+    function calc(){
+      const c=+cap.value,d=+dur.value,r=+rend.value/100,dy=+divp.value/100;
+      g('dv-cap-val').textContent=fmtE(c);
+      g('dv-dur-val').textContent=d+' an'+(d>1?'s':'');
+      g('dv-rend-val').textContent=(+rend.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      g('dv-div-val').textContent=(+divp.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      const s=series(c,d,r,dy);
+      const fE=s.etf[d],fD=s.div[d];
+      g('dv-etf').textContent=fmtE(fE);
+      g('dv-div-res').textContent=fmtE(fD);
+      g('dv-ecart').textContent=fmtE(fE-fD);
+      const labels=Array.from({length:d+1},(_,i)=>'A'+i);
+      if(!chart){
+        chart=new Chart(g('dv-chart'),{type:'line',
+          data:{labels,datasets:[
+            {label:'ETF capitalisant',data:s.etf,borderColor:'#1A1A4E',backgroundColor:'rgba(160,231,197,0.15)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0},
+            {label:'Dividendes réinvestis (CTO)',data:s.div,borderColor:'#9B6FD6',backgroundColor:'rgba(200,180,232,0.12)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0}
+          ]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{labels:{font:{family:'DM Sans'},boxWidth:14}},
+              tooltip:{callbacks:{label:cx=>cx.dataset.label+': '+fmtE(cx.parsed.y)}}},
+            scales:{y:{ticks:{callback:v=>new Intl.NumberFormat('fr-FR',{notation:'compact'}).format(v)+' €',font:{family:'DM Sans'}}},
+              x:{ticks:{font:{family:'DM Sans'},maxTicksLimit:8}}}}
+        });
+      } else {
+        chart.data.labels=labels;
+        chart.data.datasets[0].data=s.etf;
+        chart.data.datasets[1].data=s.div;
+        chart.update();
+      }
+    }
+    [cap,dur,rend,divp].forEach(e=>e.addEventListener('input',calc));
+    if(window.Chart) calc(); else window.addEventListener('load',calc);
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

@@ -72,6 +72,18 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Visuels enrichis (injected) ── */
+    .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .stats-bar-item { background: #fff; padding: 20px 12px; text-align: center; }
+    .stats-bar-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
+    .stats-bar-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
+    .ji-peg { background: linear-gradient(135deg,#FFF8E6,#FEF3C7); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-peg-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: #78350F; margin-bottom: 4px; }
+    .ji-peg-sub { font-size: 13px; color: #92400E; margin-bottom: 16px; }
+    .ji-peg-svg { width: 100%; height: auto; display: block; }
+    .ji-sc-logo { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 11px; margin-right: 8px; vertical-align: middle; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-stablecoins-explication.html">
   <script type="application/ld+json">
@@ -288,6 +300,42 @@
         <p>Ce choix de conception répond à un besoin précis : pouvoir détenir un actif numérique, échangeable instantanément sur la blockchain, sans subir les variations de prix d'un Bitcoin ou d'un Ethereum. Un point à connaître : selon la Banque centrale européenne, près de 99% de l'offre mondiale de stablecoins est aujourd'hui libellée en dollars. Les stablecoins en euros existent, mais restent marginaux. Cette asymétrie a son importance : elle veut dire que la majorité de cette infrastructure repose sur la monnaie américaine, pas sur l'euro.</p>
         <p>Sur le plan technique, un stablecoin n'est qu'un jeton qui circule sur une blockchain, exactement comme le Bitcoin ou l'Ethereum. Ce qui change, ce n'est pas la technologie sous-jacente, mais la promesse attachée au jeton : une promesse de stabilité de valeur, tenue ou non selon la solidité de ce qui se trouve derrière. C'est pour cette raison qu'on ne peut pas juger un stablecoin uniquement sur son nom ou sa popularité. Deux stablecoins peuvent afficher le même prix de 1 dollar à un instant donné tout en portant des niveaux de risque très différents, selon la nature exacte de leur garantie.</p>
 
+        <div class="stats-bar">
+          <div class="stats-bar-item"><div class="stats-bar-num">320 Mds$</div><div class="stats-bar-label">Capitalisation totale (avr. 2026)</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">~58 %</div><div class="stats-bar-label">Part de marché de l'USDT</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">~99 %</div><div class="stats-bar-label">Offre libellée en dollars</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">46 000 Mds$</div><div class="stats-bar-label">Volume transigé en 2025</div></div>
+        </div>
+
+        <div class="ji-peg">
+          <div class="ji-peg-title">Comment un stablecoin adossé au fiat maintient son ancrage à 1 $</div>
+          <div class="ji-peg-sub">Le mécanisme d'arbitrage qui ramène le prix vers le peg, dans les deux sens.</div>
+          <svg class="ji-peg-svg" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma du mécanisme de maintien du peg d'un stablecoin adossé au dollar par arbitrage">
+            <defs>
+              <marker id="sc-arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#B45309" stroke-width="1.6"/></marker>
+              <marker id="sc-arrg" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#059669" stroke-width="1.6"/></marker>
+            </defs>
+            <!-- centre: réserve -->
+            <rect x="220" y="120" width="160" height="60" rx="12" fill="#1A1A4E"/>
+            <text x="300" y="146" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#fff">Réserve de l'émetteur</text>
+            <text x="300" y="165" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#A0E7C5">1 token = 1 $ en cash + bons du Trésor</text>
+            <!-- haut: prix > 1$ -->
+            <rect x="40" y="20" width="220" height="64" rx="12" fill="#FEF3C7" stroke="#B45309" stroke-width="1.5"/>
+            <text x="150" y="44" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#78350F">Prix &gt; 1 $ (trop cher)</text>
+            <text x="150" y="64" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#78350F">L'émetteur crée des tokens et les vend</text>
+            <line x1="200" y1="84" x2="255" y2="124" stroke="#B45309" stroke-width="1.6" marker-end="url(#sc-arr)"/>
+            <!-- bas: prix < 1$ -->
+            <rect x="340" y="216" width="220" height="64" rx="12" fill="#D6F2E4" stroke="#059669" stroke-width="1.5"/>
+            <text x="450" y="240" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" font-weight="700" fill="#065F46">Prix &lt; 1 $ (décote)</text>
+            <text x="450" y="260" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#065F46">Rachat à 1 $ contre la réserve</text>
+            <line x1="400" y1="216" x2="345" y2="176" stroke="#059669" stroke-width="1.6" marker-end="url(#sc-arrg)"/>
+            <!-- légende offre/demande -->
+            <text x="150" y="120" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#B45309">↑ offre → prix redescend</text>
+            <text x="450" y="200" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#059669">↓ offre → prix remonte</text>
+            <text x="300" y="296" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#92400E">Le peg ne tient que si la réserve existe vraiment et reste liquide.</text>
+          </svg>
+        </div>
+
         <h2 id="types">Les 3 grands types de stablecoins et leurs mécanismes</h2>
         <p>Tous les stablecoins ne se valent pas. Leur solidité dépend entièrement de ce qui se trouve derrière le token, c'est à dire de la nature de leur garantie. On distingue trois grandes familles.</p>
 
@@ -300,6 +348,58 @@
             <tr><td>Adossé à des réserves fiat</td><td>1 token = 1 dollar (ou équivalent) détenu en cash et bons du Trésor</td><td>USDT, USDC</td><td class="mid">Moyen (dépend de l'émetteur)</td><td class="mid">Variable selon l'émetteur</td></tr>
             <tr><td>Adossé à des cryptos en surcollatéral</td><td>Pour 100 émis, on bloque davantage en crypto (150 et plus) pour absorber la volatilité</td><td>DAI</td><td class="mid">Moyen (dépend du marché crypto)</td><td class="yes">Élevée (vérifiable on-chain)</td></tr>
             <tr><td>Algorithmique</td><td>Maintien du peg par un mécanisme automatique, sans réserve réelle suffisante</td><td>Ex-UST (Terra)</td><td class="no">Élevé</td><td class="no">Faible</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p>Concrètement, voici comment se comparent les principaux stablecoins du marché en 2026 :</p>
+
+        <div class="table-scroll">
+        <table class="compare-table compare-table--wide">
+          <thead>
+            <tr><th>Stablecoin</th><th>Collatéral</th><th>Émetteur</th><th>Transparence</th><th>Risque</th><th>DeFi</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="ji-sc-logo" style="background:#26A17B;">₮</span>USDT</td>
+              <td>Réserves fiat (cash + bons du Trésor)</td>
+              <td>Tether</td>
+              <td class="mid">Variable, longtemps critiquée</td>
+              <td class="mid">Moyen</td>
+              <td class="yes">Oui (le plus liquide)</td>
+            </tr>
+            <tr>
+              <td><span class="ji-sc-logo" style="background:#2775CA;">$</span>USDC</td>
+              <td>Réserves fiat (cash + bons du Trésor)</td>
+              <td>Circle</td>
+              <td class="yes">Élevée (attestée Deloitte)</td>
+              <td class="mid">Moyen</td>
+              <td class="yes">Oui</td>
+            </tr>
+            <tr>
+              <td><span class="ji-sc-logo" style="background:#F5AC37;">◈</span>DAI</td>
+              <td>Crypto surcollatéralisée (&gt; 150 %)</td>
+              <td>MakerDAO (décentralisé)</td>
+              <td class="yes">Élevée (vérifiable on-chain)</td>
+              <td class="mid">Dépend du marché crypto</td>
+              <td class="yes">Oui (natif)</td>
+            </tr>
+            <tr>
+              <td><span class="ji-sc-logo" style="background:#0052FF;">€</span>EURC</td>
+              <td>Réserves fiat en euros</td>
+              <td>Circle</td>
+              <td class="yes">Élevée, agréé MiCA</td>
+              <td class="mid">Moyen (faible liquidité)</td>
+              <td class="mid">Limité</td>
+            </tr>
+            <tr>
+              <td><span class="ji-sc-logo" style="background:#7F1D1D;">∅</span>UST</td>
+              <td>Algorithmique (sans réserve réelle)</td>
+              <td>Terra (effondré)</td>
+              <td class="no">Faible</td>
+              <td class="no">Très élevé</td>
+              <td class="no">Disparu</td>
+            </tr>
           </tbody>
         </table>
         </div>
