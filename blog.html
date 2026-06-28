@@ -159,6 +159,101 @@
       text-align: center;
     }
     .blog-filter-btn.active .filter-count { background: rgba(26,26,78,0.14); }
+
+    /* ── SEARCH BAR ── */
+    .blog-search-wrap {
+      max-width: 580px;
+      margin: 0 auto 28px;
+    }
+    .blog-search {
+      position: relative;
+    }
+    .blog-search-input {
+      width: 100%;
+      padding: 15px 48px 15px 50px;
+      border-radius: 100px;
+      border: 1.5px solid var(--grey-5);
+      background: var(--white);
+      font-family: var(--font-body, 'DM Sans', sans-serif);
+      font-size: 15px;
+      color: var(--navy);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-sizing: border-box;
+      box-shadow: 0 2px 12px rgba(26,26,78,0.06);
+    }
+    .blog-search-input::placeholder { color: var(--grey-3); }
+    .blog-search-input:focus {
+      border-color: var(--lavender);
+      box-shadow: 0 0 0 4px rgba(200,180,232,0.18), 0 2px 12px rgba(26,26,78,0.06);
+    }
+    .blog-search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--grey-3);
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+    .blog-search-input:focus ~ .blog-search-icon { color: var(--navy); }
+    .blog-search-clear {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--grey-5);
+      border: none;
+      border-radius: 50%;
+      width: 26px;
+      height: 26px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--grey-2);
+      font-size: 13px;
+      line-height: 1;
+      transition: background 0.15s;
+    }
+    .blog-search-clear:hover { background: var(--lavender); }
+    .blog-search-clear.visible { display: flex; }
+    .blog-search-hint {
+      font-size: 12px;
+      color: var(--grey-3);
+      text-align: center;
+      margin-top: 10px;
+      min-height: 18px;
+      transition: opacity 0.2s;
+    }
+    /* No results banner */
+    .blog-no-results {
+      display: none;
+      text-align: center;
+      padding: 20px 20px 32px;
+      grid-column: 1 / -1;
+    }
+    .blog-no-results.visible { display: block; }
+    .blog-no-results-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .blog-no-results-sub { font-size: 14px; color: var(--grey-2); }
+    .blog-card.search-fallback .blog-card-thumb { opacity: 0.55; }
+    .blog-card.search-fallback { border-color: rgba(200,180,232,0.4); }
+    .blog-fallback-label {
+      font-family: var(--font-head);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--grey-3);
+      grid-column: 1 / -1;
+      padding: 0 0 4px;
+    }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/blog.html">
   <script type="application/ld+json">
@@ -321,6 +416,16 @@
   <section class="section" style="background: var(--pearl);">
     <div class="container">
 
+      <!-- Barre de recherche -->
+      <div class="blog-search-wrap reveal">
+        <div class="blog-search">
+          <input type="search" id="blog-search-input" class="blog-search-input" placeholder="Rechercher un article… ex : ETF, fiscalité, PEA, DCA" autocomplete="off" spellcheck="false">
+          <svg class="blog-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <button class="blog-search-clear" id="blog-search-clear" aria-label="Effacer la recherche">✕</button>
+        </div>
+        <p class="blog-search-hint" id="blog-search-hint"></p>
+      </div>
+
       <!-- Filtres -->
       <div class="blog-filters reveal">
         <button class="blog-filter-btn active" data-category="all">Tous <span class="filter-count"></span></button>
@@ -335,6 +440,11 @@
 
       <!-- Grille articles -->
       <div class="blog-grid" id="blog-grid">
+        <div class="blog-no-results" id="blog-no-results">
+          <div class="blog-no-results-title">Aucun article trouvé</div>
+          <div class="blog-no-results-sub">Essaie un autre mot-clé, ou <a href="#" id="blog-reset-link" style="color:var(--navy);text-decoration:underline;">réinitialise la recherche</a>.</div>
+        </div>
+        <div class="blog-fallback-label" id="blog-fallback-label" style="display:none;">Articles les plus proches</div>
 
         <!-- 1. Point d'entrée absolu -->
         <article class="blog-card" data-category="Débutants">
@@ -1199,32 +1309,213 @@
 
   <script defer src="js/main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const filterBtns = document.querySelectorAll('.blog-filter-btn');
-      const cards = document.querySelectorAll('#blog-grid .blog-card');
+  (function() {
+    // ── Mots-clés thématiques curatés par article (slug → termes principaux) ──
+    var KEYWORDS = {
+      'article-debuter-investissement.html':      'débuter débutant bourse commencer investir guide premiers pas placement',
+      'article-interets-composes.html':           'intérêts composés capitalisation rendement composé puissance temps',
+      'article-fonds-urgence.html':               'fonds urgence épargne sécurité précaution liquidités réserve livret 3 mois 6 mois',
+      'article-choisir-courtier.html':            'courtier boursobank fortuneo degiro trade republic xtb frais courtage comparatif',
+      'article-etf-monde-2026.html':              'etf tracker fonds indiciel indice monde msci world sp500 qu est ce que etf',
+      'article-dca.html':                         'dca dollar cost averaging investissement régulier mensuel automatique lissage',
+      'article-allocation-actifs.html':           'allocation actifs portefeuille diversification répartition stratégie',
+      'article-pea-vs-cto.html':                  'pea cto compte titres ordinaire enveloppe fiscale comparatif',
+      'article-assurance-vie-pea.html':           'assurance-vie av pea enveloppe fiscale comparatif succession',
+      'article-5-erreurs-debutants.html':         'erreurs débutants pièges éviter bourse comportement',
+      'article-epargne-selon-age.html':           'épargner âge cibles objectifs 25 ans 30 ans patrimoine',
+      'article-etf-physique-vs-synthetique.html': 'etf physique synthétique swap pea sp500 marché américain us',
+      'article-dividendes-vs-etf.html':           'dividendes etf capitalisant distribuant friction fiscale stratégie',
+      'article-fiscalite-investissement.html':    'flat tax pfu barème progressif fiscalité imposition impôt investissement cto',
+      'article-impots-france.html':               'impôts france ir tmi tva csg ifi système fiscal tranche marginale',
+      'article-per-plan-epargne-retraite.html':   'per plan épargne retraite déduction fiscale blocage préparer sa retraite',
+      'article-scpi-comparatif.html':             'scpi immobilier papier pierre papier rendement locatif tri comparatif',
+      'article-crowdfunding-immobilier.html':     'crowdfunding immobilier bricks première brique tokimo financement participatif',
+      'article-scpi-vs-crowdfunding.html':        'scpi crowdfunding immobilier comparatif risque liquidité',
+      'article-or-metaux-precieux.html':          'or métaux précieux lingot pièce or etc or valeur refuge taxe forfaitaire',
+      'article-private-equity.html':              'private equity fcpr eltif non coté capital investissement capital risque',
+      'article-inflation-protection-patrimoine.html': 'inflation protection patrimoine pouvoir achat actifs réels',
+      'article-retraite-capitalisation.html':     'retraite capitalisation per assurance-vie épargne retraite',
+      'article-liberte-financiere.html':          'liberté financière règle 4% fire indépendance financière rente retraite anticipée',
+      'article-bitcoin-2026.html':                'bitcoin btc halving crypto monnaie numérique investir bitcoin',
+      'article-stablecoins-explication.html':     'stablecoins usdt usdc dai stable dollar numérique crypto peg dépeg terra ust',
+      'article-risque-altcoins.html':             'altcoins risque crypto tokens projets crypto shitcoins disparaître',
+      'article-assurance-vie-comparatif-2026.html': 'assurance-vie comparatif linxea lucya boursorama fortuneo contrat fonds euros uc',
+      'article-investir-grosse-somme.html':       'héritage grosse somme lump sum dca prime investir d un coup 50000',
+      'article-lmnp-vs-location-nue.html':        'lmnp location nue fiscalité locative micro-bic réel foncier amortissement location meublée',
+      'article-pea-guide-pratique.html':          'pea plan épargne actions ouvrir alimenter guide pratique etf pea 150000 plafond',
+      'article-succession-transmission-patrimoine.html': 'succession transmission donation héritiers droits succession sci familiale abattement',
+      'article-livret-a-lep-ldds.html':           'livret a lep ldds livret épargne sans risque garanti taux réglementé 3,5%',
+      'article-psychologie-investisseur.html':    'psychologie biais investisseur fomo panique krach comportement émotions loss aversion',
+      'article-residence-principale-vs-locatif.html': 'résidence principale investissement locatif acheter louer propriétaire locataire',
+      'article-desaccumulation-vivre-capital.html': 'désaccumulation vivre capital retraite retrait fire liberté financière bucket strategy',
+      'article-rebalancement-portefeuille.html':  'rebalancement rééquilibrage portefeuille allocation stratégie rééquilibrer',
+      'article-stock-picking.html':               'stock picking actions analyse fondamentale per fcf moat sélection titres analyse action',
+      'article-reits.html':                       'reits immobilier coté foncières cotées dividendes data centers bourse immobilier',
+      'article-nue-propriete-demembrement.html':  'nue-propriété démembrement usufruit immobilier décote ifi sans loyer',
+      'article-fiscalite-crypto.html':            'fiscalité crypto impôt crypto pfu formulaire 2086 pamp déclarer cryptomonnaies 3916 dac8',
+      'article-staking-defi.html':               'staking defi yield farming ethereum revenus passifs crypto smart contract'
+    };
 
-      // Compute and display counts
-      const counts = { all: cards.length };
-      cards.forEach(card => {
-        const cat = card.dataset.category;
+    function norm(s) {
+      return String(s).toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/['']/g, '').replace(/[^a-z0-9\s%]/g, ' ');
+    }
+
+    function getSlug(card) {
+      var link = card.querySelector('.blog-card-link');
+      if (!link) return '';
+      var href = link.getAttribute('href') || '';
+      return href.split('/').pop().split('?')[0];
+    }
+
+    function scoreCard(card, terms) {
+      if (!terms.length) return 0;
+      var slug = getSlug(card);
+      var keywords = norm(KEYWORDS[slug] || '');
+      var title = norm(card.querySelector('.blog-card-title') ? card.querySelector('.blog-card-title').textContent : '');
+      var desc  = norm(card.querySelector('.blog-card-desc')  ? card.querySelector('.blog-card-desc').textContent  : '');
+      var score = 0;
+      terms.forEach(function(term) {
+        // Escape special regex chars
+        var esc = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        // Keyword: exact word match = 10, then prefix = 4
+        if (new RegExp('\\b' + esc + '\\b').test(keywords)) score += 10;
+        else if (new RegExp('\\b' + esc).test(keywords)) score += 4;
+        // Title: exact word = 6, prefix = 2
+        if (new RegExp('\\b' + esc + '\\b').test(title)) score += 6;
+        else if (new RegExp('\\b' + esc).test(title)) score += 2;
+        // Desc: mention = 1 (exact word only)
+        if (new RegExp('\\b' + esc + '\\b').test(desc)) score += 1;
+      });
+      return score;
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var filterBtns  = document.querySelectorAll('.blog-filter-btn');
+      var cards       = document.querySelectorAll('#blog-grid .blog-card');
+      var searchInput = document.getElementById('blog-search-input');
+      var clearBtn    = document.getElementById('blog-search-clear');
+      var hint        = document.getElementById('blog-search-hint');
+      var noResults   = document.getElementById('blog-no-results');
+      var fallbackLabel = document.getElementById('blog-fallback-label');
+
+      // ── Comptage et affichage des catégories ──
+      var counts = { all: cards.length };
+      cards.forEach(function(card) {
+        var cat = card.dataset.category;
         counts[cat] = (counts[cat] || 0) + 1;
       });
-      filterBtns.forEach(btn => {
-        const span = btn.querySelector('.filter-count');
+      filterBtns.forEach(function(btn) {
+        var span = btn.querySelector('.filter-count');
         if (span) span.textContent = counts[btn.dataset.category] || 0;
       });
 
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
+      var activeCategory = 'all';
+
+      // ── Lien reset dans le message zéro résultat ──
+      var resetLink = document.getElementById('blog-reset-link');
+      if (resetLink) {
+        resetLink.addEventListener('click', function(e) {
+          e.preventDefault();
+          searchInput.value = '';
+          clearBtn.classList.remove('visible');
+          hint.textContent = '';
+          applyFilters();
+        });
+      }
+
+      // ── Filtre catégorie ──
+      filterBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(function(b) { b.classList.remove('active'); });
           btn.classList.add('active');
-          const category = btn.dataset.category;
-          cards.forEach(card => {
-            card.style.display = (category === 'all' || card.dataset.category === category) ? '' : 'none';
-          });
+          activeCategory = btn.dataset.category;
+          applyFilters();
         });
       });
+
+      // ── Recherche ──
+      searchInput.addEventListener('input', applyFilters);
+      clearBtn.addEventListener('click', function() {
+        searchInput.value = '';
+        clearBtn.classList.remove('visible');
+        hint.textContent = '';
+        applyFilters();
+        searchInput.focus();
+      });
+
+      function applyFilters() {
+        var query = searchInput.value.trim();
+        var terms = norm(query).split(/\s+/).filter(function(t) { return t.length >= 2; });
+        var hasSearch = terms.length > 0;
+
+        clearBtn.classList.toggle('visible', hasSearch);
+
+        // Phase 1 : filtrer par catégorie
+        var categoryCards = [];
+        cards.forEach(function(card) {
+          var inCat = activeCategory === 'all' || card.dataset.category === activeCategory;
+          categoryCards.push({ card: card, inCat: inCat });
+        });
+
+        if (!hasSearch) {
+          // Pas de recherche : affichage normal par catégorie
+          categoryCards.forEach(function(item) {
+            item.card.style.display = item.inCat ? '' : 'none';
+            item.card.classList.remove('search-fallback');
+          });
+          hint.textContent = '';
+          if (noResults) noResults.classList.remove('visible');
+          if (fallbackLabel) fallbackLabel.style.display = 'none';
+          return;
+        }
+
+        // Phase 2 : scorer les articles de la catégorie active
+        var scored = categoryCards
+          .filter(function(item) { return item.inCat; })
+          .map(function(item) {
+            return { card: item.card, score: scoreCard(item.card, terms) };
+          });
+
+        var maxScore = Math.max.apply(null, scored.map(function(s) { return s.score; }));
+        // Seuil : article "centré" = score >= 5 (au moins un mot-clé thématique)
+        var threshold = 5;
+        var exact   = scored.filter(function(s) { return s.score >= threshold; });
+        var inexact = scored.filter(function(s) { return s.score > 0 && s.score < threshold; });
+
+        if (exact.length > 0) {
+          // Afficher uniquement les résultats exacts
+          cards.forEach(function(card) { card.style.display = 'none'; card.classList.remove('search-fallback'); });
+          exact.forEach(function(s) { s.card.style.display = ''; });
+          hint.textContent = exact.length + ' article' + (exact.length > 1 ? 's' : '') + ' trouvé' + (exact.length > 1 ? 's' : '');
+          if (noResults) noResults.classList.remove('visible');
+          if (fallbackLabel) fallbackLabel.style.display = 'none';
+        } else {
+          // Aucun résultat exact → fallback : les 3 plus proches
+          cards.forEach(function(card) { card.style.display = 'none'; card.classList.remove('search-fallback'); });
+          var fallbacks = scored
+            .filter(function(s) { return s.score > 0; })
+            .sort(function(a, b) { return b.score - a.score; })
+            .slice(0, 3);
+
+          if (fallbacks.length > 0) {
+            fallbacks.forEach(function(s) {
+              s.card.style.display = '';
+              s.card.classList.add('search-fallback');
+            });
+            hint.textContent = 'Aucun résultat exact — articles les plus proches :';
+            if (noResults) noResults.classList.remove('visible');
+            if (fallbackLabel) fallbackLabel.style.display = '';
+          } else {
+            hint.textContent = 'Aucun article trouvé';
+            if (noResults) noResults.classList.add('visible');
+            if (fallbackLabel) fallbackLabel.style.display = 'none';
+          }
+        }
+      }
     });
+  })();
   </script>
 </body>
 </html>
