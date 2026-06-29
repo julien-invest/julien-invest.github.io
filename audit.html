@@ -62,6 +62,20 @@
     .aud-submit:disabled { opacity:0.4; cursor:not-allowed; }
     .aud-counter { font-size:12px; color:var(--grey-3); margin-top:10px; }
 
+    /* email gate */
+    .aud-gate { display:none; max-width:640px; margin:0 auto; padding:60px 0; text-align:center; }
+    .aud-gate.visible { display:block; }
+    .aud-gate-title { font-family:var(--font-display); font-style:italic; font-size:clamp(28px,4vw,40px); color:var(--navy); margin-bottom:10px; line-height:1.2; }
+    .aud-gate-sub { color:var(--grey-2); font-size:15px; margin-bottom:28px; line-height:1.65; max-width:380px; margin-left:auto; margin-right:auto; }
+    .aud-gate-form { display:flex; flex-direction:column; gap:10px; max-width:380px; margin:0 auto 12px; }
+    .aud-gate-email { padding:14px 20px; border:1.5px solid var(--grey-5); border-radius:100px; font-size:15px; font-family:var(--font-body); color:var(--navy); outline:none; text-align:center; width:100%; box-sizing:border-box; }
+    .aud-gate-email:focus { border-color:var(--lavender); }
+    .aud-gate-submit { padding:14px 28px; background:var(--navy); color:var(--white); border:none; border-radius:100px; font-family:var(--font-head); font-weight:700; font-size:15px; cursor:pointer; transition:opacity .15s, transform .12s; }
+    .aud-gate-submit:hover { transform:translateY(-1px); }
+    .aud-gate-skip { font-size:13px; color:var(--grey-3); cursor:pointer; text-decoration:underline; background:none; border:none; font-family:var(--font-body); margin-top:6px; display:inline-block; }
+    .aud-gate-skip:hover { color:var(--navy); }
+    .aud-gate-ok { background:rgba(160,231,197,0.2); border:1px solid var(--mint); border-radius:var(--radius-md); padding:12px 18px; font-size:14px; color:#1B7A4E; font-weight:600; font-family:var(--font-head); margin-bottom:20px; display:none; }
+
     /* results */
     .aud-results { display:none; max-width:900px; margin:0 auto; }
     .aud-results.visible { display:block; animation: aud-fade .35s ease; }
@@ -84,6 +98,18 @@
     .aud-dot-circle.red { background:#E8501A; }
     .aud-dot-label { font-size:10px; color:var(--grey-3); font-family:var(--font-head); }
 
+    /* diagnostic */
+    .aud-email-ok { background:rgba(160,231,197,0.2); border:1px solid var(--mint); border-radius:var(--radius-md); padding:12px 18px; font-size:14px; color:#1B7A4E; font-weight:600; font-family:var(--font-head); margin-bottom:22px; text-align:center; display:none; }
+    .aud-diagnostic { margin-bottom:28px; display:grid; grid-template-columns:1fr; gap:14px; }
+    @media (min-width:600px) { .aud-diagnostic { grid-template-columns:1fr 1fr; } }
+    .aud-diag-solid { background:rgba(160,231,197,0.15); border:1px solid var(--mint); border-radius:var(--radius-md); padding:18px 22px; }
+    .aud-diag-priority { background:rgba(232,80,26,0.07); border:1.5px solid #E8501A; border-radius:var(--radius-md); padding:18px 22px; }
+    .aud-diag-lbl { font-family:var(--font-head); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; margin-bottom:8px; }
+    .aud-diag-solid .aud-diag-lbl { color:#1B7A4E; }
+    .aud-diag-priority .aud-diag-lbl { color:#E8501A; }
+    .aud-diag-title { font-family:var(--font-head); font-weight:700; font-size:15px; color:var(--navy); margin-bottom:6px; }
+    .aud-diag-text { font-size:13.5px; color:var(--grey-1); line-height:1.6; margin:0; }
+
     .aud-recs-grid { display:grid; grid-template-columns:1fr; gap:14px; }
     @media (min-width:760px){ .aud-recs-grid { grid-template-columns:1fr 1fr; } }
     .aud-rec { border:1.5px solid var(--grey-5); border-radius:var(--radius-md); padding:20px 22px; }
@@ -99,7 +125,10 @@
     .aud-cta.green { background:rgba(160,231,197,0.22); border:1.5px solid var(--mint); }
     .aud-cta.orange { background:rgba(240,192,64,0.18); border:1.5px solid var(--gold); }
     .aud-cta.red { background:rgba(232,80,26,0.1); border:1.5px solid #E8501A; }
+    .aud-cta-title { font-family:var(--font-head); font-weight:800; font-size:17px; color:var(--navy); margin-bottom:8px; }
     .aud-cta p { font-size:15px; color:var(--navy); line-height:1.6; margin:0 0 16px; }
+    .aud-cta-secondary { display:inline-block; margin-top:12px; font-size:13px; color:var(--grey-3); text-decoration:underline; }
+    .aud-cta-secondary:hover { color:var(--navy); }
     .aud-restart { display:block; text-align:center; font-size:13px; color:var(--grey-3); margin-top:6px; text-decoration:underline; cursor:pointer; background:none; border:none; font-family:var(--font-body); }
     .aud-restart:hover { color:var(--navy); }
     .aud-disclaimer { font-size:12px; color:var(--grey-3); line-height:1.6; border-top:1px solid var(--grey-5); padding-top:16px; margin-top:18px; }
@@ -245,10 +274,25 @@
       <!-- FORMULAIRE -->
       <div class="aud-form-wrap" id="aud-form"></div>
 
+      <!-- EMAIL GATE -->
+      <div class="aud-gate" id="aud-gate">
+        <div style="font-size:40px;margin-bottom:16px;">📊</div>
+        <div class="aud-gate-title">Ton audit est prêt.</div>
+        <p class="aud-gate-sub">Reçois ton rapport d'audit et les actions prioritaires par email, gratuitement.</p>
+        <div class="aud-gate-ok" id="aud-gate-ok">Ton rapport arrive dans ta boîte.</div>
+        <form class="aud-gate-form" id="aud-gate-form">
+          <input type="email" id="aud-gate-email" class="aud-gate-email" placeholder="ton@email.com" required autocomplete="email">
+          <button type="submit" class="aud-gate-submit">Recevoir mon rapport</button>
+        </form>
+        <button type="button" id="aud-gate-skip" class="aud-gate-skip">Non merci, voir mon résultat directement</button>
+      </div>
+
       <!-- RÉSULTATS -->
       <div class="aud-results" id="aud-results">
         <hr class="aud-results-sep">
         <div class="aud-results-title">Ton résultat</div>
+
+        <div class="aud-email-ok" id="aud-email-ok">Ton rapport arrive dans ta boîte.</div>
 
         <div class="aud-score-panel">
           <div class="aud-score-circle" id="aud-score-circle">
@@ -258,14 +302,16 @@
           <div class="aud-dots" id="aud-dots"></div>
         </div>
 
+        <div class="aud-diagnostic" id="aud-diagnostic"></div>
+
         <div class="aud-recs-grid" id="aud-recs"></div>
 
         <div class="aud-cta" id="aud-cta"></div>
 
-        <button class="aud-restart" id="aud-restart">Refaire l'audit →</button>
+        <button class="aud-restart" id="aud-restart">Refaire l'audit</button>
 
         <p class="aud-disclaimer">
-          Cet audit est un outil éducatif d'auto-évaluation. Il ne constitue pas un conseil en investissement personnalisé et ne remplace pas l'avis d'un professionnel. Investir comporte un risque de perte en capital. Aucune donnée saisie n'est collectée, stockée ni transmise : tout est calculé localement dans ton navigateur.
+          Cet audit est un outil éducatif d'auto-évaluation. Il ne constitue pas un conseil en investissement personnalisé et ne remplace pas l'avis d'un professionnel. Investir comporte un risque de perte en capital. Aucune donnée saisie n'est collectée, stockée ni transmise sans ton consentement.
         </p>
       </div>
 
@@ -379,7 +425,7 @@
           recs: {
             green: 'Tes frais sont sous contrôle. Vérifie juste que ton courtier ne t\'a pas facturé de frais de garde dormants.',
             orange: 'Télécharge la fiche KID de chaque produit et additionne les TER. Si la moyenne dépasse 0,40%, il y a un levier facile à activer.',
-            red: 'Les frais sont le levier le plus sous-estimé. 1% de frais en plus sur 20 ans, c\'est 40 000€ de moins sur 100 000€ investis. Migrer vers des ETF équivalents moins chers est souvent la correction la plus rentable et la plus rapide.'
+            red: 'Les frais sont le levier le plus sous-estimé. 1% de frais en plus sur 20 ans, c\'est 40 000 euros de moins sur 100 000 euros investis. Migrer vers des ETF équivalents moins chers est souvent la correction la plus rentable et la plus rapide.'
           }
         },
         {
@@ -435,7 +481,7 @@
           recs: {
             green: 'Bonne gestion de la liquidité. Tu peux absorber un imprévu sans toucher à tes investissements.',
             orange: 'Complète ton fonds d\'urgence avant d\'augmenter tes versements investis. L\'objectif : 3 mois minimum sur Livret A ou LDDS, accessible immédiatement.',
-            red: 'C\'est un risque sérieux. Un actif illiquide vendu en urgence est presque toujours vendu à perte. Reconstituez d\'abord le matelas de sécurité, même au détriment de l\'investissement à court terme.'
+            red: 'C\'est un risque sérieux. Un actif illiquide vendu en urgence est presque toujours vendu à perte. Reconstitue d\'abord le matelas de sécurité, même au détriment de l\'investissement à court terme.'
           }
         },
         {
@@ -496,7 +542,9 @@
         }
       ];
 
-      const answers = {}; // key: "axisIdx-qIdx" -> value 0/1/2
+      const answers = {};
+      var pendingScore = 0;
+      var pendingSignals = [];
 
       // ---------- BUILD FORM ----------
       const formEl = document.getElementById('aud-form');
@@ -524,7 +572,7 @@
         formHTML += '</div>';
       });
       formHTML += '<div class="aud-submit-wrap">';
-      formHTML += '<button class="aud-submit" id="aud-submit" disabled>Obtenir mon score d\'audit →</button>';
+      formHTML += '<button class="aud-submit" id="aud-submit" disabled>Obtenir mon score d\'audit</button>';
       formHTML += '<div class="aud-counter" id="aud-counter">0 / 12 questions répondues</div>';
       formHTML += '</div>';
       formEl.innerHTML = formHTML;
@@ -560,104 +608,174 @@
         submitBtn.disabled = n < TOTAL_Q;
       }
 
-      // ---------- SCORING & RESULTS ----------
-      const resultsEl = document.getElementById('aud-results');
-      const scoreCircle = document.getElementById('aud-score-circle');
-      const scoreNum = document.getElementById('aud-score-num');
-      const verdictEl = document.getElementById('aud-verdict');
-      const dotsEl = document.getElementById('aud-dots');
-      const recsEl = document.getElementById('aud-recs');
-      const ctaEl = document.getElementById('aud-cta');
-
-      const VERDICTS = {
-        6: 'Portefeuille solide. Revois-le dans 12 mois.',
-        5: 'Très bon niveau. Un axe à corriger.',
-        4: 'Bon socle, mais des ajustements s\'imposent.',
-        3: 'Plusieurs failles à corriger rapidement.'
-      };
-
-      submitBtn.addEventListener('click', function () {
-        if (submitBtn.disabled) return;
-        computeResults();
-        resultsEl.classList.add('visible');
-        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-
+      // ---------- SCORING ----------
       function axisSignal(sum) {
-        // sum of 2 questions (0-4) -> green/orange/red
         if (sum === 4) return 'green';
         if (sum >= 2) return 'orange';
         return 'red';
       }
 
-      function computeResults() {
-        let globalScore = 0;
-        const axisSignals = [];
-
+      function scoreAll() {
+        var globalScore = 0;
+        var signals = [];
         AXES.forEach(function (axis, ai) {
-          const v0 = answers[ai + '-0'];
-          const v1 = answers[ai + '-1'];
-          const sum = v0 + v1;
-          const signal = axisSignal(sum);
-          axisSignals.push(signal);
+          var v0 = answers[ai + '-0'];
+          var v1 = answers[ai + '-1'];
+          var sum = v0 + v1;
+          var signal = axisSignal(sum);
+          signals.push({ signal: signal, sum: sum, axis: axis, ai: ai });
           if (signal === 'green') globalScore++;
         });
+        return { score: globalScore, signals: signals };
+      }
 
-        // Score circle
+      // ---------- SUBMIT -> GATE ----------
+      submitBtn.addEventListener('click', function () {
+        if (submitBtn.disabled) return;
+        var res = scoreAll();
+        pendingScore = res.score;
+        pendingSignals = res.signals;
+        // show gate
+        document.getElementById('aud-gate').classList.add('visible');
+        document.getElementById('aud-gate').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      // ---------- EMAIL GATE ----------
+      document.getElementById('aud-gate-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = document.getElementById('aud-gate-email').value;
+        fetch('https://formspree.io/f/mvznqwpd', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, score_audit: pendingScore + '/6', source: 'audit' })
+        }).catch(function () {});
+        document.getElementById('aud-gate-ok').style.display = 'block';
+        document.getElementById('aud-gate-form').style.display = 'none';
+        document.getElementById('aud-gate-skip').style.display = 'none';
+        setTimeout(function () { showResults(true); }, 900);
+      });
+
+      document.getElementById('aud-gate-skip').addEventListener('click', function () {
+        showResults(false);
+      });
+
+      // ---------- SHOW RESULTS ----------
+      function showResults(emailCaptured) {
+        document.getElementById('aud-gate').classList.remove('visible');
+        var resultsEl = document.getElementById('aud-results');
+        resultsEl.classList.add('visible');
+
+        if (emailCaptured) {
+          document.getElementById('aud-email-ok').style.display = 'block';
+        }
+
+        computeResults(pendingScore, pendingSignals);
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // ---------- RENDER RESULTS ----------
+      var VERDICTS = [
+        'Ton portefeuille est en danger. Il est urgent de reprendre les bases.',
+        'Ton portefeuille présente des failles importantes. Les points rouges sont à traiter en priorité.',
+        'Plusieurs lacunes sérieuses. Deux ou trois corrections prioritaires peuvent changer la donne.',
+        'Des bases existent, mais des axes fragilisent l\'ensemble.',
+        'Bon socle. Quelques ajustements ciblés pour aller plus loin.',
+        'Très bon niveau. Un axe à surveiller avant d\'optimiser.',
+        'Portefeuille solide et bien structuré. Revois-le dans 12 mois.'
+      ];
+
+      function computeResults(globalScore, signals) {
+        var scoreCircle = document.getElementById('aud-score-circle');
+        var scoreNum = document.getElementById('aud-score-num');
+        var verdictEl = document.getElementById('aud-verdict');
+        var dotsEl = document.getElementById('aud-dots');
+        var recsEl = document.getElementById('aud-recs');
+        var ctaEl = document.getElementById('aud-cta');
+        var diagEl = document.getElementById('aud-diagnostic');
+
         scoreNum.innerHTML = globalScore + '<span>/6</span>';
         scoreCircle.classList.remove('green', 'orange', 'red');
         if (globalScore >= 5) scoreCircle.classList.add('green');
         else if (globalScore >= 3) scoreCircle.classList.add('orange');
         else scoreCircle.classList.add('red');
 
-        verdictEl.textContent = VERDICTS[globalScore] || 'Ton portefeuille mérite une refonte sérieuse.';
+        verdictEl.textContent = VERDICTS[globalScore] || VERDICTS[0];
 
         // Dots
-        let dotsHTML = '';
-        AXES.forEach(function (axis, ai) {
-          dotsHTML += '<div class="aud-dot"><div class="aud-dot-circle ' + axisSignals[ai] + '"></div><div class="aud-dot-label">' + (ai + 1) + '</div></div>';
+        var dotsHTML = '';
+        signals.forEach(function (s) {
+          dotsHTML += '<div class="aud-dot"><div class="aud-dot-circle ' + s.signal + '"></div><div class="aud-dot-label">' + (s.ai + 1) + '</div></div>';
         });
         dotsEl.innerHTML = dotsHTML;
 
+        // Diagnostic: worst axis + solid axes
+        var greenAxes = signals.filter(function (s) { return s.signal === 'green'; }).map(function (s) { return s.axis.title; });
+        var worstSignal = signals.slice().sort(function (a, b) { return a.sum - b.sum; })[0];
+        var diagHTML = '';
+        if (globalScore >= 5) {
+          // mostly solid — show solid axes prominently
+          diagHTML += '<div class="aud-diag-solid"><div class="aud-diag-lbl">Points solides</div><div class="aud-diag-title">Tes axes au vert</div><p class="aud-diag-text">' + greenAxes.join(', ') + '</p></div>';
+          diagHTML += '<div class="aud-diag-priority"><div class="aud-diag-lbl">Point à surveiller</div><div class="aud-diag-title">' + worstSignal.axis.title + '</div><p class="aud-diag-text">' + worstSignal.axis.recs[worstSignal.signal] + '</p></div>';
+        } else if (greenAxes.length > 0) {
+          diagHTML += '<div class="aud-diag-solid"><div class="aud-diag-lbl">Points solides</div><div class="aud-diag-title">' + greenAxes.join(', ') + '</div><p class="aud-diag-text">Ces axes ne demandent pas d\'action immédiate.</p></div>';
+          diagHTML += '<div class="aud-diag-priority"><div class="aud-diag-lbl">Priorité absolue</div><div class="aud-diag-title">' + worstSignal.axis.title + '</div><p class="aud-diag-text">' + worstSignal.axis.recs.red + '</p></div>';
+        } else {
+          diagHTML += '<div class="aud-diag-priority" style="grid-column:1/-1"><div class="aud-diag-lbl">Priorité absolue</div><div class="aud-diag-title">' + worstSignal.axis.title + '</div><p class="aud-diag-text">' + worstSignal.axis.recs.red + '</p></div>';
+        }
+        diagEl.innerHTML = diagHTML;
+
         // Recommendations
-        const badgeLabel = { green: '✅ Solide', orange: '⚠️ À surveiller', red: '❌ À corriger' };
-        let recsHTML = '';
-        AXES.forEach(function (axis, ai) {
-          const signal = axisSignals[ai];
+        var badgeLabel = { green: 'Solide', orange: 'A surveiller', red: 'A corriger' };
+        var recsHTML = '';
+        signals.forEach(function (s) {
           recsHTML += '<div class="aud-rec">';
-          recsHTML += '<div class="aud-rec-head"><div class="aud-rec-title">' + (ai + 1) + '. ' + axis.title + '</div><span class="aud-badge ' + signal + '">' + badgeLabel[signal] + '</span></div>';
-          recsHTML += '<p class="aud-rec-text">' + axis.recs[signal] + '</p>';
+          recsHTML += '<div class="aud-rec-head"><div class="aud-rec-title">' + (s.ai + 1) + '. ' + s.axis.title + '</div><span class="aud-badge ' + s.signal + '">' + badgeLabel[s.signal] + '</span></div>';
+          recsHTML += '<p class="aud-rec-text">' + s.axis.recs[s.signal] + '</p>';
           recsHTML += '</div>';
         });
         recsEl.innerHTML = recsHTML;
 
-        // CTA
-        let ctaColor, ctaInner;
-        if (globalScore >= 5) {
-          ctaColor = 'green';
-          ctaInner = '<p>Ton portefeuille est bien structuré. Pour aller plus loin, le simulateur fiscal peut t\'aider à optimiser tes enveloppes.</p>' +
-            '<a href="calculateur.html#fiscalite" class="btn btn-gradient btn--lg">Accéder au simulateur fiscal <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
-        } else if (globalScore >= 3) {
-          ctaColor = 'orange';
-          ctaInner = '<p>Des corrections existent mais rien d\'irrémédiable. La formation t\'explique comment les appliquer sans générer de fiscalité inutile.</p>' +
-            '<a href="formation.html" class="btn btn-gradient btn--lg">Découvrir la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
-        } else {
+        // CTA differentiated by score
+        var ctaColor, ctaTitle, ctaText, ctaBtn, ctaSec;
+        if (globalScore <= 2) {
           ctaColor = 'red';
-          ctaInner = '<p>Ton portefeuille mérite une refonte sérieuse. La formation De 0 à Investisseur est conçue pour ça : reconstruire une base solide, dans le bon ordre.</p>' +
-            '<a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+          ctaTitle = 'Ton portefeuille a des failles sérieuses.';
+          ctaText = 'La formation De 0 à Investisseur te donne les bases pour les corriger, dans le bon ordre, sans générer de fiscalité inutile.';
+          ctaBtn = '<a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+          ctaSec = '<a href="coaching.html" class="aud-cta-secondary">ou voir le coaching individuel</a>';
+        } else if (globalScore <= 4) {
+          ctaColor = 'orange';
+          ctaTitle = 'Tu es sur la bonne voie.';
+          ctaText = 'Un coaching ciblé te permet d\'aller directement sur tes axes faibles et de passer à l\'action en 1h.';
+          ctaBtn = '<a href="coaching.html" class="btn btn-gradient btn--lg">Réserver un coaching <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+          ctaSec = '<a href="formation.html" class="aud-cta-secondary">ou consulter la formation complète</a>';
+        } else {
+          ctaColor = 'green';
+          ctaTitle = 'Ton score est solide.';
+          ctaText = 'Si tu veux challenger ta stratégie avec un regard extérieur et trouver les derniers leviers d\'optimisation :';
+          ctaBtn = '<a href="coaching.html" class="btn btn-gradient btn--lg">Réserver un coaching <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+          ctaSec = '<a href="formation.html" class="aud-cta-secondary">ou accéder à la formation complète</a>';
         }
         ctaEl.className = 'aud-cta ' + ctaColor;
-        ctaEl.innerHTML = ctaInner;
+        ctaEl.innerHTML = '<div class="aud-cta-title">' + ctaTitle + '</div><p>' + ctaText + '</p>' + ctaBtn + ctaSec;
       }
 
       // ---------- RESTART ----------
       document.getElementById('aud-restart').addEventListener('click', function () {
         Object.keys(answers).forEach(function (k) { delete answers[k]; });
+        pendingScore = 0;
+        pendingSignals = [];
         formEl.querySelectorAll('.aud-opt').forEach(function (b) {
           b.classList.remove('sel-green', 'sel-orange', 'sel-red');
         });
         updateCounter();
-        resultsEl.classList.remove('visible');
+        document.getElementById('aud-results').classList.remove('visible');
+        document.getElementById('aud-gate').classList.remove('visible');
+        document.getElementById('aud-email-ok').style.display = 'none';
+        document.getElementById('aud-gate-ok').style.display = 'none';
+        document.getElementById('aud-gate-form').style.display = 'flex';
+        document.getElementById('aud-gate-skip').style.display = 'inline-block';
+        document.getElementById('aud-gate-email').value = '';
         window.scrollTo({ top: formEl.offsetTop - 140, behavior: 'smooth' });
       });
 

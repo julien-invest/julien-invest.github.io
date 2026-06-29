@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gérer son budget : la méthode 50/30/20 expliquée (et un simulateur) | Julien Invest</title>
+  <meta name="description" content="Gérer son budget avec la méthode 50/30/20 : besoins, envies, épargne. Suivi des dépenses, automatisation et simulateur interactif pour répartir ton salaire avant d'investir.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Gérer son budget : la méthode 50/30/20 expliquée (et un simulateur) | Julien Invest">
+  <meta property="og:description" content="La brique de base avant d'investir : la méthode 50/30/20, le suivi des dépenses et l'automatisation, avec un simulateur pour répartir ton salaire.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-gerer-son-budget.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gérer son budget : la méthode 50/30/20 expliquée">
+  <meta name="twitter:description" content="La brique de base avant d'investir, avec un simulateur de répartition de salaire.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Gérer son budget : la méthode 50/30/20 expliquée",
+  "description": "La méthode 50/30/20, le suivi des dépenses et l'automatisation pour gérer son budget avant d'investir.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-28",
+  "dateModified": "2026-06-28"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    /* ── Simulateur budget ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 18px; padding: 28px; margin: 32px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-field { margin-bottom: 18px; }
+    .ji-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .ji-field-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-bar { display: flex; height: 26px; border-radius: 100px; overflow: hidden; margin: 8px 0 22px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.08); }
+    .ji-bar-seg { display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 11px; color: #fff; white-space: nowrap; overflow: hidden; padding: 0 4px; min-width: 0; }
+    .ji-bar-besoins { background: #1A1A4E; }
+    .ji-bar-envies { background: #7C3AED; }
+    .ji-bar-epargne { background: #059669; }
+    .ji-results { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 560px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 16px; text-align: center; }
+    .ji-res-card .lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-3); }
+    .ji-res-card .amt { font-family: var(--font-head); font-weight: 800; font-size: 22px; color: var(--navy); margin-top: 4px; }
+    .ji-res-card .pct { font-size: 12px; color: var(--grey-2); margin-top: 2px; }
+    .ji-res-besoins { border-top: 3px solid #1A1A4E; }
+    .ji-res-envies { border-top: 3px solid #7C3AED; }
+    .ji-res-epargne { border-top: 3px solid #059669; }
+    /* ── Takeaway final ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-gerer-son-budget.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "C'est quoi la méthode 50/30/20 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est une règle de répartition du revenu net : 50 % pour les besoins essentiels (logement, alimentation, factures), 30 % pour les envies (loisirs, restaurants, abonnements) et 20 % pour l'épargne et le remboursement de dettes. C'est un repère, pas une loi, à adapter à ta situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment épargner quand on a un petit salaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Commence petit, même 20 ou 30 euros par mois, et automatise le virement le jour de la paie. L'important n'est pas le montant de départ mais l'habitude. Tu augmentes ensuite la somme à chaque hausse de revenu. Le principe de se payer en premier compte plus que le pourcentage exact."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il rembourser ses dettes ou épargner d'abord ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Constitue d'abord un petit matelas de sécurité, puis rembourse en priorité les dettes coûteuses comme les crédits à la consommation et les découverts, dont le taux dépasse largement le rendement de tout placement. Une fois ces dettes éteintes, oriente le 20 % vers l'épargne et l'investissement."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Guide débutants</span>
+        <h1>Gérer son budget<br><em>la méthode 50/30/20 et le suivi des dépenses</em></h1>
+        <p class="article-meta-date">Publié le 28 juin 2026 · 10 min de lecture</p>
+        <p>Avant le PEA, avant les ETF, avant la crypto, il y a une brique que presque personne ne pose vraiment : savoir où part ton argent. Sans budget, investir revient à remplir un seau percé. Voici la méthode la plus simple pour reprendre le contrôle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Débutants</span>
+        <p>La plupart des gens pensent qu'investir commence par le choix d'un placement. C'est faux. Investir commence par dégager une capacité d'épargne stable, mois après mois. Et pour ça, il faut savoir combien tu gagnes, combien tu dépenses, et où va la différence. C'est exactement ce que fait un budget.</p>
+        <p>Bonne nouvelle : gérer un budget ne demande pas un tableur de comptable ni des heures par semaine. Une méthode simple et un peu d'automatisation suffisent. C'est l'objet de cet article.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#pourquoi">Pourquoi un budget avant d'investir</a></li>
+            <li><a href="#methode">La méthode 50/30/20</a></li>
+            <li><a href="#simulateur">Simulateur : répartis ton salaire</a></li>
+            <li><a href="#suivi">Suivre ses dépenses sans y passer ses soirées</a></li>
+            <li><a href="#payer">Se payer en premier</a></li>
+            <li><a href="#adapter">Adapter la méthode à ta réalité</a></li>
+            <li><a href="#erreurs">Les erreurs les plus courantes</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="pourquoi">Pourquoi un budget avant d'investir</h2>
+        <p>Un budget répond à trois questions simples : combien entre, combien sort, et combien il reste. Tant que tu n'as pas ces trois chiffres, tout le reste est du sable. Tu ne peux pas savoir combien investir chaque mois si tu ignores ta capacité d'épargne réelle.</p>
+        <p>Le budget sert aussi à autre chose : repérer les fuites. Ces petits abonnements oubliés, ces achats automatiques, ces frais bancaires qui grignotent. Une fois identifiées, ces fuites colmatées financent directement ton épargne, sans que tu gagnes un euro de plus. C'est souvent là que se cache la première vraie marge de manœuvre.</p>
+
+        <div class="info-box">
+          <strong>📌 L'ordre logique.</strong> Budget d'abord, puis <a href="article-fonds-urgence.html">fonds d'urgence</a>, puis investissement. Sauter une étape fragilise les suivantes. Un investissement commencé sans matelas de sécurité finit souvent vendu en catastrophe au premier imprévu.
+        </div>
+
+        <h2 id="methode">La méthode 50/30/20</h2>
+        <p>C'est la méthode la plus connue parce qu'elle est facile à retenir et à appliquer. Tu répartis ton revenu net mensuel en trois enveloppes.</p>
+        <ul>
+          <li><strong>50 % pour les besoins.</strong> Tout ce qui est essentiel et difficilement compressible : loyer ou crédit, courses alimentaires, énergie, transport, assurances, téléphone, remboursements obligatoires.</li>
+          <li><strong>30 % pour les envies.</strong> Tout ce qui rend la vie agréable mais dont tu pourrais te passer : restaurants, sorties, voyages, abonnements de loisir, shopping plaisir.</li>
+          <li><strong>20 % pour l'épargne.</strong> Ton épargne de précaution d'abord, puis le remboursement des dettes coûteuses, puis l'investissement long terme.</li>
+        </ul>
+        <p>L'intérêt de cette règle n'est pas sa précision, c'est sa clarté. Elle te donne un repère immédiat. Si tes besoins dépassent largement 50 %, c'est un signal : ton coût de vie fixe est trop élevé par rapport à tes revenus, et c'est là qu'il faut agir en priorité.</p>
+
+        <h2 id="simulateur">Simulateur : répartis ton salaire</h2>
+        <p>Entre ton revenu net mensuel et ajuste la part d'épargne. Le simulateur te montre la répartition correspondante. Tout reste dans ton navigateur, rien n'est envoyé ni enregistré.</p>
+
+        <div class="ji-sim" id="budget-sim">
+          <div class="ji-sim-title">Calculateur 50/30/20</div>
+          <div class="ji-sim-sub">Ajuste les curseurs selon ta situation réelle.</div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Revenu net mensuel</span><span class="ji-field-val" id="bg-rev-val">2 200 €</span></div>
+            <input type="range" id="bg-rev" min="800" max="6000" step="50" value="2200">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Part d'épargne</span><span class="ji-field-val" id="bg-epa-val">20 %</span></div>
+            <input type="range" id="bg-epa" min="5" max="50" step="1" value="20">
+          </div>
+          <div class="ji-bar" id="bg-bar">
+            <div class="ji-bar-seg ji-bar-besoins" id="bg-bar-b">Besoins 50 %</div>
+            <div class="ji-bar-seg ji-bar-envies" id="bg-bar-e">Envies 30 %</div>
+            <div class="ji-bar-seg ji-bar-epargne" id="bg-bar-s">Épargne 20 %</div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card ji-res-besoins"><div class="lbl">Besoins</div><div class="amt" id="bg-out-b">1 100 €</div><div class="pct" id="bg-pct-b">50 %</div></div>
+            <div class="ji-res-card ji-res-envies"><div class="lbl">Envies</div><div class="amt" id="bg-out-e">660 €</div><div class="pct" id="bg-pct-e">30 %</div></div>
+            <div class="ji-res-card ji-res-epargne"><div class="lbl">Épargne</div><div class="amt" id="bg-out-s">440 €</div><div class="pct" id="bg-pct-s">20 %</div></div>
+          </div>
+        </div>
+        <p>Regarde le montant de la case épargne. C'est lui qui, investi chaque mois, construit ton patrimoine. Pour voir ce que cette somme peut devenir sur 10, 20 ou 30 ans, utilise le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>.</p>
+
+        <h2 id="suivi">Suivre ses dépenses sans y passer ses soirées</h2>
+        <p>Une répartition théorique ne vaut rien si tu ne sais pas ce que tu dépenses vraiment. Le suivi est la partie que la plupart abandonnent, parce qu'ils la croient pénible. Elle ne l'est pas si tu choisis la bonne approche.</p>
+        <p>Tu as trois options, de la plus simple à la plus détaillée.</p>
+        <ul>
+          <li><strong>La méthode des enveloppes mentales.</strong> Tu fixes un plafond mensuel pour les envies et tu t'y tiens. Simple, rapide, suffisant pour beaucoup de gens.</li>
+          <li><strong>Le relevé bancaire passé en revue une fois par mois.</strong> Tu prends 20 minutes, tu classes tes dépenses en trois catégories, tu repères les fuites. C'est le meilleur rapport effort sur résultat.</li>
+          <li><strong>Une application d'agrégation.</strong> Plusieurs applications regroupent tes comptes et catégorisent automatiquement. Pratique, à condition d'accepter de connecter tes comptes à un service tiers.</li>
+        </ul>
+        <p>Quel que soit l'outil, l'objectif est le même : transformer une impression floue en chiffres précis. On surestime presque toujours ce qu'on épargne et on sous-estime ce qu'on dépense en petites sommes.</p>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le suivi parfait n'existe pas et n'est pas nécessaire. Vise la régularité, pas la précision absolue. Une revue mensuelle de 20 minutes vaut mille fois mieux qu'un tableur ultra détaillé tenu deux semaines puis abandonné.</p>
+        </div>
+
+        <h2 id="payer">Se payer en premier</h2>
+        <p>C'est le principe le plus puissant de toute la gestion budgétaire, et il tient en une phrase : épargne dès que tu reçois ton salaire, pas avec ce qu'il reste à la fin du mois.</p>
+        <p>La raison est psychologique. Si tu attends la fin du mois pour épargner ce qui reste, il ne reste presque jamais rien : les dépenses s'ajustent toujours au solde disponible. En prélevant ton épargne en premier, tu inverses la logique. Tu vis avec ce qui reste après avoir épargné, et ton cerveau s'adapte naturellement.</p>
+        <p>Concrètement, mets en place un <strong>virement automatique</strong> le lendemain de ta paie, vers ton livret puis vers ton plan d'investissement. Tu n'as plus rien à décider chaque mois, l'épargne devient invisible et indolore. C'est exactement la logique du <a href="article-dca.html">DCA</a> appliquée à ton budget.</p>
+
+        <h2 id="adapter">Adapter la méthode à ta réalité</h2>
+        <p>Le 50/30/20 est un repère, pas une règle gravée dans le marbre. Dans les grandes villes, le logement dépasse souvent 50 % à lui seul. Si c'est ton cas, ne force pas les chiffres : ajuste les proportions à ta situation.</p>
+        <p>Voici quelques variantes courantes selon le moment de vie.</p>
+
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Situation</th><th>Besoins</th><th>Envies</th><th>Épargne</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Repère classique</td><td>50 %</td><td>30 %</td><td>20 %</td></tr>
+            <tr><td>Loyer élevé (grande ville)</td><td>60 %</td><td>20 %</td><td>20 %</td></tr>
+            <tr><td>Objectif épargne agressif</td><td>50 %</td><td>20 %</td><td>30 %</td></tr>
+            <tr><td>Début de carrière, petit revenu</td><td>65 %</td><td>25 %</td><td>10 %</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p>L'important n'est pas d'atteindre exactement 20 % d'épargne dès le premier mois. C'est de connaître ta répartition réelle, puis de pousser la part d'épargne vers le haut à chaque hausse de revenu, au lieu de laisser ton train de vie absorber toute l'augmentation.</p>
+
+        <div class="warning-box">
+          <strong>⚠️ Le piège de l'inflation du train de vie.</strong> À chaque augmentation, la tentation est de dépenser plus. Si tes dépenses montent au même rythme que tes revenus, tu n'épargnes jamais davantage, quel que soit ton salaire. Verrouille une partie de chaque hausse vers l'épargne avant de t'habituer à la dépenser.
+        </div>
+
+        <h2 id="erreurs">Les erreurs les plus courantes</h2>
+        <ul>
+          <li><strong>Vouloir un budget parfait du premier coup.</strong> Les deux premiers mois servent à mesurer, pas à juger. Tu ajustes ensuite.</li>
+          <li><strong>Oublier les dépenses annuelles.</strong> Assurance, impôts, cadeaux, vacances : lisse-les sur 12 mois en mettant une petite somme de côté chaque mois.</li>
+          <li><strong>Compter sur la volonté plutôt que sur l'automatisation.</strong> La volonté fatigue, le virement automatique non.</li>
+          <li><strong>Confondre besoins et envies.</strong> Un abonnement de streaming est une envie, pas un besoin. Être honnête sur cette frontière est tout l'enjeu.</li>
+          <li><strong>Se priver de tout.</strong> Un budget trop strict craque comme un régime trop dur. Garde une part de plaisir, c'est ce qui rend la méthode tenable dans la durée.</li>
+        </ul>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Un bon budget n'est pas celui qui te prive, c'est celui que tu tiens dans le temps. Garde de la place pour les envies, automatise l'épargne, et laisse les intérêts composés faire le reste sur le long terme.</p>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>C'est quoi la méthode 50/30/20 ?</summary>
+            <p>C'est une règle de répartition du revenu net : 50 % pour les besoins essentiels, 30 % pour les envies, 20 % pour l'épargne et le remboursement de dettes. C'est un repère à adapter à ta situation, pas une loi.</p>
+          </details>
+          <details>
+            <summary>Comment épargner quand on a un petit salaire ?</summary>
+            <p>Commence petit, même 20 ou 30 euros par mois, et automatise le virement le jour de la paie. L'important n'est pas le montant de départ mais l'habitude. Tu augmentes la somme à chaque hausse de revenu.</p>
+          </details>
+          <details>
+            <summary>Faut-il rembourser ses dettes ou épargner d'abord ?</summary>
+            <p>Constitue d'abord un petit matelas de sécurité, puis rembourse en priorité les dettes coûteuses comme les crédits à la consommation et les découverts, dont le taux dépasse le rendement de tout placement. Ensuite, oriente le 20 % vers l'investissement.</p>
+          </details>
+          <details>
+            <summary>Quelle application pour gérer son budget ?</summary>
+            <p>Plusieurs applications d'agrégation regroupent tes comptes et catégorisent tes dépenses automatiquement. Elles sont pratiques si tu acceptes de connecter tes comptes à un service tiers. Un simple relevé bancaire revu une fois par mois fonctionne tout aussi bien.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_BUDGET = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_BUDGET && VIDEO_ID_BUDGET!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_BUDGET+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Le budget est la brique de base : sans lui, tu ne connais pas ta capacité d'épargne réelle et tu investis à l'aveugle.</li>
+            <li>La méthode 50/30/20 répartit ton revenu net en besoins, envies et épargne : un repère clair à adapter à ta situation.</li>
+            <li>Se payer en premier change tout : automatise un virement vers ton épargne le jour de la paie, avant de dépenser.</li>
+            <li>Le suivi gagnant tient en 20 minutes par mois : repérer les fuites compte plus que la précision au centime.</li>
+            <li>Verrouille une part de chaque augmentation vers l'épargne pour éviter l'inflation du train de vie.</li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <h2>De ton budget à ton premier investissement</h2>
+          <p>Une fois ta capacité d'épargne dégagée, la formation Julien Invest t'accompagne pas à pas pour la faire fructifier, sans jargon et sans erreur de débutant.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-fonds-urgence.html" class="article-related-card">
+              <span class="article-related-tag">Débutants</span>
+              <div class="article-related-name">Le fonds d'urgence : combien mettre de côté et où le placer</div>
+              <div class="article-related-meta">11 min · Lire →</div>
+            </a>
+            <a href="article-debuter-investissement.html" class="article-related-card">
+              <span class="article-related-tag">Débutants</span>
+              <div class="article-related-name">Comment débuter en bourse sans faire d'erreur</div>
+              <div class="article-related-meta">9 min · Lire →</div>
+            </a>
+            <a href="article-epargne-selon-age.html" class="article-related-card">
+              <span class="article-related-tag">Débutants</span>
+              <div class="article-related-name">Combien épargner selon ton âge ?</div>
+              <div class="article-related-meta">12 min · Lire →</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-interets-composes.html">Intérêts composés</a>
+          <a href="article-epargne-selon-age.html">Épargner selon son âge</a>
+          <a href="article-livret-a-lep-ldds.html">Livret A, LEP, LDDS</a>
+          <a href="blog.html">Tous les articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+    (function(){
+      var rev = document.getElementById('bg-rev');
+      var epa = document.getElementById('bg-epa');
+      if (!rev || !epa) return;
+      var fmt = function(n){ return Math.round(n).toLocaleString('fr-FR') + ' €'; };
+      function calc(){
+        var revenu = parseFloat(rev.value);
+        var pEp = parseFloat(epa.value);
+        var reste = 100 - pEp;
+        // Besoins et envies gardent le ratio 50/30 (5/3) sur le reste
+        var pBesoins = Math.round(reste * 5 / 8);
+        var pEnvies = reste - pBesoins;
+        document.getElementById('bg-rev-val').textContent = fmt(revenu);
+        document.getElementById('bg-epa-val').textContent = pEp + ' %';
+        var besoins = revenu * pBesoins / 100;
+        var envies = revenu * pEnvies / 100;
+        var epargne = revenu * pEp / 100;
+        document.getElementById('bg-out-b').textContent = fmt(besoins);
+        document.getElementById('bg-out-e').textContent = fmt(envies);
+        document.getElementById('bg-out-s').textContent = fmt(epargne);
+        document.getElementById('bg-pct-b').textContent = pBesoins + ' %';
+        document.getElementById('bg-pct-e').textContent = pEnvies + ' %';
+        document.getElementById('bg-pct-s').textContent = pEp + ' %';
+        document.getElementById('bg-bar-b').style.flex = pBesoins;
+        document.getElementById('bg-bar-e').style.flex = pEnvies;
+        document.getElementById('bg-bar-s').style.flex = pEp;
+        document.getElementById('bg-bar-b').textContent = 'Besoins ' + pBesoins + ' %';
+        document.getElementById('bg-bar-e').textContent = 'Envies ' + pEnvies + ' %';
+        document.getElementById('bg-bar-s').textContent = 'Épargne ' + pEp + ' %';
+      }
+      rev.addEventListener('input', calc);
+      epa.addEventListener('input', calc);
+      calc();
+    })();
+  </script>
+</body>
+</html>

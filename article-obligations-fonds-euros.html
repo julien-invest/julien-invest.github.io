@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obligations et fonds euros : la brique sécurité d'un portefeuille (2026) | Julien Invest</title>
+  <meta name="description" content="Obligations et fonds euros expliqués simplement : comment fonctionne une obligation, relation taux et prix, fonds euros vs fonds obligataires, et quelle place leur donner dans un portefeuille selon ton horizon.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Obligations et fonds euros : la brique sécurité d'un portefeuille | Julien Invest">
+  <meta property="og:description" content="Comment fonctionnent les obligations, la relation taux et prix, fonds euros vs fonds obligataires, et leur place dans un portefeuille.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-obligations-fonds-euros.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Obligations et fonds euros : la brique sécurité d'un portefeuille">
+  <meta name="twitter:description" content="Comment fonctionnent les obligations et les fonds euros, et leur place dans un portefeuille.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Obligations et fonds euros : la brique sécurité d'un portefeuille",
+  "description": "Comment fonctionnent les obligations, la relation taux et prix, fonds euros vs fonds obligataires, et leur place dans un portefeuille.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-29",
+  "dateModified": "2026-06-29"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+    .stats-bar { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .stats-bar { grid-template-columns: 1fr; } }
+    .stats-bar-item { background: #fff; padding: 20px 12px; text-align: center; }
+    .stats-bar-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(17px,2.5vw,24px); color: var(--navy); line-height: 1.1; }
+    .stats-bar-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 5px; font-weight: 600; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    /* ── Takeaway ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-obligations-fonds-euros.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre une obligation et un fonds euros ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une obligation est un prêt que tu accordes à un État ou une entreprise, qui te verse des intérêts puis te rembourse à l'échéance. Un fonds euros est un produit d'assurance-vie, majoritairement investi en obligations, mais dont le capital est garanti par l'assureur. Le fonds euros est donc plus sûr et plus simple, l'obligation en direct plus flexible mais sans garantie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi le prix d'une obligation baisse quand les taux montent ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce qu'une obligation ancienne, qui verse un intérêt fixe, devient moins attractive quand de nouvelles obligations offrent un intérêt plus élevé. Pour la revendre avant l'échéance, il faut baisser son prix afin qu'elle rapporte autant que les nouvelles. Taux et prix évoluent donc en sens inverse."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il des obligations dans un portefeuille jeune ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sur un horizon très long, un portefeuille jeune peut être majoritairement en actions. Les obligations et fonds euros servent surtout à réduire la volatilité et à sécuriser une partie du capital à l'approche d'un objectif. Leur poids augmente logiquement quand l'horizon se raccourcit."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">ETF &amp; Stratégie</span>
+        <h1>Obligations et fonds euros<br><em>la brique sécurité de ton portefeuille</em></h1>
+        <p class="article-meta-date">Publié le 29 juin 2026 · 12 min de lecture</p>
+        <p>On parle sans cesse d'actions et d'ETF, beaucoup moins d'obligations. Pourtant, c'est la classe d'actifs qui amortit les chocs et stabilise un portefeuille. Comprendre les obligations et les fonds euros, c'est comprendre l'autre moitié de l'investissement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">ETF &amp; Stratégie</span>
+        <p>Les obligations sont la grande oubliée de l'éducation financière en ligne. C'est dommage, car elles forment la deuxième jambe de presque tous les portefeuilles équilibrés. Quand les actions chutent, ce sont souvent les obligations et le fonds euros qui limitent la casse. Cet article t'explique comment elles fonctionnent, sans jargon, et quelle place leur donner.</p>
+        <p>Cet article complète directement le guide sur l'<a href="article-allocation-actifs.html">allocation d'actifs</a>, où la répartition entre actions et obligations est la décision la plus structurante.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#obligation">Une obligation, c'est quoi</a></li>
+            <li><a href="#taux-prix">Pourquoi prix et taux évoluent en sens inverse</a></li>
+            <li><a href="#fonds-euros">Le fonds euros expliqué</a></li>
+            <li><a href="#comparatif">Obligations, fonds euros, fonds obligataires</a></li>
+            <li><a href="#role">Leur rôle dans un portefeuille</a></li>
+            <li><a href="#poids">Quel poids selon ton horizon</a></li>
+            <li><a href="#comment">Comment y investir concrètement</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="obligation">Une obligation, c'est quoi</h2>
+        <p>Une obligation est un prêt. Quand tu achètes une obligation, tu prêtes de l'argent à un émetteur, un État ou une entreprise, qui s'engage à te verser des intérêts réguliers, puis à te rembourser la totalité à une date fixée, l'échéance.</p>
+        <p>C'est l'inverse d'une action. Avec une action, tu deviens copropriétaire d'une entreprise et tu partages ses bénéfices et ses risques. Avec une obligation, tu es créancier : tu ne profites pas de la croissance de l'entreprise, mais tu as une promesse de remboursement plus prévisible. En échange de cette sécurité relative, le rendement attendu est plus faible que celui des actions sur le long terme.</p>
+
+        <div class="stats-bar">
+          <div class="stats-bar-item"><div class="stats-bar-num">Créancier</div><div class="stats-bar-label">Ton statut avec une obligation</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">Coupon</div><div class="stats-bar-label">L'intérêt versé régulièrement</div></div>
+          <div class="stats-bar-item"><div class="stats-bar-num">Échéance</div><div class="stats-bar-label">Date de remboursement du capital</div></div>
+        </div>
+
+        <p>Le vocabulaire de base tient en trois mots. Le <strong>nominal</strong> est le montant prêté et remboursé à l'échéance. Le <strong>coupon</strong> est l'intérêt versé, souvent annuel. L'<strong>échéance</strong> ou maturité est la durée du prêt. Une obligation d'État française s'appelle une OAT, une obligation d'entreprise une obligation corporate.</p>
+
+        <h2 id="taux-prix">Pourquoi prix et taux évoluent en sens inverse</h2>
+        <p>C'est le concept que tout le monde trouve contre-intuitif, et c'est le plus important. Le prix d'une obligation déjà émise évolue à l'inverse des taux d'intérêt du marché.</p>
+        <p>L'idée est simple une fois posée. Imagine que tu détiennes une obligation qui verse 2 % par an. Si les taux montent et que les nouvelles obligations versent désormais 4 %, plus personne ne veut de la tienne à son prix d'origine. Pour la vendre, tu dois baisser son prix, afin qu'elle devienne aussi intéressante que les nouvelles. À l'inverse, si les taux baissent à 1 %, ton obligation à 2 % devient recherchée, et son prix monte.</p>
+
+        <div class="ji-figure">
+          <div class="ji-figure-title">Taux et prix d'une obligation : le balancier</div>
+          <div class="ji-figure-sub">Quand l'un monte, l'autre descend. C'est mécanique.</div>
+          <svg viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Schéma montrant que lorsque les taux montent le prix des obligations baisse, et inversement">
+            <defs>
+              <marker id="ar-up" markerWidth="9" markerHeight="9" refX="4" refY="7" orient="auto"><path d="M4,0 L8,8 L0,8 Z" fill="#059669"/></marker>
+              <marker id="ar-dn" markerWidth="9" markerHeight="9" refX="4" refY="1" orient="auto"><path d="M4,9 L8,1 L0,1 Z" fill="#DC2626"/></marker>
+            </defs>
+            <!-- cas 1 -->
+            <rect x="30" y="30" width="250" height="200" rx="14" fill="#ECFDF5" stroke="#6EE7B7" stroke-width="1.5"/>
+            <text x="155" y="62" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#065F46">Les taux MONTENT</text>
+            <line x1="90" y1="170" x2="90" y2="90" stroke="#059669" stroke-width="3" marker-end="url(#ar-up)"/>
+            <text x="90" y="195" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#065F46">Taux</text>
+            <line x1="215" y1="90" x2="215" y2="170" stroke="#DC2626" stroke-width="3" marker-end="url(#ar-dn)"/>
+            <text x="215" y="195" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#991B1B">Prix obligation</text>
+            <!-- cas 2 -->
+            <rect x="320" y="30" width="250" height="200" rx="14" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.5"/>
+            <text x="445" y="62" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="14" font-weight="800" fill="#991B1B">Les taux BAISSENT</text>
+            <line x1="380" y1="90" x2="380" y2="170" stroke="#DC2626" stroke-width="3" marker-end="url(#ar-dn)"/>
+            <text x="380" y="195" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#991B1B">Taux</text>
+            <line x1="505" y1="170" x2="505" y2="90" stroke="#059669" stroke-width="3" marker-end="url(#ar-up)"/>
+            <text x="505" y="195" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="12" fill="#065F46">Prix obligation</text>
+            <text x="300" y="245" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4A4A6A">Si tu gardes l'obligation jusqu'à l'échéance, ces variations de prix n'affectent pas ton remboursement final.</text>
+          </svg>
+        </div>
+
+        <div class="info-box">
+          <strong>📌 La nuance qui rassure.</strong> Ces variations de prix ne concernent que la revente avant l'échéance. Si tu conserves une obligation saine jusqu'au bout, tu touches tes coupons et tu récupères ton nominal, quel que soit le parcours du prix entre temps. Le risque de prix se matérialise surtout via les fonds obligataires, qui achètent et revendent en continu.
+        </div>
+
+        <h2 id="fonds-euros">Le fonds euros expliqué</h2>
+        <p>Le fonds euros est le placement vedette de l'assurance vie française, et c'est un cousin des obligations. L'assureur investit majoritairement en obligations, surtout d'État, et te reverse un rendement annuel. Sa particularité, unique, est la <strong>garantie en capital</strong> : l'argent que tu y places ne peut pas baisser, l'assureur garantit le montant.</p>
+        <p>Cette sécurité a un prix : le rendement du fonds euros est modeste, souvent proche de celui de l'inflation. Il existe aussi un mécanisme d'effet cliquet, les intérêts versés chaque année sont définitivement acquis. C'est l'outil parfait pour la part prudente d'une assurance vie, mais pas pour faire grossir un patrimoine sur le long terme.</p>
+        <p>Pour comprendre comment le fonds euros s'articule avec les unités de compte au sein d'un contrat, lis l'article <a href="article-assurance-vie-pea.html">assurance vie ou PEA</a> et le <a href="article-assurance-vie-comparatif-2026.html">comparatif des assurances vie</a>.</p>
+
+        <h2 id="comparatif">Obligations, fonds euros, fonds obligataires</h2>
+        <p>Trois façons d'accéder à cette classe d'actifs, avec des profils différents.</p>
+
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Critère</th><th>Fonds euros</th><th>Fonds ou ETF obligataire</th><th>Obligation en direct</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Capital garanti</td><td class="yes">Oui (par l'assureur)</td><td class="no">Non</td><td class="mid">À l'échéance, si émetteur solvable</td></tr>
+            <tr><td>Rendement potentiel</td><td class="mid">Modeste</td><td class="mid">Variable</td><td class="mid">Connu d'avance si gardée</td></tr>
+            <tr><td>Risque de prix</td><td class="yes">Aucun</td><td class="no">Réel (varie avec les taux)</td><td class="mid">Seulement si revente avant terme</td></tr>
+            <tr><td>Accessibilité</td><td class="yes">Très simple (assurance vie)</td><td class="yes">Simple (compte titres, PEA selon ETF)</td><td class="no">Plus technique</td></tr>
+            <tr><td>Diversification</td><td class="yes">Élevée</td><td class="yes">Élevée</td><td class="no">Faible si une seule ligne</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p>Pour la plupart des particuliers, deux portes suffisent : le <strong>fonds euros</strong> via l'assurance vie pour la sécurité absolue, et un <strong>ETF obligataire</strong> pour diversifier la poche prudente d'un portefeuille en bourse. L'obligation en direct reste plus technique et moins diversifiée.</p>
+
+        <h2 id="role">Leur rôle dans un portefeuille</h2>
+        <p>Les obligations et le fonds euros ne sont pas là pour battre les actions. Leur mission est différente, et complémentaire.</p>
+        <ul>
+          <li><strong>Amortir les chocs.</strong> Quand les actions plongent, la poche obligataire et le fonds euros tiennent mieux, ce qui réduit la chute globale du portefeuille.</li>
+          <li><strong>Réduire la volatilité.</strong> Un portefeuille mixte bouge moins violemment qu'un portefeuille 100 % actions, ce qui aide à tenir psychologiquement.</li>
+          <li><strong>Sécuriser un objectif proche.</strong> À l'approche d'un projet daté, basculer une partie vers le fonds euros protège le capital d'une mauvaise surprise de marché.</li>
+          <li><strong>Servir de réserve à réinvestir.</strong> Lors d'un krach, la poche prudente peut être arbitrée vers les actions devenues bon marché, c'est la logique du <a href="article-rebalancement-portefeuille.html">rebalancement</a>.</li>
+        </ul>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Les obligations et le fonds euros ne servent pas à enrichir, mais à stabiliser. C'est le rôle de gardien du portefeuille : moins de performance, mais moins de secousses, et un capital disponible quand les actions sont au plus bas.</p>
+        </div>
+
+        <h2 id="poids">Quel poids selon ton horizon</h2>
+        <p>Le poids de la poche prudente dépend surtout de ton horizon et de ta tolérance au risque. La logique générale est intuitive : plus l'échéance est lointaine, plus tu peux supporter d'actions, donc moins tu as besoin d'obligations. À mesure que l'objectif approche, la part prudente augmente.</p>
+
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Horizon</th><th>Part actions (indicatif)</th><th>Part obligations / fonds euros</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Plus de 15 ans</td><td class="yes">Élevée</td><td>Faible</td></tr>
+            <tr><td>8 à 15 ans</td><td class="mid">Majoritaire</td><td>Modérée</td></tr>
+            <tr><td>3 à 8 ans</td><td class="mid">Réduite</td><td class="mid">Importante</td></tr>
+            <tr><td>Moins de 3 ans</td><td class="no">Faible</td><td class="yes">Majoritaire</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p>Ces proportions sont des repères, pas des règles. Le bon curseur dépend aussi de ta capacité à dormir tranquille pendant une chute de marché. Le sujet du tempérament est traité dans l'article <a href="article-psychologie-investisseur.html">psychologie de l'investisseur</a>.</p>
+
+        <h2 id="comment">Comment y investir concrètement</h2>
+        <ul>
+          <li><strong>Le fonds euros</strong> s'obtient via une assurance vie. C'est l'option la plus simple pour la sécurité, avec capital garanti et liquidité.</li>
+          <li><strong>Les ETF obligataires</strong> permettent de diversifier la poche prudente d'un portefeuille en bourse, en une seule ligne, à frais réduits. Certains sont éligibles à l'assurance vie, d'autres au compte titres.</li>
+          <li><strong>Les obligations en direct</strong> conviennent à ceux qui veulent une échéance et un rendement connus d'avance, mais demandent plus de travail et exposent au risque d'un seul émetteur.</li>
+        </ul>
+        <p>Garde un principe en tête : la qualité de l'émetteur prime sur le rendement affiché. Une obligation qui promet un coupon très élevé rémunère d'abord un risque de défaut élevé. Comme pour le reste, un rendement anormalement haut est un signal de prudence, pas une aubaine.</p>
+
+        <div class="warning-box">
+          <strong>⚠️ Le rendement n'est jamais gratuit.</strong> Une obligation à haut rendement, dite à haut risque, peut ne jamais être remboursée si l'émetteur fait défaut. La diversification via un fonds ou un ETF réduit ce risque, mais ne l'efface pas. Ne confonds jamais coupon élevé et sécurité.
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Quelle différence entre une obligation et un fonds euros ?</summary>
+            <p>Une obligation est un prêt à un État ou une entreprise, qui verse des intérêts puis rembourse à l'échéance. Un fonds euros est un produit d'assurance vie, majoritairement investi en obligations, mais dont le capital est garanti par l'assureur.</p>
+          </details>
+          <details>
+            <summary>Pourquoi le prix d'une obligation baisse quand les taux montent ?</summary>
+            <p>Parce qu'une obligation ancienne à intérêt fixe devient moins attractive quand de nouvelles obligations rapportent plus. Pour la revendre, il faut baisser son prix. Taux et prix évoluent donc en sens inverse.</p>
+          </details>
+          <details>
+            <summary>Faut-il des obligations dans un portefeuille jeune ?</summary>
+            <p>Sur un horizon très long, un portefeuille jeune peut être majoritairement en actions. Les obligations et fonds euros servent surtout à réduire la volatilité et à sécuriser une partie du capital à l'approche d'un objectif.</p>
+          </details>
+          <details>
+            <summary>Le fonds euros peut-il faire perdre de l'argent ?</summary>
+            <p>Le capital d'un fonds euros est garanti, il ne peut pas baisser en valeur. En revanche, si son rendement est inférieur à l'inflation, le pouvoir d'achat de ton épargne s'érode lentement. C'est un risque réel, mais différent d'une perte en capital.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_OBLIGATIONS = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_OBLIGATIONS && VIDEO_ID_OBLIGATIONS!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_OBLIGATIONS+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Une obligation est un prêt : tu touches des coupons puis ton capital à l'échéance, avec un risque plus faible qu'une action.</li>
+            <li>Prix et taux évoluent en sens inverse, mais si tu gardes une obligation saine jusqu'au bout, ces variations ne t'affectent pas.</li>
+            <li>Le fonds euros, cousin des obligations en assurance vie, offre un capital garanti contre un rendement modeste.</li>
+            <li>Le rôle de cette classe d'actifs est de stabiliser, pas d'enrichir : elle amortit les chocs et sécurise les objectifs proches.</li>
+            <li>Plus l'horizon est long, moins tu as besoin d'obligations ; leur poids augmente à mesure que l'objectif se rapproche.</li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <h2>Construis un portefeuille équilibré</h2>
+          <p>Actions, obligations, fonds euros : la formation Julien Invest t'apprend à doser chaque classe d'actifs selon ton horizon et ton tempérament, pour un portefeuille qui tient dans la durée.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <div class="article-related-name">Construire son portefeuille : l'allocation d'actifs pas à pas</div>
+              <div class="article-related-meta">14 min · Lire →</div>
+            </a>
+            <a href="article-rebalancement-portefeuille.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">Rebalancement de portefeuille : quand et comment rééquilibrer</div>
+              <div class="article-related-meta">10 min · Lire →</div>
+            </a>
+            <a href="article-assurance-vie-pea.html" class="article-related-card">
+              <span class="article-related-tag">Enveloppes fiscales</span>
+              <div class="article-related-name">Assurance-vie ou PEA : le comparatif complet</div>
+              <div class="article-related-meta">9 min · Lire →</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-allocation-actifs.html">Allocation d'actifs</a>
+          <a href="article-rebalancement-portefeuille.html">Rebalancement</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie ou PEA</a>
+          <a href="article-etf-monde-2026.html">C'est quoi un ETF</a>
+          <a href="article-inflation-protection-patrimoine.html">Inflation et patrimoine</a>
+          <a href="blog.html">Tous les articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

@@ -314,7 +314,7 @@
           <span>Comparateur courtiers</span>
         </div>
         <h1>Quel courtier PEA <em>choisir en 2026 ?</em></h1>
-        <p class="cc-hero-sub">Frais, PEA disponible, ETF gratuits, bonus de bienvenue : compare les 5 principaux courtiers et trouve celui qui correspond à ton profil.</p>
+        <p class="cc-hero-sub">Frais, PEA disponible, ETF gratuits, bonus de bienvenue : compare les 6 principaux courtiers et trouve celui qui correspond à ton profil.</p>
       </div>
     </div>
   </section>
@@ -328,7 +328,7 @@
         <div class="cc-rec-left">
           <div class="cc-rec-label">Recommandé par Julien Invest</div>
           <div class="cc-rec-name">Fortuneo</div>
-          <div class="cc-rec-desc">PEA disponible, 0 € de frais sur les ETF éligibles si tu passes 1 ordre par mois, bonus de bienvenue jusqu'à 140 €, interface mobile complète. Le choix le plus polyvalent pour débuter ou investir régulièrement en DCA.</div>
+          <div class="cc-rec-desc">PEA disponible, 1er ordre/mois gratuit ≤ 500 € (Formule Starter), bonus jusqu'à 80 € filleul (code 13385764), 0 € de droits de garde. Le choix le plus polyvalent pour débuter ou investir régulièrement en DCA.</div>
         </div>
         <div class="cc-rec-right">
           <a href="parrainage.html" class="cc-rec-btn">Ouvrir chez Fortuneo →</a>
@@ -467,61 +467,76 @@
       id: 'fortuneo',
       name: 'Fortuneo',
       type: 'Banque en ligne',
-      compte: 'PEA + CTO + AV',
+      compte: 'PEA + PEA-PME + CTO + AV',
       pea: true,
-      fraisOrdre: '0 € si 1 ordre/mois (ETF éligibles PEA), sinon à partir de 1,99 €',
-      etfGratuits: 'Oui, ETF PEA éligibles',
-      bonus: "Jusqu'à 140 € (code 13385764)",
+      fraisOrdre: '0 € (1er ordre/mois ≤ 500 €, Formule Starter) — sinon 0,35 % ou 4,90 € (Formule Progress)',
+      etfGratuits: '1er ordre ETF Amundi du mois remboursé (jusq. 30/06/2026)',
+      bonus: "Jusqu'à 80 € parrain + 80 € filleul (code 13385764)",
       note: 4.5,
       profils: ['pea', 'debutant'],
       recommended: true,
-      pointsForts: ['Bonus bienvenue jusqu\'à 140 €', 'ETF 0 € sur PEA (1 ordre/mois)', 'Banque complète (CB, épargne)'],
-      pointsFaibles: ['Frais de garde si inactif 12 mois']
+      pointsForts: ['Bonus bienvenue jusqu\'à 80 € filleul', '1er ordre/mois gratuit ≤ 500 € (Starter)', 'Banque complète, 0 € droits de garde', 'Remboursement frais de transfert jusqu\'à 2 000 €'],
+      pointsFaibles: ['Pas de DCA automatisé natif', 'Formule Progress facturée 4,90 € sous 3 000 €']
+    },
+    {
+      id: 'boursobank',
+      name: 'BoursoBank',
+      type: 'Banque en ligne',
+      compte: 'PEA + PEA-PME + CTO + AV',
+      pea: true,
+      fraisOrdre: '1,99 € ≤ 500 € (Découverte) — 5,50 € ≤ 1 000 € (Classic) — ETF iShares/BlackRock 0 € (BoursoMarkets, min. 500 €)',
+      etfGratuits: 'Oui — ETF iShares/BlackRock éligibles BoursoMarkets sans frais de courtage (min. 500 €/ordre)',
+      bonus: "Jusqu'à 220 € filleul + jusqu'à 120 € parrain (offre jusqu'au 02/07/2026)",
+      note: 4.2,
+      profils: ['pea', 'debutant'],
+      recommended: false,
+      pointsForts: ['Bonus parrainage parmi les plus élevés (220 €)', 'DCA automatisé sur sélection ETF (dès 10 €/mois)', 'ETF iShares gratuits via BoursoMarkets', '0 € droits de garde'],
+      pointsFaibles: ['Frais plus élevés sur petits ordres (Découverte)', 'DCA limité à 8 ETF, ordre min. 200 € depuis avril 2026']
     },
     {
       id: 'bourse-direct',
       name: 'Bourse Direct',
       type: 'Courtier pur',
-      compte: 'PEA + CTO',
+      compte: 'PEA + PEA-PME + CTO + AV',
       pea: true,
-      fraisOrdre: 'À partir de 0,99 € par ordre',
-      etfGratuits: 'Non',
-      bonus: 'Aucun',
-      note: 4.2,
+      fraisOrdre: '0,99 € ≤ 500 € — 1,90 € ≤ 1 000 € — 2,90 € ≤ 2 000 € — 3,80 € ≤ 4 400 € — 0,09 % au-delà',
+      etfGratuits: 'DCA gratuit sur sélection 27 ETF Amundi (frais remboursés 01/05/2026 – 30/04/2027)',
+      bonus: "Frais remboursés sur ETF Amundi (achats 200 € – 100 000 €) jusqu'au 30/04/2027 — Parrainage : 30 € parrain",
+      note: 4.3,
       profils: ['pea', 'frais'],
       recommended: false,
-      pointsForts: ['Frais très compétitifs', 'Pas de frais de garde', 'Courtier spécialisé bourse'],
-      pointsFaibles: ['Interface moins moderne', 'Pas de services bancaires']
+      pointsForts: ['Grille tarifaire la plus agressive sur petits ordres (0,99 €)', 'DCA automatisé sur 27 ETF + 40 actions sans frais', 'Remboursement frais de transfert entrant jusqu\'à 200 €', '0 € droits de garde'],
+      pointsFaibles: ['Interface vieillissante', 'Pas de services bancaires complets']
     },
     {
       id: 'degiro',
-      name: 'Degiro',
+      name: 'DEGIRO',
       type: 'Courtier CTO',
       compte: 'CTO uniquement',
       pea: false,
-      fraisOrdre: '1 € + 0,038 % par ordre',
-      etfGratuits: '1 ETF gratuit/mois (liste sélective)',
-      bonus: 'Aucun',
+      fraisOrdre: '1 € Euronext Paris — 0 € ETF sélection core (1 gratuit/mois si respect politique) — 2 € + 1 € connexion hors sélection',
+      etfGratuits: 'Oui — sélection core ETF (1 gratuit/mois ou 0 € si conditions)',
+      bonus: "100 € de crédit sur frais de transaction à l'ouverture",
       note: 4.0,
       profils: ['frais'],
       recommended: false,
-      pointsForts: ['Très faibles frais de courtage', 'Large sélection internationale', '1 ETF gratuit/mois'],
-      pointsFaibles: ['Pas de PEA (fiscalité moins avantageuse)', 'Flat tax 30 % sur tous les gains']
+      pointsForts: ['1 ETF gratuit/mois (sélection core)', 'Frais parmi les plus bas sur marchés étrangers', 'Large sélection internationale'],
+      pointsFaibles: ['Pas de PEA (flat tax 31,4 % sur tous les gains)', 'Frais de change 0,25 % sur ordres en USD', 'DCA automatisé non disponible']
     },
     {
-      id: 'boursorama',
-      name: 'Boursorama',
-      type: 'Banque en ligne',
-      compte: 'PEA + CTO + AV',
+      id: 'xtb',
+      name: 'XTB',
+      type: 'Courtier en ligne',
+      compte: 'PEA + CTO',
       pea: true,
-      fraisOrdre: 'À partir de 0,99 € (paliers selon montant)',
-      etfGratuits: 'Non (frais standard)',
-      bonus: 'Offres ponctuelles',
-      note: 3.8,
-      profils: ['pea', 'debutant'],
+      fraisOrdre: '0 % jusqu\'à 100 000 € de volume mensuel — 0,20 % au-delà (sans minimum fixe)',
+      etfGratuits: '0 % de commission sur actions et ETF sous 100 000 €/mois',
+      bonus: "1 action Nike offerte (~40 €) pour tout 1er dépôt ≥ 100 € (jusqu'au 20/07/2026)",
+      note: 4.1,
+      profils: ['pea', 'frais'],
       recommended: false,
-      pointsForts: ['Banque complète reconnue', 'Interface connue et fiable', 'PEA disponible'],
-      pointsFaibles: ['Frais moins compétitifs sur petits montants', 'Moins d\'ETF en accès direct']
+      pointsForts: ['0 % de frais d\'ordre jusqu\'à 100 000 €/mois (unique sur PEA)', 'PEA disponible à 0 % de commission', '0 € droits de garde'],
+      pointsFaibles: ['Pas de DCA automatisé', 'Pas d\'assurance-vie', 'Offre ETF moins large que les spécialistes']
     },
     {
       id: 'trade-republic',
@@ -530,13 +545,13 @@
       compte: 'CTO uniquement',
       pea: false,
       fraisOrdre: '1 € fixe par ordre',
-      etfGratuits: 'Non (1 € sur tous les ordres)',
-      bonus: 'Livret 3,25 %/an',
+      etfGratuits: '0 € sur tous les plans d\'investissement programmés (DCA)',
+      bonus: "Jusqu'à 200 € en action gratuite filleul + compte rémunéré 3 % boosté 3 mois (parrainage)",
       note: 3.9,
       profils: ['frais'],
       recommended: false,
-      pointsForts: ['Interface mobile très simple', 'Plans d\'épargne automatiques', 'Compte rémunéré 3,25 %'],
-      pointsFaibles: ['Pas de PEA (flat tax 30 %)', 'Sélection d\'ETF plus limitée']
+      pointsForts: ['Plans d\'épargne DCA 0 € (dès 1 €/semaine)', 'Compte rémunéré à 3 % brut sur trésorerie', 'Interface mobile ultra-simple'],
+      pointsFaibles: ['Pas de PEA (flat tax 31,4 %)', 'Bonus filleul bloqué 90 jours depuis mai 2026', 'Spread jusqu\'à 0,15 % sur ETF']
     }
   ];
 

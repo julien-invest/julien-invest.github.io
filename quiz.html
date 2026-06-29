@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quel investisseur es-tu ? Le test en 2 minutes | Julien Invest</title>
-  <meta name="description" content="Réponds à 9 questions et découvre ton profil d'investisseur, tes forces, tes points de vigilance et tes prochaines étapes. Gratuit, sans email.">
+  <title>Quel investisseur es-tu ? Quiz rapide ou approfondi | Julien Invest</title>
+  <meta name="description" content="5 questions express ou 10 questions comportementales. Découvre ton profil d'investisseur, tes biais et tes prochaines étapes concrètes.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="Quel investisseur es-tu ? | Julien Invest">
-  <meta property="og:description" content="Le test en 2 minutes pour découvrir ton profil d'investisseur et tes prochaines étapes.">
+  <meta property="og:description" content="Quiz rapide ou approfondi pour découvrir ton profil d'investisseur et tes biais comportementaux.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
   <meta property="og:url" content="https://julien-invest.github.io/quiz.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Quel investisseur es-tu ? | Julien Invest">
-  <meta name="twitter:description" content="9 questions, ton profil d'investisseur et tes prochaines étapes. Sans email.">
+  <meta name="twitter:description" content="5 questions express ou 10 questions comportementales. Ton profil, tes biais, tes prochaines étapes.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <link rel="canonical" href="https://julien-invest.github.io/quiz.html">
@@ -40,6 +40,17 @@
   <style>
     .quiz-hero { background: var(--pearl); padding: 130px 0 50px; text-align: center; border-bottom: 1px solid var(--grey-5); }
     .quiz-wrap { max-width: 640px; margin: 0 auto; padding: 48px 0 80px; }
+
+    /* Mode selector */
+    .quiz-mode-intro { padding-bottom: 4px; }
+    .quiz-mode-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-3); margin-bottom: 16px; }
+    .quiz-mode-sel { display: flex; gap: 12px; margin-bottom: 28px; }
+    .quiz-mode-btn { flex: 1; padding: 16px 18px; border: 2px solid var(--grey-5); border-radius: var(--radius-md); background: var(--white); color: var(--grey-2); font-family: var(--font-head); font-size: 13px; font-weight: 600; cursor: pointer; transition: border-color .18s, background .18s; text-align: left; line-height: 1.45; }
+    .quiz-mode-btn strong { display: block; font-size: 15px; margin-bottom: 2px; color: var(--navy); }
+    .quiz-mode-btn.active { border-color: var(--lavender); background: rgba(200,180,232,0.1); }
+    @media (max-width: 480px) { .quiz-mode-sel { flex-direction: column; } }
+
+    /* Progress */
     .quiz-progress-track { height: 8px; background: var(--grey-5); border-radius: 100px; overflow: hidden; margin-bottom: 8px; }
     .quiz-progress-bar { height: 100%; width: 0%; background: var(--gradient-brand); border-radius: 100px; transition: width .3s ease; }
     .quiz-progress-label { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-3); margin-bottom: 26px; }
@@ -50,26 +61,64 @@
     .quiz-back { margin-top: 24px; background: none; border: none; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; font-size: 14px; cursor: pointer; }
     .quiz-back:hover { color: var(--navy); }
     .quiz-back[hidden] { display: none; }
-    /* résultat */
-    .quiz-result { display: none; }
-    .quiz-result.show { display: block; }
+
+    /* Email gate */
+    .quiz-gate-inner { text-align: center; padding: 20px 0; }
+    .quiz-gate-title { font-family: var(--font-display); font-style: italic; font-size: clamp(28px, 4vw, 40px); color: var(--navy); margin-bottom: 10px; line-height: 1.2; }
+    .quiz-gate-sub { color: var(--grey-2); font-size: 15px; margin-bottom: 28px; line-height: 1.65; max-width: 380px; margin-left: auto; margin-right: auto; }
+    .quiz-gate-form { display: flex; flex-direction: column; gap: 10px; max-width: 380px; margin: 0 auto 12px; }
+    .quiz-gate-email { padding: 14px 20px; border: 1.5px solid var(--grey-5); border-radius: 100px; font-size: 15px; font-family: var(--font-body); color: var(--navy); outline: none; text-align: center; width: 100%; box-sizing: border-box; }
+    .quiz-gate-email:focus { border-color: var(--lavender); }
+    .quiz-gate-submit { padding: 14px 28px; background: var(--navy); color: var(--white); border: none; border-radius: 100px; font-family: var(--font-head); font-weight: 700; font-size: 15px; cursor: pointer; transition: opacity .15s, transform .12s; }
+    .quiz-gate-submit:hover { transform: translateY(-1px); }
+    .quiz-gate-skip { font-size: 13px; color: var(--grey-3); cursor: pointer; text-decoration: underline; background: none; border: none; font-family: var(--font-body); margin-top: 6px; display: inline-block; }
+    .quiz-gate-skip:hover { color: var(--navy); }
+
+    /* Result */
     .quiz-result-label { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-3); margin-bottom: 10px; }
     .quiz-result-name { font-family: var(--font-display); font-style: italic; font-size: clamp(30px, 4.4vw, 46px); color: var(--navy); line-height: 1.1; margin-bottom: 16px; }
+    .quiz-result-accroche { font-family: var(--font-head); font-weight: 700; font-size: 17px; color: var(--navy); margin-bottom: 14px; line-height: 1.35; }
     .quiz-result-desc { color: var(--grey-1); line-height: 1.75; font-size: 16px; margin-bottom: 28px; }
+    .quiz-email-ok { background: rgba(160,231,197,0.2); border: 1px solid var(--mint); border-radius: var(--radius-md); padding: 12px 18px; font-size: 14px; color: #1B7A4E; font-weight: 600; font-family: var(--font-head); margin-bottom: 22px; text-align: center; }
+
+    /* Classic (rapide) */
     .quiz-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px; }
     .quiz-col { border: 1px solid var(--grey-5); border-radius: var(--radius-md); padding: 20px 22px; }
     .quiz-col h3 { font-family: var(--font-head); font-size: 14px; color: var(--navy); margin-bottom: 10px; }
     .quiz-col ul { margin: 0; padding-left: 18px; }
     .quiz-col li { color: var(--grey-1); line-height: 1.6; font-size: 14px; margin-bottom: 6px; }
+    @media (max-width: 560px) { .quiz-cols { grid-template-columns: 1fr; } }
+
+    /* Biais (approfondi) */
+    .quiz-section-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--grey-3); margin-bottom: 12px; }
+    .quiz-biais-wrap { margin-bottom: 24px; }
+    .quiz-biais-card { border: 1px solid var(--grey-5); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 10px; border-left: 3px solid var(--lavender); }
+    .quiz-biais-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); margin-bottom: 4px; }
+    .quiz-biais-impact { font-size: 14px; color: var(--grey-1); line-height: 1.6; margin: 0; }
+    .quiz-risque-box { background: rgba(240,192,64,0.12); border: 1px solid #F0C040; border-radius: var(--radius-md); padding: 16px 20px; margin-bottom: 28px; }
+    .quiz-risque-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9A6B00; margin-bottom: 6px; }
+    .quiz-risque-text { font-size: 14px; color: var(--grey-1); line-height: 1.6; margin: 0; }
+
+    /* Actions box */
+    .quiz-actions-box { background: var(--pearl); border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 28px; }
+    .quiz-actions-box ol { margin: 0; padding-left: 20px; }
+    .quiz-actions-box li { color: var(--grey-1); line-height: 1.7; font-size: 15px; margin-bottom: 8px; }
+    .quiz-actions-box a { color: var(--navy); font-weight: 600; }
+
+    /* CTA block */
+    .quiz-cta-block { background: linear-gradient(135deg, rgba(212,192,255,0.15), rgba(186,212,227,0.12), rgba(160,231,197,0.15)); border: 1.5px solid rgba(200,180,232,0.5); border-radius: var(--radius-md); padding: 28px; text-align: center; margin-bottom: 24px; }
+    .quiz-cta-block-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 8px; }
+    .quiz-cta-block-sub { font-size: 14px; color: var(--grey-2); margin-bottom: 20px; line-height: 1.6; }
+    .quiz-cta-secondary { display: inline-block; margin-top: 12px; font-size: 13px; color: var(--grey-3); text-decoration: underline; }
+    .quiz-cta-secondary:hover { color: var(--navy); }
+
     .quiz-steps { background: var(--pearl); border-radius: var(--radius-md); padding: 24px 26px; margin-bottom: 28px; }
     .quiz-steps h3 { font-family: var(--font-head); font-size: 15px; color: var(--navy); margin-bottom: 12px; }
     .quiz-steps ol { margin: 0; padding-left: 20px; }
     .quiz-steps li { color: var(--grey-1); line-height: 1.7; font-size: 15px; margin-bottom: 8px; }
     .quiz-steps a { color: var(--navy); font-weight: 600; }
-    .quiz-cta { text-align: center; margin-bottom: 26px; }
     .quiz-restart { display: block; margin: 0 auto; background: none; border: none; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: underline; }
     .quiz-disclaimer { font-size: 12px; color: var(--grey-3); line-height: 1.6; margin-top: 24px; border-top: 1px solid var(--grey-5); padding-top: 16px; }
-    @media (max-width: 560px) { .quiz-cols { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -200,38 +249,101 @@
     <div class="container">
       <span class="t-label">Le test</span>
       <h1>Quel investisseur<br><em class="t-display">es-tu ?</em></h1>
-      <p style="color:var(--grey-2); max-width:520px; margin:14px auto 0;">9 questions, 2 minutes, et tu repars avec ton profil et tes prochaines étapes. Aucune adresse email demandée.</p>
+      <p style="color:var(--grey-2); max-width:520px; margin:14px auto 0;">Choisis ton format, puis découvre ton profil, tes biais et tes prochaines étapes concrètes.</p>
     </div>
   </section>
 
   <section class="container">
     <div class="quiz-wrap">
+
+      <!-- MODE SELECTOR -->
+      <div id="quiz-mode">
+        <div class="quiz-mode-intro">
+          <div class="quiz-mode-lbl">Choisis ton format</div>
+          <div class="quiz-mode-sel">
+            <button class="quiz-mode-btn active" id="mode-rapide" type="button">
+              <strong>Rapide</strong>
+              5 questions, 2 minutes
+            </button>
+            <button class="quiz-mode-btn" id="mode-approfondi" type="button">
+              <strong>Approfondi</strong>
+              10 questions, biais comportementaux
+            </button>
+          </div>
+          <button class="btn btn-gradient btn--lg" id="quiz-start-btn" type="button" style="width:100%;justify-content:center;">Commencer le quiz <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+
       <!-- ZONE QUESTIONS -->
-      <div id="quiz-game">
+      <div id="quiz-game" style="display:none;">
         <div class="quiz-progress-track"><div class="quiz-progress-bar" id="quiz-bar"></div></div>
-        <div class="quiz-progress-label" id="quiz-step-label">Question 1 sur 9</div>
+        <div class="quiz-progress-label" id="quiz-step-label">Question 1 sur 5</div>
         <div class="quiz-question" id="quiz-question"></div>
         <div class="quiz-options" id="quiz-options"></div>
         <button class="quiz-back" id="quiz-back" hidden>← Question précédente</button>
       </div>
 
+      <!-- EMAIL GATE -->
+      <div id="quiz-gate" style="display:none;">
+        <div class="quiz-gate-inner">
+          <div style="font-size:40px;margin-bottom:16px;">🎯</div>
+          <div class="quiz-gate-title">Ton profil est prêt.</div>
+          <p class="quiz-gate-sub">Reçois ton plan d'action personnalisé en PDF, gratuitement.</p>
+          <div id="quiz-gate-ok" class="quiz-email-ok" style="display:none;">Ton plan d'action arrive dans ta boîte.</div>
+          <form id="quiz-gate-form" class="quiz-gate-form">
+            <input type="email" id="quiz-gate-email" class="quiz-gate-email" placeholder="ton@email.com" required autocomplete="email">
+            <button type="submit" class="quiz-gate-submit">Recevoir mon plan</button>
+          </form>
+          <button type="button" id="quiz-gate-skip" class="quiz-gate-skip">Non merci, voir mon résultat sans PDF</button>
+        </div>
+      </div>
+
       <!-- ZONE RÉSULTAT -->
-      <div class="quiz-result" id="quiz-result">
+      <div id="quiz-result" style="display:none;">
+        <div id="res-email-ok" class="quiz-email-ok" style="display:none;">Ton plan d'action arrive dans ta boîte.</div>
         <span class="quiz-result-label">Ton profil</span>
         <div class="quiz-result-name" id="res-name"></div>
+        <div id="res-accroche" class="quiz-result-accroche" style="display:none;"></div>
         <p class="quiz-result-desc" id="res-desc"></p>
-        <div class="quiz-cols">
-          <div class="quiz-col"><h3>Tes forces</h3><ul id="res-forces"></ul></div>
-          <div class="quiz-col"><h3>Tes points de vigilance</h3><ul id="res-vigilance"></ul></div>
+
+        <!-- Biais (approfondi) -->
+        <div id="res-biais-section" style="display:none;">
+          <div class="quiz-biais-wrap">
+            <div class="quiz-section-lbl">Tes biais dominants</div>
+            <div id="res-biais-list"></div>
+          </div>
+          <div class="quiz-risque-box">
+            <div class="quiz-risque-lbl">Risque structurel</div>
+            <p class="quiz-risque-text" id="res-risque-text"></p>
+          </div>
         </div>
-        <div class="quiz-steps">
-          <h3>Tes 3 prochaines étapes</h3>
-          <ol id="res-steps"></ol>
+
+        <!-- Forces/vigilance (rapide) -->
+        <div id="res-classic-section" style="display:none;">
+          <div class="quiz-cols">
+            <div class="quiz-col"><h3>Tes forces</h3><ul id="res-forces"></ul></div>
+            <div class="quiz-col"><h3>Tes points de vigilance</h3><ul id="res-vigilance"></ul></div>
+          </div>
         </div>
-        <div class="quiz-cta" id="res-cta"></div>
-        <button class="quiz-restart" id="quiz-restart">Refaire le test</button>
-        <p class="quiz-disclaimer">Ce test est un outil éducatif et ludique. Il ne constitue pas un conseil en investissement personnalisé et ne recommande aucun produit financier. Investir comporte un risque de perte en capital. Aucune donnée n'est collectée ni transmise : tout est calculé dans ton navigateur.</p>
+
+        <!-- Actions -->
+        <div class="quiz-actions-box">
+          <div class="quiz-section-lbl">3 actions concrètes pour toi</div>
+          <ol id="res-actions"></ol>
+        </div>
+
+        <!-- CTA block -->
+        <div class="quiz-cta-block">
+          <div class="quiz-cta-block-title" id="res-cta-title"></div>
+          <p class="quiz-cta-block-sub" id="res-cta-sub"></p>
+          <div id="res-cta-btn"></div>
+          <div id="res-cta-secondary-wrap"></div>
+        </div>
+
+        <button class="quiz-restart" id="quiz-restart">Recommencer le test</button>
+        <p class="quiz-disclaimer">Ce test est un outil éducatif et ludique. Il ne constitue pas un conseil en investissement personnalisé et ne recommande aucun produit financier. Investir comporte un risque de perte en capital. Aucune donnée n'est collectée ni transmise sans ton consentement.</p>
       </div>
+
     </div>
   </section>
 
@@ -285,18 +397,20 @@
   <script defer src="js/main.js"></script>
   <script>
   (function () {
-    // 9 questions, chaque réponse pointe vers un profil : dormant, prudent, disperse, presse
-    const QUESTIONS = [
+
+    // ===== DONNÉES =====
+
+    const QUESTIONS_ORIG = [
       { q: "Où en est ton épargne aujourd'hui ?", o: [
         ["Mon argent dort sur des livrets ou un compte courant", "dormant"],
         ["J'ai mis de côté mais je n'ai jamais osé investir", "prudent"],
         ["J'investis déjà, un peu partout, sans vraie logique", "disperse"],
         ["J'investis et je veux structurer et accélérer", "presse"] ] },
       { q: "Combien peux-tu investir chaque mois ?", o: [
-        ["Moins de 50€, c'est serré en ce moment", "dormant"],
-        ["Entre 50 et 200€", "prudent"],
-        ["Entre 200 et 600€", "disperse"],
-        ["Plus de 600€", "presse"] ] },
+        ["Moins de 50 euros, c'est serré en ce moment", "dormant"],
+        ["Entre 50 et 200 euros", "prudent"],
+        ["Entre 200 et 600 euros", "disperse"],
+        ["Plus de 600 euros", "presse"] ] },
       { q: "Quelle est ton expérience d'investissement ?", o: [
         ["Aucune, je n'ai jamais investi", "dormant"],
         ["Très faible, je débute tout juste", "prudent"],
@@ -334,10 +448,66 @@
         ["Je gère le risque avec une stratégie définie", "presse"] ] }
     ];
 
-    const PROFILES = {
+    // 5 questions les plus discriminantes (indices 0, 3, 4, 6, 8)
+    var RAPIDE_IDX = [0, 3, 4, 6, 8];
+
+    const QUESTIONS_APPROFONDI = [
+      { q: "Ton portefeuille chute de 30% en un mois. Tu fais quoi ?", o: [
+        ["Je vends tout pour éviter d'autres pertes", "preserver"],
+        ["J'allège quelques positions", "follower"],
+        ["Je ne touche à rien, ma conviction tient", "independent"],
+        ["Je renforce, c'est une opportunité", "accumulator"] ] },
+      { q: "Tu investis avant tout pour :", o: [
+        ["Sécuriser l'avenir de ma famille", "preserver"],
+        ["Faire fructifier sans trop y penser", "follower"],
+        ["Battre le marché sur le long terme", "independent"],
+        ["Accumuler le maximum de capital possible", "accumulator"] ] },
+      { q: "Au quotidien, tu gères ton argent comment ?", o: [
+        ["Tout est délégué ou automatisé", "preserver"],
+        ["Je suis de loin, sans intervenir souvent", "follower"],
+        ["Je sélectionne moi-même mes placements", "independent"],
+        ["Je trade ou j'arbitre régulièrement", "accumulator"] ] },
+      { q: "L'essentiel de ton patrimoine repose sur :", o: [
+        ["Mon activité professionnelle ou mon entreprise", "accumulator"],
+        ["Quelques convictions fortes sur des secteurs précis", "independent"],
+        ["De l'immobilier ou de l'épargne réglementée", "preserver"],
+        ["Des fonds larges bien diversifiés", "follower"] ] },
+      { q: "Sur les dernières années, tes résultats face au marché :", o: [
+        ["En dessous du marché", "preserver"],
+        ["Dans la moyenne", "follower"],
+        ["Au-dessus du marché", "independent"],
+        ["Largement au-dessus du marché", "accumulator"] ] },
+      { q: "Tu pourrais avoir besoin de cet argent dans :", o: [
+        ["Moins de 2 ans", "preserver"],
+        ["2 à 5 ans", "follower"],
+        ["5 à 10 ans", "independent"],
+        ["Plus de 10 ans", "accumulator"] ] },
+      { q: "Une de tes lignes gagne 50%. Tu fais quoi ?", o: [
+        ["Je vends pour sécuriser la plus-value", "preserver"],
+        ["J'allège pour rééquilibrer", "follower"],
+        ["Je garde, la conviction tient", "independent"],
+        ["Je renforce, le momentum est bon", "accumulator"] ] },
+      { q: "Pour décider, tu te fies surtout à :", o: [
+        ["Des règles fixes ou un conseiller de confiance", "preserver"],
+        ["La presse financière et les données du marché", "follower"],
+        ["Ma propre analyse fondamentale", "independent"],
+        ["Mon intuition et mon instinct", "accumulator"] ] },
+      { q: "Choix : 10 000 euros garantis, ou 50% de chances d'en gagner 25 000 et 50% de ne rien gagner ?", o: [
+        ["Les 10 000 euros garantis, sans hésitation", "preserver"],
+        ["Plutôt le garanti, mais j'hésite un peu", "follower"],
+        ["Plutôt le pari, l'espérance est positive", "independent"],
+        ["Le pari, sans réfléchir longtemps", "accumulator"] ] },
+      { q: "Utiliser du levier ou de la dette pour investir :", o: [
+        ["Jamais, je n'emprunte pas pour investir", "preserver"],
+        ["Uniquement pour l'immobilier", "follower"],
+        ["Oui, prudemment sur les bonnes opportunités", "independent"],
+        ["Oui, sans réticence si le rendement est là", "accumulator"] ] }
+    ];
+
+    const PROFILES_RAPIDE = {
       dormant: {
         name: "L'Épargnant dormant",
-        desc: "Ton argent dort sur des livrets ou ton compte courant. Tu n'as rien à te reprocher : tu as pris l'habitude de mettre de côté. Le problème, c'est que cette épargne perd discrètement du pouvoir d'achat à cause de l'inflation. Ta priorité n'est pas de prendre des risques, c'est de comprendre le coût réel de l'inaction.",
+        desc: "Ton argent dort sur des livrets ou ton compte courant. Tu as pris l'habitude de mettre de côté, c'est déjà bien. Le problème : cette épargne perd discrètement du pouvoir d'achat à cause de l'inflation. Ta priorité n'est pas de prendre des risques, c'est de comprendre le coût réel de l'inaction.",
         forces: ["Tu sais déjà épargner régulièrement", "Tu as un capital prêt à être mis au travail", "Tu n'as pas de mauvaises habitudes d'investissement à corriger"],
         vigilance: ["L'inflation grignote ton épargne chaque année", "L'attente te coûte des années d'intérêts composés", "La peur de mal faire peut te paralyser longtemps"],
         steps: [
@@ -348,7 +518,7 @@
       },
       prudent: {
         name: "Le Débutant prudent",
-        desc: "Tu es motivé pour investir, mais la peur de l'erreur te retient. C'est sain : mieux vaut comprendre avant d'agir. Ce qu'il te manque, ce n'est pas le courage, c'est une méthode claire, pas à pas, qui enlève le doute. Une fois les bases posées, tu avanceras sereinement.",
+        desc: "Tu es motivé pour investir, mais la peur de l'erreur te retient. C'est sain : mieux vaut comprendre avant d'agir. Ce qu'il te manque, ce n'est pas le courage, c'est une méthode claire, pas à pas, qui enlève le doute.",
         forces: ["Tu es prudent et tu cherches à comprendre", "Tu es prêt à te lancer, il ne manque qu'un cadre", "Tu n'es pas du genre à prendre des risques inconsidérés"],
         vigilance: ["La peur de l'erreur peut repousser le passage à l'action", "Trop d'informations contradictoires peuvent te bloquer", "Sans méthode, tu risques de tout remettre à plus tard"],
         steps: [
@@ -359,7 +529,7 @@
       },
       disperse: {
         name: "L'Actif dispersé",
-        desc: "Tu investis déjà, et c'est une bonne chose. Mais tu sens que ça part un peu dans tous les sens, sans stratégie cohérente. Ta priorité n'est pas d'en faire plus, c'est de simplifier et de structurer ce que tu as. Avec un cap clair, tes placements deviendront plus efficaces et moins chronophages.",
+        desc: "Tu investis déjà, c'est une bonne chose. Mais tu sens que ça part dans tous les sens, sans stratégie cohérente. Ta priorité n'est pas d'en faire plus, c'est de simplifier et de structurer ce que tu as.",
         forces: ["Tu es déjà passé à l'action", "Tu n'as pas peur d'investir", "Tu as une base sur laquelle bâtir une vraie stratégie"],
         vigilance: ["L'éparpillement nuit à la performance et à la lisibilité", "Tu paies peut-être des frais évitables sans le savoir", "Sans cap, tu risques de réagir à l'émotion plutôt qu'à un plan"],
         steps: [
@@ -370,7 +540,7 @@
       },
       presse: {
         name: "Le Stratège pressé",
-        desc: "Tu sais où tu vas et tu as les moyens d'avancer vite. Ce qui te manque, ce n'est pas la motivation, c'est le temps. Tu as besoin d'un plan directement applicable, optimisé fiscalement, sans y passer tes soirées. Un accompagnement ciblé peut te faire gagner un temps précieux.",
+        desc: "Tu sais où tu vas et tu as les moyens d'avancer vite. Ce qui te manque, ce n'est pas la motivation, c'est le temps. Tu as besoin d'un plan directement applicable, optimisé fiscalement, sans y passer tes soirées.",
         forces: ["Tu as une vision claire et de l'ambition", "Tu as une capacité d'investissement confortable", "Tu es prêt à optimiser, pas seulement à investir"],
         vigilance: ["Le manque de temps peut conduire à des raccourcis risqués", "Vouloir aller vite peut pousser à négliger la diversification", "Une optimisation mal pensée peut coûter en fiscalité"],
         steps: [
@@ -381,27 +551,129 @@
       }
     };
 
-    const ORDER = ["dormant", "prudent", "disperse", "presse"];
+    const PROFILES_POMPIAN = {
+      preserver: {
+        name: "Le Préservateur",
+        accroche: "Tu protèges trop. Et cette prudence te coûte de la performance.",
+        desc: "Ta priorité est la sécurité. Tu ressens les pertes beaucoup plus fort que les gains équivalents. Résultat : ton épargne reste souvent sous-investie, et l'inflation grignote discrètement ce que tu crois protéger.",
+        biais: [
+          { name: "Aversion à la perte", impact: "Tu ressens les pertes deux fois plus fort que les gains équivalents. Tu vends quand ça baisse et rates souvent les rebonds qui suivent." },
+          { name: "Ancrage", impact: "Tu restes bloqué sur le prix d'achat. Un actif en baisse de 30% ne mérite pas d'être gardé uniquement parce que tu l'as payé plus cher." },
+          { name: "Regret anticipé", impact: "Tu évites d'agir pour ne pas regretter. Mais l'inaction est aussi un choix, avec ses propres coûts et ses propres regrets futurs." }
+        ],
+        risque: "Sous-exposition aux actifs de croissance. Ton épargne perd du pouvoir d'achat pendant que tu te crois prudent.",
+        actions: [
+          "Calcule le coût réel de ton inaction avec le simulateur d'intérêts composés.",
+          "Alloue au moins 50% de ton épargne investie à des ETF World diversifiés.",
+          "Mets en place un virement automatique mensuel pour retirer l'émotion de la décision."
+        ],
+        cta: "formation"
+      },
+      follower: {
+        name: "Le Suiveur",
+        accroche: "Tu achètes quand tout le monde achète. Et tu vends quand tout le monde vend. C'est l'opposé de la stratégie gagnante.",
+        desc: "Tu suis le consensus du marché et les tendances du moment. Tu achètes souvent après la hausse et vends après la baisse. Non par manque d'intelligence, mais parce que le comportement grégaire est profondément humain.",
+        biais: [
+          { name: "Comportement grégaire", impact: "Tu investis là où tout le monde investit. Le problème : les actifs populaires sont déjà chers quand tu arrives." },
+          { name: "FOMO", impact: "La peur de rater une hausse te pousse à acheter au sommet. Le repli qui suit frappe d'autant plus fort." },
+          { name: "Biais de confirmation", impact: "Tu cherches des informations qui confirment ce que tu as déjà décidé. Les signaux contraires passent inaperçus." }
+        ],
+        risque: "Achat au plus haut, vente au plus bas. Tu cristallises les pertes et rates les phases de rebond.",
+        actions: [
+          "Mets en place un DCA mensuel automatique pour neutraliser le timing émotionnel.",
+          "Évite de regarder les cours plus d'une fois par semaine.",
+          "Écris ta stratégie sur une feuille avant d'investir, pour ne pas la modifier sous l'influence des médias."
+        ],
+        cta: "formation"
+      },
+      independent: {
+        name: "L'Indépendant",
+        accroche: "Tu analyses, tu décides, tu assumes. C'est une force. Mais l'excès de confiance est ton angle mort.",
+        desc: "Tu fais confiance à ta propre analyse plus qu'aux conseils extérieurs. Tu prends tes décisions avec méthode. Ton risque principal : surestimer ta capacité à prévoir ce que le marché fera.",
+        biais: [
+          { name: "Excès de confiance", impact: "Tu surestes ta capacité à prévoir le marché. Même les professionnels échouent à battre l'indice sur 15 ans." },
+          { name: "Biais de disponibilité", impact: "Tu surpondères les informations récentes ou frappantes. Ce qui vient de se passer n'est pas représentatif de l'avenir." },
+          { name: "Illusion de contrôle", impact: "Plus tu analyses, plus tu te sens en contrôle. Mais le marché récompense la patience, pas l'activité." }
+        ],
+        risque: "Suractivité. Trop de rotations génèrent des frais et de la fiscalité qui grignotent la performance.",
+        actions: [
+          "Compare ta performance réelle à l'indice MSCI World sur 5 ans, avec ton TRI, pas le pourcentage affiché sur l'application.",
+          "Réduis le nombre de lignes en portefeuille. La simplicité surperforme la complexité sur le long terme.",
+          "Réserve un budget conviction limité (10% maximum) hors du coeur de portefeuille."
+        ],
+        cta: "coaching"
+      },
+      accumulator: {
+        name: "L'Accumulateur",
+        accroche: "Tu vises la croissance maximale. Le risque de concentration est ton principal ennemi.",
+        desc: "Tu es orienté résultats, tu prends des risques assumés et tu cherches à optimiser chaque placement. Ton énergie est un atout réel. Ton danger : surconcentrer et perdre en quelques mois ce qui a mis des années à s'accumuler.",
+        biais: [
+          { name: "Surconfiance", impact: "Tu penses avoir un edge sur le marché. Mais même les meilleurs gérants sous-performent l'indice sur 20 ans." },
+          { name: "Illusion de contrôle", impact: "Concentrer sur quelques convictions fortes te donne l'impression de maîtriser l'issue. Une seule erreur peut effacer des années de gains." },
+          { name: "Surconcentration", impact: "Un portefeuille de 3 à 5 lignes amplifie les baisses autant que les hausses. L'asymétrie joue contre toi à long terme." }
+        ],
+        risque: "Concentration excessive. Un secteur ou une entreprise qui s'effondre peut détruire des années d'accumulation.",
+        actions: [
+          "Vérifie que tes 5 premières positions ne représentent pas plus de 50% de ton portefeuille.",
+          "Intègre un socle d'ETF World pour diversifier sans compromettre tes convictions de croissance.",
+          "Planifie un rééquilibrage annuel pour encaisser les plus-values et limiter la surexposition."
+        ],
+        cta: "coaching"
+      }
+    };
 
-    const game = document.getElementById('quiz-game');
-    const result = document.getElementById('quiz-result');
-    const bar = document.getElementById('quiz-bar');
-    const stepLabel = document.getElementById('quiz-step-label');
-    const qEl = document.getElementById('quiz-question');
-    const oEl = document.getElementById('quiz-options');
-    const backBtn = document.getElementById('quiz-back');
+    // ===== STATE =====
+    var mode = 'rapide';
+    var activeQuestions = [];
+    var current = 0;
+    var answers = [];
+    var pendingProfile = null;
 
-    let current = 0;
-    const answers = new Array(QUESTIONS.length).fill(null);
+    // ===== DOM =====
+    var modeEl = document.getElementById('quiz-mode');
+    var gameEl = document.getElementById('quiz-game');
+    var gateEl = document.getElementById('quiz-gate');
+    var resultEl = document.getElementById('quiz-result');
+    var bar = document.getElementById('quiz-bar');
+    var stepLabel = document.getElementById('quiz-step-label');
+    var qEl = document.getElementById('quiz-question');
+    var oEl = document.getElementById('quiz-options');
+    var backBtn = document.getElementById('quiz-back');
 
+    // ===== MODE SELECTOR =====
+    document.getElementById('mode-rapide').addEventListener('click', function () {
+      mode = 'rapide';
+      document.getElementById('mode-rapide').classList.add('active');
+      document.getElementById('mode-approfondi').classList.remove('active');
+    });
+    document.getElementById('mode-approfondi').addEventListener('click', function () {
+      mode = 'approfondi';
+      document.getElementById('mode-approfondi').classList.add('active');
+      document.getElementById('mode-rapide').classList.remove('active');
+    });
+
+    document.getElementById('quiz-start-btn').addEventListener('click', function () {
+      if (mode === 'rapide') {
+        activeQuestions = RAPIDE_IDX.map(function (i) { return QUESTIONS_ORIG[i]; });
+      } else {
+        activeQuestions = QUESTIONS_APPROFONDI;
+      }
+      answers = new Array(activeQuestions.length).fill(null);
+      current = 0;
+      modeEl.style.display = 'none';
+      gameEl.style.display = 'block';
+      render();
+    });
+
+    // ===== QUESTIONS =====
     function render() {
-      const item = QUESTIONS[current];
-      bar.style.width = ((current) / QUESTIONS.length * 100) + '%';
-      stepLabel.textContent = 'Question ' + (current + 1) + ' sur ' + QUESTIONS.length;
+      var item = activeQuestions[current];
+      bar.style.width = (current / activeQuestions.length * 100) + '%';
+      stepLabel.textContent = 'Question ' + (current + 1) + ' sur ' + activeQuestions.length;
       qEl.textContent = item.q;
       oEl.innerHTML = '';
       item.o.forEach(function (opt) {
-        const b = document.createElement('button');
+        var b = document.createElement('button');
         b.className = 'quiz-option';
         b.type = 'button';
         b.textContent = opt[0];
@@ -412,13 +684,15 @@
       backBtn.hidden = current === 0;
     }
 
-    function choose(profile) {
-      answers[current] = profile;
-      if (current < QUESTIONS.length - 1) {
+    function choose(profileKey) {
+      answers[current] = profileKey;
+      if (current < activeQuestions.length - 1) {
         current++;
         render();
       } else {
-        showResult();
+        bar.style.width = '100%';
+        pendingProfile = computeProfile();
+        showGate();
       }
     }
 
@@ -426,56 +700,160 @@
       if (current > 0) { current--; render(); }
     });
 
+    // ===== SCORING =====
     function computeProfile() {
-      const counts = { dormant: 0, prudent: 0, disperse: 0, presse: 0 };
-      answers.forEach(function (a) { if (a) counts[a]++; });
-      let best = ORDER[0];
-      ORDER.forEach(function (k) { if (counts[k] > counts[best]) best = k; });
-      return best;
+      if (mode === 'rapide') {
+        var counts = { dormant: 0, prudent: 0, disperse: 0, presse: 0 };
+        answers.forEach(function (a) { if (a) counts[a]++; });
+        var best = 'dormant';
+        ['dormant', 'prudent', 'disperse', 'presse'].forEach(function (k) { if (counts[k] > counts[best]) best = k; });
+        return best;
+      } else {
+        var cnt = { preserver: 0, follower: 0, independent: 0, accumulator: 0 };
+        answers.forEach(function (a) { if (a) cnt[a]++; });
+        var top = 'preserver';
+        ['preserver', 'follower', 'independent', 'accumulator'].forEach(function (k) { if (cnt[k] > cnt[top]) top = k; });
+        return top;
+      }
     }
 
-    function showResult() {
-      const key = computeProfile();
-      const p = PROFILES[key];
-      document.getElementById('res-name').textContent = p.name;
-      document.getElementById('res-desc').textContent = p.desc;
-      fillList('res-forces', p.forces);
-      fillList('res-vigilance', p.vigilance);
-      const steps = document.getElementById('res-steps');
-      steps.innerHTML = '';
-      p.steps.forEach(function (s) {
-        const li = document.createElement('li');
-        li.innerHTML = s[0] + '<a href="' + s[1] + '">' + s[2] + '</a>' + s[3];
-        steps.appendChild(li);
-      });
-      const cta = document.getElementById('res-cta');
-      if (p.cta === 'coaching') {
-        cta.innerHTML = '<a href="coaching.html" class="btn btn-gradient btn--lg">Réserver une session de coaching <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
-      } else {
-        cta.innerHTML = '<a href="formation.html" class="btn btn-gradient btn--lg">Découvrir la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
-      }
-      bar.style.width = '100%';
-      game.style.display = 'none';
-      result.classList.add('show');
+    // ===== EMAIL GATE =====
+    function showGate() {
+      gameEl.style.display = 'none';
+      gateEl.style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.getElementById('quiz-gate-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = document.getElementById('quiz-gate-email').value;
+      var profileName = mode === 'rapide'
+        ? PROFILES_RAPIDE[pendingProfile].name
+        : PROFILES_POMPIAN[pendingProfile].name;
+      fetch('https://formspree.io/f/mvznqwpd', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, profil: profileName, source: 'quiz-' + mode })
+      }).catch(function () {});
+      document.getElementById('quiz-gate-ok').style.display = 'block';
+      document.getElementById('quiz-gate-form').style.display = 'none';
+      document.getElementById('quiz-gate-skip').style.display = 'none';
+      setTimeout(function () { showResult(true); }, 900);
+    });
+
+    document.getElementById('quiz-gate-skip').addEventListener('click', function () {
+      showResult(false);
+    });
+
+    // ===== RESULT =====
+    function showResult(emailCaptured) {
+      gateEl.style.display = 'none';
+      resultEl.style.display = 'block';
+      renderResult(pendingProfile, emailCaptured);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderResult(key, emailCaptured) {
+      if (emailCaptured) {
+        document.getElementById('res-email-ok').style.display = 'block';
+      }
+
+      if (mode === 'rapide') {
+        var p = PROFILES_RAPIDE[key];
+        document.getElementById('res-name').textContent = p.name;
+        document.getElementById('res-accroche').style.display = 'none';
+        document.getElementById('res-desc').textContent = p.desc;
+        document.getElementById('res-biais-section').style.display = 'none';
+        document.getElementById('res-classic-section').style.display = 'block';
+        fillList('res-forces', p.forces);
+        fillList('res-vigilance', p.vigilance);
+        var ol = document.getElementById('res-actions');
+        ol.innerHTML = '';
+        p.steps.forEach(function (s) {
+          var li = document.createElement('li');
+          li.innerHTML = s[0] + '<a href="' + s[1] + '">' + s[2] + '</a>' + s[3];
+          ol.appendChild(li);
+        });
+        renderCTA(p.cta);
+      } else {
+        var p = PROFILES_POMPIAN[key];
+        document.getElementById('res-name').textContent = p.name;
+        var accroche = document.getElementById('res-accroche');
+        accroche.style.display = 'block';
+        accroche.textContent = p.accroche;
+        document.getElementById('res-desc').textContent = p.desc;
+        document.getElementById('res-classic-section').style.display = 'none';
+        document.getElementById('res-biais-section').style.display = 'block';
+        var biaisEl = document.getElementById('res-biais-list');
+        biaisEl.innerHTML = '';
+        p.biais.forEach(function (b) {
+          var card = document.createElement('div');
+          card.className = 'quiz-biais-card';
+          card.innerHTML = '<div class="quiz-biais-name">' + b.name + '</div><p class="quiz-biais-impact">' + b.impact + '</p>';
+          biaisEl.appendChild(card);
+        });
+        document.getElementById('res-risque-text').textContent = p.risque;
+        var ol = document.getElementById('res-actions');
+        ol.innerHTML = '';
+        p.actions.forEach(function (a) {
+          var li = document.createElement('li');
+          li.textContent = a;
+          ol.appendChild(li);
+        });
+        renderCTA(p.cta);
+      }
+    }
+
+    function renderCTA(ctaType) {
+      var title, sub, btnHTML, secHTML;
+      if (ctaType === 'coaching') {
+        title = 'Un regard extérieur changerait tout.';
+        sub = 'Tu as les bases. Une séance de coaching te permet d\'aller directement sur tes angles morts et de challenger ta stratégie actuelle.';
+        btnHTML = '<a href="coaching.html" class="btn btn-gradient btn--lg">Réserver une séance de coaching <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+        secHTML = '<a href="formation.html" class="quiz-cta-secondary">ou consulter la formation complète</a>';
+      } else {
+        title = 'Tu veux passer à l\'étape suivante ?';
+        sub = 'La formation De 0 à Investisseur te donne une méthode complète, pas à pas, pour construire un portefeuille solide sans te tromper.';
+        btnHTML = '<a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg></a>';
+        secHTML = '<a href="coaching.html" class="quiz-cta-secondary">ou découvrir le coaching individuel</a>';
+      }
+      document.getElementById('res-cta-title').textContent = title;
+      document.getElementById('res-cta-sub').textContent = sub;
+      document.getElementById('res-cta-btn').innerHTML = btnHTML;
+      document.getElementById('res-cta-secondary-wrap').innerHTML = secHTML;
     }
 
     function fillList(id, arr) {
-      const ul = document.getElementById(id);
+      var ul = document.getElementById(id);
       ul.innerHTML = '';
-      arr.forEach(function (t) { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+      arr.forEach(function (t) {
+        var li = document.createElement('li');
+        li.textContent = t;
+        ul.appendChild(li);
+      });
     }
 
+    // ===== RESTART =====
     document.getElementById('quiz-restart').addEventListener('click', function () {
+      mode = 'rapide';
+      activeQuestions = [];
       current = 0;
-      for (var i = 0; i < answers.length; i++) answers[i] = null;
-      result.classList.remove('show');
-      game.style.display = '';
-      render();
+      answers = [];
+      pendingProfile = null;
+      document.getElementById('mode-rapide').classList.add('active');
+      document.getElementById('mode-approfondi').classList.remove('active');
+      document.getElementById('res-email-ok').style.display = 'none';
+      document.getElementById('quiz-gate-ok').style.display = 'none';
+      document.getElementById('quiz-gate-form').style.display = 'flex';
+      document.getElementById('quiz-gate-skip').style.display = 'inline-block';
+      document.getElementById('quiz-gate-email').value = '';
+      resultEl.style.display = 'none';
+      gateEl.style.display = 'none';
+      gameEl.style.display = 'none';
+      modeEl.style.display = 'block';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    render();
   })();
   </script>
 </body>

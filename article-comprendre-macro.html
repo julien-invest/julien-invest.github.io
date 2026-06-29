@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprendre la macro sans jargon : inflation, taux, BCE, récession (2026) | Julien Invest</title>
+  <meta name="description" content="Comprendre la macroéconomie sans jargon : inflation, taux directeurs, rôle de la BCE, récession. Comment ces mécanismes influencent ton épargne, ton crédit et tes investissements.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Comprendre la macro sans jargon : inflation, taux, BCE, récession | Julien Invest">
+  <meta property="og:description" content="Inflation, taux directeurs, BCE, récession : les mécanismes qui influencent ton épargne et tes investissements, expliqués simplement.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="og:url" content="https://julien-invest.github.io/article-comprendre-macro.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comprendre la macro sans jargon : inflation, taux, BCE, récession">
+  <meta name="twitter:description" content="Les mécanismes macro qui influencent ton épargne et tes investissements, sans jargon.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Comprendre la macro sans jargon : inflation, taux, BCE, récession",
+  "description": "Inflation, taux directeurs, rôle de la BCE, récession : les mécanismes macro qui influencent l'épargne et les investissements.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-06-29",
+  "dateModified": "2026-06-29"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    /* ── Takeaway ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-comprendre-macro.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "C'est quoi l'inflation, simplement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'inflation est la hausse générale des prix dans le temps. Concrètement, avec la même somme d'argent, tu achètes moins de choses qu'avant. Une inflation de 2 % par an signifie que ce qui coûtait 100 euros en coûte 102 un an plus tard. Elle érode lentement le pouvoir d'achat de l'épargne qui ne rapporte rien."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi la BCE monte ou baisse les taux ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Banque centrale européenne ajuste ses taux directeurs pour maîtriser l'inflation. Quand l'inflation est trop forte, elle monte les taux pour freiner le crédit et l'activité. Quand l'économie ralentit trop, elle baisse les taux pour relancer le crédit et la consommation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il vendre ses actions en cas de récession ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour un investisseur de long terme, essayer de vendre avant une récession et racheter après est très difficile et souvent contre-productif. Les marchés anticipent et rebondissent avant la fin officielle d'une récession. Rester investi et continuer ses versements réguliers est généralement plus efficace que tenter de prédire les cycles."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt à la sortie PEA, CTO, assurance vie</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur Inflation</div><div class="nav-dropdown-text-sub">Calcule l'impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="comparatif-pea.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="3" width="9" height="9"/><rect x="13" y="3" width="9" height="9"/><rect x="2" y="13" width="9" height="9"/><rect x="13" y="13" width="9" height="9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparatif PEA 2026</div><div class="nav-dropdown-text-sub">Quel courtier choisir pour ton PEA</div></div>
+              </a>
+                            <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur frais</div><div class="nav-dropdown-text-sub">Impact des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la liberté financière</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <a href="ressources.html#guides" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Guides thématiques</div><div class="nav-dropdown-text-sub">ETF, PEA, DCA, Assurance-vie…</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
+          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Guide débutants</span>
+        <h1>Comprendre la macro sans jargon<br><em>inflation, taux, BCE et récession</em></h1>
+        <p class="article-meta-date">Publié le 29 juin 2026 · 11 min de lecture</p>
+        <p>Inflation, taux directeurs, BCE, récession : ces mots reviennent en boucle dans l'actualité, et ils influencent directement ton épargne, ton crédit et tes placements. Pas besoin d'un diplôme d'économie pour les comprendre. Voici les mécanismes essentiels, expliqués simplement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Débutants</span>
+        <p>Tu n'as pas besoin de suivre l'économie au jour le jour pour bien investir. Mais comprendre quelques grands rouages t'évite de paniquer à chaque titre alarmiste et t'aide à garder le cap. La macroéconomie, dégagée du jargon, tient en quelques idées simples qui s'enchaînent logiquement.</p>
+        <p>Le but de cet article n'est pas de te transformer en économiste, ni de te faire prédire les marchés. C'est de te donner le contexte qui rend le reste du site plus clair, de l'<a href="article-inflation-protection-patrimoine.html">inflation</a> à l'<a href="article-allocation-actifs.html">allocation d'actifs</a>.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#inflation">L'inflation : la hausse des prix</a></li>
+            <li><a href="#taux">Les taux directeurs</a></li>
+            <li><a href="#bce">Le rôle de la BCE</a></li>
+            <li><a href="#enchainement">L'enchaînement complet</a></li>
+            <li><a href="#impact">Ce que ça change pour toi</a></li>
+            <li><a href="#recession">La récession</a></li>
+            <li><a href="#investisseur">Que faire en tant qu'investisseur</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="inflation">L'inflation : la hausse des prix</h2>
+        <p>L'inflation est la hausse générale et durable des prix. Dit autrement, c'est la baisse du pouvoir d'achat de ton argent. Avec 100 euros, tu achètes moins de choses cette année que l'an dernier. Une inflation de 2 % par an signifie que ce qui valait 100 euros en vaut 102 un an plus tard.</p>
+        <p>Une inflation faible et stable est considérée comme normale, et même souhaitable pour une économie. Le problème surgit quand elle s'emballe, comme lors de la poussée de 2022 et 2023. Elle ronge alors les salaires et l'épargne plus vite qu'ils ne progressent.</p>
+
+        <div class="ji-figure">
+          <div class="ji-figure-title">L'effet silencieux de l'inflation sur ton épargne</div>
+          <div class="ji-figure-sub">Pouvoir d'achat de 1 000 € laissés sans rendement, avec 2 % d'inflation par an.</div>
+          <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graphique montrant la baisse du pouvoir d'achat de 1000 euros sur 20 ans avec 2 pourcent d'inflation">
+            <line x1="50" y1="20" x2="50" y2="160" stroke="#C8C8DC" stroke-width="1"/>
+            <line x1="50" y1="160" x2="560" y2="160" stroke="#C8C8DC" stroke-width="1"/>
+            <polyline points="50,40 175,57 300,73 425,87 550,100" fill="none" stroke="#DC2626" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="50" cy="40" r="4" fill="#1A1A4E"/><text x="50" y="32" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#1A1A4E">1 000 €</text>
+            <circle cx="300" cy="73" r="4" fill="#B45309"/><text x="300" y="65" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#B45309">≈ 820 €</text>
+            <circle cx="550" cy="100" r="4" fill="#DC2626"/><text x="550" y="92" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#991B1B">≈ 670 €</text>
+            <text x="50" y="178" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4A4A6A">Aujourd'hui</text>
+            <text x="300" y="178" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4A4A6A">Dans 10 ans</text>
+            <text x="550" y="178" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="11" fill="#4A4A6A">Dans 20 ans</text>
+          </svg>
+        </div>
+
+        <p>C'est la raison pour laquelle laisser tout son argent sur un compte courant est une perte assurée de pouvoir d'achat. Pour mesurer cet effet sur ta propre épargne, utilise le <a href="simulateur-inflation.html">simulateur d'inflation</a>.</p>
+
+        <h2 id="taux">Les taux directeurs</h2>
+        <p>Les taux directeurs sont les taux fixés par la banque centrale, auxquels les banques commerciales lui empruntent de l'argent. C'est le prix de l'argent pour le système bancaire. Et ce prix se répercute en cascade sur tout le reste : taux des crédits immobiliers, taux d'épargne, rendement des obligations.</p>
+        <p>L'idée à retenir est simple. Quand les taux directeurs montent, emprunter coûte plus cher partout. Quand ils baissent, le crédit devient bon marché. La banque centrale utilise ce levier comme un thermostat pour réchauffer ou refroidir l'économie.</p>
+
+        <h2 id="bce">Le rôle de la BCE</h2>
+        <p>En zone euro, c'est la Banque centrale européenne, la BCE, qui fixe ces taux directeurs. Sa mission principale est la <strong>stabilité des prix</strong>, c'est à dire maintenir l'inflation autour d'un objectif modéré, proche de 2 % à moyen terme.</p>
+        <p>Pour y parvenir, elle agit comme un pilote qui ajuste sa vitesse.</p>
+        <ul>
+          <li><strong>Inflation trop forte ?</strong> La BCE monte les taux. Le crédit se renchérit, les ménages et entreprises empruntent et dépensent moins, la demande ralentit, et les prix se calment.</li>
+          <li><strong>Économie trop molle ?</strong> La BCE baisse les taux. Le crédit redevient bon marché, la consommation et l'investissement repartent, l'activité se relance.</li>
+        </ul>
+        <p>C'est un exercice d'équilibriste permanent : trop de hausse étouffe l'économie, trop de baisse laisse filer l'inflation.</p>
+
+        <h2 id="enchainement">L'enchaînement complet</h2>
+        <p>Une fois ces briques posées, la logique s'enchaîne d'elle-même. Voici la chaîne de cause à effet quand l'inflation grimpe.</p>
+
+        <div class="ji-figure">
+          <div class="ji-figure-title">De l'inflation à ton quotidien</div>
+          <div class="ji-figure-sub">La réaction en chaîne, étape par étape.</div>
+          <svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chaîne : inflation forte, la BCE monte les taux, le crédit coûte plus cher, l'économie ralentit, l'inflation se calme">
+            <defs>
+              <marker id="mc" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6" fill="none" stroke="#7C3AED" stroke-width="1.6"/></marker>
+            </defs>
+            <g font-family="Plus Jakarta Sans, sans-serif" font-size="11" font-weight="700">
+              <rect x="10" y="40" width="105" height="50" rx="10" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.3"/><text x="62" y="62" text-anchor="middle" fill="#991B1B">Inflation</text><text x="62" y="78" text-anchor="middle" fill="#991B1B">trop forte</text>
+              <line x1="118" y1="65" x2="143" y2="65" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#mc)"/>
+              <rect x="148" y="40" width="105" height="50" rx="10" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.3"/><text x="200" y="62" text-anchor="middle" fill="#4C1D95">La BCE monte</text><text x="200" y="78" text-anchor="middle" fill="#4C1D95">les taux</text>
+              <line x1="256" y1="65" x2="281" y2="65" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#mc)"/>
+              <rect x="286" y="40" width="105" height="50" rx="10" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1.3"/><text x="338" y="62" text-anchor="middle" fill="#92400E">Le crédit</text><text x="338" y="78" text-anchor="middle" fill="#92400E">coûte plus cher</text>
+              <line x1="394" y1="65" x2="419" y2="65" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#mc)"/>
+              <rect x="424" y="40" width="105" height="50" rx="10" fill="#E0F2FE" stroke="#0891B2" stroke-width="1.3"/><text x="476" y="62" text-anchor="middle" fill="#155E75">L'économie</text><text x="476" y="78" text-anchor="middle" fill="#155E75">ralentit</text>
+              <line x1="532" y1="65" x2="557" y2="65" stroke="#7C3AED" stroke-width="1.6" marker-end="url(#mc)"/>
+              <rect x="540" y="95" width="80" height="30" rx="8" fill="#D1FAE5" stroke="#059669" stroke-width="1.3"/><text x="580" y="114" text-anchor="middle" fill="#065F46">Prix calmés</text>
+            </g>
+          </svg>
+        </div>
+
+        <h2 id="impact">Ce que ça change pour toi</h2>
+        <p>Ces mouvements ne sont pas abstraits, ils touchent ton portefeuille très concrètement. Voici qui gagne et qui perd quand les taux montent.</p>
+
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Quand les taux montent</th><th>Effet</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Crédit immobilier</td><td class="no">Plus cher à emprunter</td></tr>
+            <tr><td>Livrets et comptes à terme</td><td class="yes">Mieux rémunérés</td></tr>
+            <tr><td>Obligations déjà détenues</td><td class="no">Leur prix baisse</td></tr>
+            <tr><td>Nouvelles obligations</td><td class="yes">Rapportent davantage</td></tr>
+            <tr><td>Actions</td><td class="mid">Souvent sous pression à court terme</td></tr>
+          </tbody>
+        </table>
+        </div>
+
+        <p>Le lien entre taux et prix des obligations est détaillé dans l'article <a href="article-obligations-fonds-euros.html">obligations et fonds euros</a>. C'est l'un des effets les plus directs de la politique monétaire sur un portefeuille.</p>
+
+        <div class="info-box">
+          <strong>📌 Pourquoi les actions n'aiment pas la hausse des taux.</strong> Quand les taux montent, les placements sans risque rapportent plus, ce qui rend les actions relativement moins attractives. Les crédits des entreprises coûtent aussi plus cher, ce qui pèse sur leurs bénéfices. À court terme, cela tend à faire baisser les marchés. À long terme, les actions restent le moteur de performance.
+        </div>
+
+        <h2 id="recession">La récession</h2>
+        <p>Une récession est une période de recul de l'activité économique, généralement définie comme plusieurs trimestres consécutifs de baisse de la production. Concrètement, l'économie se contracte, le chômage tend à augmenter, et la confiance baisse.</p>
+        <p>Les récessions font partie du cycle économique normal. Elles sont désagréables mais récurrentes, et elles sont toujours suivies de phases de reprise. Pour un investisseur de long terme, la récession est moins un danger qu'une étape, à condition de ne pas paniquer au mauvais moment.</p>
+
+        <div class="warning-box">
+          <strong>⚠️ Les marchés ne sont pas l'économie.</strong> La bourse anticipe l'avenir, elle ne photographie pas le présent. Les marchés baissent souvent avant la récession et rebondissent avant la fin officielle de celle-ci, alors que les nouvelles sont encore mauvaises. C'est pourquoi essayer de vendre puis racheter au bon moment échoue presque toujours.
+        </div>
+
+        <h2 id="investisseur">Que faire en tant qu'investisseur</h2>
+        <p>La macro est un contexte, pas un signal d'achat ou de vente. La meilleure réponse à l'incertitude économique n'est pas de réagir à chaque annonce, mais d'avoir une stratégie robuste qui tient quel que soit le cycle.</p>
+        <ul>
+          <li><strong>Reste investi sur le long terme.</strong> Tenter de prédire les cycles est un jeu perdant pour la plupart des investisseurs. Le temps passé sur le marché compte plus que le timing.</li>
+          <li><strong>Continue tes versements réguliers.</strong> Le <a href="article-dca.html">DCA</a> transforme la volatilité en alliée : tu achètes plus de parts quand les prix baissent.</li>
+          <li><strong>Diversifie.</strong> Une bonne <a href="article-allocation-actifs.html">allocation d'actifs</a> entre actions, obligations et fonds euros amortit les chocs de cycle.</li>
+          <li><strong>Garde ton fonds d'urgence.</strong> Il évite d'avoir à vendre tes placements au pire moment lors d'un coup dur. C'est l'objet de l'article <a href="article-fonds-urgence.html">fonds d'urgence</a>.</li>
+          <li><strong>Protège-toi de l'inflation.</strong> Garder trop de cash est risqué sur le long terme. Les actifs réels et les actions ont historiquement mieux protégé le pouvoir d'achat.</li>
+        </ul>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>La macro sert à comprendre, pas à prédire. Connaître les rouages de l'inflation et des taux t'aide à garder ton sang-froid quand l'actualité s'affole. La meilleure réponse reste une stratégie diversifiée, des versements réguliers et un horizon long.</p>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>C'est quoi l'inflation, simplement ?</summary>
+            <p>L'inflation est la hausse générale des prix dans le temps. Avec la même somme, tu achètes moins de choses qu'avant. Une inflation de 2 % par an signifie que ce qui coûtait 100 euros en coûte 102 un an plus tard.</p>
+          </details>
+          <details>
+            <summary>Pourquoi la BCE monte ou baisse les taux ?</summary>
+            <p>Pour maîtriser l'inflation. Quand elle est trop forte, la BCE monte les taux pour freiner le crédit et l'activité. Quand l'économie ralentit trop, elle baisse les taux pour relancer le crédit et la consommation.</p>
+          </details>
+          <details>
+            <summary>Faut-il vendre ses actions en cas de récession ?</summary>
+            <p>Pour un investisseur de long terme, essayer de vendre avant et racheter après est très difficile et souvent contre-productif. Les marchés rebondissent avant la fin officielle d'une récession. Rester investi est généralement plus efficace que tenter de prédire les cycles.</p>
+          </details>
+          <details>
+            <summary>Où placer son argent quand l'inflation est forte ?</summary>
+            <p>Garder beaucoup de cash fait perdre du pouvoir d'achat. Historiquement, les actifs réels comme l'immobilier et les actions ont mieux protégé sur le long terme. Le sujet est détaillé dans l'article inflation et protection du patrimoine.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_MACRO = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_MACRO && VIDEO_ID_MACRO!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_MACRO+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>L'inflation est la hausse des prix : elle érode le pouvoir d'achat de l'argent qui dort sans rendement.</li>
+            <li>Les taux directeurs sont le prix de l'argent : ils se répercutent sur les crédits, l'épargne et les obligations.</li>
+            <li>La BCE monte les taux pour calmer l'inflation, les baisse pour relancer l'économie : c'est un thermostat.</li>
+            <li>La bourse anticipe l'économie : elle baisse et rebondit avant les nouvelles, d'où l'inutilité de tenter le timing.</li>
+            <li>Face aux cycles, la bonne réponse est une stratégie diversifiée, des versements réguliers et un horizon long.</li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <h2>Garde le cap, quel que soit le cycle</h2>
+          <p>La formation Julien Invest t'apprend à bâtir une stratégie solide qui traverse les hausses de taux, les récessions et les crises, sans paniquer ni tout vendre au mauvais moment.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-inflation-protection-patrimoine.html" class="article-related-card">
+              <span class="article-related-tag">Épargne</span>
+              <div class="article-related-name">Inflation et patrimoine : quels actifs protègent vraiment ?</div>
+              <div class="article-related-meta">11 min · Lire →</div>
+            </a>
+            <a href="article-obligations-fonds-euros.html" class="article-related-card">
+              <span class="article-related-tag">ETF &amp; Stratégie</span>
+              <div class="article-related-name">Obligations et fonds euros : la brique sécurité d'un portefeuille</div>
+              <div class="article-related-meta">12 min · Lire →</div>
+            </a>
+            <a href="article-psychologie-investisseur.html" class="article-related-card">
+              <span class="article-related-tag">Débutants</span>
+              <div class="article-related-name">Psychologie de l'investisseur : les biais qui détruisent ton rendement</div>
+              <div class="article-related-meta">11 min · Lire →</div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Calculateur</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-inflation-protection-patrimoine.html">Inflation et patrimoine</a>
+          <a href="article-obligations-fonds-euros.html">Obligations et fonds euros</a>
+          <a href="article-allocation-actifs.html">Allocation d'actifs</a>
+          <a href="article-psychologie-investisseur.html">Psychologie de l'investisseur</a>
+          <a href="article-interets-composes.html">Intérêts composés</a>
+          <a href="blog.html">Tous les articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
