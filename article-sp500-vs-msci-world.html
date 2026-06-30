@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment débuter en bourse sans faire d'erreur | Julien Invest</title>
-  <meta name="description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <title>S&P 500 vs MSCI World : quel ETF choisir ? | Julien Invest</title>
+  <meta name="description" content="S&P 500 ou MSCI World pour ton PEA ? Composition, performance, risque de concentration et un simulateur pour projeter les deux côte à côte.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta property="og:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta property="og:title" content="S&P 500 vs MSCI World : quel ETF choisir ? | Julien Invest">
+  <meta property="og:description" content="S&P 500 ou MSCI World pour ton PEA ? Composition, performance, risque de concentration et un simulateur pour projeter les deux côte à côte.">
   <meta property="og:site_name" content="Julien Invest">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="article:published_time" content="2026-01-15T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-06-10T00:00:00+02:00">
+  <meta property="article:published_time" content="2026-06-30T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-06-30T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
-  <meta property="og:url" content="https://julien-invest.github.io/article-debuter-investissement.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-sp500-vs-msci-world.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta name="twitter:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta name="twitter:title" content="S&P 500 vs MSCI World : quel ETF choisir ? | Julien Invest">
+  <meta name="twitter:description" content="S&P 500 ou MSCI World pour ton PEA ? Composition, performance, risque de concentration et un simulateur pour projeter les deux côte à côte.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Comment débuter en bourse sans faire d'erreur",
-  "description": "Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.",
+  "headline": "S&P 500 vs MSCI World : quel ETF choisir ?",
+  "description": "S&P 500 ou MSCI World pour ton PEA ? Composition, performance, risque de concentration et un simulateur pour projeter les deux côte à côte.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-01-15",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -70,8 +70,31 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur enrichi (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(20px,3.5vw,28px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
+    @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-debuter-investissement.html">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-sp500-vs-msci-world.html">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,42 +119,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Avec combien d'argent peut-on commencer à investir ?",
+      "name": "Le MSCI World est il vraiment diversifié si les États-Unis pèsent 70 % ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien."
+        "text": "Il l'est plus que le S&P 500, mais reste dominé par les États-Unis. Si tu veux une diversification plus large, tu peux ajouter un ETF marchés émergents ou choisir un MSCI ACWI, qui inclut les pays émergents en plus des pays développés."
       }
     },
     {
       "@type": "Question",
-      "name": "Faut-il des connaissances en finance pour débuter ?",
+      "name": "Faut il prendre les deux à la fois ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA."
+        "text": "Ce n'est pas utile : comme le MSCI World contient déjà environ 70 % d'entreprises américaines, ajouter un S&P 500 par-dessus revient surtout à surpondérer les États-Unis. Un seul des deux suffit largement pour débuter."
       }
     },
     {
       "@type": "Question",
-      "name": "Que faire quand la bourse baisse ?",
+      "name": "Peut on investir sur le S&P 500 ou le MSCI World dans un PEA ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix."
+        "text": "Oui. Des ETF dits synthétiques répliquent ces indices tout en restant éligibles au PEA, ce qui te fait profiter de la fiscalité avantageuse de l'enveloppe après 5 ans, soit 18,6 % de prélèvements sociaux sur les gains."
       }
     },
     {
       "@type": "Question",
-      "name": "Combien de temps faut-il rester investi ?",
+      "name": "Quel rendement annuel espérer ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement."
+        "text": "Historiquement, ces indices actions ont rapporté de l'ordre de 7 à 10 % par an sur le long terme, dividendes réinvestis, mais avec de fortes variations d'une année à l'autre. Ce sont des moyennes passées, jamais une garantie pour l'avenir."
       }
     },
     {
       "@type": "Question",
-      "name": "Vaut-il mieux un PEA ou une assurance vie pour débuter ?",
+      "name": "S&P 500 ou MSCI World pour un débutant ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter."
+        "text": "Pour la majorité des débutants, le MSCI World est le choix par défaut : un seul ETF, une diversification mondiale, et une exposition aux États-Unis déjà incluse. C'est l'option la plus simple pour démarrer sereinement."
       }
     }
   ]
@@ -139,7 +162,6 @@
   </script>
 </head>
 <body>
-
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
@@ -276,154 +298,214 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Guide débutants</span>
-        <h1>Comment débuter en bourse<br><em>sans faire d'erreur</em></h1>
-        <p class="article-meta-date">Publié le 15 janvier 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Par où commencer, combien investir, comment éviter les pièges les plus courants. Le guide complet pour démarrer du bon pied.</p>
+        <span class="t-label">ETF</span>
+        <h1>S&P 500 vs MSCI World<br><em>quel ETF choisir ?</em></h1>
+        <p class="article-meta-date">Publié le 30 juin 2026 · Mis à jour le 30 juin 2026</p>
+        <p>C'est LE match des débutants en ETF. Spoiler : ce n'est pas une question de performance, mais de diversification et de risque assumé. On tranche, chiffres et simulateur à l'appui.</p>
       </div>
     </div>
   </section>
-
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Débutants</span>
-        <p>Investir en bourse fait peur. On entend parler de krachs, de gens qui ont tout perdu, de produits qu'on ne comprend pas. Pourtant, la majorité de ceux qui perdent de l'argent en bourse font les mêmes erreurs évitables. Si tu poses des bases solides dès le départ, tu mets toutes les chances de ton côté. Ce guide te donne le plan complet pour démarrer sereinement, même en partant de zéro.</p>
+        <span class="article-tag">ETF</span>
+        <p>C'est LE match des débutants en ETF. Spoiler : ce n'est pas une question de performance, mais de diversification et de risque assumé. On tranche, chiffres et simulateur à l'appui.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#mental">Le bon état d'esprit avant tout</a></li>
-            <li><a href="#urgence">Le fonds d'urgence, ta première étape</a></li>
-            <li><a href="#enveloppe">Choisir son enveloppe et son courtier</a></li>
-            <li><a href="#quoi">Quoi acheter quand on débute</a></li>
-            <li><a href="#combien">Combien investir chaque mois</a></li>
-            <li><a href="#composes">La magie des intérêts composés</a></li>
-            <li><a href="#erreurs">Les erreurs classiques du débutant</a></li>
-            <li><a href="#ordre">Passer ton premier ordre</a></li>
-            <li><a href="#diversifier">Faut il diversifier</a></li>
-            <li><a href="#psycho">La psychologie du long terme</a></li>
-            <li><a href="#plan">Ton plan d'action en 5 étapes</a></li>
+            <li><a href="#difference">Deux indices, deux philosophies</a></li>
+            <li><a href="#composition">Ce qu'il y a vraiment dedans</a></li>
+            <li><a href="#performance">La performance passée (et son piège)</a></li>
+            <li><a href="#risque">Le vrai sujet : la concentration</a></li>
+            <li><a href="#simulateur">Projette les deux côte à côte</a></li>
+            <li><a href="#pea">Les loger dans un PEA</a></li>
+            <li><a href="#tableau">Le récapitulatif</a></li>
+            <li><a href="#choisir">Lequel choisir selon ton profil</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="mental">Le bon état d'esprit avant tout</h2>
-        <p>Avant la technique, il y a le mental. Investir, ce n'est pas jouer au casino ni deviner quelle action va exploser. C'est mettre ton argent au travail de façon régulière, sur le long terme, et laisser le temps faire le gros du travail. Ton horizon n'est pas la semaine prochaine, c'est dans 10, 20 ou 30 ans.</p>
-        <p>La bourse monte sur le long terme, mais elle ne monte jamais en ligne droite. Il y aura des baisses, parfois fortes. Ta seule mission est de ne pas paniquer pendant ces phases. La méthode passive, qui consiste à investir régulièrement dans des fonds diversifiés et à ne plus y toucher, bat la grande majorité des gérants professionnels sur 20 ans. Et elle est à la portée de tout le monde.</p>
+        <h2 id="difference">Deux indices, deux philosophies</h2>
+        <p>Quand on débute en ETF, deux noms reviennent sans cesse : le <strong>S&P 500</strong> et le <strong>MSCI World</strong>. Les deux sont d'excellents choix, mais ils ne suivent pas la même chose. Le S&P 500 regroupe les 500 plus grandes entreprises américaines. Le MSCI World, lui, suit environ 1 500 grandes entreprises réparties dans 23 pays développés : États-Unis, Japon, Royaume-Uni, France, Suisse, etc.</p>
+        <p>Dit autrement : acheter un ETF S&P 500, c'est parier sur l'économie américaine. Acheter un MSCI World, c'est parier sur l'ensemble des économies développées. La nuance paraît mineure, mais elle décide de ton niveau de diversification et de ton exposition à un seul pays.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Tu n'as pas besoin d'être bon en maths ni de passer tes journées devant les cours de bourse. Tu as besoin de régularité et de patience. C'est l'ennui, pas l'excitation, qui rend riche en bourse.</p>
+          <p>Le S&P 500 = 500 entreprises, 1 pays. Le MSCI World = ~1 500 entreprises, 23 pays. Ce n'est pas « l'un est meilleur », c'est « concentré sur les US » contre « réparti sur le monde développé ».</p>
         </div>
 
-        <h2 id="urgence">Le fonds d'urgence, ta première étape</h2>
-        <p>Avant d'investir le moindre euro en bourse, tu dois avoir un <a href="article-fonds-urgence.html">fonds d'urgence</a>. La règle est simple : entre 3 et 6 mois de tes dépenses courantes, placés sur un livret A ou un LDDS, disponibles immédiatement.</p>
-        <p>Pourquoi ? Parce que si tu as un imprévu et que ton portefeuille est en baisse à ce moment là, tu seras forcé de vendre à perte. Le fonds d'urgence te protège de cette situation. Il ne rapporte pas grand chose, mais ce n'est pas son rôle : il est là pour être disponible quand tu en as besoin.</p>
-        <p>Exemple : si tes dépenses mensuelles sont de 1 500€, vise un fonds d'urgence d'au moins 4 500€, idéalement 9 000€. Une fois ce matelas constitué, tu peux investir l'esprit tranquille.</p>
+        <h2 id="composition">Ce qu'il y a vraiment dedans</h2>
+        <p>Le piège que beaucoup ignorent : le MSCI World est <strong>déjà très américain</strong>. Parce qu'il pondère les entreprises par leur taille (capitalisation boursière) et que les géants américains dominent la planète, les États-Unis représentent à eux seuls environ 70 % du MSCI World. Autrement dit, choisir le MSCI World plutôt que le S&P 500, ce n'est pas « sortir des États-Unis », c'est « ajouter 30 % de reste du monde » à une base déjà majoritairement américaine.</p>
+        <figure class="article-figure">
+          <svg viewBox="0 0 460 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Répartition géographique : le S&P 500 est 100% États-Unis, le MSCI World est environ 70% États-Unis et 30% reste du monde">
+            <text x="115" y="24" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">S&amp;P 500</text>
+            <rect x="55" y="38" width="120" height="150" rx="6" fill="#C8B4E8"/>
+            <text x="115" y="118" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" fill="#1A1A4E">100 %</text>
+            <text x="115" y="138" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">États-Unis</text>
+            <text x="345" y="24" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">MSCI World</text>
+            <rect x="285" y="83" width="120" height="105" rx="6" fill="#C8B4E8"/>
+            <rect x="285" y="38" width="120" height="45" rx="6" fill="#A0E7C5"/>
+            <text x="345" y="140" text-anchor="middle" font-family="Syne, sans-serif" font-size="14" font-weight="700" fill="#1A1A4E">~70 %</text>
+            <text x="345" y="157" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">États-Unis</text>
+            <text x="345" y="65" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">~30 % monde</text>
+            <line x1="40" y1="188" x2="420" y2="188" stroke="#C8C8DC" stroke-width="1"/>
+          </svg>
+          <figcaption>Poids des États-Unis dans chaque indice. Le MSCI World reste dominé par les US, mais ajoute le Japon, l'Europe et d'autres marchés développés.</figcaption>
+        </figure>
+        <p>Côté entreprises, les deux indices partagent le même sommet : Apple, Microsoft, Nvidia, Amazon, Alphabet… Les fameuses méga-capitalisations technologiques pèsent lourd dans les deux cas. Pour creuser le sujet des indices et de l'enveloppe idéale, lis <a href="article-etf-monde-2026.html">ETF Monde 2026</a>.</p>
 
-        <h2 id="enveloppe">Choisir son enveloppe et son courtier</h2>
-        <p>En France, la priorité numéro un quand on débute, c'est le PEA. C'est l'enveloppe fiscale la plus avantageuse pour investir en bourse : après 5 ans, tes gains ne supportent plus que 18,6% de prélèvements sociaux, sans impôt sur le revenu. Pour comprendre la différence avec le compte titres ordinaire, lis <a href="article-pea-vs-cto.html">PEA ou CTO</a> et le <a href="guides/guide-pea.html">guide du PEA</a>.</p>
-        <p>Pour le courtier, vise un acteur sérieux, peu cher et simple à utiliser. Les frais comptent énormément sur le long terme. Tu trouveras les courtiers que je recommande, avec leurs bonus, sur la page <a href="parrainage.html">parrainages</a>.</p>
+        <h2 id="performance">La performance passée (et son piège)</h2>
+        <p>Sur les quinze dernières années, le S&P 500 a fait mieux que le MSCI World. Logique : les États-Unis, et surtout leur secteur technologique, ont surperformé le reste du monde sur cette période. Beaucoup en concluent un peu vite que « le S&P 500 est le meilleur ETF ». C'est un raisonnement dangereux.</p>
+        <p>La performance passée ne se reproduit pas mécaniquement. Dans les années 2000, c'est l'inverse qui s'est produit : les marchés américains ont stagné pendant une décennie entière (la « décennie perdue »), pendant que d'autres régions progressaient. Personne ne sait quelle zone mènera la danse sur les vingt prochaines années. C'est précisément pour ça que la diversification existe.</p>
 
-        <h2 id="quoi">Quoi acheter quand on débute</h2>
-        <p>La réponse tient en trois lettres : ETF. Un ETF (fonds indiciel coté) est un panier qui réplique un indice boursier comme le MSCI World ou le S&P 500. En achetant un seul produit, tu es exposé à des centaines, voire des milliers d'entreprises à travers le monde. C'est la diversification instantanée, à frais réduits.</p>
-        <p>Pour un débutant, un ETF monde diversifié suffit largement. Pas besoin d'en acheter dix. Un seul ETF qui couvre les grandes économies mondiales, et tu as l'essentiel. Pour t'aider à choisir, le <a href="comparateur-etf.html">comparateur ETF</a> liste les fonds les plus utilisés par les investisseurs passifs français, avec leurs frais.</p>
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>« Le S&P 500 a battu le World ces dernières années » est un fait historique, pas une prédiction. Choisir un indice uniquement sur sa performance passée, c'est conduire en regardant dans le rétroviseur.</p>
+        </div>
+
+        <h2 id="risque">Le vrai sujet : la concentration</h2>
+        <p>La vraie question n'est pas « lequel rapporte le plus ? » mais « quel niveau de risque pays je veux assumer ? ». Avec un S&P 500, 100 % de ton argent dépend d'une seule économie, d'une seule devise (le dollar) et d'une seule politique monétaire. Si les États-Unis traversent une décennie difficile, ton portefeuille la traverse avec eux, sans amortisseur.</p>
+        <p>Le MSCI World n'élimine pas ce risque (les US y pèsent 70 %), mais il l'atténue. Si tu veux aller plus loin dans la diversification, certains préfèrent un ETF <strong>MSCI ACWI</strong> ou un combo World + émergents, qui ajoute la Chine, l'Inde, le Brésil… Ce choix d'allocation, on le détaille dans <a href="article-allocation-actifs.html">construire son portefeuille</a>.</p>
+
+        <h2 id="simulateur">Projette les deux côte à côte</h2>
+        <p>Le simulateur ci-dessous projette ton capital avec un versement mensuel régulier, en appliquant deux hypothèses de rendement que tu peux ajuster. Garde en tête que ces rendements sont des <strong>hypothèses</strong>, pas des garanties : amuse-toi à inverser les deux taux pour voir à quel point le résultat dépend d'un pari que personne ne peut tenir d'avance.</p>
+
+        <div class="ji-sim" id="sw-sim">
+          <div class="ji-sim-title">Simulateur : S&P 500 vs MSCI World</div>
+          <div class="ji-sim-sub">Projection avec versement mensuel. Les rendements sont des hypothèses ajustables, pas des promesses.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Capital de départ <span class="ji-val" id="sw-cap-val">2 000 €</span></label>
+              <input type="range" id="sw-cap" min="0" max="100000" step="500" value="2000">
+            </div>
+            <div class="ji-field">
+              <label>Versement mensuel <span class="ji-val" id="sw-mens-val">200 €</span></label>
+              <input type="range" id="sw-mens" min="0" max="2000" step="50" value="200">
+            </div>
+            <div class="ji-field">
+              <label>Durée <span class="ji-val" id="sw-dur-val">25 ans</span></label>
+              <input type="range" id="sw-dur" min="1" max="40" step="1" value="25">
+            </div>
+            <div class="ji-field">
+              <label>Rendement S&P 500 <span class="ji-val" id="sw-r1-val">9,0 %</span></label>
+              <input type="range" id="sw-r1" min="3" max="12" step="0.5" value="9">
+            </div>
+            <div class="ji-field">
+              <label>Rendement MSCI World <span class="ji-val" id="sw-r2-val">7,5 %</span></label>
+              <input type="range" id="sw-r2" min="3" max="12" step="0.5" value="7.5">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card" id="sw-card1">
+              <div class="ji-res-label">S&P 500</div>
+              <div class="ji-res-val" id="sw-v1">—</div>
+              <div class="ji-res-sub">100 % États-Unis</div>
+            </div>
+            <div class="ji-res-card" id="sw-card2">
+              <div class="ji-res-label">MSCI World</div>
+              <div class="ji-res-val" id="sw-v2">—</div>
+              <div class="ji-res-sub">23 pays développés</div>
+            </div>
+            <div class="ji-res-card">
+              <div class="ji-res-label">Total versé</div>
+              <div class="ji-res-val" id="sw-inv" style="color:#6B4FA0;">—</div>
+              <div class="ji-res-sub">Ton effort d'épargne</div>
+            </div>
+          </div>
+          <div class="ji-chart-wrap"><canvas id="sw-chart"></canvas></div>
+          <p class="ji-sim-note">Hypothèses : versement en début de mois, rendement annuel constant converti en taux mensuel, dividendes réinvestis, hors frais et fiscalité. Les performances passées ne préjugent pas des performances futures. Outil pédagogique, pas un conseil en investissement.</p>
+        </div>
+
+        <h2 id="pea">Les loger dans un PEA</h2>
+        <p>Bonne nouvelle : les deux indices sont accessibles dans un <strong>PEA</strong>, l'enveloppe la plus avantageuse fiscalement pour un investisseur français (gains taxés à seulement 18,6 % de prélèvements sociaux après 5 ans, contre 31,4 % sur un compte-titres). Grâce à des ETF « synthétiques » éligibles PEA, tu peux suivre le S&P 500 ou le MSCI World tout en restant dans le PEA. Pour comprendre cette mécanique, lis <a href="article-etf-physique-vs-synthetique.html">ETF physique vs synthétique</a> et le <a href="article-pea-guide-pratique.html">guide pratique du PEA</a>.</p>
+        <p>Côté courtier, l'essentiel est d'en choisir un qui propose le PEA avec des frais bas et l'ETF qui t'intéresse. Voici deux choix simples et populaires, accessibles via les bonus de parrainage Julien Invest :</p>
+
+        <div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Simple · PEA dès 1 €</span>
+              <div class="broker-card-logo"><img src="images/logos/trade-republic.svg" alt="Trade Republic" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Trade Republic</div>
+            <div class="broker-card-tagline">Appli épurée, PEA disponible, idéal pour un premier ETF en DCA</div>
+            <ul class="broker-card-pros">
+              <li>PEA accessible dès 1 €</li>
+              <li>Investissement programmé gratuit</li>
+              <li>Rémunération du cash non investi</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Pas d'assurance-vie</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Tout-en-un · Banque + bourse</span>
+              <div class="broker-card-logo"><img src="images/logos/boursobank.svg" alt="BoursoBank" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">BoursoBank</div>
+            <div class="broker-card-tagline">Banque + PEA + assurance-vie réunis au même endroit</div>
+            <ul class="broker-card-pros">
+              <li>PEA + AV + compte courant</li>
+              <li>Large choix d'ETF éligibles</li>
+              <li>Bonus de bienvenue régulier</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Interface un peu moins fluide</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+        </div>
+        <p style="font-size:13px; color:var(--grey-2);">Compare l'ensemble des courtiers et leurs frais dans le <a href="comparateur-courtiers.html">comparateur courtiers</a>, et tous les ETF éligibles dans le <a href="comparateur-etf.html">comparateur ETF</a>.</p>
+
+        <h2 id="tableau">Le récapitulatif</h2>
         <table class="compare-table">
           <thead>
-            <tr><th>Type de produit</th><th>Pour un débutant</th><th>Pourquoi</th></tr>
+            <tr><th>Critère</th><th>ETF S&P 500</th><th>ETF MSCI World</th></tr>
           </thead>
           <tbody>
-            <tr><td>ETF monde</td><td class="yes">Idéal</td><td>Diversifié, simple, frais bas</td></tr>
-            <tr><td>Actions en direct</td><td class="no">À éviter</td><td>Risqué, demande du temps et des connaissances</td></tr>
-            <tr><td>Fonds actifs (OPCVM)</td><td class="no">À éviter</td><td>Frais élevés, battent rarement leur indice</td></tr>
-            <tr><td>Produits à effet de levier</td><td class="no">Danger</td><td>Pertes amplifiées, réservés aux experts</td></tr>
+            <tr><td>Nombre d'entreprises</td><td>~500</td><td class="yes">~1 500</td></tr>
+            <tr><td>Nombre de pays</td><td>1 (États-Unis)</td><td class="yes">23 développés</td></tr>
+            <tr><td>Poids des États-Unis</td><td>100 %</td><td>~70 %</td></tr>
+            <tr><td>Diversification géographique</td><td class="no">Aucune</td><td class="yes">Bonne</td></tr>
+            <tr><td>Performance passée (15 ans)</td><td class="yes">Légèrement supérieure</td><td>Solide</td></tr>
+            <tr><td>Risque de concentration pays</td><td class="no">Élevé</td><td>Modéré</td></tr>
+            <tr><td>Éligible PEA</td><td class="yes">Oui (version synthétique)</td><td class="yes">Oui (version synthétique)</td></tr>
+            <tr><td>Simplicité (un seul ETF)</td><td class="yes">Oui</td><td class="yes">Oui</td></tr>
           </tbody>
         </table>
 
-        <h2 id="combien">Combien investir chaque mois</h2>
-        <p>La règle générale est d'investir entre 10% et 20% de ton revenu net mensuel. Si tu gagnes 2 500€ nets, cela représente entre 250€ et 500€ par mois. L'important n'est pas le montant de départ, c'est la régularité.</p>
-        <p>La méthode la plus efficace s'appelle le DCA (investissement programmé) : tu investis la même somme chaque mois, quoi qu'il arrive sur les marchés. Quand les prix baissent, tu achètes plus de parts. Quand ils montent, tu en achètes moins. Sur le long terme, tu lisses ton prix d'achat et tu évites le piège de vouloir deviner le bon moment. Le <a href="guides/guide-dca.html">guide du DCA</a> détaille cette stratégie.</p>
-
-        <h2 id="composes">La magie des intérêts composés</h2>
-        <p>C'est le moteur de toute la richesse boursière. Tes gains génèrent à leur tour des gains, qui génèrent à leur tour des gains. Au début, l'effet semble lent. Puis la courbe s'envole. C'est exactement pour ça qu'il faut commencer tôt, même avec peu.</p>
-        <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Croissance d'un investissement de 200 euros par mois à 7 pour cent sur 30 ans, la courbe s'accélère avec le temps">
-            <line x1="50" y1="20" x2="50" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="50" y1="200" x2="440" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <path d="M50 196 C 160 188, 250 170, 320 130 S 410 50, 440 28" fill="none" stroke="#C8B4E8" stroke-width="3"/>
-            <path d="M50 196 L 440 150" fill="none" stroke="#A0E7C5" stroke-width="2.5" stroke-dasharray="5,4"/>
-            <text x="370" y="42" font-family="DM Sans, sans-serif" font-size="12" fill="#7A5BC0">Avec intérêts composés</text>
-            <text x="300" y="170" font-family="DM Sans, sans-serif" font-size="12" fill="#3FAE7E">Sans (somme versée)</text>
-            <text x="245" y="218" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Années →</text>
-          </svg>
-          <figcaption>200€ par mois à 7% par an : l'écart entre l'argent versé et l'argent gagné explose avec le temps.</figcaption>
-        </figure>
-        <p>Tu peux visualiser ta propre courbe avec tes chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>.</p>
-
-        <div class="article-retenir">
-          <div class="article-retenir-label">★ À retenir</div>
-          <p>Le meilleur moment pour commencer à investir, c'était il y a dix ans. Le deuxième meilleur moment, c'est aujourd'hui. Chaque année de retard coûte cher, parce que c'est une année d'intérêts composés en moins.</p>
-        </div>
-
-        <h2 id="erreurs">Les erreurs classiques du débutant</h2>
+        <h2 id="choisir">Lequel choisir selon ton profil</h2>
+        <p>Il n'y a pas de mauvaise réponse, seulement un curseur entre diversification et pari assumé sur les États-Unis.</p>
         <ul>
-          <li><strong>Vendre en panique</strong> lors d'une baisse. C'est l'erreur numéro un. Tu transformes une perte temporaire en perte définitive.</li>
-          <li><strong>Choisir ses actions soi même.</strong> Même les professionnels échouent à battre le marché sur la durée. Reste sur des ETF diversifiés.</li>
-          <li><strong>Attendre le bon moment.</strong> Personne ne sait quand le marché va monter ou baisser. Investir régulièrement bat l'attente.</li>
-          <li><strong>Négliger les frais.</strong> 1% de frais par an semble dérisoire, mais sur 20 ans cela peut représenter 20% à 30% de ton capital final en moins.</li>
-          <li><strong>Utiliser de l'effet de levier.</strong> Emprunter pour investir ou jouer avec des produits dérivés quand on débute, c'est le meilleur moyen de tout perdre.</li>
+          <li><strong>Tu veux la simplicité et le maximum de diversification en un seul ETF :</strong> le MSCI World est le choix par défaut le plus sage, et celui que recommandent la plupart des investisseurs passifs.</li>
+          <li><strong>Tu crois durablement à la suprématie américaine et acceptes le risque pays :</strong> le S&P 500 est cohérent, à condition d'en avoir conscience.</li>
+          <li><strong>Tu hésites :</strong> commence par le MSCI World. Tu pourras toujours ajouter une louche de S&P 500 ou d'émergents plus tard.</li>
         </ul>
-        <p>Ces pièges sont détaillés dans l'article <a href="article-5-erreurs-debutants.html">les 5 erreurs des débutants</a>.</p>
-
-        <h2 id="ordre">Comment passer ton premier ordre</h2>
-        <p>Une fois ton PEA ouvert et alimenté, acheter un ETF prend deux minutes. Tu cherches le fonds par son nom ou son code ISIN, tu indiques le montant, et tu valides. Tu as deux types d'ordres principaux.</p>
-        <ul>
-          <li><strong>L'ordre au marché</strong> : tu achètes immédiatement au prix du moment. Simple et rapide, parfait pour un ETF liquide et un premier achat.</li>
-          <li><strong>L'ordre à cours limité</strong> : tu fixes le prix maximum que tu acceptes de payer. Utile pour garder le contrôle, mais l'ordre ne passe que si le marché atteint ton prix.</li>
-        </ul>
-        <p>Pour un débutant qui investit sur un ETF monde, l'ordre au marché convient très bien. Pas besoin de te compliquer la vie avec des stratégies d'entrée sophistiquées.</p>
-
-        <h2 id="diversifier">Faut il diversifier au delà d'un ETF monde</h2>
-        <p>Un bon ETF monde contient déjà des milliers d'entreprises réparties sur les grandes économies. Pour la plupart des gens, c'est suffisant. Mais en grandissant, certains aiment ajouter une touche : une part de marchés émergents pour aller chercher de la croissance, ou un peu d'obligations pour réduire la volatilité à l'approche d'un objectif.</p>
-        <p>La règle d'or : ne complique jamais ton portefeuille plus que nécessaire. Un seul ETF monde bien choisi battra toujours un portefeuille de dix fonds que tu ne comprends pas. La simplicité est une force, pas une faiblesse. Compare les fonds dans le <a href="comparateur-etf.html">comparateur ETF</a> avant d'ajouter quoi que ce soit.</p>
-
-        <h2 id="psycho">La psychologie, le vrai défi du long terme</h2>
-        <p>Les outils sont simples. Le vrai challenge, c'est de tenir dans la durée. Pendant une baisse de marché, tout ton cerveau te poussera à vendre pour arrêter la douleur. Pendant une hausse, il te poussera à mettre toutes tes économies d'un coup au plus haut. Les deux réflexes te coûtent cher.</p>
-        <p>La parade, c'est l'automatisation. Si ton versement part tout seul chaque mois et que tu ne regardes ton portefeuille que deux fois par an, tu retires l'émotion de l'équation. Tu deviens spectateur de tes propres bons réflexes. C'est exactement ce que la méthode passive cherche à provoquer.</p>
-
-        <h2 id="plan">Ton plan d'action en 5 étapes</h2>
-        <ol>
-          <li>Constitue ton fonds d'urgence (3 à 6 mois de dépenses) sur un livret.</li>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher.</li>
-          <li>Choisis un ETF monde diversifié et éligible PEA.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste.</li>
-          <li>Ne touche plus à rien. Laisse le temps et les intérêts composés travailler.</li>
-        </ol>
-        <p>C'est tout. Pas besoin de surveiller les marchés tous les jours. Si tu veux la méthode complète, pas à pas, avec le choix précis des ETF et l'automatisation, c'est l'objet de la <a href="formation.html">formation</a>.</p>
-
+        <p>Le plus important reste ailleurs : ouvrir l'enveloppe, investir régulièrement et tenir dans la durée. Un débat S&P 500 contre MSCI World ne doit jamais devenir une excuse pour ne pas commencer. C'est exactement ce qu'on met en place, pas à pas, dans la <a href="formation.html">formation</a>.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Avec combien d'argent peut-on commencer à investir ?</summary>
-            <p>Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien.</p>
+            <summary>Le MSCI World est il vraiment diversifié si les États-Unis pèsent 70 % ?</summary>
+            <p>Il l'est plus que le S&P 500, mais reste dominé par les États-Unis. Si tu veux une diversification plus large, tu peux ajouter un ETF marchés émergents ou choisir un MSCI ACWI, qui inclut les pays émergents en plus des pays développés.</p>
           </details>
           <details>
-            <summary>Faut-il des connaissances en finance pour débuter ?</summary>
-            <p>Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA.</p>
+            <summary>Faut il prendre les deux à la fois ?</summary>
+            <p>Ce n'est pas utile : comme le MSCI World contient déjà environ 70 % d'entreprises américaines, ajouter un S&P 500 par-dessus revient surtout à surpondérer les États-Unis. Un seul des deux suffit largement pour débuter.</p>
           </details>
           <details>
-            <summary>Que faire quand la bourse baisse ?</summary>
-            <p>Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix.</p>
+            <summary>Peut on investir sur le S&P 500 ou le MSCI World dans un PEA ?</summary>
+            <p>Oui. Des ETF dits synthétiques répliquent ces indices tout en restant éligibles au PEA, ce qui te fait profiter de la fiscalité avantageuse de l'enveloppe après 5 ans, soit 18,6 % de prélèvements sociaux sur les gains.</p>
           </details>
           <details>
-            <summary>Combien de temps faut-il rester investi ?</summary>
-            <p>Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement.</p>
+            <summary>Quel rendement annuel espérer ?</summary>
+            <p>Historiquement, ces indices actions ont rapporté de l'ordre de 7 à 10 % par an sur le long terme, dividendes réinvestis, mais avec de fortes variations d'une année à l'autre. Ce sont des moyennes passées, jamais une garantie pour l'avenir.</p>
           </details>
           <details>
-            <summary>Vaut-il mieux un PEA ou une assurance vie pour débuter ?</summary>
-            <p>Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter.</p>
+            <summary>S&P 500 ou MSCI World pour un débutant ?</summary>
+            <p>Pour la majorité des débutants, le MSCI World est le choix par défaut : un seul ETF, une diversification mondiale, et une exposition aux États-Unis déjà incluse. C'est l'option la plus simple pour démarrer sereinement.</p>
           </details>
         </div>
 
@@ -436,17 +518,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_DEBUTER par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_DEBUTER = "VIDEO_ID";
+          const VIDEO_ID_ARTICLE_SP500_WORLD = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_DEBUTER && VIDEO_ID_ARTICLE_DEBUTER!=="VIDEO_ID";
+            const has=VIDEO_ID_ARTICLE_SP500_WORLD && VIDEO_ID_ARTICLE_SP500_WORLD!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_DEBUTER+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_SP500_WORLD+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -454,18 +535,6 @@
             f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
           })();
         </script>
-
-                <div class="article-takeaway">
-          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
-          <ul class="article-takeaway-list">
-            <li>Commencer tôt prime sur tout le reste : 100 €/mois pendant 30 ans à 8 % = 149 000 €, 10 ans de moins = seulement 75 000 €.</li>
-            <li>Le fonds d'urgence (3-6 mois de dépenses) est la première étape, avant tout investissement en bourse.</li>
-            <li>Pour un débutant, un ETF monde (MSCI World ou ACWI) dans un PEA suffit, inutile de compliquer.</li>
-            <li>La bonne enveloppe d'abord : PEA pour les ETF actions, assurance-vie pour diversifier, CTO en dernier.</li>
-            <li>La diversification protège des erreurs individuelles, ne jamais mettre plus de 5 % dans un seul titre.</li>
-          </ul>
-        </div>
-
         <div class="article-cta">
           <h2>Passe de la théorie à la pratique</h2>
           <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
@@ -477,28 +546,26 @@
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-5-erreurs-debutants.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les 5 erreurs que font 90 % des débutants</div>
-              <div class="article-related-meta">9 min · Lire →</div>
+            <a href="article-etf-monde-2026.html" class="article-related-card">
+              <span class="article-related-tag">ETF</span>
+              <div class="article-related-name">ETF Monde 2026 : quel indice et quelle enveloppe ?</div>
+              <div class="article-related-meta">7 min · Lire →</div>
             </a>
-            <a href="article-choisir-courtier.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Choisir son courtier : comparatif honnête 2026</div>
-              <div class="article-related-meta">12 min · Lire →</div>
+            <a href="article-pea-guide-pratique.html" class="article-related-card">
+              <span class="article-related-tag">PEA</span>
+              <div class="article-related-name">PEA 2026 : ouvrir et choisir ses ETF</div>
+              <div class="article-related-meta">14 min · Lire →</div>
             </a>
-            <a href="article-interets-composes.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les intérêts composés : le secret des riches</div>
-              <div class="article-related-meta">10 min · Lire →</div>
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <div class="article-related-name">Allocation d'actifs : construire son portefeuille</div>
+              <div class="article-related-meta">14 min · Lire →</div>
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -553,6 +620,60 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const g=id=>document.getElementById(id);
+    const cap=g('sw-cap'),mens=g('sw-mens'),dur=g('sw-dur'),r1=g('sw-r1'),r2=g('sw-r2');
+    if(!cap) return;
+    let chart;
+    function grow(c,m,years,annual){
+      const mr=Math.pow(1+annual,1/12)-1;
+      const out=[c]; let v=c;
+      for(let y=1;y<=years;y++){
+        for(let k=0;k<12;k++){ v=(v+m)*(1+mr); }
+        out.push(Math.round(v));
+      }
+      return out;
+    }
+    function calc(){
+      const c=+cap.value,m=+mens.value,d=+dur.value,a1=+r1.value/100,a2=+r2.value/100;
+      g('sw-cap-val').textContent=fmtE(c);
+      g('sw-mens-val').textContent=fmtE(m);
+      g('sw-dur-val').textContent=d+' an'+(d>1?'s':'');
+      g('sw-r1-val').textContent=(+r1.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      g('sw-r2-val').textContent=(+r2.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      const s1=grow(c,m,d,a1), s2=grow(c,m,d,a2);
+      const invested=c+m*12*d;
+      g('sw-v1').textContent=fmtE(s1[d]);
+      g('sw-v2').textContent=fmtE(s2[d]);
+      g('sw-inv').textContent=fmtE(invested);
+      g('sw-card1').classList.toggle('win', s1[d]>=s2[d]);
+      g('sw-card2').classList.toggle('win', s2[d]>s1[d]);
+      const labels=Array.from({length:d+1},(_,i)=>'A'+i);
+      if(!chart){
+        chart=new Chart(g('sw-chart'),{type:'line',
+          data:{labels,datasets:[
+            {label:'S&P 500',data:s1,borderColor:'#9B6FD6',backgroundColor:'rgba(200,180,232,0.12)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0},
+            {label:'MSCI World',data:s2,borderColor:'#1A1A4E',backgroundColor:'rgba(160,231,197,0.15)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0}
+          ]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{labels:{font:{family:'DM Sans'},boxWidth:14}},
+              tooltip:{callbacks:{label:cx=>cx.dataset.label+': '+fmtE(cx.parsed.y)}}},
+            scales:{y:{ticks:{callback:v=>new Intl.NumberFormat('fr-FR',{notation:'compact'}).format(v)+' €',font:{family:'DM Sans'}}},
+              x:{ticks:{font:{family:'DM Sans'},maxTicksLimit:8}}}}
+        });
+      } else {
+        chart.data.labels=labels;
+        chart.data.datasets[0].data=s1;
+        chart.data.datasets[1].data=s2;
+        chart.update();
+      }
+    }
+    [cap,mens,dur,r1,r2].forEach(e=>e.addEventListener('input',calc));
+    if(window.Chart) calc(); else window.addEventListener('load',calc);
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

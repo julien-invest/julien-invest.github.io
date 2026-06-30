@@ -674,7 +674,7 @@
       <div class="page-hero-content">
         <span class="t-label">Parrainages</span>
         <h1>Mes recommandations &amp;<br><em>parrainages</em></h1>
-        <p>Des plateformes que j'utilise personnellement, avec des bonus exclusifs pour bien démarrer. <strong id="platform-count">32</strong> plateformes testées, 7 catégories.</p>
+        <p>Des plateformes que j'utilise personnellement, avec des bonus exclusifs pour bien démarrer. <strong id="platform-count">33</strong> plateformes testées, 8 catégories.</p>
       </div>
     </div>
   </section>
@@ -701,6 +701,7 @@
         <a class="parr-toc-link" href="#securite">Sécurité Crypto <span>2</span></a>
         <a class="parr-toc-link" href="#immobilier">Immobilier Participatif <span>3</span></a>
         <a class="parr-toc-link" href="#private-equity">Private Equity <span>1</span></a>
+        <a class="parr-toc-link" href="#business">Business &amp; Outils <span>1</span></a>
       </nav>
     </div>
   </div>
@@ -1539,6 +1540,37 @@
       </div>
           </div>
         </div>
+
+        <div class="section-group" id="business">
+          <div class="section-divider">
+            <div class="section-divider-inner">
+              <span class="section-divider-label">Business &amp; Outils</span>
+              <span class="section-divider-count">1</span>
+            </div>
+          </div>
+          <div class="parr-grid">
+
+      <div class="p-card">
+        <div class="p-card-header">
+          <div class="p-card-logo-wrap">
+            <img src="images/logo-systemeio.svg" alt="Systeme.io" loading="lazy" onerror="handleLogoError(this)">
+            <div class="p-logo-fallback" style="background:#00a0ff">S</div>
+          </div>
+          <div class="p-card-header-info">
+            <div class="p-card-name">Systeme.io</div>
+            <div class="p-card-tags"><span class="tag-pill" style="background:rgba(0,160,255,0.12);color:#0080cc">Business</span></div>
+          </div>
+        </div>
+        <p class="p-card-desc">Plateforme tout-en-un pour créer et vendre en ligne : tunnel de vente, email marketing, site web, cours en ligne et affiliation. Plan gratuit à vie disponible.</p>
+        <div class="p-card-bonus"><span class="p-card-bonus-icon"></span><span><strong>Plan gratuit à vie</strong> : tunnels, emails, cours et site web inclus</span></div>
+        <div class="p-card-footer">
+          <a href="https://systeme.io/fr?sa=sa0031813956b95fb41ba4931e0f7e72e84482125b" target="_blank" rel="noopener noreferrer" class="p-card-cta">Profiter de l'offre →</a>
+        </div>
+      </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1607,7 +1639,7 @@
           <a href="coaching.html">Coaching</a>
           <a href="a-propos.html">À propos</a>
           <a href="parrainage.html">Parrainages</a>
-          <a href="calculateur.html">Calculateur</a>
+          <a href="calculateur.html">Outils</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
@@ -1704,7 +1736,8 @@
       { name: "Tokimo", cats: ["Immobilier"], atouts: "Crowdfunding immobilier français. Investis dans des projets sélectionnés dès 100€. Rendement cible ~11,5%/an. Agréé PSFP AMF.", bonus: "1% supplémentaire sur ton 1er investissement", code: "KAO1LEQT5C", link: null },
       { name: "La Première Brique", cats: ["Immobilier"], atouts: "Investissement immobilier fractionné. Accède à des projets immobiliers dès 1€.", bonus: null, code: "RLAHUZ", link: "https://app.lapremierebrique.fr/fr/users/sign_up/RLAHUZ" },
       { name: "Bricks", cats: ["Immobilier"], atouts: "Immobilier tokenisé. Perçois des revenus locatifs proportionnels à ta participation.", bonus: null, code: "JULDEN95", link: "https://app.bricks.co/sign-up/JULDEN95" },
-      { name: "Fundora", cats: ["Private Equity"], atouts: "Démocratise le private equity. Accède aux meilleurs fonds mondiaux (VC, LBO, secondaire) dès 100€. Géré par Kyoseil AM, agréé AMF.", bonus: "10% de réduction sur les frais de ton 1er investissement", code: "6JBC38", link: "https://invest.fundora.fr/opportunities?ref=6JBC38" }
+      { name: "Fundora", cats: ["Private Equity"], atouts: "Démocratise le private equity. Accède aux meilleurs fonds mondiaux (VC, LBO, secondaire) dès 100€. Géré par Kyoseil AM, agréé AMF.", bonus: "10% de réduction sur les frais de ton 1er investissement", code: "6JBC38", link: "https://invest.fundora.fr/opportunities?ref=6JBC38" },
+      { name: "Systeme.io", cats: ["Business"], atouts: "Plateforme tout-en-un pour créer et vendre en ligne : tunnel de vente, email marketing, site web, cours en ligne et affiliation. Plan gratuit à vie disponible.", bonus: "Plan gratuit à vie : tunnels, emails, cours et site web inclus", code: null, link: "https://systeme.io/fr?sa=sa0031813956b95fb41ba4931e0f7e72e84482125b" }
     ];
     const FILTERS = [
       { id: "all", label: "Tous" },
@@ -1714,7 +1747,8 @@
       { id: "Assurance-vie", label: "Assurance-vie" },
       { id: "Immobilier", label: "Immobilier" },
       { id: "Sécurité", label: "Sécurité" },
-      { id: "Private Equity", label: "Private Equity" }
+      { id: "Private Equity", label: "Private Equity" },
+      { id: "Business", label: "Business &amp; Outils" }
     ];
     let activeFilter = "all";
     let sortAsc = true;

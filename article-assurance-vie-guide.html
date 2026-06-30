@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment débuter en bourse sans faire d'erreur | Julien Invest</title>
-  <meta name="description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <title>Assurance-vie : comment ça marche (guide complet) | Julien Invest</title>
+  <meta name="description" content="L'assurance-vie expliquée simplement : enveloppe d'épargne, fonds euros vs unités de compte, fiscalité après 8 ans, succession, et un simulateur d'imposition.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta property="og:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta property="og:title" content="Assurance-vie : comment ça marche (guide complet) | Julien Invest">
+  <meta property="og:description" content="L'assurance-vie expliquée simplement : enveloppe d'épargne, fonds euros vs unités de compte, fiscalité après 8 ans, succession, et un simulateur d'imposition.">
   <meta property="og:site_name" content="Julien Invest">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="article:published_time" content="2026-01-15T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-06-10T00:00:00+02:00">
+  <meta property="article:published_time" content="2026-06-30T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-06-30T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
-  <meta property="og:url" content="https://julien-invest.github.io/article-debuter-investissement.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-assurance-vie-guide.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta name="twitter:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta name="twitter:title" content="Assurance-vie : comment ça marche (guide complet) | Julien Invest">
+  <meta name="twitter:description" content="L'assurance-vie expliquée simplement : enveloppe d'épargne, fonds euros vs unités de compte, fiscalité après 8 ans, succession, et un simulateur d'imposition.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Comment débuter en bourse sans faire d'erreur",
-  "description": "Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.",
+  "headline": "Assurance-vie : comment ça marche (guide complet)",
+  "description": "L'assurance-vie expliquée simplement : enveloppe d'épargne, fonds euros vs unités de compte, fiscalité après 8 ans, succession, et un simulateur d'imposition.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-01-15",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -70,8 +70,31 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur enrichi (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(20px,3.5vw,28px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
+    @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-debuter-investissement.html">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-assurance-vie-guide.html">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,42 +119,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Avec combien d'argent peut-on commencer à investir ?",
+      "name": "L'argent placé en assurance-vie est il bloqué pendant 8 ans ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien."
+        "text": "Non. Tu peux retirer tout ou partie de ton argent à tout moment, même quelques mois après l'ouverture. Les 8 ans ne sont pas une durée de blocage, mais le seuil à partir duquel la fiscalité sur les gains devient la plus avantageuse."
       }
     },
     {
       "@type": "Question",
-      "name": "Faut-il des connaissances en finance pour débuter ?",
+      "name": "Pourquoi conseille t on d'ouvrir une assurance-vie le plus tôt possible ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA."
+        "text": "Parce que le compteur des 8 ans démarre à l'ouverture du contrat, pas à chaque versement. Ouvrir un contrat tôt, même avec 100 €, permet de prendre date : le jour où tu voudras vraiment l'utiliser, l'antériorité fiscale sera déjà acquise."
       }
     },
     {
       "@type": "Question",
-      "name": "Que faire quand la bourse baisse ?",
+      "name": "Quelle est la fiscalité de l'assurance-vie après 8 ans ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix."
+        "text": "Sur les retraits, tu bénéficies d'un abattement annuel de 4 600 € de gains pour une personne seule, 9 200 € pour un couple. Au-delà, l'impôt sur le revenu tombe à 7,5 %, auxquels s'ajoutent 17,2 % de prélèvements sociaux. En pratique, beaucoup d'épargnants ne paient quasiment que les prélèvements sociaux."
       }
     },
     {
       "@type": "Question",
-      "name": "Combien de temps faut-il rester investi ?",
+      "name": "Peut on perdre de l'argent en assurance-vie ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement."
+        "text": "Sur la partie fonds en euros, le capital est garanti. Sur les unités de compte (ETF, actions, SCPI), la valeur fluctue et tu peux perdre une partie de ta mise, comme tout investissement en bourse. C'est toi qui choisis la répartition entre sécurité et dynamisme."
       }
     },
     {
       "@type": "Question",
-      "name": "Vaut-il mieux un PEA ou une assurance vie pour débuter ?",
+      "name": "Assurance-vie ou PEA : lequel choisir ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter."
+        "text": "Les deux sont complémentaires. Pour des ETF actions, le PEA est souvent prioritaire grâce à sa fiscalité après 5 ans. L'assurance-vie apporte en plus le fonds euros, une grande souplesse de gestion et un cadre de transmission avantageux. L'idéal est d'utiliser les deux."
       }
     }
   ]
@@ -139,7 +162,6 @@
   </script>
 </head>
 <body>
-
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
@@ -276,154 +298,175 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Guide débutants</span>
-        <h1>Comment débuter en bourse<br><em>sans faire d'erreur</em></h1>
-        <p class="article-meta-date">Publié le 15 janvier 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Par où commencer, combien investir, comment éviter les pièges les plus courants. Le guide complet pour démarrer du bon pied.</p>
+        <span class="t-label">Enveloppes</span>
+        <h1>L'assurance-vie<br><em>comment ça marche vraiment</em></h1>
+        <p class="article-meta-date">Publié le 30 juin 2026 · Mis à jour le 30 juin 2026</p>
+        <p>Non, l'assurance-vie n'est pas un truc de retraités lié au décès. C'est l'une des enveloppes d'épargne les plus puissantes de France, avec deux superpouvoirs : la fiscalité après 8 ans et la transmission. On t'explique tout.</p>
       </div>
     </div>
   </section>
-
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Débutants</span>
-        <p>Investir en bourse fait peur. On entend parler de krachs, de gens qui ont tout perdu, de produits qu'on ne comprend pas. Pourtant, la majorité de ceux qui perdent de l'argent en bourse font les mêmes erreurs évitables. Si tu poses des bases solides dès le départ, tu mets toutes les chances de ton côté. Ce guide te donne le plan complet pour démarrer sereinement, même en partant de zéro.</p>
+        <span class="article-tag">Enveloppes</span>
+        <p>Non, l'assurance-vie n'est pas un truc de retraités lié au décès. C'est l'une des enveloppes d'épargne les plus puissantes de France, avec deux superpouvoirs : la fiscalité après 8 ans et la transmission. On t'explique tout.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#mental">Le bon état d'esprit avant tout</a></li>
-            <li><a href="#urgence">Le fonds d'urgence, ta première étape</a></li>
-            <li><a href="#enveloppe">Choisir son enveloppe et son courtier</a></li>
-            <li><a href="#quoi">Quoi acheter quand on débute</a></li>
-            <li><a href="#combien">Combien investir chaque mois</a></li>
-            <li><a href="#composes">La magie des intérêts composés</a></li>
-            <li><a href="#erreurs">Les erreurs classiques du débutant</a></li>
-            <li><a href="#ordre">Passer ton premier ordre</a></li>
-            <li><a href="#diversifier">Faut il diversifier</a></li>
-            <li><a href="#psycho">La psychologie du long terme</a></li>
-            <li><a href="#plan">Ton plan d'action en 5 étapes</a></li>
+            <li><a href="#cest-quoi">L'assurance-vie, ce n'est pas ce que tu crois</a></li>
+            <li><a href="#fonds">Fonds euros vs unités de compte</a></li>
+            <li><a href="#fiscalite">La fiscalité : la magie des 8 ans</a></li>
+            <li><a href="#disponibilite">Ton argent n'est pas bloqué</a></li>
+            <li><a href="#succession">L'atout succession</a></li>
+            <li><a href="#choisir">Comment choisir son assurance-vie</a></li>
+            <li><a href="#pour-qui">Pour qui, et en complément du PEA</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="mental">Le bon état d'esprit avant tout</h2>
-        <p>Avant la technique, il y a le mental. Investir, ce n'est pas jouer au casino ni deviner quelle action va exploser. C'est mettre ton argent au travail de façon régulière, sur le long terme, et laisser le temps faire le gros du travail. Ton horizon n'est pas la semaine prochaine, c'est dans 10, 20 ou 30 ans.</p>
-        <p>La bourse monte sur le long terme, mais elle ne monte jamais en ligne droite. Il y aura des baisses, parfois fortes. Ta seule mission est de ne pas paniquer pendant ces phases. La méthode passive, qui consiste à investir régulièrement dans des fonds diversifiés et à ne plus y toucher, bat la grande majorité des gérants professionnels sur 20 ans. Et elle est à la portée de tout le monde.</p>
+        <h2 id="cest-quoi">L'assurance-vie, ce n'est pas ce que tu crois</h2>
+        <p>Quand on entend « assurance-vie », on pense souvent à un truc de retraités, lié au décès. C'est un malentendu sur le nom. En réalité, l'assurance-vie est avant tout une <strong>enveloppe d'épargne et d'investissement</strong>, l'une des plus puissantes et des plus souples qui existent en France. Tu y places de l'argent, tu le fais fructifier sur différents supports, et tu en profites quand tu veux, de ton vivant.</p>
+        <p>C'est une enveloppe, au même titre que le PEA ou le compte-titres. Ce qu'elle contient, c'est toi qui le choisis : du fonds euros sécurisé, des ETF, des unités de compte. Et elle offre deux atouts majeurs que rien d'autre ne combine : une <strong>fiscalité qui devient très douce après 8 ans</strong>, et un <strong>cadre successoral avantageux</strong>.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Tu n'as pas besoin d'être bon en maths ni de passer tes journées devant les cours de bourse. Tu as besoin de régularité et de patience. C'est l'ennui, pas l'excitation, qui rend riche en bourse.</p>
+          <p>L'assurance-vie n'est pas un produit lié au décès : c'est une enveloppe d'épargne souple, dans laquelle tu loges les supports de ton choix. Ses deux superpouvoirs : la fiscalité après 8 ans et la transmission.</p>
         </div>
 
-        <h2 id="urgence">Le fonds d'urgence, ta première étape</h2>
-        <p>Avant d'investir le moindre euro en bourse, tu dois avoir un <a href="article-fonds-urgence.html">fonds d'urgence</a>. La règle est simple : entre 3 et 6 mois de tes dépenses courantes, placés sur un livret A ou un LDDS, disponibles immédiatement.</p>
-        <p>Pourquoi ? Parce que si tu as un imprévu et que ton portefeuille est en baisse à ce moment là, tu seras forcé de vendre à perte. Le fonds d'urgence te protège de cette situation. Il ne rapporte pas grand chose, mais ce n'est pas son rôle : il est là pour être disponible quand tu en as besoin.</p>
-        <p>Exemple : si tes dépenses mensuelles sont de 1 500€, vise un fonds d'urgence d'au moins 4 500€, idéalement 9 000€. Une fois ce matelas constitué, tu peux investir l'esprit tranquille.</p>
+        <h2 id="fonds">Fonds euros vs unités de compte</h2>
+        <p>À l'intérieur d'une assurance-vie, ton argent peut aller sur deux grandes familles de supports :</p>
+        <ul>
+          <li><strong>Le fonds en euros</strong> : capital garanti, tu ne peux pas perdre ce que tu y mets. En contrepartie, le rendement est modeste (de l'ordre de 2 à 3 % ces dernières années). C'est la brique sécurité, qu'on détaille dans <a href="article-obligations-fonds-euros.html">obligations et fonds euros</a>.</li>
+          <li><strong>Les unités de compte (UC)</strong> : ETF, actions, immobilier (SCPI)… Le capital n'est pas garanti, mais le potentiel de rendement est bien supérieur sur le long terme. C'est là que tu loges tes ETF pour faire travailler ton argent.</li>
+        </ul>
+        <p>Une bonne assurance-vie te laisse mixer les deux librement, selon ton profil de risque et ton horizon. Un jeune investisseur privilégiera souvent une large part d'UE (ETF), en gardant une poche de fonds euros comme matelas.</p>
+        <figure class="article-figure">
+          <svg viewBox="0 0 460 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="L'assurance-vie est une enveloppe contenant deux types de supports : le fonds euros sécurisé et les unités de compte plus dynamiques">
+            <rect x="40" y="30" width="380" height="150" rx="14" fill="none" stroke="#1A1A4E" stroke-width="2"/>
+            <text x="230" y="22" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Enveloppe assurance-vie</text>
+            <rect x="62" y="58" width="160" height="100" rx="10" fill="#A0E7C5"/>
+            <text x="142" y="100" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Fonds euros</text>
+            <text x="142" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">capital garanti</text>
+            <rect x="238" y="58" width="160" height="100" rx="10" fill="#C8B4E8"/>
+            <text x="318" y="100" text-anchor="middle" font-family="Syne, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Unités de compte</text>
+            <text x="318" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">ETF, SCPI… (dynamique)</text>
+          </svg>
+          <figcaption>L'assurance-vie est le contenant ; le fonds euros et les unités de compte sont le contenu, que tu doses selon ton profil.</figcaption>
+        </figure>
 
-        <h2 id="enveloppe">Choisir son enveloppe et son courtier</h2>
-        <p>En France, la priorité numéro un quand on débute, c'est le PEA. C'est l'enveloppe fiscale la plus avantageuse pour investir en bourse : après 5 ans, tes gains ne supportent plus que 18,6% de prélèvements sociaux, sans impôt sur le revenu. Pour comprendre la différence avec le compte titres ordinaire, lis <a href="article-pea-vs-cto.html">PEA ou CTO</a> et le <a href="guides/guide-pea.html">guide du PEA</a>.</p>
-        <p>Pour le courtier, vise un acteur sérieux, peu cher et simple à utiliser. Les frais comptent énormément sur le long terme. Tu trouveras les courtiers que je recommande, avec leurs bonus, sur la page <a href="parrainage.html">parrainages</a>.</p>
+        <h2 id="fiscalite">La fiscalité : la magie des 8 ans</h2>
+        <p>C'est ici que l'assurance-vie révèle son intérêt. Tant que tu ne retires rien, les gains ne sont pas imposés : ils capitalisent en franchise d'impôt, année après année. L'imposition n'intervient que lors d'un <strong>retrait</strong> (un « rachat »), et uniquement sur la part de gains contenue dans ce retrait.</p>
+        <p>Avant 8 ans, les gains retirés sont taxés à 30 % (12,8 % d'impôt + 17,2 % de prélèvements sociaux). Après <strong>8 ans</strong>, deux cadeaux s'activent : un <strong>abattement annuel</strong> de 4 600 € de gains pour une personne seule (9 200 € pour un couple), et un taux d'impôt réduit à 7,5 % au lieu de 12,8 % au-delà. Résultat : beaucoup d'épargnants ne paient quasiment que les prélèvements sociaux de 17,2 %.</p>
 
-        <h2 id="quoi">Quoi acheter quand on débute</h2>
-        <p>La réponse tient en trois lettres : ETF. Un ETF (fonds indiciel coté) est un panier qui réplique un indice boursier comme le MSCI World ou le S&P 500. En achetant un seul produit, tu es exposé à des centaines, voire des milliers d'entreprises à travers le monde. C'est la diversification instantanée, à frais réduits.</p>
-        <p>Pour un débutant, un ETF monde diversifié suffit largement. Pas besoin d'en acheter dix. Un seul ETF qui couvre les grandes économies mondiales, et tu as l'essentiel. Pour t'aider à choisir, le <a href="comparateur-etf.html">comparateur ETF</a> liste les fonds les plus utilisés par les investisseurs passifs français, avec leurs frais.</p>
+        <div class="ji-sim" id="av-sim">
+          <div class="ji-sim-title">Simulateur : fiscalité avant vs après 8 ans</div>
+          <div class="ji-sim-sub">Vois ce que l'abattement annuel et le taux réduit te font économiser sur un retrait.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Gains retirés <span class="ji-val" id="av-gain-val">10 000 €</span></label>
+              <input type="range" id="av-gain" min="500" max="60000" step="500" value="10000">
+            </div>
+            <div class="ji-field">
+              <label>Situation <span class="ji-val" id="av-statut-val">Personne seule</span></label>
+              <input type="range" id="av-statut" min="0" max="1" step="1" value="0">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card">
+              <div class="ji-res-label">Impôt avant 8 ans</div>
+              <div class="ji-res-val" id="av-before" style="color:#DC2626;">—</div>
+              <div class="ji-res-sub">30 % (12,8 % + 17,2 %)</div>
+            </div>
+            <div class="ji-res-card win">
+              <div class="ji-res-label">Impôt après 8 ans</div>
+              <div class="ji-res-val" id="av-after">—</div>
+              <div class="ji-res-sub">Abattement + 7,5 % + 17,2 %</div>
+            </div>
+            <div class="ji-res-card">
+              <div class="ji-res-label">Économie grâce aux 8 ans</div>
+              <div class="ji-res-val" id="av-save" style="color:#059669;">—</div>
+              <div class="ji-res-sub">Sur ce seul retrait</div>
+            </div>
+          </div>
+          <div class="ji-chart-wrap"><canvas id="av-chart"></canvas></div>
+          <p class="ji-sim-note">Hypothèses : versements totaux inférieurs à 150 000 €, retrait sur une année. Après 8 ans = abattement annuel de 4 600 € (seul) ou 9 200 € (couple) sur les gains, puis 7,5 % d'IR au-delà + 17,2 % de prélèvements sociaux sur l'ensemble des gains. Avant 8 ans = 30 %. Estimation pédagogique, hors cas particuliers.</p>
+        </div>
+
+        <div class="article-retenir">
+          <div class="article-retenir-label">★ À retenir</div>
+          <p>Le compteur des 8 ans démarre à l'ouverture du contrat, pas à chaque versement. D'où la règle d'or : <strong>ouvre une assurance-vie le plus tôt possible</strong>, même avec 100 €, pour « prendre date » et lancer le chrono fiscal.</p>
+        </div>
+
+        <h2 id="disponibilite">Ton argent n'est pas bloqué</h2>
+        <p>C'est le plus gros mythe sur l'assurance-vie : « mon argent est bloqué 8 ans ». <strong>Faux.</strong> Tu peux retirer tout ou partie de ton argent à n'importe quel moment, même au bout de 3 mois. Les 8 ans ne sont pas une durée de blocage, mais le seuil à partir duquel la fiscalité devient la plus douce. Avant, tu peux retirer ; tu seras simplement imposé un peu plus sur les gains.</p>
+        <p>Cette disponibilité, combinée à l'absence d'imposition tant que tu ne retires rien, fait de l'assurance-vie une enveloppe à la fois souple et efficace pour un projet de moyen et long terme.</p>
+
+        <h2 id="succession">L'atout succession</h2>
+        <p>L'assurance-vie porte bien son nom sur un point : la transmission. En cas de décès, les sommes versées avant tes 70 ans sont transmises aux bénéficiaires que tu désignes, avec un abattement de 152 500 € <em>par bénéficiaire</em>, hors droits de succession classiques. C'est un outil de transmission redoutablement efficace, qu'on approfondit dans <a href="article-succession-transmission-patrimoine.html">succession et transmission de patrimoine</a>.</p>
+        <p>Tu choisis librement tes bénéficiaires via la « clause bénéficiaire », et tu peux la modifier à tout moment. C'est ce qui fait de l'assurance-vie un pilier du patrimoine, bien au-delà du simple placement.</p>
+
+        <h2 id="choisir">Comment choisir son assurance-vie</h2>
+        <p>Toutes les assurances-vie ne se valent pas, loin de là. Les contrats des banques traditionnelles sont souvent chargés en frais et pauvres en choix d'ETF. Les bons réflexes :</p>
+        <ul>
+          <li><strong>Zéro frais sur versement</strong> : chaque euro versé doit être investi en entier.</li>
+          <li><strong>Frais de gestion bas</strong> sur les unités de compte (idéalement autour de 0,5 % par an).</li>
+          <li><strong>Un large choix d'ETF</strong> et un bon fonds euros.</li>
+        </ul>
+        <p>Ce sont les contrats <strong>en ligne</strong> qui cochent le mieux ces cases. Voici une référence du marché, accessible via les bonus de parrainage Julien Invest :</p>
+        <div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Assurance-vie en ligne · frais réduits</span>
+              <div class="broker-card-logo"><img src="images/logo-linxea.png" alt="Linxea" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Linxea</div>
+            <div class="broker-card-tagline">Parmi les meilleures conditions du marché : frais réduits, large choix d'UC</div>
+            <ul class="broker-card-pros">
+              <li>0 % de frais sur versement</li>
+              <li>Frais de gestion bas</li>
+              <li>Large choix d'ETF et de SCPI</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+        </div>
+        <p style="font-size:13px; color:var(--grey-2);">Compare les meilleurs contrats en détail dans <a href="article-assurance-vie-comparatif-2026.html">le comparatif assurance-vie 2026</a>.</p>
+
+        <h2 id="pour-qui">Pour qui, et en complément du PEA</h2>
+        <p>L'assurance-vie et le PEA ne s'opposent pas, ils se complètent. Une stratégie classique et efficace pour un investisseur français :</p>
         <table class="compare-table">
           <thead>
-            <tr><th>Type de produit</th><th>Pour un débutant</th><th>Pourquoi</th></tr>
+            <tr><th>Enveloppe</th><th>Son rôle</th><th>Idéale pour</th></tr>
           </thead>
           <tbody>
-            <tr><td>ETF monde</td><td class="yes">Idéal</td><td>Diversifié, simple, frais bas</td></tr>
-            <tr><td>Actions en direct</td><td class="no">À éviter</td><td>Risqué, demande du temps et des connaissances</td></tr>
-            <tr><td>Fonds actifs (OPCVM)</td><td class="no">À éviter</td><td>Frais élevés, battent rarement leur indice</td></tr>
-            <tr><td>Produits à effet de levier</td><td class="no">Danger</td><td>Pertes amplifiées, réservés aux experts</td></tr>
+            <tr><td>PEA</td><td>ETF actions, fiscalité douce après 5 ans</td><td class="yes">Le moteur de croissance</td></tr>
+            <tr><td>Assurance-vie</td><td>ETF + fonds euros, souplesse, succession</td><td class="yes">Diversifier et transmettre</td></tr>
+            <tr><td>CTO</td><td>Tout le reste, sans plafond</td><td>Aller au-delà des deux</td></tr>
           </tbody>
         </table>
-
-        <h2 id="combien">Combien investir chaque mois</h2>
-        <p>La règle générale est d'investir entre 10% et 20% de ton revenu net mensuel. Si tu gagnes 2 500€ nets, cela représente entre 250€ et 500€ par mois. L'important n'est pas le montant de départ, c'est la régularité.</p>
-        <p>La méthode la plus efficace s'appelle le DCA (investissement programmé) : tu investis la même somme chaque mois, quoi qu'il arrive sur les marchés. Quand les prix baissent, tu achètes plus de parts. Quand ils montent, tu en achètes moins. Sur le long terme, tu lisses ton prix d'achat et tu évites le piège de vouloir deviner le bon moment. Le <a href="guides/guide-dca.html">guide du DCA</a> détaille cette stratégie.</p>
-
-        <h2 id="composes">La magie des intérêts composés</h2>
-        <p>C'est le moteur de toute la richesse boursière. Tes gains génèrent à leur tour des gains, qui génèrent à leur tour des gains. Au début, l'effet semble lent. Puis la courbe s'envole. C'est exactement pour ça qu'il faut commencer tôt, même avec peu.</p>
-        <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Croissance d'un investissement de 200 euros par mois à 7 pour cent sur 30 ans, la courbe s'accélère avec le temps">
-            <line x1="50" y1="20" x2="50" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="50" y1="200" x2="440" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <path d="M50 196 C 160 188, 250 170, 320 130 S 410 50, 440 28" fill="none" stroke="#C8B4E8" stroke-width="3"/>
-            <path d="M50 196 L 440 150" fill="none" stroke="#A0E7C5" stroke-width="2.5" stroke-dasharray="5,4"/>
-            <text x="370" y="42" font-family="DM Sans, sans-serif" font-size="12" fill="#7A5BC0">Avec intérêts composés</text>
-            <text x="300" y="170" font-family="DM Sans, sans-serif" font-size="12" fill="#3FAE7E">Sans (somme versée)</text>
-            <text x="245" y="218" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Années →</text>
-          </svg>
-          <figcaption>200€ par mois à 7% par an : l'écart entre l'argent versé et l'argent gagné explose avec le temps.</figcaption>
-        </figure>
-        <p>Tu peux visualiser ta propre courbe avec tes chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>.</p>
-
-        <div class="article-retenir">
-          <div class="article-retenir-label">★ À retenir</div>
-          <p>Le meilleur moment pour commencer à investir, c'était il y a dix ans. Le deuxième meilleur moment, c'est aujourd'hui. Chaque année de retard coûte cher, parce que c'est une année d'intérêts composés en moins.</p>
-        </div>
-
-        <h2 id="erreurs">Les erreurs classiques du débutant</h2>
-        <ul>
-          <li><strong>Vendre en panique</strong> lors d'une baisse. C'est l'erreur numéro un. Tu transformes une perte temporaire en perte définitive.</li>
-          <li><strong>Choisir ses actions soi même.</strong> Même les professionnels échouent à battre le marché sur la durée. Reste sur des ETF diversifiés.</li>
-          <li><strong>Attendre le bon moment.</strong> Personne ne sait quand le marché va monter ou baisser. Investir régulièrement bat l'attente.</li>
-          <li><strong>Négliger les frais.</strong> 1% de frais par an semble dérisoire, mais sur 20 ans cela peut représenter 20% à 30% de ton capital final en moins.</li>
-          <li><strong>Utiliser de l'effet de levier.</strong> Emprunter pour investir ou jouer avec des produits dérivés quand on débute, c'est le meilleur moyen de tout perdre.</li>
-        </ul>
-        <p>Ces pièges sont détaillés dans l'article <a href="article-5-erreurs-debutants.html">les 5 erreurs des débutants</a>.</p>
-
-        <h2 id="ordre">Comment passer ton premier ordre</h2>
-        <p>Une fois ton PEA ouvert et alimenté, acheter un ETF prend deux minutes. Tu cherches le fonds par son nom ou son code ISIN, tu indiques le montant, et tu valides. Tu as deux types d'ordres principaux.</p>
-        <ul>
-          <li><strong>L'ordre au marché</strong> : tu achètes immédiatement au prix du moment. Simple et rapide, parfait pour un ETF liquide et un premier achat.</li>
-          <li><strong>L'ordre à cours limité</strong> : tu fixes le prix maximum que tu acceptes de payer. Utile pour garder le contrôle, mais l'ordre ne passe que si le marché atteint ton prix.</li>
-        </ul>
-        <p>Pour un débutant qui investit sur un ETF monde, l'ordre au marché convient très bien. Pas besoin de te compliquer la vie avec des stratégies d'entrée sophistiquées.</p>
-
-        <h2 id="diversifier">Faut il diversifier au delà d'un ETF monde</h2>
-        <p>Un bon ETF monde contient déjà des milliers d'entreprises réparties sur les grandes économies. Pour la plupart des gens, c'est suffisant. Mais en grandissant, certains aiment ajouter une touche : une part de marchés émergents pour aller chercher de la croissance, ou un peu d'obligations pour réduire la volatilité à l'approche d'un objectif.</p>
-        <p>La règle d'or : ne complique jamais ton portefeuille plus que nécessaire. Un seul ETF monde bien choisi battra toujours un portefeuille de dix fonds que tu ne comprends pas. La simplicité est une force, pas une faiblesse. Compare les fonds dans le <a href="comparateur-etf.html">comparateur ETF</a> avant d'ajouter quoi que ce soit.</p>
-
-        <h2 id="psycho">La psychologie, le vrai défi du long terme</h2>
-        <p>Les outils sont simples. Le vrai challenge, c'est de tenir dans la durée. Pendant une baisse de marché, tout ton cerveau te poussera à vendre pour arrêter la douleur. Pendant une hausse, il te poussera à mettre toutes tes économies d'un coup au plus haut. Les deux réflexes te coûtent cher.</p>
-        <p>La parade, c'est l'automatisation. Si ton versement part tout seul chaque mois et que tu ne regardes ton portefeuille que deux fois par an, tu retires l'émotion de l'équation. Tu deviens spectateur de tes propres bons réflexes. C'est exactement ce que la méthode passive cherche à provoquer.</p>
-
-        <h2 id="plan">Ton plan d'action en 5 étapes</h2>
-        <ol>
-          <li>Constitue ton fonds d'urgence (3 à 6 mois de dépenses) sur un livret.</li>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher.</li>
-          <li>Choisis un ETF monde diversifié et éligible PEA.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste.</li>
-          <li>Ne touche plus à rien. Laisse le temps et les intérêts composés travailler.</li>
-        </ol>
-        <p>C'est tout. Pas besoin de surveiller les marchés tous les jours. Si tu veux la méthode complète, pas à pas, avec le choix précis des ETF et l'automatisation, c'est l'objet de la <a href="formation.html">formation</a>.</p>
-
+        <p>On compare précisément les deux enveloppes dans <a href="article-assurance-vie-pea.html">assurance-vie vs PEA</a>. La logique générale : on remplit le PEA pour les ETF, et on utilise l'assurance-vie pour la souplesse, le fonds euros et la transmission. Pour construire ta stratégie complète sans te tromper d'ordre ni de contrat, c'est tout l'objet de la <a href="formation.html">formation</a>.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Avec combien d'argent peut-on commencer à investir ?</summary>
-            <p>Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien.</p>
+            <summary>L'argent placé en assurance-vie est il bloqué pendant 8 ans ?</summary>
+            <p>Non. Tu peux retirer tout ou partie de ton argent à tout moment, même quelques mois après l'ouverture. Les 8 ans ne sont pas une durée de blocage, mais le seuil à partir duquel la fiscalité sur les gains devient la plus avantageuse.</p>
           </details>
           <details>
-            <summary>Faut-il des connaissances en finance pour débuter ?</summary>
-            <p>Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA.</p>
+            <summary>Pourquoi conseille t on d'ouvrir une assurance-vie le plus tôt possible ?</summary>
+            <p>Parce que le compteur des 8 ans démarre à l'ouverture du contrat, pas à chaque versement. Ouvrir un contrat tôt, même avec 100 €, permet de prendre date : le jour où tu voudras vraiment l'utiliser, l'antériorité fiscale sera déjà acquise.</p>
           </details>
           <details>
-            <summary>Que faire quand la bourse baisse ?</summary>
-            <p>Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix.</p>
+            <summary>Quelle est la fiscalité de l'assurance-vie après 8 ans ?</summary>
+            <p>Sur les retraits, tu bénéficies d'un abattement annuel de 4 600 € de gains pour une personne seule, 9 200 € pour un couple. Au-delà, l'impôt sur le revenu tombe à 7,5 %, auxquels s'ajoutent 17,2 % de prélèvements sociaux. En pratique, beaucoup d'épargnants ne paient quasiment que les prélèvements sociaux.</p>
           </details>
           <details>
-            <summary>Combien de temps faut-il rester investi ?</summary>
-            <p>Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement.</p>
+            <summary>Peut on perdre de l'argent en assurance-vie ?</summary>
+            <p>Sur la partie fonds en euros, le capital est garanti. Sur les unités de compte (ETF, actions, SCPI), la valeur fluctue et tu peux perdre une partie de ta mise, comme tout investissement en bourse. C'est toi qui choisis la répartition entre sécurité et dynamisme.</p>
           </details>
           <details>
-            <summary>Vaut-il mieux un PEA ou une assurance vie pour débuter ?</summary>
-            <p>Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter.</p>
+            <summary>Assurance-vie ou PEA : lequel choisir ?</summary>
+            <p>Les deux sont complémentaires. Pour des ETF actions, le PEA est souvent prioritaire grâce à sa fiscalité après 5 ans. L'assurance-vie apporte en plus le fonds euros, une grande souplesse de gestion et un cadre de transmission avantageux. L'idéal est d'utiliser les deux.</p>
           </details>
         </div>
 
@@ -436,17 +479,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_DEBUTER par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_DEBUTER = "VIDEO_ID";
+          const VIDEO_ID_ARTICLE_AV_GUIDE = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_DEBUTER && VIDEO_ID_ARTICLE_DEBUTER!=="VIDEO_ID";
+            const has=VIDEO_ID_ARTICLE_AV_GUIDE && VIDEO_ID_ARTICLE_AV_GUIDE!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_DEBUTER+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_AV_GUIDE+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -454,18 +496,6 @@
             f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
           })();
         </script>
-
-                <div class="article-takeaway">
-          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
-          <ul class="article-takeaway-list">
-            <li>Commencer tôt prime sur tout le reste : 100 €/mois pendant 30 ans à 8 % = 149 000 €, 10 ans de moins = seulement 75 000 €.</li>
-            <li>Le fonds d'urgence (3-6 mois de dépenses) est la première étape, avant tout investissement en bourse.</li>
-            <li>Pour un débutant, un ETF monde (MSCI World ou ACWI) dans un PEA suffit, inutile de compliquer.</li>
-            <li>La bonne enveloppe d'abord : PEA pour les ETF actions, assurance-vie pour diversifier, CTO en dernier.</li>
-            <li>La diversification protège des erreurs individuelles, ne jamais mettre plus de 5 % dans un seul titre.</li>
-          </ul>
-        </div>
-
         <div class="article-cta">
           <h2>Passe de la théorie à la pratique</h2>
           <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
@@ -477,28 +507,26 @@
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-5-erreurs-debutants.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les 5 erreurs que font 90 % des débutants</div>
+            <a href="article-assurance-vie-pea.html" class="article-related-card">
+              <span class="article-related-tag">Enveloppes</span>
+              <div class="article-related-name">Assurance-vie vs PEA : lequel choisir ?</div>
               <div class="article-related-meta">9 min · Lire →</div>
             </a>
-            <a href="article-choisir-courtier.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Choisir son courtier : comparatif honnête 2026</div>
-              <div class="article-related-meta">12 min · Lire →</div>
-            </a>
-            <a href="article-interets-composes.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les intérêts composés : le secret des riches</div>
+            <a href="article-assurance-vie-comparatif-2026.html" class="article-related-card">
+              <span class="article-related-tag">Comparatif</span>
+              <div class="article-related-name">Comparatif assurance-vie 2026 : Linxea, Lucya…</div>
               <div class="article-related-meta">10 min · Lire →</div>
+            </a>
+            <a href="article-succession-transmission-patrimoine.html" class="article-related-card">
+              <span class="article-related-tag">Patrimoine</span>
+              <div class="article-related-name">Succession et transmission de patrimoine</div>
+              <div class="article-related-meta">12 min · Lire →</div>
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -553,6 +581,57 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const g=id=>document.getElementById(id);
+    const gain=g('av-gain'),statut=g('av-statut');
+    if(!gain) return;
+    const PS=0.172;
+    let chart;
+    function taxAfter(G,ab){ return G*PS + Math.max(0,G-ab)*0.075; }
+    function calc(){
+      const G=+gain.value, couple=(+statut.value===1);
+      const ab = couple?9200:4600;
+      g('av-gain-val').textContent=fmtE(G);
+      g('av-statut-val').textContent = couple?'Couple':'Personne seule';
+      const before=G*0.30, after=taxAfter(G,ab);
+      g('av-before').textContent=fmtE(before);
+      g('av-after').textContent=fmtE(after);
+      g('av-save').textContent=fmtE(before-after);
+      // chart: impôt selon montant de gains, avant vs après 8 ans
+      const maxG=Math.max(20000, G);
+      const pts=10, labels=[], bArr=[], aArr=[];
+      for(let i=0;i<=pts;i++){
+        const x=Math.round(maxG*i/pts);
+        labels.push(fmtE(x));
+        bArr.push(Math.round(x*0.30));
+        aArr.push(Math.round(taxAfter(x,ab)));
+      }
+      if(!chart){
+        chart=new Chart(g('av-chart'),{type:'line',
+          data:{labels,datasets:[
+            {label:'Impôt avant 8 ans',data:bArr,borderColor:'#DC2626',backgroundColor:'rgba(220,38,38,0.07)',borderWidth:2.5,tension:0.2,fill:true,pointRadius:0,borderDash:[5,4]},
+            {label:'Impôt après 8 ans',data:aArr,borderColor:'#1A1A4E',backgroundColor:'rgba(160,231,197,0.15)',borderWidth:2.5,tension:0.2,fill:true,pointRadius:0}
+          ]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{labels:{font:{family:'DM Sans'},boxWidth:14}},
+              title:{display:true,text:"Impôt selon les gains retirés",font:{family:'Syne',size:13},color:'#1A1A4E'},
+              tooltip:{callbacks:{label:cx=>cx.dataset.label+': '+fmtE(cx.parsed.y)}}},
+            scales:{y:{ticks:{callback:v=>new Intl.NumberFormat('fr-FR',{notation:'compact'}).format(v)+' €',font:{family:'DM Sans'}}},
+              x:{title:{display:true,text:'Gains retirés',font:{family:'DM Sans'}},ticks:{font:{family:'DM Sans'},maxTicksLimit:6}}}}
+        });
+      } else {
+        chart.data.labels=labels;
+        chart.data.datasets[0].data=bArr;
+        chart.data.datasets[1].data=aArr;
+        chart.update();
+      }
+    }
+    [gain,statut].forEach(e=>e.addEventListener('input',calc));
+    if(window.Chart) calc(); else window.addEventListener('load',calc);
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>

@@ -3,32 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comment débuter en bourse sans faire d'erreur | Julien Invest</title>
-  <meta name="description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <title>Krach boursier : que faire (et ne pas faire) ? | Julien Invest</title>
+  <meta name="description" content="Un krach boursier fait peur mais c'est normal et récurrent. Pourquoi vendre est la seule vraie erreur, ce que montre l'histoire, et un simulateur du coût de la panique.">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta property="og:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta property="og:title" content="Krach boursier : que faire (et ne pas faire) ? | Julien Invest">
+  <meta property="og:description" content="Un krach boursier fait peur mais c'est normal et récurrent. Pourquoi vendre est la seule vraie erreur, ce que montre l'histoire, et un simulateur du coût de la panique.">
   <meta property="og:site_name" content="Julien Invest">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
-  <meta property="article:published_time" content="2026-01-15T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-06-10T00:00:00+02:00">
+  <meta property="article:published_time" content="2026-06-30T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-06-30T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
-  <meta property="og:url" content="https://julien-invest.github.io/article-debuter-investissement.html">
+  <meta property="og:url" content="https://julien-invest.github.io/article-krach-boursier.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Comment débuter en bourse sans faire d'erreur | Julien Invest">
-  <meta name="twitter:description" content="Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.">
+  <meta name="twitter:title" content="Krach boursier : que faire (et ne pas faire) ? | Julien Invest">
+  <meta name="twitter:description" content="Un krach boursier fait peur mais c'est normal et récurrent. Pourquoi vendre est la seule vraie erreur, ce que montre l'histoire, et un simulateur du coût de la panique.">
   <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Comment débuter en bourse sans faire d'erreur",
-  "description": "Le guide du débutant pour investir en bourse : par où commencer, combien mettre, quelle stratégie adopter pour ne pas perdre son argent.",
+  "headline": "Krach boursier : que faire (et ne pas faire) ?",
+  "description": "Un krach boursier fait peur mais c'est normal et récurrent. Pourquoi vendre est la seule vraie erreur, ce que montre l'histoire, et un simulateur du coût de la panique.",
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
-  "datePublished": "2026-01-15",
-  "dateModified": "2026-06-10"
+  "datePublished": "2026-06-30",
+  "dateModified": "2026-06-30"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -70,8 +70,31 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+
+    /* ── Simulateur enrichi (injected) ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 6px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-sim-controls { display: grid; grid-template-columns: repeat(2,1fr); gap: 18px 24px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-sim-controls { grid-template-columns: 1fr; } }
+    .ji-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; font-family: var(--font-head); }
+    .ji-field .ji-val { font-size: 15px; font-weight: 800; color: #6B4FA0; }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    @media (max-width: 680px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px 20px; border: 1px solid rgba(200,180,232,0.4); }
+    .ji-res-card.win { border: 2px solid #A0E7C5; box-shadow: 0 6px 18px rgba(160,231,197,0.4); }
+    .ji-res-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--grey-2); font-family: var(--font-head); }
+    .ji-res-val { font-family: var(--font-head); font-weight: 800; font-size: clamp(20px,3.5vw,28px); color: var(--navy); margin: 6px 0 2px; }
+    .ji-res-sub { font-size: 12px; color: var(--grey-2); }
+    .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
+    @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
+    .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
   </style>
-  <link rel="canonical" href="https://julien-invest.github.io/article-debuter-investissement.html">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="canonical" href="https://julien-invest.github.io/article-krach-boursier.html">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -96,42 +119,42 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Avec combien d'argent peut-on commencer à investir ?",
+      "name": "Faut il vendre avant un krach pour se protéger ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien."
+        "text": "Non. Personne ne sait prédire de façon fiable quand un krach va arriver ni quand il se terminera. Essayer de sortir au bon moment puis de rentrer au bon moment échoue presque toujours. La stratégie qui fonctionne sur le long terme est de rester investi et de continuer à investir régulièrement."
       }
     },
     {
       "@type": "Question",
-      "name": "Faut-il des connaissances en finance pour débuter ?",
+      "name": "Combien de temps faut il pour récupérer après un krach ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA."
+        "text": "Cela dépend de l'ampleur de la baisse et du rythme de reprise. Historiquement, les marchés ont mis de quelques mois à quelques années pour retrouver leurs sommets. Le krach Covid a été récupéré en environ six mois, la crise de 2008 en environ quatre ans."
       }
     },
     {
       "@type": "Question",
-      "name": "Que faire quand la bourse baisse ?",
+      "name": "Que faire de mon argent pendant un krach ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix."
+        "text": "Idéalement, rien de précipité : tu gardes tes positions et tu continues tes versements programmés. Si tu as des liquidités disponibles dont tu n'as pas besoin, un krach peut être un bon moment pour investir progressivement, sans chercher à viser le point bas parfait."
       }
     },
     {
       "@type": "Question",
-      "name": "Combien de temps faut-il rester investi ?",
+      "name": "Un krach peut il faire perdre tout mon argent ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement."
+        "text": "Sur un ETF largement diversifié comme un MSCI World, non : il faudrait que toutes les grandes entreprises mondiales fassent faillite en même temps. Le risque de perte totale concerne surtout les paris concentrés sur une seule action ou un actif très spéculatif, pas un indice mondial."
       }
     },
     {
       "@type": "Question",
-      "name": "Vaut-il mieux un PEA ou une assurance vie pour débuter ?",
+      "name": "Comment éviter de paniquer pendant une chute ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter."
+        "text": "En te préparant à froid : garde un fonds d'urgence séparé, n'investis que de l'argent dont tu n'as pas besoin à court terme, automatise tes versements et limite le temps passé à regarder ton portefeuille. Moins tu as de décisions à prendre dans la panique, mieux c'est."
       }
     }
   ]
@@ -139,7 +162,6 @@
   </script>
 </head>
 <body>
-
   <nav class="nav" id="nav">
     <div class="container">
       <div class="nav-inner">
@@ -276,154 +298,179 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Guide débutants</span>
-        <h1>Comment débuter en bourse<br><em>sans faire d'erreur</em></h1>
-        <p class="article-meta-date">Publié le 15 janvier 2026 · Mis à jour le 10 juin 2026</p>
-        <p>Par où commencer, combien investir, comment éviter les pièges les plus courants. Le guide complet pour démarrer du bon pied.</p>
+        <span class="t-label">Mental</span>
+        <h1>Krach boursier<br><em>que faire (et ne pas faire) ?</em></h1>
+        <p class="article-meta-date">Publié le 30 juin 2026 · Mis à jour le 30 juin 2026</p>
+        <p>Les marchés s'effondrent et ton cerveau te crie de tout vendre. C'est exactement à ce moment qu'il faut comprendre une chose : un krach n'est pas une perte tant que tu ne vends pas.</p>
       </div>
     </div>
   </section>
-
   <section class="section" style="background:var(--white);">
     <div class="container">
       <div class="article-body">
-        <span class="article-tag">Débutants</span>
-        <p>Investir en bourse fait peur. On entend parler de krachs, de gens qui ont tout perdu, de produits qu'on ne comprend pas. Pourtant, la majorité de ceux qui perdent de l'argent en bourse font les mêmes erreurs évitables. Si tu poses des bases solides dès le départ, tu mets toutes les chances de ton côté. Ce guide te donne le plan complet pour démarrer sereinement, même en partant de zéro.</p>
+        <span class="article-tag">Mental</span>
+        <p>Les marchés s'effondrent et ton cerveau te crie de tout vendre. C'est exactement à ce moment qu'il faut comprendre une chose : un krach n'est pas une perte tant que tu ne vends pas.</p>
 
         <div class="article-toc">
           <div class="article-toc-title">Au sommaire</div>
           <ol>
-            <li><a href="#mental">Le bon état d'esprit avant tout</a></li>
-            <li><a href="#urgence">Le fonds d'urgence, ta première étape</a></li>
-            <li><a href="#enveloppe">Choisir son enveloppe et son courtier</a></li>
-            <li><a href="#quoi">Quoi acheter quand on débute</a></li>
-            <li><a href="#combien">Combien investir chaque mois</a></li>
-            <li><a href="#composes">La magie des intérêts composés</a></li>
-            <li><a href="#erreurs">Les erreurs classiques du débutant</a></li>
-            <li><a href="#ordre">Passer ton premier ordre</a></li>
-            <li><a href="#diversifier">Faut il diversifier</a></li>
-            <li><a href="#psycho">La psychologie du long terme</a></li>
-            <li><a href="#plan">Ton plan d'action en 5 étapes</a></li>
+            <li><a href="#reflexe">Un krach, ce n'est pas si rare</a></li>
+            <li><a href="#erreur">La seule vraie erreur : vendre</a></li>
+            <li><a href="#histoire">Ce que l'histoire montre</a></li>
+            <li><a href="#simulateur">Le coût de la panique</a></li>
+            <li><a href="#faire">Quoi faire concrètement</a></li>
+            <li><a href="#opportunite">Le krach, une opportunité déguisée</a></li>
+            <li><a href="#eviter">Les pièges à éviter</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
 
-        <h2 id="mental">Le bon état d'esprit avant tout</h2>
-        <p>Avant la technique, il y a le mental. Investir, ce n'est pas jouer au casino ni deviner quelle action va exploser. C'est mettre ton argent au travail de façon régulière, sur le long terme, et laisser le temps faire le gros du travail. Ton horizon n'est pas la semaine prochaine, c'est dans 10, 20 ou 30 ans.</p>
-        <p>La bourse monte sur le long terme, mais elle ne monte jamais en ligne droite. Il y aura des baisses, parfois fortes. Ta seule mission est de ne pas paniquer pendant ces phases. La méthode passive, qui consiste à investir régulièrement dans des fonds diversifiés et à ne plus y toucher, bat la grande majorité des gérants professionnels sur 20 ans. Et elle est à la portée de tout le monde.</p>
+        <h2 id="reflexe">Un krach, ce n'est pas si rare</h2>
+        <p>Un krach boursier, c'est une chute rapide et brutale des marchés, souvent de 20 %, 30 % ou plus en quelques semaines. Quand on débute, on a l'impression que c'est l'apocalypse financière. En réalité, c'est un événement <strong>normal et récurrent</strong> de la vie d'un investisseur. Sur le siècle dernier, les marchés ont connu une baisse importante en moyenne tous les 5 à 7 ans. Si tu investis sur 30 ans, tu en traverseras probablement quatre ou cinq.</p>
+        <p>Le point essentiel à intégrer dès maintenant, à froid : <strong>un krach n'est pas une perte tant que tu ne vends pas</strong>. Tant que tu gardes tes parts, la baisse n'est qu'un chiffre rouge à l'écran. La perte ne devient réelle que le jour où tu cliques sur « vendre ».</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Tu n'as pas besoin d'être bon en maths ni de passer tes journées devant les cours de bourse. Tu as besoin de régularité et de patience. C'est l'ennui, pas l'excitation, qui rend riche en bourse.</p>
+          <p>Un krach fait partie du contrat. Le marché a toujours fini par dépasser ses sommets précédents. Le seul moyen de transformer une baisse temporaire en perte définitive, c'est de vendre au mauvais moment.</p>
         </div>
 
-        <h2 id="urgence">Le fonds d'urgence, ta première étape</h2>
-        <p>Avant d'investir le moindre euro en bourse, tu dois avoir un <a href="article-fonds-urgence.html">fonds d'urgence</a>. La règle est simple : entre 3 et 6 mois de tes dépenses courantes, placés sur un livret A ou un LDDS, disponibles immédiatement.</p>
-        <p>Pourquoi ? Parce que si tu as un imprévu et que ton portefeuille est en baisse à ce moment là, tu seras forcé de vendre à perte. Le fonds d'urgence te protège de cette situation. Il ne rapporte pas grand chose, mais ce n'est pas son rôle : il est là pour être disponible quand tu en as besoin.</p>
-        <p>Exemple : si tes dépenses mensuelles sont de 1 500€, vise un fonds d'urgence d'au moins 4 500€, idéalement 9 000€. Une fois ce matelas constitué, tu peux investir l'esprit tranquille.</p>
+        <h2 id="erreur">La seule vraie erreur : vendre</h2>
+        <p>Quand les marchés s'effondrent, ton cerveau te hurle de tout vendre pour « limiter la casse ». C'est un réflexe humain, étudié par la finance comportementale : on ressent une perte environ deux fois plus fort qu'un gain équivalent. Ce biais, l'aversion à la perte, pousse des milliers d'investisseurs à vendre au pire moment, juste avant le rebond.</p>
+        <p>Le problème, c'est que les meilleures journées de bourse arrivent souvent juste après les pires. Rater seulement une poignée de ces journées de rebond sur plusieurs années peut amputer ta performance de moitié. En vendant pour « attendre que ça se calme », tu encaisses la baisse <em>et</em> tu rates la remontée. C'est le pire des deux mondes. Pour comprendre ces mécanismes mentaux, lis <a href="article-psychologie-investisseur.html">la psychologie de l'investisseur</a>.</p>
 
-        <h2 id="enveloppe">Choisir son enveloppe et son courtier</h2>
-        <p>En France, la priorité numéro un quand on débute, c'est le PEA. C'est l'enveloppe fiscale la plus avantageuse pour investir en bourse : après 5 ans, tes gains ne supportent plus que 18,6% de prélèvements sociaux, sans impôt sur le revenu. Pour comprendre la différence avec le compte titres ordinaire, lis <a href="article-pea-vs-cto.html">PEA ou CTO</a> et le <a href="guides/guide-pea.html">guide du PEA</a>.</p>
-        <p>Pour le courtier, vise un acteur sérieux, peu cher et simple à utiliser. Les frais comptent énormément sur le long terme. Tu trouveras les courtiers que je recommande, avec leurs bonus, sur la page <a href="parrainage.html">parrainages</a>.</p>
-
-        <h2 id="quoi">Quoi acheter quand on débute</h2>
-        <p>La réponse tient en trois lettres : ETF. Un ETF (fonds indiciel coté) est un panier qui réplique un indice boursier comme le MSCI World ou le S&P 500. En achetant un seul produit, tu es exposé à des centaines, voire des milliers d'entreprises à travers le monde. C'est la diversification instantanée, à frais réduits.</p>
-        <p>Pour un débutant, un ETF monde diversifié suffit largement. Pas besoin d'en acheter dix. Un seul ETF qui couvre les grandes économies mondiales, et tu as l'essentiel. Pour t'aider à choisir, le <a href="comparateur-etf.html">comparateur ETF</a> liste les fonds les plus utilisés par les investisseurs passifs français, avec leurs frais.</p>
+        <h2 id="histoire">Ce que l'histoire montre</h2>
+        <p>À chaque grande crise, le même scénario se répète : chute violente, panique générale, puis récupération. Le délai varie, mais le marché finit toujours par repartir plus haut.</p>
         <table class="compare-table">
           <thead>
-            <tr><th>Type de produit</th><th>Pour un débutant</th><th>Pourquoi</th></tr>
+            <tr><th>Krach</th><th>Baisse environ</th><th>Issue</th></tr>
           </thead>
           <tbody>
-            <tr><td>ETF monde</td><td class="yes">Idéal</td><td>Diversifié, simple, frais bas</td></tr>
-            <tr><td>Actions en direct</td><td class="no">À éviter</td><td>Risqué, demande du temps et des connaissances</td></tr>
-            <tr><td>Fonds actifs (OPCVM)</td><td class="no">À éviter</td><td>Frais élevés, battent rarement leur indice</td></tr>
-            <tr><td>Produits à effet de levier</td><td class="no">Danger</td><td>Pertes amplifiées, réservés aux experts</td></tr>
+            <tr><td>Crise de 2008 (subprimes)</td><td class="no">-55 %</td><td class="yes">Sommets dépassés en ~4 ans</td></tr>
+            <tr><td>Krach Covid (2020)</td><td class="no">-34 %</td><td class="yes">Récupéré en ~6 mois</td></tr>
+            <tr><td>Bulle internet (2000)</td><td class="no">-49 %</td><td>Plus long, mais dépassé</td></tr>
+            <tr><td>Année difficile 2022</td><td class="no">-25 %</td><td class="yes">Nouveaux sommets en ~2 ans</td></tr>
           </tbody>
         </table>
-
-        <h2 id="combien">Combien investir chaque mois</h2>
-        <p>La règle générale est d'investir entre 10% et 20% de ton revenu net mensuel. Si tu gagnes 2 500€ nets, cela représente entre 250€ et 500€ par mois. L'important n'est pas le montant de départ, c'est la régularité.</p>
-        <p>La méthode la plus efficace s'appelle le DCA (investissement programmé) : tu investis la même somme chaque mois, quoi qu'il arrive sur les marchés. Quand les prix baissent, tu achètes plus de parts. Quand ils montent, tu en achètes moins. Sur le long terme, tu lisses ton prix d'achat et tu évites le piège de vouloir deviner le bon moment. Le <a href="guides/guide-dca.html">guide du DCA</a> détaille cette stratégie.</p>
-
-        <h2 id="composes">La magie des intérêts composés</h2>
-        <p>C'est le moteur de toute la richesse boursière. Tes gains génèrent à leur tour des gains, qui génèrent à leur tour des gains. Au début, l'effet semble lent. Puis la courbe s'envole. C'est exactement pour ça qu'il faut commencer tôt, même avec peu.</p>
+        <p>La leçon n'est pas « ça remonte toujours vite » (parfois c'est long), mais « celui qui n'a pas vendu a toujours fini par retrouver son capital, puis le dépasser ». Encore fallait-il tenir.</p>
         <figure class="article-figure">
-          <svg viewBox="0 0 460 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Croissance d'un investissement de 200 euros par mois à 7 pour cent sur 30 ans, la courbe s'accélère avec le temps">
-            <line x1="50" y1="20" x2="50" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <line x1="50" y1="200" x2="440" y2="200" stroke="#C8C8DC" stroke-width="1"/>
-            <path d="M50 196 C 160 188, 250 170, 320 130 S 410 50, 440 28" fill="none" stroke="#C8B4E8" stroke-width="3"/>
-            <path d="M50 196 L 440 150" fill="none" stroke="#A0E7C5" stroke-width="2.5" stroke-dasharray="5,4"/>
-            <text x="370" y="42" font-family="DM Sans, sans-serif" font-size="12" fill="#7A5BC0">Avec intérêts composés</text>
-            <text x="300" y="170" font-family="DM Sans, sans-serif" font-size="12" fill="#3FAE7E">Sans (somme versée)</text>
-            <text x="245" y="218" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">Années →</text>
+          <svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Courbe en V : un portefeuille chute lors d'un krach puis récupère et dépasse son niveau initial, tandis que celui qui vend au creux reste bloqué plus bas">
+            <line x1="45" y1="20" x2="45" y2="180" stroke="#C8C8DC" stroke-width="1"/>
+            <line x1="45" y1="180" x2="440" y2="180" stroke="#C8C8DC" stroke-width="1"/>
+            <polyline points="45,80 130,80 200,150 290,70 430,35" fill="none" stroke="#1A1A4E" stroke-width="2.5"/>
+            <polyline points="200,150 290,150 430,120" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="5 4"/>
+            <circle cx="200" cy="150" r="4" fill="#DC2626"/>
+            <text x="200" y="170" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#DC2626">krach</text>
+            <text x="430" y="28" text-anchor="end" font-family="DM Sans, sans-serif" font-size="10" fill="#1A1A4E">tu restes investi</text>
+            <text x="430" y="113" text-anchor="end" font-family="DM Sans, sans-serif" font-size="10" fill="#DC2626">tu vends au creux</text>
           </svg>
-          <figcaption>200€ par mois à 7% par an : l'écart entre l'argent versé et l'argent gagné explose avec le temps.</figcaption>
+          <figcaption>Le même krach, deux trajectoires : celui qui tient récupère et dépasse ; celui qui vend au creux fige sa perte et rate le rebond.</figcaption>
         </figure>
-        <p>Tu peux visualiser ta propre courbe avec tes chiffres dans le <a href="calculateur.html#interets-composes">simulateur d'intérêts composés</a>.</p>
+
+        <h2 id="simulateur">Le coût de la panique</h2>
+        <p>Le simulateur compare deux investisseurs face au même krach : l'un garde ses parts, l'autre vend au plus bas et ne revient qu'une fois la tempête « passée », ratant ainsi la première année de rebond, souvent la plus forte. Fais varier l'ampleur de la baisse et le rythme de reprise.</p>
+
+        <div class="ji-sim" id="kr-sim">
+          <div class="ji-sim-title">Simulateur : rester investi vs vendre au creux</div>
+          <div class="ji-sim-sub">Le « coût de la panique », c'est le rebond que tu rates en sortant au plus bas.</div>
+          <div class="ji-sim-controls">
+            <div class="ji-field">
+              <label>Capital investi <span class="ji-val" id="kr-cap-val">20 000 €</span></label>
+              <input type="range" id="kr-cap" min="1000" max="200000" step="1000" value="20000">
+            </div>
+            <div class="ji-field">
+              <label>Ampleur du krach <span class="ji-val" id="kr-drop-val">-35 %</span></label>
+              <input type="range" id="kr-drop" min="10" max="60" step="5" value="35">
+            </div>
+            <div class="ji-field">
+              <label>Rendement annuel de reprise <span class="ji-val" id="kr-r-val">8,0 %</span></label>
+              <input type="range" id="kr-r" min="3" max="12" step="0.5" value="8">
+            </div>
+          </div>
+          <div class="ji-results">
+            <div class="ji-res-card">
+              <div class="ji-res-label">Valeur au creux</div>
+              <div class="ji-res-val" id="kr-bottom" style="color:#DC2626;">—</div>
+              <div class="ji-res-sub">La baisse « sur le papier »</div>
+            </div>
+            <div class="ji-res-card win">
+              <div class="ji-res-label">Retour à l'équilibre</div>
+              <div class="ji-res-val" id="kr-recov">—</div>
+              <div class="ji-res-sub">Si tu restes investi</div>
+            </div>
+            <div class="ji-res-card">
+              <div class="ji-res-label">Coût de la panique à 10 ans</div>
+              <div class="ji-res-val" id="kr-cost" style="color:#DC2626;">—</div>
+              <div class="ji-res-sub">Écart vs vendre au creux</div>
+            </div>
+          </div>
+          <div class="ji-chart-wrap"><canvas id="kr-chart"></canvas></div>
+          <p class="ji-sim-note">Hypothèses : t = 0 correspond au point bas du krach. « Tu restes » croît au rendement choisi dès le creux. « Tu vends au creux » reste en cash un an (rate le premier rebond) puis réinvestit. Rendement constant, hors frais et fiscalité. Illustration pédagogique, pas une prévision.</p>
+        </div>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Le meilleur moment pour commencer à investir, c'était il y a dix ans. Le deuxième meilleur moment, c'est aujourd'hui. Chaque année de retard coûte cher, parce que c'est une année d'intérêts composés en moins.</p>
+          <p>Vendre au creux ne supprime pas la baisse : tu l'encaisses pour de bon, et tu y ajoutes le rebond manqué. La panique a un prix, et il se compte en années de croissance perdues.</p>
         </div>
 
-        <h2 id="erreurs">Les erreurs classiques du débutant</h2>
+        <h2 id="faire">Quoi faire concrètement</h2>
+        <p>Un krach se gère surtout <strong>avant</strong> qu'il arrive, en mettant en place ce qui t'empêchera de paniquer le jour J :</p>
         <ul>
-          <li><strong>Vendre en panique</strong> lors d'une baisse. C'est l'erreur numéro un. Tu transformes une perte temporaire en perte définitive.</li>
-          <li><strong>Choisir ses actions soi même.</strong> Même les professionnels échouent à battre le marché sur la durée. Reste sur des ETF diversifiés.</li>
-          <li><strong>Attendre le bon moment.</strong> Personne ne sait quand le marché va monter ou baisser. Investir régulièrement bat l'attente.</li>
-          <li><strong>Négliger les frais.</strong> 1% de frais par an semble dérisoire, mais sur 20 ans cela peut représenter 20% à 30% de ton capital final en moins.</li>
-          <li><strong>Utiliser de l'effet de levier.</strong> Emprunter pour investir ou jouer avec des produits dérivés quand on débute, c'est le meilleur moyen de tout perdre.</li>
+          <li><strong>Garde un fonds d'urgence</strong> en dehors de la bourse, sur un livret. Si tu sais que tes imprévus sont couverts, tu n'es jamais forcé de vendre tes actions au pire moment. C'est l'objet de l'article <a href="article-fonds-urgence.html">le fonds d'urgence</a>.</li>
+          <li><strong>N'investis que de l'argent dont tu n'as pas besoin</strong> avant 5 à 10 ans. Un horizon long te permet d'attendre la reprise sans stress.</li>
+          <li><strong>Coupe le bruit.</strong> Pendant un krach, les médias et les réseaux carburent à la peur. Moins tu regardes ton portefeuille, mieux tu te portes.</li>
+          <li><strong>Continue d'investir.</strong> Si tu investis une somme fixe chaque mois, un krach signifie simplement que tu achètes moins cher.</li>
         </ul>
-        <p>Ces pièges sont détaillés dans l'article <a href="article-5-erreurs-debutants.html">les 5 erreurs des débutants</a>.</p>
 
-        <h2 id="ordre">Comment passer ton premier ordre</h2>
-        <p>Une fois ton PEA ouvert et alimenté, acheter un ETF prend deux minutes. Tu cherches le fonds par son nom ou son code ISIN, tu indiques le montant, et tu valides. Tu as deux types d'ordres principaux.</p>
+        <h2 id="opportunite">Le krach, une opportunité déguisée</h2>
+        <p>Pour un jeune investisseur en phase de construction, un krach est presque une bonne nouvelle : tu achètes les mêmes ETF avec une réduction de 30 %. La stratégie qui exploite ça automatiquement, sans avoir à « timer » le marché, c'est le <a href="article-dca.html">DCA</a> : investir une somme fixe à intervalle régulier, quoi qu'il arrive. Quand ça baisse, ta somme achète plus de parts ; quand ça monte, elle en achète moins. Tu transformes la volatilité en alliée.</p>
+        <p>Pour automatiser ça, mieux vaut un courtier qui propose l'investissement programmé à frais réduits. Voici un choix simple, accessible via les bonus de parrainage Julien Invest :</p>
+        <div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">DCA automatique · PEA dès 1 €</span>
+              <div class="broker-card-logo"><img src="images/logos/trade-republic.svg" alt="Trade Republic" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Trade Republic</div>
+            <div class="broker-card-tagline">Investissement programmé gratuit, parfait pour garder le cap pendant les krachs</div>
+            <ul class="broker-card-pros">
+              <li>Versement mensuel automatique</li>
+              <li>PEA accessible dès 1 €</li>
+              <li>Tu investis sans y penser, même quand ça chute</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+        </div>
+
+        <h2 id="eviter">Les pièges à éviter</h2>
         <ul>
-          <li><strong>L'ordre au marché</strong> : tu achètes immédiatement au prix du moment. Simple et rapide, parfait pour un ETF liquide et un premier achat.</li>
-          <li><strong>L'ordre à cours limité</strong> : tu fixes le prix maximum que tu acceptes de payer. Utile pour garder le contrôle, mais l'ordre ne passe que si le marché atteint ton prix.</li>
+          <li><strong>Vendre pour « racheter plus bas ».</strong> Personne ne sait où est le plus bas. La plupart de ceux qui sortent ne rentrent jamais au bon moment et ratent la reprise.</li>
+          <li><strong>Arrêter ses versements automatiques.</strong> C'est précisément quand les prix sont cassés que tes versements sont les plus efficaces.</li>
+          <li><strong>Tout miser d'un coup parce que « c'est le creux ».</strong> Vouloir jouer au héros peut se retourner contre toi si ça baisse encore. Le DCA reste plus serein.</li>
+          <li><strong>Investir de l'argent dont tu auras besoin bientôt.</strong> Si tu dois récupérer ton argent dans 1 ou 2 ans, la bourse n'est pas le bon endroit.</li>
         </ul>
-        <p>Pour un débutant qui investit sur un ETF monde, l'ordre au marché convient très bien. Pas besoin de te compliquer la vie avec des stratégies d'entrée sophistiquées.</p>
-
-        <h2 id="diversifier">Faut il diversifier au delà d'un ETF monde</h2>
-        <p>Un bon ETF monde contient déjà des milliers d'entreprises réparties sur les grandes économies. Pour la plupart des gens, c'est suffisant. Mais en grandissant, certains aiment ajouter une touche : une part de marchés émergents pour aller chercher de la croissance, ou un peu d'obligations pour réduire la volatilité à l'approche d'un objectif.</p>
-        <p>La règle d'or : ne complique jamais ton portefeuille plus que nécessaire. Un seul ETF monde bien choisi battra toujours un portefeuille de dix fonds que tu ne comprends pas. La simplicité est une force, pas une faiblesse. Compare les fonds dans le <a href="comparateur-etf.html">comparateur ETF</a> avant d'ajouter quoi que ce soit.</p>
-
-        <h2 id="psycho">La psychologie, le vrai défi du long terme</h2>
-        <p>Les outils sont simples. Le vrai challenge, c'est de tenir dans la durée. Pendant une baisse de marché, tout ton cerveau te poussera à vendre pour arrêter la douleur. Pendant une hausse, il te poussera à mettre toutes tes économies d'un coup au plus haut. Les deux réflexes te coûtent cher.</p>
-        <p>La parade, c'est l'automatisation. Si ton versement part tout seul chaque mois et que tu ne regardes ton portefeuille que deux fois par an, tu retires l'émotion de l'équation. Tu deviens spectateur de tes propres bons réflexes. C'est exactement ce que la méthode passive cherche à provoquer.</p>
-
-        <h2 id="plan">Ton plan d'action en 5 étapes</h2>
-        <ol>
-          <li>Constitue ton fonds d'urgence (3 à 6 mois de dépenses) sur un livret.</li>
-          <li>Ouvre un PEA chez un courtier sérieux et peu cher.</li>
-          <li>Choisis un ETF monde diversifié et éligible PEA.</li>
-          <li>Mets en place un versement programmé mensuel, même modeste.</li>
-          <li>Ne touche plus à rien. Laisse le temps et les intérêts composés travailler.</li>
-        </ol>
-        <p>C'est tout. Pas besoin de surveiller les marchés tous les jours. Si tu veux la méthode complète, pas à pas, avec le choix précis des ETF et l'automatisation, c'est l'objet de la <a href="formation.html">formation</a>.</p>
-
+        <p>Au fond, traverser un krach est moins une question de technique que de mental et de préparation. C'est exactement ce qu'on construit, étape par étape, dans la <a href="formation.html">formation</a> : un plan clair qui te permet de rester serein quand tout le monde panique.</p>
 
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
-            <summary>Avec combien d'argent peut-on commencer à investir ?</summary>
-            <p>Tu peux commencer avec très peu, parfois dès 50€ par mois. L'important n'est pas le montant de départ mais la régularité. Un versement programmé modeste mais constant bat un gros versement ponctuel suivi de rien.</p>
+            <summary>Faut il vendre avant un krach pour se protéger ?</summary>
+            <p>Non. Personne ne sait prédire de façon fiable quand un krach va arriver ni quand il se terminera. Essayer de sortir au bon moment puis de rentrer au bon moment échoue presque toujours. La stratégie qui fonctionne sur le long terme est de rester investi et de continuer à investir régulièrement.</p>
           </details>
           <details>
-            <summary>Faut-il des connaissances en finance pour débuter ?</summary>
-            <p>Non. La méthode passive sur ETF ne demande aucune compétence technique particulière. Si tu sais ce qu'est un livret A, tu peux comprendre comment investir sur un ETF monde dans un PEA.</p>
+            <summary>Combien de temps faut il pour récupérer après un krach ?</summary>
+            <p>Cela dépend de l'ampleur de la baisse et du rythme de reprise. Historiquement, les marchés ont mis de quelques mois à quelques années pour retrouver leurs sommets. Le krach Covid a été récupéré en environ six mois, la crise de 2008 en environ quatre ans.</p>
           </details>
           <details>
-            <summary>Que faire quand la bourse baisse ?</summary>
-            <p>Rien. C'est même le pire moment pour vendre. Les baisses font partie du jeu et finissent toujours par être effacées sur le long terme. Si tu investis en DCA, une baisse te permet d'acheter plus de parts au même prix.</p>
+            <summary>Que faire de mon argent pendant un krach ?</summary>
+            <p>Idéalement, rien de précipité : tu gardes tes positions et tu continues tes versements programmés. Si tu as des liquidités disponibles dont tu n'as pas besoin, un krach peut être un bon moment pour investir progressivement, sans chercher à viser le point bas parfait.</p>
           </details>
           <details>
-            <summary>Combien de temps faut-il rester investi ?</summary>
-            <p>Le plus longtemps possible, idéalement 10 ans et plus. C'est sur la durée que les intérêts composés font leur travail. Plus ton horizon est long, plus le risque de perte diminue historiquement.</p>
+            <summary>Un krach peut il faire perdre tout mon argent ?</summary>
+            <p>Sur un ETF largement diversifié comme un MSCI World, non : il faudrait que toutes les grandes entreprises mondiales fassent faillite en même temps. Le risque de perte totale concerne surtout les paris concentrés sur une seule action ou un actif très spéculatif, pas un indice mondial.</p>
           </details>
           <details>
-            <summary>Vaut-il mieux un PEA ou une assurance vie pour débuter ?</summary>
-            <p>Pour la plupart des débutants qui visent la croissance long terme, le PEA est la meilleure porte d'entrée grâce à sa fiscalité après 5 ans. L'assurance vie devient intéressante pour la transmission et après 8 ans. Les deux peuvent se compléter.</p>
+            <summary>Comment éviter de paniquer pendant une chute ?</summary>
+            <p>En te préparant à froid : garde un fonds d'urgence séparé, n'investis que de l'argent dont tu n'as pas besoin à court terme, automatise tes versements et limite le temps passé à regarder ton portefeuille. Moins tu as de décisions à prendre dans la panique, mieux c'est.</p>
           </details>
         </div>
 
@@ -436,17 +483,16 @@
           </div>
         </div>
         <script>
-          // REMPLACER VIDEO_ID_ARTICLE_DEBUTER par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_DEBUTER = "VIDEO_ID";
+          const VIDEO_ID_ARTICLE_KRACH = "VIDEO_ID";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');
-            const has=VIDEO_ID_ARTICLE_DEBUTER && VIDEO_ID_ARTICLE_DEBUTER!=="VIDEO_ID";
+            const has=VIDEO_ID_ARTICLE_KRACH && VIDEO_ID_ARTICLE_KRACH!=="VIDEO_ID";
             if(has&&soon) soon.remove();
             function play(){
               if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
               const i=document.createElement('iframe');
-              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_DEBUTER+'?autoplay=1&rel=0';
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ARTICLE_KRACH+'?autoplay=1&rel=0';
               i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
               f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
             }
@@ -454,18 +500,6 @@
             f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
           })();
         </script>
-
-                <div class="article-takeaway">
-          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
-          <ul class="article-takeaway-list">
-            <li>Commencer tôt prime sur tout le reste : 100 €/mois pendant 30 ans à 8 % = 149 000 €, 10 ans de moins = seulement 75 000 €.</li>
-            <li>Le fonds d'urgence (3-6 mois de dépenses) est la première étape, avant tout investissement en bourse.</li>
-            <li>Pour un débutant, un ETF monde (MSCI World ou ACWI) dans un PEA suffit, inutile de compliquer.</li>
-            <li>La bonne enveloppe d'abord : PEA pour les ETF actions, assurance-vie pour diversifier, CTO en dernier.</li>
-            <li>La diversification protège des erreurs individuelles, ne jamais mettre plus de 5 % dans un seul titre.</li>
-          </ul>
-        </div>
-
         <div class="article-cta">
           <h2>Passe de la théorie à la pratique</h2>
           <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
@@ -477,28 +511,26 @@
         <div class="article-related">
           <div class="article-related-title">Articles liés</div>
           <div class="article-related-grid">
-            <a href="article-5-erreurs-debutants.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les 5 erreurs que font 90 % des débutants</div>
+            <a href="article-psychologie-investisseur.html" class="article-related-card">
+              <span class="article-related-tag">Mental</span>
+              <div class="article-related-name">Psychologie de l'investisseur : les biais qui coûtent cher</div>
+              <div class="article-related-meta">8 min · Lire →</div>
+            </a>
+            <a href="article-dca.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <div class="article-related-name">Le DCA : la méthode la plus simple qui existe</div>
               <div class="article-related-meta">9 min · Lire →</div>
             </a>
-            <a href="article-choisir-courtier.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Choisir son courtier : comparatif honnête 2026</div>
-              <div class="article-related-meta">12 min · Lire →</div>
-            </a>
-            <a href="article-interets-composes.html" class="article-related-card">
-              <span class="article-related-tag">Débutants</span>
-              <div class="article-related-name">Les intérêts composés : le secret des riches</div>
-              <div class="article-related-meta">10 min · Lire →</div>
+            <a href="article-fonds-urgence.html" class="article-related-card">
+              <span class="article-related-tag">Épargne</span>
+              <div class="article-related-name">Le fonds d'urgence : combien et où le placer</div>
+              <div class="article-related-meta">7 min · Lire →</div>
             </a>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <footer class="footer">
     <div class="container">
       <div class="footer-top">
@@ -553,6 +585,57 @@
     </div>
   </footer>
 
+  <script>
+  (function(){
+    const fmtE = n => new Intl.NumberFormat('fr-FR',{maximumFractionDigits:0}).format(Math.round(n))+' €';
+    const g=id=>document.getElementById(id);
+    const cap=g('kr-cap'),drop=g('kr-drop'),r=g('kr-r');
+    if(!cap) return;
+    const H=10;
+    let chart;
+    function calc(){
+      const c=+cap.value, dr=+drop.value/100, rr=+r.value/100;
+      g('kr-cap-val').textContent=fmtE(c);
+      g('kr-drop-val').textContent='-'+(+drop.value)+' %';
+      g('kr-r-val').textContent=(+r.value).toLocaleString('fr-FR',{minimumFractionDigits:1})+' %';
+      const bottom=c*(1-dr);
+      g('kr-bottom').textContent=fmtE(bottom);
+      // années pour revenir à c en partant de bottom au taux rr
+      const n=Math.ceil(Math.log(1/(1-dr))/Math.log(1+rr));
+      g('kr-recov').textContent='~'+n+' an'+(n>1?'s':'');
+      // séries sur H ans depuis le creux
+      const stay=[], panic=[];
+      let vs=bottom, vp=bottom;
+      stay.push(Math.round(vs)); panic.push(Math.round(vp));
+      for(let y=1;y<=H;y++){
+        vs=vs*(1+rr);
+        vp = (y===1)? vp : vp*(1+rr); // panic: cash an 1, puis investit
+        stay.push(Math.round(vs)); panic.push(Math.round(vp));
+      }
+      g('kr-cost').textContent=fmtE(stay[H]-panic[H]);
+      const labels=Array.from({length:H+1},(_,i)=>'A'+i);
+      if(!chart){
+        chart=new Chart(g('kr-chart'),{type:'line',
+          data:{labels,datasets:[
+            {label:'Tu restes investi',data:stay,borderColor:'#1A1A4E',backgroundColor:'rgba(160,231,197,0.15)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0},
+            {label:'Tu vends au creux',data:panic,borderColor:'#DC2626',backgroundColor:'rgba(220,38,38,0.08)',borderWidth:2.5,tension:0.25,fill:true,pointRadius:0,borderDash:[5,4]}
+          ]},
+          options:{responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{labels:{font:{family:'DM Sans'},boxWidth:14}},
+              tooltip:{callbacks:{label:cx=>cx.dataset.label+': '+fmtE(cx.parsed.y)}}},
+            scales:{y:{ticks:{callback:v=>new Intl.NumberFormat('fr-FR',{notation:'compact'}).format(v)+' €',font:{family:'DM Sans'}}},
+              x:{ticks:{font:{family:'DM Sans'},maxTicksLimit:8}}}}
+        });
+      } else {
+        chart.data.datasets[0].data=stay;
+        chart.data.datasets[1].data=panic;
+        chart.update();
+      }
+    }
+    [cap,drop,r].forEach(e=>e.addEventListener('input',calc));
+    if(window.Chart) calc(); else window.addEventListener('load',calc);
+  })();
+  </script>
   <script defer src="js/main.js"></script>
 </body>
 </html>
