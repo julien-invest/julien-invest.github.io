@@ -92,6 +92,25 @@
     .ji-chart-wrap { position: relative; height: 280px; background: #fff; border-radius: 14px; padding: 14px; border: 1px solid rgba(200,180,232,0.4); }
     @media (max-width: 680px) { .ji-chart-wrap { height: 240px; } }
     .ji-sim-note { font-size: 11px; color: var(--grey-2); margin-top: 14px; line-height: 1.5; }
+
+    /* ── Cartes courtiers ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 28px 0 36px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 14px; border: 1.5px solid var(--grey-5); padding: 20px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 16px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .broker-card-logo { height: 32px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 32px; width: auto; max-width: 120px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 18px; font-weight: 800; color: var(--navy); margin-bottom: 4px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 13px; color: var(--grey-2); margin-bottom: 14px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 12px; }
+    .broker-card-pros li { font-size: 13px; color: var(--grey-1); padding: 3px 0; display: flex; gap: 6px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-bonus { margin-top: 12px; padding: 8px 12px; background: #F0FDF4; border-radius: 8px; font-size: 12px; color: #065F46; font-weight: 600; }
+    .broker-card-cta { display: inline-block; margin-top: 14px; padding: 10px 20px; background: var(--lavender); color: white; font-weight: 700; font-size: 13px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="canonical" href="https://julien-invest.github.io/article-sp500-vs-msci-world.html">
