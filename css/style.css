@@ -2462,8 +2462,18 @@ a:hover > .platform-logo {
   grid-template-columns: 1fr 1fr;
 }
 .nav-dropdown-item.featured,
-.nav-dropdown-sep {
+.nav-dropdown-sep,
+.nav-dropdown-cat {
   grid-column: 1 / -1;
+}
+.nav-dropdown-cat {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-2);
+  padding: 10px 14px 2px;
 }
 .nav-item-dropdown:hover .nav-dropdown,
 .nav-item-dropdown:focus-within .nav-dropdown {

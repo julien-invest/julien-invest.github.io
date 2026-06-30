@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculateurs : Intérêts Composés & Liberté Financière | Julien Invest</title>
-  <meta name="description" content="Deux calculateurs gratuits : simulateur d'intérêts composés et calculateur de liberté financière (FIRE). Graphiques interactifs en temps réel.">
+  <title>Outils & Simulateurs gratuits : investissement, FIRE, fiscalité | Julien Invest</title>
+  <meta name="description" content="13 outils et simulateurs gratuits : intérêts composés, liberté financière, retraite, fiscalité PEA/CTO/AV, inflation, frais, crédit immobilier, rente passive, comparateur ETF et courtiers.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
   <meta property="og:title" content="Simulateurs gratuits : Intérêts composés, FIRE, Retraite | Julien Invest">
   <meta property="og:description" content="Simule la croissance de ton épargne, calcule ton capital FIRE et planifie ta retraite avec les simulateurs gratuits de Julien Invest.">
+  <meta property="og:site_name" content="Julien Invest">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
   <meta property="og:url" content="https://julien-invest.github.io/calculateur.html">
@@ -78,6 +79,70 @@
     }
     .calc-hero-tab:hover { border-color: var(--lavender); color: var(--navy); background: var(--lavender-lt); }
     .calc-hero-tab .emoji { font-size: 16px; }
+    /* ── HUB GRID ── */
+    .calc-hub { background: var(--white); padding: 56px 0 64px; border-bottom: 1px solid var(--grey-5); }
+    .calc-hub-section { margin-bottom: 40px; }
+    .calc-hub-section:last-child { margin-bottom: 0; }
+    .calc-hub-label {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-3);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--grey-5);
+    }
+    .calc-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .calc-hub-card {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 18px 20px;
+      background: var(--off-white);
+      border: 1.5px solid var(--grey-5);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all 0.18s;
+    }
+    .calc-hub-card:hover {
+      border-color: var(--lavender);
+      background: var(--lavender-lt);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .calc-hub-card-icon {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .calc-hub-card-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .calc-hub-card-sub {
+      font-size: 12px;
+      color: var(--grey-2);
+      line-height: 1.45;
+    }
+    .calc-hub-card.featured {
+      background: var(--lavender-lt);
+      border-color: rgba(200,180,232,0.6);
+    }
+    .calc-hub-card.featured:hover { background: rgba(200,180,232,0.25); }
+    @media (max-width: 600px) {
+      .calc-hub-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) {
+      .calc-hub-grid { grid-template-columns: 1fr; }
+    }
     /* ── CONTAINER LARGE ── */
     .container--wide { max-width: 1360px; margin: 0 auto; padding: 0 24px; width: 100%; box-sizing: border-box; }
     /* ── SECTION TITLES ── */
@@ -362,7 +427,7 @@
           <li><a href="a-propos.html" class="nav-link">À propos</a></li>
           <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
           <li class="nav-item-dropdown">
-            <a href="calculateur.html" class="nav-link active">Calculateur <span class="nav-link-arrow">▾</span></a>
+            <a href="calculateur.html" class="nav-link active">Outils <span class="nav-link-arrow">▾</span></a>
             <div class="nav-dropdown">
               <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
                 <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
@@ -446,9 +511,24 @@
       <li><a href="a-propos.html">À propos</a></li>
       <li><a href="parrainage.html">Parrainages</a></li>
       <li class="mob-accordion">
-        <button class="mob-accordion-trigger">Calculateurs <span class="mob-accordion-arrow">▾</span></button>
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
         <ul class="mob-accordion-panel">
-          <li><a href="calculateur.html#interets-composes"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> Intérêts composés</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
           <li><a href="calculateur.html#liberte-financiere"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg> Liberté financière</a></li>
           <li><a href="calculateur.html#retraite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Simulateur retraite</a></li>
           <li><a href="calculateur.html#fiscalite"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg> Simulateur fiscal</a></li>
@@ -477,28 +557,108 @@
     <div class="container">
       <div class="calc-hero-content">
         <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,180,232,0.2);border:1px solid rgba(200,180,232,0.5);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
-          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Outil gratuit</span>
+          <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Outils gratuits</span>
         </div>
         <h1 style="font-family:var(--font-display); font-size:clamp(38px,5vw,68px); color:var(--navy); line-height:1.05; margin-bottom:16px;">
-          Tes calculateurs<br><em style="background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">d'investissement</em>
+          Tes outils<br><em style="background:var(--gradient-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">d'investissement</em>
         </h1>
         <p style="font-size:17px; color:var(--grey-2); line-height:1.7; margin-bottom:0; max-width:560px;">
-          Trois outils interactifs pour simuler ton épargne, calculer ton capital de liberté financière et préparer ta retraite. Mis à jour en temps réel.
+          13 simulateurs et comparateurs gratuits. Clique sur l'outil qui correspond à ta question, ou fais défiler pour accéder aux calculateurs interactifs.
         </p>
-        <div class="calc-hero-tabs">
-          <a href="#interets-composes" class="calc-hero-tab">
-            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span> Intérêts composés
-          </a>
-          <a href="#liberte-financiere" class="calc-hero-tab">
-            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span> Liberté financière (FIRE)
-          </a>
-          <a href="#retraite" class="calc-hero-tab">
-            <span class="emoji"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span> Simulateur retraite
-          </a>
-        </div>
       </div>
     </div>
   </section>
+
+  <!-- HUB : TOUS LES OUTILS -->
+  <section class="calc-hub">
+    <div class="container">
+
+      <div class="calc-hub-section">
+        <div class="calc-hub-label">Simulateurs financiers</div>
+        <div class="calc-hub-grid">
+          <a href="#interets-composes" class="calc-hub-card featured">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+            <div class="calc-hub-card-title">Intérêts composés</div>
+            <div class="calc-hub-card-sub">Simule la croissance de ton épargne sur 1 à 40 ans</div>
+          </a>
+          <a href="#liberte-financiere" class="calc-hub-card featured">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></div>
+            <div class="calc-hub-card-title">Liberté financière (FIRE)</div>
+            <div class="calc-hub-card-sub">Calcule ton capital FIRE et l'âge auquel tu peux arrêter</div>
+          </a>
+          <a href="#retraite" class="calc-hub-card featured">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="calc-hub-card-title">Simulateur retraite</div>
+            <div class="calc-hub-card-sub">Combien épargner chaque mois pour la retraite souhaitée</div>
+          </a>
+          <a href="simulateur-rente.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+            <div class="calc-hub-card-title">Rente passive</div>
+            <div class="calc-hub-card-sub">Quel capital pour vivre de tes revenus passifs</div>
+          </a>
+          <a href="simulateur-inflation.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+            <div class="calc-hub-card-title">Impact de l'inflation</div>
+            <div class="calc-hub-card-sub">Ce que vaut vraiment ton épargne dans 10, 20, 30 ans</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="calc-hub-section">
+        <div class="calc-hub-label">Comparateurs &amp; Outils</div>
+        <div class="calc-hub-grid">
+          <a href="#fiscalite" class="calc-hub-card featured">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="calc-hub-card-title">Simulateur fiscal</div>
+            <div class="calc-hub-card-sub">Compare l'impôt net PEA, CTO, assurance-vie (2026)</div>
+          </a>
+          <a href="calculateur-frais.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div>
+            <div class="calc-hub-card-title">Calculateur de frais</div>
+            <div class="calc-hub-card-sub">Combien ta banque et tes fonds te coûtent vraiment</div>
+          </a>
+          <a href="simulateur-frais.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+            <div class="calc-hub-card-title">Impact des frais</div>
+            <div class="calc-hub-card-sub">Visualise l'effet des frais sur ton capital final</div>
+          </a>
+          <a href="comparateur-etf.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+            <div class="calc-hub-card-title">Comparateur ETF</div>
+            <div class="calc-hub-card-sub">Filtre, trie et compare les ETF passifs français</div>
+          </a>
+          <a href="comparateur-courtiers.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="calc-hub-card-title">Comparateur courtiers</div>
+            <div class="calc-hub-card-sub">Quel courtier PEA choisir en 2026</div>
+          </a>
+          <a href="simulateur-credit-immobilier.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="calc-hub-card-title">Crédit immobilier</div>
+            <div class="calc-hub-card-sub">Mensualités, coût total et tableau d'amortissement</div>
+          </a>
+          <a href="audit.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="calc-hub-card-title">Audit de portefeuille</div>
+            <div class="calc-hub-card-sub">Score tes 6 axes en 12 questions</div>
+          </a>
+          <a href="quiz.html" class="calc-hub-card">
+            <div class="calc-hub-card-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="calc-hub-card-title">Quel investisseur es-tu ?</div>
+            <div class="calc-hub-card-sub">Découvre ton profil en 5 ou 10 questions</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SIMULATEURS INTERACTIFS -->
+  <div style="background:var(--pearl);padding:32px 0 0;border-top:1px solid var(--grey-5);">
+    <div class="container">
+      <p style="font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--grey-3);margin-bottom:0;">Simulateurs interactifs ci-dessous</p>
+    </div>
+  </div>
 
   <!-- SIMULATEUR INTÉRÊTS COMPOSÉS -->
   <section class="calc-main" id="interets-composes">
