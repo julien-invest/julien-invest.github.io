@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
   <meta property="article:published_time" content="2026-05-28T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-06-10T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-01T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/article-bitcoin-2026.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
   "datePublished": "2026-05-28",
-  "dateModified": "2026-06-10"
+  "dateModified": "2026-07-01"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -83,6 +83,29 @@
     .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
     .broker-card-cta:hover { opacity: .85; }
     .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+    .broker-card { max-width: 400px; }
+
+    /* ── Stat bar ── */
+    .cf-stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--grey-5); border-radius: 16px; overflow: hidden; margin: 28px 0 32px; }
+    @media (max-width: 560px) { .cf-stats-bar { grid-template-columns: repeat(2,1fr); } }
+    .cf-stat { background: #fff; padding: 20px 12px; text-align: center; }
+    .cf-stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(15px,2.2vw,22px); color: var(--navy); line-height: 1.15; }
+    .cf-stat-label { font-size: 11px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 5px; font-weight: 600; }
+
+    /* ── Argument cards ── */
+    .btc-arg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width: 680px) { .btc-arg-grid { grid-template-columns: 1fr; } }
+    .btc-arg-card { background: var(--pearl); border-radius: 14px; padding: 20px; border: 1px solid var(--grey-5); }
+    .btc-arg-icon { font-size: 22px; margin-bottom: 8px; }
+    .btc-arg-title { font-family: var(--font-head); font-weight: 800; font-size: 14px; color: var(--navy); margin-bottom: 6px; }
+    .btc-arg-text { font-size: 13px; color: var(--grey-1); line-height: 1.6; }
+
+    /* ── Erreurs cards ── */
+    .btc-error-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin: 20px 0 24px; }
+    @media (max-width: 680px) { .btc-error-grid { grid-template-columns: 1fr; } }
+    .btc-error-card { background: #FEF2F2; border: 1px solid #FECACA; border-radius: 12px; padding: 16px 18px; }
+    .btc-error-title { font-family: var(--font-head); font-weight: 800; font-size: 13px; color: #991B1B; margin-bottom: 4px; }
+    .btc-error-text { font-size: 13px; color: var(--grey-1); line-height: 1.6; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-bitcoin-2026.html">
   <script type="application/ld+json">
@@ -145,6 +168,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Non, pas en France tant que tu ne reviens pas en euros. L'imposition se déclenche uniquement lors d'une cession contre une monnaie comme l'euro. Mais tu dois conserver une trace de toutes tes opérations pour ta déclaration."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le halving fait il automatiquement monter le prix du Bitcoin ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, il n'y a aucune garantie. Historiquement, les hausses de prix ont souvent suivi les halvings avec plusieurs mois de décalage, mais l'échantillon de quatre cycles est trop restreint pour en tirer une règle fiable. Le halving réduit l'offre nouvelle, il n'agit pas mécaniquement sur la demande."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est ce qu'un ETF Bitcoin spot ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est un fonds coté en bourse qui détient directement du Bitcoin et réplique son cours, sans avoir besoin d'ouvrir un compte sur une plateforme crypto ni de gérer soi-même un portefeuille. Approuvés aux États-Unis en janvier 2024, ces produits ont facilité l'accès des investisseurs institutionnels au Bitcoin."
       }
     }
   ]
@@ -293,8 +332,11 @@
           <div class="article-toc-title">Au sommaire</div>
           <ol>
             <li><a href="#cest-quoi">Le Bitcoin, c'est quoi au juste</a></li>
+            <li><a href="#halving">Le cycle du halving, expliqué</a></li>
+            <li><a href="#contexte">Le contexte 2026 : ETF et régulation</a></li>
             <li><a href="#pourquoi">Pourquoi certains y croient</a></li>
             <li><a href="#risques">Les risques à regarder en face</a></li>
+            <li><a href="#comparatif">Bitcoin face aux autres actifs</a></li>
             <li><a href="#fiscalite">La fiscalité crypto en 2026</a></li>
             <li><a href="#place">Quelle place dans un patrimoine</a></li>
             <li><a href="#securite">Acheter et sécuriser ses cryptos</a></li>
@@ -307,9 +349,96 @@
         <p>Le Bitcoin est une monnaie numérique décentralisée, créée en 2009. Décentralisée signifie qu'aucune banque centrale ni aucun État ne la contrôle : elle fonctionne sur un réseau d'ordinateurs répartis dans le monde, qui valident les transactions et les inscrivent dans un registre public et infalsifiable, la blockchain.</p>
         <p>Sa caractéristique la plus commentée, c'est sa rareté programmée. Il n'existera jamais plus de 21 millions de bitcoins. Cette offre limitée, inscrite dans le code, est ce qui pousse ses partisans à le comparer à de l'or numérique : un actif rare, que personne ne peut imprimer à volonté.</p>
 
+        <div class="cf-stats-bar">
+          <div class="cf-stat"><div class="cf-stat-num">2009</div><div class="cf-stat-label">Année de création</div></div>
+          <div class="cf-stat"><div class="cf-stat-num">21 M</div><div class="cf-stat-label">Bitcoins au maximum</div></div>
+          <div class="cf-stat"><div class="cf-stat-num">~10 min</div><div class="cf-stat-label">Temps moyen par bloc</div></div>
+          <div class="cf-stat"><div class="cf-stat-num">24/7</div><div class="cf-stat-label">Marché ouvert en continu</div></div>
+        </div>
+
+        <p>Concrètement, le Bitcoin fonctionne à l'opposé d'une monnaie classique. Pas de banque centrale qui décide d'imprimer plus d'unités, pas de banque intermédiaire qui valide chaque virement : ce sont des milliers d'ordinateurs, partout dans le monde, qui se mettent d'accord entre eux sur qui possède quoi.</p>
+
+        <table class="compare-table">
+          <thead><tr><th>Caractéristique</th><th>Monnaie classique (euro)</th><th>Bitcoin</th></tr></thead>
+          <tbody>
+            <tr><td>Qui la contrôle ?</td><td>Une banque centrale (BCE)</td><td>Personne, réseau décentralisé</td></tr>
+            <tr><td>Quantité en circulation</td><td>Illimitée, ajustable</td><td>Plafonnée à 21 millions</td></tr>
+            <tr><td>Intermédiaire pour transférer</td><td>Une banque</td><td>Aucun, transfert pair-à-pair</td></tr>
+            <tr><td>Horaires du marché</td><td>Jours ouvrés, horaires bancaires</td><td>24 h/24, 7 j/7</td></tr>
+            <tr><td>Traçabilité des transactions</td><td>Privée, connue de la banque</td><td>Publique, sur la blockchain</td></tr>
+          </tbody>
+        </table>
+        <p>Cette différence structurelle explique à la fois l'enthousiasme de ses partisans et la méfiance de ses détracteurs : ce qui est vu comme une libération pour les uns est perçu comme un manque de filet de sécurité pour les autres.</p>
+
+        <h2 id="halving">Le cycle du halving, expliqué</h2>
+        <p>Impossible de comprendre le Bitcoin sans comprendre le halving. C'est l'un des mécanismes qui rend son offre programmée : tous les 210 000 blocs minés, soit environ tous les quatre ans, la récompense versée aux mineurs qui valident le réseau est automatiquement divisée par deux. Résultat : le rythme de création de nouveaux bitcoins ralentit continuellement, jusqu'à s'arrêter complètement aux alentours de l'année 2140.</p>
+
+        <figure class="article-figure">
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Frise chronologique des halvings du Bitcoin, de 2009 à 2024, montrant la récompense par bloc divisée par deux à chaque étape">
+            <rect x="0" y="0" width="700" height="220" fill="#FAFAF7" rx="14"/>
+            <line x1="55" y1="140" x2="645" y2="140" stroke="#C8C8DC" stroke-width="1.5"/>
+            <circle cx="70" cy="140" r="6" fill="#1A1A4E"/>
+            <text x="70" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">2009</text>
+            <text x="70" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="12" fill="#1A1A4E">50 BTC</text>
+            <circle cx="200" cy="140" r="6" fill="#F0C040"/>
+            <text x="200" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">2012</text>
+            <text x="200" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="12" fill="#1A1A4E">25 BTC</text>
+            <circle cx="330" cy="140" r="6" fill="#F0C040"/>
+            <text x="330" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">2016</text>
+            <text x="330" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="12" fill="#1A1A4E">12,5 BTC</text>
+            <circle cx="460" cy="140" r="6" fill="#F0C040"/>
+            <text x="460" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">2020</text>
+            <text x="460" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="12" fill="#1A1A4E">6,25 BTC</text>
+            <circle cx="580" cy="140" r="7" fill="#1A1A4E"/>
+            <text x="580" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="11" fill="#1A1A4E">Avril 2024</text>
+            <text x="580" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="12" fill="#1A1A4E">3,125 BTC</text>
+            <circle cx="630" cy="140" r="6" fill="#C8C8DC"/>
+            <text x="630" y="165" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#8A8AA0">~2028</text>
+            <text x="630" y="120" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#8A8AA0">~1,56</text>
+            <text x="350" y="200" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" fill="#4A4A6A">La récompense par bloc miné est divisée par deux tous les ~4 ans</text>
+          </svg>
+          <figcaption>Les halvings successifs du Bitcoin : la création de nouvelles unités ralentit mécaniquement à chaque cycle.</figcaption>
+        </figure>
+
+        <p>Historiquement, chaque halving a été suivi, avec plusieurs mois de décalage, d'une phase de hausse marquée du prix, avant une correction souvent violente. Attention toutefois à ne pas transformer une corrélation observée sur seulement quatre cycles en certitude : l'échantillon est trop petit pour en tirer une loi universelle, et rien ne garantit que le prochain cycle suivra le même schéma.</p>
+
+        <h2 id="contexte">Le contexte 2026 : ETF et régulation</h2>
+        <p>Le paysage du Bitcoin a beaucoup changé depuis 2024. Deux évolutions structurantes ont rapproché cet actif de la finance traditionnelle.</p>
+        <p>D'abord, l'arrivée des <strong>ETF Bitcoin spot</strong>. Approuvés aux États-Unis en janvier 2024, ils permettent d'investir dans le Bitcoin via un produit coté en bourse classique, sans manipuler soi-même de cryptomonnaie ni ouvrir de compte sur une plateforme d'échange. Ces véhicules ont ouvert la porte à des investisseurs institutionnels, fonds de pension ou assureurs, qui ne pouvaient ou ne voulaient pas détenir du Bitcoin directement.</p>
+        <p>Ensuite, l'entrée en application du règlement européen <strong>MiCA</strong> (Markets in Crypto-Assets) fin 2024 a créé un cadre légal harmonisé pour les plateformes crypto opérant en Europe. Les exchanges doivent désormais obtenir un agrément, respecter des règles de transparence et de protection des utilisateurs. C'est une bonne nouvelle pour la sécurité des particuliers, même si cela ne supprime ni la volatilité ni le risque de marché.</p>
+
+        <table class="compare-table">
+          <thead><tr><th>Dimension</th><th>Avant 2024</th><th>Depuis 2024-2025</th></tr></thead>
+          <tbody>
+            <tr><td>Accès pour les institutionnels</td><td>Limité, complexe à mettre en place</td><td>Simplifié via les ETF spot</td></tr>
+            <tr><td>Cadre réglementaire européen</td><td>Fragmenté, propre à chaque pays</td><td>Harmonisé avec MiCA</td></tr>
+            <tr><td>Agrément des plateformes</td><td>Facultatif ou partiel</td><td>Obligatoire dans l'UE</td></tr>
+          </tbody>
+        </table>
+        <p>Ce mouvement de normalisation ne rend pas le Bitcoin moins volatil ni plus sûr en tant qu'actif, mais il facilite l'accès et améliore la protection contre certains risques opérationnels, comme les plateformes non régulées.</p>
+
         <h2 id="pourquoi">Pourquoi certains y croient</h2>
-        <p>Les arguments en faveur du Bitcoin reposent sur quelques idées. D'abord, la protection contre l'inflation et la création monétaire : face à des monnaies que les banques centrales peuvent émettre sans limite, un actif au nombre fixe attire ceux qui craignent l'érosion de leur épargne. Ensuite, l'aspect mondial et accessible : on peut envoyer du Bitcoin partout, sans intermédiaire, à toute heure.</p>
-        <p>Enfin, certains y voient un pari sur l'adoption croissante des actifs numériques par les particuliers, les entreprises et même certains États. Ces arguments sont réels, mais ils ne valent pas certitude. Le Bitcoin reste une technologie jeune, dont l'avenir est tout sauf garanti.</p>
+        <p>Les arguments en faveur du Bitcoin reposent sur quelques idées récurrentes.</p>
+
+        <div class="btc-arg-grid">
+          <div class="btc-arg-card">
+            <div class="btc-arg-icon">🛡️</div>
+            <div class="btc-arg-title">Rareté programmée</div>
+            <div class="btc-arg-text">Face à des monnaies que les banques centrales peuvent émettre sans limite, un actif au nombre fixe attire ceux qui craignent l'érosion de leur épargne par l'inflation.</div>
+          </div>
+          <div class="btc-arg-card">
+            <div class="btc-arg-icon">🌍</div>
+            <div class="btc-arg-title">Accessibilité mondiale</div>
+            <div class="btc-arg-text">On peut envoyer du Bitcoin partout dans le monde, sans intermédiaire bancaire, à toute heure, ce qui séduit dans les pays à monnaie instable ou au système bancaire fragile.</div>
+          </div>
+          <div class="btc-arg-card">
+            <div class="btc-arg-icon">📈</div>
+            <div class="btc-arg-title">Adoption croissante</div>
+            <div class="btc-arg-text">De plus en plus de particuliers, d'entreprises, et même certains États, s'y intéressent ou l'intègrent à leur bilan, ce qui nourrit le pari sur une adoption future encore plus large.</div>
+          </div>
+        </div>
+
+        <p>Ces arguments sont réels, mais ils ne valent pas certitude. Le Bitcoin reste une technologie jeune, dont l'avenir est tout sauf garanti.</p>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
@@ -330,6 +459,21 @@
           <figcaption>La volatilité du Bitcoin, illustrée. Le passé ne préjuge en rien de l'avenir.</figcaption>
         </figure>
 
+        <h2 id="comparatif">Bitcoin face aux autres actifs : le comparatif chiffré</h2>
+        <p>Pour resituer le Bitcoin, rien de tel que de le comparer aux actifs plus classiques d'un patrimoine : l'or, les actions via un ETF monde, et le Livret A. Chacun répond à un objectif différent, et aucun n'est bon ou mauvais dans l'absolu, tout dépend de ce que tu cherches : sécurité, croissance, ou pari spéculatif.</p>
+
+        <table class="compare-table">
+          <thead><tr><th>Critère</th><th>Bitcoin</th><th>Or</th><th>ETF actions monde</th><th>Livret A</th></tr></thead>
+          <tbody>
+            <tr><td>Volatilité annuelle typique</td><td class="no">Très élevée</td><td>Faible à modérée</td><td>Modérée</td><td class="yes">~0 %</td></tr>
+            <tr><td>Risque de perte totale</td><td class="no">Oui</td><td class="yes">Non</td><td class="yes">Non (diversifié)</td><td class="yes">Non (garanti)</td></tr>
+            <tr><td>Potentiel de croissance</td><td>Très élevé mais irrégulier</td><td>Modéré</td><td>Élevé sur longue durée</td><td class="no">Faible</td></tr>
+            <tr><td>Liquidité</td><td class="yes">Élevée, 24/7</td><td>Bonne</td><td>Bonne (heures de bourse)</td><td class="yes">Immédiate</td></tr>
+            <tr><td>Fiscalité à la revente</td><td>PFU 31,4 %</td><td>Taxe forfaitaire ou PFU</td><td>Avantageuse en PEA (5 ans)</td><td class="yes">Exonérée</td></tr>
+          </tbody>
+        </table>
+        <p>Le Bitcoin se distingue par un profil unique : un potentiel de croissance élevé mais très irrégulier, une liquidité totale, et surtout un risque de perte totale qu'aucun des trois autres actifs ne partage vraiment. C'est précisément pour ça qu'il ne peut occuper, au mieux, qu'une place marginale dans un patrimoine construit avec méthode. <strong>Le passé ne préjuge en rien des performances futures.</strong></p>
+
         <h2 id="fiscalite">La fiscalité crypto en 2026</h2>
         <p>En France, les cryptomonnaies ont leur propre régime fiscal, mais elles suivent la hausse de 2026. Chaque cession imposable, c'est à dire chaque vente de crypto contre des euros, est taxée au PFU, soit 31,4% depuis le 1er janvier 2026, contre 30% auparavant. À noter : un échange d'une crypto contre une autre n'est, lui, pas imposable tant que tu ne reviens pas en euros.</p>
         <table class="compare-table">
@@ -346,6 +490,24 @@
 
         <h2 id="place">Quelle place dans un patrimoine</h2>
         <p>La question n'est pas de savoir si le Bitcoin va monter ou descendre, personne ne le sait. La vraie question est : quelle part de ton patrimoine peux tu te permettre de perdre entièrement sans que cela change ta vie ? Pour la plupart des gens, la réponse se situe entre 0% et une petite fraction, souvent évoquée autour de quelques pourcents maximum.</p>
+
+        <figure class="article-figure">
+          <svg viewBox="0 0 700 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pyramide des priorités patrimoniales : fonds d'urgence à la base, investissement diversifié au milieu, crypto tout en haut en petite proportion">
+            <rect x="0" y="0" width="700" height="300" fill="#FAFAF7" rx="14"/>
+            <text x="350" y="32" text-anchor="middle" font-family="DM Sans, sans-serif" font-weight="700" font-size="14" fill="#1A1A4E">L'ordre des priorités patrimoniales</text>
+            <rect x="280" y="52" width="140" height="52" rx="10" fill="#FFF7E0" stroke="#F0C040" stroke-width="2"/>
+            <text x="350" y="76" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#78350F">Crypto / Bitcoin</text>
+            <text x="350" y="94" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#92601A">quelques % maximum</text>
+            <rect x="170" y="118" width="360" height="56" rx="10" fill="#fff" stroke="#A0E7C5" stroke-width="2"/>
+            <text x="350" y="144" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="13" font-weight="700" fill="#1A1A4E">Investissement diversifié</text>
+            <text x="350" y="163" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="11" fill="#4A4A6A">ETF monde en PEA, assurance-vie</text>
+            <rect x="80" y="188" width="540" height="72" rx="10" fill="#1A1A4E"/>
+            <text x="350" y="218" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="#A0E7C5">LA BASE</text>
+            <text x="350" y="242" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="15" font-weight="800" fill="#fff">Fonds d'urgence + livrets réglementés</text>
+          </svg>
+          <figcaption>Le Bitcoin, s'il a une place, vient tout en haut de la pyramide, pas à sa base.</figcaption>
+        </figure>
+
         <p>Avant même de penser au Bitcoin, l'ordre des priorités reste le même : un fonds d'urgence solide, puis un socle d'investissement diversifié et peu risqué, typiquement un ETF monde dans un PEA. Le Bitcoin, s'il a une place, vient tout en haut de la pyramide, avec de l'argent dont la perte ne te ferait pas vaciller. Pour bâtir ce socle d'abord, commence par <a href="article-debuter-investissement.html">apprendre à débuter en bourse</a>.</p>
 
         <div class="article-retenir">
@@ -354,17 +516,65 @@
         </div>
 
         <h2 id="securite">Acheter et sécuriser ses cryptos</h2>
-        <p>Si tu décides de t'exposer au Bitcoin, deux étapes comptent. L'achat se fait sur une plateforme régulée, sérieuse, idéalement enregistrée auprès des autorités françaises. Tu trouveras les plateformes que j'utilise sur la page <a href="parrainage.html">parrainages</a>. Évite les plateformes obscures qui promettent monts et merveilles.</p>
-        <p>La sécurisation, ensuite, est cruciale. Laisser ses cryptos sur une plateforme, c'est s'exposer au risque de piratage ou de blocage. Pour des montants significatifs, beaucoup utilisent un portefeuille matériel, un petit appareil physique qui stocke tes clés hors ligne. C'est la différence entre garder son argent dans la rue et le mettre dans un coffre. La prudence n'est jamais excessive en crypto.</p>
+        <p>Si tu décides de t'exposer au Bitcoin, deux étapes comptent. L'achat se fait sur une plateforme régulée, sérieuse, idéalement agréée au titre du règlement MiCA. Tu trouveras les plateformes que j'utilise plus bas dans cet article, et sur la page <a href="parrainage.html">parrainages</a>. Évite les plateformes obscures qui promettent monts et merveilles.</p>
+        <p>La sécurisation, ensuite, est cruciale. Une fois achetées, tes cryptos peuvent rester sur la plateforme (on parle de solution custodial) ou être transférées vers un portefeuille que toi seul contrôle (self-custody). Chaque option a ses avantages :</p>
+
+        <table class="compare-table">
+          <thead><tr><th>Critère</th><th>Rester sur l'exchange</th><th>Portefeuille matériel</th></tr></thead>
+          <tbody>
+            <tr><td>Simplicité</td><td class="yes">Très simple</td><td>Demande un peu d'apprentissage</td></tr>
+            <tr><td>Risque de piratage de plateforme</td><td class="no">Exposé</td><td class="yes">Aucun (clés hors ligne)</td></tr>
+            <tr><td>Risque de blocage du compte</td><td class="no">Possible</td><td class="yes">Aucun</td></tr>
+            <tr><td>Responsabilité en cas de perte</td><td>Partagée avec la plateforme</td><td>Entièrement la tienne</td></tr>
+            <tr><td>Adapté pour</td><td>Petites sommes, trading actif</td><td>Montants significatifs, épargne longue</td></tr>
+          </tbody>
+        </table>
+        <p>La règle à retenir, résumée par une expression consacrée dans le milieu crypto : <em>"not your keys, not your coins"</em>, autrement dit, si tu ne détiens pas les clés privées de ton portefeuille, tu ne contrôles pas vraiment tes cryptos. Pour des montants significatifs, un portefeuille matériel comme Ledger stocke tes clés hors ligne, hors de portée d'un piratage de plateforme. C'est la différence entre garder son argent dans la rue et le mettre dans un coffre.</p>
+
+        <div class="broker-cards" style="grid-template-columns:1fr; max-width:400px;">
+          <div class="broker-card">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Sécurité · Hardware wallet</span>
+              <div class="broker-card-logo"><img src="images/logo-ledger.png" alt="Ledger" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Ledger</div>
+            <div class="broker-card-tagline">Le portefeuille matériel le plus vendu au monde</div>
+            <ul class="broker-card-pros">
+              <li>Clés privées stockées hors ligne</li>
+              <li>Compatible avec des milliers d'actifs</li>
+              <li>Référence historique du secteur</li>
+            </ul>
+            <a href="https://shop.ledger.com/fr/pages/referral-program?referral_code=ENQHTST4E3RNM" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Découvrir Ledger →</a>
+          </div>
+        </div>
 
         <h2 id="erreurs">Les erreurs de débutant à éviter</h2>
-        <ul>
-          <li><strong>Investir de l'argent dont tu as besoin.</strong> La volatilité peut te forcer à vendre au pire moment. Seule la part que tu peux perdre a sa place ici.</li>
-          <li><strong>Acheter sous le coup de l'euphorie.</strong> Acheter parce que tout le monde en parle et que ça monte est le meilleur moyen d'entrer au sommet.</li>
-          <li><strong>Utiliser de l'effet de levier.</strong> Le trading à levier sur crypto liquide des débutants tous les jours. À fuir absolument.</li>
-          <li><strong>Négliger la sécurité.</strong> Laisser des sommes importantes sur une plateforme, sans protection, c'est prendre un risque inutile.</li>
-          <li><strong>Tout miser sur la crypto.</strong> Sans socle diversifié ni fonds d'urgence, c'est mettre tout son avenir financier sur un actif imprévisible.</li>
-        </ul>
+        <div class="btc-error-grid">
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Investir de l'argent dont tu as besoin</div>
+            <div class="btc-error-text">La volatilité peut te forcer à vendre au pire moment. Seule la part que tu peux perdre entièrement a sa place ici.</div>
+          </div>
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Acheter sous le coup de l'euphorie</div>
+            <div class="btc-error-text">Acheter parce que tout le monde en parle et que ça monte est le meilleur moyen d'entrer au sommet d'un cycle.</div>
+          </div>
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Utiliser de l'effet de levier</div>
+            <div class="btc-error-text">Le trading à levier sur crypto liquide des débutants tous les jours. C'est à fuir absolument, quel que soit ton niveau de conviction.</div>
+          </div>
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Négliger la sécurité</div>
+            <div class="btc-error-text">Laisser des sommes importantes sur une plateforme, sans protection ni portefeuille matériel, c'est prendre un risque inutile.</div>
+          </div>
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Tout miser sur la crypto</div>
+            <div class="btc-error-text">Sans socle diversifié ni fonds d'urgence, c'est mettre tout son avenir financier sur un actif imprévisible.</div>
+          </div>
+          <div class="btc-error-card">
+            <div class="btc-error-title">⚠️ Ignorer la fiscalité</div>
+            <div class="btc-error-text">Ne pas déclarer ses cessions expose à un redressement. Garde une trace de toutes tes opérations dès le premier euro investi.</div>
+          </div>
+        </div>
         <p>Le Bitcoin peut intéresser un investisseur averti, en pleine connaissance des risques et avec une part mesurée. Mais la base d'un patrimoine solide reste la méthode passive, diversifiée et fiscalement optimisée. C'est exactement ce que t'apprend la <a href="formation.html">formation</a>.</p>
 
         <p>Pour aller plus loin sur l'univers crypto au-delà du Bitcoin : comprends à quoi servent vraiment les <a href="article-stablecoins-explication.html">stablecoins</a> comme USDT ou USDC, et pourquoi la grande majorité des <a href="article-risque-altcoins.html">altcoins</a> sont structurellement voués à disparaître.</p>
@@ -390,6 +600,14 @@
           <details>
             <summary>Échanger une crypto contre une autre est il imposable ?</summary>
             <p>Non, pas en France tant que tu ne reviens pas en euros. L'imposition se déclenche uniquement lors d'une cession contre une monnaie comme l'euro. Mais tu dois conserver une trace de toutes tes opérations pour ta déclaration.</p>
+          </details>
+          <details>
+            <summary>Le halving fait il automatiquement monter le prix du Bitcoin ?</summary>
+            <p>Non, il n'y a aucune garantie. Historiquement, les hausses de prix ont souvent suivi les halvings avec plusieurs mois de décalage, mais l'échantillon de quatre cycles est trop restreint pour en tirer une règle fiable. Le halving réduit l'offre nouvelle, il n'agit pas mécaniquement sur la demande.</p>
+          </details>
+          <details>
+            <summary>Qu'est ce qu'un ETF Bitcoin spot ?</summary>
+            <p>C'est un fonds coté en bourse qui détient directement du Bitcoin et réplique son cours, sans avoir besoin d'ouvrir un compte sur une plateforme crypto ni de gérer soi-même un portefeuille. Approuvés aux États-Unis en janvier 2024, ces produits ont facilité l'accès des investisseurs institutionnels au Bitcoin.</p>
           </details>
         </div>
 
@@ -421,8 +639,8 @@
           })();
         </script>
 
-                        <p class="broker-cards-intro">Pour acheter du Bitcoin simplement et en sécurité, deux plateformes fiables :</p>
-        <div class="broker-cards">
+                        <p class="broker-cards-intro">Pour acheter du Bitcoin simplement et en sécurité, les plateformes que j'utilise :</p>
+        <div class="broker-cards" style="grid-template-columns:repeat(3,1fr);">
           <div class="broker-card broker-card--top">
             <div class="broker-card-header">
               <span class="broker-card-badge">Crypto · App simple</span>
@@ -457,16 +675,34 @@
             </ul>
             <a href="https://accounts.binance.com/register?ref=105787577" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
           </div>
+          <div class="broker-card">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · Coté en bourse</span>
+              <div class="broker-card-logo"><img src="images/logo-coinbase.png" alt="Coinbase" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Coinbase</div>
+            <div class="broker-card-tagline">L'exchange américain coté en bourse, interface très simple</div>
+            <ul class="broker-card-pros">
+              <li>Idéal pour un premier achat</li>
+              <li>Société cotée, forte transparence</li>
+              <li>Application très épurée</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Frais un peu plus élevés</li>
+            </ul>
+            <a href="https://coinbase.com/join/H5PGLAG?src=ios-link" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
         </div>
+        <p style="font-size:13px; color:var(--grey-2); margin-top:-16px;">D'autres plateformes crypto (Bybit, Crypto.com, Kraken...) sont listées avec leurs bonus sur la page <a href="parrainage.html">parrainages</a>.</p>
 
         <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
-            <li>Le halving d'avril 2024 a divisé les nouvelles émissions par 2, historiquement un catalyseur de cycle haussier sur 12-18 mois.</li>
-            <li>Les ETF Bitcoin spot approuvés aux États-Unis en janvier 2024 ont ouvert le marché aux investisseurs institutionnels.</li>
-            <li>La fiscalité crypto en France : flat tax 30 % sur les plus-values lors de cession vers des euros (pas entre cryptos).</li>
-            <li>Règle de base : ne jamais mettre plus de 5-10 % de son patrimoine en crypto, même si l'on est convaincu.</li>
-            <li>Sécuriser ses cryptos sur un hardware wallet (Ledger, Trezor) est indispensable pour les montants significatifs.</li>
+            <li>Le halving d'avril 2024 a divisé les nouvelles émissions par 2, historiquement suivi d'un cycle haussier avec plusieurs mois de décalage, sans aucune garantie que ça se reproduise.</li>
+            <li>Les ETF Bitcoin spot (janvier 2024) et le règlement européen MiCA (fin 2024) ont normalisé l'accès au Bitcoin pour les institutionnels et encadré les plateformes.</li>
+            <li>La fiscalité crypto en France : PFU de 31,4 % sur les plus-values lors d'une cession vers des euros, rien lors d'un échange entre cryptos.</li>
+            <li>Règle de base : ne mettre en Bitcoin que ce que tu acceptes de perdre entièrement, souvent évoqué autour de quelques pourcents maximum du patrimoine.</li>
+            <li>Sécuriser ses cryptos sur un hardware wallet (Ledger, Trezor) est indispensable pour les montants significatifs : "not your keys, not your coins".</li>
           </ul>
         </div>
 
