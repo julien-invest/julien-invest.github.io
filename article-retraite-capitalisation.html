@@ -199,6 +199,25 @@
     .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
     .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-retraite-capitalisation.html">
 </head>
@@ -304,18 +323,6 @@
           <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
           <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
           <li><a href="audit.html">Audit de portefeuille</a></li>
-        </ul>
-      </li>
-          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
-          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
-          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
-          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
-          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
-          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
-          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
-          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
-          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
-          <li><a href="simulateur-rente.html">Rente passive</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
@@ -655,7 +662,45 @@
           </details>
         </div>
 
-                <div class="article-takeaway">
+                        <p class="broker-cards-intro">Pour préparer ta retraite par capitalisation, PEA + AV chez deux courtiers fiables :</p>
+        <div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">PEA · CTO · 4% sur cash</span>
+              <div class="broker-card-logo"><img src="images/logos/trade-republic.svg" alt="Trade Republic" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Trade Republic</div>
+            <div class="broker-card-tagline">Appli épurée, PEA/CTO dès 1 €, idéal pour investir en ETF</div>
+            <ul class="broker-card-pros">
+              <li>PEA et CTO disponibles</li>
+              <li>DCA automatique gratuit</li>
+              <li>4% sur liquidités non investies</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Pas d'assurance-vie</li>
+            </ul>
+            <a href="https://refnocode.trade.re/p1txpjf1" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">PEA · CTO · Banque · AV</span>
+              <div class="broker-card-logo"><img src="images/logos/boursobank.svg" alt="BoursoBank" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">BoursoBank</div>
+            <div class="broker-card-tagline">Banque + PEA + AV au même endroit, ETF à 0 € de frais</div>
+            <ul class="broker-card-pros">
+              <li>PEA + CTO + AV + compte courant</li>
+              <li>ETF iShares gratuits (BoursoMarkets)</li>
+              <li>Bonus de bienvenue régulier</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Interface plus complexe</li>
+            </ul>
+            <a href="parrainage.html" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Voir le code parrainage →</a>
+          </div>
+        </div>
+
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
             <li>Le système de retraite par répartition français versera en moyenne 50-60 % du dernier salaire net, la capitalisation comble l'écart.</li>

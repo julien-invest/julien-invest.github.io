@@ -88,6 +88,25 @@
     .ji-peg-sub { font-size: 13px; color: #92400E; margin-bottom: 16px; }
     .ji-peg-svg { width: 100%; height: auto; display: block; }
     .ji-sc-logo { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 11px; margin-right: 8px; vertical-align: middle; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-stablecoins-explication.html">
   <script type="application/ld+json">
@@ -248,20 +267,6 @@
           <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
           <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
           <li><a href="audit.html">Audit de portefeuille</a></li>
-        </ul>
-      </li>
-          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
-          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
-          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
-          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
-          <li><a href="audit.html">Audit de portefeuille</a></li>
-          <li><a href="simulateur-inflation.html">Simulateur Inflation</a></li>
-          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
-          <li><a href="comparatif-pea.html">Comparatif PEA 2026</a></li>
-          <li><a href="simulateur-frais.html">Simulateur frais</a></li>
-          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
-          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
-          <li><a href="simulateur-rente.html">Rente passive</a></li>
         </ul>
       </li>
       <li><a href="blog.html">Blog</a></li>
@@ -595,7 +600,45 @@
           })();
         </script>
 
-                <div class="article-takeaway">
+                        <p class="broker-cards-intro">Pour utiliser des stablecoins sur des plateformes sécurisées et régulées :</p>
+        <div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · App simple</span>
+              <div class="broker-card-logo"><img src="images/logo-swissborg.png" alt="SwissBorg" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">SwissBorg</div>
+            <div class="broker-card-tagline">Application crypto suisse, idéale pour débuter simplement</div>
+            <ul class="broker-card-pros">
+              <li>Interface intuitive, achat en 1 clic</li>
+              <li>Smart Yield sur cryptos et stables</li>
+              <li>Régulé en Europe</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Moins de tokens que Binance</li>
+            </ul>
+            <a href="https://swissborg.com/fr/r/julienOI6QETY8" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · N°1 mondial</span>
+              <div class="broker-card-logo"><img src="images/logo-binance.png" alt="Binance" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Binance</div>
+            <div class="broker-card-tagline">La plus grande plateforme crypto par volume, des milliers d'actifs</div>
+            <ul class="broker-card-pros">
+              <li>350+ cryptomonnaies disponibles</li>
+              <li>Frais très compétitifs (0,1%)</li>
+              <li>Staking et revenus passifs</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Interface dense pour débutants</li>
+            </ul>
+            <a href="https://accounts.binance.com/register?ref=105787577" target="_blank" rel="noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+        </div>
+
+        <div class="article-takeaway">
           <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
           <ul class="article-takeaway-list">
             <li>Un stablecoin est indexé à une devise fiat (souvent le dollar) mais n'est pas sans risque, la réserve sous-jacente est clé.</li>
