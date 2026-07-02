@@ -100,6 +100,21 @@
     .quiz-risque-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #9A6B00; margin-bottom: 6px; }
     .quiz-risque-text { font-size: 14px; color: var(--grey-1); line-height: 1.6; margin: 0; }
 
+    /* Mini ebook du profil */
+    .quiz-ebook-block { background: linear-gradient(135deg, #D4C0FF 0%, #BAD4E3 55%, #A0E7C5 100%); border-radius: var(--radius-md); padding: 24px 26px; margin-bottom: 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .quiz-ebook-icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: rgba(255,255,255,0.55); display: flex; align-items: center; justify-content: center; color: var(--navy); }
+    .quiz-ebook-body { flex: 1; min-width: 200px; }
+    .quiz-ebook-label { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--navy); opacity: 0.7; margin-bottom: 4px; }
+    .quiz-ebook-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+    .quiz-ebook-sub { font-size: 13px; color: var(--navy); opacity: 0.75; line-height: 1.55; margin: 0; }
+    .quiz-ebook-btn { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--navy); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 13px; padding: 12px 20px; border: none; border-radius: 100px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: opacity .15s, transform .15s; }
+    .quiz-ebook-btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .quiz-ebook-form { flex-shrink: 0; display: flex; gap: 8px; flex-wrap: wrap; }
+    .quiz-ebook-email { padding: 12px 16px; border: 1.5px solid rgba(26,26,78,0.18); border-radius: 100px; font-size: 13px; font-family: var(--font-body); color: var(--navy); background: rgba(255,255,255,0.7); outline: none; width: 190px; box-sizing: border-box; }
+    .quiz-ebook-email:focus { border-color: var(--navy); background: #fff; }
+    .quiz-ebook-email::placeholder { color: rgba(26,26,78,0.45); }
+    @media (max-width: 560px) { .quiz-ebook-block { padding: 20px; } .quiz-ebook-btn { width: 100%; } .quiz-ebook-form { width: 100%; } .quiz-ebook-email { flex: 1; width: auto; } }
+
     /* Actions box */
     .quiz-actions-box { background: var(--pearl); border-radius: var(--radius-md); padding: 20px 24px; margin-bottom: 28px; }
     .quiz-actions-box ol { margin: 0; padding-left: 20px; }
@@ -321,6 +336,35 @@
           <div class="quiz-cols">
             <div class="quiz-col"><h3>Tes forces</h3><ul id="res-forces"></ul></div>
             <div class="quiz-col"><h3>Tes points de vigilance</h3><ul id="res-vigilance"></ul></div>
+          </div>
+        </div>
+
+        <!-- Mini ebook du profil (approfondi uniquement) -->
+        <div id="res-ebook-section" style="display:none;">
+          <div class="quiz-ebook-block">
+            <div class="quiz-ebook-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="quiz-ebook-body">
+              <div class="quiz-ebook-label">Offert · PDF</div>
+              <div class="quiz-ebook-title" id="res-ebook-title">Ton mini ebook</div>
+              <p class="quiz-ebook-sub" id="res-ebook-sub">Une synthèse à garder pour approfondir ton profil et tes prochaines actions.</p>
+            </div>
+
+            <!-- État verrouillé : email requis pour débloquer le téléchargement -->
+            <form id="res-ebook-form" class="quiz-ebook-form">
+              <input type="email" id="res-ebook-email" class="quiz-ebook-email" placeholder="ton@email.com" required autocomplete="email">
+              <button type="submit" class="quiz-ebook-btn">
+                Débloquer le PDF
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+              </button>
+            </form>
+
+            <!-- État débloqué : téléchargement direct -->
+            <a href="#" id="res-ebook-btn" class="quiz-ebook-btn" style="display:none;" download>
+              Télécharger le PDF
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
           </div>
         </div>
 
@@ -620,12 +664,21 @@
       }
     };
 
+    const PROFILE_EBOOKS = {
+      preserver: { file: "profil-preservateur.pdf", download: "Julien-Invest-Profil-Preservateur.pdf" },
+      follower: { file: "profil-suiveur.pdf", download: "Julien-Invest-Profil-Suiveur.pdf" },
+      independent: { file: "profil-independant.pdf", download: "Julien-Invest-Profil-Independant.pdf" },
+      accumulator: { file: "profil-accumulateur.pdf", download: "Julien-Invest-Profil-Accumulateur.pdf" }
+    };
+
     // ===== STATE =====
     var mode = 'rapide';
     var activeQuestions = [];
     var current = 0;
     var answers = [];
     var pendingProfile = null;
+    var currentEbook = null;
+    var currentEbookProfileName = '';
 
     // ===== DOM =====
     var modeEl = document.getElementById('quiz-mode');
@@ -743,6 +796,30 @@
       showResult(false);
     });
 
+    // ===== EBOOK (débloqué après email, mode approfondi uniquement) =====
+    document.getElementById('res-ebook-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!currentEbook) return;
+      var email = document.getElementById('res-ebook-email').value;
+      fetch('https://formspree.io/f/mvznqwpd', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email, profil: currentEbookProfileName, source: 'quiz-ebook-' + mode })
+      }).catch(function () {});
+      var ebookBtn = document.getElementById('res-ebook-btn');
+      ebookBtn.href = currentEbook.file;
+      ebookBtn.setAttribute('download', currentEbook.download);
+      document.getElementById('res-ebook-form').style.display = 'none';
+      ebookBtn.style.display = 'inline-flex';
+      // Déclenche le téléchargement direct, sans passer par l'email
+      var a = document.createElement('a');
+      a.href = currentEbook.file;
+      a.download = currentEbook.download;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    });
+
     // ===== RESULT =====
     function showResult(emailCaptured) {
       gateEl.style.display = 'none';
@@ -763,6 +840,7 @@
         document.getElementById('res-desc').textContent = p.desc;
         document.getElementById('res-biais-section').style.display = 'none';
         document.getElementById('res-classic-section').style.display = 'block';
+        document.getElementById('res-ebook-section').style.display = 'none';
         fillList('res-forces', p.forces);
         fillList('res-vigilance', p.vigilance);
         var ol = document.getElementById('res-actions');
@@ -782,6 +860,31 @@
         document.getElementById('res-desc').textContent = p.desc;
         document.getElementById('res-classic-section').style.display = 'none';
         document.getElementById('res-biais-section').style.display = 'block';
+        var ebookSection = document.getElementById('res-ebook-section');
+        var ebook = PROFILE_EBOOKS[key];
+        var ebookForm = document.getElementById('res-ebook-form');
+        var ebookBtn = document.getElementById('res-ebook-btn');
+        if (ebook) {
+          ebookSection.style.display = 'block';
+          currentEbook = ebook;
+          currentEbookProfileName = p.name;
+          document.getElementById('res-ebook-title').textContent = 'Ton mini ebook : ' + p.name;
+          document.getElementById('res-ebook-sub').textContent = 'Une synthèse à garder pour approfondir ton profil "' + p.name + '" et tes prochaines actions.';
+          ebookBtn.href = ebook.file;
+          ebookBtn.setAttribute('download', ebook.download);
+          if (emailCaptured) {
+            // Email déjà donné au gate principal : pas besoin de le redemander
+            ebookForm.style.display = 'none';
+            ebookBtn.style.display = 'inline-flex';
+          } else {
+            ebookForm.style.display = 'flex';
+            ebookBtn.style.display = 'none';
+            ebookForm.reset();
+          }
+        } else {
+          ebookSection.style.display = 'none';
+          currentEbook = null;
+        }
         var biaisEl = document.getElementById('res-biais-list');
         biaisEl.innerHTML = '';
         p.biais.forEach(function (b) {
