@@ -301,19 +301,17 @@
         <div class="quiz-gate-inner">
           <div style="font-size:40px;margin-bottom:16px;">🎯</div>
           <div class="quiz-gate-title">Ton profil est prêt.</div>
-          <p class="quiz-gate-sub">Reçois ton plan d'action personnalisé en PDF, gratuitement.</p>
-          <div id="quiz-gate-ok" class="quiz-email-ok" style="display:none;">Ton plan d'action arrive dans ta boîte.</div>
+          <p class="quiz-gate-sub">Laisse ton email pour débloquer le mini-guide PDF de ton profil, à télécharger directement.</p>
           <form id="quiz-gate-form" class="quiz-gate-form">
             <input type="email" id="quiz-gate-email" class="quiz-gate-email" placeholder="ton@email.com" required autocomplete="email">
-            <button type="submit" class="quiz-gate-submit">Recevoir mon plan</button>
+            <button type="submit" class="quiz-gate-submit">Voir mon profil et mon guide</button>
           </form>
-          <button type="button" id="quiz-gate-skip" class="quiz-gate-skip">Non merci, voir mon résultat sans PDF</button>
+          <button type="button" id="quiz-gate-skip" class="quiz-gate-skip">Non merci, voir juste mon profil</button>
         </div>
       </div>
 
       <!-- ZONE RÉSULTAT -->
       <div id="quiz-result" style="display:none;">
-        <div id="res-email-ok" class="quiz-email-ok" style="display:none;">Ton plan d'action arrive dans ta boîte.</div>
         <span class="quiz-result-label">Ton profil</span>
         <div class="quiz-result-name" id="res-name"></div>
         <div id="res-accroche" class="quiz-result-accroche" style="display:none;"></div>
@@ -664,11 +662,22 @@
       }
     };
 
+    var EBOOK_PRESERVATEUR = { file: "profil-preservateur.pdf", download: "Julien-Invest-Profil-Preservateur.pdf" };
+    var EBOOK_SUIVEUR = { file: "profil-suiveur.pdf", download: "Julien-Invest-Profil-Suiveur.pdf" };
+    var EBOOK_INDEPENDANT = { file: "profil-independant.pdf", download: "Julien-Invest-Profil-Independant.pdf" };
+    var EBOOK_ACCUMULATEUR = { file: "profil-accumulateur.pdf", download: "Julien-Invest-Profil-Accumulateur.pdf" };
+
     const PROFILE_EBOOKS = {
-      preserver: { file: "profil-preservateur.pdf", download: "Julien-Invest-Profil-Preservateur.pdf" },
-      follower: { file: "profil-suiveur.pdf", download: "Julien-Invest-Profil-Suiveur.pdf" },
-      independent: { file: "profil-independant.pdf", download: "Julien-Invest-Profil-Independant.pdf" },
-      accumulator: { file: "profil-accumulateur.pdf", download: "Julien-Invest-Profil-Accumulateur.pdf" }
+      // Profils approfondis (Pompian) : le nom du profil correspond au PDF
+      preserver: EBOOK_PRESERVATEUR,
+      follower: EBOOK_SUIVEUR,
+      independent: EBOOK_INDEPENDANT,
+      accumulator: EBOOK_ACCUMULATEUR,
+      // Profils rapides : mappés au mini-guide psychologique le plus proche
+      dormant: EBOOK_PRESERVATEUR,
+      prudent: EBOOK_SUIVEUR,
+      disperse: EBOOK_INDEPENDANT,
+      presse: EBOOK_ACCUMULATEUR
     };
 
     // ===== STATE =====
@@ -786,10 +795,7 @@
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email, profil: profileName, source: 'quiz-' + mode })
       }).catch(function () {});
-      document.getElementById('quiz-gate-ok').style.display = 'block';
-      document.getElementById('quiz-gate-form').style.display = 'none';
-      document.getElementById('quiz-gate-skip').style.display = 'none';
-      setTimeout(function () { showResult(true); }, 900);
+      showResult(true);
     });
 
     document.getElementById('quiz-gate-skip').addEventListener('click', function () {
@@ -828,11 +834,37 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function renderResult(key, emailCaptured) {
-      if (emailCaptured) {
-        document.getElementById('res-email-ok').style.display = 'block';
+    // Affiche le bloc mini-guide PDF, identique pour les deux modes.
+    // emailCaptured=true → bouton de téléchargement direct ; false → formulaire email pour débloquer.
+    function renderEbook(key, profileName, emailCaptured) {
+      var ebookSection = document.getElementById('res-ebook-section');
+      var ebook = PROFILE_EBOOKS[key];
+      var ebookForm = document.getElementById('res-ebook-form');
+      var ebookBtn = document.getElementById('res-ebook-btn');
+      if (!ebook) {
+        ebookSection.style.display = 'none';
+        currentEbook = null;
+        return;
       }
+      ebookSection.style.display = 'block';
+      currentEbook = ebook;
+      currentEbookProfileName = profileName;
+      document.getElementById('res-ebook-title').textContent = 'Ton mini-guide PDF, adapté à ton profil';
+      document.getElementById('res-ebook-sub').textContent = 'Une synthèse concrète à garder pour passer à l\'action selon ton profil « ' + profileName + ' ».';
+      ebookBtn.href = ebook.file;
+      ebookBtn.setAttribute('download', ebook.download);
+      if (emailCaptured) {
+        // Email déjà donné au gate principal : téléchargement direct, pas de seconde demande.
+        ebookForm.style.display = 'none';
+        ebookBtn.style.display = 'inline-flex';
+      } else {
+        ebookForm.style.display = 'flex';
+        ebookBtn.style.display = 'none';
+        ebookForm.reset();
+      }
+    }
 
+    function renderResult(key, emailCaptured) {
       if (mode === 'rapide') {
         var p = PROFILES_RAPIDE[key];
         document.getElementById('res-name').textContent = p.name;
@@ -840,9 +872,9 @@
         document.getElementById('res-desc').textContent = p.desc;
         document.getElementById('res-biais-section').style.display = 'none';
         document.getElementById('res-classic-section').style.display = 'block';
-        document.getElementById('res-ebook-section').style.display = 'none';
         fillList('res-forces', p.forces);
         fillList('res-vigilance', p.vigilance);
+        renderEbook(key, p.name, emailCaptured);
         var ol = document.getElementById('res-actions');
         ol.innerHTML = '';
         p.steps.forEach(function (s) {
@@ -860,31 +892,7 @@
         document.getElementById('res-desc').textContent = p.desc;
         document.getElementById('res-classic-section').style.display = 'none';
         document.getElementById('res-biais-section').style.display = 'block';
-        var ebookSection = document.getElementById('res-ebook-section');
-        var ebook = PROFILE_EBOOKS[key];
-        var ebookForm = document.getElementById('res-ebook-form');
-        var ebookBtn = document.getElementById('res-ebook-btn');
-        if (ebook) {
-          ebookSection.style.display = 'block';
-          currentEbook = ebook;
-          currentEbookProfileName = p.name;
-          document.getElementById('res-ebook-title').textContent = 'Ton mini ebook : ' + p.name;
-          document.getElementById('res-ebook-sub').textContent = 'Une synthèse à garder pour approfondir ton profil "' + p.name + '" et tes prochaines actions.';
-          ebookBtn.href = ebook.file;
-          ebookBtn.setAttribute('download', ebook.download);
-          if (emailCaptured) {
-            // Email déjà donné au gate principal : pas besoin de le redemander
-            ebookForm.style.display = 'none';
-            ebookBtn.style.display = 'inline-flex';
-          } else {
-            ebookForm.style.display = 'flex';
-            ebookBtn.style.display = 'none';
-            ebookForm.reset();
-          }
-        } else {
-          ebookSection.style.display = 'none';
-          currentEbook = null;
-        }
+        renderEbook(key, p.name, emailCaptured);
         var biaisEl = document.getElementById('res-biais-list');
         biaisEl.innerHTML = '';
         p.biais.forEach(function (b) {
@@ -943,8 +951,6 @@
       pendingProfile = null;
       document.getElementById('mode-rapide').classList.add('active');
       document.getElementById('mode-approfondi').classList.remove('active');
-      document.getElementById('res-email-ok').style.display = 'none';
-      document.getElementById('quiz-gate-ok').style.display = 'none';
       document.getElementById('quiz-gate-form').style.display = 'flex';
       document.getElementById('quiz-gate-skip').style.display = 'inline-block';
       document.getElementById('quiz-gate-email').value = '';

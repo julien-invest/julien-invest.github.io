@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volatilité, Sharpe, drawdown : mesurer le risque</title>
+  <meta name="description" content="Volatilité, max drawdown, ratio de Sharpe, corrélations : les 4 mesures pour piloter le risque de ton portefeuille comme un pro. Avec mini-outil interactif.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Volatilité, Sharpe, drawdown : mesurer le risque">
+  <meta property="og:description" content="Volatilité, max drawdown, ratio de Sharpe, corrélations : les 4 mesures pour piloter le risque de ton portefeuille comme un pro. Avec mini-outil interactif.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="article:published_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-risque-portefeuille.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Volatilité, Sharpe, drawdown : mesurer le risque">
+  <meta name="twitter:description" content="Les 4 mesures de risque que tout investisseur sérieux devrait connaître, avec outil interactif.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/article-risque-portefeuille.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Mesurer et piloter le risque de son portefeuille : volatilité, drawdown, Sharpe",
+  "description": "Volatilité, max drawdown, ratio de Sharpe, corrélations : les 4 mesures pour piloter le risque de ton portefeuille comme un pro. Avec mini-outil interactif.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julien-invest.github.io"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://julien-invest.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://julien-invest.github.io/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Mesurer et piloter le risque de son portefeuille : volatilité, drawdown, Sharpe",
+      "item": "https://julien-invest.github.io/article-risque-portefeuille.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Où trouver la volatilité de mon portefeuille sans outil professionnel ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Deux approches. La simple : la volatilité de chaque fonds ou ETF figure sur sa fiche (DIC ou factsheet, souvent via l'indicateur SRI de 1 à 7) ; pondère mentalement et tu as un ordre de grandeur. La complète : exporte l'historique mensuel de ton portefeuille depuis ton courtier dans un tableur, calcule les variations mensuelles, prends l'écart-type et multiplie par la racine de 12 (environ 3,46) pour annualiser. Une heure de travail, à refaire une fois par an, largement suffisant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelle volatilité maximale pour mon profil ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La bonne question inversée : quel drawdown en euros peux-tu encaisser sans vendre ? Divise ce pourcentage par 3 à 3,5 et tu obtiens ta volatilité cible ; elle détermine ton allocation. Exemple : tu peux tolérer −30 % au pire → vise environ 9-10 % de volatilité → autour de 60 % d'actions. Si tu n'as jamais vécu de vraie baisse, sois humble : la tolérance déclarée sur un questionnaire est presque toujours supérieure à la tolérance réelle devant l'écran."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le ratio de Sharpe est-il utile pour comparer deux ETF actions ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Peu. Deux ETF World ont des Sharpe quasi identiques puisqu'ils portent le même marché ; à ce niveau, compare plutôt frais, encours et réplication. Le Sharpe devient utile pour comparer des stratégies ou allocations différentes : 60/40 contre 100 % actions, ajout d'or ou pas, portefeuille avec ou sans facteurs. C'est un outil d'architecture de portefeuille, pas de sélection de produit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La diversification a échoué en 2022 : tout a baissé. Pourquoi continuer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "2022 est le contre-exemple qui confirme la règle. La corrélation actions-obligations devient positive dans un régime précis : quand l'inflation force les banques centrales à monter les taux, les deux baissent ensemble. C'est arrivé, ça peut se reproduire, et c'est pour ça qu'une vraie diversification inclut aussi du monétaire (insensible), du fonds euros (garanti) et éventuellement de l'or. Sur la décennie complète, y compris 2022, le portefeuille diversifié a offert un bien meilleur couple rendement/douleur que chaque actif isolé : une année d'exception ne casse pas cinquante ans de statistiques."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À quelle fréquence surveiller ces indicateurs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une fois par an, au moment de ton rééquilibrage, et c'est tout. Volatilité, drawdown théorique et Sharpe sont des mesures de structure : elles bougent quand ton allocation change, pas au fil des marchés. Les surveiller chaque semaine n'apporte aucune information et nourrit exactement le comportement (réagir au bruit) que toute cette méthode cherche à éliminer. Le risque se calibre à froid, une fois, puis se laisse travailler."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .dca-table-scroll .compare-table { margin: 0; min-width: 620px; }
+
+    /* ── Simulateur DCA (scoped) ── */
+    .simulator-block {
+      --s-navy: #1A1A4E;
+      --s-lav: #C8B4E8;
+      --s-mint: #A0E7C5;
+      --s-gold: #F0C040;
+      --s-lav-light: #ede8f8;
+      --s-mint-light: #e6f8f1;
+      background: var(--s-lav-light);
+      border: 1px solid rgba(200,180,232,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 24px 0 16px;
+    }
+    .dca-sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; }
+    @media (max-width: 560px) { .dca-sim-grid { grid-template-columns: 1fr; } }
+    .dca-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--s-navy); font-size: 14px; margin-bottom: 10px; }
+    .dca-field-input { display: flex; align-items: center; gap: 10px; }
+    .dca-field-input input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .dca-field-input input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(26,26,78,0.35); }
+    .dca-field-input input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; }
+    .dca-field-input input[type=number] { width: 92px; padding: 7px 9px; border: 1px solid rgba(200,180,232,0.8); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--s-navy); background: #fff; text-align: right; }
+    .dca-field-input input[type=number]::-webkit-outer-spin-button,
+    .dca-field-input input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+
+    .dca-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    @media (max-width: 560px) { .dca-results { grid-template-columns: 1fr; } }
+    .dca-res { border-radius: var(--radius-md); padding: 16px 18px; text-align: center; }
+    .dca-res-invest { background: #fff; border: 1px solid rgba(200,180,232,0.7); }
+    .dca-res-final { background: linear-gradient(135deg, rgba(200,180,232,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(200,180,232,0.8); }
+    .dca-res-gain { background: var(--s-mint-light); border: 1px solid rgba(160,231,197,0.8); }
+    .dca-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6F6F99; margin-bottom: 8px; }
+    .dca-res-num { font-family: var(--font-head); font-weight: 800; color: var(--s-navy); font-size: clamp(19px,4vw,24px); line-height: 1.15; }
+    .dca-res-gain .dca-res-num { color: #0a8f5b; }
+
+    .dca-chart-wrap { position: relative; height: 320px; margin-top: 26px; background: #fff; border-radius: var(--radius-md); padding: 16px 14px; border: 1px solid rgba(200,180,232,0.5); }
+    @media (max-width: 560px) { .dca-chart-wrap { height: 260px; } }
+    .dca-legal { font-size: 12px; color: #9a9ab0; line-height: 1.6; margin: 16px 0 0; }
+
+    /* ── Étapes numérotées DCA (scoped) ── */
+    .dca-step { display: flex; gap: 16px; margin: 0 0 22px; }
+    .dca-step-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .dca-step-body h3 { margin-top: 4px !important; }
+    .dca-step-body h3 { font-family: var(--font-head); font-size: 17px; color: var(--navy); margin: 4px 0 8px; }
+    .dca-step-body p { margin-bottom: 0; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+  
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 18px; padding: 28px; margin: 32px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-field { margin-bottom: 18px; }
+    .ji-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .ji-field-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    @media (max-width: 560px) { .ji-results2 { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px; text-align: center; }
+    .ji-res-card .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-3); }
+    .ji-res-card .amt { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--navy); margin-top: 6px; }
+    .ji-res-card.bank { border-top: 3px solid #DC2626; }
+    .ji-res-card.deleg { border-top: 3px solid #059669; }
+    .ji-econo { background: linear-gradient(135deg,#1A1A4E,#1E2A5E); color: #fff; border-radius: 14px; padding: 20px; text-align: center; margin-top: 14px; }
+    .ji-econo .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #A0E7C5; }
+    .ji-econo .amt { font-family: var(--font-head); font-weight: 800; font-size: 32px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Niveau avancé · 14 min de lecture</span>
+        <h1>Mesurer le risque :<br><em>volatilité, drawdown et ratio de Sharpe</em></h1>
+        <p class="article-meta-date">Publié le 3 juillet 2026 · Mis à jour le 3 juillet 2026</p>
+        <p>Tout le monde connaît le rendement de son portefeuille. Presque personne ne connaît son risque. Voici les 4 mesures des professionnels, expliquées simplement, avec un outil pour évaluer ton allocation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Niveau avancé</span>
+        <p>Demande son rendement à n'importe quel investisseur, il te répond en une seconde. Demande-lui la volatilité de son portefeuille, son pire drawdown ou son ratio de Sharpe : silence. Pourtant, ces chiffres décrivent la seule chose qui fera échouer ou réussir sa stratégie : sa capacité à la tenir quand ça secoue.</p>
+        <p>Cet article complète le duo <a href="article-allocation-actifs.html">allocation d'actifs</a> et <a href="article-rebalancement-portefeuille.html">rééquilibrage</a> en leur ajoutant l'étage quantitatif : les quatre mesures de risque des professionnels, comment les estimer pour ton propre portefeuille, et surtout comment les utiliser pour prendre de meilleures décisions.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#rendement-risque">Le rendement ne veut rien dire tout seul</a></li>
+            <li><a href="#volatilite">La volatilité : l'unité de mesure du risque</a></li>
+            <li><a href="#drawdown">Le max drawdown : la mesure de la douleur</a></li>
+            <li><a href="#sharpe">Le ratio de Sharpe : la qualité du rendement</a></li>
+            <li><a href="#correlation">La corrélation : le seul repas gratuit</a></li>
+            <li><a href="#simulateur">Mini-outil : le profil de risque de ton allocation</a></li>
+            <li><a href="#piloter">Piloter le risque en pratique</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="rendement-risque">Le rendement ne veut rien dire tout seul</h2>
+        <p>Deux portefeuilles affichent 8 % par an sur dix ans. Le premier a oscillé tranquillement entre −5 % et +20 % selon les années. Le second a fait +60 %, puis −45 %, puis +70 %. Même rendement final sur le papier, mais pas le même investissement : le second a exigé de survivre à une division par deux du capital sans craquer, et la quasi-totalité de ses détenteurs réels ont vendu en route.</p>
+        <p>C'est le concept central de cet article : <strong>le rendement que tu obtiendras n'est pas celui de ton portefeuille, c'est celui que ton comportement te laissera capturer</strong>. Et ton comportement dépend directement du niveau de secousses. Mesurer le risque, ce n'est donc pas un exercice de matheux : c'est estimer à l'avance si TU tiendras. Le célèbre "behavior gap" (les 4 à 5 points de rendement annuel que l'investisseur moyen perd par ses achats-ventes émotionnels, documenté dans l'article sur la <a href="article-psychologie-investisseur.html">psychologie de l'investisseur</a>) n'est rien d'autre qu'un problème de risque mal calibré au départ.</p>
+
+        <h2 id="volatilite">La volatilité : l'unité de mesure du risque</h2>
+        <p>La volatilité est l'écart-type des rendements : concrètement, <strong>l'amplitude typique des variations de ton portefeuille autour de sa moyenne</strong>, exprimée en pourcentage annualisé. Un portefeuille qui rapporte 7 % avec 15 % de volatilité fera "en général" entre −8 % et +22 % (7 ± 15), et dans les années extrêmes bien au-delà.</p>
+        <p>La règle de lecture, héritée de la loi normale : environ deux années sur trois tombent dans la fourchette moyenne ± 1 volatilité, et 19 années sur 20 dans la fourchette moyenne ± 2 volatilités. Ordres de grandeur à mémoriser :</p>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Actif</th><th>Volatilité annuelle typique</th><th>Année "normale"</th><th>Année extrême (1 sur 20)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fonds monétaire</td><td class="yes">~0,5 %</td><td>+2 à +4 %</td><td>Quasi impossible de perdre</td></tr>
+            <tr><td>Obligations aggregate</td><td class="yes">4 à 6 %</td><td>−2 à +8 %</td><td>−10 % (vu en 2022)</td></tr>
+            <tr><td>Portefeuille 60/40</td><td class="mid">~9 à 10 %</td><td>−4 à +15 %</td><td>−20 %</td></tr>
+            <tr><td>Actions monde (ETF World)</td><td class="mid">~15 %</td><td>−8 à +22 %</td><td>−30 % et pire</td></tr>
+            <tr><td>Bitcoin</td><td class="no">50 à 80 %</td><td>−50 à +100 %</td><td>−80 %</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Deux limites à connaître. La volatilité est <strong>symétrique</strong> : elle compte pareil les bonnes et les mauvaises surprises, alors que seules les secondes font mal. Et elle <strong>sous-estime les extrêmes</strong> : les marchés ont des "queues épaisses", les krachs arrivent plus souvent que la loi normale ne le prédit. C'est pour ça qu'on la complète toujours par la mesure suivante.</p>
+
+        <h2 id="drawdown">Le max drawdown : la mesure de la douleur</h2>
+        <p>Le maximum drawdown, c'est <strong>la pire baisse entre un sommet et le creux qui a suivi</strong>. C'est la mesure la plus concrète qui existe : elle répond à la question "au pire moment, combien mon écran affichait-il de moins qu'au sommet ?". Et c'est elle qui casse les investisseurs, pas la volatilité abstraite.</p>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Actif ou allocation</th><th>Pire drawdown historique moderne</th><th>Temps de récupération</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Actions monde</td><td class="no">−55 % (2008-2009)</td><td>~4 ans (dividendes réinvestis)</td></tr>
+            <tr><td>Portefeuille 60/40</td><td class="mid">−30 à −35 % (2008)</td><td>~2 ans</td></tr>
+            <tr><td>Obligations longues</td><td class="no">−40 % et plus (2020-2023)</td><td>En cours, années</td></tr>
+            <tr><td>Or</td><td class="mid">−45 % (1980-1999)</td><td>Deux décennies</td></tr>
+            <tr><td>Bitcoin</td><td class="no">−83 % (2021-2022), plusieurs fois −80 %+</td><td>1 à 3 ans, quand il récupère</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Trois leçons dans ce tableau. Un : <strong>aucun actif n'échappe aux drawdowns profonds</strong>, pas même les "refuges" (regarde l'or, et les obligations longues récemment). Deux : la diversification réduit la profondeur ET la durée (le 60/40 récupère deux fois plus vite que les actions pures). Trois : le temps de récupération compte autant que la profondeur : un −40 % dont on sort en deux ans est plus vivable qu'un −25 % qui dure une décennie.</p>
+        <p>La règle de conversion à retenir pour tes propres estimations : sur les grandes classes d'actifs, <strong>le pire drawdown historique vaut environ 3 à 4 fois la volatilité annuelle</strong>. 15 % de vol : attends-toi à −50 % une fois par génération. C'est l'approximation qu'utilise le mini-outil plus bas.</p>
+        <div class="warning-box">
+          <strong>Le test de vérité :</strong> convertis toujours le drawdown en euros, pas en pourcentage. "−35 %" glisse sur le cerveau ; "−52 500 € sur mes 150 000 €" le réveille. Si le chiffre en euros t'empêcherait de dormir ou te ferait vendre, ton allocation est trop agressive, quel que soit ce que dit ton profil théorique.
+        </div>
+
+        <h2 id="sharpe">Le ratio de Sharpe : la qualité du rendement</h2>
+        <p>Le ratio de Sharpe répond à la question : <strong>combien de rendement je gagne par unité de risque pris ?</strong> Formule : (rendement du portefeuille − taux sans risque) ÷ volatilité. Un portefeuille qui fait 7 % avec 15 % de vol quand le monétaire paie 2 % a un Sharpe de (7 − 2) ÷ 15 = 0,33.</p>
+        <p>Les repères : sur très longue période, les grandes classes d'actifs tournent autour de <strong>0,3 à 0,4</strong>. Un portefeuille diversifié bien construit atteint 0,5 à 0,6 grâce aux corrélations (section suivante). Au-delà de 1 sur longue période, tu es soit un génie, soit (bien plus probablement) en train de mal mesurer ton risque : les stratégies affichant des Sharpe de 2 cachent presque toujours un risque de queue qui finit par se matérialiser brutalement.</p>
+        <p>À quoi ça sert concrètement ? À comparer des choix à risque différent. Exemple typique : passer de 60 % à 100 % d'actions augmente ton rendement espéré (~+1,6 point) mais augmente ta volatilité de moitié : ton Sharpe baisse. Ce n'est pas forcément un mauvais choix (si ton horizon est long, tu veux du rendement absolu, pas du Sharpe), mais c'est un choix informé : tu sais que chaque point de rendement supplémentaire te coûte de plus en plus cher en secousses. C'est exactement le genre d'arbitrage qu'un chiffre éclaire mieux qu'une intuition.</p>
+
+        <h2 id="correlation">La corrélation : le seul repas gratuit de la finance</h2>
+        <p>La corrélation mesure si deux actifs bougent ensemble (+1), indépendamment (0) ou en sens inverse (−1). Son pouvoir est contre-intuitif : <strong>assembler deux actifs risqués peu corrélés produit un portefeuille moins risqué que chacun de ses composants</strong>, sans sacrifier proportionnellement le rendement. C'est le seul endroit de la finance où on obtient quelque chose sans le payer : Markowitz a eu un Nobel pour l'avoir formalisé.</p>
+        <div class="ji-figure">
+          <div class="ji-figure-title">Pourquoi la décorrélation lisse la trajectoire</div>
+          <div class="ji-figure-sub">Deux actifs volatils mais décorrélés : leur assemblage vit une trajectoire plus calme</div>
+          <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Effet de la décorrélation sur un portefeuille">
+            <line x1="40" y1="220" x2="620" y2="220" stroke="#D8D8E8" stroke-width="1.5"/>
+            <path d="M40,170 C80,120 120,190 170,140 C220,95 260,185 310,150 C360,115 400,190 450,135 C500,90 550,170 620,110" fill="none" stroke="#9F7AEA" stroke-width="1.8" opacity="0.75"/>
+            <path d="M40,180 C90,205 130,130 180,175 C230,215 280,130 330,170 C380,205 430,120 480,165 C530,205 570,130 620,150" fill="none" stroke="#F0A860" stroke-width="1.8" opacity="0.75"/>
+            <path d="M40,175 C90,168 140,163 190,157 C260,150 320,146 380,138 C450,130 540,122 620,112" fill="none" stroke="#1A1A4E" stroke-width="3"/>
+            <text x="94" y="118" text-anchor="middle" font-size="10.5" font-weight="700" fill="#9F7AEA" font-family="sans-serif">Actif A</text>
+            <text x="180" y="230" text-anchor="middle" font-size="10.5" font-weight="700" fill="#F0A860" font-family="sans-serif">Actif B</text>
+            <text x="520" y="105" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1A1A4E" font-family="sans-serif">Portefeuille A + B</text>
+          </svg>
+        </div>
+        <p>Les corrélations utiles à connaître pour un patrimoine français : actions et obligations d'État de qualité, historiquement autour de 0 à 0,3 (avec une exception majeure : en 2022, l'inflation a fait monter les taux et baisser les deux en même temps : la décorrélation n'est pas garantie par contrat). Actions et or : proche de 0 sur longue période. Actions et fonds euros : quasi nulle par construction. Actions et crypto : elle a convergé vers 0,4 à 0,6 dans les années récentes, comme vu dans l'article sur le <a href="article-quantitative-easing.html">quantitative easing</a> : la crypto diversifie moins qu'on le raconte.</p>
+        <p>Le piège du particulier : la <strong>fausse diversification</strong>. Détenir un ETF World, un ETF S&P 500, un ETF Nasdaq et trois actions tech américaines, c'est détenir six fois le même pari (corrélations 0,85 et plus entre toutes ces lignes). Le nombre de lignes ne diversifie rien : seule la corrélation compte.</p>
+
+        <h2 id="simulateur">Mini-outil : le profil de risque de ton allocation</h2>
+        <p>Règle le curseur sur ta répartition actions/défensif et lis ton profil de risque complet : rendement espéré, secousses typiques, pire scénario plausible et Sharpe. Hypothèses pédagogiques de long terme (actions monde 7 % de rendement et 15 % de vol, poche défensive 3 % et 4 %, corrélation 0,2).</p>
+        <div class="ji-sim">
+          <div class="ji-sim-title">Le profil de risque de ton allocation</div>
+          <div class="ji-sim-sub">Estimations de long terme à visée pédagogique, pas une prévision. Ton allocation réelle mérite une analyse complète.</div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Ta répartition</span><span class="ji-field-val" id="rk-actions-val">70 % actions · 30 % défensif</span></div>
+            <input type="range" id="rk-actions" min="0" max="100" step="5" value="70">
+          </div>
+          <div class="ji-results2">
+            <div class="ji-res-card deleg">
+              <div class="lbl">Rendement espéré</div>
+              <div class="amt" id="rk-ret">—</div>
+            </div>
+            <div class="ji-res-card">
+              <div class="lbl">Volatilité (année type)</div>
+              <div class="amt" id="rk-vol">—</div>
+            </div>
+            <div class="ji-res-card bank">
+              <div class="lbl">Drawdown plausible (une fois par génération)</div>
+              <div class="amt" id="rk-dd">—</div>
+            </div>
+            <div class="ji-res-card">
+              <div class="lbl">Ratio de Sharpe</div>
+              <div class="amt" id="rk-sharpe">—</div>
+            </div>
+          </div>
+          <div class="ji-econo">
+            <div class="lbl">Lecture</div>
+            <div style="font-size:14.5px; line-height:1.6; margin-top:8px;" id="rk-verdict">—</div>
+          </div>
+        </div>
+
+        <h2 id="piloter">Piloter le risque en pratique : les 4 gestes</h2>
+        <p><strong>1. Calibre l'allocation sur le drawdown en euros, pas sur le rendement espéré.</strong> Le processus sain va dans ce sens : je peux encaisser −X € sans vendre → ça correspond à tel drawdown → donc tel pourcentage d'actions maximum. Le processus qui échoue va dans l'autre sens : je veux 8 % par an → 100 % actions → panique au premier −30 %.</p>
+        <p><strong>2. Rééquilibre à date fixe.</strong> Le rééquilibrage annuel est ton contrôleur de risque automatique : il ramène l'allocation à la cible quand les actions ont trop grossi (prise de profit mécanique) ou trop fondu (renforcement mécanique au pire de la peur). La méthode complète est dans l'article sur le <a href="article-rebalancement-portefeuille.html">rééquilibrage</a>.</p>
+        <p><strong>3. Borne les positions individuelles.</strong> Aucune ligne action au-delà de 3 % du patrimoine investi, aucun pari thématique ou crypto au-delà de 10 % : ces bornes garantissent qu'aucune erreur isolée, même totale, ne compromet le plan. Le dimensionnement EST la gestion du risque : un bon dossier surdimensionné est un mauvais investissement.</p>
+        <p><strong>4. Fais ton stress test personnel une fois par an.</strong> Prends ton patrimoine investi actuel, applique-lui le scénario 2008 (actions −50 %, immobilier −15 %, crypto −80 %, défensif stable) et écris le chiffre en euros. Puis pose-toi les deux questions : est-ce que je tiens sans vendre ? Est-ce que ma vie continue (pas de vente forcée pour un projet ou un pépin) ? Si oui aux deux, ton risque est calibré. Si non, ajuste maintenant, pas pendant le prochain <a href="article-krach-boursier.html">krach</a>.</p>
+        <p>Tu remarqueras que ces quatre gestes ne demandent ni terminal Bloomberg ni doctorat : une fiche d'ETF (la volatilité y figure), une multiplication par 3 pour estimer le drawdown, un rendez-vous annuel et des bornes écrites. La gestion du risque professionnelle, ramenée à l'essentiel, c'est ça : des règles simples, décidées à froid, appliquées sans exception.</p>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_RISQUE_PORTEFEUILLE par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_RISQUE_PORTEFEUILLE = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_RISQUE_PORTEFEUILLE && VIDEO_ID_RISQUE_PORTEFEUILLE!=="VIDEO_ID";
+            if(!has){ return; }
+            if(soon) soon.style.display='none';
+            function play(){
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_RISQUE_PORTEFEUILLE+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <!-- À retenir -->
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ À retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Le rendement que tu obtiendras est celui que ton comportement te laissera capturer : mesurer le risque, c'est estimer si tu tiendras.</li>
+            <li>Volatilité = amplitude typique d'une année ; pire drawdown ≈ 3 à 4 fois la volatilité, à convertir en euros pour le test de vérité.</li>
+            <li>Le Sharpe mesure la qualité du rendement (rendement par unité de risque) : au-delà de 1 sur longue période, méfiance.</li>
+            <li>La corrélation est le seul repas gratuit : c'est elle qui diversifie, pas le nombre de lignes.</li>
+            <li>4 gestes suffisent : allocation calibrée sur le drawdown, rééquilibrage annuel, positions bornées, stress test personnel une fois par an.</li>
+          </ul>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Où trouver la volatilité de mon portefeuille sans outil professionnel ?</summary>
+            <p>Deux approches. La simple : la volatilité de chaque fonds ou ETF figure sur sa fiche (DIC ou factsheet, souvent via l'indicateur SRI de 1 à 7) ; pondère mentalement et tu as un ordre de grandeur. La complète : exporte l'historique mensuel de ton portefeuille depuis ton courtier dans un tableur, calcule les variations mensuelles, prends l'écart-type et multiplie par la racine de 12 (environ 3,46) pour annualiser. Une heure de travail, à refaire une fois par an, largement suffisant.</p>
+          </details>
+          <details>
+            <summary>Quelle volatilité maximale pour mon profil ?</summary>
+            <p>La bonne question inversée : quel drawdown en euros peux-tu encaisser sans vendre ? Divise ce pourcentage par 3 à 3,5 et tu obtiens ta volatilité cible ; elle détermine ton allocation. Exemple : tu peux tolérer −30 % au pire → vise environ 9-10 % de volatilité → autour de 60 % d'actions. Si tu n'as jamais vécu de vraie baisse, sois humble : la tolérance déclarée sur un questionnaire est presque toujours supérieure à la tolérance réelle devant l'écran.</p>
+          </details>
+          <details>
+            <summary>Le ratio de Sharpe est-il utile pour comparer deux ETF actions ?</summary>
+            <p>Peu. Deux ETF World ont des Sharpe quasi identiques puisqu'ils portent le même marché ; à ce niveau, compare plutôt frais, encours et réplication. Le Sharpe devient utile pour comparer des stratégies ou allocations différentes : 60/40 contre 100 % actions, ajout d'or ou pas, portefeuille avec ou sans facteurs. C'est un outil d'architecture de portefeuille, pas de sélection de produit.</p>
+          </details>
+          <details>
+            <summary>La diversification a échoué en 2022 : tout a baissé. Pourquoi continuer ?</summary>
+            <p>2022 est le contre-exemple qui confirme la règle. La corrélation actions-obligations devient positive dans un régime précis : quand l'inflation force les banques centrales à monter les taux, les deux baissent ensemble. C'est arrivé, ça peut se reproduire, et c'est pour ça qu'une vraie diversification inclut aussi du monétaire (insensible), du fonds euros (garanti) et éventuellement de l'or. Sur la décennie complète, y compris 2022, le portefeuille diversifié a offert un bien meilleur couple rendement/douleur que chaque actif isolé : une année d'exception ne casse pas cinquante ans de statistiques.</p>
+          </details>
+          <details>
+            <summary>À quelle fréquence surveiller ces indicateurs ?</summary>
+            <p>Une fois par an, au moment de ton rééquilibrage, et c'est tout. Volatilité, drawdown théorique et Sharpe sont des mesures de structure : elles bougent quand ton allocation change, pas au fil des marchés. Les surveiller chaque semaine n'apporte aucune information et nourrit exactement le comportement (réagir au bruit) que toute cette méthode cherche à éliminer. Le risque se calibre à froid, une fois, puis se laisse travailler.</p>
+          </details>
+        </div>
+
+        <div class="article-cta">
+          <h2>On calibre ton portefeuille ensemble ?</h2>
+          <p>En une séance de coaching, on mesure le risque réel de ton allocation actuelle, on la confronte à ta vraie tolérance, et tu repars avec des bornes claires et un plan tenable.</p>
+          <a href="coaching.html" class="btn btn-gradient btn--lg">Réserver une séance de coaching
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Articles liés -->
+        <div class="article-related">
+          <div class="article-related-title">Pour aller plus loin</div>
+          <div class="article-related-grid">
+            <a href="article-allocation-actifs.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <span class="article-related-name">Allocation d'actifs : construire son portefeuille</span>
+              <span class="article-related-meta">14 min de lecture</span>
+            </a>
+            <a href="article-rebalancement-portefeuille.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <span class="article-related-name">Rééquilibrage : garder son portefeuille aligné</span>
+              <span class="article-related-meta">10 min de lecture</span>
+            </a>
+            <a href="article-courbe-des-taux.html" class="article-related-card">
+              <span class="article-related-tag">Niveau avancé</span>
+              <span class="article-related-name">Courbe des taux et duration</span>
+              <span class="article-related-meta">14 min de lecture</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  (function(){
+    function $(id){ return document.getElementById(id); }
+    // Hypothèses pédagogiques de long terme (nominal) : actions monde ~7%/15%, défensif ~3%/4%, corrélation 0,2
+    var RA = 0.07, VA = 0.15, RD = 0.03, VD = 0.04, CORR = 0.2, RF = 0.02;
+    function calc(){
+      var wa = parseFloat($('rk-actions').value) / 100;
+      var wd = 1 - wa;
+      $('rk-actions-val').textContent = Math.round(wa * 100) + ' % actions · ' + Math.round(wd * 100) + ' % défensif';
+      var ret = wa * RA + wd * RD;
+      var vol = Math.sqrt(wa*wa*VA*VA + wd*wd*VD*VD + 2*wa*wd*CORR*VA*VD);
+      var sharpe = (ret - RF) / vol;
+      var dd = Math.min(55, Math.round(vol * 100 * 3.2)); // approx historique : maxDD ~ 3x la vol annuelle
+      $('rk-ret').textContent = (ret * 100).toFixed(1).replace('.', ',') + ' %/an';
+      $('rk-vol').textContent = '± ' + (vol * 100).toFixed(1).replace('.', ',') + ' %';
+      $('rk-dd').textContent = '−' + dd + ' %';
+      $('rk-sharpe').textContent = sharpe.toFixed(2).replace('.', ',');
+      var euros = 10000;
+      var worst = Math.round(euros * dd / 100);
+      var v;
+      if (wa <= 0.25) v = "Profil très défensif : peu de secousses, mais un rendement qui bat à peine l'inflation. Adapté à un horizon court ou à une phase de préservation, coûteux sur 20 ans.";
+      else if (wa <= 0.55) v = "Profil équilibré : le couple rendement/risque le plus confortable psychologiquement. Sur 10 000 € investis, prépare-toi malgré tout à voir passer un épisode autour de −" + worst.toLocaleString('fr-FR') + " €.";
+      else if (wa <= 0.85) v = "Profil dynamique : le moteur de long terme. La question n'est pas si un −" + dd + " % (soit −" + worst.toLocaleString('fr-FR') + " € sur 10 000 €) arrivera, mais quand. Si tu tiens sans vendre, l'histoire te récompense.";
+      else v = "Profil 100 % actions : rendement espéré maximal, drawdown maximal. Réservé à un horizon long (10 ans et plus) et à un estomac déjà testé en conditions réelles, pas juste sur le papier.";
+      $('rk-verdict').textContent = v;
+    }
+    var el = $('rk-actions');
+    if (el) { el.addEventListener('input', calc); calc(); }
+  })();
+  </script>
+
+</body>
+</html>

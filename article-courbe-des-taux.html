@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courbe des taux et duration : le guide avancé</title>
+  <meta name="description" content="Pourquoi tes obligations baissent quand les taux montent, ce que dit une courbe inversée, et comment construire ta poche obligataire. Avec simulateur.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Courbe des taux et duration : le guide avancé">
+  <meta property="og:description" content="Pourquoi tes obligations baissent quand les taux montent, ce que dit une courbe inversée, et comment construire ta poche obligataire. Avec simulateur.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="article:published_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-courbe-des-taux.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Courbe des taux et duration : le guide avancé">
+  <meta name="twitter:description" content="Duration, courbe inversée, ETF obligataires : les obligations enfin comprises en profondeur.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/article-courbe-des-taux.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Courbe des taux et duration : comprendre enfin les obligations",
+  "description": "Pourquoi tes obligations baissent quand les taux montent, ce que dit une courbe inversée, et comment construire ta poche obligataire. Avec simulateur.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julien-invest.github.io"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://julien-invest.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://julien-invest.github.io/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Courbe des taux et duration : comprendre enfin les obligations",
+      "item": "https://julien-invest.github.io/article-courbe-des-taux.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pourquoi mon fonds obligataire \"prudent\" a-t-il perdu 15 % en 2022 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Parce que sa duration était longue (souvent 7 à 10 ans) et que les taux sont montés d'environ 3 points en dix-huit mois : mécaniquement, moins duration fois variation de taux, soit une baisse de 20 à 30 % pour les fonds les plus longs. Aucun défaut d'emprunteur là-dedans : juste la revalorisation au prix de marché. La leçon : \"obligataire\" ne veut pas dire \"stable\", seul le couple duration-horizon détermine le risque réel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Duration et maturité, c'est la même chose ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. La maturité est la date de remboursement ; la duration mesure la sensibilité du prix aux taux, en tenant compte de tous les coupons intermédiaires. Une obligation à 10 ans avec de gros coupons a une duration inférieure à 10 ans, car tu récupères une partie de ton argent en route. Pour les ETF, retiens simplement : la duration figure sur la fiche, c'est elle qui compte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Une courbe des taux inversée annonce-t-elle forcément un krach ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. L'inversion signale que le marché anticipe des baisses de taux futures, ce qui accompagne souvent une récession, et les récessions s'accompagnent souvent de baisses des actions. Mais la chaîne n'est pas mécanique : l'inversion de 2022-2023 n'a pas produit la récession attendue. Utilise la courbe comme un baromètre de régime, jamais comme un signal de vente : sortir du marché sur inversion aurait fait rater un des meilleurs rallyes de la décennie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ETF obligataire ou fonds en euros : lequel choisir ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour la sécurité pure, le fonds euros gagne presque toujours pour un épargnant français : capital garanti, rendement correct depuis la remontée des taux, fiscalité douce en assurance-vie après 8 ans. L'ETF obligataire se justifie en complément : pour le cash d'attente en compte-titres (monétaire), pour diversifier hors du bilan d'un assureur, ou pour chercher l'effet amortisseur des obligations longues dans une allocation de long terme. Ce sont deux outils différents plus que deux concurrents."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il acheter des obligations longues quand les banques centrales commencent à baisser les taux ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est le pari tactique classique : si les taux longs baissent, un ETF de duration 15 gagne environ 15 % par point de baisse. Mais les taux longs n'obéissent pas aux banques centrales : ils intègrent l'inflation anticipée et l'offre de dette publique, et peuvent monter pendant que les taux courts baissent. Si tu tentes ce pari, dimensionne-le comme un satellite (quelques pourcents du portefeuille), avec un horizon défini, et pas avec l'argent de ta poche de sécurité."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .dca-table-scroll .compare-table { margin: 0; min-width: 620px; }
+
+    /* ── Simulateur DCA (scoped) ── */
+    .simulator-block {
+      --s-navy: #1A1A4E;
+      --s-lav: #C8B4E8;
+      --s-mint: #A0E7C5;
+      --s-gold: #F0C040;
+      --s-lav-light: #ede8f8;
+      --s-mint-light: #e6f8f1;
+      background: var(--s-lav-light);
+      border: 1px solid rgba(200,180,232,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 24px 0 16px;
+    }
+    .dca-sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; }
+    @media (max-width: 560px) { .dca-sim-grid { grid-template-columns: 1fr; } }
+    .dca-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--s-navy); font-size: 14px; margin-bottom: 10px; }
+    .dca-field-input { display: flex; align-items: center; gap: 10px; }
+    .dca-field-input input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .dca-field-input input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(26,26,78,0.35); }
+    .dca-field-input input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; }
+    .dca-field-input input[type=number] { width: 92px; padding: 7px 9px; border: 1px solid rgba(200,180,232,0.8); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--s-navy); background: #fff; text-align: right; }
+    .dca-field-input input[type=number]::-webkit-outer-spin-button,
+    .dca-field-input input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+
+    .dca-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    @media (max-width: 560px) { .dca-results { grid-template-columns: 1fr; } }
+    .dca-res { border-radius: var(--radius-md); padding: 16px 18px; text-align: center; }
+    .dca-res-invest { background: #fff; border: 1px solid rgba(200,180,232,0.7); }
+    .dca-res-final { background: linear-gradient(135deg, rgba(200,180,232,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(200,180,232,0.8); }
+    .dca-res-gain { background: var(--s-mint-light); border: 1px solid rgba(160,231,197,0.8); }
+    .dca-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6F6F99; margin-bottom: 8px; }
+    .dca-res-num { font-family: var(--font-head); font-weight: 800; color: var(--s-navy); font-size: clamp(19px,4vw,24px); line-height: 1.15; }
+    .dca-res-gain .dca-res-num { color: #0a8f5b; }
+
+    .dca-chart-wrap { position: relative; height: 320px; margin-top: 26px; background: #fff; border-radius: var(--radius-md); padding: 16px 14px; border: 1px solid rgba(200,180,232,0.5); }
+    @media (max-width: 560px) { .dca-chart-wrap { height: 260px; } }
+    .dca-legal { font-size: 12px; color: #9a9ab0; line-height: 1.6; margin: 16px 0 0; }
+
+    /* ── Étapes numérotées DCA (scoped) ── */
+    .dca-step { display: flex; gap: 16px; margin: 0 0 22px; }
+    .dca-step-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .dca-step-body h3 { margin-top: 4px !important; }
+    .dca-step-body h3 { font-family: var(--font-head); font-size: 17px; color: var(--navy); margin: 4px 0 8px; }
+    .dca-step-body p { margin-bottom: 0; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+  
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 18px; padding: 28px; margin: 32px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-field { margin-bottom: 18px; }
+    .ji-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .ji-field-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    @media (max-width: 560px) { .ji-results2 { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px; text-align: center; }
+    .ji-res-card .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-3); }
+    .ji-res-card .amt { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--navy); margin-top: 6px; }
+    .ji-res-card.bank { border-top: 3px solid #DC2626; }
+    .ji-res-card.deleg { border-top: 3px solid #059669; }
+    .ji-econo { background: linear-gradient(135deg,#1A1A4E,#1E2A5E); color: #fff; border-radius: 14px; padding: 20px; text-align: center; margin-top: 14px; }
+    .ji-econo .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #A0E7C5; }
+    .ji-econo .amt { font-family: var(--font-head); font-weight: 800; font-size: 32px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Niveau avancé · 14 min de lecture</span>
+        <h1>Courbe des taux et duration :<br><em>comprendre enfin les obligations</em></h1>
+        <p class="article-meta-date">Publié le 3 juillet 2026 · Mis à jour le 3 juillet 2026</p>
+        <p>2022 : les obligations, réputées sûres, perdent 15 à 30 %. Des millions d'épargnants découvrent la duration à leurs dépens. Voici le mode d'emploi complet de la poche défensive, avec un simulateur de sensibilité.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Niveau avancé</span>
+        <p>Pendant quarante ans, la règle semblait simple : les obligations, c'est le placement du bon père de famille. Puis 2022 est arrivé : pire année obligataire moderne, avec des fonds "prudents" en baisse de 15 à 30 %. Des millions d'épargnants ont découvert, trop tard, un concept que tout investisseur sérieux devrait maîtriser : la duration.</p>
+        <p>Cet article prend la suite du guide <a href="article-obligations-fonds-euros.html">obligations et fonds euros</a>, qui posait les bases. Ici, on passe au niveau supérieur : la mécanique des prix, la duration, la lecture de la courbe des taux, et la construction concrète d'une poche obligataire adaptée à ton horizon.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#mecanique">La mécanique prix-taux, une bascule</a></li>
+            <li><a href="#duration">La duration : le chiffre qui résume tout</a></li>
+            <li><a href="#simulateur">Simulateur : la sensibilité de ta poche obligataire</a></li>
+            <li><a href="#courbe">Lire la courbe des taux (et ses inversions)</a></li>
+            <li><a href="#instruments">Fonds euros, ETF, comptes à terme : le match</a></li>
+            <li><a href="#construire">Construire ta poche défensive, pas à pas</a></li>
+            <li><a href="#rendement">Le rendement embarqué</a></li>
+            <li><a href="#erreurs">Les 4 erreurs classiques</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="mecanique">La mécanique prix-taux : une bascule</h2>
+        <p>Une obligation est un prêt découpé en morceaux : tu prêtes 1 000 € à un État ou une entreprise, tu touches un coupon fixe chaque année (disons 2 %), et tu récupères tes 1 000 € à l'échéance. Jusque-là, rien de risqué si l'emprunteur est solide. Le risque naît quand tu veux <em>revendre avant l'échéance</em>.</p>
+        <p>Imagine : tu détiens cette obligation à 2 %, et les taux de marché montent à 4 %. Qui voudrait racheter ton papier à 2 % alors que le neuf rapporte 4 % ? Personne, sauf à prix cassé. Ton obligation doit baisser jusqu'à ce que son rendement effectif rejoigne 4 % pour l'acheteur. <strong>Prix et taux sont les deux plateaux d'une balance : quand l'un monte, l'autre descend, mécaniquement.</strong></p>
+        <p>C'est LA clé qui manquait aux épargnants surpris en 2022 : un fonds obligataire ne "détient" pas tes obligations jusqu'à l'échéance pour toi. Il est valorisé chaque jour au prix de marché. Taux qui montent = valeur liquidative qui baisse, même si aucun emprunteur n'a fait défaut.</p>
+        <div class="info-box">
+          <strong>La symétrie oubliée :</strong> le même mécanisme joue dans l'autre sens. Quand les taux baissent, les obligations existantes, mieux rémunérées que le neuf, prennent de la valeur. C'est pour ça qu'une poche obligataire longue s'apprécie en récession (les banques centrales baissent les taux), et c'est exactement le rôle d'amortisseur qu'on lui demande dans une allocation.
+        </div>
+
+        <h2 id="duration">La duration : le chiffre qui résume tout</h2>
+        <p>Toutes les obligations ne réagissent pas pareil. Une obligation qui échoit dans 6 mois se moque des taux : tu seras remboursé bientôt de toute façon. Une obligation à 30 ans, elle, subit de plein fouet chaque mouvement. Ce degré de sensibilité porte un nom : la <strong>duration</strong>, exprimée en années.</p>
+        <p>La règle de calcul mental, à connaître par cœur : <strong>variation du prix ≈ − duration × variation des taux</strong>. Un fonds de duration 7 perd environ 7 % si les taux montent de 1 point, et en gagne environ 7 % s'ils baissent de 1 point. C'est une approximation (la convexité adoucit les grands mouvements), mais elle suffit largement pour piloter.</p>
+        <p>Tu trouves la duration en 30 secondes : c'est une ligne obligatoire de la fiche (DIC ou factsheet) de tout fonds ou ETF obligataire, parfois sous le nom "sensibilité" ou "duration modifiée". Quelques ordres de grandeur :</p>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Support</th><th>Duration typique</th><th>Si les taux montent de 1 pt</th><th>Profil</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Fonds monétaire</td><td>~0,2 an</td><td class="yes">−0,2 % (imperceptible)</td><td>Quasi-cash rémunéré</td></tr>
+            <tr><td>ETF obligations 1-3 ans</td><td>~2 ans</td><td class="yes">−2 %</td><td>Défensif court</td></tr>
+            <tr><td>ETF obligations toutes maturités (aggregate)</td><td>~6-7 ans</td><td class="mid">−6 à −7 %</td><td>Le standard des allocations</td></tr>
+            <tr><td>ETF obligations d'État 15-30 ans</td><td>~15-20 ans</td><td class="no">−15 à −20 %</td><td>Aussi volatil que des actions</td></tr>
+            <tr><td>Fonds euros d'assurance-vie</td><td>Portée par l'assureur</td><td class="yes">0 % pour toi (capital garanti)</td><td>L'assureur absorbe, rendement inertiel</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>La ligne fonds euros mérite une explication : l'assureur détient bien des obligations qui baissent quand les taux montent, mais c'est lui qui porte le risque de valorisation, pas toi (capital garanti). En contrepartie, le rendement servi suit les taux de marché avec des années de retard, dans les deux sens : c'est le mécanisme d'inertie détaillé dans l'article sur le <a href="article-quantitative-easing.html">quantitative easing</a>.</p>
+
+        <h2 id="simulateur">Simulateur : la sensibilité de ta poche obligataire</h2>
+        <p>Entre la duration de ton fonds (elle est sur la fiche), un scénario de taux, et le montant investi : tu obtiens l'impact approximatif sur ta poche obligataire.</p>
+        <div class="ji-sim">
+          <div class="ji-sim-title">Impact d'un mouvement de taux sur tes obligations</div>
+          <div class="ji-sim-sub">Approximation par la duration (hors convexité et coupons courus). Outil pédagogique.</div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Duration de ton fonds / ETF</span><span class="ji-field-val" id="du-dur-val">7 ans</span></div>
+            <input type="range" id="du-dur" min="1" max="20" step="1" value="7">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Mouvement des taux</span><span class="ji-field-val" id="du-delta-val">+1,00 pt</span></div>
+            <input type="range" id="du-delta" min="-3" max="3" step="0.25" value="1">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Montant investi</span><span class="ji-field-val" id="du-montant-val">20 000 €</span></div>
+            <input type="range" id="du-montant" min="1000" max="200000" step="1000" value="20000">
+          </div>
+          <div class="ji-results2">
+            <div class="ji-res-card bank">
+              <div class="lbl">Impact sur le prix</div>
+              <div class="amt" id="du-pct">—</div>
+            </div>
+            <div class="ji-res-card deleg">
+              <div class="lbl">Impact en euros</div>
+              <div class="amt" id="du-eur">—</div>
+            </div>
+          </div>
+          <div class="ji-econo">
+            <div class="lbl">Lecture</div>
+            <div style="font-size:14.5px; line-height:1.6; margin-top:8px;" id="du-verdict">—</div>
+          </div>
+        </div>
+
+        <h2 id="courbe">Lire la courbe des taux (et ses inversions)</h2>
+        <p>La courbe des taux, c'est simplement le rendement des obligations d'État en fonction de leur échéance : 3 mois, 2 ans, 10 ans, 30 ans. Sa forme raconte ce que le marché pense de l'avenir, et c'est l'un des indicateurs les plus suivis de la finance mondiale.</p>
+        <div class="ji-figure">
+          <div class="ji-figure-title">Courbe des taux : normale contre inversée</div>
+          <div class="ji-figure-sub">Rendement selon l'échéance des obligations d'État</div>
+          <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Courbe des taux normale et inversée">
+            <line x1="50" y1="215" x2="620" y2="215" stroke="#D8D8E8" stroke-width="1.5"/>
+            <line x1="50" y1="25" x2="50" y2="215" stroke="#D8D8E8" stroke-width="1.5"/>
+            <path d="M60,175 C160,140 280,110 420,95 C520,85 580,80 615,78" fill="none" stroke="#059669" stroke-width="2.5"/>
+            <path d="M60,60 C160,80 280,105 420,118 C520,126 580,130 615,132" fill="none" stroke="#DC2626" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <text x="200" y="122" text-anchor="middle" font-size="11.5" font-weight="700" fill="#059669" font-family="sans-serif">Normale : le long paie plus</text>
+            <text x="200" y="52" text-anchor="middle" font-size="11.5" font-weight="700" fill="#DC2626" font-family="sans-serif">Inversée : le court paie plus</text>
+            <text x="60" y="235" text-anchor="middle" font-size="11" fill="#8B8BA8" font-family="sans-serif">3 mois</text>
+            <text x="230" y="235" text-anchor="middle" font-size="11" fill="#8B8BA8" font-family="sans-serif">2 ans</text>
+            <text x="440" y="235" text-anchor="middle" font-size="11" fill="#8B8BA8" font-family="sans-serif">10 ans</text>
+            <text x="600" y="235" text-anchor="middle" font-size="11" fill="#8B8BA8" font-family="sans-serif">30 ans</text>
+            <text x="38" y="60" text-anchor="end" font-size="11" fill="#8B8BA8" font-family="sans-serif">5 %</text>
+            <text x="38" y="140" text-anchor="end" font-size="11" fill="#8B8BA8" font-family="sans-serif">3 %</text>
+            <text x="38" y="215" text-anchor="end" font-size="11" fill="#8B8BA8" font-family="sans-serif">1 %</text>
+          </svg>
+        </div>
+        <p><strong>Courbe normale (croissante) :</strong> plus tu prêtes longtemps, plus tu exiges de rendement, pour compenser l'incertitude. C'est l'état de santé standard d'une économie.</p>
+        <p><strong>Courbe inversée (décroissante) :</strong> le 2 ans rapporte plus que le 10 ans. Traduction : le marché anticipe que la banque centrale, aujourd'hui restrictive, devra fortement baisser ses taux demain, généralement à cause d'une récession. L'inversion de la courbe américaine a précédé la quasi-totalité des récessions américaines depuis 60 ans, avec un délai de 6 à 24 mois. Attention toutefois : l'inversion de 2022-2023, la plus profonde en quarante ans, n'a pas été suivie de la récession annoncée. Indicateur puissant, pas infaillible.</p>
+        <p><strong>Courbe pentue après inversion :</strong> historiquement le signal le plus dangereux, car la "repentification" se produit souvent quand la banque centrale commence à baisser en urgence, au moment où la récession arrive vraiment.</p>
+        <p>Où la consulter : le rendement des obligations d'État est public (recherche "courbe des taux" sur les sites de données financières, ou l'OAT 10 ans sur le site de la Banque de France). Un coup d'œil par trimestre suffit, dans la même routine que les indicateurs de l'article sur le <a href="article-quantitative-easing.html">QE</a>.</p>
+
+        <h2 id="instruments">Fonds euros, ETF, comptes à terme : le match des poches défensives</h2>
+        <p>Pour l'épargnant français, la poche défensive peut se loger dans cinq véhicules aux profils très différents :</p>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Véhicule</th><th>Risque de taux pour toi</th><th>Liquidité</th><th>Fiscalité</th><th>Pour qui</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Fonds euros</strong></td><td class="yes">Aucun (capital garanti)</td><td class="yes">Quelques jours</td><td class="yes">Douce après 8 ans (AV)</td><td>La base, pour presque tous</td></tr>
+            <tr><td><strong>Fonds monétaire</strong></td><td class="yes">Quasi nul</td><td class="yes">Immédiate</td><td class="mid">Flat tax 31,4 % en CTO</td><td>Cash d'attente rémunéré</td></tr>
+            <tr><td><strong>Compte à terme</strong></td><td class="yes">Aucun si tenu à l'échéance</td><td class="no">Bloqué (pénalités)</td><td class="mid">Flat tax 31,4 %</td><td>Somme datée (projet à 1-3 ans)</td></tr>
+            <tr><td><strong>ETF obligataire court (1-3 ans)</strong></td><td class="yes">Faible (duration ~2)</td><td class="yes">Immédiate</td><td class="mid">Selon enveloppe</td><td>Défensif liquide et lisible</td></tr>
+            <tr><td><strong>ETF obligataire long (15 ans et +)</strong></td><td class="no">Élevé (duration 15-20)</td><td class="yes">Immédiate</td><td class="mid">Selon enveloppe</td><td>Pari sur la baisse des taux, investisseur averti</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Les détails pratiques de chaque véhicule sont couverts ailleurs sur le site : <a href="article-obligations-fonds-euros.html">obligations et fonds euros</a> pour les bases, <a href="article-comptes-a-terme.html">comptes à terme</a> pour l'épargne datée. Ce qui nous intéresse ici, c'est l'assemblage.</p>
+
+        <h2 id="construire">Construire ta poche défensive, pas à pas</h2>
+        <p>La méthode tient en trois questions, dans l'ordre.</p>
+        <p><strong>Question 1 : à quoi sert cet argent, et quand ?</strong> La duration de tes placements obligataires ne doit jamais dépasser ton horizon. Argent d'un projet à 2 ans : monétaire, compte à terme ou ETF court, point final. Poche défensive d'un portefeuille de long terme : tu peux allonger, car tu as le temps d'absorber un cycle de taux complet.</p>
+        <p><strong>Question 2 : quelle enveloppe ?</strong> Pour la plupart des lecteurs de ce site, la réponse est simple : le fonds euros en assurance-vie fait 90 % du travail (garantie, fiscalité, zéro entretien), complété éventuellement par un fonds monétaire pour le cash d'attente. L'ETF obligataire se justifie surtout dans deux cas : diversifier au-delà de la garantie de l'assureur, ou chercher le comportement d'amortisseur des obligations longues en cas de récession.</p>
+        <p><strong>Question 3 : quelle duration pour la partie ETF ?</strong> Le standard des allocations mondiales, c'est l'aggregate (duration 6-7) : un compromis honnête entre rendement, amortissement et volatilité. Les durations 15+ sont des outils tactiques, pas des placements de fond de portefeuille : leur volatilité est comparable à celle des actions, pour un rendement espéré bien moindre.</p>
+        <div class="warning-box">
+          <strong>Rappel d'allocation :</strong> la poche défensive se dimensionne en fonction de ta tolérance au risque et de ton horizon, comme détaillé dans l'article sur l'<a href="article-allocation-actifs.html">allocation d'actifs</a>. La règle d'or reste inchangée : c'est la répartition actions/défensif qui détermine 90 % de ton résultat, pas le choix fin des véhicules obligataires.
+        </div>
+
+        <h2 id="rendement">Le rendement embarqué : ce que ta poche rapportera vraiment</h2>
+        <p>Dernier concept avancé, et le plus utile pour tes décisions : le <strong>rendement embarqué</strong> (yield to maturity, ou "rendement à l'échéance" sur les fiches). C'est le rendement annualisé que te rapportera un fonds obligataire si tu le gardes environ le temps de sa duration et si les émetteurs ne font pas défaut. Contrairement au rendement passé, qui ne dit rien de l'avenir, le rendement embarqué est le meilleur estimateur du rendement futur d'une poche obligataire.</p>
+        <p>Exemple concret : un ETF aggregate euro qui affiche un rendement à l'échéance de 3,2 % avec une duration de 6,5 te dit en substance "attends-toi à environ 3,2 % par an sur les 6-7 prochaines années, avec des secousses en route si les taux bougent". C'est une information radicalement plus utile que "le fonds a fait +4 % l'an dernier".</p>
+        <p>Ce chiffre explique aussi pourquoi la pire année obligataire de l'histoire a créé la meilleure opportunité depuis quinze ans : après la hausse de 2022-2023, les rendements embarqués sont passés de 0,5 % à 3-4 %. Ceux qui ont fui les obligations au pire moment ont vendu un actif dont le rendement futur venait justement d'être restauré. Retiens le réflexe : <strong>sur l'obligataire, les baisses de prix améliorent les rendements futurs</strong>, exactement comme un plan d'achats réguliers profite des baisses en actions.</p>
+        <p>Où le trouver : ligne "yield to maturity", "rendement actuariel" ou "rendement à l\'échéance" de la fiche mensuelle de ton fonds ou ETF. Compare toujours ce rendement à celui du fonds euros et du monétaire au même moment : c'est ce trio qui te dit où loger ta poche défensive cette année.</p>
+
+        <h2 id="erreurs">Les 4 erreurs classiques</h2>
+        <p><strong>Confondre "obligataire" et "sans risque".</strong> Un ETF obligataire long est un actif volatil. Le seul placement obligataire sans risque de prix, c'est celui que tu tiens jusqu'à l'échéance (ou dont un assureur te garantit le capital).</p>
+        <p><strong>Acheter le rendement affiché sans regarder la duration.</strong> Un fonds qui affiche 4 % avec une duration de 12 peut te faire perdre trois années de rendement sur un seul point de hausse des taux. Le rendement embarqué et la duration se lisent ensemble, jamais séparément.</p>
+        <p><strong>Courir après le fonds euros au rendement passé.</strong> Le rendement d'un fonds euros reflète son portefeuille d'hier. Après un cycle de hausse, les fonds euros récents ou dynamiques rattrapent ; après un cycle de baisse, les gros paquebots amortissent mieux. Le rendement de l'an dernier est un rétroviseur.</p>
+        <p><strong>Paniquer au premier −8 %.</strong> Si ta poche obligataire baisse parce que les taux montent, le rendement futur de cette même poche vient d'augmenter d'autant : les coupons se réinvestissent mieux. Pour un horizon supérieur à la duration, une hausse des taux est même une bonne nouvelle à terme. Vendre au creux, comme en actions, reste la seule façon de rendre la perte définitive : le parallèle complet est dans le guide du <a href="article-krach-boursier.html">krach boursier</a>.</p>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_COURBE_TAUX par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_COURBE_TAUX = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_COURBE_TAUX && VIDEO_ID_COURBE_TAUX!=="VIDEO_ID";
+            if(!has){ return; }
+            if(soon) soon.style.display='none';
+            function play(){
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_COURBE_TAUX+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <!-- À retenir -->
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ À retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Prix et taux sont les deux plateaux d'une balance : quand les taux montent, toute obligation existante baisse, sans qu'aucun défaut ne se produise.</li>
+            <li>La duration résume tout : variation du prix ≈ − duration × variation des taux. Elle figure sur la fiche de chaque fonds.</li>
+            <li>Règle d'or : la duration de tes placements ne doit jamais dépasser ton horizon.</li>
+            <li>La courbe inversée est un baromètre de récession puissant mais faillible : jamais un signal de vente.</li>
+            <li>Pour un épargnant français, fonds euros d'abord, monétaire pour le cash d'attente, ETF obligataire en complément raisonné.</li>
+          </ul>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Pourquoi mon fonds obligataire "prudent" a-t-il perdu 15 % en 2022 ?</summary>
+            <p>Parce que sa duration était longue (souvent 7 à 10 ans) et que les taux sont montés d'environ 3 points en dix-huit mois : mécaniquement, moins duration fois variation de taux, soit une baisse de 20 à 30 % pour les fonds les plus longs. Aucun défaut d'emprunteur là-dedans : juste la revalorisation au prix de marché. La leçon : "obligataire" ne veut pas dire "stable", seul le couple duration-horizon détermine le risque réel.</p>
+          </details>
+          <details>
+            <summary>Duration et maturité, c'est la même chose ?</summary>
+            <p>Non. La maturité est la date de remboursement ; la duration mesure la sensibilité du prix aux taux, en tenant compte de tous les coupons intermédiaires. Une obligation à 10 ans avec de gros coupons a une duration inférieure à 10 ans, car tu récupères une partie de ton argent en route. Pour les ETF, retiens simplement : la duration figure sur la fiche, c'est elle qui compte.</p>
+          </details>
+          <details>
+            <summary>Une courbe des taux inversée annonce-t-elle forcément un krach ?</summary>
+            <p>Non. L'inversion signale que le marché anticipe des baisses de taux futures, ce qui accompagne souvent une récession, et les récessions s'accompagnent souvent de baisses des actions. Mais la chaîne n'est pas mécanique : l'inversion de 2022-2023 n'a pas produit la récession attendue. Utilise la courbe comme un baromètre de régime, jamais comme un signal de vente : sortir du marché sur inversion aurait fait rater un des meilleurs rallyes de la décennie.</p>
+          </details>
+          <details>
+            <summary>ETF obligataire ou fonds en euros : lequel choisir ?</summary>
+            <p>Pour la sécurité pure, le fonds euros gagne presque toujours pour un épargnant français : capital garanti, rendement correct depuis la remontée des taux, fiscalité douce en assurance-vie après 8 ans. L'ETF obligataire se justifie en complément : pour le cash d'attente en compte-titres (monétaire), pour diversifier hors du bilan d'un assureur, ou pour chercher l'effet amortisseur des obligations longues dans une allocation de long terme. Ce sont deux outils différents plus que deux concurrents.</p>
+          </details>
+          <details>
+            <summary>Faut-il acheter des obligations longues quand les banques centrales commencent à baisser les taux ?</summary>
+            <p>C'est le pari tactique classique : si les taux longs baissent, un ETF de duration 15 gagne environ 15 % par point de baisse. Mais les taux longs n'obéissent pas aux banques centrales : ils intègrent l'inflation anticipée et l'offre de dette publique, et peuvent monter pendant que les taux courts baissent. Si tu tentes ce pari, dimensionne-le comme un satellite (quelques pourcents du portefeuille), avec un horizon défini, et pas avec l'argent de ta poche de sécurité.</p>
+          </details>
+        </div>
+
+        <div class="article-cta">
+          <h2>Construis une allocation qui amortit vraiment les chocs</h2>
+          <p>La formation De 0 à Investisseur t'apprend à assembler actions, fonds euros et obligations selon ton horizon, avec une méthode simple et sans jargon.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Articles liés -->
+        <div class="article-related">
+          <div class="article-related-title">Pour aller plus loin</div>
+          <div class="article-related-grid">
+            <a href="article-quantitative-easing.html" class="article-related-card">
+              <span class="article-related-tag">Niveau avancé</span>
+              <span class="article-related-name">Fed, BCE et quantitative easing : la machine derrière tes actifs</span>
+              <span class="article-related-meta">14 min de lecture</span>
+            </a>
+            <a href="article-obligations-fonds-euros.html" class="article-related-card">
+              <span class="article-related-tag">Épargne</span>
+              <span class="article-related-name">Obligations et fonds euros : les bases</span>
+              <span class="article-related-meta">11 min de lecture</span>
+            </a>
+            <a href="article-comptes-a-terme.html" class="article-related-card">
+              <span class="article-related-tag">Épargne</span>
+              <span class="article-related-name">Comptes à terme : le guide complet</span>
+              <span class="article-related-meta">12 min de lecture</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  (function(){
+    function $(id){ return document.getElementById(id); }
+    function calc(){
+      var dur = parseFloat($('du-dur').value);
+      var delta = parseFloat($('du-delta').value) / 100;
+      var montant = parseFloat($('du-montant').value);
+      $('du-dur-val').textContent = dur.toFixed(0) + ' ans';
+      $('du-delta-val').textContent = (delta >= 0 ? '+' : '') + (delta * 100).toFixed(2).replace('.', ',') + ' pt';
+      $('du-montant-val').textContent = montant.toLocaleString('fr-FR') + ' €';
+      var impactPct = -dur * delta * 100;
+      var impactEur = montant * impactPct / 100;
+      $('du-pct').textContent = (impactPct >= 0 ? '+' : '') + impactPct.toFixed(1).replace('.', ',') + ' %';
+      $('du-eur').textContent = (impactEur >= 0 ? '+' : '') + Math.round(impactEur).toLocaleString('fr-FR') + ' €';
+      var v;
+      if (Math.abs(impactPct) < 2) v = "Impact limité : duration courte ou mouvement de taux modeste. C'est le profil d'une poche défensive qui joue son rôle.";
+      else if (impactPct <= -10) v = "Perte à deux chiffres sur la poche \"sûre\" du portefeuille : c'est exactement ce qui est arrivé aux fonds obligataires longs en 2022. Duration longue + hausse de taux = actif risqué.";
+      else if (impactPct < 0) v = "Baisse sensible : supportable si ton horizon dépasse la duration, douloureuse sinon. La règle : n'achète pas plus long que ton horizon.";
+      else v = "Gain en capital : c'est le scénario des baisses de taux, où les obligations longues se comportent comme un turbo. Symétrique du risque, jamais garanti.";
+      $('du-verdict').textContent = v;
+    }
+    ['du-dur','du-delta','du-montant'].forEach(function(id){ var el=$(id); if(el) el.addEventListener('input', calc); });
+    if ($('du-dur')) calc();
+  })();
+  </script>
+
+</body>
+</html>

@@ -43,6 +43,8 @@
     .article-body ul { padding-left: 20px; margin-bottom: 16px; }
     .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
     .article-tag { display: inline-block; background: linear-gradient(135deg,#FDE68A,#F59E0B); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #78350F; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
@@ -622,6 +624,10 @@
 
         <p>Pour aller plus loin sur l'univers crypto au-delà du Bitcoin : comprends à quoi servent vraiment les <a href="article-stablecoins-explication.html">stablecoins</a> comme USDT ou USDC, et pourquoi la grande majorité des <a href="article-risque-altcoins.html">altcoins</a> sont structurellement voués à disparaître.</p>
 
+        <div class="info-box">
+          <strong>Niveau avancé :</strong> MVRV, réserves d'exchanges, funding rates, halving : apprends à situer le cycle crypto avec des données publiques plutôt qu'avec l'émotion. → <a href="article-analyse-onchain.html">Analyse on-chain : lire les cycles crypto</a>
+        </div>
+
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
@@ -664,7 +670,7 @@
         </div>
         <script>
           // REMPLACER VIDEO_ID_ARTICLE_BITCOIN par l'ID de la vidéo YouTube de cet article
-          const VIDEO_ID_ARTICLE_BITCOIN = "VIDEO_ID";
+          const VIDEO_ID_ARTICLE_BITCOIN = "Oq--VZbJPvM";
           (function(){
             const f=document.getElementById('article-video'); if(!f) return;
             const soon=document.getElementById('article-video-soon');

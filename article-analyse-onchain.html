@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyse on-chain : lire les cycles crypto en 2026</title>
+  <meta name="description" content="MVRV, réserves d'exchanges, funding rates, halving : les 5 indicateurs on-chain pour situer le cycle crypto avec des données plutôt qu'avec l'émotion.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Analyse on-chain : lire les cycles crypto en 2026">
+  <meta property="og:description" content="MVRV, réserves d'exchanges, funding rates, halving : les 5 indicateurs on-chain pour situer le cycle crypto avec des données plutôt qu'avec l'émotion.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="article:published_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-analyse-onchain.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analyse on-chain : lire les cycles crypto en 2026">
+  <meta name="twitter:description" content="Les 5 indicateurs on-chain qui décrivent objectivement où en est le cycle crypto.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/article-analyse-onchain.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Analyse on-chain : lire les cycles crypto avec des données",
+  "description": "MVRV, réserves d'exchanges, funding rates, halving : les 5 indicateurs on-chain pour situer le cycle crypto avec des données plutôt qu'avec l'émotion.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julien-invest.github.io"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://julien-invest.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://julien-invest.github.io/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Analyse on-chain : lire les cycles crypto avec des données",
+      "item": "https://julien-invest.github.io/article-analyse-onchain.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "L'analyse on-chain fonctionne-t-elle pour les altcoins ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En théorie oui pour les blockchains transparentes, en pratique beaucoup moins bien. Les métriques Bitcoin bénéficient de quinze ans d'historique et d'une base de détenteurs immense ; la plupart des altcoins ont des données courtes, des offres concentrées entre quelques fondateurs et fonds, et des mécanismes (staking, burns, unlocks) qui brouillent les signaux. Sur les altcoins, l'indicateur le plus fiable reste le calendrier des déblocages de tokens : des millions de tokens qui se déverrouillent, c'est une pression vendeuse programmée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le cycle de 4 ans va-t-il continuer ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Personne ne le sait, et méfie-toi de quiconque l'affirme. Les arguments pour : la mécanique du halving demeure, et la psychologie des foules ne change pas. Les arguments contre : trois observations ne font pas une loi, l'amplitude décroît à chaque cycle, et les flux institutionnels (ETF, trésoreries) obéissent à la liquidité macro plus qu'au calendrier Bitcoin. La position raisonnable : utiliser les phases comme grille de lecture des données présentes, sans dater le futur."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où consulter les indicateurs on-chain gratuitement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les grandes plateformes d'analyse on-chain proposent des versions gratuites couvrant MVRV, réserves d'exchanges et offre dormante ; les agrégateurs de prix affichent la dominance Bitcoin ; les plateformes de dérivés publient les funding rates. Une recherche du nom de l'indicateur suffit à trouver plusieurs sources. La version payante n'apporte rien d'indispensable à un investisseur de long terme qui consulte une fois par trimestre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il vendre toute sa crypto quand le MVRV dépasse 3 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non : aucun seuil ne déclenche mécaniquement quoi que ce soit, d'autant que les niveaux extrêmes se décalent à mesure que le marché mûrit. La bonne pratique, c'est le plan par paliers écrit à l'avance : par exemple, alléger progressivement par tranches quand plusieurs indicateurs d'euphorie s'allument ensemble (MVRV élevé, funding extrême, dominance en chute, entourage qui s'y met). Tu ne vendras jamais au sommet exact, et ce n'est pas le but : le but est de ne pas faire l'aller-retour complet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'analyse on-chain remplace-t-elle le DCA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non, elle le complète. Le DCA reste la colonne vertébrale : il neutralise ton pire ennemi (toi-même) et fonctionne sans aucune prévision. L'on-chain intervient à la marge, pour moduler l'intensité aux extrêmes du cycle et structurer des prises de profit. Un investisseur qui fait un DCA simple sans jamais regarder un graphique on-chain s'en sortira mieux que celui qui trade au feeling avec tous les indicateurs du monde."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .dca-table-scroll .compare-table { margin: 0; min-width: 620px; }
+
+    /* ── Simulateur DCA (scoped) ── */
+    .simulator-block {
+      --s-navy: #1A1A4E;
+      --s-lav: #C8B4E8;
+      --s-mint: #A0E7C5;
+      --s-gold: #F0C040;
+      --s-lav-light: #ede8f8;
+      --s-mint-light: #e6f8f1;
+      background: var(--s-lav-light);
+      border: 1px solid rgba(200,180,232,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 24px 0 16px;
+    }
+    .dca-sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; }
+    @media (max-width: 560px) { .dca-sim-grid { grid-template-columns: 1fr; } }
+    .dca-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--s-navy); font-size: 14px; margin-bottom: 10px; }
+    .dca-field-input { display: flex; align-items: center; gap: 10px; }
+    .dca-field-input input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .dca-field-input input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(26,26,78,0.35); }
+    .dca-field-input input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; }
+    .dca-field-input input[type=number] { width: 92px; padding: 7px 9px; border: 1px solid rgba(200,180,232,0.8); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--s-navy); background: #fff; text-align: right; }
+    .dca-field-input input[type=number]::-webkit-outer-spin-button,
+    .dca-field-input input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+
+    .dca-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    @media (max-width: 560px) { .dca-results { grid-template-columns: 1fr; } }
+    .dca-res { border-radius: var(--radius-md); padding: 16px 18px; text-align: center; }
+    .dca-res-invest { background: #fff; border: 1px solid rgba(200,180,232,0.7); }
+    .dca-res-final { background: linear-gradient(135deg, rgba(200,180,232,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(200,180,232,0.8); }
+    .dca-res-gain { background: var(--s-mint-light); border: 1px solid rgba(160,231,197,0.8); }
+    .dca-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6F6F99; margin-bottom: 8px; }
+    .dca-res-num { font-family: var(--font-head); font-weight: 800; color: var(--s-navy); font-size: clamp(19px,4vw,24px); line-height: 1.15; }
+    .dca-res-gain .dca-res-num { color: #0a8f5b; }
+
+    .dca-chart-wrap { position: relative; height: 320px; margin-top: 26px; background: #fff; border-radius: var(--radius-md); padding: 16px 14px; border: 1px solid rgba(200,180,232,0.5); }
+    @media (max-width: 560px) { .dca-chart-wrap { height: 260px; } }
+    .dca-legal { font-size: 12px; color: #9a9ab0; line-height: 1.6; margin: 16px 0 0; }
+
+    /* ── Étapes numérotées DCA (scoped) ── */
+    .dca-step { display: flex; gap: 16px; margin: 0 0 22px; }
+    .dca-step-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .dca-step-body h3 { margin-top: 4px !important; }
+    .dca-step-body h3 { font-family: var(--font-head); font-size: 17px; color: var(--navy); margin: 4px 0 8px; }
+    .dca-step-body p { margin-bottom: 0; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+  
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Niveau avancé · 14 min de lecture</span>
+        <h1>Analyse on-chain :<br><em>lire les cycles crypto avec des données</em></h1>
+        <p class="article-meta-date">Publié le 3 juillet 2026 · Mis à jour le 3 juillet 2026</p>
+        <p>La blockchain est le seul marché au monde dont le registre complet est public. Plutôt que de scroller des avis contradictoires, apprends à lire directement les données : MVRV, réserves d'exchanges, funding, halving.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Niveau avancé</span>
+        <p>Sur les marchés actions, tu ne sauras jamais qui achète, qui vend, ni à quel prix moyen les détenteurs ont acquis leurs titres. En crypto, si : chaque transaction Bitcoin depuis 2009 est inscrite dans un registre public que n'importe qui peut analyser. C'est ce qu'on appelle l'analyse on-chain, et c'est l'outil qui sépare les investisseurs crypto qui pilotent aux données de ceux qui pilotent à l'émotion.</p>
+        <p>Cet article prolonge le guide <a href="article-bitcoin-2026.html">Bitcoin en 2026</a> et l'article sur le <a href="article-risque-altcoins.html">risque des altcoins</a>. Prérequis assumé : tu sais déjà ce qu'est le Bitcoin, tu en détiens peut-être, et tu veux dépasser le stade du "j'achète parce que ça monte". Rappel préalable non négociable : la crypto reste une poche satellite, 5 à 10 % du patrimoine maximum, jamais l'argent dont tu as besoin.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#principe">Un registre public : ce que ça change</a></li>
+            <li><a href="#cycles">Le cycle de 4 ans et le halving</a></li>
+            <li><a href="#psychologie">Anatomie d'un cycle : les 4 phases</a></li>
+            <li><a href="#indicateurs">Les 5 indicateurs on-chain à connaître</a></li>
+            <li><a href="#tableau-bord">Ton tableau de bord trimestriel</a></li>
+            <li><a href="#limites">Les limites (ETF spot, trésoreries, OTC)</a></li>
+            <li><a href="#strategie">Ce que ça change pour ta stratégie</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="principe">Un registre public : ce que ça change</h2>
+        <p>Chaque bloc de la blockchain Bitcoin contient l'historique complet des mouvements : quelles pièces ont bougé, quand, entre quelles adresses. En agrégeant ces données, on peut reconstituer des informations impossibles à obtenir sur n'importe quel autre marché : le prix d'achat moyen de l'ensemble des détenteurs, l'âge des pièces qui se déplacent, les quantités qui entrent ou sortent des plateformes d'échange.</p>
+        <p>Concrètement, ça permet de répondre à des questions que tout investisseur se pose : les détenteurs de long terme sont-ils en train de vendre ou d'accumuler ? Le marché est-il globalement en profit (euphorie possible) ou en perte (capitulation possible) ? Les pièces affluent-elles vers les exchanges (intention de vente) ou les quittent-elles (conservation) ?</p>
+        <div class="info-box">
+          <strong>Précision utile :</strong> on-chain ne veut pas dire infaillible. Ces indicateurs décrivent le présent avec précision, mais ne prédisent pas l'avenir. Leur valeur, c'est de remplacer "j'ai l'impression que" par "les données montrent que". La décision reste la tienne, et le risque aussi.
+        </div>
+
+        <h2 id="cycles">Le cycle de 4 ans et le halving</h2>
+        <p>Le Bitcoin a une particularité monétaire unique : tous les 210 000 blocs, soit environ quatre ans, la récompense des mineurs est divisée par deux. C'est le <strong>halving</strong> : 50 BTC par bloc en 2009, 25 en 2012, 12,5 en 2016, 6,25 en 2020, 3,125 en 2024. L'offre nouvelle qui arrive chaque jour sur le marché se réduit donc par paliers programmés, jusqu'au dernier bitcoin vers 2140.</p>
+        <p>Historiquement, chaque halving a été suivi, avec 12 à 18 mois de décalage, d'un sommet de cycle : 2013, 2017, 2021. La logique économique est simple : si la demande reste constante alors que l'offre nouvelle se réduit, le prix s'ajuste à la hausse, ce qui attire l'attention, donc de nouveaux acheteurs, jusqu'à l'euphorie, la surchauffe et la correction : 75 à 85 % de baisse à chaque hiver crypto.</p>
+        <p>Trois précautions avant d'extrapoler. Un : <strong>trois cycles complets, c'est un échantillon minuscule</strong> ; aucune loi statistique sérieuse ne se démontre sur trois observations. Deux : l'amplitude décroît de cycle en cycle, à mesure que le marché grossit et se professionnalise ; les multiplications par 100 des débuts appartiennent au passé. Trois : depuis 2024, l'arrivée des ETF spot américains et des acheteurs institutionnels a introduit une demande structurelle qui ne suit pas le calendrier du halving. Le cycle de 4 ans reste une grille de lecture utile, plus une prophétie.</p>
+
+        <h2 id="psychologie">Anatomie d'un cycle : les 4 phases</h2>
+        <div class="ji-figure">
+          <div class="ji-figure-title">Le cycle crypto type et sa psychologie</div>
+          <div class="ji-figure-sub">Quatre phases qui se reconnaissent aux données on-chain, pas au calendrier</div>
+          <svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Les 4 phases du cycle crypto">
+            <line x1="30" y1="235" x2="620" y2="235" stroke="#D8D8E8" stroke-width="1.5"/>
+            <path d="M30,200 C80,205 120,208 160,195 C230,172 280,120 330,60 C355,32 375,28 395,48 C430,88 460,150 510,185 C550,212 590,215 620,210" fill="none" stroke="#1A1A4E" stroke-width="2.5"/>
+            <rect x="40" y="18" width="120" height="22" rx="11" fill="#E6F6EE"/>
+            <text x="100" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#0A7C5C" font-family="sans-serif">1. Accumulation</text>
+            <rect x="195" y="18" width="105" height="22" rx="11" fill="#F2EEFA"/>
+            <text x="247" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#7C3AED" font-family="sans-serif">2. Expansion</text>
+            <rect x="330" y="18" width="95" height="22" rx="11" fill="#FEF3C7"/>
+            <text x="377" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309" font-family="sans-serif">3. Euphorie</text>
+            <rect x="470" y="18" width="120" height="22" rx="11" fill="#FEE2E2"/>
+            <text x="530" y="33" text-anchor="middle" font-size="11" font-weight="700" fill="#DC2626" font-family="sans-serif">4. Capitulation</text>
+            <line x1="100" y1="44" x2="100" y2="200" stroke="#D8D8E8" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="247" y1="44" x2="247" y2="150" stroke="#D8D8E8" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="377" y1="44" x2="377" y2="35" stroke="#D8D8E8" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="530" y1="44" x2="530" y2="195" stroke="#D8D8E8" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="100" y="258" text-anchor="middle" font-size="10.5" fill="#8B8BA8" font-family="sans-serif">MVRV bas · pièces dormantes</text>
+            <text x="300" y="258" text-anchor="middle" font-size="10.5" fill="#8B8BA8" font-family="sans-serif">sorties d'exchanges</text>
+            <text x="440" y="258" text-anchor="middle" font-size="10.5" fill="#8B8BA8" font-family="sans-serif">funding extrême</text>
+            <text x="575" y="258" text-anchor="middle" font-size="10.5" fill="#8B8BA8" font-family="sans-serif">ventes à perte</text>
+          </svg>
+        </div>
+        <p><strong>Phase 1, accumulation.</strong> Le prix stagne loin de son sommet, plus personne n'en parle, les médias ont enterré la crypto pour la énième fois. On-chain : les pièces migrent des mains faibles vers les détenteurs de long terme, la part de l'offre immobile depuis plus d'un an atteint des records. C'est historiquement la meilleure zone d'achat, et la plus inconfortable psychologiquement.</p>
+        <p><strong>Phase 2, expansion.</strong> Le prix franchit ses moyennes de long terme, les premiers gros titres reviennent. On-chain : les réserves des exchanges baissent (on retire pour conserver), les nouveaux entrants arrivent progressivement.</p>
+        <p><strong>Phase 3, euphorie.</strong> Records historiques, ton entourage t'en parle, les altcoins exotiques font ×10. On-chain : le MVRV s'envole, les détenteurs de long terme distribuent massivement aux nouveaux venus, le funding des contrats à terme atteint des niveaux absurdes. Zone de prise de profits, précisément quand tout te pousse à faire l'inverse.</p>
+        <p><strong>Phase 4, capitulation.</strong> Baisse de 70 % et plus, faillites en cascade, articles nécrologiques. On-chain : ventes à perte record, les pièces changent de main à prix bradés. Le cycle peut recommencer.</p>
+        <p>Tu reconnais la mécanique décrite dans l'article sur la <a href="article-psychologie-investisseur.html">psychologie de l'investisseur</a> : le cycle crypto, c'est le cycle émotionnel de n'importe quel marché, amplifié par la volatilité et l'absence de valeur d'ancrage. L'on-chain sert justement à objectiver ce que l'émotion déforme.</p>
+
+        <h2 id="indicateurs">Les 5 indicateurs on-chain à connaître</h2>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Indicateur</th><th>Ce qu'il mesure</th><th>Lecture simplifiée</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>MVRV</strong></td><td>Prix de marché ÷ prix d'achat moyen de toutes les pièces</td><td class="yes">Sous 1 : marché en perte, zones d'accumulation historiques. Au-dessus de 3 : surchauffe.</td></tr>
+            <tr><td><strong>Réserves des exchanges</strong></td><td>Quantité de BTC déposée sur les plateformes</td><td class="yes">En baisse : on retire pour garder (haussier). En forte hausse : intention de vente.</td></tr>
+            <tr><td><strong>Offre dormante 1 an+</strong></td><td>Part des pièces immobiles depuis plus d'un an</td><td class="yes">Record en phase d'accumulation ; chute quand les anciens distribuent au sommet.</td></tr>
+            <tr><td><strong>Funding rates</strong></td><td>Ce que paient les positions à effet de levier sur les contrats perpétuels</td><td class="mid">Très positif : levier acheteur excessif, purge probable. Négatif : peur, souvent contrarien.</td></tr>
+            <tr><td><strong>Dominance Bitcoin</strong></td><td>Part du BTC dans la capitalisation crypto totale</td><td class="mid">En baisse rapide : l'argent se disperse vers les altcoins, marqueur de fin de cycle.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Détaillons les deux plus importants.</p>
+        <p><strong>Le MVRV (Market Value to Realized Value)</strong> est le ratio le plus célèbre de l'on-chain, et pour cause : il compare le prix actuel au prix d'achat moyen réel de toutes les pièces en circulation (chaque pièce comptée à son dernier prix de mouvement). MVRV à 2 : le détenteur moyen a doublé sa mise, la tentation de vendre grandit. MVRV sous 1 : le marché entier est en moins-value latente, historiquement les meilleures zones d'achat de chaque cycle (2015, 2018, 2022). C'est l'équivalent crypto du "prix sur valeur comptable" : imparfait, mais redoutablement informatif aux extrêmes.</p>
+        <p><strong>Les funding rates</strong> mesurent la température du casino : sur les contrats perpétuels, quand les acheteurs à levier dominent, ils paient les vendeurs toutes les huit heures, et inversement. Un funding durablement extrême signale un marché saturé de levier dans un sens, et ces excès se purgent presque toujours par une cascade de liquidations. Pour un investisseur de long terme, c'est surtout un indicateur de prudence : n'achète pas agressivement quand le funding est euphorique.</p>
+        <div class="warning-box">
+          <strong>Anti-mode d'emploi :</strong> ces indicateurs ne servent PAS à trader au quotidien. Utilisés à la semaine ou au mois, ils décrivent le régime du marché. Utilisés à l'heure, ils produisent du bruit et des mauvaises décisions. Si un influenceur te vend des "signaux on-chain" pour day trading, tu sais à quoi t'en tenir.
+        </div>
+
+        <h2 id="tableau-bord">Ton tableau de bord trimestriel (gratuit)</h2>
+        <p>Pas besoin d'abonnement à 40 € par mois. Les plateformes d'analyse on-chain grand public offrent gratuitement les graphiques essentiels : MVRV, réserves d'exchanges, offre dormante. Une recherche "bitcoin MVRV chart" te donne plusieurs sources fiables ; les funding rates sont publiés par les grandes plateformes de dérivés, et la dominance Bitcoin figure sur tous les agrégateurs de prix.</p>
+        <p>La routine que je te propose, quinze minutes par trimestre, dans le même esprit que le tableau de bord macro de l'article sur le <a href="article-quantitative-easing.html">quantitative easing</a> :</p>
+        <ol>
+          <li>Note le MVRV : sous 1, entre 1 et 2,5, ou au-dessus de 3 ?</li>
+          <li>Regarde la tendance des réserves d'exchanges sur 6 mois : sortie ou entrée ?</li>
+          <li>Vérifie le funding : calme, chaud, ou extrême ?</li>
+          <li>Note la dominance BTC : stable ou en chute libre ?</li>
+          <li>Croise avec le contexte de liquidité macro (bilan Fed, taux réels) : la crypto reste un actif de liquidité, comme vu dans l'article QE.</li>
+        </ol>
+        <p>Ces cinq lignes te placent dans une des quatre phases du cycle avec une fiabilité très supérieure à n'importe quel fil d'actualité. Ce que tu en fais relève de ta stratégie, pas de l'outil : on y vient.</p>
+
+        <h2 id="limites">Les limites : ETF spot, trésoreries et OTC</h2>
+        <p>L'analyse on-chain a perdu une partie de sa pureté depuis 2024, et il faut le savoir pour ne pas surinterpréter.</p>
+        <p><strong>Les ETF spot</strong> détiennent désormais une part significative de l'offre Bitcoin pour le compte de millions d'investisseurs traditionnels. Ces pièces, stockées chez quelques conservateurs, apparaissent on-chain comme immobiles alors que leurs propriétaires économiques achètent et vendent des parts d'ETF tous les jours en bourse. Une partie du signal "offre dormante" est donc structurellement gonflée.</p>
+        <p><strong>Les trésoreries d'entreprises et les États</strong> qui accumulent du Bitcoin créent des poches géantes qui ne réagissent à aucun cycle psychologique classique.</p>
+        <p><strong>Les transactions OTC</strong> (de gré à gré, entre institutions) échappent aux carnets d'ordres des exchanges : les flux visibles ne représentent qu'une partie du marché réel.</p>
+        <p>Conclusion pratique : les indicateurs on-chain restent pertinents aux extrêmes (euphorie et capitulation se voient toujours), mais leurs seuils historiques se décalent à mesure que le marché s'institutionnalise. Compare chaque indicateur à ses valeurs récentes, pas aux niveaux de 2017.</p>
+
+        <h2 id="strategie">Ce que ça change pour ta stratégie (et ce que ça ne change pas)</h2>
+        <p>Reprenons la doctrine crypto de ce site, qu'aucun indicateur ne modifie : une poche satellite de 5 à 10 % maximum, majoritairement en Bitcoin (et Ethereum pour les convaincus), constituée en <a href="article-dca.html">DCA</a>, sécurisée en <a href="article-acheter-securiser-crypto.html">self-custody ou sur une plateforme sérieuse</a>, avec une fiscalité anticipée (voir <a href="article-fiscalite-crypto.html">fiscalité crypto</a> : flat tax de 31,4 % en 2026 à la conversion en euros).</p>
+        <p>Ce que l'on-chain peut raisonnablement ajouter à ce socle :</p>
+        <p><strong>Moduler ton DCA aux extrêmes.</strong> Même budget crypto annuel, mais réparti intelligemment : renforcer quand le MVRV est sous 1 et que plus personne n'y croit, ralentir quand il dépasse 3 et que ton coiffeur te parle d'altcoins. Attention : moduler, pas interrompre ni all-in.</p>
+        <p><strong>Structurer tes prises de profit.</strong> Le plus grand échec des investisseurs crypto n'est pas d'acheter trop haut, c'est de ne jamais vendre : les gains de 2021 partis en fumée en 2022 en témoignent. Définis à froid des paliers de vente par tranches (par exemple 10 à 20 % de la position à mesure que les indicateurs d'euphorie s'allument), et tiens-les. L'on-chain te donne les déclencheurs objectifs que l'émotion refusera de voir.</p>
+        <p><strong>Filtrer le bruit des altcoins.</strong> Quand la dominance BTC s'effondre et que des projets sans usage font ×20, l'histoire des cycles précédents est claire : c'est la fin de partie qui approche, pas le début. Les données t'évitent le FOMO de dernière minute, statistiquement le plus coûteux, comme détaillé dans l'article sur le <a href="article-risque-altcoins.html">risque des altcoins</a>.</p>
+        <p class="broker-cards-intro">Pour appliquer tout ça, il te faut une plateforme fiable pour le DCA et les prises de profit, et idéalement un wallet pour la conservation de long terme :</p>
+<div class="broker-cards" style="grid-template-columns:repeat(3,1fr);">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · App simple</span>
+              <div class="broker-card-logo"><img src="images/logo-swissborg.png" alt="SwissBorg" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">SwissBorg</div>
+            <div class="broker-card-tagline">Application crypto suisse, idéale pour débuter simplement</div>
+            <ul class="broker-card-pros">
+              <li>Interface intuitive, achat en 1 clic</li>
+              <li>Smart Yield sur cryptos et stables</li>
+              <li>Régulé en Europe</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Moins de tokens que Binance</li>
+            </ul>
+            <a href="https://swissborg.com/fr/r/julienOI6QETY8" target="_blank" rel="sponsored noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · N°1 mondial</span>
+              <div class="broker-card-logo"><img src="images/logo-binance.png" alt="Binance" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Binance</div>
+            <div class="broker-card-tagline">La plus grande plateforme crypto par volume, des milliers d'actifs</div>
+            <ul class="broker-card-pros">
+              <li>350+ cryptomonnaies disponibles</li>
+              <li>Frais très compétitifs (0,1%)</li>
+              <li>Staking et revenus passifs</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Interface dense pour débutants</li>
+            </ul>
+            <a href="https://accounts.binance.com/register?ref=105787577" target="_blank" rel="sponsored noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+          <div class="broker-card">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Crypto · Coté en bourse</span>
+              <div class="broker-card-logo"><img src="images/logo-coinbase.png" alt="Coinbase" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Coinbase</div>
+            <div class="broker-card-tagline">L'exchange américain coté en bourse, interface très simple</div>
+            <ul class="broker-card-pros">
+              <li>Idéal pour un premier achat</li>
+              <li>Société cotée, forte transparence</li>
+              <li>Application très épurée</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Frais un peu plus élevés</li>
+            </ul>
+            <a href="https://coinbase.com/join/H5PGLAG?src=ios-link" target="_blank" rel="sponsored noopener noreferrer" class="broker-card-cta">Ouvrir le compte →</a>
+          </div>
+        </div>
+        <p class="broker-cards-note" style="font-size:12px; color:var(--grey-3); font-style:italic; margin:-18px 0 32px; line-height:1.6;">Transparence : les boutons de cette section utilisent des liens ou codes partenaires. Si tu ouvres un compte en passant par eux, je touche une commission, sans surcoût pour toi. C'est ce qui finance le contenu gratuit du site.</p>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_ONCHAIN par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_ONCHAIN = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_ONCHAIN && VIDEO_ID_ONCHAIN!=="VIDEO_ID";
+            if(!has){ return; }
+            if(soon) soon.style.display='none';
+            function play(){
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ONCHAIN+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <!-- À retenir -->
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ À retenir</div>
+          <ul class="article-takeaway-list">
+            <li>La blockchain est un registre public : prix d'achat moyen des détenteurs, flux vers les exchanges et âge des pièces sont mesurables, pas devinés.</li>
+            <li>5 indicateurs suffisent : MVRV, réserves d'exchanges, offre dormante 1 an+, funding rates, dominance BTC. Quinze minutes par trimestre.</li>
+            <li>Le cycle de 4 ans est une grille de lecture, pas une prophétie : trois observations ne font pas une loi, et les ETF spot changent la donne.</li>
+            <li>L'usage intelligent : moduler ton DCA aux extrêmes et déclencher des prises de profit par paliers décidés à froid.</li>
+            <li>La doctrine ne change pas : crypto = satellite de 5 à 10 % maximum, sécurisé, avec la fiscalité anticipée.</li>
+          </ul>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>L'analyse on-chain fonctionne-t-elle pour les altcoins ?</summary>
+            <p>En théorie oui pour les blockchains transparentes, en pratique beaucoup moins bien. Les métriques Bitcoin bénéficient de quinze ans d'historique et d'une base de détenteurs immense ; la plupart des altcoins ont des données courtes, des offres concentrées entre quelques fondateurs et fonds, et des mécanismes (staking, burns, unlocks) qui brouillent les signaux. Sur les altcoins, l'indicateur le plus fiable reste le calendrier des déblocages de tokens : des millions de tokens qui se déverrouillent, c'est une pression vendeuse programmée.</p>
+          </details>
+          <details>
+            <summary>Le cycle de 4 ans va-t-il continuer ?</summary>
+            <p>Personne ne le sait, et méfie-toi de quiconque l'affirme. Les arguments pour : la mécanique du halving demeure, et la psychologie des foules ne change pas. Les arguments contre : trois observations ne font pas une loi, l'amplitude décroît à chaque cycle, et les flux institutionnels (ETF, trésoreries) obéissent à la liquidité macro plus qu'au calendrier Bitcoin. La position raisonnable : utiliser les phases comme grille de lecture des données présentes, sans dater le futur.</p>
+          </details>
+          <details>
+            <summary>Où consulter les indicateurs on-chain gratuitement ?</summary>
+            <p>Les grandes plateformes d'analyse on-chain proposent des versions gratuites couvrant MVRV, réserves d'exchanges et offre dormante ; les agrégateurs de prix affichent la dominance Bitcoin ; les plateformes de dérivés publient les funding rates. Une recherche du nom de l'indicateur suffit à trouver plusieurs sources. La version payante n'apporte rien d'indispensable à un investisseur de long terme qui consulte une fois par trimestre.</p>
+          </details>
+          <details>
+            <summary>Faut-il vendre toute sa crypto quand le MVRV dépasse 3 ?</summary>
+            <p>Non : aucun seuil ne déclenche mécaniquement quoi que ce soit, d'autant que les niveaux extrêmes se décalent à mesure que le marché mûrit. La bonne pratique, c'est le plan par paliers écrit à l'avance : par exemple, alléger progressivement par tranches quand plusieurs indicateurs d'euphorie s'allument ensemble (MVRV élevé, funding extrême, dominance en chute, entourage qui s'y met). Tu ne vendras jamais au sommet exact, et ce n'est pas le but : le but est de ne pas faire l'aller-retour complet.</p>
+          </details>
+          <details>
+            <summary>L'analyse on-chain remplace-t-elle le DCA ?</summary>
+            <p>Non, elle le complète. Le DCA reste la colonne vertébrale : il neutralise ton pire ennemi (toi-même) et fonctionne sans aucune prévision. L'on-chain intervient à la marge, pour moduler l'intensité aux extrêmes du cycle et structurer des prises de profit. Un investisseur qui fait un DCA simple sans jamais regarder un graphique on-chain s'en sortira mieux que celui qui trade au feeling avec tous les indicateurs du monde.</p>
+          </details>
+        </div>
+
+        <div class="article-cta">
+          <h2>Intègre la crypto proprement dans ton patrimoine</h2>
+          <p>La formation De 0 à Investisseur replace la crypto à sa juste place : une brique satellite d'une stratégie patrimoniale complète, avec méthode et sans FOMO.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Articles liés -->
+        <div class="article-related">
+          <div class="article-related-title">Pour aller plus loin</div>
+          <div class="article-related-grid">
+            <a href="article-bitcoin-2026.html" class="article-related-card">
+              <span class="article-related-tag">Crypto</span>
+              <span class="article-related-name">Bitcoin en 2026 : le guide complet</span>
+              <span class="article-related-meta">15 min de lecture</span>
+            </a>
+            <a href="article-risque-altcoins.html" class="article-related-card">
+              <span class="article-related-tag">Crypto</span>
+              <span class="article-related-name">Altcoins : comprendre le vrai risque</span>
+              <span class="article-related-meta">11 min de lecture</span>
+            </a>
+            <a href="article-quantitative-easing.html" class="article-related-card">
+              <span class="article-related-tag">Niveau avancé</span>
+              <span class="article-related-name">Fed, BCE et quantitative easing</span>
+              <span class="article-related-meta">14 min de lecture</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+
+</body>
+</html>

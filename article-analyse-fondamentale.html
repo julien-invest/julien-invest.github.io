@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyse fondamentale : évaluer une action (guide)</title>
+  <meta name="description" content="PER, ROIC, free cash flow, DCF pas à pas et simulateur : la méthode complète pour estimer la valeur réelle d'une action avant d'acheter. Guide avancé.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Analyse fondamentale : évaluer une action (guide)">
+  <meta property="og:description" content="PER, ROIC, free cash flow, DCF pas à pas et simulateur : la méthode complète pour estimer la valeur réelle d'une action avant d'acheter. Guide avancé.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <meta property="article:published_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-03T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-analyse-fondamentale.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Analyse fondamentale : évaluer une action (guide)">
+  <meta name="twitter:description" content="La méthode complète pour évaluer une action : ratios, moat, DCF et marge de sécurité.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og-cover.png">
+  <link rel="canonical" href="https://julien-invest.github.io/article-analyse-fondamentale.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Analyse fondamentale : évaluer une action comme un professionnel",
+  "description": "PER, ROIC, free cash flow, DCF pas à pas et simulateur : la méthode complète pour estimer la valeur réelle d'une action avant d'acheter. Guide avancé.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julien-invest.github.io"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://julien-invest.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://julien-invest.github.io/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Analyse fondamentale : évaluer une action comme un professionnel",
+      "item": "https://julien-invest.github.io/article-analyse-fondamentale.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quelle différence entre analyse fondamentale et analyse technique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'analyse fondamentale étudie l'entreprise (comptes, business, concurrence) pour estimer sa valeur ; l'analyse technique étudie le graphique du cours pour deviner la psychologie des acheteurs et vendeurs. La recherche académique est claire : sur le long terme, les résultats de l'analyse technique seule sont indiscernables du hasard, alors que les stratégies fondamentales disciplinées (value, quality) ont historiquement généré des primes. Pour un particulier, le fondamental est le seul terrain de jeu sérieux."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où trouver les données financières gratuitement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les rapports annuels sur le site investisseurs de chaque société restent la source primaire. Pour les données compilées sur 10 ans (chiffre d'affaires, marges, FCF, ROIC), les grands portails financiers gratuits suffisent largement pour un premier filtre. L'important n'est pas d'avoir un terminal professionnel, c'est de vérifier les 6 ratios clés et leur tendance sur une décennie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un PER élevé disqualifie-t-il forcément une action ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le PER se lit toujours relativement à la croissance et à la qualité. Une entreprise qui compose son FCF à 15 % par an avec un ROIC de 25 % peut mériter un PER de 30, pendant qu'un groupe en déclin ne mérite pas son PER de 8. C'est tout le sens du DCF : il transforme croissance, rentabilité et risque en une valeur comparable au prix, ce qu'aucun ratio isolé ne fait."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'actions individuelles faut-il détenir ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si tu suis l'approche cœur-satellite recommandée ici (90 % d'indiciel, 10 % de convictions), 3 à 8 positions suffisent. En dessous, un accident isolé pèse trop lourd sur ta poche conviction ; au-dessus, tu n'as plus le temps de suivre sérieusement chaque dossier, et tu as recréé un ETF avec plus de frais et plus d'impôts. Chaque position doit pouvoir être suivie : un rapport annuel et quatre publications trimestrielles par an et par ligne."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le DCF fonctionne-t-il pour toutes les entreprises ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Il exige des flux de trésorerie positifs et raisonnablement prévisibles. Il fonctionne bien pour les entreprises matures et rentables (consommation, logiciels installés, industrie de qualité), mal pour les banques (structure de bilan particulière, on utilise plutôt l'actif net), les biotechs sans revenus ou les cycliques pures dont les flux font le yoyo. Si tu ne peux pas estimer le FCF dans 5 ans avec un minimum de confiance, le dossier n'est simplement pas analysable, et ce n'est pas grave : le meilleur réflexe du fondamentaliste, c'est de dire \"trop difficile\" et de passer au suivant."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Tableau large : défilement horizontal sur petit écran ── */
+    .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .dca-table-scroll .compare-table { margin: 0; min-width: 620px; }
+
+    /* ── Simulateur DCA (scoped) ── */
+    .simulator-block {
+      --s-navy: #1A1A4E;
+      --s-lav: #C8B4E8;
+      --s-mint: #A0E7C5;
+      --s-gold: #F0C040;
+      --s-lav-light: #ede8f8;
+      --s-mint-light: #e6f8f1;
+      background: var(--s-lav-light);
+      border: 1px solid rgba(200,180,232,0.6);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      margin: 24px 0 16px;
+    }
+    .dca-sim-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 26px; }
+    @media (max-width: 560px) { .dca-sim-grid { grid-template-columns: 1fr; } }
+    .dca-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-weight: 700; color: var(--s-navy); font-size: 14px; margin-bottom: 10px; }
+    .dca-field-input { display: flex; align-items: center; gap: 10px; }
+    .dca-field-input input[type=range] { -webkit-appearance: none; appearance: none; flex: 1; height: 6px; border-radius: 100px; background: #fff; outline: none; }
+    .dca-field-input input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(26,26,78,0.35); }
+    .dca-field-input input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border-radius: 50%; background: var(--s-navy); cursor: pointer; border: 3px solid #fff; }
+    .dca-field-input input[type=number] { width: 92px; padding: 7px 9px; border: 1px solid rgba(200,180,232,0.8); border-radius: 8px; font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--s-navy); background: #fff; text-align: right; }
+    .dca-field-input input[type=number]::-webkit-outer-spin-button,
+    .dca-field-input input[type=number]::-webkit-inner-spin-button { opacity: 1; }
+
+    .dca-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 26px; }
+    @media (max-width: 560px) { .dca-results { grid-template-columns: 1fr; } }
+    .dca-res { border-radius: var(--radius-md); padding: 16px 18px; text-align: center; }
+    .dca-res-invest { background: #fff; border: 1px solid rgba(200,180,232,0.7); }
+    .dca-res-final { background: linear-gradient(135deg, rgba(200,180,232,0.35), rgba(160,231,197,0.30)); border: 1px solid rgba(200,180,232,0.8); }
+    .dca-res-gain { background: var(--s-mint-light); border: 1px solid rgba(160,231,197,0.8); }
+    .dca-res-lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6F6F99; margin-bottom: 8px; }
+    .dca-res-num { font-family: var(--font-head); font-weight: 800; color: var(--s-navy); font-size: clamp(19px,4vw,24px); line-height: 1.15; }
+    .dca-res-gain .dca-res-num { color: #0a8f5b; }
+
+    .dca-chart-wrap { position: relative; height: 320px; margin-top: 26px; background: #fff; border-radius: var(--radius-md); padding: 16px 14px; border: 1px solid rgba(200,180,232,0.5); }
+    @media (max-width: 560px) { .dca-chart-wrap { height: 260px; } }
+    .dca-legal { font-size: 12px; color: #9a9ab0; line-height: 1.6; margin: 16px 0 0; }
+
+    /* ── Étapes numérotées DCA (scoped) ── */
+    .dca-step { display: flex; gap: 16px; margin: 0 0 22px; }
+    .dca-step-num { flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--lavender), var(--mint)); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; }
+    .dca-step-body h3 { margin-top: 4px !important; }
+    .dca-step-body h3 { font-family: var(--font-head); font-size: 17px; color: var(--navy); margin: 4px 0 8px; }
+    .dca-step-body p { margin-bottom: 0; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: linear-gradient(135deg,#1A1A4E 0%,#1E2A5E 100%); border-radius: 12px; padding: 18px; text-decoration: none; display: flex; flex-direction: column; gap: 8px; transition: transform .15s, box-shadow .15s; }
+    .article-related-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,26,78,0.22); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; color: #A0E7C5; }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: #fff; line-height: 1.45; flex: 1; }
+    .article-related-meta { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); font-weight: 600; margin-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+  
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 18px; padding: 28px; margin: 32px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-field { margin-bottom: 18px; }
+    .ji-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .ji-field-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 8px; }
+    @media (max-width: 560px) { .ji-results2 { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 18px; text-align: center; }
+    .ji-res-card .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-3); }
+    .ji-res-card .amt { font-family: var(--font-head); font-weight: 800; font-size: 26px; color: var(--navy); margin-top: 6px; }
+    .ji-res-card.bank { border-top: 3px solid #DC2626; }
+    .ji-res-card.deleg { border-top: 3px solid #059669; }
+    .ji-econo { background: linear-gradient(135deg,#1A1A4E,#1E2A5E); color: #fff; border-radius: 14px; padding: 20px; text-align: center; margin-top: 14px; }
+    .ji-econo .lbl { font-family: var(--font-head); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #A0E7C5; }
+    .ji-econo .amt { font-family: var(--font-head); font-weight: 800; font-size: 32px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li><a href="parrainage.html" class="nav-link">Parrainages</a></li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li><a href="parrainage.html">Parrainages</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Niveau avancé · 15 min de lecture</span>
+        <h1>Analyse fondamentale :<br><em>évaluer une action comme un pro</em></h1>
+        <p class="article-meta-date">Publié le 3 juillet 2026 · Mis à jour le 3 juillet 2026</p>
+        <p>Acheter une action sans l'avoir évaluée, c'est acheter une maison sans la visiter. Ratios, qualité du business, DCF et marge de sécurité : la méthode complète, avec un simulateur pour l'appliquer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Niveau avancé</span>
+        <p>Sur ce site, on le répète depuis le premier article : pour 90 % des gens, un ETF World en DCA bat toutes les autres stratégies. L'article sur le <a href="article-stock-picking.html">stock picking</a> explique pourquoi. Mais si tu fais partie de ceux qui consacrent un budget conviction de 5 à 10 % de leur portefeuille à des actions individuelles, alors autant le faire sérieusement. Et sérieusement, ça veut dire : ne jamais acheter une action sans avoir estimé ce qu'elle vaut.</p>
+        <p>Ce guide te donne la méthode complète des analystes professionnels, ramenée à ce qu'un particulier exigeant peut réellement appliquer : lire les comptes, calculer les bons ratios, évaluer la qualité du business, estimer une valeur intrinsèque par DCF, et exiger une marge de sécurité. Avec un simulateur pour pratiquer.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#philosophie">Prix et valeur : la distinction fondatrice</a></li>
+            <li><a href="#comptes">Lire les 3 états financiers en 15 minutes</a></li>
+            <li><a href="#ratios">Les 6 ratios qui comptent vraiment</a></li>
+            <li><a href="#qualite">Mesurer la qualité : moat et ROIC</a></li>
+            <li><a href="#dcf">Le DCF pas à pas, sur un exemple</a></li>
+            <li><a href="#simulateur">Simulateur : estime ta valeur intrinsèque</a></li>
+            <li><a href="#marge">Marge de sécurité et pièges classiques</a></li>
+            <li><a href="#process">La checklist complète et la place en portefeuille</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="philosophie">Prix et valeur : la distinction fondatrice</h2>
+        <p>Toute l'analyse fondamentale repose sur une idée de Benjamin Graham, le mentor de Warren Buffett : <strong>le prix est ce que tu paies, la valeur est ce que tu obtiens</strong>. Le prix d'une action change toutes les secondes au gré des humeurs du marché. Sa valeur, elle, dépend d'une seule chose : la quantité de cash que l'entreprise va générer pour ses actionnaires d'ici sa fin de vie.</p>
+        <p>À court terme, prix et valeur peuvent diverger énormément : euphorie, panique, modes sectorielles, flux passifs. À long terme, ils convergent toujours, parce qu'une entreprise qui génère du cash finit par le reverser (dividendes, rachats d'actions) ou par attirer un acheteur. Le métier de l'investisseur fondamental tient donc en une phrase : <strong>estimer la valeur, et n'acheter que quand le prix est nettement en dessous</strong>.</p>
+        <div class="ji-figure">
+          <div class="ji-figure-title">Prix de marché contre valeur intrinsèque</div>
+          <div class="ji-figure-sub">Le prix oscille autour de la valeur, l'écart crée l'opportunité (ou le danger)</div>
+          <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Courbes prix contre valeur intrinsèque">
+            <line x1="40" y1="220" x2="620" y2="220" stroke="#D8D8E8" stroke-width="1.5"/>
+            <path d="M40,170 C120,160 200,150 300,135 C420,118 540,105 620,95" fill="none" stroke="#1A1A4E" stroke-width="2.5"/>
+            <path d="M40,190 C70,140 100,120 130,150 C160,185 190,200 220,170 C250,140 270,90 310,95 C350,100 370,160 410,165 C450,170 480,110 520,95 C560,82 590,60 620,55" fill="none" stroke="#9F7AEA" stroke-width="2" stroke-dasharray="5 4"/>
+            <circle cx="130" cy="150" r="5" fill="#059669"/>
+            <text x="130" y="135" text-anchor="middle" font-size="10.5" font-weight="700" fill="#059669" font-family="sans-serif">sous-évaluée</text>
+            <circle cx="310" cy="95" r="5" fill="#DC2626"/>
+            <text x="310" y="80" text-anchor="middle" font-size="10.5" font-weight="700" fill="#DC2626" font-family="sans-serif">surévaluée</text>
+            <text x="560" y="120" text-anchor="middle" font-size="11" font-weight="700" fill="#1A1A4E" font-family="sans-serif">valeur intrinsèque</text>
+            <text x="565" y="45" text-anchor="middle" font-size="11" font-weight="700" fill="#9F7AEA" font-family="sans-serif">prix de marché</text>
+          </svg>
+        </div>
+
+        <h2 id="comptes">Lire les 3 états financiers en 15 minutes</h2>
+        <p>Tout est public : chaque société cotée publie ses comptes trimestriels et annuels (rubrique "Investors" de son site, ou rapport annuel universel sur le site de l'AMF pour les françaises). Trois documents, trois questions.</p>
+        <p><strong>Le compte de résultat</strong> répond à : l'activité est-elle rentable ? Tu y descends du chiffre d'affaires au résultat net, en passant par la marge brute et la marge opérationnelle. Ce que tu cherches : des marges stables ou croissantes sur 5 à 10 ans. Une marge qui s'érode année après année raconte une entreprise qui perd son pouvoir de fixation des prix.</p>
+        <p><strong>Le bilan</strong> répond à : l'entreprise peut-elle mourir ? Tu y compares la dette financière à ce que l'entreprise génère (on y revient avec le ratio dette/EBITDA) et tu vérifies la trésorerie disponible. Une entreprise formidable avec trop de dettes reste un investissement dangereux : en cas de coup dur, ce sont les créanciers qui décident, pas les actionnaires.</p>
+        <p><strong>Le tableau de flux de trésorerie</strong> répond à la question reine : combien de cash <em>réel</em> sort de la machine ? Le résultat net est une opinion comptable (amortissements, provisions, éléments exceptionnels) ; le flux de trésorerie est un fait. La ligne clé s'appelle le <strong>free cash flow</strong> (FCF) : le cash généré par l'exploitation, moins les investissements nécessaires pour maintenir et développer l'activité. C'est lui qu'on actualisera dans le DCF.</p>
+        <div class="info-box">
+          <strong>Raccourci pratique :</strong> des sites gratuits comme les pages "financials" des grands portails boursiers compilent ces données sur 10 ans en deux clics. Tu n'as pas besoin d'éplucher 300 pages de rapport annuel pour commencer : chiffre d'affaires, marge opérationnelle, FCF, dette nette et nombre d'actions suffisent pour un premier tri.
+        </div>
+
+        <h2 id="ratios">Les 6 ratios qui comptent vraiment</h2>
+        <p>Il existe des dizaines de ratios. Six suffisent pour couvrir la valorisation, la rentabilité et le risque. Les seuils indiqués sont des ordres de grandeur pour des entreprises matures : chaque secteur a ses spécificités.</p>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead>
+            <tr><th>Ratio</th><th>Formule</th><th>Ce qu'il mesure</th><th>Ordre de grandeur sain</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>PER</strong></td><td>Prix ÷ bénéfice par action</td><td>Combien d'années de profits tu paies</td><td class="yes">10 à 20 (marché ~17)</td></tr>
+            <tr><td><strong>P/FCF</strong></td><td>Capitalisation ÷ free cash flow</td><td>Comme le PER, mais sur le cash réel</td><td class="yes">Moins de 20-25</td></tr>
+            <tr><td><strong>EV/EBITDA</strong></td><td>Valeur d'entreprise ÷ EBITDA</td><td>Valorisation en intégrant la dette</td><td class="yes">8 à 14</td></tr>
+            <tr><td><strong>ROIC</strong></td><td>Résultat opérationnel après impôt ÷ capital investi</td><td>La rentabilité de chaque euro investi dans la machine</td><td class="yes">Plus de 10 %, durablement</td></tr>
+            <tr><td><strong>Marge nette</strong></td><td>Résultat net ÷ chiffre d'affaires</td><td>Ce qui reste sur chaque euro vendu</td><td class="mid">Stable ou croissante, selon secteur</td></tr>
+            <tr><td><strong>Dette nette/EBITDA</strong></td><td>Dette moins trésorerie ÷ EBITDA</td><td>Combien d'années pour rembourser</td><td class="yes">Moins de 2,5</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Trois pièges d'interprétation. Un : <strong>un ratio ne se lit jamais seul</strong>, mais comparé à l'historique de l'entreprise et à ses concurrents directs. Un PER de 25 est cher pour une banque, banal pour un éditeur de logiciels en croissance. Deux : <strong>méfie-toi des PER très bas</strong> ; le marché n'offre pas de cadeaux, un PER de 6 signale presque toujours un problème réel (déclin structurel, dette, cyclicité au sommet). Trois : préfère le <strong>P/FCF au PER</strong> quand les deux divergent, car le bénéfice comptable se manipule plus facilement que le cash.</p>
+
+        <h2 id="qualite">Mesurer la qualité : le moat et le ROIC</h2>
+        <p>Une action pas chère d'une entreprise médiocre reste un investissement médiocre. La deuxième dimension de l'analyse, celle qui a fait la fortune de Buffett, c'est la <strong>qualité du business</strong>, résumée par un mot : le moat, la douve du château. C'est l'avantage structurel qui empêche les concurrents de venir manger les marges.</p>
+        <p>Les cinq moats classiques : <strong>l'effet de réseau</strong> (chaque utilisateur ajoute de la valeur pour les autres : Visa, les places de marché), <strong>les coûts de changement</strong> (quitter le produit coûte cher ou fait peur : logiciels d'entreprise, banques), <strong>la marque</strong> (le pouvoir de vendre plus cher la même chose : luxe, sodas), <strong>l'avantage de coût</strong> (produire moins cher que tous les autres : distribution discount, matières premières bien placées) et <strong>les actifs intangibles</strong> (brevets, licences, agréments réglementaires : pharma, aéronautique).</p>
+        <p>Comment vérifier qu'un moat existe vraiment ? Par le chiffre, pas par le récit : <strong>un ROIC durablement supérieur à 10-15 %</strong> sur dix ans est la preuve comptable qu'un avantage concurrentiel résiste. Sans moat, la concurrence ramène inexorablement le ROIC de toute entreprise vers son coût du capital (8-10 %). Une entreprise qui maintient 20 % de ROIC pendant une décennie possède quelque chose que les concurrents n'arrivent pas à copier.</p>
+        <div class="warning-box">
+          <strong>Le test du récit inversé :</strong> avant d'acheter, écris en trois phrases pourquoi cette entreprise gagnera encore dans dix ans. Puis écris le contre-argument le plus fort. Si tu n'arrives pas à formuler un contre-argument sérieux, tu n'as pas assez travaillé le dossier : toute thèse d'investissement a un revers.
+        </div>
+
+        <h2 id="dcf">Le DCF pas à pas, sur un exemple</h2>
+        <p>Le discounted cash flow est la méthode de valorisation de référence : la valeur d'une entreprise égale la somme de ses free cash flows futurs, actualisés à aujourd'hui. "Actualisés" parce qu'un euro dans dix ans vaut moins qu'un euro aujourd'hui : tu aurais pu placer cet euro entre temps. Voici la version simplifiée à deux phases, celle qu'utilise le simulateur ci-dessous.</p>
+        <p>Prenons une entreprise fictive, SoluTech, dont l'action cote 90 €. Étape par étape :</p>
+        <ol>
+          <li><strong>Point de départ :</strong> SoluTech génère 5 € de free cash flow par action cette année.</li>
+          <li><strong>Phase 1, dix ans de croissance explicite :</strong> tu estimes que le FCF croîtra de 8 % par an pendant 10 ans (historique : 11 %, mais la prudence commande de tabler en dessous du passé). Chaque flux annuel est actualisé au taux exigé.</li>
+          <li><strong>Taux d'actualisation :</strong> 9 %. C'est le rendement que tu exiges pour immobiliser ton argent sur un actif risqué : environ 4 % de taux sans risque plus une prime de risque de 5 %. Plus l'entreprise est fragile ou imprévisible, plus tu montes ce taux.</li>
+            <li><strong>Phase 2, la valeur terminale :</strong> au-delà de 10 ans, on suppose une croissance perpétuelle modeste, disons 2 % (proche de l'inflation) : la valeur terminale vaut FCF de l'année 11 divisé par (taux d'actualisation moins croissance perpétuelle). Elle est ensuite actualisée elle aussi.</li>
+          <li><strong>Résultat :</strong> avec ces hypothèses, la valeur intrinsèque ressort autour de 114 € par action. Face à un prix de 90 €, la marge de sécurité est d'environ 21 % : encourageant, mais encore sous le seuil des 25-30 % qu'on exigera plus bas pour un dossier moyen.</li>
+        </ol>
+        <p>Tu remarqueras l'essentiel : <strong>le DCF ne donne pas LA valeur, il donne TA valeur, conditionnée à tes hypothèses</strong>. Deux analystes sérieux peuvent diverger de 30 % sur le même dossier. C'est précisément pour ça que la marge de sécurité existe : elle absorbe l'incertitude de tes hypothèses.</p>
+
+        <h2 id="simulateur">Simulateur : estime ta valeur intrinsèque</h2>
+        <p>Joue avec les hypothèses et observe à quel point la valeur bouge. C'est la meilleure leçon d'humilité qui existe en finance : deux points de croissance ou un point de taux d'actualisation changent tout.</p>
+        <div class="ji-sim">
+          <div class="ji-sim-title">Simulateur DCF simplifié (2 phases)</div>
+          <div class="ji-sim-sub">10 ans de croissance explicite, puis croissance perpétuelle. Outil pédagogique, pas un conseil d'achat.</div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Free cash flow par action aujourd'hui</span><span class="ji-field-val" id="dcf-fcf-val">5,0 €</span></div>
+            <input type="range" id="dcf-fcf" min="0.5" max="20" step="0.5" value="5">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Croissance annuelle du FCF (10 ans)</span><span class="ji-field-val" id="dcf-g1-val">8 %</span></div>
+            <input type="range" id="dcf-g1" min="0" max="20" step="1" value="8">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Croissance perpétuelle (après 10 ans)</span><span class="ji-field-val" id="dcf-g2-val">2,0 %</span></div>
+            <input type="range" id="dcf-g2" min="0" max="3" step="0.5" value="2">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Taux d'actualisation exigé</span><span class="ji-field-val" id="dcf-r-val">9,0 %</span></div>
+            <input type="range" id="dcf-r" min="6" max="14" step="0.5" value="9">
+          </div>
+          <div class="ji-field">
+            <div class="ji-field-label"><span>Prix actuel de l'action</span><span class="ji-field-val" id="dcf-prix-val">90 €</span></div>
+            <input type="range" id="dcf-prix" min="5" max="300" step="5" value="90">
+          </div>
+          <div class="ji-results2">
+            <div class="ji-res-card deleg">
+              <div class="lbl">Valeur intrinsèque estimée</div>
+              <div class="amt" id="dcf-vi">—</div>
+            </div>
+            <div class="ji-res-card bank">
+              <div class="lbl">Marge de sécurité</div>
+              <div class="amt" id="dcf-marge">—</div>
+            </div>
+          </div>
+          <div class="ji-econo">
+            <div class="lbl">Lecture</div>
+            <div style="font-size:14.5px; line-height:1.6; margin-top:8px;" id="dcf-verdict">—</div>
+          </div>
+        </div>
+
+        <h2 id="marge">Marge de sécurité et pièges classiques</h2>
+        <p>La règle de Graham : n'achète que si le prix est <strong>au moins 25 à 30 % sous ta valeur estimée</strong>. Cette marge n'est pas de la gourmandise, c'est ton assurance contre trois risques : tes hypothèses trop optimistes, les mauvaises surprises de l'entreprise, et l'humeur du marché qui peut rester irrationnelle longtemps.</p>
+        <p>Les trois pièges qui coûtent le plus cher aux investisseurs fondamentaux débutants :</p>
+        <p><strong>La value trap.</strong> Une action à PER 6 avec un beau dividende qui baisse depuis cinq ans n'est pas une opportunité : c'est souvent un business en déclin structurel dont le marché a correctement anticipé l'érosion. Le test : le chiffre d'affaires et le FCF croissent-ils encore ? Si non, le ratio bas est mérité.</p>
+        <p><strong>L'extrapolation de la croissance.</strong> Mettre 15 % de croissance sur 10 ans dans un DCF paraît anodin ; c'est en réalité une hypothèse extraordinaire (multiplication du FCF par 4) que très peu d'entreprises réalisent. La base de données, c'est l'histoire : sur longue période, moins de 5 % des grandes entreprises maintiennent 15 % de croissance sur une décennie.</p>
+        <p><strong>Le biais de confirmation.</strong> Une fois séduit par un dossier, tu ne verras plus que les arguments favorables : c'est documenté dans l'article sur la <a href="article-psychologie-investisseur.html">psychologie de l'investisseur</a>. L'antidote : chercher activement la thèse inverse (les rapports des vendeurs à découvert sont d'excellentes lectures) avant tout achat.</p>
+
+        <h2 id="process">La checklist complète et la place en portefeuille</h2>
+        <p>Le process complet, dossier par dossier, tient en huit points :</p>
+        <ol>
+          <li>Je comprends comment l'entreprise gagne de l'argent (je peux l'expliquer en deux phrases).</li>
+          <li>Chiffre d'affaires et FCF en croissance sur 5-10 ans.</li>
+          <li>ROIC supérieur à 10 % durablement : il y a un moat, et je sais lequel.</li>
+          <li>Dette nette/EBITDA inférieure à 2,5 : l'entreprise ne peut pas mourir d'un accident.</li>
+          <li>Mon DCF avec des hypothèses prudentes donne une marge de sécurité de 25 % ou plus.</li>
+          <li>J'ai écrit la thèse ET le contre-argument le plus fort.</li>
+          <li>La position ne dépassera pas 2 à 3 % de mon patrimoine investi (et mon budget conviction total reste sous 10 %).</li>
+          <li>Je sais ce qui me ferait vendre : la thèse cassée, pas le cours qui baisse.</li>
+        </ol>
+        <p>Sur ce dernier point, une conviction forte de ce site : le stock picking se pratique en complément d'un cœur de portefeuille indiciel, jamais à sa place. Ton PEA rempli d'ETF World reste le moteur ; les actions individuelles sont le laboratoire, dimensionné pour que même une erreur totale ne compromette pas ton plan. L'article sur l'<a href="article-allocation-actifs.html">allocation d'actifs</a> détaille cette architecture cœur-satellite.</p>
+        <p class="broker-cards-intro">Pour loger tes actions individuelles, il te faut un CTO (ou un PEA pour les européennes éligibles) avec des frais d'ordre faibles : à ce niveau d'activité, les frais fixes pèsent vite.</p>
+<div class="broker-cards">
+          <div class="broker-card broker-card--top">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">Simple · CTO + PEA</span>
+              <div class="broker-card-logo"><img src="images/logos/trade-republic.svg" alt="Trade Republic" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">Trade Republic</div>
+            <div class="broker-card-tagline">CTO et PEA dans une appli épurée, frais réduits</div>
+            <ul class="broker-card-pros">
+              <li>1 € par ordre</li>
+              <li>Investissement programmé gratuit</li>
+              <li>Rémunération du cash non investi</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+          <div class="broker-card">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">CTO international · frais bas</span>
+              <div class="broker-card-logo"><img src="images/logos/degiro.svg" alt="DEGIRO" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">DEGIRO</div>
+            <div class="broker-card-tagline">Accès aux bourses mondiales à frais réduits</div>
+            <ul class="broker-card-pros">
+              <li>1 ETF gratuit par mois (liste dédiée)</li>
+              <li>Accès NYSE, Xetra, LSE…</li>
+              <li>Frais très compétitifs</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Pas de PEA</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+          <div class="broker-card">
+            <div class="broker-card-header">
+              <span class="broker-card-badge">CTO actions/ETF · 0 % de commission</span>
+              <div class="broker-card-logo"><img src="images/logos/xtb.svg" alt="XTB" loading="lazy"></div>
+            </div>
+            <div class="broker-card-name">XTB</div>
+            <div class="broker-card-tagline">0 % de commission jusqu'à 100 000 €/mois de transactions</div>
+            <ul class="broker-card-pros">
+              <li>Actions et ETF sans commission (sous conditions)</li>
+              <li>Interface complète</li>
+              <li>Partenaire officiel Julien Invest</li>
+            </ul>
+            <ul class="broker-card-pros broker-card-cons">
+              <li>Pas de PEA</li>
+            </ul>
+            <a href="parrainage.html" class="broker-card-cta">Ouvrir via le parrainage →</a>
+          </div>
+        </div>
+        <p class="broker-cards-note" style="font-size:12px; color:var(--grey-3); font-style:italic; margin:-18px 0 32px; line-height:1.6;">Transparence : les boutons de cette section utilisent des liens ou codes partenaires. Si tu ouvres un compte en passant par eux, je touche une commission, sans surcoût pour toi. C'est ce qui finance le contenu gratuit du site.</p>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER VIDEO_ID_ANALYSE_FONDA par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_ANALYSE_FONDA = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_ANALYSE_FONDA && VIDEO_ID_ANALYSE_FONDA!=="VIDEO_ID";
+            if(!has){ return; }
+            if(soon) soon.style.display='none';
+            function play(){
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_ANALYSE_FONDA+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <!-- À retenir -->
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ À retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Le prix est ce que tu paies, la valeur est ce que tu obtiens : toute la méthode consiste à estimer la seconde pour juger le premier.</li>
+            <li>6 ratios suffisent : PER, P/FCF, EV/EBITDA, ROIC, marge nette, dette/EBITDA, toujours lus en tendance sur 10 ans et comparés au secteur.</li>
+            <li>Un ROIC durablement au-dessus de 10-15 % est la preuve chiffrée d'un moat ; sans moat, la concurrence érode tout.</li>
+            <li>Le DCF donne TA valeur selon TES hypothèses : exige 25-30 % de marge de sécurité pour absorber l'incertitude.</li>
+            <li>Le stock picking reste un satellite : 10 % maximum du portefeuille, en complément d'un cœur indiciel, jamais à sa place.</li>
+          </ul>
+        </div>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>Quelle différence entre analyse fondamentale et analyse technique ?</summary>
+            <p>L'analyse fondamentale étudie l'entreprise (comptes, business, concurrence) pour estimer sa valeur ; l'analyse technique étudie le graphique du cours pour deviner la psychologie des acheteurs et vendeurs. La recherche académique est claire : sur le long terme, les résultats de l'analyse technique seule sont indiscernables du hasard, alors que les stratégies fondamentales disciplinées (value, quality) ont historiquement généré des primes. Pour un particulier, le fondamental est le seul terrain de jeu sérieux.</p>
+          </details>
+          <details>
+            <summary>Où trouver les données financières gratuitement ?</summary>
+            <p>Les rapports annuels sur le site investisseurs de chaque société restent la source primaire. Pour les données compilées sur 10 ans (chiffre d'affaires, marges, FCF, ROIC), les grands portails financiers gratuits suffisent largement pour un premier filtre. L'important n'est pas d'avoir un terminal professionnel, c'est de vérifier les 6 ratios clés et leur tendance sur une décennie.</p>
+          </details>
+          <details>
+            <summary>Un PER élevé disqualifie-t-il forcément une action ?</summary>
+            <p>Non. Le PER se lit toujours relativement à la croissance et à la qualité. Une entreprise qui compose son FCF à 15 % par an avec un ROIC de 25 % peut mériter un PER de 30, pendant qu'un groupe en déclin ne mérite pas son PER de 8. C'est tout le sens du DCF : il transforme croissance, rentabilité et risque en une valeur comparable au prix, ce qu'aucun ratio isolé ne fait.</p>
+          </details>
+          <details>
+            <summary>Combien d'actions individuelles faut-il détenir ?</summary>
+            <p>Si tu suis l'approche cœur-satellite recommandée ici (90 % d'indiciel, 10 % de convictions), 3 à 8 positions suffisent. En dessous, un accident isolé pèse trop lourd sur ta poche conviction ; au-dessus, tu n'as plus le temps de suivre sérieusement chaque dossier, et tu as recréé un ETF avec plus de frais et plus d'impôts. Chaque position doit pouvoir être suivie : un rapport annuel et quatre publications trimestrielles par an et par ligne.</p>
+          </details>
+          <details>
+            <summary>Le DCF fonctionne-t-il pour toutes les entreprises ?</summary>
+            <p>Non. Il exige des flux de trésorerie positifs et raisonnablement prévisibles. Il fonctionne bien pour les entreprises matures et rentables (consommation, logiciels installés, industrie de qualité), mal pour les banques (structure de bilan particulière, on utilise plutôt l'actif net), les biotechs sans revenus ou les cycliques pures dont les flux font le yoyo. Si tu ne peux pas estimer le FCF dans 5 ans avec un minimum de confiance, le dossier n'est simplement pas analysable, et ce n'est pas grave : le meilleur réflexe du fondamentaliste, c'est de dire "trop difficile" et de passer au suivant.</p>
+          </details>
+        </div>
+
+        <div class="article-cta">
+          <h2>Tu veux un regard expert sur ton portefeuille d'actions ?</h2>
+          <p>En une séance de coaching, on passe tes positions au crible de cette méthode : thèse, valorisation, dimensionnement, et ce qui mérite d'être gardé ou arbitré.</p>
+          <a href="coaching.html" class="btn btn-gradient btn--lg">Réserver une séance de coaching
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <!-- Articles liés -->
+        <div class="article-related">
+          <div class="article-related-title">Pour aller plus loin</div>
+          <div class="article-related-grid">
+            <a href="article-stock-picking.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <span class="article-related-name">Stock picking : pourquoi c'est si difficile de battre le marché</span>
+              <span class="article-related-meta">11 min de lecture</span>
+            </a>
+            <a href="article-dividendes-vs-etf.html" class="article-related-card">
+              <span class="article-related-tag">Stratégie</span>
+              <span class="article-related-name">Dividendes ou ETF capitalisants : le match</span>
+              <span class="article-related-meta">11 min de lecture</span>
+            </a>
+            <a href="article-cto-guide.html" class="article-related-card">
+              <span class="article-related-tag">Enveloppes</span>
+              <span class="article-related-name">CTO : le guide pratique complet</span>
+              <span class="article-related-meta">13 min de lecture</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+  (function(){
+    var ids = ['dcf-fcf','dcf-g1','dcf-g2','dcf-r','dcf-prix'];
+    function $(id){ return document.getElementById(id); }
+    function fmt(n){ return n.toLocaleString('fr-FR', {maximumFractionDigits: 0}); }
+    function calc(){
+      var fcf = parseFloat($('dcf-fcf').value);
+      var g1 = parseFloat($('dcf-g1').value) / 100;
+      var g2 = parseFloat($('dcf-g2').value) / 100;
+      var r = parseFloat($('dcf-r').value) / 100;
+      var prix = parseFloat($('dcf-prix').value);
+      $('dcf-fcf-val').textContent = fcf.toLocaleString('fr-FR', {minimumFractionDigits: 1, maximumFractionDigits: 1}) + ' €';
+      $('dcf-g1-val').textContent = (g1 * 100).toFixed(0) + ' %';
+      $('dcf-g2-val').textContent = (g2 * 100).toFixed(1) + ' %';
+      $('dcf-r-val').textContent = (r * 100).toFixed(1) + ' %';
+      $('dcf-prix-val').textContent = fmt(prix) + ' €';
+      // DCF 2 phases : 10 ans de croissance g1, puis valeur terminale en croissance g2
+      var vi = 0, f = fcf;
+      for (var t = 1; t <= 10; t++) { f = f * (1 + g1); vi += f / Math.pow(1 + r, t); }
+      var tv = (r - g2) > 0.005 ? (f * (1 + g2)) / (r - g2) : f * 40;
+      vi += tv / Math.pow(1 + r, 10);
+      var marge = (1 - prix / vi) * 100;
+      $('dcf-vi').textContent = fmt(vi) + ' €';
+      $('dcf-marge').textContent = (marge >= 0 ? '+' : '') + marge.toFixed(0) + ' %';
+      var verdict;
+      if (marge >= 30) verdict = "Marge de sécurité confortable selon tes hypothèses. Reste à vérifier que ces hypothèses sont réalistes : c'est là que tout se joue.";
+      else if (marge >= 10) verdict = "L'action semble raisonnablement valorisée avec une marge modeste. Le moindre excès d'optimisme dans tes hypothèses l'efface.";
+      else if (marge >= -10) verdict = "Prix proche de la valeur estimée : aucune marge de sécurité. Tu paies le juste prix, tout dépend de la qualité réelle du business.";
+      else verdict = "Le prix dépasse ta valeur estimée : le marché anticipe mieux que tes hypothèses. Acheter ici, c'est parier que le marché a raison et toi tort.";
+      $('dcf-verdict').textContent = verdict;
+    }
+    ids.forEach(function(id){ var el = $(id); if (el) el.addEventListener('input', calc); });
+    if ($('dcf-fcf')) calc();
+  })();
+  </script>
+
+</body>
+</html>
