@@ -107,15 +107,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // ── ACCORDION CALCULATEURS ────────────────────
-    const accordion = mobileMenu.querySelector('.mob-accordion');
-    if (accordion) {
+    // ── ACCORDIONS (Outils, Parrainages…) ────────────────────
+    mobileMenu.querySelectorAll('.mob-accordion').forEach((accordion) => {
       const trigger = accordion.querySelector('.mob-accordion-trigger');
+      if (!trigger) return;
       trigger.addEventListener('click', (e) => {
         e.stopPropagation();
         accordion.classList.toggle('open');
       });
-    }
+    });
   }
 
   // ── STICKY CTA MOBILE (index, formation, blog, articles) ──────
