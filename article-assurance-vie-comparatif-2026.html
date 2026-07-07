@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-epargne.png">
   <meta property="article:published_time" content="2026-06-20T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-06-20T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/article-assurance-vie-comparatif-2026.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@
   "author": { "@type": "Person", "name": "Julien Denis" },
   "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
   "datePublished": "2026-06-20",
-  "dateModified": "2026-06-20"
+  "dateModified": "2026-07-07"
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
@@ -159,6 +159,29 @@
     .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
     .broker-card-cta:hover { opacity: .85; }
     .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+
+    /* ── Grille d'évaluation + logos + CTA Linxea (ajouts) ── */
+    .cf-card-logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .cf-card-logo-row img { height: 22px; width: auto; max-width: 90px; object-fit: contain; }
+    .cf-insurer-badge { display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: 11px; padding: 3px 10px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .cf-card--rose::before { background: linear-gradient(90deg,#EC4899,#F472B6); }
+    .cf-card--rose .cf-card-badge { background: #FCE7F3; color: #9D174D; }
+    .cf-card--emerald::before { background: linear-gradient(90deg,#059669,#34D399); }
+    .cf-card--emerald .cf-card-badge { background: #D1FAE5; color: #065F46; }
+    .criteres-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0 32px; }
+    @media (max-width: 680px) { .criteres-grid { grid-template-columns: 1fr; } }
+    .critere-card { border-radius: 14px; padding: 20px 20px; border: 1.5px solid var(--grey-5); background: #fff; }
+    .critere-num { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 13px; margin-bottom: 10px; }
+    .critere-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 8px; }
+    .critere-card p { font-size: 13.5px; color: var(--grey-1); line-height: 1.65; margin: 0; }
+    .li-cta-box { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: 16px; padding: 26px 28px; margin: 32px 0; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .li-cta-logo { background: #fff; border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .li-cta-logo img { height: 26px; width: auto; max-width: 130px; object-fit: contain; }
+    .li-cta-body { flex: 1; min-width: 220px; }
+    .li-cta-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: #fff; margin-bottom: 4px; }
+    .li-cta-sub { font-size: 13px; color: rgba(255,255,255,0.7); }
+    .li-cta-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); color: var(--navy); font-family: var(--font-head); font-weight: 800; font-size: 13px; padding: 12px 20px; border-radius: 100px; text-decoration: none; white-space: nowrap; }
+    .li-cta-btn:hover { opacity: .9; }
   </style>
   <link rel="canonical" href="https://julien-invest.github.io/article-assurance-vie-comparatif-2026.html">
   <script type="application/ld+json">
@@ -212,6 +235,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "En 2024, les meilleurs taux de fonds euros sur les contrats en ligne se situaient autour de 3,0 à 3,5% net de frais de gestion. Linxea Spirit 2 (fonds Suravenir Rendement 2) a servi environ 3,1%, Fortuneo Vie (Suravenir) autour de 3,0%, Lucya Cardif environ 2,8% et Boursorama Vie environ 2,5%. Ces taux sont annoncés nets de frais de gestion du contrat mais bruts de prélèvements sociaux (17,2%), prélevés chaque année sur les gains des fonds euros. La comparaison avec le Livret A (3% net de toute fiscalité pendant la même période) est pertinente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Contrat individuel ou collectif : quelle différence concrète ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un contrat collectif est souscrit par une association qui adhère elle-même au contrat : l'assureur peut modifier les conditions (frais, garanties) en passant par cette association, sans ton accord individuel. Sur un contrat individuel, toute modification défavorable nécessite ton consentement explicite. À conditions égales, un contrat individuel protège donc mieux l'épargnant sur la durée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi le taux affiché du fonds euros peut-il être trompeur ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "De plus en plus d'assureurs affichent des taux de fonds euros élevés, mais conditionnés à un pourcentage minimum d'unités de compte dans le contrat, souvent 50 à 70%. Le taux réellement servi à ceux qui restent majoritairement sur le fonds euros sécurisé peut être nettement inférieur. Vérifie toujours s'il existe une condition d'unités de compte avant de comparer deux contrats sur leur seul taux affiché."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Un contrat avec 2 500 supports est-il forcément meilleur qu'un contrat avec 500 ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Ce qui compte est la qualité et la diversité réelle des supports : présence de vrais ETF à frais bas, offre en SCPI avec un pourcentage élevé de loyers reversés, accès à d'autres classes d'actifs. Un contrat avec 500 supports bien choisis peut valoir bien mieux qu'un contrat avec 2 500 supports redondants."
       }
     }
   ]
@@ -391,8 +438,8 @@
       <div class="page-hero-content">
         <span class="t-label">Épargne</span>
         <h1>Comparatif assurance-vie 2026 :<br><em>Linxea, Lucya, Boursorama, lequel choisir ?</em></h1>
-        <p class="article-meta-date">Publié le 20 juin 2026 · 16 min de lecture</p>
-        <p>L'assurance vie reste l'enveloppe reine de l'épargne française. Mais tous les contrats ne se valent pas. On compare les 4 meilleurs en ligne, chiffres 2025 à l'appui, pour que tu choisisses sans te tromper. Si tu pars de zéro, commence par <a href="article-assurance-vie-guide.html">notre guide complet sur l'assurance-vie</a>.</p>
+        <p class="article-meta-date">Publié le 20 juin 2026 · Mis à jour le 7 juillet 2026 · 21 min de lecture</p>
+        <p>L'assurance vie reste l'enveloppe reine de l'épargne française. Mais tous les contrats ne se valent pas, et l'écart de rendement entre deux contrats n'a rien à voir avec une différence de risque : le capital reste garanti dans les deux cas sur le fonds euros. On compare 6 contrats, chiffres à l'appui, dont la grille de lecture pour ne plus jamais signer à l'aveugle. Si tu pars de zéro, commence par <a href="article-assurance-vie-guide.html">notre guide complet sur l'assurance-vie</a>.</p>
       </div>
     </div>
   </section>
@@ -404,7 +451,7 @@
 
         <p>L'assurance vie, c'est l'enveloppe que tout le monde possède, ou presque, sans toujours savoir ce qu'elle vaut vraiment. Elle combine un fonds euros à capital garanti, des unités de compte pour investir en actions ou ETF, une fiscalité allégée après 8 ans, et un mécanisme de transmission hors succession. Sur le papier, tout cela est séduisant. Dans la pratique, les écarts entre un bon contrat en ligne et un contrat de réseau bancaire traditionnel peuvent coûter plusieurs dizaines de milliers d'euros sur vingt ans.</p>
 
-        <p>Ce comparatif se concentre sur les quatre contrats en ligne qui sortent du lot en 2026 : <strong>Linxea Spirit 2</strong>, <strong>Lucya Cardif</strong>, <strong>Boursorama Vie</strong> et <strong>Fortuneo Vie</strong>. Tous ont en commun des frais d'entrée à zéro, des frais de gestion bien inférieurs aux contrats bancaires classiques, et un accès à des ETF. Cet article s'adresse à quelqu'un qui connaît déjà les bases : si tu cherches d'abord à comprendre la différence entre PEA et assurance vie, commence par <a href="article-assurance-vie-pea.html">ce comparatif dédié</a>. Si tu envisages aussi un PER, le <a href="article-per-plan-epargne-retraite.html">guide complet PER</a> est par là.</p>
+        <p>Ce comparatif se concentre sur quatre contrats polyvalents qui sortent du lot en 2026 : <strong>Linxea Spirit 2</strong>, <strong>Lucya Cardif</strong>, <strong>Boursorama Vie</strong> et <strong>Fortuneo Vie</strong>, complétés par deux contrats plus spécialisés qui méritent d'être connus, <strong>Corum Life</strong> et <strong>Garance Épargne</strong>. Tous ont en commun des frais d'entrée à zéro et un contrat individuel (donc protecteur), mais leurs frais de gestion, leur fonds euros et leur offre en unités de compte varient fortement. Cet article s'adresse à quelqu'un qui connaît déjà les bases : si tu cherches d'abord à comprendre la différence entre PEA et assurance vie, commence par <a href="article-assurance-vie-pea.html">ce comparatif dédié</a>. Si tu envisages aussi un PER, le <a href="article-per-plan-epargne-retraite.html">guide complet PER</a> est par là.</p>
 
         <div class="cf-stats-bar">
           <div class="cf-stat">
@@ -412,7 +459,7 @@
             <div class="cf-stat-label">Meilleur fonds euros 2025</div>
           </div>
           <div class="cf-stat">
-            <div class="cf-stat-num">4 contrats</div>
+            <div class="cf-stat-num">6 contrats</div>
             <div class="cf-stat-label">Comparés en détail</div>
           </div>
           <div class="cf-stat">
@@ -429,11 +476,13 @@
           <div class="article-toc-title">Au sommaire</div>
           <ol>
             <li><a href="#pourquoi-av">Pourquoi l'assurance vie reste incontournable</a></li>
+            <li><a href="#grille">La grille de lecture avant de signer</a></li>
             <li><a href="#performance-fe">Performance des fonds euros 2019-2025</a></li>
-            <li><a href="#4-contrats">Les 4 contrats en détail</a></li>
+            <li><a href="#4-contrats">Les 6 contrats passés au crible</a></li>
             <li><a href="#fiscalite">La fiscalité de l'assurance vie expliquée</a></li>
             <li><a href="#tableau">Tableau comparatif complet, 8 critères</a></li>
             <li><a href="#profil">Comment choisir selon ton profil</a></li>
+            <li><a href="#pourquoi-linxea">Pourquoi Linxea Spirit 2 reste mon choix n°1</a></li>
             <li><a href="#faq">Questions fréquentes</a></li>
           </ol>
         </div>
@@ -446,6 +495,37 @@
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
           <p>L'assurance vie est l'enveloppe idéale pour capitaliser à moyen-long terme, préparer un projet, et organiser sa transmission. L'avantage fiscal après 8 ans est réel mais souvent surestimé au quotidien : la vraie force du contrat, c'est la capitalisation sans frottement fiscal des gains non rachetés. Commence par l'ouvrir dès que possible pour faire tourner l'horloge fiscale.</p>
+        </div>
+
+        <h2 id="grille">La grille de lecture avant de signer un contrat</h2>
+        <p>Plus de 450 assurances vie existent aujourd'hui en France. Certaines sont excellentes, d'autres coûtent une fortune en frais discrets, et beaucoup d'épargnants gardent un contrat ouvert il y a 10 ou 15 ans sans jamais avoir vérifié s'il existait mieux. Or l'écart de rendement entre deux contrats peut atteindre plusieurs points de pourcentage par an sur le fonds euros, sans que ça change quoi que ce soit au niveau de risque : le capital reste garanti dans les deux cas. Voici les 5 points que je regarde systématiquement avant de recommander un contrat.</p>
+
+        <div class="criteres-grid">
+          <div class="critere-card">
+            <div class="critere-num">1</div>
+            <div class="critere-title">Accessibilité et solidité</div>
+            <p>Le ticket d'entrée, l'ancienneté du courtier, la solidité de l'assureur derrière le contrat. Et un point que presque personne ne vérifie : le contrat est-il <strong>individuel</strong> ou <strong>collectif</strong> (groupé) ? Sur un contrat collectif, l'assureur peut modifier les conditions (frais, garanties) via l'association souscriptrice, sans ton accord individuel. Sur un contrat individuel, toute modification défavorable nécessite ton consentement : tu peux t'y opposer. À conditions égales, un contrat individuel protège mieux l'épargnant.</p>
+          </div>
+          <div class="critere-card">
+            <div class="critere-num">2</div>
+            <div class="critere-title">Les frais, sur 3 lignes</div>
+            <p>Frais d'entrée (vise 0 %, la norme sur les bons contrats en ligne), frais de gestion annuels sur les unités de compte (de 0,3 à 0,8 % et plus selon les contrats, prélevés chaque année sur tout ton capital), et frais d'arbitrage. Le problème n'est jamais le frais qui finance un vrai service (conseil, pilotage) : c'est le frais qui ne finance rien, payé en pure gestion libre pour les mêmes supports qu'ailleurs moins cher.</p>
+          </div>
+          <div class="critere-card">
+            <div class="critere-num">3</div>
+            <div class="critere-title">Le fonds euros, 3 choses à vérifier</div>
+            <p>La performance sur <strong>5 ans</strong>, pas sur 1 an (un taux boosté la première année pour attirer la collecte ne dit rien de la gestion réelle). Le <strong>niveau de garantie</strong> : certains fonds garantissent le capital brut de frais de gestion seulement. Et le piège du <strong>boost conditionné</strong> : des taux affichés spectaculaires, mais seulement si tu places 50, 60 ou 70 % de ton épargne en unités de compte risquées.</p>
+          </div>
+          <div class="critere-card">
+            <div class="critere-num">4</div>
+            <div class="critere-title">Les unités de compte : qualité, pas quantité</div>
+            <p>Un contrat avec 2 500 supports n'est pas forcément meilleur qu'un contrat avec 500. Ce qui compte : la présence de vrais <strong>ETF</strong> à frais bas, l'offre en <strong>SCPI</strong> et surtout le pourcentage de loyers reversés (certains gardent 10 à 15 % au passage), et l'accès à d'autres classes d'actifs (private equity, fonds obligataires). C'est ce qui fait d'une assurance-vie un vrai couteau suisse patrimonial plutôt qu'une simple tirelire.</p>
+          </div>
+          <div class="critere-card">
+            <div class="critere-num">5</div>
+            <div class="critere-title">Service client et ergonomie</div>
+            <p>Un contrat qui prend 0,7 % de frais par an censés financer un accompagnement, mais dont le conseiller ne sait pas répondre à une question basique sur le fonds euros, c'est un problème. Vérifie les avis publics du courtier avant de signer, et regarde si la notice complète est disponible avant la souscription plutôt qu'après.</p>
+          </div>
         </div>
 
         <h2 id="performance-fe">Performance des fonds euros 2019-2025</h2>
@@ -518,12 +598,13 @@
 
         <p>Un point souvent oublié : le fonds euros est soumis aux <strong>prélèvements sociaux de 17,2% chaque année</strong> sur les intérêts crédités, et non uniquement au rachat. Un taux servi de 3,1% brut correspond donc à environ 2,57% net de prélèvements sociaux. C'est encore supérieur au Livret A actuel à 2,4% net, mais la comparaison se resserre. Pour les profils qui n'ont aucune tolérance au risque, le Livret A reste plus simple ; pour ceux qui combinent fonds euros et unités de compte dans leur assurance vie, la comparaison perd de sa pertinence.</p>
 
-        <h2 id="4-contrats">Les 4 contrats en détail</h2>
-        <p>On compare ici les contrats selon les mêmes critères : frais de gestion annuels, taux du fonds euros servi en 2024, nombre d'unités de compte disponibles, ticket d'entrée, et points distinctifs. Les frais indiqués sont ceux sur les unités de compte ; le fonds euros a les mêmes frais de gestion sauf mention contraire.</p>
+        <h2 id="4-contrats">Les 6 contrats passés au crible</h2>
+        <p>On compare ici les contrats selon les mêmes critères : frais de gestion annuels, taux du fonds euros servi en 2024, nombre d'unités de compte disponibles, ticket d'entrée, et points distinctifs. Les frais indiqués sont ceux sur les unités de compte ; le fonds euros a les mêmes frais de gestion sauf mention contraire. J'ai ajouté deux contrats à part, Corum Life et Garance Épargne, pour élargir la focale : ils ne jouent pas dans la même catégorie que les 4 premiers, mais ils méritent d'être connus.</p>
 
         <div class="cf-profile-grid">
           <div class="cf-card cf-card--indigo">
             <span class="cf-card-badge">Meilleur fonds euros</span>
+            <div class="cf-card-logo-row"><img src="images/logo-linxea.png" alt="Linxea" loading="lazy"></div>
             <div class="cf-card-name">Linxea Spirit 2</div>
             <div class="cf-card-sub">Assureur : Spirica (Crédit Agricole)</div>
             <div class="cf-card-metrics">
@@ -549,6 +630,7 @@
 
           <div class="cf-card cf-card--teal">
             <span class="cf-card-badge">Large choix UC</span>
+            <div class="cf-card-logo-row"><span class="cf-insurer-badge">BNP Paribas Cardif</span></div>
             <div class="cf-card-name">Lucya Cardif</div>
             <div class="cf-card-sub">Assureur : BNP Paribas Cardif</div>
             <div class="cf-card-metrics">
@@ -574,6 +656,7 @@
 
           <div class="cf-card cf-card--amber">
             <span class="cf-card-badge">Accessible & banque</span>
+            <div class="cf-card-logo-row"><img src="images/logos/boursobank.svg" alt="Boursorama" loading="lazy"></div>
             <div class="cf-card-name">Boursorama Vie</div>
             <div class="cf-card-sub">Assureur : Generali (puis Swiss Life)</div>
             <div class="cf-card-metrics">
@@ -599,6 +682,7 @@
 
           <div class="cf-card cf-card--sky">
             <span class="cf-card-badge">Rapport qualité/prix</span>
+            <div class="cf-card-logo-row"><img src="images/logo-fortuneo.png" alt="Fortuneo" loading="lazy"></div>
             <div class="cf-card-name">Fortuneo Vie</div>
             <div class="cf-card-sub">Assureur : Suravenir (Crédit Mutuel Arkéa)</div>
             <div class="cf-card-metrics">
@@ -621,11 +705,72 @@
             </div>
             <div class="cf-card-note">Frais d'entrée 0%. Assureur Suravenir (même que certains contrats Linxea pour le fonds euros), ce qui explique des taux proches. Frais de gestion de 0,6%/an et large catalogue d'UC. Ticket d'entrée 300€ très accessible. Excellent compromis si tu veux performances fonds euros correctes + large choix UC sans le prix premium de Linxea Spirit 2.</div>
           </div>
+
+          <div class="cf-card cf-card--rose">
+            <span class="cf-card-badge">Architecture fermée</span>
+            <div class="cf-card-logo-row"><img src="images/logos/corum.svg" alt="Corum" loading="lazy"></div>
+            <div class="cf-card-name">Corum Life</div>
+            <div class="cf-card-sub">Assureur : partenaire Corum</div>
+            <div class="cf-card-metrics">
+              <div class="cf-metric">
+                <div class="cf-metric-val">0%/an</div>
+                <div class="cf-metric-lbl">Frais gestion UC</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">~10</div>
+                <div class="cf-metric-lbl">Supports au total</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">0</div>
+                <div class="cf-metric-lbl">ETF disponibles</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">Variable</div>
+                <div class="cf-metric-lbl">Versement initial</div>
+              </div>
+            </div>
+            <div class="cf-card-note">Contrat à part : architecture 100% fermée, qui ne distribue que les produits maison (SCPI Corum, fonds obligataires, fonds euros propre). En échange, 0% de frais de gestion sur les unités de compte, du jamais vu ailleurs. Ne construira jamais un portefeuille diversifié, mais fait très bien son travail de contrat satellite dédié à une poche SCPI ou obligataire Corum.</div>
+          </div>
+
+          <div class="cf-card cf-card--emerald">
+            <span class="cf-card-badge">Fonds euros au top</span>
+            <div class="cf-card-logo-row"><span class="cf-insurer-badge">Garance</span></div>
+            <div class="cf-card-name">Garance Épargne</div>
+            <div class="cf-card-sub">Assureur : Garance (mutuelle)</div>
+            <div class="cf-card-metrics">
+              <div class="cf-metric">
+                <div class="cf-metric-val">0,70%/an</div>
+                <div class="cf-metric-lbl">Frais gestion UC</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">Parmi les +</div>
+                <div class="cf-metric-lbl">Fonds euros du marché</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">~46</div>
+                <div class="cf-metric-lbl">Unités de compte</div>
+              </div>
+              <div class="cf-metric">
+                <div class="cf-metric-val">50 €</div>
+                <div class="cf-metric-lbl">Versement initial</div>
+              </div>
+            </div>
+            <div class="cf-card-note">Contrat individuel accessible dès 50€, avec l'un des meilleurs fonds euros du marché, sans condition d'unités de compte : tu peux rester 100% fonds euros. En contrepartie, l'offre en UC reste limitée (une seule SCPI, pas de vrai choix d'ETF) et les frais de gestion UC sont un cran au-dessus de Linxea. Excellente poche sécurisée, mais pas un couteau suisse patrimonial.</div>
+          </div>
+        </div>
+
+        <div class="li-cta-box">
+          <div class="li-cta-logo"><img src="images/logo-linxea.png" alt="Linxea"></div>
+          <div class="li-cta-body">
+            <div class="li-cta-title">Linxea Spirit 2 : mon choix n°1, tous profils confondus</div>
+            <div class="li-cta-sub">0% de frais d'entrée, 0,5%/an de gestion, fonds euros parmi les plus performants, et le plus grand choix d'ETF et de SCPI du comparatif.</div>
+          </div>
+          <a href="https://linxea.mention-me.com/m/ol/at1uw-51d98a2d96" target="_blank" rel="sponsored noopener noreferrer" class="li-cta-btn">Ouvrir Linxea Spirit 2 →</a>
         </div>
 
         <div class="article-retenir">
           <div class="article-retenir-label">★ À retenir</div>
-          <p>Sur les quatre contrats, Linxea Spirit 2 s'impose pour les investisseurs qui veulent optimiser à fond : meilleurs frais (0,5%/an) et meilleur fonds euros (3,1% en 2024). Fortuneo Vie est le meilleur rapport qualité/accessibilité. Boursorama Vie pèche sur les frais UC (0,75%) mais gagne sur le ticket d'entrée et l'intégration bancaire.</p>
+          <p>Sur les quatre contrats polyvalents, Linxea Spirit 2 s'impose pour les investisseurs qui veulent optimiser à fond : meilleurs frais (0,5%/an) et meilleur fonds euros (3,1% en 2024). Fortuneo Vie est le meilleur rapport qualité/accessibilité. Boursorama Vie pèche sur les frais UC (0,75%) mais gagne sur le ticket d'entrée et l'intégration bancaire. Corum Life et Garance Épargne jouent un autre rôle : contrats satellites très spécialisés, pas des contrats principaux.</p>
         </div>
 
         <h2 id="fiscalite">La fiscalité de l'assurance vie expliquée</h2>
@@ -690,15 +835,28 @@
               <th>Lucya Cardif</th>
               <th>Boursorama Vie</th>
               <th>Fortuneo Vie</th>
+              <th>Corum Life</th>
+              <th>Garance Épargne</th>
             </tr>
           </thead>
           <tbody>
+            <tr>
+              <td><strong>Type de contrat</strong></td>
+              <td class="yes">Individuel</td>
+              <td class="mid">Individuel</td>
+              <td class="mid">Individuel</td>
+              <td class="mid">Individuel</td>
+              <td class="mid">Individuel</td>
+              <td class="yes">Individuel</td>
+            </tr>
             <tr>
               <td><strong>Frais gestion fonds euros</strong></td>
               <td class="yes">0,50%/an</td>
               <td class="mid">0,60%/an</td>
               <td class="no">0,75%/an</td>
               <td class="mid">0,60%/an</td>
+              <td class="yes">0%/an</td>
+              <td class="no">0,70%/an</td>
             </tr>
             <tr>
               <td><strong>Frais gestion UC</strong></td>
@@ -706,9 +864,13 @@
               <td class="mid">0,60%/an</td>
               <td class="no">0,75%/an</td>
               <td class="mid">0,60%/an</td>
+              <td class="yes">0%/an</td>
+              <td class="no">0,70%/an</td>
             </tr>
             <tr>
               <td><strong>Frais entrée/sortie</strong></td>
+              <td class="yes">0%</td>
+              <td class="yes">0%</td>
               <td class="yes">0%</td>
               <td class="yes">0%</td>
               <td class="yes">0%</td>
@@ -720,6 +882,8 @@
               <td class="mid">2,80%</td>
               <td class="no">2,50%</td>
               <td class="yes">3,00%</td>
+              <td class="yes">Performant (lancé 2023)</td>
+              <td class="yes">Parmi les +</td>
             </tr>
             <tr>
               <td><strong>Nombre UC disponibles</strong></td>
@@ -727,6 +891,8 @@
               <td class="mid">+2 500</td>
               <td class="no">700+</td>
               <td class="yes">+3 000</td>
+              <td class="no">~10</td>
+              <td class="no">~46</td>
             </tr>
             <tr>
               <td><strong>Versement minimum</strong></td>
@@ -734,12 +900,16 @@
               <td class="no">1 000 €</td>
               <td class="yes">300 €</td>
               <td class="yes">300 €</td>
+              <td class="mid">Variable</td>
+              <td class="yes">50 €</td>
             </tr>
             <tr>
               <td><strong>Application mobile</strong></td>
               <td class="mid">Correcte</td>
               <td class="yes">Très bonne</td>
               <td class="yes">Très bonne</td>
+              <td class="mid">Correcte</td>
+              <td class="mid">Correcte</td>
               <td class="mid">Correcte</td>
             </tr>
             <tr>
@@ -748,12 +918,24 @@
               <td class="yes">Bon</td>
               <td class="mid">Limité</td>
               <td class="yes">Bon</td>
+              <td class="no">Aucun</td>
+              <td class="no">Très limité</td>
             </tr>
           </tbody>
         </table>
         </div>
+        <p style="font-size:12.5px; color:var(--grey-3); font-style:italic; margin-top:-18px;">Corum Life et Garance Épargne sont des contrats spécialisés (voir plus haut), inclus ici à titre de comparaison mais non directement concurrents des 4 contrats polyvalents. Les taux de fonds euros évoluent chaque année : vérifie le taux en vigueur sur le site de l'assureur avant de signer.</p>
 
         <p>Un mot sur les frais de gestion des unités de compte, qui constituent le critère le plus déterminant sur le long terme. La différence entre 0,50% et 0,75% par an peut sembler négligeable, mais sur 20 ans avec 50 000 euros investis à 7% brut, elle représente environ <strong>8 000 euros de différence</strong> en capital final net. Sur 100 000 euros, ce chiffre double. C'est la raison pour laquelle Linxea Spirit 2 s'impose pour quiconque investit majoritairement en UC.</p>
+
+        <div class="li-cta-box">
+          <div class="li-cta-logo"><img src="images/logo-linxea.png" alt="Linxea"></div>
+          <div class="li-cta-body">
+            <div class="li-cta-title">Le contrat qui coche toutes les cases du tableau</div>
+            <div class="li-cta-sub">Individuel, 0% de frais d'entrée, 0,5%/an de gestion, meilleur fonds euros du comparatif et accès ETF le plus complet.</div>
+          </div>
+          <a href="https://linxea.mention-me.com/m/ol/at1uw-51d98a2d96" target="_blank" rel="sponsored noopener noreferrer" class="li-cta-btn">Voir Linxea Spirit 2 →</a>
+        </div>
 
         <h2 id="profil">Comment choisir selon ton profil</h2>
         <p>Il n'existe pas un contrat universel qui convient à tout le monde. Le bon choix dépend de la part que tu envisages d'allouer au fonds euros versus aux unités de compte, de ton horizon, et de ton degré d'autonomie dans la gestion.</p>
@@ -786,6 +968,26 @@
           <p>Ouvre ton contrat le plus tôt possible pour faire tourner l'horloge des 8 ans. Le choix du contrat vient ensuite. Si tu ne sais pas encore, Linxea Spirit 2 reste la référence polyvalente sur tous les profils. Si tu débutes avec moins de 500 euros, Fortuneo Vie ou Boursorama Vie s'ouvrent à partir de 300 euros.</p>
         </div>
 
+        <h2 id="pourquoi-linxea">Pourquoi Linxea Spirit 2 reste mon choix n°1</h2>
+        <p>En reprenant la grille de lecture du début de cet article, point par point, Linxea Spirit 2 est le seul contrat qui coche presque toutes les cases en même temps.</p>
+        <ul>
+          <li><strong>Accessibilité et solidité :</strong> contrat individuel (donc protecteur), accessible dès 500 €, distribué par un courtier avec 25 ans d'ancienneté, adossé à Spirica, filiale du Crédit Agricole.</li>
+          <li><strong>Frais :</strong> 0% à l'entrée et à la sortie, 0,5%/an de gestion sur les unités de compte, l'un des tarifs les plus bas du marché pour un contrat en gestion libre aussi complet.</li>
+          <li><strong>Fonds euros :</strong> deux fonds disponibles sans condition d'unités de compte, avec un historique de performance qui se maintient au-dessus de la moyenne du marché année après année, pas seulement sur un pic ponctuel.</li>
+          <li><strong>Unités de compte :</strong> parmi les meilleures offres ETF du marché (Amundi, iShares…) et une offre SCPI large avec 100% des loyers reversés, l'un des points les plus décisifs et les moins visibles au premier coup d'œil.</li>
+          <li><strong>Service :</strong> un des courtiers en assurance-vie les plus établis en France, avec une bonne réputation sur la réactivité du support.</li>
+        </ul>
+        <p>Son seul vrai défaut : des frais d'arbitrage sur les ETF, de l'ordre de 0,06%, qui restent parmi les plus bas constatés sur le marché. C'est la raison pour laquelle je recommande ce contrat en priorité comme contrat principal en gestion libre à la quasi-totalité des lecteurs de ce site, quel que soit leur profil de risque.</p>
+
+        <div class="li-cta-box">
+          <div class="li-cta-logo"><img src="images/logo-linxea.png" alt="Linxea"></div>
+          <div class="li-cta-body">
+            <div class="li-cta-title">Prêt à ouvrir ton assurance-vie ?</div>
+            <div class="li-cta-sub">Linxea Spirit 2 en 10 minutes en ligne, 0% de frais d'entrée, dès 500 €.</div>
+          </div>
+          <a href="https://linxea.mention-me.com/m/ol/at1uw-51d98a2d96" target="_blank" rel="sponsored noopener noreferrer" class="li-cta-btn">Ouvrir mon contrat →</a>
+        </div>
+
         <h2 id="faq">Questions fréquentes</h2>
         <div class="article-faq">
           <details>
@@ -811,6 +1013,18 @@
           <details>
             <summary>Quel est le meilleur taux de fonds euros en 2024 ?</summary>
             <p>En 2024, les meilleurs taux de fonds euros sur les contrats en ligne se situaient autour de 3,0 à 3,5% net de frais de gestion. Linxea Spirit 2 (fonds Suravenir Rendement 2) a servi environ 3,1%, Fortuneo Vie (Suravenir) autour de 3,0%, Lucya Cardif environ 2,8% et Boursorama Vie environ 2,5%. Ces taux sont annoncés nets de frais de gestion du contrat mais bruts de prélèvements sociaux (17,2%), prélevés chaque année sur les gains des fonds euros. La comparaison avec le Livret A (2,4% net de toute fiscalité) reste pertinente pour les profils très prudents.</p>
+          </details>
+          <details>
+            <summary>Contrat individuel ou collectif : quelle différence concrète ?</summary>
+            <p>Un contrat collectif (ou groupé) est souscrit par une association qui adhère elle-même au contrat auprès de l'assureur : tu n'es qu'adhérent de cette association. Conséquence juridique importante, l'assureur peut modifier les conditions du contrat (frais, garanties) en passant par l'association souscriptrice, sans recueillir ton accord individuel. Sur un contrat individuel, à l'inverse, toute modification défavorable nécessite ton consentement explicite : tu peux t'y opposer. À conditions égales par ailleurs, un contrat individuel protège donc mieux l'épargnant sur la durée. C'est un critère qui ne coûte rien à vérifier avant de signer, et qui est rarement mis en avant par les distributeurs.</p>
+          </details>
+          <details>
+            <summary>Pourquoi le taux affiché du fonds euros peut-il être trompeur ?</summary>
+            <p>De plus en plus d'assureurs affichent des taux de fonds euros spectaculaires, mais conditionnés à un pourcentage minimum d'unités de compte dans le contrat, souvent 50, 60 ou 70%. Un contrat peut ainsi annoncer un taux élevé en gros titre, réservé à ceux qui acceptent une forte exposition au risque, et servir un taux nettement inférieur (parfois deux fois moins) à ceux qui restent en majorité sur le fonds euros sécurisé. Avant de comparer deux contrats sur leur seul taux de fonds euros, vérifie systématiquement s'il existe une condition d'unités de compte, et à quel taux tu aurais réellement droit selon ta répartition prévue.</p>
+          </details>
+          <details>
+            <summary>Un contrat avec 2 500 supports est-il forcément meilleur qu'un contrat avec 500 ?</summary>
+            <p>Non, c'est un des pièges classiques de la comparaison entre contrats. Ce qui compte n'est pas le nombre brut de supports, mais leur qualité et leur diversité réelle : présence de vrais ETF à frais bas, offre en SCPI avec un pourcentage élevé de loyers reversés (certains assureurs en retiennent 10 à 15% au passage), accès à d'autres classes d'actifs comme le private equity ou les fonds obligataires. Un contrat avec 500 supports bien choisis peut valoir bien mieux qu'un contrat avec 2 500 supports redondants ou de qualité médiocre. Vérifie toujours la liste réelle des ETF et SCPI disponibles plutôt que le seul chiffre total affiché en communication.</p>
           </details>
         </div>
 
