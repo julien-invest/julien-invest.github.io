@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-avis.png">
   <meta property="article:published_time" content="2026-07-06T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-07-06T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/avis-bitstack.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     "url": "https://julien-invest.github.io"
   },
   "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-07"
 }
   </script>
   <script type="application/ld+json">
@@ -100,6 +100,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "C'est une limite pour certains, une protection pour la plupart. La doctrine de ce site : le Bitcoin représente l'essentiel d'une poche crypto raisonnable (elle-même limitée à 5-10 % du patrimoine), et la majorité des altcoins détruisent de la valeur sur un cycle complet, comme documenté dans l'article sur le risque des altcoins. Une app qui rend structurellement impossible le FOMO sur le memecoin du jour rend un service que ses concurrents ne factureront jamais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne le multiplicateur d'arrondi Bitstack ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tu peux appliquer un facteur ×2, ×5 ou ×10 à chaque arrondi pour accélérer ton accumulation : un café à 2,60 € génère normalement 0,40 € d'arrondi (jusqu'à 3 €), mais avec un multiplicateur ×10, ce même arrondi investit 4 €. C'est un curseur simple pour ajuster ton rythme d'épargne Bitcoin sans changer tes habitudes de paiement : commence à ×1 ou ×2 pour tester, puis augmente si le montant prélevé automatiquement reste confortable pour ton budget."
       }
     }
   ]
@@ -404,9 +412,9 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Avis plateforme · Mis à jour juillet 2026</span>
+        <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis Bitstack :<br><em>le Bitcoin en pilote automatique</em></h1>
-        <p class="article-meta-date">Testé et utilisé personnellement · 7 min de lecture</p>
+        <p class="article-meta-date">Testé et utilisé personnellement · 9 min de lecture</p>
         <p>Chaque achat de 3,60 € arrondi à 4 €, et les 40 centimes partent en Bitcoin : Bitstack a trouvé la façon la plus indolore de stacker des sats. App française, focalisée Bitcoin uniquement. Mon retour complet.</p>
       </div>
     </div>
@@ -452,9 +460,76 @@
             <tr><td><strong>Dépôt minimum</strong></td><td>Quelques euros : accessible à tous</td></tr>
             <tr><td><strong>Fiscalité</strong></td><td>Société française : pas de formulaire 3916 bis (avantage rare)</td></tr>
             <tr><td><strong>Public cible</strong></td><td>Débutants et épargnants réguliers en Bitcoin</td></tr>
+            <tr><td><strong>Multiplicateur d'arrondi</strong></td><td>×2, ×5 ou ×10 pour accélérer l'accumulation</td></tr>
+            <tr><td><strong>Parrainage</strong></td><td>5 € en BTC pour toi et ton filleul, après 100 € de dépôt</td></tr>
           </tbody>
         </table>
         </div>
+
+        <div class="simulator-block">
+          <div class="ji-figure-title">Simulateur : combien de Bitcoin accumules-tu en arrondis ?</div>
+          <div class="ji-figure-sub">Estimation basée sur ta fréquence de paiement par carte et le multiplicateur choisi.</div>
+          <div class="dca-sim-grid">
+            <div>
+              <div class="dca-field-label"><span>Paiements par carte par mois</span><span id="bs-count-val">30</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="bs-count" min="5" max="100" step="1" value="30">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Arrondi moyen par paiement</span><span id="bs-round-val">0,40 €</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="bs-round" min="0.10" max="0.90" step="0.05" value="0.40">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Multiplicateur</span><span id="bs-mult-val">×1</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="bs-mult" min="1" max="10" step="1" value="1">
+              </div>
+            </div>
+          </div>
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Accumulé par mois</div>
+              <div class="dca-res-num" id="bs-res-month">12 €</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Accumulé par an</div>
+              <div class="dca-res-num" id="bs-res-year">144 €</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Sur 5 ans (hors variation du cours)</div>
+              <div class="dca-res-num" id="bs-res-5y">720 €</div>
+            </div>
+          </div>
+          <p class="dca-legal">Simulation illustrative : les frais Bitstack (~1 à 1,5 %) et l'évolution du cours du Bitcoin ne sont pas inclus dans ce calcul, qui montre uniquement le montant investi via les arrondis.</p>
+        </div>
+        <script>
+          (function(){
+            const count = document.getElementById('bs-count');
+            const round = document.getElementById('bs-round');
+            const mult = document.getElementById('bs-mult');
+            if(!count || !round || !mult) return;
+            function fmt(n){ return n.toLocaleString('fr-FR', {maximumFractionDigits:2}) + ' €'; }
+            function update(){
+              const c = parseFloat(count.value);
+              const r = parseFloat(round.value);
+              const m = parseFloat(mult.value);
+              const month = c * r * m;
+              document.getElementById('bs-count-val').textContent = c;
+              document.getElementById('bs-round-val').textContent = r.toLocaleString('fr-FR', {minimumFractionDigits:2}) + ' €';
+              document.getElementById('bs-mult-val').textContent = '×' + m;
+              document.getElementById('bs-res-month').textContent = fmt(month);
+              document.getElementById('bs-res-year').textContent = fmt(month*12);
+              document.getElementById('bs-res-5y').textContent = fmt(month*12*5);
+            }
+            count.addEventListener('input', update);
+            round.addEventListener('input', update);
+            mult.addEventListener('input', update);
+            update();
+          })();
+        </script>
 
         <h2 id="pour-contre">Points forts et points faibles</h2>
         <div class="avis-cols">
@@ -543,6 +618,10 @@
           <details>
             <summary>Le Bitcoin only n'est-il pas trop limité ?</summary>
             <p>C'est une limite pour certains, une protection pour la plupart. La doctrine de ce site : le Bitcoin représente l'essentiel d'une poche crypto raisonnable (elle-même limitée à 5-10 % du patrimoine), et la majorité des altcoins détruisent de la valeur sur un cycle complet, comme documenté dans l'article sur le risque des altcoins. Une app qui rend structurellement impossible le FOMO sur le memecoin du jour rend un service que ses concurrents ne factureront jamais.</p>
+          </details>
+          <details>
+            <summary>Comment fonctionne le multiplicateur d'arrondi Bitstack ?</summary>
+            <p>Tu peux appliquer un facteur ×2, ×5 ou ×10 à chaque arrondi pour accélérer ton accumulation : un café à 2,60 € génère normalement 0,40 € d'arrondi (jusqu'à 3 €), mais avec un multiplicateur ×10, ce même arrondi investit 4 €. C'est un curseur simple pour ajuster ton rythme d'épargne Bitcoin sans changer tes habitudes de paiement : commence à ×1 ou ×2 pour tester, puis augmente si le montant prélevé automatiquement reste confortable pour ton budget.</p>
           </details>
         </div>
 

@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-avis.png">
   <meta property="article:published_time" content="2026-07-06T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-07-06T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/avis-linxea.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     "url": "https://julien-invest.github.io"
   },
   "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-07"
 }
   </script>
   <script type="application/ld+json">
@@ -100,6 +100,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Oui, les contrats phares existent en version PER, avec la même philosophie de frais bas et d'ETF disponibles : c'est important, car un PER chargé en frais détruit l'avantage fiscal qui le justifie. Si ta TMI est de 30 % ou plus, le combo assurance-vie (liquidité) + PER (déduction) chez le même courtier simplifie la gestion. Relis le guide pour réduire ses impôts pour calibrer les versements entre les deux enveloppes selon ta situation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'écart de frais avec une assurance-vie bancaire est-il vraiment si important sur 20 ans ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, et l'effet composé amplifie l'écart chaque année qui passe. Avec 500 € versés par mois pendant 20 ans à 7 % de rendement brut, un contrat à 0,7 % de frais totaux (type Linxea) et un contrat bancaire classique à 3 % d'entrée plus 2,8 % de frais annuels peuvent afficher un écart de capital final de plusieurs dizaines de milliers d'euros, à performance de marché strictement identique. Ce n'est pas une question de chance ou de sélection de fonds : c'est de l'arithmétique pure sur des frais qui se prélèvent chaque année, qu'il y ait performance ou non."
       }
     }
   ]
@@ -404,9 +412,9 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Avis plateforme · Mis à jour juillet 2026</span>
+        <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis Linxea :<br><em>l'assurance-vie enfin débarrassée des frais ?</em></h1>
-        <p class="article-meta-date">Testé et utilisé personnellement · 8 min de lecture</p>
+        <p class="article-meta-date">Testé et utilisé personnellement · 10 min de lecture</p>
         <p>Zéro frais d'entrée, gestion autour de 0,5 %, des ETF World logeables en assurance-vie : Linxea distribue les contrats que les banques n'ont pas envie de te vendre. Mon retour complet.</p>
       </div>
     </div>
@@ -481,6 +489,84 @@
 
         <h2 id="frais">Les frais en détail (et pourquoi ils changent tout)</h2>
         <p>Prenons le cas type des contrats phares du marché en ligne, dont ceux de Linxea : 0 % à l'entrée, environ 0,5 % de frais de gestion annuels sur les unités de compte, arbitrages gratuits, et accès à des ETF dont les frais internes tournent autour de 0,2 %. Coût total "tout compris" d'une poche ETF World : environ 0,7 % par an. Le même investissement dans un contrat bancaire classique (3 % d'entrée, 1 % de gestion, fonds actifs à 1,8 %) coûte environ 2,8 % par an plus le péage d'entrée. Sur 20 ans et 500 € par mois, la différence dépasse 40 000 € de capital final. Ce n'est pas un détail d'optimisation, c'est la moitié d'un apport immobilier.</p>
+
+        <div class="simulator-block">
+          <div class="ji-figure-title">Simulateur : Linxea vs assurance-vie bancaire classique</div>
+          <div class="ji-figure-sub">Même effort d'épargne, même performance de marché : seuls les frais diffèrent.</div>
+          <div class="dca-sim-grid">
+            <div>
+              <div class="dca-field-label"><span>Versement mensuel</span><span id="lx-payment-val">500 €</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="lx-payment" min="50" max="2000" step="10" value="500">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Durée</span><span id="lx-years-val">20 ans</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="lx-years" min="5" max="30" step="1" value="20">
+              </div>
+            </div>
+          </div>
+          <div class="dca-sim-grid" style="margin-top:16px;">
+            <div>
+              <div class="dca-field-label"><span>Rendement brut annuel du marché</span><span id="lx-rate-val">7 %</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="lx-rate" min="4" max="9" step="0.5" value="7">
+              </div>
+            </div>
+          </div>
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Capital final (Linxea, ~0,7 %/an de frais)</div>
+              <div class="dca-res-num" id="lx-res-linxea">237 000 €</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Capital final (AV bancaire, 3 % d'entrée + 2,8 %/an)</div>
+              <div class="dca-res-num" id="lx-res-bank">193 000 €</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Écart en ta faveur avec Linxea</div>
+              <div class="dca-res-num" id="lx-res-diff">+44 000 €</div>
+            </div>
+          </div>
+          <p class="dca-legal">Simulation illustrative à rendement brut constant, hors fiscalité de sortie (identique dans les deux enveloppes). Les frais réels varient selon le contrat exact et les supports choisis : vérifie toujours la notice avant de souscrire.</p>
+        </div>
+        <script>
+          (function(){
+            const payment = document.getElementById('lx-payment');
+            const years = document.getElementById('lx-years');
+            const rate = document.getElementById('lx-rate');
+            if(!payment || !years || !rate) return;
+            function fmt(n){ return Math.round(n).toLocaleString('fr-FR') + ' €'; }
+            function futureValue(monthlyPayment, annualNetRate, months){
+              const i = Math.pow(1 + annualNetRate, 1/12) - 1;
+              if (i === 0) return monthlyPayment * months;
+              return monthlyPayment * ((Math.pow(1+i, months) - 1) / i);
+            }
+            function update(){
+              const p = parseFloat(payment.value);
+              const y = parseFloat(years.value);
+              const r = parseFloat(rate.value) / 100;
+              const months = y * 12;
+              const linxeaNetRate = r - 0.007;
+              const bankNetRate = r - 0.028;
+              const bankEffectivePayment = p * (1 - 0.03);
+              const linxeaVal = futureValue(p, linxeaNetRate, months);
+              const bankVal = futureValue(bankEffectivePayment, bankNetRate, months);
+              document.getElementById('lx-payment-val').textContent = fmt(p);
+              document.getElementById('lx-years-val').textContent = y + ' ans';
+              document.getElementById('lx-rate-val').textContent = (r*100).toLocaleString('fr-FR') + ' %';
+              document.getElementById('lx-res-linxea').textContent = fmt(linxeaVal);
+              document.getElementById('lx-res-bank').textContent = fmt(bankVal);
+              document.getElementById('lx-res-diff').textContent = '+' + fmt(linxeaVal - bankVal);
+            }
+            payment.addEventListener('input', update);
+            years.addEventListener('input', update);
+            rate.addEventListener('input', update);
+            update();
+          })();
+        </script>
+
         <h2 id="securite">Sécurité : qui garantit quoi</h2>
         <p>Point important à comprendre : Linxea distribue, mais ton contrat est juridiquement chez l'assureur (Spirica, Suravenir, Generali ou Apicil selon le contrat choisi). Ce sont ces groupes, parmi les plus gros assureurs français, qui portent la garantie du fonds euros et la conservation de tes avoirs, sous supervision de l'ACPR. Si Linxea disparaissait demain, tes contrats continueraient chez l'assureur, simplement sans l'intermédiaire. Le fonds de garantie des assurances couvre par ailleurs jusqu'à 70 000 € par assuré et par compagnie : un argument pour répartir les gros patrimoines entre deux contrats de compagnies différentes, ce que la gamme Linxea permet justement.</p>
         <h2 id="pour-qui">Pour qui (et pour qui pas)</h2>
@@ -543,6 +629,10 @@
           <details>
             <summary>Linxea propose-t-il aussi un PER ?</summary>
             <p>Oui, les contrats phares existent en version PER, avec la même philosophie de frais bas et d'ETF disponibles : c'est important, car un PER chargé en frais détruit l'avantage fiscal qui le justifie. Si ta TMI est de 30 % ou plus, le combo assurance-vie (liquidité) + PER (déduction) chez le même courtier simplifie la gestion. Relis le guide pour réduire ses impôts pour calibrer les versements entre les deux enveloppes selon ta situation.</p>
+          </details>
+          <details>
+            <summary>L'écart de frais avec une assurance-vie bancaire est-il vraiment si important sur 20 ans ?</summary>
+            <p>Oui, et l'effet composé amplifie l'écart chaque année qui passe. Avec 500 € versés par mois pendant 20 ans à 7 % de rendement brut, un contrat à 0,7 % de frais totaux (type Linxea) et un contrat bancaire classique à 3 % d'entrée plus 2,8 % de frais annuels peuvent afficher un écart de capital final de plusieurs dizaines de milliers d'euros, à performance de marché strictement identique. Ce n'est pas une question de chance ou de sélection de fonds : c'est de l'arithmétique pure sur des frais qui se prélèvent chaque année, qu'il y ait performance ou non.</p>
           </details>
         </div>
 

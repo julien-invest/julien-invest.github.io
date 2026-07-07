@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-avis.png">
   <meta property="article:published_time" content="2026-07-06T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-07-06T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/avis-fundora.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     "url": "https://julien-invest.github.io"
   },
   "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-07"
 }
   </script>
   <script type="application/ld+json">
@@ -100,6 +100,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Deux accès différents au non coté. L'assurance-vie référence de plus en plus de fonds \"evergreen\" ou de PE grand public : plus liquides (rachats organisés), intégrés à ta fiscalité AV, mais souvent plus dilués dans leur exposition et chargés en frais d'enveloppe. Fundora vise l'expérience institutionnelle authentique : fonds cibles fermés, millésimes, illiquidité assumée, potentiel plus pur. Ma lecture : l'AV pour goûter au non coté dans un cadre souple ; Fundora pour la poche satellite construite d'un investisseur qui comprend ce qu'il achète."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le PE bat-il vraiment un simple ETF une fois les frais déduits ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ça dépend entièrement de la qualité du fonds cible et du millésime. Avec des frais en couches qui rognent environ 3 à 4 points de rendement annuel (gestion, commission de surperformance, véhicule d'accès), un fonds affichant 12 % bruts peut atterrir autour de 8-9 % nets sur la durée : comparable, parfois inférieur, à un ETF World liquide à 7 % net et sans blocage. La vraie promesse du PE n'est pas de battre systématiquement l'ETF : c'est d'accéder aux meilleurs fonds du quartile supérieur, qui eux distancent nettement les marchés cotés. Le risque de sélection est donc central, pas accessoire."
       }
     }
   ]
@@ -406,9 +414,9 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Avis plateforme · Mis à jour juillet 2026</span>
+        <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis Fundora :<br><em>le private equity sort de son club privé</em></h1>
-        <p class="article-meta-date">Testé et utilisé personnellement · 8 min de lecture</p>
+        <p class="article-meta-date">Testé et utilisé personnellement · 10 min de lecture</p>
         <p>Les fonds de private equity exigeaient 100 000 € de ticket et un carnet d'adresses : Fundora les ouvre dès 100 €, via une gestion agréée AMF. Révolution d'accès réelle, risques de la classe d'actifs intacts : mon analyse.</p>
       </div>
     </div>
@@ -457,6 +465,64 @@
           </tbody>
         </table>
         </div>
+
+        <div class="simulator-block">
+          <div class="ji-figure-title">Simulateur : l'impact des frais en couches sur 8 ans</div>
+          <div class="ji-figure-sub">Compare la valeur nette estimée d'un fonds de PE après frais, et celle d'un ETF World liquide à 7 % net.</div>
+          <div class="dca-sim-grid">
+            <div>
+              <div class="dca-field-label"><span>Montant investi</span><span id="fd-amount-val">1 000 €</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="fd-amount" min="100" max="10000" step="100" value="1000">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Rendement brut visé du fonds cible</span><span id="fd-gross-val">12 %</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="fd-gross" min="8" max="16" step="0.5" value="12">
+              </div>
+            </div>
+          </div>
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Valeur nette PE après 8 ans (frais ~3,5 pts/an)</div>
+              <div class="dca-res-num" id="fd-res-pe">1 663 €</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Même montant en ETF World (7 % net, liquide)</div>
+              <div class="dca-res-num" id="fd-res-etf">1 718 €</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Écart</div>
+              <div class="dca-res-num" id="fd-res-diff">-55 €</div>
+            </div>
+          </div>
+          <p class="dca-legal">Simulation illustrative : les frais en couches (gestion + commission de surperformance + véhicule d'accès) sont approximés à 3,5 points de rendement annuel, une hypothèse moyenne, pas une donnée contractuelle. La dispersion réelle entre fonds de PE est énorme : un bon millésime peut largement dépasser l'ETF, un mauvais peut faire pire que ce calcul.</p>
+        </div>
+        <script>
+          (function(){
+            const amount = document.getElementById('fd-amount');
+            const gross = document.getElementById('fd-gross');
+            if(!amount || !gross) return;
+            function fmt(n){ return Math.round(n).toLocaleString('fr-FR') + ' €'; }
+            function update(){
+              const a = parseFloat(amount.value);
+              const g = parseFloat(gross.value);
+              const netPE = (g - 3.5) / 100;
+              const peVal = a * Math.pow(1 + netPE, 8);
+              const etfVal = a * Math.pow(1.07, 8);
+              document.getElementById('fd-amount-val').textContent = fmt(a);
+              document.getElementById('fd-gross-val').textContent = g.toLocaleString('fr-FR') + ' %';
+              document.getElementById('fd-res-pe').textContent = fmt(peVal);
+              document.getElementById('fd-res-etf').textContent = fmt(etfVal);
+              const diff = peVal - etfVal;
+              document.getElementById('fd-res-diff').textContent = (diff>=0?'+':'') + fmt(diff);
+            }
+            amount.addEventListener('input', update);
+            gross.addEventListener('input', update);
+            update();
+          })();
+        </script>
 
         <h2 id="pour-contre">Points forts et points faibles</h2>
         <div class="avis-cols">
@@ -546,6 +612,10 @@
           <details>
             <summary>Fundora ou les fonds de PE en assurance-vie ?</summary>
             <p>Deux accès différents au non coté. L'assurance-vie référence de plus en plus de fonds "evergreen" ou de PE grand public : plus liquides (rachats organisés), intégrés à ta fiscalité AV, mais souvent plus dilués dans leur exposition et chargés en frais d'enveloppe. Fundora vise l'expérience institutionnelle authentique : fonds cibles fermés, millésimes, illiquidité assumée, potentiel plus pur. Ma lecture : l'AV pour goûter au non coté dans un cadre souple ; Fundora pour la poche satellite construite d'un investisseur qui comprend ce qu'il achète.</p>
+          </details>
+          <details>
+            <summary>Le PE bat-il vraiment un simple ETF une fois les frais déduits ?</summary>
+            <p>Ça dépend entièrement de la qualité du fonds cible et du millésime. Avec des frais en couches qui rognent environ 3 à 4 points de rendement annuel (gestion, commission de surperformance, véhicule d'accès), un fonds affichant 12 % bruts peut atterrir autour de 8-9 % nets sur la durée : comparable, parfois inférieur, à un ETF World liquide à 7 % net et sans blocage. La vraie promesse du PE n'est pas de battre systématiquement l'ETF : c'est d'accéder aux meilleurs fonds du quartile supérieur, qui eux distancent nettement les marchés cotés. Le risque de sélection est donc central, pas accessoire.</p>
           </details>
         </div>
 

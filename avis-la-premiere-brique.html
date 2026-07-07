@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-avis.png">
   <meta property="article:published_time" content="2026-07-06T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-07-06T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/avis-la-premiere-brique.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     "url": "https://julien-invest.github.io"
   },
   "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-07"
 }
   </script>
   <script type="application/ld+json">
@@ -100,6 +100,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Les intérêts perçus sont des revenus de capitaux mobiliers : flat tax de 31,4 % en 2026 (12,8 % d'impôt + 18,6 % de prélèvements sociaux), avec option possible pour le barème si ta TMI est faible. La plateforme, française, prélève et fournit le récapitulatif fiscal : rien à calculer, pas de formulaire 3916 bis. Astuce de calibrage : raisonne toujours en rendement net de fiscalité (11 % bruts deviennent ~7,5 % nets) quand tu compares au fonds euros ou au PEA, dont les fiscalités diffèrent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il des frais chez La Première Brique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aucun frais d'entrée ni de retrait côté investisseur : la plateforme se rémunère auprès des opérateurs immobiliers (commission sur les fonds levés), comme la plupart des acteurs du secteur. Le rendement affiché sur chaque fiche est donc brut de frais, mais reste soumis à la fiscalité (flat tax 31,4 %) et au risque de retard ou de défaut du projet. Le parrainage ajoute ponctuellement un cashback de 1 à 2 % sur ton premier investissement selon l'offre en cours : un bonus d'entrée, pas un rendement récurrent."
       }
     }
   ]
@@ -404,9 +412,9 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Avis plateforme · Mis à jour juillet 2026</span>
+        <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis La Première Brique :<br><em>10 % de rendement, à quel risque ?</em></h1>
-        <p class="article-meta-date">Testé et utilisé personnellement · 8 min de lecture</p>
+        <p class="article-meta-date">Testé et utilisé personnellement · 10 min de lecture</p>
         <p>Prêter aux marchands de biens et promoteurs dès 1 €, avec des rendements cibles de 10 à 12 % sur 12 à 36 mois : La Première Brique affiche les taux les plus attractifs du crowdfunding. Décryptage honnête du couple rendement-risque.</p>
       </div>
     </div>
@@ -451,10 +459,68 @@
             <tr><td><strong>Durée type</strong></td><td>12 à 36 mois, remboursement in fine (capital + intérêts à la fin)</td></tr>
             <tr><td><strong>Liquidité</strong></td><td>Nulle pendant l'opération : capital bloqué jusqu'au remboursement</td></tr>
             <tr><td><strong>Garanties usuelles</strong></td><td>Hypothèques, cautions, fiducie selon projets (à lire fiche par fiche)</td></tr>
+            <tr><td><strong>Frais</strong></td><td>0 % à l'entrée et au retrait pour l'investisseur</td></tr>
+            <tr><td><strong>Parrainage</strong></td><td>Cashback de 1 à 2 % sur ton premier investissement (selon offre en cours)</td></tr>
             <tr><td><strong>Fiscalité</strong></td><td>Intérêts à la flat tax (31,4 % en 2026), plateforme française (pas de 3916 bis)</td></tr>
           </tbody>
         </table>
         </div>
+
+        <div class="simulator-block">
+          <div class="ji-figure-title">Simulateur : quel gain total à l'échéance ?</div>
+          <div class="ji-figure-sub">Remboursement in fine : capital et intérêts sont versés en une fois, à la fin du projet.</div>
+          <div class="dca-sim-grid">
+            <div>
+              <div class="dca-field-label"><span>Montant investi</span><span id="lpb-amount-val">300 €</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="lpb-amount" min="1" max="5000" step="10" value="300">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Durée du projet</span><span id="lpb-duration-val">18 mois</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="lpb-duration" min="12" max="36" step="1" value="18">
+              </div>
+            </div>
+          </div>
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Gain estimé (11 %/an)</div>
+              <div class="dca-res-num" id="lpb-res-gain">50 €</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Total remboursé à l'échéance</div>
+              <div class="dca-res-num" id="lpb-res-total">350 €</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Gain net estimé (après flat tax)</div>
+              <div class="dca-res-num" id="lpb-res-net">34 €</div>
+            </div>
+          </div>
+          <p class="dca-legal">Simulation illustrative à taux constant de 11 %/an : un objectif, jamais garanti. Un retard ou un défaut peut réduire ou différer ce gain, malgré les garanties éventuelles du projet.</p>
+        </div>
+        <script>
+          (function(){
+            const amount = document.getElementById('lpb-amount');
+            const duration = document.getElementById('lpb-duration');
+            if(!amount || !duration) return;
+            function fmt(n){ return n.toLocaleString('fr-FR', {maximumFractionDigits:0}) + ' €'; }
+            function update(){
+              const a = parseFloat(amount.value);
+              const d = parseFloat(duration.value);
+              const gain = a * 0.11 * (d/12);
+              const net = gain * (1 - 0.314);
+              document.getElementById('lpb-amount-val').textContent = fmt(a);
+              document.getElementById('lpb-duration-val').textContent = d + ' mois';
+              document.getElementById('lpb-res-gain').textContent = fmt(gain);
+              document.getElementById('lpb-res-total').textContent = fmt(a + gain);
+              document.getElementById('lpb-res-net').textContent = fmt(net);
+            }
+            amount.addEventListener('input', update);
+            duration.addEventListener('input', update);
+            update();
+          })();
+        </script>
 
         <h2 id="pour-contre">Points forts et points faibles</h2>
         <div class="avis-cols">
@@ -491,7 +557,7 @@
         <p>Inscription, vérification d'identité, questionnaire investisseur PSFP obligatoire, alimentation par carte ou virement, et sélection des collectes (les projets attractifs partent vite : les habitués activent les alertes). Démarre avec un budget d'apprentissage réparti sur au moins dix projets, note les échéances dans ton agenda, et juge la plateforme sur un cycle complet de remboursements avant d'augmenter la mise.</p>
         <div class="avis-cta-box">
           <div class="t">Explore le crowdfunding dès 1 €</div>
-          <div class="s">En passant par mon lien de parrainage, tu soutiens le site et tu profites du bonus de bienvenue en cours.</div>
+          <div class="s">En passant par mon lien de parrainage, tu profites généralement d'un cashback de 1 à 2 % sur ton premier investissement, et tu soutiens le site.</div>
           <a href="https://app.lapremierebrique.fr/fr/users/sign_up/RLAHUZ" target="_blank" rel="sponsored noopener noreferrer" class="btn btn-gradient btn--lg">Découvrir La Première Brique
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
           </a>
@@ -543,6 +609,10 @@
           <details>
             <summary>Comment sont imposés les gains ?</summary>
             <p>Les intérêts perçus sont des revenus de capitaux mobiliers : flat tax de 31,4 % en 2026 (12,8 % d'impôt + 18,6 % de prélèvements sociaux), avec option possible pour le barème si ta TMI est faible. La plateforme, française, prélève et fournit le récapitulatif fiscal : rien à calculer, pas de formulaire 3916 bis. Astuce de calibrage : raisonne toujours en rendement net de fiscalité (11 % bruts deviennent ~7,5 % nets) quand tu compares au fonds euros ou au PEA, dont les fiscalités diffèrent.</p>
+          </details>
+          <details>
+            <summary>Y a-t-il des frais chez La Première Brique ?</summary>
+            <p>Aucun frais d'entrée ni de retrait côté investisseur : la plateforme se rémunère auprès des opérateurs immobiliers (commission sur les fonds levés), comme la plupart des acteurs du secteur. Le rendement affiché sur chaque fiche est donc brut de frais, mais reste soumis à la fiscalité (flat tax 31,4 %) et au risque de retard ou de défaut du projet. Le parrainage ajoute ponctuellement un cashback de 1 à 2 % sur ton premier investissement selon l'offre en cours : un bonus d'entrée, pas un rendement récurrent.</p>
           </details>
         </div>
 

@@ -12,7 +12,7 @@
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://julien-invest.github.io/images/og/og-avis.png">
   <meta property="article:published_time" content="2026-07-06T00:00:00+02:00">
-  <meta property="article:modified_time" content="2026-07-06T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-07T00:00:00+02:00">
   <meta property="article:author" content="Julien Denis">
   <meta property="og:url" content="https://julien-invest.github.io/avis-tokimo.html">
   <meta name="twitter:card" content="summary_large_image">
@@ -36,7 +36,7 @@
     "url": "https://julien-invest.github.io"
   },
   "datePublished": "2026-07-06",
-  "dateModified": "2026-07-06"
+  "dateModified": "2026-07-07"
 }
   </script>
   <script type="application/ld+json">
@@ -100,6 +100,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Comme tous les intérêts de crowdfunding : revenus de capitaux mobiliers à la flat tax de 31,4 % en 2026 (12,8 % IR + 18,6 % de prélèvements sociaux), avec option barème possible si ta TMI est basse. La plateforme, française, fournit le récapitulatif annuel et il n'y a pas de compte étranger à déclarer. Raisonne toujours en net pour comparer : 11,5 % bruts deviennent ~7,9 % nets de flat tax : toujours très attractif, à la hauteur du risque porté."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le remboursement in fine, ça veut dire quoi concrètement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Contrairement à un loyer ou une mensualité versés régulièrement, un projet Tokimo te rembourse capital et intérêts en une seule fois, à l'échéance prévue (12 à 30 mois selon le projet). Concrètement : tu n'as aucune visibilité de trésorerie intermédiaire, ton argent est immobilisé jusqu'au terme, et le paiement final dépend de la bonne fin de l'opération immobilière financée. C'est pour ça que la diversification sur plusieurs projets à échéances différentes est essentielle : elle lisse les dates de retour de capital plutôt que de tout concentrer sur une seule date."
       }
     }
   ]
@@ -406,9 +414,9 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
-        <span class="t-label">Avis plateforme · Mis à jour juillet 2026</span>
+        <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis Tokimo :<br><em>le crowdfunding qui mise sur les garanties</em></h1>
-        <p class="article-meta-date">Testé et utilisé personnellement · 7 min de lecture</p>
+        <p class="article-meta-date">Testé et utilisé personnellement · 9 min de lecture</p>
         <p>Des petites opérations de marchands de biens, une garantie forte (hypothèque de premier rang ou fiducie) sur CHAQUE projet, 0 % de frais investisseur : Tokimo a choisi son créneau. Mon analyse complète, risques compris.</p>
       </div>
     </div>
@@ -457,6 +465,62 @@
           </tbody>
         </table>
         </div>
+
+        <div class="simulator-block">
+          <div class="ji-figure-title">Simulateur : quel gain total à l'échéance ?</div>
+          <div class="ji-figure-sub">Le remboursement Tokimo est in fine : capital et intérêts sont versés en une fois, à la fin du projet.</div>
+          <div class="dca-sim-grid">
+            <div>
+              <div class="dca-field-label"><span>Montant investi</span><span id="tk-amount-val">500 €</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="tk-amount" min="100" max="5000" step="50" value="500">
+              </div>
+            </div>
+            <div>
+              <div class="dca-field-label"><span>Durée du projet</span><span id="tk-duration-val">18 mois</span></div>
+              <div class="dca-field-input">
+                <input type="range" id="tk-duration" min="12" max="30" step="1" value="18">
+              </div>
+            </div>
+          </div>
+          <div class="dca-results">
+            <div class="dca-res dca-res-invest">
+              <div class="dca-res-lbl">Gain estimé (11,5 %/an)</div>
+              <div class="dca-res-num" id="tk-res-gain">86 €</div>
+            </div>
+            <div class="dca-res dca-res-final">
+              <div class="dca-res-lbl">Total remboursé à l'échéance</div>
+              <div class="dca-res-num" id="tk-res-total">586 €</div>
+            </div>
+            <div class="dca-res dca-res-gain">
+              <div class="dca-res-lbl">Gain net estimé (après flat tax)</div>
+              <div class="dca-res-num" id="tk-res-net">59 €</div>
+            </div>
+          </div>
+          <p class="dca-legal">Simulation illustrative à taux constant de 11,5 %/an : un rendement cible, jamais garanti. En cas de retard ou de défaut, le versement peut être différé ou partiel malgré les garanties (hypothèque ou fiducie).</p>
+        </div>
+        <script>
+          (function(){
+            const amount = document.getElementById('tk-amount');
+            const duration = document.getElementById('tk-duration');
+            if(!amount || !duration) return;
+            function fmt(n){ return n.toLocaleString('fr-FR', {maximumFractionDigits:0}) + ' €'; }
+            function update(){
+              const a = parseFloat(amount.value);
+              const d = parseFloat(duration.value);
+              const gain = a * 0.115 * (d/12);
+              const net = gain * (1 - 0.314);
+              document.getElementById('tk-amount-val').textContent = fmt(a);
+              document.getElementById('tk-duration-val').textContent = d + ' mois';
+              document.getElementById('tk-res-gain').textContent = fmt(gain);
+              document.getElementById('tk-res-total').textContent = fmt(a + gain);
+              document.getElementById('tk-res-net').textContent = fmt(net);
+            }
+            amount.addEventListener('input', update);
+            duration.addEventListener('input', update);
+            update();
+          })();
+        </script>
 
         <h2 id="pour-contre">Points forts et points faibles</h2>
         <div class="avis-cols">
@@ -546,6 +610,10 @@
           <details>
             <summary>Comment sont imposés les gains Tokimo ?</summary>
             <p>Comme tous les intérêts de crowdfunding : revenus de capitaux mobiliers à la flat tax de 31,4 % en 2026 (12,8 % IR + 18,6 % de prélèvements sociaux), avec option barème possible si ta TMI est basse. La plateforme, française, fournit le récapitulatif annuel et il n'y a pas de compte étranger à déclarer. Raisonne toujours en net pour comparer : 11,5 % bruts deviennent ~7,9 % nets de flat tax : toujours très attractif, à la hauteur du risque porté.</p>
+          </details>
+          <details>
+            <summary>Le remboursement in fine, ça veut dire quoi concrètement ?</summary>
+            <p>Contrairement à un loyer ou une mensualité versés régulièrement, un projet Tokimo te rembourse capital et intérêts en une seule fois, à l'échéance prévue (12 à 30 mois selon le projet). Concrètement : tu n'as aucune visibilité de trésorerie intermédiaire, ton argent est immobilisé jusqu'au terme, et le paiement final dépend de la bonne fin de l'opération immobilière financée. C'est pour ça que la diversification sur plusieurs projets à échéances différentes est essentielle : elle lisse les dates de retour de capital plutôt que de tout concentrer sur une seule date.</p>
           </details>
         </div>
 
