@@ -275,7 +275,26 @@
     .avis-cta-code { font-family: var(--font-head); font-size: 14px; color: #A0E7C5; font-weight: 700; margin: 0 0 16px; }
     .avis-cta-code strong { background: rgba(255,255,255,0.12); border-radius: 8px; padding: 4px 10px; letter-spacing: 0.06em; color: #fff; }
 
-  </style>
+  
+    /* -- Alternatives et complements (style blog card) -- */
+    .avis-related { margin: 40px 0 0; }
+    .avis-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .avis-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media (max-width: 680px) { .avis-related-grid { grid-template-columns: 1fr; } }
+    .avis-related-card { border: 1.5px solid var(--grey-5); border-radius: var(--radius-lg); overflow: hidden; background: var(--white); text-decoration: none; display: flex; flex-direction: column; position: relative; transition: transform .2s, border-color .2s, box-shadow .2s; }
+    .avis-related-card:hover { transform: translateY(-4px); border-color: var(--lavender); box-shadow: 0 12px 32px rgba(26,61,124,0.10); }
+    .avis-related-thumb { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; position: relative; }
+    .avis-related-thumb--avis { background: var(--pearl); }
+    .avis-related-thumb--avis img { max-width: 58%; max-height: 48%; object-fit: contain; }
+    .avis-related-thumb--guide { background: linear-gradient(135deg,#1E3A8A 0%,#2563EB 100%); }
+    .avis-related-thumb--comparatif { background: linear-gradient(135deg,#064E3B 0%,#059669 100%); }
+    .avis-related-thumb svg { width: 30px; height: 30px; color: rgba(255,255,255,0.9); }
+    .avis-related-tag { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.92); border-radius: 100px; padding: 3px 11px; font-size: 10px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.05em; }
+    .avis-related-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 5px; flex: 1; }
+    .avis-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); line-height: 1.4; }
+    .avis-related-meta { font-size: 11.5px; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; }
+    .avis-related-link { margin-top: auto; padding-top: 8px; font-size: 12.5px; font-weight: 700; font-family: var(--font-head); color: var(--lavender); }
+</style>
 </head>
 <body>
 
@@ -637,24 +656,36 @@
         </div>
 
         <!-- Alternatives -->
-        <div class="article-related">
-          <div class="article-related-title">Alternatives et compléments</div>
-          <div class="article-related-grid">
-            <a href="avis-revolut.html" class="article-related-card">
-              <span class="article-related-tag">Avis</span>
-              <span class="article-related-name">Avis Revolut : la super-app bancaire</span>
-              <span class="article-related-meta">Avis complet</span>
-            </a>
-            <a href="article-investir-freelance.html" class="article-related-card">
-              <span class="article-related-tag">Guide</span>
-              <span class="article-related-name">Investir en freelance (revenus internationaux)</span>
-              <span class="article-related-meta">15 min de lecture</span>
-            </a>
-            <a href="avis-degiro.html" class="article-related-card">
-              <span class="article-related-tag">Avis</span>
-              <span class="article-related-name">Avis DEGIRO : courtier étranger, frais bas</span>
-              <span class="article-related-meta">Avis complet</span>
-            </a>
+        <div class="avis-related">
+          <div class="avis-related-title">Alternatives et compléments</div>
+          <div class="avis-related-grid">
+        <a href="avis-revolut.html" class="avis-related-card">
+          <div class="avis-related-thumb avis-related-thumb--avis"><img src="images/logo-revolut.png" alt="Avis Revolut : la super-app bancaire" loading="lazy"></div>
+          <div class="avis-related-body">
+            <span class="avis-related-tag">Avis</span>
+            <span class="avis-related-name">Avis Revolut : la super-app bancaire</span>
+            <span class="avis-related-meta">Avis complet</span>
+            <span class="avis-related-link">Lire &rarr;</span>
+          </div>
+        </a>
+        <a href="article-investir-freelance.html" class="avis-related-card">
+          <div class="avis-related-thumb avis-related-thumb--guide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <div class="avis-related-body">
+            <span class="avis-related-tag">Guide</span>
+            <span class="avis-related-name">Investir en freelance (revenus internationaux)</span>
+            <span class="avis-related-meta">15 min de lecture</span>
+            <span class="avis-related-link">Lire &rarr;</span>
+          </div>
+        </a>
+        <a href="avis-degiro.html" class="avis-related-card">
+          <div class="avis-related-thumb avis-related-thumb--avis"><img src="images/logo-degiro.png" alt="Avis DEGIRO : courtier étranger, frais bas" loading="lazy"></div>
+          <div class="avis-related-body">
+            <span class="avis-related-tag">Avis</span>
+            <span class="avis-related-name">Avis DEGIRO : courtier étranger, frais bas</span>
+            <span class="avis-related-meta">Avis complet</span>
+            <span class="avis-related-link">Lire &rarr;</span>
+          </div>
+        </a>
           </div>
         </div>
 
