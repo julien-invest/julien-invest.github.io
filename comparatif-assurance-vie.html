@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur d'assurance-vie 2026 : frais, fonds euros, ETF, SCPI | Julien Invest</title>
+  <meta name="description" content="Compare les meilleures assurances-vie 2026 : frais de gestion, fonds euros, choix d'ETF et de SCPI, gestion libre ou pilotée, ticket d'entrée et note. Comparateur interactif gratuit.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Comparateur d'assurance-vie 2026 | Julien Invest">
+  <meta property="og:description" content="Compare les meilleures assurances-vie 2026 : frais, fonds euros, ETF, SCPI, gestion libre ou pilotée. Interactif et gratuit.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og/og-enveloppes.png">
+  <meta property="og:url" content="https://julien-invest.github.io/comparatif-assurance-vie.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Comparateur d'assurance-vie 2026">
+  <meta name="twitter:description" content="Compare les meilleures assurances-vie sur les frais, le fonds euros, les ETF et les SCPI.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og/og-enveloppes.png">
+  <link rel="canonical" href="https://julien-invest.github.io/comparatif-assurance-vie.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://julien-invest.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://julien-invest.github.io/outils.html" },
+    { "@type": "ListItem", "position": 3, "name": "Comparateur assurance-vie", "item": "https://julien-invest.github.io/comparatif-assurance-vie.html" }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .cav-controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 22px; }
+    .cav-filter { border: 1.5px solid var(--grey-5); background: var(--white); color: var(--navy); font-family: var(--font-head); font-weight: 700; font-size: 13px; padding: 9px 16px; border-radius: 100px; cursor: pointer; transition: all .15s; }
+    .cav-filter:hover { border-color: var(--lavender); }
+    .cav-filter.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .cav-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1.5px solid var(--grey-5); border-radius: var(--radius-lg); }
+    table.cav { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 820px; }
+    table.cav thead th { background: var(--navy); color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 12.5px; padding: 13px 14px; text-align: left; white-space: nowrap; position: sticky; top: 0; }
+    table.cav thead th.sortable { cursor: pointer; user-select: none; }
+    table.cav thead th.sortable:hover { color: var(--mint); }
+    table.cav thead th .arrow { opacity: 0.5; font-size: 10px; }
+    table.cav tbody td { padding: 13px 14px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); vertical-align: middle; }
+    table.cav tbody tr:hover td { background: var(--pearl); }
+    table.cav tbody tr.hl td { background: linear-gradient(90deg, rgba(160,231,197,0.14), rgba(200,180,232,0.10)); }
+    .cav-name { font-family: var(--font-head); font-weight: 800; color: var(--navy); }
+    .cav-badge { display: inline-block; font-size: 9.5px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy-mid); background: var(--lavender-lt); border-radius: 100px; padding: 2px 9px; margin-left: 6px; vertical-align: middle; }
+    .cav-note { font-family: var(--font-head); font-weight: 800; color: #fff; background: var(--navy); border-radius: 10px; padding: 5px 10px; font-size: 13px; white-space: nowrap; }
+    .cav-note span { font-size: 10px; opacity: 0.7; }
+    .cav-cta { display: inline-block; font-family: var(--font-head); font-weight: 700; font-size: 12.5px; color: var(--lavender); text-decoration: none; white-space: nowrap; }
+    .cav-cta:hover { text-decoration: underline; }
+    .cav-yes { color: #059669; font-weight: 700; }
+    .cav-no { color: #B45309; font-weight: 600; }
+    .cav-legend { font-size: 12.5px; color: var(--grey-3); font-style: italic; margin-top: 16px; line-height: 1.7; }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li class="nav-item-dropdown">
+            <a href="parrainage.html" class="nav-link">Parrainages <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Bons plans</div>
+              <a href="parrainage.html" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Codes de parrainage</div><div class="nav-dropdown-text-sub">Tous mes codes et bonus de bienvenue</div></div>
+              </a>
+              <a href="avis-plateformes.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Avis plateformes</div><div class="nav-dropdown-text-sub">Mes tests honnêtes : notes et verdicts</div></div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Parrainages <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="parrainage.html">Codes de parrainage</a></li>
+          <li><a href="avis-plateformes.html">Avis plateformes</a></li>
+        </ul>
+      </li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Comparateur · Mis à jour juillet 2026</span>
+        <h1>Comparateur d'assurance-vie<br><em>trouve le bon contrat en un coup d'œil</em></h1>
+        <p>Frais de gestion, fonds euros, choix d'ETF et de SCPI, gestion libre ou pilotée : compare les meilleurs contrats et filtre selon ce qui compte pour toi. Chaque ligne renvoie à mon avis détaillé.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container" style="max-width: 1040px;">
+      <div class="cav-controls" id="cav-filters">
+        <button class="cav-filter active" data-filter="all">Tous les contrats</button>
+        <button class="cav-filter" data-filter="libre">Gestion libre</button>
+        <button class="cav-filter" data-filter="pilotee">Gestion pilotée</button>
+        <button class="cav-filter" data-filter="specialise">Spécialisés</button>
+      </div>
+
+      <div class="cav-scroll">
+        <table class="cav" id="cav-table">
+          <thead>
+            <tr>
+              <th class="sortable" data-sort="nom">Contrat <span class="arrow">&#8597;</span></th>
+              <th class="sortable" data-sort="frais">Frais gestion UC <span class="arrow">&#8597;</span></th>
+              <th>Fonds euros</th>
+              <th>ETF</th>
+              <th>SCPI</th>
+              <th>Ticket</th>
+              <th class="sortable" data-sort="note">Note <span class="arrow">&#8597;</span></th>
+              <th>Avis</th>
+            </tr>
+          </thead>
+          <tbody id="cav-body">
+          <tr class="cav-row hl" data-cat="libre" data-note="4.5" data-frais="0.5" data-nom="Linxea Spirit 2">
+            <td><span class="cav-name">Linxea Spirit 2</span> <span class="cav-badge">Top choix</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion libre</span></td>
+            <td>0,5 %</td>
+            <td>Très bon</td>
+            <td>Large</td>
+            <td>Large</td>
+            <td>500 €</td>
+            <td><span class="cav-note">4,5<span>/5</span></span></td>
+            <td><a href="avis-linxea.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="libre" data-note="4.3" data-frais="0.75" data-nom="Fortuneo Vie">
+            <td><span class="cav-name">Fortuneo Vie</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion libre</span></td>
+            <td>0,75 %</td>
+            <td>Bon</td>
+            <td>Oui</td>
+            <td>Limité</td>
+            <td>Accessible</td>
+            <td><span class="cav-note">4,3<span>/5</span></span></td>
+            <td><a href="avis-fortuneo-vie.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="libre" data-note="4.0" data-frais="0.75" data-nom="Boursorama Vie">
+            <td><span class="cav-name">Boursorama Vie</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion libre</span></td>
+            <td>0,75 %</td>
+            <td>Correct</td>
+            <td>Sélection</td>
+            <td>Selon offre</td>
+            <td>Accessible</td>
+            <td><span class="cav-note">4,0<span>/5</span></span></td>
+            <td><a href="avis-boursorama-vie.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="specialise" data-note="3.7" data-frais="-1" data-nom="Garance Épargne">
+            <td><span class="cav-name">Garance Épargne</span><br><span style="font-size:11.5px;color:var(--grey-3);">Spécialisé fonds €</span></td>
+            <td>—</td>
+            <td>Excellent</td>
+            <td>Limité</td>
+            <td><span class="cav-no">Non</span></td>
+            <td>Selon conditions</td>
+            <td><span class="cav-note">3,7<span>/5</span></span></td>
+            <td><a href="avis-garance-epargne.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="specialise" data-note="3.8" data-frais="-1" data-nom="Corum Life">
+            <td><span class="cav-name">Corum Life</span><br><span style="font-size:11.5px;color:var(--grey-3);">Spécialisé SCPI</span></td>
+            <td>—</td>
+            <td><span class="cav-no">Aucun</span></td>
+            <td><span class="cav-no">Non</span></td>
+            <td>SCPI Corum</td>
+            <td>Selon SCPI</td>
+            <td><span class="cav-note">3,8<span>/5</span></span></td>
+            <td><a href="avis-corum-life.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="pilotee" data-note="4.0" data-frais="1.6" data-nom="Yomoni">
+            <td><span class="cav-name">Yomoni</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion pilotée</span></td>
+            <td>1,6 %</td>
+            <td>Selon profil</td>
+            <td>Oui (mandat)</td>
+            <td><span class="cav-no">Non</span></td>
+            <td>~1 000 €</td>
+            <td><span class="cav-note">4,0<span>/5</span></span></td>
+            <td><a href="avis-yomoni.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="pilotee" data-note="4.0" data-frais="1.65" data-nom="Nalo">
+            <td><span class="cav-name">Nalo</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion pilotée</span></td>
+            <td>1,65 %</td>
+            <td>Selon profil</td>
+            <td>Oui (mandat)</td>
+            <td><span class="cav-no">Non</span></td>
+            <td>~1 000 €</td>
+            <td><span class="cav-note">4,0<span>/5</span></span></td>
+            <td><a href="avis-nalo.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          <tr class="cav-row" data-cat="pilotee" data-note="4.2" data-frais="1.3" data-nom="Ramify">
+            <td><span class="cav-name">Ramify</span><br><span style="font-size:11.5px;color:var(--grey-3);">Gestion pilotée</span></td>
+            <td>1,3 %</td>
+            <td>Selon profil</td>
+            <td>Oui (mandat)</td>
+            <td>Oui</td>
+            <td>~1 000 €</td>
+            <td><span class="cav-note">4,2<span>/5</span></span></td>
+            <td><a href="avis-ramify.html" class="cav-cta">Voir l'avis &rarr;</a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="cav-legend">Frais de gestion UC = frais annuels sur les unités de compte (hors frais internes des supports). En gestion pilotée, le taux affiché est un ordre de grandeur « tout compris » du mandat. « — » : non applicable (contrat sans UC classiques). Les frais, fonds euros et conditions évoluent : vérifie toujours les conditions à jour sur le site officiel avant de souscrire. Cet outil est informatif et ne constitue pas un conseil personnalisé.</p>
+
+      <div class="article-cta" style="margin-top:48px; background:linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius:var(--radius-lg); padding:48px 40px; text-align:center;">
+        <h2 style="color:#fff; font-family:var(--font-display); font-style:italic; font-size:clamp(24px,3vw,34px); margin-bottom:12px;">Choisis ton contrat en connaissance de cause</h2>
+        <p style="color:rgba(255,255,255,0.7); margin-bottom:24px;">La formation Julien Invest t'explique comment articuler assurance-vie, PEA et livrets selon ton horizon, et comment optimiser chaque euro investi.</p>
+        <a href="formation.html" class="btn btn-gradient btn--lg">Accéder à la formation
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const body = document.getElementById('cav-body');
+      const rows = Array.from(body.querySelectorAll('tr'));
+      // Filtres
+      document.getElementById('cav-filters').addEventListener('click', function(e){
+        const btn = e.target.closest('.cav-filter'); if(!btn) return;
+        document.querySelectorAll('.cav-filter').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        rows.forEach(r=>{ r.style.display = (f==='all'||r.dataset.cat===f) ? '' : 'none'; });
+      });
+      // Tri
+      let sortState = {key:'note', dir:-1};
+      document.querySelectorAll('th.sortable').forEach(th=>{
+        th.addEventListener('click', function(){
+          const key = th.dataset.sort;
+          sortState.dir = (sortState.key===key) ? -sortState.dir : (key==='nom'?1:-1);
+          sortState.key = key;
+          const sorted = rows.slice().sort((a,b)=>{
+            let va, vb;
+            if(key==='nom'){ va=a.dataset.nom.toLowerCase(); vb=b.dataset.nom.toLowerCase(); return va<vb?-1*sortState.dir:va>vb?1*sortState.dir:0; }
+            va=parseFloat(a.dataset[key]); vb=parseFloat(b.dataset[key]);
+            return (va-vb)*sortState.dir;
+          });
+          sorted.forEach(r=>body.appendChild(r));
+        });
+      });
+    })();
+  </script>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
+          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
+          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
+          <a href="article-risque-altcoins.html">Risque des altcoins</a>
+          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
+          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
+          <a href="article-debuter-investissement.html">Débuter en bourse</a>
+          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
+          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
+          <a href="article-dca.html">DCA & versements réguliers</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>

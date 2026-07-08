@@ -160,6 +160,17 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .btn--lg { padding: 18px 36px; font-size: 16px; }
 .btn--sm { padding: 10px 20px; font-size: 13px; }
 
+/* ── CTA "avis" (bloc parrainage sur les pages avis-*.html) ──
+   Fix : .avis-cta-code / .avis-cta-note sont définies inline dans chaque page
+   avec une spécificité (0,1,0) plus faible que .article-body p (0,1,1), qui les
+   écrasait (texte quasi invisible sur le fond navy + mauvaise taille de police).
+   On resurspécifie ici avec le sélecteur descendant .avis-cta-box (0,2,0). */
+.avis-cta-box .avis-cta-code { color: #A0E7C5; font-size: 14px; }
+.avis-cta-box .avis-cta-note { font-size: 11px; }
+@media (max-width: 480px) {
+  .avis-cta-box .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
+}
+
 /* ── NAV ─────────────────────────────────────── */
 .nav {
   position: fixed;
@@ -2164,6 +2175,54 @@ a:hover > .platform-logo {
 .guide-table td.positive { color: #0D5C3A; font-weight: 600; }
 .guide-table td.negative { color: #8B1A1A; }
 @media (max-width: 768px) { .guide-table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; } }
+
+/* FAQ de guide — même finition que .article-faq, numérotée + accent or pour la différencier d'un article */
+.guide-faq { margin: 28px 0 8px; counter-reset: guide-faq-counter; }
+.guide-faq-item {
+  border: 1px solid var(--grey-5);
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  background: var(--white);
+  overflow: hidden;
+  counter-increment: guide-faq-counter;
+}
+.guide-faq-item summary {
+  cursor: pointer;
+  padding: 16px 52px 16px 56px;
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 15px;
+  list-style: none;
+  position: relative;
+}
+.guide-faq-item summary::-webkit-details-marker { display: none; }
+.guide-faq-item summary::before {
+  content: counter(guide-faq-counter);
+  position: absolute;
+  left: 20px; top: 50%; transform: translateY(-50%);
+  width: 22px; height: 22px;
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+.guide-faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px; top: 50%; transform: translateY(-50%);
+  font-size: 20px;
+  color: var(--gold);
+}
+.guide-faq-item[open] summary::after { content: "−"; }
+.guide-faq-item > p {
+  padding: 0 20px 18px 56px;
+  margin: 0;
+  color: var(--grey-1);
+  line-height: 1.7;
+  font-size: 15px;
+}
 
 /* Video */
 .guide-video { margin: 48px 0; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--navy-deep); }

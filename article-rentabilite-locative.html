@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculer la rentabilité locative : brut, net, net-net et cash-flow</title>
+  <meta name="description" content="Rendement brut, net, net-net et cash-flow : la méthode complète pour calculer la vraie rentabilité d'un investissement locatif avant d'acheter, et éviter les pièges qui la plombent.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Calculer la rentabilité locative : brut, net, net-net et cash-flow | Julien Invest">
+  <meta property="og:description" content="Comment calculer la vraie rentabilité d'un bien locatif : du rendement brut trompeur au cash-flow réel, avec un exemple chiffré.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og/og-immobilier.png">
+  <meta property="article:published_time" content="2026-07-08T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-08T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-rentabilite-locative.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculer la rentabilité locative : brut, net, net-net et cash-flow">
+  <meta name="twitter:description" content="Comment calculer la vraie rentabilité d'un bien locatif : du rendement brut trompeur au cash-flow réel, avec un exemple chiffré.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og/og-immobilier.png">
+  <link rel="canonical" href="https://julien-invest.github.io/article-rentabilite-locative.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Rentabilité locative : brut, net, net-net et cash-flow expliqués",
+  "description": "Rendement brut, net, net-net et cash-flow : la méthode complète pour calculer la vraie rentabilité d'un investissement locatif avant d'acheter, et éviter les pièges qui la plombent.",
+  "author": {
+    "@type": "Person",
+    "name": "Julien Denis"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Julien Invest",
+    "url": "https://julien-invest.github.io"
+  },
+  "datePublished": "2026-07-08",
+  "dateModified": "2026-07-08"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://julien-invest.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://julien-invest.github.io/blog.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Rentabilité locative",
+      "item": "https://julien-invest.github.io/article-rentabilite-locative.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "C'est quoi une bonne rentabilité locative ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tout dépend du type de calcul et de la zone. Un rendement brut de 5-6 % est courant en zone tendue, 8-10 % dans des villes moyennes plus risquées. Mais le seul chiffre qui compte est le net-net (après charges et impôts) et surtout le cash-flow. Un « bon » investissement est souvent celui qui atteint au moins l'autofinancement (cash-flow neutre ou positif), quel que soit le pourcentage affiché. Méfie-toi des rendements bruts très élevés : ils cachent souvent une vacance locative forte ou un secteur à risque."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il viser le cash-flow positif à tout prix ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "C'est l'idéal pour un investisseur qui veut multiplier les biens, car un cash-flow positif préserve ta capacité d'emprunt. Mais viser le cash-flow positif pousse parfois vers des secteurs à faible plus-value et à fort risque locatif. Un cash-flow légèrement négatif sur un bien de qualité en zone dynamique peut être un bon pari si tu mises sur la valorisation et que ton budget l'absorbe. L'essentiel est de calculer et d'assumer ton choix, pas de le subir par méconnaissance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment le LMNP améliore-t-il la rentabilité ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "En location meublée sous le régime réel, le statut LMNP permet d'amortir comptablement le bien et le mobilier, c'est-à-dire de déduire chaque année une fraction de leur valeur du résultat imposable. Résultat : les loyers peuvent être très peu, voire pas du tout imposés pendant de nombreuses années, ce qui améliore fortement le rendement net-net par rapport à une location nue au régime réel ou micro-foncier. C'est souvent le levier fiscal le plus puissant de l'investissement locatif : voir mon article LMNP vs location nue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Les frais de notaire comptent-ils dans le calcul ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, absolument, et les oublier fausse tout. Les frais de notaire (7 à 8 % dans l'ancien) font partie de ce que le bien t'a réellement coûté : il faut les ajouter au prix d'achat au dénominateur du rendement net. De même pour les éventuels travaux et frais d'agence. Calculer un rendement sur le seul prix affiché, sans ces frais d'acquisition, surestime mécaniquement la rentabilité de près d'un point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vaut-il mieux investir dans l'immobilier locatif ou en bourse ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux ont leur logique. L'immobilier locatif permet l'effet de levier du crédit (la banque et le locataire financent ton patrimoine) et un actif tangible, mais exige du temps, de la gestion et concentre le risque. La bourse via ETF est passive, diversifiée, liquide et historiquement performante (~7 % net long terme), mais sans levier facile. Ce n'est pas l'un ou l'autre : beaucoup de patrimoines équilibrés combinent un PEA en ETF pour la simplicité et un ou deux biens locatifs pour le levier."
+      }
+    }
+  ]
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+<style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body ol { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#D4C0FF,#A0E7C5); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: var(--navy); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .mid { color: #B45309; font-weight: 700; }
+    /* ── Simulateur ── */
+    .ji-sim { background: linear-gradient(135deg,#F2EEFA,#E6F6EE); border-radius: 18px; padding: 28px; margin: 32px 0 36px; }
+    .ji-sim-title { font-family: var(--font-head); font-weight: 800; font-size: 17px; color: var(--navy); margin-bottom: 4px; }
+    .ji-sim-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ji-field { margin-bottom: 18px; }
+    .ji-field-label { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-head); font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .ji-field-val { font-size: 16px; font-weight: 800; color: var(--navy); }
+    .ji-field input[type=range] { width: 100%; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 100px; background: linear-gradient(90deg,#C8B4E8,#A0E7C5); outline: none; }
+    .ji-field input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-field input[type=range]::-moz-range-thumb { width: 20px; height: 20px; border: none; border-radius: 50%; background: var(--navy); cursor: pointer; box-shadow: 0 2px 6px rgba(26,26,78,0.35); }
+    .ji-results { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 8px; }
+    @media (max-width: 560px) { .ji-results { grid-template-columns: 1fr; } }
+    .ji-res-card { background: #fff; border-radius: 14px; padding: 16px; text-align: center; }
+    .ji-res-card .lbl { font-family: var(--font-head); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey-3); }
+    .ji-res-card .amt { font-family: var(--font-head); font-weight: 800; font-size: 22px; color: var(--navy); margin-top: 4px; }
+    .ji-res-card.brut { border-top: 3px solid #7C3AED; }
+    .ji-res-card.impot { border-top: 3px solid #DC2626; }
+    .ji-res-card.net { border-top: 3px solid #059669; }
+    /* ── Takeaway ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: var(--white); border: 1.5px solid var(--grey-5); border-radius: 12px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .18s, box-shadow .18s, border-color .18s; }
+    .article-related-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(26,26,78,0.14); border-color: var(--lavender); }
+    .article-related-thumb { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .article-related-thumb .art-rel-scale { transform: scale(0.55); transform-origin: center; }
+    .article-related-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: var(--lavender); }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); line-height: 1.4; }
+    .article-related-meta { font-size: 11.5px; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; margin-top: auto; padding-top: 4px; }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li class="nav-item-dropdown">
+            <a href="parrainage.html" class="nav-link">Parrainages <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Bons plans</div>
+              <a href="parrainage.html" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Codes de parrainage</div><div class="nav-dropdown-text-sub">Tous mes codes et bonus de bienvenue</div></div>
+              </a>
+              <a href="avis-plateformes.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Avis plateformes</div><div class="nav-dropdown-text-sub">Mes tests honnêtes : notes et verdicts</div></div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="comparatif-assurance-vie.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur assurance-vie</div><div class="nav-dropdown-text-sub">Frais, fonds euros, ETF, SCPI</div></div>
+              </a>
+              <a href="outils.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Tous les outils</div><div class="nav-dropdown-text-sub">La page qui réunit tous les simulateurs</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Parrainages <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="parrainage.html">Codes de parrainage</a></li>
+          <li><a href="avis-plateformes.html">Avis plateformes</a></li>
+        </ul>
+      </li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="comparatif-assurance-vie.html">Comparateur assurance-vie</a></li>
+          <li><a href="outils.html">Tous les outils</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="t-label">Immobilier</span>
+        <h1>La rentabilité locative<br><em>le seul chiffre que le vendeur ne te montre pas</em></h1>
+        <p class="article-meta-date">Publié le 8 juillet 2026 · 11 min de lecture</p>
+        <p>« 7 % de rendement ! » claironne l'annonce. Sauf que ce chiffre, c'est du brut : une fois les charges, les impôts et les vacances locatives passés, il peut fondre de moitié. Voici comment calculer la vraie rentabilité d'un bien, celle qui atterrit dans ta poche, avant de signer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Immobilier</span>
+        <p>La rentabilité locative est le nerf de la guerre de l'investissement immobilier, et c'est aussi le chiffre le plus manipulé. Un vendeur ou une agence te montrera toujours le rendement le plus flatteur : le brut. Mais entre le brut affiché et ce qui reste réellement sur ton compte chaque mois, il y a un gouffre que trop d'investisseurs découvrent trop tard.</p>
+        <p>Cet article te donne la méthode complète, du calcul le plus trompeur au plus honnête, avec un exemple chiffré. C'est le préalable indispensable à toute décision, avant même de penser au régime fiscal (<a href="article-lmnp-vs-location-nue.html">LMNP ou location nue</a>) ou à la structure de détention (<a href="article-sci.html">SCI</a>).</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#brute">Le rendement brut (et pourquoi il ment)</a></li>
+            <li><a href="#nette">Le rendement net de charges</a></li>
+            <li><a href="#net-net">Le rendement net-net (après impôts)</a></li>
+            <li><a href="#cashflow">Le cash-flow : le vrai nerf de la guerre</a></li>
+            <li><a href="#calcul">Calculer avant d'acheter : la méthode</a></li>
+            <li><a href="#pieges">Les pièges qui plombent la rentabilité</a></li>
+            <li><a href="#vs-bourse">Locatif ou bourse : la comparaison honnête</a></li>
+            <li><a href="#faq">Questions fréquentes</a></li>
+          </ol>
+        </div>
+
+        <h2 id="brute">Le rendement brut (et pourquoi il ment)</h2>
+        <p>Le rendement brut est le calcul le plus simple, et le plus trompeur : <strong>loyer annuel ÷ prix d'achat × 100</strong>. Un bien à 150 000 € loué 750 €/mois affiche donc 9 000 ÷ 150 000 = 6 % brut.</p>
+        <p>Le problème, c'est qu'il ignore absolument tout : les frais de notaire, les charges, la taxe foncière, l'assurance, les périodes sans locataire et les impôts. C'est un chiffre marketing, utile seulement pour comparer grossièrement deux biens entre eux, jamais pour décider. Si une annonce ne te donne que le brut, considère qu'elle te cache la moitié de l'histoire.</p>
+
+        <h2 id="nette">Le rendement net de charges</h2>
+        <p>On passe au sérieux en déduisant les charges réelles. Le rendement net de charges se calcule ainsi : <strong>(loyer annuel − charges annuelles) ÷ (prix d'achat + frais d'acquisition) × 100</strong>.</p>
+        <p>Les charges à intégrer, systématiquement oubliées par les optimistes : la taxe foncière (souvent un à deux mois de loyer), les charges de copropriété non récupérables, l'assurance propriétaire non occupant (PNO), les frais de gestion si tu délègues (6 à 8 % des loyers), l'entretien et les petites réparations, et une provision pour vacance locative (compte au moins 1 mois par an). Ajoute au dénominateur les frais de notaire (7-8 % dans l'ancien) et d'éventuels travaux : ils font partie de ce que le bien t'a réellement coûté.</p>
+        <p>Résultat : ton 6 % brut tombe fréquemment autour de 4 à 4,5 % net de charges. C'est déjà beaucoup plus réaliste.</p>
+
+        <h2 id="net-net">Le rendement net-net (après impôts)</h2>
+        <p>Dernière couche, la plus douloureuse : les impôts. Les loyers sont imposés à ta tranche marginale (TMI) plus 17,2 % de prélèvements sociaux en location nue, ou selon le régime <a href="article-lmnp-vs-location-nue.html">LMNP</a> qui, grâce à l'amortissement, peut réduire fortement voire annuler l'impôt pendant des années.</p>
+        <p>Le rendement net-net, c'est ce qui reste vraiment après impôts. Pour un contribuable à 30 % de TMI en location nue, le net de charges de 4,5 % peut descendre vers 3 % net-net. En LMNP bien optimisé, il peut au contraire rester proche du net de charges. C'est pourquoi le choix du régime fiscal est décisif : à bien identique, il peut faire varier ta rentabilité finale de plusieurs points.</p>
+
+        <h2 id="cashflow">Le cash-flow : le vrai nerf de la guerre</h2>
+        <p>La rentabilité en pourcentage, c'est bien. Mais ce qui détermine si ton investissement te rend riche ou t'étrangle, c'est le <strong>cash-flow</strong> : la différence entre ce qui rentre (loyers) et ce qui sort (mensualité de crédit + charges + impôts) chaque mois.</p>
+        <p>Un cash-flow <strong>positif</strong> signifie que le bien s'autofinance et te verse un surplus : c'est l'objectif. Un cash-flow <strong>neutre</strong> signifie que le locataire rembourse ton crédit sans que tu ajoutes d'argent. Un cash-flow <strong>négatif</strong> signifie que tu dois compléter chaque mois de ta poche : c'est jouable sur un bien de standing en zone tendue (pari sur la plus-value), mais dangereux si tu multiplies les biens, car chaque euro négatif limite ta capacité d'emprunt suivante.</p>
+        <div class="info-box"><strong>📌 Un bon investisseur pilote au cash-flow, pas au rendement affiché.</strong> Deux biens à 5 % de rendement peuvent avoir des destins opposés selon la durée du crédit, l'apport et la fiscalité. Calcule toujours ce qui reste réellement sur ton compte à la fin du mois.</div>
+
+        <h2 id="calcul">Calculer avant d'acheter : la méthode</h2>
+        <p>Prenons un exemple concret. Bien à 150 000 €, frais de notaire 12 000 €, loyer 750 €/mois.</p>
+        <ul>
+          <li><strong>Brut</strong> : 9 000 ÷ 150 000 = <strong>6 %</strong></li>
+          <li><strong>Charges annuelles</strong> : taxe foncière 900 € + copro 600 € + PNO 150 € + provision vacance/entretien 1 000 € = 2 650 €</li>
+          <li><strong>Net de charges</strong> : (9 000 − 2 650) ÷ 162 000 = <strong>3,9 %</strong></li>
+          <li><strong>Financement</strong> : emprunt de 150 000 € sur 20 ans à ~3,5 % ≈ 870 €/mois de mensualité</li>
+          <li><strong>Cash-flow avant impôt</strong> : 750 − 870 − 220 (charges mensualisées) = <strong>−340 €/mois</strong></li>
+        </ul>
+        <p>Ce bien, séduisant sur le papier à 6 %, exige en réalité un effort d'épargne de 340 €/mois. Pour le rendre autofinancé, il faudrait un loyer plus élevé, un prix plus bas, un apport, une durée de crédit plus longue, ou le levier fiscal du LMNP. Voilà pourquoi on calcule <strong>avant</strong> de tomber amoureux d'un bien.</p>
+
+        <h2 id="pieges">Les pièges qui plombent la rentabilité</h2>
+        <p>Les tueurs de rentabilité, dans l'ordre de fréquence :</p>
+        <ul>
+          <li><strong>La vacance locative.</strong> Un bien mal situé qui reste vide deux mois par an perd ~17 % de ses loyers. L'emplacement prime sur le rendement affiché.</li>
+          <li><strong>Les travaux sous-estimés.</strong> Un « à rafraîchir » cache souvent 10 000 à 30 000 € de travaux qui anéantissent le rendement calculé sur le prix d'achat seul.</li>
+          <li><strong>Les impayés et dégradations.</strong> Rares mais coûteux : une garantie loyers impayés (GLI) et une sélection rigoureuse du locataire sont indispensables.</li>
+          <li><strong>La copropriété à problèmes.</strong> Charges qui explosent, ravalement voté, ascenseur à changer : lis les procès-verbaux d'assemblée générale avant d'acheter.</li>
+          <li><strong>La fiscalité subie.</strong> Choisir la location nue par défaut quand le LMNP aurait effacé l'impôt, c'est laisser filer des points de rentabilité chaque année.</li>
+        </ul>
+
+        <h2 id="vs-bourse">Locatif ou bourse : la comparaison honnête</h2>
+        <p>Un rendement locatif net-net de 3 à 4 % peut sembler faible face aux ~7 % nets historiques d'un <a href="article-etf-monde-2026.html">ETF World</a> sur le long terme. Mais la comparaison n'est pas si simple, à cause d'un facteur unique à l'immobilier : <strong>l'effet de levier du crédit</strong>. En bourse, tu investis ton argent ; en immobilier, la banque investit pour toi et le locataire rembourse. Sur le capital que tu as réellement mis (l'apport et l'effort d'épargne), le rendement peut être bien supérieur.</p>
+        <p>En contrepartie, l'immobilier locatif exige du temps, de la gestion, une prise de risque concentrée sur un seul bien et une liquidité quasi nulle, là où un ETF est passif, diversifié et vendable en un clic. Il n'y a pas de gagnant absolu : l'immobilier locatif brille par le levier et le côté tangible, la bourse par la simplicité et la diversification. Beaucoup de patrimoines solides combinent les deux, comme je l'explique dans mon article <a href="article-residence-principale-vs-locatif.html">résidence principale vs locatif</a>.</p>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>C'est quoi une bonne rentabilité locative ?</summary>
+            <p>Tout dépend du type de calcul et de la zone. Un rendement brut de 5-6 % est courant en zone tendue, 8-10 % dans des villes moyennes plus risquées. Mais le seul chiffre qui compte est le net-net (après charges et impôts) et surtout le cash-flow. Un « bon » investissement est souvent celui qui atteint au moins l'autofinancement (cash-flow neutre ou positif), quel que soit le pourcentage affiché. Méfie-toi des rendements bruts très élevés : ils cachent souvent une vacance locative forte ou un secteur à risque.</p>
+          </details>
+          <details>
+            <summary>Faut-il viser le cash-flow positif à tout prix ?</summary>
+            <p>C'est l'idéal pour un investisseur qui veut multiplier les biens, car un cash-flow positif préserve ta capacité d'emprunt. Mais viser le cash-flow positif pousse parfois vers des secteurs à faible plus-value et à fort risque locatif. Un cash-flow légèrement négatif sur un bien de qualité en zone dynamique peut être un bon pari si tu mises sur la valorisation et que ton budget l'absorbe. L'essentiel est de calculer et d'assumer ton choix, pas de le subir par méconnaissance.</p>
+          </details>
+          <details>
+            <summary>Comment le LMNP améliore-t-il la rentabilité ?</summary>
+            <p>En location meublée sous le régime réel, le statut LMNP permet d'amortir comptablement le bien et le mobilier, c'est-à-dire de déduire chaque année une fraction de leur valeur du résultat imposable. Résultat : les loyers peuvent être très peu, voire pas du tout imposés pendant de nombreuses années, ce qui améliore fortement le rendement net-net par rapport à une location nue au régime réel ou micro-foncier. C'est souvent le levier fiscal le plus puissant de l'investissement locatif : voir mon article LMNP vs location nue.</p>
+          </details>
+          <details>
+            <summary>Les frais de notaire comptent-ils dans le calcul ?</summary>
+            <p>Oui, absolument, et les oublier fausse tout. Les frais de notaire (7 à 8 % dans l'ancien) font partie de ce que le bien t'a réellement coûté : il faut les ajouter au prix d'achat au dénominateur du rendement net. De même pour les éventuels travaux et frais d'agence. Calculer un rendement sur le seul prix affiché, sans ces frais d'acquisition, surestime mécaniquement la rentabilité de près d'un point.</p>
+          </details>
+          <details>
+            <summary>Vaut-il mieux investir dans l'immobilier locatif ou en bourse ?</summary>
+            <p>Les deux ont leur logique. L'immobilier locatif permet l'effet de levier du crédit (la banque et le locataire financent ton patrimoine) et un actif tangible, mais exige du temps, de la gestion et concentre le risque. La bourse via ETF est passive, diversifiée, liquide et historiquement performante (~7 % net long terme), mais sans levier facile. Ce n'est pas l'un ou l'autre : beaucoup de patrimoines équilibrés combinent un PEA en ETF pour la simplicité et un ou deux biens locatifs pour le levier.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          const VIDEO_ID_RENTABILITE_LOCATIVE = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_RENTABILITE_LOCATIVE && VIDEO_ID_RENTABILITE_LOCATIVE!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_RENTABILITE_LOCATIVE+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); }});
+          })();
+        </script>
+
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Le rendement brut (loyer ÷ prix) est un chiffre marketing : il ignore charges, impôts et vacance, et surestime la réalité de moitié.</li>
+            <li>Le net de charges puis le net-net (après impôts) donnent la vraie rentabilité : souvent 3 à 4,5 % là où le brut affichait 6 %.</li>
+            <li>Le cash-flow (ce qui reste chaque mois après crédit, charges et impôts) est le vrai pilote de la décision, pas le pourcentage.</li>
+            <li>La vacance locative, les travaux sous-estimés et la fiscalité subie sont les principaux tueurs de rentabilité.</li>
+            <li>L'immobilier locatif brille par l'effet de levier du crédit ; la bourse par la simplicité et la diversification. Les deux se combinent.</li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <h2>Calcule avant d'acheter, pas après</h2>
+          <p>Rendement net-net, cash-flow, fiscalité, effet de levier : la formation Julien Invest t'apprend à analyser un investissement locatif comme un pro, pour n'acheter que les biens qui tiennent vraiment la route.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-lmnp-vs-location-nue.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #064E3B 0%, #059669 60%, #34D399 100%);"><div class="art-rel-scale"><div style="background:rgba(255,255,255,0.15); border-radius:50%; width:64px;height:64px;display:flex;align-items:center;justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,255,255,0.75);letter-spacing:0.15em;text-transform:uppercase;">AMORTISSEMENT · MICRO-BIC · FISCALITÉ</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Immobilier</span>
+                <div class="article-related-name">LMNP vs location nue : quelle fiscalité ?</div>
+                <div class="article-related-meta">13 min · Lire →</div>
+              </div>
+            </a>
+            <a href="article-residence-principale-vs-locatif.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #14532D 0%, #16A34A 55%, #4ADE80 100%);"><div class="art-rel-scale"><div style="display:flex; align-items:center; gap:10px;">
+              <div style="background:#fff; border-radius:10px; padding:8px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:#14532D; letter-spacing:-0.01em; box-shadow:0 6px 20px rgba(0,0,0,0.2); text-align:center; line-height:1.3;">🏠<br>RP</div>
+              <div style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:22px; color:rgba(255,255,255,0.8);">vs</div>
+              <div style="border:2px solid rgba(255,255,255,0.65); border-radius:10px; padding:8px 12px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:14px; color:rgba(255,255,255,0.92); text-align:center; line-height:1.3;">🔑<br>LOCATIF</div>
+            </div>
+            <div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Le débat tranché</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Immobilier</span>
+                <div class="article-related-name">Résidence principale ou locatif ?</div>
+                <div class="article-related-meta">11 min · Lire →</div>
+              </div>
+            </a>
+            <a href="article-sci.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #0F2A2E 0%, #115E59 55%, #14B8A6 100%);"><div class="art-rel-scale"><div style="background:#fff; border-radius:12px; padding:10px 18px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:30px; color:#0F2A2E; letter-spacing:-0.03em; box-shadow:0 8px 28px rgba(0,0,0,0.25);">SCI</div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.7); letter-spacing:0.15em; text-transform:uppercase;">Société civile immobilière</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Immobilier</span>
+                <div class="article-related-name">Faut-il créer une SCI pour investir ?</div>
+                <div class="article-related-meta">12 min · Lire →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
+          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-socials">
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="blog.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <h4>Articles</h4>
+          <a href="article-livret-a-lep-ldds.html">Livret A, LEP, LDDS</a>
+          <a href="article-obligations-fonds-euros.html">Obligations et fonds euros</a>
+          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
+          <a href="article-fiscalite-investissement.html">Flat tax ou barème</a>
+          <a href="article-interets-composes.html">Intérêts composés</a>
+          <a href="blog.html">Tous les articles</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script>
+    (function(){
+      var cap=document.getElementById('ct-cap'), tx=document.getElementById('ct-tx'), dur=document.getElementById('ct-dur');
+      if(!cap) return;
+      var fmt=function(n){ return Math.round(n).toLocaleString('fr-FR')+' €'; };
+      function calc(){
+        var c=parseFloat(cap.value), t=parseFloat(tx.value), d=parseFloat(dur.value);
+        document.getElementById('ct-cap-val').textContent=fmt(c);
+        document.getElementById('ct-tx-val').textContent=t.toFixed(1).replace('.',',')+' %';
+        document.getElementById('ct-dur-val').textContent=d+(d>1?' ans':' an');
+        var brut=c*(t/100)*d;
+        var impot=brut*0.314;
+        var net=brut-impot;
+        document.getElementById('ct-out-brut').textContent=fmt(brut);
+        document.getElementById('ct-out-impot').textContent=fmt(impot);
+        document.getElementById('ct-out-net').textContent=fmt(net);
+      }
+      [cap,tx,dur].forEach(function(el){ el.addEventListener('input',calc); });
+      calc();
+    })();
+  </script>
+</body>
+</html>

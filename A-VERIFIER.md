@@ -4,6 +4,49 @@ Ce fichier liste toutes les données chiffrées, dates et éléments à contrôl
 
 ---
 
+## 00. Nouvelles pages avis (Phase 14 — juillet 2026) — À COMPLÉTER
+
+**11 nouvelles pages avis créées :**
+- Multi-actifs : `avis-etoro.html` (note 3,5)
+- Gestion pilotée : `avis-yomoni.html` (4,0), `avis-nalo.html` (4,0), `avis-ramify.html` (4,2)
+- Assurance-vie : `avis-boursorama-vie.html` (4,0), `avis-fortuneo-vie.html` (4,3), `avis-corum-life.html` (3,8), `avis-garance-epargne.html` (3,7)
+- SCPI : `avis-corum-origin.html` (4,2), `avis-remake-live.html` (4,2), `avis-iroko-zen.html` (4,3)
+
+**⚠️ Liens de parrainage (obligatoire avant mise en ligne) :** ces 11 pages n'ont PAS de lien de parrainage (tu n'en avais pas). Chaque bouton CTA pointe vers le **site officiel** de la plateforme, avec un commentaire `<!-- TODO Julien : remplace le lien... -->` juste au-dessus dans le bloc `.avis-cta-box`. Remplace ces liens par tes vrais liens de parrainage une fois obtenus, et si la plateforme fournit un code, ajoute un `<p class="avis-cta-code">Code parrain : <strong>XXX</strong></p>` avant le bouton (modèle : `avis-boursobank.html`). Le texte de transparence dit « ce lien mènera vers un lien de parrainage » (au futur) tant que ce n'est pas fait — à ajuster une fois le vrai lien en place. **Voir la liste des plateformes à ouvrir un compte parrain en fin de fichier (section 00ter).**
+
+**Données chiffrées à vérifier** (repérées par « à vérifier » dans les tableaux « en un coup d'œil ») : frais annuels tout compris, tickets d'entrée, assureurs partenaires (robo-advisors + AV), taux de distribution (TD) et frais des SCPI, conditions du fonds euros Garance. Ces chiffres (surtout frais robo/AV et TD des SCPI) évoluent souvent : confirme-les sur les sites officiels avant publication.
+
+**Notes attribuées** (sur 5, modifiables dans chaque page : bloc `avis-note` visible + `avis-scores` + `reviewRating.ratingValue` du schema Review) — voir liste ci-dessus. Si tu changes une note, mets à jour les 3 endroits.
+
+**Vidéos :** chaque page a une façade vidéo avec `const VIDEO_ID_AVIS_XXX = "VIDEO_ID"` à remplacer par l'ID YouTube quand la vidéo existe.
+
+## 00bis. Schema Review sur les 25 pages avis existantes + 2 nouveaux outils (Phase 14)
+
+- **Schema `Review`** ajouté aux 25 pages avis existantes (note reprise du bloc `avis-note` visible). Rien à faire, sauf si tu modifies une note : mets-la à jour à la fois dans le `avis-note` visible ET dans le `reviewRating.ratingValue` du schema.
+- **`outils.html`** (nouvelle page hub des simulateurs/comparateurs) et **`comparatif-assurance-vie.html`** (comparateur AV interactif) créées. Les chiffres du comparateur AV (frais de gestion UC, ticket, fonds euros par contrat) sont **à vérifier** : ils sont dans le tableau `CONTRACTS` en haut du `<script>` de `comparatif-assurance-vie.html`. Les deux pages sont dans la nav (menu Outils), le sitemap, et `outils.html` liste tous les outils.
+
+## 00ter. Plateformes où OUVRIR UN COMPTE PARRAIN (aucun lien de parrainage actuel)
+
+Pour activer la monétisation des 11 nouvelles pages avis, il faut ouvrir/récupérer un lien (ou programme d'affiliation) sur ces plateformes, puis remplacer les liens `TODO Julien` :
+
+| Plateforme | Type | Programme à chercher |
+|---|---|---|
+| eToro | Courtier multi-actifs | Programme d'affiliation eToro (Partners) |
+| Yomoni | Gestion pilotée | Parrainage client ou affiliation |
+| Nalo | Gestion pilotée | Parrainage client ou affiliation |
+| Ramify | Gestion pilotée | Parrainage / affiliation |
+| Boursorama Vie | Assurance-vie (BoursoBank) | Utiliser ton parrainage BoursoBank existant (code DIDE0356) adapté à l'ouverture AV |
+| Fortuneo Vie | Assurance-vie | Ton parrainage Fortuneo existant (code 13385764) si applicable à l'AV |
+| Corum Life | Assurance-vie SCPI | Affiliation Corum (souvent via CGP/apporteur) |
+| Garance Épargne | Assurance-vie mutualiste | Vérifier s'il existe un apporteur/affiliation (souvent non) |
+| Corum Origin | SCPI | Affiliation Corum |
+| Remake Live | SCPI | Affiliation Remake / plateforme SCPI (ex : via un partenaire type Louve Invest qui donne du cashback) |
+| Iroko Zen | SCPI | Affiliation Iroko / plateforme SCPI |
+
+Note : pour les SCPI, une alternative est de passer par une plateforme d'intermédiation SCPI avec cashback (type Louve Invest, déjà sur le site) plutôt qu'un lien direct — à toi de choisir le montage. Certaines AV mutualistes (Garance) n'ont pas de programme d'apport : dans ce cas, laisse un lien neutre vers le site officiel.
+
+---
+
 ## 0. Données ETF (Phase 12) — PRIORITÉ MAXIMALE
 
 Fichier : `data/etf.json` (37 ETF). **Vérifier chaque ligne contre le DIC (document d'informations clés) de l'émetteur avant publication**, puis passer `verifie` à `true` ligne par ligne.
