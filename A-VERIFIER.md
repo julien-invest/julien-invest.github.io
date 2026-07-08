@@ -47,6 +47,17 @@ Note : pour les SCPI, une alternative est de passer par une plateforme d'interm�
 
 ---
 
+## 00quater. Correctifs 08/07/2026 (logos + fiscalité + ClubFunding)
+
+**Logos corrigés :**
+- `images/logo-tokimo.png` : l'ancien était FAUX (icône orange d'une autre société). Remplacé par le vrai logo Tokimo crowdfunding (hexagone violet, source tokimo.eu — le vrai site, pas tokimo.co qui est une autre entreprise). Sert sur avis-tokimo, le hub et parrainage.html.
+- `images/logo-premierebrique.png` : le bon design, mais remplacé par une version haute résolution (256px) plus nette.
+- `images/logos/tokimo.svg` (utilisé par les cartes de l'article crowdfunding) : déjà violet/on-brand, laissé tel quel.
+
+**Fiscalité mise à jour (flat tax 30% → 31,4%)** sur `article-scpi-vs-crowdfunding.html` et `article-crowdfunding-immobilier.html` : ces 2 articles avaient été oubliés lors de la mise à jour fiscale 2026. PFU crowdfunding = 31,4% (12,8% + 18,6% PS), rendement net recalculé 7,70% → 7,55%. **Non touché** (canonique, cohérent avec les autres articles) : le foncier SCPI reste à 17,2% (TMI + 17,2%), les TMI 30%, les taux de retard 25-30%.
+
+**ClubFunding ajouté** comme 4e profil de plateforme dans `article-crowdfunding-immobilier.html` (section « 4 profils de plateformes », grille passée en 2×2). ⚠️ **Chiffres ClubFunding à vérifier** (repris de connaissances générales, pas de source officielle live) : ticket minimum **1 000 €**, rendement brut **~9-10%**, collecte cumulée **1 Md€+**, création **2015**, agrément PSFP, pas de marché secondaire. Confirme sur clubfunding.fr avant publication. Le lien du bouton pointe vers l'avis interne (`avis-clubfunding.html`), pas un lien de parrainage.
+
 ## 0. Données ETF (Phase 12) — PRIORITÉ MAXIMALE
 
 Fichier : `data/etf.json` (37 ETF). **Vérifier chaque ligne contre le DIC (document d'informations clés) de l'émetteur avant publication**, puis passer `verifie` à `true` ligne par ligne.

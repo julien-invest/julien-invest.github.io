@@ -55,6 +55,8 @@
     .compare-table .no { color: #DC2626; font-weight: 700; }
     .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
     .table-scroll .compare-table { margin: 0; min-width: 580px; }
+    .alloc-table td { vertical-align: top; line-height: 1.5; }
+    .alloc-table th:first-child, .alloc-table td:first-child { white-space: nowrap; }
 
     /* Stats bar */
     .stats-bar { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin: 32px 0 40px; }
@@ -170,7 +172,7 @@
       "name": "Dans quel ordre ouvrir les enveloppes pour une grosse somme ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 30% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus)."
+        "text": "L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 31,4% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus)."
       }
     },
     {
@@ -607,81 +609,33 @@
         <h2 id="allocation">Allocation recommandée selon ton montant et profil</h2>
         <p>Voici un tableau de référence pour calibrer ton allocation selon la taille de ta somme et ton profil de risque. Ces pourcentages sont des points de départ, pas des vérités absolues.</p>
 
-        <!-- SVG allocation tableau -->
-        <svg viewBox="0 0 700 310" width="100%" height="auto" class="cf-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Tableau d'allocation recommandée selon montant et profil">
-          <!-- Fond -->
-          <rect width="700" height="310" rx="14" fill="#F8F6FF"/>
-
-          <!-- Titre -->
-          <text x="350" y="30" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14" fill="#1A1A4E">Allocation recommandée — Montant × Profil de risque</text>
-
-          <!-- En-tête colonnes -->
-          <rect x="0" y="42" width="700" height="38" rx="0" fill="#1A1A4E"/>
-          <text x="116" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil prudent</text>
-          <text x="350" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil équilibré</text>
-          <text x="584" y="66" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#fff">Profil dynamique</text>
-          <!-- Séparateur col -->
-          <line x1="234" y1="42" x2="234" y2="310" stroke="#E5E7EB" stroke-width="1"/>
-          <line x1="468" y1="42" x2="468" y2="310" stroke="#E5E7EB" stroke-width="1"/>
-
-          <!-- Ligne étiquette col "montant" -->
-          <line x1="0" y1="80" x2="700" y2="80" stroke="#E5E7EB" stroke-width="1"/>
-
-          <!-- Ligne 1 : < 20 k€ -->
-          <rect x="0" y="80" width="700" height="76" fill="#FDFCFF"/>
-          <rect x="0" y="80" width="700" height="76" fill="rgba(109,40,217,0.04)"/>
-          <!-- Étiquette -->
-          <text x="30" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">&lt; 20 000 €</text>
-          <text x="30" y="122" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Petite somme</text>
-          <!-- Prudent -->
-          <text x="116" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">60% ETF World</text>
-          <text x="116" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig</text>
-          <text x="116" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Cash/Fonds €</text>
-          <!-- Équilibré -->
-          <text x="350" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">80% ETF World</text>
-          <text x="350" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Oblig</text>
-          <text x="350" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Cash</text>
-          <!-- Dynamique -->
-          <text x="584" y="105" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">90% ETF World</text>
-          <text x="584" y="121" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Émergents</text>
-          <text x="584" y="137" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
-
-          <!-- Ligne 2 : 20-100 k€ -->
-          <line x1="0" y1="156" x2="700" y2="156" stroke="#E5E7EB" stroke-width="1"/>
-          <rect x="0" y="156" width="700" height="76" fill="#FDFCFF"/>
-          <text x="30" y="181" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">20 000–100 000 €</text>
-          <text x="30" y="198" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Somme significative</text>
-          <!-- Prudent -->
-          <text x="116" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">50% ETF World</text>
-          <text x="116" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig</text>
-          <text x="116" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% SCPI / 10% Cash</text>
-          <!-- Équilibré -->
-          <text x="350" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">70% ETF World</text>
-          <text x="350" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Oblig</text>
-          <text x="350" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% SCPI / 5% Cash</text>
-          <!-- Dynamique -->
-          <text x="584" y="181" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">85% ETF World</text>
-          <text x="584" y="197" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Émergents</text>
-          <text x="584" y="213" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
-
-          <!-- Ligne 3 : > 100 k€ -->
-          <line x1="0" y1="232" x2="700" y2="232" stroke="#E5E7EB" stroke-width="1"/>
-          <rect x="0" y="232" width="700" height="78" rx="0" fill="rgba(16,185,129,0.04)"/>
-          <text x="30" y="257" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="13" fill="#1A1A4E">&gt; 100 000 €</text>
-          <text x="30" y="274" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">Grosse somme</text>
-          <!-- Prudent -->
-          <text x="116" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">40% ETF World</text>
-          <text x="116" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">25% Oblig / 20% SCPI</text>
-          <text x="116" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Cash / Fonds €</text>
-          <!-- Équilibré -->
-          <text x="350" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">60% ETF World</text>
-          <text x="350" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">15% Oblig / 15% SCPI</text>
-          <text x="350" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Cash</text>
-          <!-- Dynamique -->
-          <text x="584" y="257" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#4F46E5">75% ETF World</text>
-          <text x="584" y="273" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">10% Émergents / 10% SCPI</text>
-          <text x="584" y="289" text-anchor="middle" font-family="'DM Sans', sans-serif" font-size="11" fill="#6F6F99">5% Cash</text>
-        </svg>
+        <div class="table-scroll">
+          <table class="compare-table alloc-table">
+            <thead>
+              <tr><th>Montant</th><th>Profil prudent</th><th>Profil équilibré</th><th>Profil dynamique</th></tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><strong>&lt; 20 000 €</strong><br><span style="font-size:11.5px;color:var(--grey-3);">Petite somme</span></td>
+              <td><strong style="color:var(--navy-mid);">60 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">25 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">15 % cash / fonds €</span></td>
+              <td><strong style="color:var(--navy-mid);">80 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">10 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">10 % cash</span></td>
+              <td><strong style="color:var(--navy-mid);">90 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">5 % émergents</span><br><span style="font-size:12.5px;color:var(--grey-2);">5 % cash</span></td>
+            </tr>
+            <tr>
+              <td><strong>20 000 – 100 000 €</strong><br><span style="font-size:11.5px;color:var(--grey-3);">Somme significative</span></td>
+              <td><strong style="color:var(--navy-mid);">50 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">25 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">15 % SCPI</span><br><span style="font-size:12.5px;color:var(--grey-2);">10 % cash</span></td>
+              <td><strong style="color:var(--navy-mid);">70 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">15 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">10 % SCPI</span><br><span style="font-size:12.5px;color:var(--grey-2);">5 % cash</span></td>
+              <td><strong style="color:var(--navy-mid);">85 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">10 % émergents</span><br><span style="font-size:12.5px;color:var(--grey-2);">5 % cash</span></td>
+            </tr>
+            <tr>
+              <td><strong>&gt; 100 000 €</strong><br><span style="font-size:11.5px;color:var(--grey-3);">Grosse somme</span></td>
+              <td><strong style="color:var(--navy-mid);">40 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">25 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">20 % SCPI</span><br><span style="font-size:12.5px;color:var(--grey-2);">15 % cash / fonds €</span></td>
+              <td><strong style="color:var(--navy-mid);">60 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">15 % obligations</span><br><span style="font-size:12.5px;color:var(--grey-2);">15 % SCPI</span><br><span style="font-size:12.5px;color:var(--grey-2);">10 % cash</span></td>
+              <td><strong style="color:var(--navy-mid);">75 % ETF World</strong><br><span style="font-size:12.5px;color:var(--grey-2);">10 % émergents</span><br><span style="font-size:12.5px;color:var(--grey-2);">10 % SCPI</span><br><span style="font-size:12.5px;color:var(--grey-2);">5 % cash</span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
 
         <p style="font-size:12px;color:#9a9ab0;line-height:1.6;margin-top:8px;">Ces allocations sont indicatives et ne constituent pas un conseil personnalisé. Ton allocation doit tenir compte de ta situation fiscale, patrimoniale et familiale. Ces chiffres supposent un horizon de placement supérieur à 8 ans pour la poche actions.</p>
 
@@ -721,10 +675,10 @@
         <p>Le choix des enveloppes fiscales est souvent la décision la plus impactante sur la durée. Voici l'ordre de priorité recommandé et les caractéristiques clés de chaque enveloppe.</p>
 
         <h3>L'ordre de priorité</h3>
-        <p><strong>1. PEA en priorité</strong>, Ouvre un PEA et verse jusqu'au plafond de 150 000 € (versements cumulés). Après 5 ans, les plus-values sont exonérées d'impôt sur le revenu (seuls les prélèvements sociaux à 17,2% restent dus). C'est l'enveloppe la plus avantageuse fiscalement pour les actions européennes et les ETF synthétiques éligibles. Si tu n'as pas encore de PEA, ouvre-le maintenant même avec 100 € : le compteur de 5 ans commence à l'ouverture.</p>
+        <p><strong>1. PEA en priorité</strong>, Ouvre un PEA et verse jusqu'au plafond de 150 000 € (versements cumulés). Après 5 ans, les plus-values sont exonérées d'impôt sur le revenu (seuls les prélèvements sociaux à 18,6% restent dus). C'est l'enveloppe la plus avantageuse fiscalement pour les actions européennes et les ETF synthétiques éligibles. Si tu n'as pas encore de PEA, ouvre-le maintenant même avec 100 € : le compteur de 5 ans commence à l'ouverture.</p>
         <p><strong>2. Assurance-vie pour le surplus et la succession</strong>, Pas de plafond de versement. L'assurance-vie offre un avantage successoral majeur : jusqu'à 152 500 € par bénéficiaire sont transmis hors droits de succession pour les versements effectués avant 70 ans. Ouvre plusieurs contrats chez différents assureurs si ta somme est importante. Après 8 ans de détention, tu bénéficies d'un abattement annuel de 4 600 € (9 200 € pour un couple) sur les gains lors des retraits.</p>
         <p><strong>3. PER si tu es fortement imposé</strong>, Le Plan d'Épargne Retraite permet de déduire les versements de ton revenu imposable, dans la limite de 10% des revenus N-1 (plafond 37 094 € en 2026). Si tu es dans la tranche à 30% ou 41%, la déduction fiscale immédiate est très avantageuse. Attention : l'argent est bloqué jusqu'à la retraite (sauf cas de déblocage anticipé).</p>
-        <p><strong>4. CTO pour le reste</strong>, Pas de plafond, tous les actifs accessibles. Flat tax de 30% sur les plus-values et dividendes (prélèvement forfaitaire unique). Moins avantageux fiscalement que le PEA ou l'AV, mais indispensable si tu dépasses les plafonds des autres enveloppes ou si tu investis en dehors des ETF éligibles PEA.</p>
+        <p><strong>4. CTO pour le reste</strong>, Pas de plafond, tous les actifs accessibles. Flat tax de 31,4% sur les plus-values et dividendes (prélèvement forfaitaire unique). Moins avantageux fiscalement que le PEA ou l'AV, mais indispensable si tu dépasses les plafonds des autres enveloppes ou si tu investis en dehors des ETF éligibles PEA.</p>
 
         <div class="table-scroll">
           <table class="compare-table">
@@ -735,7 +689,7 @@
               <tr>
                 <td><strong>PEA</strong></td>
                 <td>150 000 €</td>
-                <td class="yes">Exonéré IR après 5 ans (+17,2% PS)</td>
+                <td class="yes">Exonéré IR après 5 ans (+18,6% PS)</td>
                 <td>Libre après 5 ans sans clôture</td>
                 <td>Meilleure fiscalité actions long terme</td>
               </tr>
@@ -756,7 +710,7 @@
               <tr>
                 <td><strong>CTO</strong></td>
                 <td>Aucun</td>
-                <td>Flat tax 30% sur gains</td>
+                <td>Flat tax 31,4% sur gains</td>
                 <td class="yes">Totale, immédiate</td>
                 <td>Accès à tous les actifs mondiaux</td>
               </tr>
@@ -782,7 +736,7 @@
             <li>Étape 1 : constituer ou compléter le fonds d'urgence à 3-6 mois de dépenses (si ce n'est pas déjà fait). Si tu avais déjà un fonds, tu gardes les 80 000 € intacts.</li>
             <li>Étape 2 : ouvrir un PEA chez Fortuneo ou Bourse Direct. Verser 70 000 € sur le PEA en lump sum sur un ETF MSCI World (Amundi CW8 ou similaire). Le compteur de 5 ans commence immédiatement.</li>
             <li>Étape 3 : ouvrir une assurance-vie (Linxea Spirit 2, Lucya Cardif ou équivalent). Verser les 10 000 € restants sur une allocation 80% UC actions / 20% fonds euros. Le compteur de 8 ans commence pour l'avantage successoral.</li>
-            <li>Résultat estimé à 15 ans à 7%/an : PEA ≈ 192 000 €, AV ≈ 27 000 €, soit un total d'environ 219 000 € pour 80 000 € investis. Fiscalité sortie PEA : 17,2% sur les 122 000 € de plus-values seulement.</li>
+            <li>Résultat estimé à 15 ans à 7%/an : PEA ≈ 192 000 €, AV ≈ 27 000 €, soit un total d'environ 219 000 € pour 80 000 € investis. Fiscalité sortie PEA : 18,6% sur les 122 000 € de plus-values seulement.</li>
           </ul>
         </div>
 
@@ -827,7 +781,7 @@
           </details>
           <details>
             <summary>Dans quel ordre ouvrir les enveloppes pour une grosse somme ?</summary>
-            <p>L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 30% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus).</p>
+            <p>L'ordre recommandé : 1) S'assurer d'avoir un fonds d'urgence de 3 à 6 mois de dépenses en dehors de l'investissement. 2) Saturer le PEA jusqu'à 150 000 € de versements (exonération d'IR après 5 ans). 3) Ouvrir une ou plusieurs assurances-vie (pas de plafond de versement, avantage successoral jusqu'à 152 500 €/bénéficiaire). 4) Utiliser un CTO pour le surplus (flat tax 31,4% sur les gains). 5) Penser au PER si tu es fortement imposé (déductibilité des revenus).</p>
           </details>
           <details>
             <summary>Faut-il rembourser ses dettes avant d'investir une grosse somme ?</summary>
