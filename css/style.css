@@ -82,7 +82,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--grey-3);
+  color: var(--grey-2);
 }
 .t-gradient {
   background: var(--gradient-brand);
@@ -1278,6 +1278,20 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   pointer-events: none;
 }
 .page-hero-content { position: relative; max-width: 760px; margin: 0 auto; }
+
+/* ─── Fil d'Ariane (breadcrumb) — source partagée ─── */
+.breadcrumb { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-family: var(--font-head); font-size: 12px; margin-bottom: 22px; }
+.breadcrumb a { color: var(--grey-2); text-decoration: none; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--navy); }
+.breadcrumb > span { color: var(--grey-4); }
+.breadcrumb .breadcrumb-current { color: var(--grey-3); }
+.page-hero-content .breadcrumb { justify-content: center; }
+/* variante pour hero sombre (guides, ancien template article) */
+.breadcrumb--light a { color: rgba(255,255,255,0.78); }
+.breadcrumb--light a:hover { color: #fff; }
+.breadcrumb--light > span { color: rgba(255,255,255,0.42); }
+.breadcrumb--light .breadcrumb-current { color: rgba(255,255,255,0.92); }
+
 .page-hero .t-label { color: var(--navy-mid); margin-bottom: 20px; display: block; }
 .page-hero h1 {
   font-family: var(--font-display);
@@ -2422,6 +2436,10 @@ a:hover > .platform-logo {
 .sim-legend-dot--gains { background: var(--mint); }
 .sim-legend-dot--invested { background: rgba(255,255,255,0.3); }
 .sim-legend-label { font-size: 12px; color: rgba(255,255,255,0.5); font-family: var(--font-head); margin-right: 8px; }
+/* Contraste : panneau simulateur clair de l'accueil (fond #F8FBFF) — les éléments "versements" en blanc-alpha y sont invisibles */
+.sim-home-col-results .sim-legend-label { color: var(--grey-2); }
+.sim-home-col-results .sim-legend-dot--invested { background: rgba(37,88,168,0.45); }
+.sim-home-col-results .sim-progress-invested { background: rgba(37,88,168,0.30); }
 /* Breakdown */
 .sim-result-breakdown {
   display: flex; flex-direction: column; gap: 10px;

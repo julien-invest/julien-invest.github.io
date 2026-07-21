@@ -147,6 +147,12 @@
 }
   </script>
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Julien Invest">
+  <meta name="theme-color" content="#1A1A4E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -333,7 +339,7 @@
           <li><a href="coaching.html" class="nav-link">Coaching</a></li>
           <li><a href="a-propos.html" class="nav-link">À propos</a></li>
           <li class="nav-item-dropdown">
-            <a href="parrainage.html" class="nav-link">Parrainages <span class="nav-link-arrow">▾</span></a>
+            <a href="parrainage.html" class="nav-link active">Parrainages <span class="nav-link-arrow">▾</span></a>
             <div class="nav-dropdown">
               <div class="nav-dropdown-cat">Bons plans</div>
               <a href="parrainage.html" class="nav-dropdown-item featured">
@@ -410,7 +416,7 @@
               </a>
             </div>
           </li>
-          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="blog.html" class="nav-link">Blog</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li><a href="ressources.html" class="nav-link">Ressources</a></li>
         </ul>
@@ -427,6 +433,7 @@
     </div>
   </nav>
 
+  <!-- Mobile Menu -->
   <div class="nav-mobile" id="nav-mobile">
     <ul>
       <li><a href="commencer-ici.html">Commencer ici</a></li>
@@ -474,6 +481,13 @@
     <div class="page-hero-glow"></div>
     <div class="container">
       <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <a href="parrainage.html">Parrainages</a>
+          <span>›</span>
+          <span class="breadcrumb-current">Avis SwissBorg 2026</span>
+        </nav>
         <span class="t-label">Avis plateforme · Mis à jour le 7 juillet 2026</span>
         <h1>Avis SwissBorg :<br><em>la crypto sans les murs de chiffres</em></h1>
         <p class="article-meta-date">Testé et utilisé personnellement · 9 min de lecture</p>
@@ -680,12 +694,28 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <div class="footer-brand-name">Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest</div>
-          <p class="footer-brand-desc">L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.</p>
+          <div class="footer-brand-name">
+            Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest
+          </div>
+          <p class="footer-brand-desc">
+            L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.
+          </p>
           <div class="footer-socials">
-            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></a>
-            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
-            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg></a>
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener" title="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
           </div>
         </div>
         <div class="footer-col">
@@ -696,22 +726,16 @@
           <a href="a-propos.html">À propos</a>
           <a href="parrainage.html">Parrainages</a>
           <a href="calculateur.html">Outils</a>
-          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
-          <h4>Articles</h4>
-          <a href="article-etf-monde-2026.html">ETF Monde 2026</a>
-          <a href="article-bitcoin-2026.html">Bitcoin 2026</a>
-          <a href="article-stablecoins-explication.html">Stablecoins expliqués</a>
-          <a href="article-risque-altcoins.html">Risque des altcoins</a>
-          <a href="article-pea-vs-cto.html">PEA vs CTO</a>
-          <a href="article-assurance-vie-pea.html">Assurance-vie vs PEA</a>
-          <a href="article-debuter-investissement.html">Débuter en bourse</a>
-          <a href="article-fiscalite-investissement.html">Fiscalité 2026</a>
-          <a href="article-per-plan-epargne-retraite.html">PER : le guide complet</a>
-          <a href="article-fonds-urgence.html">Fonds d'urgence</a>
-          <a href="article-scpi-comparatif.html">SCPI : comment comparer</a>
-          <a href="article-dca.html">DCA & versements réguliers</a>
+          <h4>Ressources</h4>
+          <a href="formation.html#guides">Guide ETF</a>
+          <a href="formation.html#guides">Guide PEA</a>
+          <a href="formation.html#guides">Guide Assurance-vie</a>
+          <a href="#lead-magnet">Ebook gratuit</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
         </div>
         <div class="footer-col">
           <h4>Légal</h4>
@@ -721,7 +745,9 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-disclaimer"><strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative. Ils ne constituent pas un conseil en investissement personnalisé. Julien Invest n'est pas CIF. Tout investissement comporte des risques, y compris la perte en capital.</p>
+        <p class="footer-disclaimer">
+          <strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle. Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF. Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques, y compris la perte en capital. Les performances passées ne préjugent pas des performances futures. Je partage mon expérience personnelle et mes apprentissages. Consultez un professionnel agréé pour toute décision financière.
+        </p>
         <div class="footer-legal">
           <span>© 2026 Julien Invest. Tous droits réservés</span>
           <a href="mentions-legales.html">Mentions légales</a>
