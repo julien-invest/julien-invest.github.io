@@ -201,7 +201,7 @@
     .article-video-title { font-family: var(--font-head); font-weight: 700; font-size: 13px; color: var(--grey-2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
     .video-facade { position: relative; border-radius: 14px; overflow: hidden; cursor: pointer; background: #0D0D2E; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; }
     .video-facade-cover { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.55; }
-    .video-facade-play { position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: 2px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: background 0.2s; }
+    .video-facade-play { position: relative; top: auto; left: auto; transform: none; z-index: 1; width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); border: 2px solid rgba(255,255,255,0.5); display: flex; align-items: center; justify-content: center; color: white; cursor: pointer; transition: background 0.2s; }
     .video-facade-play:hover { background: rgba(255,255,255,0.25); }
     .video-soon { position: relative; z-index: 1; font-size: 12px; color: rgba(255,255,255,0.6); position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
     .video-soon a { color: rgba(255,255,255,0.8); text-decoration: underline; }
@@ -1201,7 +1201,7 @@
         <div class="article-video">
           <div class="article-video-title">La vidéo qui accompagne cet article</div>
           <div class="video-facade" id="article-video-or" role="button" tabindex="0" aria-label="Lire la vidéo">
-            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <img src="https://i.ytimg.com/vi/U7fCv3sdNOM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/U7fCv3sdNOM/hqdefault.jpg';" alt="Miniature de la vidéo : Or &amp; métaux précieux : le guide 2026" class="video-facade-cover" loading="lazy" width="1280" height="720" referrerpolicy="no-referrer">
             <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
             <span class="video-soon" id="article-video-or-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
           </div>
@@ -1354,6 +1354,9 @@
             </a>
             <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://www.facebook.com/Julien.invest.page/" class="footer-social" target="_blank" rel="noopener" title="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             </a>
             <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener" title="Linktree">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>

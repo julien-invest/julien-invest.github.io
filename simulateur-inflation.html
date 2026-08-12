@@ -35,7 +35,7 @@
       "name": "Le Livret A protège-t-il vraiment de l'inflation ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pas toujours. Le rendement réel du Livret A correspond à son taux nominal moins le taux d'inflation. Avec un Livret A à 2,4 % et une inflation à 3 %, le rendement réel est négatif : ton épargne perd du pouvoir d'achat chaque année, même si le montant affiché augmente."
+        "text": "Pas toujours. Le rendement réel du Livret A correspond à son taux nominal moins le taux d'inflation. Avec un Livret A à 1,7 % et une inflation à 3 %, le rendement réel est négatif : ton épargne perd du pouvoir d'achat chaque année, même si le montant affiché augmente."
       }
     },
     {
@@ -723,7 +723,7 @@
           <div class="edu-card-label">Livret A vs inflation</div>
           <h3>L'inflation face au Livret A</h3>
           <p>
-            Le Livret A affiche un taux de 2,4 % en 2026. Mais le rendement réel
+            Le Livret A affiche un taux de 1,7 % depuis le 1er août 2026. Mais le rendement réel
             correspond au taux nominal moins le taux d'inflation (source INSEE).
             Avec une inflation à 3 %, le rendement réel du Livret A est de 0,4 %
             négatif : tu perds du pouvoir d'achat même en épargnant. Le compte
@@ -800,9 +800,9 @@
             <div class="sim-field">
               <div class="sim-field-header">
                 <label>Rendement Livret A</label>
-                <span style="font-family:var(--font-head);font-size:11px;color:var(--grey-3);">Taux actuel 2026</span>
+                <span style="font-family:var(--font-head);font-size:11px;color:var(--grey-3);">Taux au 1er août 2026</span>
               </div>
-              <input class="sim-input-readonly" value="2,4 %" readonly>
+              <input class="sim-input-readonly" value="1,7 %" readonly>
             </div>
 
             <!-- Durée -->
@@ -986,7 +986,7 @@
           <div class="faq-a">
             <div class="faq-a-inner">
               Pas systématiquement. Le rendement réel du Livret A correspond à son taux nominal moins le taux
-              d'inflation (formule de Fisher simplifiée). Avec un Livret A à 2,4 % et une inflation à 3 %, le
+              d'inflation (formule de Fisher simplifiée). Avec un Livret A à 1,7 % et une inflation à 3 %, le
               rendement réel est de 0,6 % négatif : ton épargne perd du pouvoir d'achat chaque année, même
               si le montant affiché sur ton relevé augmente légèrement.
             </div>
@@ -1113,6 +1113,9 @@
             <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
             </a>
+            <a href="https://www.facebook.com/Julien.invest.page/" class="footer-social" target="_blank" rel="noopener" title="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
             <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener" title="Linktree">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </a>
@@ -1171,7 +1174,7 @@
   // SIMULATEUR INFLATION — Logique JS
   // ═══════════════════════════════════════════
   (function () {
-    const LIVRET_A = 2.4;
+    const LIVRET_A = 1.7;
     const SALAIRE_MEDIAN = 2500;
 
     // État partagé

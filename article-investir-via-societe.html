@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investir via une société : holding, SAS à l'IS, compte-titres | Julien Invest</title>
+  <meta name="description" content="Quand une société d'investissement devient intéressante, ce qu'elle apporte vraiment, le piège des OPCVM à l'IS et le seuil à partir duquel elle se justifie.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Investir via une société : holding, SAS à l'IS, compte-titres | Julien Invest">
+  <meta property="og:description" content="Quand une société d'investissement devient intéressante, ce qu'elle apporte vraiment, le piège des OPCVM à l'IS et le seuil à partir duquel elle se justifie.">
+  <meta property="og:site_name" content="Julien Invest">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://julien-invest.github.io/images/og/og-default.png">
+  <meta property="article:published_time" content="2026-08-11T00:00:00+02:00">
+  <meta property="article:modified_time" content="2026-08-11T00:00:00+02:00">
+  <meta property="article:author" content="Julien Denis">
+  <meta property="og:url" content="https://julien-invest.github.io/article-investir-via-societe.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Investir via une société : holding, SAS à l'IS, compte-titres | Julien Invest">
+  <meta name="twitter:description" content="Holding et SAS à l'IS pour investir : ce que ça apporte, ce que ça coûte, à partir de quand.">
+  <meta name="twitter:image" content="https://julien-invest.github.io/images/og/og-default.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Investir via une société : holding, SAS à l'IS, compte-titres",
+  "description": "Quand une société d'investissement devient intéressante, ce qu'elle apporte vraiment, le piège des OPCVM à l'IS et le seuil à partir duquel elle se justifie.",
+  "author": { "@type": "Person", "name": "Julien Denis" },
+  "publisher": { "@type": "Organization", "name": "Julien Invest", "url": "https://julien-invest.github.io" },
+  "datePublished": "2026-08-11",
+  "dateModified": "2026-08-11"
+}
+  </script>
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Julien Invest">
+  <meta name="theme-color" content="#1A1A4E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .article-body { max-width: 740px; margin: 0 auto; }
+    .article-body h2 { font-family: var(--font-head); font-size: clamp(20px,2.5vw,26px); color: var(--navy); margin: 40px 0 14px; }
+    .article-body h3 { font-family: var(--font-head); font-size: 18px; color: var(--navy); margin: 28px 0 10px; }
+    .article-body p { color: var(--grey-1); line-height: 1.8; margin-bottom: 16px; font-size: 16px; }
+    .article-body ul { padding-left: 20px; margin-bottom: 16px; }
+    .article-body ul li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
+    .article-body strong { color: var(--navy); }
+    .article-tag { display: inline-block; background: linear-gradient(135deg,#A0E7C5,#34D399); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #064E3B; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+    .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
+    .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
+    .article-cta p { color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+    .compare-table { width: 100%; border-collapse: collapse; margin: 24px 0 32px; font-size: 14px; }
+    .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
+    .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .compare-table tr:nth-child(even) td { background: var(--pearl); }
+    .compare-table .yes { color: #059669; font-weight: 700; }
+    .compare-table .no { color: #DC2626; font-weight: 700; }
+
+    /* ── Takeaway final (injected) ── */
+    .article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+    .article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+    .article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+    .article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+    /* ── Articles liés (injected) ── */
+    .article-related { background: linear-gradient(135deg,#F5F0FF 0%,#EEF5FB 55%,#EDFBF4 100%); border-radius: 16px; padding: 28px; margin: 32px 0 0; border: 1px solid rgba(200,180,232,0.3); }
+    .article-related-title { font-family: var(--font-head); font-weight: 800; font-size: 12px; color: var(--navy); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 18px; }
+    .article-related-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    @media (max-width: 680px) { .article-related-grid { grid-template-columns: 1fr; } }
+    .article-related-card { background: var(--white); border: 1.5px solid var(--grey-5); border-radius: 12px; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; transition: transform .18s, box-shadow .18s, border-color .18s; }
+    .article-related-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(26,26,78,0.14); border-color: var(--lavender); }
+    .article-related-thumb { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+    .article-related-thumb .art-rel-scale { transform: scale(0.55); transform-origin: center; }
+    .article-related-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: var(--lavender); }
+    .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); line-height: 1.4; }
+    .article-related-meta { font-size: 11.5px; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; margin-top: auto; padding-top: 4px; }
+  
+    /* ── Cartes courtiers inline ── */
+    .broker-cards { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; margin: 24px 0 32px; }
+    @media (max-width:560px) { .broker-cards { grid-template-columns: 1fr; } }
+    .broker-card { background: white; border-radius: 12px; border: 1.5px solid var(--grey-5); padding: 16px; }
+    .broker-card--top { border-color: var(--lavender); box-shadow: 0 2px 14px rgba(124,58,237,0.08); }
+    .broker-card-header { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+    .broker-card-logo { height: 28px; display: flex; align-items: center; flex-shrink: 0; }
+    .broker-card-logo img { height: 28px; width: auto; max-width: 100px; object-fit: contain; }
+    .broker-card-badge { display: inline-block; font-size: 9px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 8px; border-radius: 100px; background: var(--pearl); color: var(--navy); }
+    .broker-card-name { font-family: var(--font-head); font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 3px; margin-top: 2px; }
+    .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
+    .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
+    .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
+    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-cons li::before { content: "–"; color: #B45309; }
+    .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
+    .broker-card-cta:hover { opacity: .85; }
+    .broker-cards-intro { font-size: 14px; color: var(--grey-2); margin-bottom: 8px; font-style: italic; }
+  
+    .info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .info-box strong { color: var(--navy); }
+    .warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+    .warning-box strong { color: #92400E; }
+    .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+    .table-scroll .compare-table { margin: 0; }
+    .ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+    .ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+    .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+    .ji-figure svg { width: 100%; height: auto; display: block; }
+    .sim-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+    .sim-label { font-size: 13px; font-weight: 600; color: var(--navy); min-width: 190px; }
+    .sim-input { border: 1.5px solid var(--grey-5); border-radius: 8px; padding: 7px 12px; font-size: 14px; color: var(--navy); font-family: var(--font-head); font-weight: 700; width: 110px; outline: none; }
+    .ls-simulator { background: var(--pearl); border-radius: 16px; padding: 24px; margin: 24px 0 32px; border: 1px solid var(--grey-5); }
+    .ls-simulator-title { font-family: var(--font-head); font-weight: 800; font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+    .ls-simulator-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 20px; }
+    .ls-table-wrap { overflow-x: auto; margin-top: 20px; }
+    .ls-table { width: 100%; border-collapse: collapse; font-size: 13px; background: #fff; border-radius: 10px; overflow: hidden; }
+    .ls-table th { background: var(--navy); color: #fff; padding: 10px 14px; text-align: left; font-family: var(--font-head); font-size: 12px; }
+    .ls-table td { padding: 10px 14px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
+    .ls-name { font-weight: 700; color: var(--navy); white-space: nowrap; }
+    .ls-positive { color: #059669; font-weight: 700; }
+    .ls-negative { color: #DC2626; font-weight: 700; }
+    .ls-highlight { margin-top: 20px; background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: 14px; padding: 22px 26px; }
+    .ls-highlight-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.6); margin-bottom: 6px; font-family: var(--font-head); }
+    .ls-highlight-val { font-family: var(--font-head); font-weight: 900; font-size: clamp(24px,3.5vw,34px); background: linear-gradient(135deg,#D4C0FF,#A0E7C5); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .ls-highlight-sub { font-size: 13px; color: rgba(255,255,255,0.75); margin-top: 8px; line-height: 1.6; }
+    .ls-note { font-size: 12px; color: var(--grey-2); margin-top: 14px; line-height: 1.6; }
+    .broker-cards-note { font-size: 12px; color: var(--grey-3); font-style: italic; margin: -18px 0 32px; line-height: 1.6; }
+  </style>
+  <link rel="canonical" href="https://julien-invest.github.io/article-investir-via-societe.html">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Julien Invest",
+  "url": "https://julien-invest.github.io/",
+  "logo": "https://julien-invest.github.io/images/og-cover.png",
+  "description": "Éducation financière indépendante pour les 25-35 ans. ETF, PEA, assurance-vie, liberté financière.",
+  "sameAs": [
+    "https://www.tiktok.com/@julien_invest_",
+    "https://www.instagram.com/julien_invest",
+    "https://www.youtube.com/@jueth7215",
+    "https://www.linkedin.com/in/julien-denis-849541251/",
+    "https://www.facebook.com/Julien.invest.page/"
+  ],
+  "founder": { "@type": "Person", "name": "Julien Denis" }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "À partir de quel montant une société d'investissement devient-elle rentable ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Rarement en dessous d'environ cent mille euros de capital à placer, parce que les coûts fixes de la structure, souvent 1 500 à 3 000 € par an, absorbent l'avantage fiscal. Entre cent et trois cent mille euros, le calcul dépend de la nature des placements. Au-delà, et surtout si une holding chapeaute une activité opérationnelle, la question mérite un examen sérieux avec un expert-comptable." }
+    },
+    {
+      "@type": "Question",
+      "name": "Une société peut-elle ouvrir un PEA ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. Le PEA est strictement réservé aux personnes physiques domiciliées fiscalement en France. Une société n'y a pas accès, pas plus qu'à l'assurance vie au sens classique. Elle perd donc les deux meilleurs avantages fiscaux accessibles à un particulier français, ce qui doit peser lourd dans l'arbitrage." }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi les ETF sont-ils défavorables dans une société à l'IS ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Parce qu'une société soumise à l'impôt sur les sociétés est imposée chaque année sur la variation de valeur liquidative de ses parts d'OPCVM, même sans aucune vente. L'impôt porte sur une plus-value latente, ce qui crée un besoin de trésorerie les bonnes années et ampute l'effet des intérêts composés. C'est ce qui oriente les structures patrimoniales vers les titres vifs, les obligations ou les contrats de capitalisation." }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que le régime mère-fille ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Un régime qui exonère à 95 % les dividendes remontés d'une filiale vers sa société mère, lorsque celle-ci détient au moins 5 % du capital depuis au moins deux ans. Seule une quote-part de 5 % reste taxable. C'est le mécanisme central du montage holding : il permet de faire remonter les résultats d'une société opérationnelle sans frottement significatif, puis de les réinvestir." }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on utiliser l'argent de sa société pour des dépenses personnelles ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Non. L'argent d'une société appartient à une personne morale distincte. Toute utilisation personnelle doit passer par une rémunération ou une distribution de dividendes régulièrement décidée. À défaut, tu t'exposes à des requalifications fiscales et, dans les cas sérieux, à une qualification d'abus de biens sociaux." }
+    },
+    {
+      "@type": "Question",
+      "name": "Faut-il créer une holding avant de vendre son entreprise ?",
+      "acceptedAnswer": { "@type": "Answer", "text": "C'est un cas classique, mais qui exige impérativement un conseil dédié et une anticipation de plusieurs années. Les régimes applicables aux cessions de titres de participation et aux opérations d'apport-cession comportent des conditions strictes de délai et de réinvestissement. Un montage improvisé peu de temps avant une cession se retourne régulièrement contre son auteur." }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://julien-invest.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://julien-invest.github.io/blog.html" },
+    { "@type": "ListItem", "position": 3, "name": "Investir via une société : holding, SAS à l'IS, compte-titres", "item": "https://julien-invest.github.io/article-investir-via-societe.html" }
+  ]
+}
+  </script>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          Julien<span class="nav-logo-dot"></span>Invest
+        </a>
+        <ul class="nav-links">
+          <li><a href="commencer-ici.html" class="nav-link">Commencer ici</a></li>
+          <li><a href="formation.html" class="nav-link">Formation</a></li>
+          <li><a href="coaching.html" class="nav-link">Coaching</a></li>
+          <li><a href="a-propos.html" class="nav-link">À propos</a></li>
+          <li class="nav-item-dropdown">
+            <a href="parrainage.html" class="nav-link">Parrainages <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Bons plans</div>
+              <a href="parrainage.html" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Codes de parrainage</div><div class="nav-dropdown-text-sub">Tous mes codes et bonus de bienvenue</div></div>
+              </a>
+              <a href="avis-plateformes.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Avis plateformes</div><div class="nav-dropdown-text-sub">Mes tests honnêtes : notes et verdicts</div></div>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item-dropdown">
+            <a href="calculateur.html" class="nav-link">Outils <span class="nav-link-arrow">▾</span></a>
+            <div class="nav-dropdown">
+              <div class="nav-dropdown-cat">Simulateurs financiers</div>
+              <a href="calculateur.html#interets-composes" class="nav-dropdown-item featured">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Intérêts composés</div><div class="nav-dropdown-text-sub">Simule la croissance de ton épargne</div></div>
+              </a>
+              <a href="calculateur.html#liberte-financiere" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/><line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Liberté financière</div><div class="nav-dropdown-text-sub">Calcule ton capital FIRE et ton âge cible</div></div>
+              </a>
+              <a href="calculateur.html#retraite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur retraite</div><div class="nav-dropdown-text-sub">Calcule ton capital pour la retraite</div></div>
+              </a>
+              <a href="simulateur-rente.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Rente passive</div><div class="nav-dropdown-text-sub">Calcule ton capital pour vivre de tes revenus</div></div>
+              </a>
+              <a href="simulateur-inflation.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur inflation</div><div class="nav-dropdown-text-sub">Impact de l'inflation sur ton épargne</div></div>
+              </a>
+              <div class="nav-dropdown-sep"></div>
+              <div class="nav-dropdown-cat">Comparateurs &amp; Outils</div>
+              <a href="calculateur.html#fiscalite" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Simulateur fiscal</div><div class="nav-dropdown-text-sub">Compare l'impôt PEA, CTO, assurance-vie</div></div>
+              </a>
+              <a href="calculateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Calculateur de frais</div><div class="nav-dropdown-text-sub">Combien ta banque te coûte vraiment</div></div>
+              </a>
+              <a href="simulateur-frais.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Impact des frais</div><div class="nav-dropdown-text-sub">Effet des frais sur ton capital final</div></div>
+              </a>
+              <a href="comparateur-etf.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur ETF</div><div class="nav-dropdown-text-sub">Filtre, trie et compare les ETF</div></div>
+              </a>
+              <a href="comparateur-courtiers.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur courtiers</div><div class="nav-dropdown-text-sub">Quel courtier PEA choisir en 2026</div></div>
+              </a>
+              <a href="comparatif-assurance-vie.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Comparateur assurance-vie</div><div class="nav-dropdown-text-sub">Frais, fonds euros, ETF, SCPI</div></div>
+              </a>
+              <a href="outils.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Tous les outils</div><div class="nav-dropdown-text-sub">La page qui réunit tous les simulateurs</div></div>
+              </a>
+              <a href="simulateur-credit-immobilier.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Crédit immobilier</div><div class="nav-dropdown-text-sub">Mensualités et tableau d'amortissement</div></div>
+              </a>
+              <a href="audit.html" class="nav-dropdown-item">
+                <span class="nav-dropdown-icon"><svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><polyline points="20 6 9 17 4 12"/></svg></span>
+                <div><div class="nav-dropdown-text-title">Audit de portefeuille</div><div class="nav-dropdown-text-sub">Score tes 6 axes en 5 minutes</div></div>
+              </a>
+            </div>
+          </li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="ressources.html" class="nav-link">Ressources</a></li>
+        </ul>
+        <div class="nav-cta">
+          <a href="formation.html" class="btn btn-gradient btn--sm">
+            Accéder à la formation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <button class="nav-hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="nav-mobile">
+    <ul>
+      <li><a href="commencer-ici.html">Commencer ici</a></li>
+      <li><a href="formation.html">Formation</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="a-propos.html">À propos</a></li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Parrainages <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li><a href="parrainage.html">Codes de parrainage</a></li>
+          <li><a href="avis-plateformes.html">Avis plateformes</a></li>
+        </ul>
+      </li>
+      <li class="mob-accordion">
+        <button class="mob-accordion-trigger">Outils <span class="mob-accordion-arrow">▾</span></button>
+        <ul class="mob-accordion-panel">
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2);">Simulateurs</li>
+          <li><a href="calculateur.html#interets-composes">Intérêts composés</a></li>
+          <li><a href="calculateur.html#liberte-financiere">Liberté financière</a></li>
+          <li><a href="calculateur.html#retraite">Simulateur retraite</a></li>
+          <li><a href="simulateur-rente.html">Rente passive</a></li>
+          <li><a href="simulateur-inflation.html">Simulateur inflation</a></li>
+          <li style="padding: 6px 12px 2px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-2); margin-top: 4px;">Comparateurs &amp; Outils</li>
+          <li><a href="calculateur.html#fiscalite">Simulateur fiscal</a></li>
+          <li><a href="calculateur-frais.html">Calculateur de frais</a></li>
+          <li><a href="simulateur-frais.html">Impact des frais</a></li>
+          <li><a href="comparateur-etf.html">Comparateur ETF</a></li>
+          <li><a href="comparateur-courtiers.html">Comparateur courtiers</a></li>
+          <li><a href="comparatif-assurance-vie.html">Comparateur assurance-vie</a></li>
+          <li><a href="outils.html">Tous les outils</a></li>
+          <li><a href="simulateur-credit-immobilier.html">Crédit immobilier</a></li>
+          <li><a href="audit.html">Audit de portefeuille</a></li>
+        </ul>
+      </li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="ressources.html#guides">Guides thématiques</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="ressources.html">Ressources</a></li>
+    </ul>
+    <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <a href="blog.html">Blog</a>
+          <span>›</span>
+          <span class="breadcrumb-current">Investir via une société</span>
+        </nav>
+        <span class="t-label">Niveau avancé</span>
+        <h1>Investir via une société :<br><em>holding, SAS à l'IS, compte-titres</em></h1>
+        <p class="article-meta-date">Publié le 11 août 2026 · 12 min de lecture</p>
+        <p>Structurer coûte cher et complique tout. Passé un certain niveau de trésorerie, ne pas le faire coûte davantage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--white);">
+    <div class="container">
+      <div class="article-body">
+        <span class="article-tag">Avancé</span>
+        <p>C'est une question qui revient dès qu'un freelance, un dirigeant ou un associé accumule de la trésorerie sur sa société : faut-il sortir cet argent pour l'investir à titre personnel, ou l'investir directement via la société ? La réponse dépend d'un arbitrage entre la fiscalité de la sortie et celle du placement, et elle bascule à un seuil identifiable. Cet article te donne le raisonnement, les régimes qui rendent la structure intéressante, le piège fiscal que presque personne ne voit venir, et le moment où la complexité cesse d'être rentable. Il s'adresse à un niveau avancé et ne remplace ni un expert-comptable, ni un avocat fiscaliste.</p>
+
+        <div class="article-toc">
+          <div class="article-toc-title">Au sommaire</div>
+          <ol>
+            <li><a href="#question">La vraie question : sortir ou garder</a></li>
+            <li><a href="#cout">Le coût de la sortie</a></li>
+            <li><a href="#regimes">Les régimes qui rendent la société intéressante</a></li>
+            <li><a href="#piege">Le piège des OPCVM à l'IS</a></li>
+            <li><a href="#perd">Ce que tu perds en investissant via une société</a></li>
+            <li><a href="#cas">Les trois cas où ça se justifie</a></li>
+            <li><a href="#couts">Le coût réel d'une structure</a></li>
+            <li><a href="#seuil">Le seuil de bascule</a></li>
+          </ol>
+        </div>
+
+        <h2 id="question">La vraie question : sortir ou garder</h2>
+        <p>Imagine 100 000 € de trésorerie excédentaire sur ta société. Deux chemins s'ouvrent, et ils n'ont rien à voir.</p>
+        <p>Le premier consiste à te verser cet argent, en salaire ou en dividendes, puis à l'investir sur ton <a href="article-pea-guide-pratique.html">PEA</a> ou ton <a href="article-assurance-vie-guide.html">assurance vie</a>. Tu bénéficies alors des meilleures enveloppes fiscales françaises, mais tu as payé le prix du passage.</p>
+        <p>Le second consiste à investir directement depuis la société. Tu conserves l'intégralité de la somme, mais tu perds l'accès aux enveloppes personnelles et tu entres dans la fiscalité des sociétés.</p>
+        <p>Tout l'arbitrage tient là. La société permet d'investir cent euros là où le particulier n'en investit que soixante-dix, mais ces cent euros travaillent dans un cadre fiscal moins favorable, et le passage à titre personnel devra bien avoir lieu un jour.</p>
+
+        <h2 id="cout">Le coût de la sortie</h2>
+        <p>Sortir de l'argent d'une société coûte cher, et c'est ce qui rend la question intéressante.</p>
+        <p>Par dividendes, tu paies d'abord l'impôt sur les sociétés sur le bénéfice, puis la flat tax de 30 % sur le dividende distribué. En cumulant les deux étages, il ne reste souvent qu'entre soixante et soixante-cinq euros sur cent euros de bénéfice initial.</p>
+        <p>Par rémunération, la société déduit la charge de son résultat, mais tu supportes les cotisations sociales puis l'impôt sur le revenu à ta tranche marginale. Le coût total est comparable, avec une contrepartie réelle : tu acquières des droits à la retraite et à la prévoyance, ce que ne fait pas le dividende.</p>
+        <div class="ji-figure">
+          <div class="ji-figure-title">Cent euros de bénéfice, deux chemins</div>
+          <div class="ji-figure-sub">Ce qui reste à investir selon que l'argent sort de la société ou y reste.</div>
+          <svg viewBox="0 0 620 178" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison entre sortir 100 euros en dividendes pour n'investir que 63 euros, et investir 100 euros directement depuis la société">
+            <g font-family="Plus Jakarta Sans, sans-serif">
+              <rect x="24" y="26" width="270" height="128" rx="12" fill="#FEE2E2" stroke="#DC2626" stroke-width="1.4"/>
+              <text x="159" y="48" text-anchor="middle" font-size="11.5" font-weight="800" fill="#991B1B">SORTIR EN DIVIDENDES</text>
+              <rect x="44" y="60" width="230" height="20" rx="5" fill="#DC2626" opacity="0.85"/>
+              <text x="159" y="75" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">100 € de bénéfice</text>
+              <rect x="44" y="86" width="173" height="20" rx="5" fill="#DC2626" opacity="0.55"/>
+              <text x="130" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">75 € après IS</text>
+              <rect x="44" y="112" width="121" height="20" rx="5" fill="#DC2626" opacity="0.3"/>
+              <text x="104" y="127" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7F1D1D">63 € après flat tax</text>
+              <text x="159" y="147" text-anchor="middle" font-size="11" font-weight="800" fill="#991B1B">63 € investis en PEA ou AV</text>
+              <rect x="326" y="26" width="270" height="128" rx="12" fill="#DCFCE7" stroke="#059669" stroke-width="1.4"/>
+              <text x="461" y="48" text-anchor="middle" font-size="11.5" font-weight="800" fill="#065F46">GARDER DANS LA SOCIÉTÉ</text>
+              <rect x="346" y="60" width="230" height="20" rx="5" fill="#059669" opacity="0.85"/>
+              <text x="461" y="75" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">100 € de bénéfice</text>
+              <rect x="346" y="86" width="173" height="20" rx="5" fill="#059669" opacity="0.55"/>
+              <text x="432" y="101" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">75 € après IS</text>
+              <rect x="346" y="112" width="173" height="20" rx="5" fill="#059669" opacity="0.3"/>
+              <text x="432" y="127" text-anchor="middle" font-size="10.5" font-weight="700" fill="#065F46">75 € qui travaillent</text>
+              <text x="461" y="147" text-anchor="middle" font-size="11" font-weight="800" fill="#065F46">mais hors PEA et hors AV</text>
+            </g>
+            <text x="310" y="172" text-anchor="middle" font-size="10" font-style="italic" fill="#4A4A6A" font-family="Plus Jakarta Sans, sans-serif">Ordres de grandeur indicatifs. Le taux d'IS applicable dépend du bénéfice et de la structure.</text>
+          </svg>
+        </div>
+        <p>Douze points d'écart sur la mise de départ, ce n'est pas rien. Sur vingt ans avec un rendement identique, l'écart initial se retrouve intégralement à l'arrivée, multiplié par la performance.</p>
+
+        <h2 id="regimes">Les régimes qui rendent la société intéressante</h2>
+        <p>Trois mécanismes expliquent pourquoi une holding patrimoniale est un outil réel et non une lubie d'optimisateur.</p>
+        <p><strong>Le taux réduit d'impôt sur les sociétés.</strong> Sous conditions de chiffre d'affaires et de détention, la première tranche de bénéfice bénéficie d'un taux de 15 %, contre 25 % au-delà. Pour une structure qui capitalise sans distribuer, c'est un frottement annuel modéré.</p>
+        <p><strong>Le régime mère-fille.</strong> Lorsqu'une société détient au moins 5 % du capital d'une autre pendant au moins deux ans, les dividendes remontés sont exonérés à hauteur de 95 %. Seule une quote-part de 5 % reste taxable. C'est le cœur du montage holding : faire remonter les résultats d'une société opérationnelle vers une holding sans frottement significatif, puis les réinvestir.</p>
+        <p><strong>Le report de l'imposition personnelle.</strong> Tant que la holding ne distribue rien, tu ne supportes aucune imposition personnelle. L'argent capitalise sur une base plus large, et tu choisis le moment de la sortie, par exemple une année où ta tranche marginale est basse.</p>
+        <p>À cela s'ajoute, pour les cessions de titres de participation détenus depuis plus de deux ans, un régime de quasi-exonération avec réintégration d'une quote-part de frais et charges. C'est le mécanisme qui rend la holding pertinente en amont d'une revente d'entreprise, un sujet qui déborde largement cet article et exige un conseil dédié.</p>
+
+        <h2 id="piege">Le piège des OPCVM à l'IS</h2>
+        <p>C'est le point technique le plus important de cet article, et celui qu'on découvre généralement trop tard.</p>
+        <p>Quand une société soumise à l'impôt sur les sociétés détient des parts d'OPCVM, c'est-à-dire des fonds ou des ETF, elle est imposée chaque année sur la variation de leur valeur liquidative, même sans avoir vendu quoi que ce soit. L'imposition porte sur une plus-value latente.</p>
+        <p>Les conséquences sont concrètes. Une bonne année boursière génère un impôt à payer alors qu'aucun euro n'est encaissé, ce qui peut créer un problème de trésorerie. Et l'effet des <a href="article-interets-composes.html">intérêts composés</a> est amputé chaque année par ce frottement, ce qui réduit sensiblement l'avantage de départ.</p>
+        <div class="warning-box">
+          <strong>La conséquence pratique :</strong> le portefeuille d'ETF simple et efficace qui fonctionne si bien dans un PEA fonctionne beaucoup moins bien dans une société à l'IS. C'est ce qui pousse les structures patrimoniales vers les titres vifs, les obligations détenues jusqu'à l'échéance, les contrats de capitalisation ou l'immobilier, plutôt que vers un ETF monde. Vérifie systématiquement ce point avec ton expert-comptable avant de construire une allocation.
+        </div>
+
+        <h2 id="perd">Ce que tu perds en investissant via une société</h2>
+        <p>Une société n'a accès ni au PEA, ni à l'assurance vie au sens classique. Elle perd donc l'exonération d'impôt sur le revenu après cinq ans du PEA et l'abattement de 4 600 € ou 9 200 € après huit ans de l'assurance vie. Ce sont les deux meilleurs avantages fiscaux accessibles à un particulier en France, et ils sont hors de portée.</p>
+        <p>Une société perd également la simplicité. Comptabilité annuelle, assemblée générale, dépôt des comptes, contribution foncière des entreprises, honoraires de tenue. Ce sont des obligations réelles, pas des formalités que l'on expédie en une soirée.</p>
+        <p>Enfin, l'argent placé dans une société n'est pas ton argent. Il appartient à une personne morale distincte. L'utiliser à des fins personnelles sans passer par une distribution régulière expose à des requalifications et, dans les cas sérieux, à l'abus de biens sociaux.</p>
+
+        <h2 id="cas">Les trois cas où ça se justifie</h2>
+        <p><strong>La trésorerie excédentaire durable.</strong> Une société qui accumule une trésorerie dont elle n'a pas l'usage opérationnel et que le dirigeant n'a pas besoin de sortir : c'est le cas type. Sortir pour investir coûterait immédiatement le prix du passage, alors que l'argent peut travailler dès maintenant sur une base plus large.</p>
+        <p><strong>La détention de plusieurs sociétés.</strong> Le régime mère-fille prend tout son sens dès qu'une holding chapeaute plusieurs structures opérationnelles, en permettant de faire circuler les résultats vers les projets qui en ont besoin sans frottement personnel.</p>
+        <p><strong>L'immobilier locatif d'envergure.</strong> Une société à l'impôt sur les sociétés amortit le bien, ce qu'un particulier ne peut pas faire, ce qui écrase le résultat imposable pendant des années. La contrepartie, souvent oubliée, est une plus-value de cession bien plus lourde à la revente, puisque les amortissements pratiqués viennent la majorer. Le sujet est développé dans <a href="article-sci.html">faut-il créer une SCI</a> et dans <a href="article-lmnp-vs-location-nue.html">LMNP vs location nue</a>.</p>
+
+        <h2 id="couts">Le coût réel d'une structure</h2>
+        <div class="table-scroll">
+        <table class="compare-table">
+          <thead><tr><th>Poste</th><th>Ordre de grandeur</th><th>Fréquence</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Création</strong></td><td>Quelques centaines à quelques milliers d'euros selon l'accompagnement</td><td>Une fois</td></tr>
+            <tr><td><strong>Expert-comptable</strong></td><td>Souvent 1 000 à 2 500 € par an pour une structure patrimoniale simple</td><td>Chaque année</td></tr>
+            <tr><td><strong>Contribution foncière des entreprises</strong></td><td>Variable selon la commune</td><td>Chaque année</td></tr>
+            <tr><td><strong>Dépôt des comptes et formalités</strong></td><td>Quelques dizaines d'euros</td><td>Chaque année</td></tr>
+            <tr><td><strong>Conseil ponctuel</strong></td><td>Variable, mais nécessaire au montage</td><td>Selon les opérations</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p>Compte de façon réaliste entre 1 500 et 3 000 € par an de coûts récurrents. C'est ce chiffre qu'il faut mettre en face du gain fiscal espéré, et c'est lui qui détermine le seuil de bascule.</p>
+
+        <h2 id="seuil">Le seuil de bascule</h2>
+        <p>Le raisonnement est simple, même s'il demande d'être chiffré sur ta situation. Le gain fiscal annuel doit dépasser nettement le coût de la structure, sinon tu paies un comptable pour le plaisir de complexifier ta vie.</p>
+        <p>En pratique, en dessous d'environ cent mille euros de capital à placer, la structure est rarement rentable : les coûts fixes absorbent l'avantage. Entre cent et trois cent mille euros, le calcul dépend fortement de la nature des placements envisagés, et le piège des OPCVM à l'IS pèse lourd si tu comptais faire de la gestion indicielle. Au-delà, et surtout dans une logique de holding chapeautant une activité opérationnelle, la question mérite d'être posée sérieusement.</p>
+        <p>Une dernière chose, et elle vaut plus que tout le reste. Structurer ne dispense jamais d'avoir d'abord rempli ses enveloppes personnelles. Un PEA à son plafond, une assurance vie de plus de huit ans bien alimentée et un <a href="article-per-plan-epargne-retraite.html">PER</a> utilisé intelligemment offrent une fiscalité qu'aucune société ne surpassera pour un patrimoine de taille courante. La holding est un outil de complément, pas un raccourci. Si tu es freelance et que tu te poses la question, commence par <a href="article-investir-freelance.html">investir en étant freelance</a>.</p>
+        <div class="info-box">
+          <strong>À dire clairement :</strong> cet article décrit des mécanismes généraux à des fins éducatives. Le montage d'une holding, le choix de la forme sociale et la stratégie de distribution dépendent entièrement de ta situation. Fais-toi accompagner par un expert-comptable et, selon les enjeux, par un avocat fiscaliste. Je ne délivre aucun conseil fiscal ni juridique personnalisé.
+        </div>
+
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="article-faq">
+          <details>
+            <summary>À partir de quel montant une société d'investissement devient-elle rentable ?</summary>
+            <p>Rarement en dessous d'environ cent mille euros de capital à placer, parce que les coûts fixes de la structure, souvent 1 500 à 3 000 € par an, absorbent l'avantage fiscal. Entre cent et trois cent mille euros, le calcul dépend de la nature des placements. Au-delà, et surtout si une holding chapeaute une activité opérationnelle, la question mérite un examen sérieux avec un expert-comptable.</p>
+          </details>
+          <details>
+            <summary>Une société peut-elle ouvrir un PEA ?</summary>
+            <p>Non. Le PEA est strictement réservé aux personnes physiques domiciliées fiscalement en France. Une société n'y a pas accès, pas plus qu'à l'assurance vie au sens classique. Elle perd donc les deux meilleurs avantages fiscaux accessibles à un particulier français, ce qui doit peser lourd dans l'arbitrage.</p>
+          </details>
+          <details>
+            <summary>Pourquoi les ETF sont-ils défavorables dans une société à l'IS ?</summary>
+            <p>Parce qu'une société soumise à l'impôt sur les sociétés est imposée chaque année sur la variation de valeur liquidative de ses parts d'OPCVM, même sans aucune vente. L'impôt porte sur une plus-value latente, ce qui crée un besoin de trésorerie les bonnes années et ampute l'effet des intérêts composés. C'est ce qui oriente les structures patrimoniales vers les titres vifs, les obligations ou les contrats de capitalisation.</p>
+          </details>
+          <details>
+            <summary>Qu'est-ce que le régime mère-fille ?</summary>
+            <p>Un régime qui exonère à 95 % les dividendes remontés d'une filiale vers sa société mère, lorsque celle-ci détient au moins 5 % du capital depuis au moins deux ans. Seule une quote-part de 5 % reste taxable. C'est le mécanisme central du montage holding : il permet de faire remonter les résultats d'une société opérationnelle sans frottement significatif, puis de les réinvestir.</p>
+          </details>
+          <details>
+            <summary>Peut-on utiliser l'argent de sa société pour des dépenses personnelles ?</summary>
+            <p>Non. L'argent d'une société appartient à une personne morale distincte. Toute utilisation personnelle doit passer par une rémunération ou une distribution de dividendes régulièrement décidée. À défaut, tu t'exposes à des requalifications fiscales et, dans les cas sérieux, à une qualification d'abus de biens sociaux.</p>
+          </details>
+          <details>
+            <summary>Faut-il créer une holding avant de vendre son entreprise ?</summary>
+            <p>C'est un cas classique, mais qui exige impérativement un conseil dédié et une anticipation de plusieurs années. Les régimes applicables aux cessions de titres de participation et aux opérations d'apport-cession comportent des conditions strictes de délai et de réinvestissement. Un montage improvisé peu de temps avant une cession se retourne régulièrement contre son auteur.</p>
+          </details>
+        </div>
+
+        <div class="article-video">
+          <div class="article-video-title">La vidéo qui accompagne cet article</div>
+          <div class="video-facade" id="article-video" role="button" tabindex="0" aria-label="Lire la vidéo">
+            <img src="images/og-cover.png" alt="Vidéo Julien Invest" class="video-facade-cover" loading="lazy">
+            <button class="video-facade-play" type="button" aria-label="Lire la vidéo"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+            <span class="video-soon" id="article-video-soon">Vidéo bientôt disponible · <a href="https://www.youtube.com/@jueth7215" target="_blank" rel="noopener">abonne-toi sur YouTube</a></span>
+          </div>
+        </div>
+        <script>
+          // REMPLACER "VIDEO_ID" par l'ID de la vidéo YouTube de cet article
+          const VIDEO_ID_SOCIETE = "VIDEO_ID";
+          (function(){
+            const f=document.getElementById('article-video'); if(!f) return;
+            const soon=document.getElementById('article-video-soon');
+            const has=VIDEO_ID_SOCIETE && VIDEO_ID_SOCIETE!=="VIDEO_ID";
+            if(has&&soon) soon.remove();
+            function play(){
+              if(!has){ window.open('https://www.youtube.com/@jueth7215','_blank','noopener'); return; }
+              const i=document.createElement('iframe');
+              i.src='https://www.youtube-nocookie.com/embed/'+VIDEO_ID_SOCIETE+'?autoplay=1&rel=0';
+              i.title='Vidéo Julien Invest'; i.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; i.allowFullscreen=true;
+              f.innerHTML=''; f.appendChild(i); f.classList.add('is-playing');
+            }
+            f.addEventListener('click',play);
+            f.addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); play(); } });
+          })();
+        </script>
+
+        <div class="article-takeaway">
+          <div class="article-takeaway-label">★ Ce qu'il faut retenir</div>
+          <ul class="article-takeaway-list">
+            <li>Sortir cent euros de bénéfice pour les investir personnellement n'en laisse souvent que soixante à soixante-cinq.</li>
+            <li>Le régime mère-fille exonère 95 % des dividendes remontés d'une filiale : c'est le cœur de l'intérêt d'une holding.</li>
+            <li>Une société à l'IS est imposée chaque année sur la plus-value latente de ses OPCVM, ce qui rend les ETF peu adaptés.</li>
+            <li>Une société n'a accès ni au PEA ni à l'assurance vie, les deux meilleures enveloppes françaises.</li>
+            <li>Compte 1 500 à 3 000 € de frais annuels. En dessous d'environ cent mille euros à placer, la structure est rarement rentable.</li>
+          </ul>
+        </div>
+
+        <div class="article-cta">
+          <h2>Passe de la théorie à la pratique</h2>
+          <p>La formation Julien Invest te guide pas à pas pour mettre tout ça en place sereinement, sans jargon et à ton rythme.</p>
+          <a href="formation.html" class="btn btn-gradient btn--lg">
+            Accéder à la formation
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div class="article-related">
+          <div class="article-related-title">Articles liés</div>
+          <div class="article-related-grid">
+            <a href="article-investir-freelance.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #0C4A6E 0%, #0284C7 100%);"><div class="art-rel-scale"><div style="display:flex; align-items:center; gap:10px;"><div style="background:#fff; border-radius:10px; padding:9px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:#0C4A6E; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">Freelance</div></div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Investir sans fiche de paie</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Freelance</span>
+                <div class="article-related-name">Freelance : investir sans fiche de paie</div>
+                <div class="article-related-meta">11 min · Lire →</div>
+              </div>
+            </a>
+            <a href="article-sci.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #4C1D95 0%, #7C3AED 100%);"><div class="art-rel-scale"><div style="display:flex; align-items:center; gap:10px;"><div style="background:#fff; border-radius:10px; padding:9px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:#4C1D95; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">SCI</div></div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Faut-il en créer une ?</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Immobilier</span>
+                <div class="article-related-name">Faut-il créer une SCI pour investir ?</div>
+                <div class="article-related-meta">10 min · Lire →</div>
+              </div>
+            </a>
+            <a href="article-per-plan-epargne-retraite.html" class="article-related-card">
+              <div class="article-related-thumb" style="background: linear-gradient(135deg, #064E3B 0%, #059669 100%);"><div class="art-rel-scale"><div style="display:flex; align-items:center; gap:10px;"><div style="background:#fff; border-radius:10px; padding:9px 16px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:800; font-size:18px; color:#064E3B; letter-spacing:-0.03em; box-shadow:0 6px 20px rgba(0,0,0,0.2);">PER</div></div><div style="font-family:'Plus Jakarta Sans',sans-serif; font-size:10px; font-weight:700; color:rgba(255,255,255,0.65); letter-spacing:0.15em; text-transform:uppercase;">Faut-il l'ouvrir ?</div></div></div>
+              <div class="article-related-body">
+                <span class="article-related-tag">Retraite</span>
+                <div class="article-related-name">PER 2026 : faut-il l'ouvrir ?</div>
+                <div class="article-related-meta">11 min · Lire →</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">
+            Julien<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lavender);margin:0 4px;vertical-align:middle;"></span>Invest
+          </div>
+          <p class="footer-brand-desc">
+            L'investissement expliqué simplement pour les 25-35 ans qui veulent passer à l'action sans faire d'erreur.
+          </p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/julien-denis-849541251/" class="footer-social" target="_blank" rel="noopener" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@julien_invest_" class="footer-social" target="_blank" rel="noopener" title="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/julien_invest" class="footer-social" target="_blank" rel="noopener" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@jueth7215" class="footer-social" target="_blank" rel="noopener" title="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+            <a href="https://www.facebook.com/Julien.invest.page/" class="footer-social" target="_blank" rel="noopener" title="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="https://linktr.ee/Julien_invest" class="footer-social" target="_blank" rel="noopener" title="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <a href="index.html">Accueil</a>
+          <a href="formation.html">Formation</a>
+          <a href="coaching.html">Coaching</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="parrainage.html">Parrainages</a>
+          <a href="calculateur.html">Outils</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <a href="formation.html#guides">Guide ETF</a>
+          <a href="formation.html#guides">Guide PEA</a>
+          <a href="formation.html#guides">Guide Assurance-vie</a>
+          <a href="#lead-magnet">Ebook gratuit</a>
+          <a href="calculateur.html#interets-composes">Simulateur intérêts composés</a>
+          <a href="calculateur.html#liberte-financiere">Calculateur liberté financière</a>
+        </div>
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Confidentialité</a>
+          <a href="mentions-legales.html#cgv">CGV</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-disclaimer">
+          <strong>Avertissement légal :</strong> Les contenus publiés sur ce site ont une vocation exclusivement éducative et informationnelle. Ils ne constituent en aucun cas un conseil en investissement personnalisé au sens de la réglementation AMF. Julien Invest n'est pas conseiller en investissement financier (CIF). Tout investissement comporte des risques, y compris la perte en capital. Les performances passées ne préjugent pas des performances futures. Je partage mon expérience personnelle et mes apprentissages. Consultez un professionnel agréé pour toute décision financière.
+        </p>
+        <div class="footer-legal">
+          <span>© 2026 Julien Invest. Tous droits réservés</span>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="mentions-legales.html#confidentialite">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+</body>
+</html>
