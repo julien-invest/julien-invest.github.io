@@ -1,3 +1,13 @@
+/* ── Marqueur JS : posé immédiatement pour que le CSS puisse masquer
+   les éléments à révéler. Sans JS, la classe est absente et tout le
+   contenu reste visible. ── */
+(function () {
+  var r = document.documentElement;
+  if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    r.classList.add('has-js');
+  }
+})();
+
 /* =============================================
    JULIEN INVEST — Main JS
    ============================================= */
@@ -357,3 +367,87 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
     }
   });
 });
+
+/* ══════════════════════════════════════════════════════════
+   ANIMATIONS — ajouté le 12/08/2026
+   Barre de progression, cascade des grilles, révélation des
+   éléments ajoutés après coup. Rien ne s'exécute si l'utilisateur
+   a demandé à réduire les animations.
+   ══════════════════════════════════════════════════════════ */
+(function () {
+  if (!document.documentElement.classList.contains('has-js')) return;
+
+  function init() {
+    /* ── 1. Barre de progression, uniquement sur les pages longues ── */
+    if (document.querySelector('.article-body, .guide-article')) {
+      var bar = document.createElement('div');
+      bar.className = 'reading-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(bar);
+      var ticking = false;
+      function update() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var p = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
+        bar.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener('resize', update, { passive: true });
+      update();
+    }
+
+    /* ── 2. Cascade sur les grilles : on numérote les enfants, le CSS
+           transforme l'indice en délai. ── */
+    var GRILLES = [
+      '.article-related-grid', '.livret-cards-grid', '.broker-cards',
+      '.community-stats-grid', '.footer-socials'
+    ];
+    document.querySelectorAll(GRILLES.join(',')).forEach(function (grille) {
+      var enfants = grille.children;
+      if (enfants.length < 2) return;
+      grille.classList.add('ji-stagger');
+      for (var i = 0; i < enfants.length; i++) {
+        enfants[i].style.setProperty('--ji-i', i);
+      }
+    });
+
+    /* ── 3. Observer commun : révèle .reveal et .ji-stagger.
+           L'observer historique ne voyait pas les grilles ajoutées ici. ── */
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal, .ji-stagger').forEach(function (el) {
+        el.classList.add('visible');
+      });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.ji-stagger, .reveal:not(.visible)').forEach(function (el) {
+      io.observe(el);
+    });
+
+    /* ── 4. Filet de sécurité : si un élément à révéler n'a jamais été
+           vu par l'observer au bout de 3 s, on l'affiche quand même.
+           Évite tout contenu invisible en cas de mise en page inattendue. ── */
+    setTimeout(function () {
+      document.querySelectorAll('.reveal:not(.visible), .ji-stagger:not(.visible)').forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('visible');
+      });
+    }, 3000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();

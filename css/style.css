@@ -3128,3 +3128,141 @@ a:hover > .platform-logo {
   .cookie-consent-actions { width: 100%; }
   .cookie-consent-btn { flex: 1; }
 }
+
+/* ══════════════════════════════════════════════════════════
+   ANIMATIONS — ajouté le 12/08/2026
+   Vocabulaire repris du site Ju.en.vie pour la cohérence de marque.
+   Tout est protégé par .has-js : si le JavaScript échoue, le contenu
+   reste visible. Tout est neutralisé par prefers-reduced-motion.
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-micro: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── 1. Révélation au scroll (le système existait, son état initial manquait) ── */
+.has-js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+  will-change: opacity, transform;
+}
+.has-js .reveal.visible { opacity: 1; transform: none; will-change: auto; }
+
+/* ── 2. Apparition en cascade des grilles (délai calculé par le JS) ── */
+.has-js .ji-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.55s var(--ease-out), transform 0.55s var(--ease-out);
+  transition-delay: calc(var(--ji-i, 0) * 55ms);
+}
+.has-js .ji-stagger.visible > * { opacity: 1; transform: none; }
+
+/* ── 3. Barre de progression de lecture (injectée par le JS) ── */
+.reading-progress {
+  position: fixed; top: 0; left: 0; z-index: 3000;
+  width: 100%; height: 2px;
+  background: var(--gradient-brand);
+  transform: scaleX(0); transform-origin: left;
+  pointer-events: none;
+}
+
+/* ── 4. Entrée du hero, en cascade douce ── */
+.has-js .page-hero-content > *,
+.has-js .hero-content > * {
+  animation: ji-hero-in 0.75s var(--ease-out) backwards;
+}
+.has-js .page-hero-content > *:nth-child(1),
+.has-js .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
+.has-js .page-hero-content > *:nth-child(2),
+.has-js .hero-content > *:nth-child(2) { animation-delay: 0.13s; }
+.has-js .page-hero-content > *:nth-child(3),
+.has-js .hero-content > *:nth-child(3) { animation-delay: 0.21s; }
+.has-js .page-hero-content > *:nth-child(4),
+.has-js .hero-content > *:nth-child(4) { animation-delay: 0.29s; }
+.has-js .page-hero-content > *:nth-child(n+5),
+.has-js .hero-content > *:nth-child(n+5) { animation-delay: 0.37s; }
+@keyframes ji-hero-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── 5. Trait doré qui se dessine sous le mot en italique du hero ── */
+.has-js .hero-title em { border-bottom-color: transparent; position: relative; }
+.has-js .hero-title em::after {
+  content: ''; position: absolute;
+  left: 0; right: 0; bottom: -5px; height: 5px;
+  background: var(--gold, #E8B84B);
+  transform: scaleX(0); transform-origin: left;
+  animation: ji-draw 0.7s var(--ease-out) 0.55s forwards;
+}
+@keyframes ji-draw { to { transform: scaleX(1); } }
+
+/* ── 6. Micro-interactions : cartes et lignes de tableau ── */
+.article-related-card,
+.blog-card,
+.broker-card,
+.livret-card,
+.avis-related-card {
+  transition: transform 0.22s var(--ease-micro), box-shadow 0.22s var(--ease-micro),
+              border-color 0.22s var(--ease-micro);
+}
+.compare-table tbody tr { transition: background-color 0.18s var(--ease-micro); }
+.compare-table tbody tr:hover td { background-color: var(--pearl); }
+
+/* ── 7. Le sommaire d'article suit la lecture ── */
+.article-toc a { transition: color 0.18s var(--ease-micro), padding-left 0.18s var(--ease-micro); }
+.article-toc a:hover { padding-left: 4px; }
+
+/* ── 8. Transitions de page (dégrade proprement si non supporté) ── */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.2s; }
+
+/* ── 9. Respect des préférences système : tout est neutralisé ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .has-js .reveal,
+  .has-js .ji-stagger > * { opacity: 1 !important; transform: none !important; }
+  .has-js .hero-title em { border-bottom-color: var(--gold, #E8B84B); }
+  .has-js .hero-title em::after { animation: none; transform: scaleX(1); }
+  .reading-progress { display: none; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloc Ju.en.vie sur la page À propos — ajouté le 12/08/2026
+   Couleurs empruntées à la charte Ju.en.vie (terracotta, crème)
+   pour signaler visuellement qu'on quitte l'univers Julien Invest.
+   ══════════════════════════════════════════════════════════ */
+.jv-block { max-width: 760px; margin: 0 auto; background: #FBF7F2; border: 1px solid #EADDD0;
+  border-radius: 18px; padding: 26px 28px; }
+.jv-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.jv-logo { width: 52px; height: 52px; border-radius: 12px; object-fit: contain; flex-shrink: 0; }
+.jv-label { display: block; font-family: var(--font-head); font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #A85832; margin-bottom: 3px; }
+.jv-title { font-family: var(--font-display); font-style: italic; font-size: 25px;
+  color: #3A2A1E; margin: 0; line-height: 1.1; }
+.jv-text { font-size: 15px; line-height: 1.75; color: #6B5847; margin: 0 0 20px; }
+.jv-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+@media (max-width: 640px) { .jv-cards { grid-template-columns: 1fr; } }
+.jv-card { display: flex; align-items: center; gap: 11px; background: #fff; border: 1px solid #EADDD0;
+  border-radius: 12px; padding: 13px 14px; text-decoration: none;
+  transition: transform 0.22s var(--ease-micro), box-shadow 0.22s var(--ease-micro),
+              border-color 0.22s var(--ease-micro); }
+.jv-card:hover { transform: translateY(-3px); border-color: #A85832;
+  box-shadow: 0 10px 24px rgba(168, 88, 50, 0.14); }
+.jv-card:focus-visible { outline: 2px solid #A85832; outline-offset: 3px; }
+.jv-card-icon { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px;
+  border-radius: 9px; background: #F5EAE0; color: #A85832; flex-shrink: 0; }
+.jv-card-body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.jv-card-name { font-family: var(--font-head); font-weight: 700; font-size: 13.5px; color: #3A2A1E; }
+.jv-card-desc { font-size: 11.5px; color: #8A7663; line-height: 1.35; }
+.jv-card-arrow { margin-left: auto; color: #C4A98F; font-size: 15px;
+  transition: transform 0.22s var(--ease-micro), color 0.22s var(--ease-micro); }
+.jv-card:hover .jv-card-arrow { transform: translateX(3px); color: #A85832; }
