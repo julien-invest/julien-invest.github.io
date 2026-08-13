@@ -139,8 +139,8 @@
     .compare-table th { background: var(--navy); color: white; padding: 12px 16px; text-align: left; font-family: var(--font-head); font-size: 13px; }
     .compare-table td { padding: 11px 16px; border-bottom: 1px solid var(--grey-5); color: var(--grey-1); }
     .compare-table tr:nth-child(even) td { background: var(--pearl); }
-    .compare-table .yes { color: #059669; font-weight: 700; }
-    .compare-table .no { color: #DC2626; font-weight: 700; }
+    .compare-table .yes { color: #047857; font-weight: 700; }
+    .compare-table .no { color: #B91C1C; font-weight: 700; }
 
     /* ── Tableau large : défilement horizontal sur petit écran ── */
     .dca-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
@@ -208,7 +208,7 @@
     .article-related-thumb { aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
     .article-related-thumb .art-rel-scale { transform: scale(0.55); transform-origin: center; }
     .article-related-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
-    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: var(--lavender); }
+    .article-related-tag { font-size: 10px; font-weight: 700; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; color: #4A67A8; }
     .article-related-name { font-family: var(--font-head); font-weight: 700; font-size: 14px; color: var(--navy); line-height: 1.4; }
     .article-related-meta { font-size: 11.5px; color: var(--grey-3); font-family: var(--font-head); font-weight: 600; margin-top: auto; padding-top: 4px; }
   
@@ -225,7 +225,7 @@
     .broker-card-tagline { font-size: 12px; color: var(--grey-2); margin-bottom: 10px; }
     .broker-card-pros { list-style: none; padding: 0; margin: 0 0 6px; }
     .broker-card-pros li { font-size: 12px; color: var(--grey-1); padding: 2px 0; display: flex; gap: 5px; }
-    .broker-card-pros li::before { content: "✓"; color: #059669; font-weight: 700; flex-shrink: 0; }
+    .broker-card-pros li::before { content: "✓"; color: #047857; font-weight: 700; flex-shrink: 0; }
     .broker-card-cons li::before { content: "–"; color: #B45309; }
     .broker-card-cta { display: inline-block; margin-top: 12px; padding: 8px 16px; background: var(--lavender); color: white; font-weight: 700; font-size: 12px; border-radius: 100px; text-decoration: none; transition: opacity .15s; }
     .broker-card-cta:hover { opacity: .85; }
@@ -608,6 +608,26 @@
         </script>
 
         <!-- À retenir -->
+        <div class="article-optin">
+          <div>
+            <div class="article-optin-label">Ebook gratuit</div>
+            <h3 class="article-optin-title">Tu veux la méthode complète, pas juste cet article ?</h3>
+            <p class="article-optin-sub">Reçois mon ebook par email : les erreurs qui coûtent le plus cher quand on débute, et la marche à suivre pour les éviter.</p>
+          </div>
+          <div>
+            <form class="lead-form">
+              <div class="form-group">
+                <input type="text" name="firstname" placeholder="Ton prénom" required autocomplete="given-name">
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Ton adresse email" required autocomplete="email">
+              </div>
+              <button type="submit" class="form-submit">Recevoir l'ebook</button>
+              <p class="article-optin-legal">Pas de spam. Désinscription en un clic.</p>
+            </form>
+          </div>
+        </div>
+
         <div class="article-takeaway">
           <div class="article-takeaway-label">★ À retenir</div>
           <ul class="article-takeaway-list">

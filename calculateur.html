@@ -1503,9 +1503,9 @@
       interpFire();
     });
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => initSimulator('', 'chart-main'));
-  </script>
+  <!-- L'initialisation du simulateur est déjà faite automatiquement par js/simulator.js
+       dès qu'il détecte #sl-initial. L'appel qui figurait ici la déclenchait une seconde
+       fois et provoquait l'erreur « Canvas is already in use ». -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       let retChart = null;

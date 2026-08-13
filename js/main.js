@@ -217,8 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
     leadForm.innerHTML = `
       <div style="text-align:center; padding: 32px 0;">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--mint, #A0E7C5)" stroke-width="2" style="margin-bottom:16px;"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <h3 style="color:white; font-family:var(--font-head); margin-bottom:8px;">Ton ebook arrive</h3>
-        <p style="color:rgba(255,255,255,0.7); font-size:14px; margin-bottom:18px;">Le téléchargement démarre automatiquement.<br>Si rien ne se passe, clique ci-dessous.</p>
+        <h3 style="color:var(--lead-ok-titre, #fff); font-family:var(--font-head); margin-bottom:8px;">Ton ebook arrive</h3>
+        <p style="color:var(--lead-ok-texte, rgba(255,255,255,0.7)); font-size:14px; margin-bottom:18px;">Le téléchargement démarre automatiquement.<br>Si rien ne se passe, clique ci-dessous.</p>
         <a href="${EBOOK_URL}" download="${EBOOK_FILENAME}" class="form-submit" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; width:auto; padding-left:24px; padding-right:24px;">
           <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Télécharger l'ebook
@@ -449,5 +449,133 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
+  }
+})();
+
+/* ══════════════════════════════════════════════════════════
+   SUIVI DES CONVERSIONS — ajouté le 13/08/2026
+   Envoie des événements GA4 pour savoir ce qui rapporte vraiment.
+   Tout passe par la délégation d'événements : aucune page HTML
+   n'a besoin d'être modifiée. Rien n'est envoyé si le visiteur
+   a refusé les cookies (gtag n'existe alors pas).
+   ══════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  function envoyer(nom, params) {
+    if (typeof window.gtag !== 'function') return;   // consentement refusé
+    params = params || {};
+    params.page_source = location.pathname.replace(/^\//, '') || 'index.html';
+    params.transport_type = 'beacon';                 // survit à la navigation
+    window.gtag('event', nom, params);
+  }
+
+  /* Nom lisible du partenaire, déduit du domaine de destination. */
+  function partenaire(url) {
+    try {
+      var h = new URL(url, location.href).hostname.replace(/^www\./, '');
+      var map = {
+        'refnocode.trade.re': 'Trade Republic', 'degiro.fr': 'DEGIRO',
+        'fortuneo.fr': 'Fortuneo', 'boursobank.com': 'BoursoBank',
+        'boursedirect.fr': 'Bourse Direct', 'linxea.mention-me.com': 'Linxea',
+        'revolut.com': 'Revolut', 'wise.com': 'Wise', 'shop.ledger.com': 'Ledger',
+        'trezorio.refr.cc': 'Trezor', 'accounts.binance.com': 'Binance',
+        'coinbase.com': 'Coinbase', 'swissborg.com': 'SwissBorg',
+        'deblock.com': 'Deblock', 'bitstack-app.com': 'Bitstack',
+        'crypto.com': 'Crypto.com', 'app.bricks.co': 'Bricks',
+        'app.lapremierebrique.fr': 'La Première Brique',
+        'invest.fundora.fr': 'Fundora', 'clubfunding.eu': 'ClubFunding',
+        'meria.onelink.me': 'Meria', 'kucoin.com': 'KuCoin',
+        'americanexpress.com': 'Amex', 'xport.al': 'XExchange', 'xtb.com': 'XTB'
+      };
+      return map[h] || h;
+    } catch (e) { return 'inconnu'; }
+  }
+
+  /* Où se trouve l'élément cliqué : répond à « quel emplacement convertit ». */
+  function emplacement(el) {
+    if (el.closest('.avis-cta-box'))       return 'encadre_avis';
+    if (el.closest('.broker-cards'))       return 'cartes_courtiers';
+    if (el.closest('.cc-table, .cc-card')) return 'comparateur';
+    if (el.closest('.article-cta'))        return 'cta_fin_article';
+    if (el.closest('.article-related'))    return 'articles_lies';
+    if (el.closest('.p-card'))             return 'page_parrainage';
+    if (el.closest('.article-body'))       return 'corps_article';
+    if (el.closest('.page-hero, .article-hero, .cc-hero')) return 'haut_de_page';
+    if (el.closest('.nav'))                return 'navigation';
+    if (el.closest('.footer'))             return 'pied_de_page';
+    return 'autre';
+  }
+
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+
+    /* 1. Clic sur un lien partenaire : le cœur du revenu affilié. */
+    if (a.rel && a.rel.indexOf('sponsored') !== -1) {
+      envoyer('clic_affilie', {
+        partenaire: partenaire(href),
+        emplacement: emplacement(a),
+        lien_url: href.slice(0, 120)
+      });
+      return;
+    }
+
+    /* 2. Clic vers la page de paiement de la formation. */
+    if (href.indexOf('systeme.io') !== -1) {
+      envoyer('clic_paiement_formation', { emplacement: emplacement(a) });
+      return;
+    }
+
+    /* 3. Clic vers la page formation : mesure quel article y envoie. */
+    if (/(^|\/)formation\.html/.test(href)) {
+      envoyer('clic_cta_formation', { emplacement: emplacement(a) });
+      return;
+    }
+
+    /* 4. Réservation de coaching. */
+    if (href.indexOf('calendly.com') !== -1) {
+      envoyer('clic_reservation_coaching', { emplacement: emplacement(a) });
+      return;
+    }
+  }, true);
+
+  /* 5. Capture d'email : toute soumission de formulaire du site. */
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (!f || f.tagName !== 'FORM') return;
+    var type = 'autre';
+    if (f.classList.contains('lead-form'))      type = 'ebook';
+    else if (f.id === 'contact-form')           type = 'contact';
+    else if (f.id === 'quiz-gate-form')         type = 'quiz';
+    else if (f.id === 'res-ebook-form')         type = 'ebook_quiz';
+    else if (f.id === 'aud-gate-form')          type = 'audit';
+    envoyer('capture_email', { type_formulaire: type, emplacement: emplacement(f) });
+  }, true);
+
+  /* 6. Téléchargement de l'ebook, y compris quand il part automatiquement. */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href$=".pdf"]');
+    if (a) envoyer('telechargement_pdf', { fichier: (a.getAttribute('href') || '').split('/').pop() });
+  }, true);
+
+  /* 7. Profondeur de lecture des articles : distingue le trafic qui lit
+        vraiment de celui qui rebondit. Un seul envoi par palier. */
+  if (document.querySelector('.article-body, .guide-article')) {
+    var paliers = [25, 50, 75, 100], vus = {};
+    var enCours = false;
+    window.addEventListener('scroll', function () {
+      if (enCours) return;
+      enCours = true;
+      requestAnimationFrame(function () {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = max > 0 ? (window.scrollY / max) * 100 : 100;
+        paliers.forEach(function (p) {
+          if (pct >= p && !vus[p]) { vus[p] = true; envoyer('lecture_article', { palier: p + '%' }); }
+        });
+        enCours = false;
+      });
+    }, { passive: true });
   }
 })();

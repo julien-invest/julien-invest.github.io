@@ -3266,3 +3266,106 @@ a:hover > .platform-logo {
 .jv-card-arrow { margin-left: auto; color: #C4A98F; font-size: 15px;
   transition: transform 0.22s var(--ease-micro), color 0.22s var(--ease-micro); }
 .jv-card:hover .jv-card-arrow { transform: translateX(3px); color: #A85832; }
+
+/* ══════════════════════════════════════════════════════════
+   COMPOSANTS D'ARTICLE — socle global, ajouté le 13/08/2026
+   Ces classes étaient redéfinies à l'identique dans le <style>
+   de chaque page. Les pages qui les redéfinissent gardent leur
+   version (elle arrive après dans la cascade) ; celles qui les
+   utilisaient sans les définir sont désormais couvertes.
+   ══════════════════════════════════════════════════════════ */
+.info-box { background: var(--pearl); border-left: 4px solid var(--navy); border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+.info-box strong { color: var(--navy); }
+.warning-box { background: #FEF3C7; border-left: 4px solid #F59E0B; border-radius: 0 12px 12px 0; padding: 16px 20px; margin: 20px 0 28px; }
+.warning-box strong { color: #92400E; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 24px 0 32px; }
+.table-scroll .compare-table { margin: 0; }
+.broker-cards-note { font-size: 12px; color: var(--grey-3); font-style: italic; margin: -18px 0 32px; line-height: 1.6; }
+.article-takeaway { background: linear-gradient(135deg,#D4C0FF 0%,#BAD4E3 55%,#A0E7C5 100%); border-radius: 16px; padding: 28px 32px; margin: 48px 0 32px; }
+.article-takeaway-label { font-family: var(--font-head); font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--navy); margin-bottom: 14px; }
+.article-takeaway-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.article-takeaway-list li { font-size: 15px; color: var(--navy); line-height: 1.65; font-weight: 500; padding-left: 22px; position: relative; }
+.article-takeaway-list li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; color: #1A1A4E; font-size: 13px; }
+.ji-figure { background: linear-gradient(135deg,#EFF6FF,#F2EEFA); border-radius: 16px; padding: 24px; margin: 28px 0 36px; }
+.ji-figure-title { font-family: var(--font-head); font-weight: 800; font-size: 15px; color: var(--navy); margin-bottom: 4px; }
+.ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
+.ji-figure svg { width: 100%; height: auto; display: block; }
+
+/* ── En-tête d'article sur fond sombre (article-nominatif-administre) ──
+   Les classes étaient utilisées sans jamais être définies : le titre
+   héritait du navy et devenait illisible sur le dégradé navy. ── */
+.article-hero { padding: 130px 0 64px; }
+.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+.article-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.4vw, 52px);
+  line-height: 1.1;
+  color: #fff;
+  margin: 14px 0 16px;
+  text-wrap: balance;
+}
+.article-hero-desc { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.78); margin: 0 0 18px; max-width: 620px; }
+.article-hero-meta { font-size: 13.5px; color: rgba(255,255,255,0.6); font-family: var(--font-head); font-weight: 600; }
+.article-hero .breadcrumb a { color: rgba(255,255,255,0.72); }
+.article-hero .breadcrumb a:hover { color: #fff; }
+.article-hero .breadcrumb span { color: rgba(255,255,255,0.45); }
+.article-hero .breadcrumb-current { color: rgba(255,255,255,0.9); }
+.article-hero .article-tag,
+.article-hero .t-label { color: #A0E7C5; }
+@media (max-width: 640px) { .article-hero { padding: 110px 0 48px; } }
+
+/* ── Contraste des marqueurs oui/non dans les tableaux comparatifs ──
+   Le vert et le rouge d'origine tombaient sous le seuil WCAG AA
+   (3,41 et 4,37 pour un minimum de 4,5) sur les lignes alternées. ── */
+.compare-table .yes { color: #047857; font-weight: 700; }
+.compare-table .no { color: #B91C1C; font-weight: 700; }
+
+/* Troisième état des tableaux comparatifs, à côté de .yes et .no.
+   La classe était utilisée sur 11 pages sans jamais être définie :
+   les valeurs intermédiaires s'affichaient sans couleur. */
+.compare-table .mid { color: #B45309; font-weight: 700; }
+
+/* ══════════════════════════════════════════════════════════
+   CAPTURE D'EMAIL EN FIN D'ARTICLE — ajouté le 13/08/2026
+   Reprend la classe .lead-form pour hériter du traitement JS
+   existant (envoi Formspree + remise de l'ebook), mais avec
+   une présentation adaptée au fond clair du corps d'article.
+   ══════════════════════════════════════════════════════════ */
+.article-optin {
+  --lead-ok-titre: var(--navy);
+  --lead-ok-texte: var(--grey-2);
+  display: grid; grid-template-columns: 1fr 300px; gap: 26px; align-items: center;
+  background: linear-gradient(135deg, #EFF6FF 0%, #F2EEFA 100%);
+  border: 1px solid rgba(26,61,124,0.10);
+  border-radius: 18px; padding: 26px 28px; margin: 44px 0 12px;
+}
+@media (max-width: 720px) { .article-optin { grid-template-columns: 1fr; gap: 18px; } }
+.article-optin-label {
+  font-family: var(--font-head); font-size: 10.5px; font-weight: 800;
+  letter-spacing: 0.16em; text-transform: uppercase; color: #4A67A8; margin-bottom: 6px;
+}
+.article-optin-title {
+  font-family: var(--font-head); font-weight: 800; font-size: 19px;
+  color: var(--navy); line-height: 1.3; margin: 0 0 8px; text-wrap: balance;
+}
+.article-optin-sub { font-size: 14px; color: var(--grey-2); line-height: 1.6; margin: 0; }
+.article-optin .lead-form { margin: 0; }
+.article-optin .lead-form .form-group { margin-bottom: 10px; }
+.article-optin .lead-form input {
+  width: 100%; padding: 11px 14px; font-size: 14px; font-family: inherit;
+  color: var(--navy); background: #fff;
+  border: 1.5px solid rgba(26,61,124,0.14); border-radius: 10px; outline: none;
+  transition: border-color 0.18s var(--ease-micro);
+}
+.article-optin .lead-form input::placeholder { color: var(--grey-3); }
+.article-optin .lead-form input:focus { border-color: #4A67A8; }
+.article-optin .lead-form .form-submit {
+  width: 100%; padding: 12px 18px; border: none; border-radius: 100px; cursor: pointer;
+  background: var(--gradient-brand); color: var(--navy-deep);
+  font-family: var(--font-head); font-weight: 800; font-size: 14px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform 0.2s var(--ease-micro), box-shadow 0.2s var(--ease-micro);
+}
+.article-optin .lead-form .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(200,180,232,0.45); }
+.article-optin .lead-form .form-submit:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.article-optin-legal { font-size: 11.5px; color: var(--grey-3); line-height: 1.5; margin: 8px 0 0; }
