@@ -67,9 +67,6 @@
     .article-body ol li { color: var(--grey-1); line-height: 1.8; margin-bottom: 6px; font-size: 16px; }
     .article-body strong { color: var(--navy); }
 
-    /* Tag */
-    .article-tag { display: inline-block; background: linear-gradient(135deg,#1A1A4E,#6D28D9); border-radius: 100px; padding: 4px 14px; font-size: 11px; font-weight: 700; font-family: var(--font-head); color: #fff; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
-
     /* CTA box */
     .article-cta { background: linear-gradient(135deg,#0D0D2E,#1A1A4E,#1E2A5E); border-radius: var(--radius-lg); padding: 48px 40px; text-align: center; margin-top: 60px; }
     .article-cta h2 { color: white; font-family: var(--font-display); font-style: italic; font-size: clamp(24px,3vw,36px); margin-bottom: 12px; }
@@ -407,28 +404,25 @@
     <a href="formation.html" class="btn btn-gradient" style="margin-top:24px;">Accéder à la formation</a>
   </div>
 
-  <!-- ─── HERO ─── -->
-  <header class="article-hero" style="background: linear-gradient(135deg,#0D0D2E 0%,#1A1A4E 55%,#312E81 100%);">
-    <div class="article-hero-inner">
-        <nav class="breadcrumb breadcrumb--light" aria-label="Fil d'Ariane">
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="page-hero-glow"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
           <a href="index.html">Accueil</a>
           <span>›</span>
           <a href="blog.html">Blog</a>
           <span>›</span>
           <span class="breadcrumb-current">Nominatif administré : quelles actions valent le coup ?</span>
         </nav>
-      <div class="article-tag">Enveloppes fiscales</div>
-      <h1 class="article-hero-title">Nominatif administré&nbsp;: quelles actions valent vraiment le coup&nbsp;?</h1>
-      <p class="article-hero-desc">Un simple changement de mode de détention peut te valoir un dividende majoré de 10&nbsp;%, des actions gratuites, ou un droit de vote double. Voici tout ce qu'il faut savoir pour en profiter.</p>
-      <div class="article-hero-meta">
-        <span>Julien Denis</span>
-        <span>·</span>
-        <span>30 juin 2026</span>
-        <span>·</span>
-        <span>12 min de lecture</span>
+        <span class="t-label">Enveloppes fiscales</span>
+        <h1>Nominatif administré&nbsp;: quelles actions valent vraiment le coup&nbsp;?</h1>
+        <p class="article-meta-date">Publié le 30 juin 2026 · 12 min de lecture</p>
+        <p>Un simple changement de mode de détention peut te valoir un dividende majoré de 10&nbsp;%, des actions gratuites, ou un droit de vote double. Voici tout ce qu'il faut savoir pour en profiter.</p>
       </div>
     </div>
-  </header>
+  </section>
 
   <main>
     <div class="article-body container">
@@ -1038,16 +1032,7 @@
           <p class="article-optin-sub">Reçois mon ebook par email : les erreurs qui coûtent le plus cher quand on débute, et la marche à suivre pour les éviter.</p>
         </div>
         <div>
-          <form class="lead-form">
-            <div class="form-group">
-              <input type="text" name="firstname" placeholder="Ton prénom" required autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Ton adresse email" required autocomplete="email">
-            </div>
-            <button type="submit" class="form-submit">Recevoir l'ebook</button>
-            <p class="article-optin-legal">Pas de spam. Désinscription en un clic.</p>
-          </form>
+          <script id="form-script-tag-25067507" src="https://julieninvest.systeme.io/public/remote/page/43533627729bc64f9d32c58604b2414c6a561f60.js"></script>
         </div>
       </div>
 

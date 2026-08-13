@@ -198,56 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-  // ── LEAD FORMS (index + ressources) ───────────
-  // Chemin de l'ebook (relatif à la racine ; index.html et ressources.html y sont).
-  const EBOOK_URL = 'ebook-julien-invest.pdf';
-  const EBOOK_FILENAME = 'Ebook-Julien-Invest.pdf';
-
-  function triggerEbookDownload() {
-    const a = document.createElement('a');
-    a.href = EBOOK_URL;
-    a.download = EBOOK_FILENAME;
-    a.rel = 'noopener';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
-  function showLeadSuccess(leadForm) {
-    leadForm.innerHTML = `
-      <div style="text-align:center; padding: 32px 0;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--mint, #A0E7C5)" stroke-width="2" style="margin-bottom:16px;"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <h3 style="color:var(--lead-ok-titre, #fff); font-family:var(--font-head); margin-bottom:8px;">Ton ebook arrive</h3>
-        <p style="color:var(--lead-ok-texte, rgba(255,255,255,0.7)); font-size:14px; margin-bottom:18px;">Le téléchargement démarre automatiquement.<br>Si rien ne se passe, clique ci-dessous.</p>
-        <a href="${EBOOK_URL}" download="${EBOOK_FILENAME}" class="form-submit" style="display:inline-flex; align-items:center; gap:8px; text-decoration:none; width:auto; padding-left:24px; padding-right:24px;">
-          <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.12em;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Télécharger l'ebook
-        </a>
-      </div>`;
-  }
-
-  document.querySelectorAll('form.lead-form').forEach(leadForm => {
-    leadForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = leadForm.querySelector('.form-submit');
-      const initialLabel = btn ? btn.textContent : '';
-      if (btn) { btn.textContent = 'Préparation...'; btn.disabled = true; }
-      // On capture le lead via Formspree, mais on garantit la remise de l'ebook
-      // même si le service est indisponible (la valeur promise n'est jamais bloquée).
-      try {
-        await fetch('https://formspree.io/f/mvznqwpd', {
-          method: 'POST',
-          body: new FormData(leadForm),
-          headers: { 'Accept': 'application/json' }
-        });
-      } catch {
-        /* capture échouée : on délivre quand même l'ebook */
-      }
-      showLeadSuccess(leadForm);
-      triggerEbookDownload();
-    });
-  });
-
   // ── CONTACT FORM ──────────────────────────────
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
@@ -546,8 +496,7 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
     var f = e.target;
     if (!f || f.tagName !== 'FORM') return;
     var type = 'autre';
-    if (f.classList.contains('lead-form'))      type = 'ebook';
-    else if (f.id === 'contact-form')           type = 'contact';
+    if (f.id === 'contact-form')                type = 'contact';
     else if (f.id === 'quiz-gate-form')         type = 'quiz';
     else if (f.id === 'res-ebook-form')         type = 'ebook_quiz';
     else if (f.id === 'aud-gate-form')          type = 'audit';

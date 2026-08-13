@@ -3291,29 +3291,6 @@ a:hover > .platform-logo {
 .ji-figure-sub { font-size: 13px; color: var(--grey-2); margin-bottom: 16px; }
 .ji-figure svg { width: 100%; height: auto; display: block; }
 
-/* ── En-tête d'article sur fond sombre (article-nominatif-administre) ──
-   Les classes étaient utilisées sans jamais être définies : le titre
-   héritait du navy et devenait illisible sur le dégradé navy. ── */
-.article-hero { padding: 130px 0 64px; }
-.article-hero-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-.article-hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 4.4vw, 52px);
-  line-height: 1.1;
-  color: #fff;
-  margin: 14px 0 16px;
-  text-wrap: balance;
-}
-.article-hero-desc { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.78); margin: 0 0 18px; max-width: 620px; }
-.article-hero-meta { font-size: 13.5px; color: rgba(255,255,255,0.6); font-family: var(--font-head); font-weight: 600; }
-.article-hero .breadcrumb a { color: rgba(255,255,255,0.72); }
-.article-hero .breadcrumb a:hover { color: #fff; }
-.article-hero .breadcrumb span { color: rgba(255,255,255,0.45); }
-.article-hero .breadcrumb-current { color: rgba(255,255,255,0.9); }
-.article-hero .article-tag,
-.article-hero .t-label { color: #A0E7C5; }
-@media (max-width: 640px) { .article-hero { padding: 110px 0 48px; } }
-
 /* ── Contraste des marqueurs oui/non dans les tableaux comparatifs ──
    Le vert et le rouge d'origine tombaient sous le seuil WCAG AA
    (3,41 et 4,37 pour un minimum de 4,5) sur les lignes alternées. ── */
