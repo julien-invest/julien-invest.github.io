@@ -108,6 +108,30 @@
     .cc-table tbody td.td-name { min-width: 140px; }
     .cc-name-wrap { display: flex; align-items: center; gap: 10px; }
     .cc-name { font-family: var(--font-head); font-size: 15px; font-weight: 800; color: var(--navy); }
+    .cc-cta {
+      display: inline-flex; align-items: center; gap: 5px; white-space: nowrap;
+      background: var(--gradient-brand); color: var(--navy-deep);
+      font-family: var(--font-head); font-weight: 800; font-size: 12.5px;
+      padding: 8px 14px; border-radius: 100px; text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .cc-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(200,180,232,0.45); }
+    .cc-cta:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+    .cc-code {
+      display: block; margin-top: 6px; font-family: var(--font-head); font-size: 10.5px;
+      font-weight: 700; color: var(--navy); background: var(--pearl);
+      border-radius: 6px; padding: 3px 7px; letter-spacing: 0.04em; white-space: nowrap;
+    }
+    .cc-avis-link {
+      display: block; margin-top: 6px; font-size: 11px; color: var(--grey-2);
+      text-decoration: underline; white-space: nowrap;
+    }
+    .cc-avis-link:hover { color: var(--navy); }
+    .cc-card-cta { margin-top: 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+    .cc-transparence {
+      max-width: 900px; margin: 18px auto 0; font-size: 12.5px; font-style: italic;
+      color: var(--grey-3); line-height: 1.65; text-align: center;
+    }
     .cc-badge-recommended {
       display: inline-block; padding: 3px 8px; border-radius: 100px;
       background: var(--gradient-brand); color: var(--navy);
@@ -387,7 +411,7 @@
           <div class="cc-rec-desc">PEA disponible, 1er ordre/mois gratuit ≤ 500 € (Formule Starter), bonus jusqu'à 80 € filleul (code 13385764), 0 € de droits de garde. Le choix le plus polyvalent pour débuter ou investir régulièrement en DCA.</div>
         </div>
         <div class="cc-rec-right">
-          <a href="parrainage.html" class="cc-rec-btn">Ouvrir chez Fortuneo →</a>
+          <a href="https://www.fortuneo.fr" target="_blank" rel="sponsored noopener noreferrer" class="cc-rec-btn">Ouvrir chez Fortuneo →</a>
           <div class="cc-rec-code">Code parrainage : <strong>13385764</strong></div>
         </div>
       </div>
@@ -419,7 +443,7 @@
               <th>ETF gratuits</th>
               <th>PEA</th>
               <th>Bonus bienvenue</th>
-              <th>Note</th>
+              <th>Note</th><th>Ouvrir</th>
             </tr>
           </thead>
           <tbody id="cc-tbody">
@@ -441,6 +465,8 @@
   </section>
 
   <!-- SECTION PÉDAGOGIQUE -->
+  <p class="cc-transparence">Transparence : les boutons « Ouvrir » de Fortuneo, BoursoBank, Bourse Direct, DEGIRO et Trade Republic utilisent des liens ou codes partenaires. Si tu ouvres un compte en passant par eux, je touche une commission, sans surcoût pour toi, et tu profites de l'offre de bienvenue en cours. XTB n'est pas un partenaire : son lien est un lien simple. Le classement de ce comparateur ne dépend d'aucun partenariat.</p>
+
   <section class="cc-edu-section">
     <div class="container">
       <div style="margin-bottom:36px;">
@@ -543,6 +569,10 @@
   var COURTIERS = [
     {
       id: 'fortuneo',
+      lien: 'https://www.fortuneo.fr',
+      code: '13385764',
+      avis: 'avis-fortuneo.html',
+      partenaire: true,
       name: 'Fortuneo',
       type: 'Banque en ligne',
       compte: 'PEA + PEA-PME + CTO + AV',
@@ -558,6 +588,10 @@
     },
     {
       id: 'boursobank',
+      lien: 'https://www.boursobank.com',
+      code: 'DIDE0356',
+      avis: 'avis-boursobank.html',
+      partenaire: true,
       name: 'BoursoBank',
       type: 'Banque en ligne',
       compte: 'PEA + PEA-PME + CTO + AV',
@@ -573,6 +607,10 @@
     },
     {
       id: 'bourse-direct',
+      lien: 'https://www.boursedirect.fr',
+      code: '2025934141',
+      avis: 'avis-bourse-direct.html',
+      partenaire: true,
       name: 'Bourse Direct',
       type: 'Courtier pur',
       compte: 'PEA + PEA-PME + CTO + AV',
@@ -588,6 +626,10 @@
     },
     {
       id: 'degiro',
+      lien: 'https://www.degiro.fr/parrainage/commencez-a-investir?id=E88272C4',
+      code: null,
+      avis: 'avis-degiro.html',
+      partenaire: true,
       name: 'DEGIRO',
       type: 'Courtier CTO',
       compte: 'CTO uniquement',
@@ -603,6 +645,10 @@
     },
     {
       id: 'xtb',
+      lien: 'https://www.xtb.com/fr',
+      code: null,
+      avis: null,
+      partenaire: false,
       name: 'XTB',
       type: 'Courtier en ligne',
       compte: 'PEA + CTO',
@@ -618,6 +664,10 @@
     },
     {
       id: 'trade-republic',
+      lien: 'https://refnocode.trade.re/p1txpjf1',
+      code: null,
+      avis: 'avis-trade-republic.html',
+      partenaire: true,
       name: 'Trade Republic',
       type: 'Néo-courtier',
       compte: 'CTO uniquement',
@@ -632,6 +682,17 @@
       pointsFaibles: ['Pas de PEA (flat tax 31,4 %)', 'Bonus filleul bloqué 90 jours depuis mai 2026', 'Spread jusqu\'à 0,15 % sur ETF']
     }
   ];
+
+  /* Bouton d'ouverture de compte. Les liens partenaires portent rel="sponsored",
+     les autres non : la distinction doit rester honnête. */
+  function ctaHtml(c) {
+    var rel = c.partenaire ? 'sponsored noopener noreferrer' : 'noopener noreferrer';
+    var h = '<a href="' + c.lien + '" target="_blank" rel="' + rel + '" class="cc-cta">Ouvrir'
+          + '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></a>';
+    if (c.code) h += '<span class="cc-code">Code ' + c.code + '</span>';
+    if (c.avis) h += '<a href="' + c.avis + '" class="cc-avis-link">Mon avis</a>';
+    return h;
+  }
 
   function stars(note) {
     var full = Math.floor(note);
@@ -667,7 +728,8 @@
         '<td>' + (c.etfGratuits.startsWith('Oui') || c.etfGratuits.startsWith('1 ETF') ? '<span class="cc-tag-green">' + c.etfGratuits + '</span>' : '<span class="cc-tag-grey">' + c.etfGratuits + '</span>') + '</td>' +
         '<td>' + (c.pea ? '<span class="cc-pea-yes">✓ Oui</span>' : '<span class="cc-pea-no">Non</span>') + '</td>' +
         '<td>' + c.bonus + '</td>' +
-        '<td><div class="cc-note-wrap"><span class="cc-note-stars">' + stars(c.note) + '</span><span class="cc-note-val">' + c.note.toFixed(1) + '</span></div></td>';
+        '<td><div class="cc-note-wrap"><span class="cc-note-stars">' + stars(c.note) + '</span><span class="cc-note-val">' + c.note.toFixed(1) + '</span></div></td>' +
+        '<td>' + ctaHtml(c) + '</td>';
       tbody.appendChild(tr);
 
       // MOBILE CARD
@@ -683,7 +745,8 @@
         '<div class="cc-card-row"><span class="cc-card-row-label">PEA disponible</span><span class="cc-card-row-val">' + (c.pea ? '✓ Oui' : 'Non') + '</span></div>' +
         '<div class="cc-card-row"><span class="cc-card-row-label">ETF gratuits</span><span class="cc-card-row-val">' + c.etfGratuits + '</span></div>' +
         '<div class="cc-card-row"><span class="cc-card-row-label">Bonus bienvenue</span><span class="cc-card-row-val">' + c.bonus + '</span></div>' +
-        '</div>';
+        '</div>' +
+        '<div class="cc-card-cta">' + ctaHtml(c) + '</div>';
       cards.appendChild(div);
     });
   }
