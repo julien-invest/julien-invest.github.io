@@ -56,7 +56,10 @@ body {
   color: var(--grey-1);
   font-size: 16px;
   line-height: 1.6;
-  overflow-x: hidden;
+  /* Pas d'overflow-x ici : sur <body>, il calcule overflow-y: auto et fait
+     du body un conteneur de défilement, ce qui neutralise position: sticky
+     (sidebars des guides et des mentions légales, en-têtes de tableaux).
+     La protection contre le débordement horizontal reste posée sur <html>. */
   max-width: 100%;
 }
 img { max-width: 100%; height: auto; display: block; }
@@ -3346,3 +3349,89 @@ a:hover > .platform-logo {
 .article-optin .lead-form .form-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(200,180,232,0.45); }
 .article-optin .lead-form .form-submit:focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
 .article-optin-legal { font-size: 11.5px; color: var(--grey-3); line-height: 1.5; margin: 8px 0 0; }
+
+/* ══════════════════════════════════════════════════════════
+   BOUTON « COPIER » DES CODES DE PARRAINAGE — ajouté le 14/08/2026
+   Le code lui-même devient cliquable : sur les pages avis, le
+   visiteur devait jusqu'ici sélectionner le code à la main.
+   Fond sombre (encadré CTA des pages avis) et fond clair
+   (comparateur de courtiers) sont tous les deux couverts.
+   ══════════════════════════════════════════════════════════ */
+.ji-code-copy {
+  font: inherit;
+  color: #fff;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 8px;
+  padding: 4px 10px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.18s var(--ease-micro, ease), border-color 0.18s var(--ease-micro, ease);
+}
+.ji-code-copy:hover { background: rgba(255,255,255,0.22); border-color: rgba(255,255,255,0.5); }
+.ji-code-copy:focus-visible { outline: 2px solid var(--mint, #A0E7C5); outline-offset: 2px; }
+.ji-code-copy .ji-code-icon { opacity: 0.62; flex-shrink: 0; }
+.ji-code-copy:hover .ji-code-icon { opacity: 1; }
+.ji-code-copy.is-copie {
+  background: rgba(160,231,197,0.22);
+  border-color: var(--mint, #A0E7C5);
+  color: var(--mint, #A0E7C5);
+}
+
+/* Variante sur fond clair (comparateur de courtiers) */
+.cc-code .ji-code-copy,
+.ji-code-copy--clair {
+  color: var(--navy);
+  background: var(--pearl);
+  border-color: var(--grey-5);
+}
+.ji-code-copy--clair:hover { background: var(--lavender-lt); border-color: var(--lavender); }
+.ji-code-copy--clair.is-copie {
+  background: #DFF6EB;
+  border-color: #A9E4C8;
+  color: #1C7A56;
+}
+
+/* La zone tactile reste confortable au doigt (min. 40 px) */
+@media (max-width: 640px) {
+  .ji-code-copy { padding: 8px 12px; min-height: 40px; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   BOUTONS À LIBELLÉ LONG SUR PETIT ÉCRAN — ajouté le 14/08/2026
+   .btn impose white-space: nowrap, ce qui faisait déborder les
+   libellés longs hors de l'écran sur mobile (le texte était
+   simplement coupé par le clipping de <html>). Sur petit écran,
+   on autorise le retour à la ligne plutôt que la troncature.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .btn {
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   TABLEAUX LARGES SUR MOBILE — ajouté le 14/08/2026
+   56 tableaux comparatifs n'avaient pas de conteneur défilant :
+   leurs colonnes de droite étaient purement et simplement coupées
+   sur téléphone (jusqu'à 359 px hors écran). Ils défilent
+   désormais horizontalement à l'intérieur de leur bloc.
+   ══════════════════════════════════════════════════════════ */
+.ji-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 24px 0 32px;
+  /* Indice visuel : léger dégradé au bord droit tant qu'il reste à défiler */
+  background:
+    linear-gradient(to right, var(--white) 30%, rgba(255,255,255,0)) left / 40px 100% no-repeat,
+    linear-gradient(to left, var(--white) 30%, rgba(255,255,255,0)) right / 40px 100% no-repeat,
+    radial-gradient(farthest-side at 0 50%, rgba(26,61,124,0.14), transparent) left / 14px 100% no-repeat,
+    radial-gradient(farthest-side at 100% 50%, rgba(26,61,124,0.14), transparent) right / 14px 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+.ji-table-scroll > table { margin: 0; }

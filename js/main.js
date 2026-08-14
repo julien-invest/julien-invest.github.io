@@ -159,16 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 
   // ── SCROLL REVEAL ─────────────────────────────
+  // Garde indispensable : sans elle, un navigateur sans IntersectionObserver
+  // lève une exception ici et tout le code qui suit dans ce bloc
+  // (FAQ, ancres, formulaire de contact, filtres) ne s'exécute jamais.
   const revealElements = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  revealElements.forEach(el => observer.observe(el));
+    revealElements.forEach(el => observer.observe(el));
+  } else {
+    revealElements.forEach(el => el.classList.add('visible'));
+  }
 
   // ── COUNTER ANIMATION ─────────────────────────
   function animateCounter(el) {
@@ -187,6 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
+  if (!('IntersectionObserver' in window)) {
+    // Pas d'animation de compteur, mais le chiffre final reste affiché.
+    document.querySelectorAll('[data-target]').forEach(el => {
+      el.textContent = parseInt(el.dataset.target).toLocaleString('fr-FR') + (el.dataset.suffix || '');
+    });
+  } else {
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting && !entry.target.dataset.animated) {
@@ -197,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
 
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+  }
 
   // ── CONTACT FORM ──────────────────────────────
   const contactForm = document.getElementById('contact-form');
@@ -509,6 +523,14 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
     if (a) envoyer('telechargement_pdf', { fichier: (a.getAttribute('href') || '').split('/').pop() });
   }, true);
 
+  /* 8. Copie d'un code de parrainage, depuis n'importe quelle page. */
+  document.addEventListener('ji:code-copie', function (e) {
+    envoyer('copie_code_parrain', {
+      partenaire_code: (e.detail && e.detail.code) || '',
+      emplacement: 'page_avis'
+    });
+  });
+
   /* 7. Profondeur de lecture des articles : distingue le trafic qui lit
         vraiment de celui qui rebondit. Un seul envoi par palier. */
   if (document.querySelector('.article-body, .guide-article')) {
@@ -527,4 +549,65 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
       });
     }, { passive: true });
   }
+})();
+
+/* ══════════════════════════════════════════════════════════
+   COPIE DES CODES DE PARRAINAGE — ajouté le 14/08/2026
+   Un seul gestionnaire délégué pour tout le site : n'importe quel
+   élément portant data-copy-code devient un bouton « copier ».
+   Les pages avis affichaient leur code sans moyen de le copier,
+   alors que la page parrainage en avait un depuis le début.
+   ══════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  function confirmer(btn) {
+    var initial = btn.getAttribute('data-label-initial');
+    if (initial === null) {
+      initial = btn.innerHTML;
+      btn.setAttribute('data-label-initial', initial);
+    }
+    btn.classList.add('is-copie');
+    btn.innerHTML = 'Copié ✓';
+    clearTimeout(btn._jiTimer);
+    btn._jiTimer = setTimeout(function () {
+      btn.innerHTML = initial;
+      btn.classList.remove('is-copie');
+    }, 2000);
+  }
+
+  /* Repli pour les navigateurs sans Clipboard API, et pour les
+     contextes non sécurisés où navigator.clipboard est absent. */
+  function repli(code, btn) {
+    var ta = document.createElement('textarea');
+    ta.value = code;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0;';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, code.length);   // iOS refuse select() seul
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+    confirmer(btn);
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('[data-copy-code]');
+    if (!btn) return;
+    e.preventDefault();
+    var code = btn.getAttribute('data-copy-code');
+    if (!code) return;
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function () {
+        confirmer(btn);
+      }).catch(function () {
+        repli(code, btn);
+      });
+    } else {
+      repli(code, btn);
+    }
+
+    document.dispatchEvent(new CustomEvent('ji:code-copie', { detail: { code: code } }));
+  });
 })();
