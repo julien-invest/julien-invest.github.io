@@ -1176,8 +1176,16 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 48px 40px;
   backdrop-filter: blur(20px);
 }
-.lead-form h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.02em; }
-.lead-form p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 32px; }
+/* Le titre et l'accroche vivaient dans le <form> avant le passage au
+   formulaire Systeme.io ; ils sont depuis des enfants directs du wrapper.
+   Les deux cas sont couverts, sinon le texte hérite du navy et devient
+   illisible sur le fond navy de la section. */
+.lead-form h3,
+.lead-form-wrap > h3 { font-family: var(--font-head); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 8px; letter-spacing: -0.02em; }
+/* 0,7 et pas moins : sur l'extrémité claire du dégradé de la section,
+   0,6 tombe à 4,07 de contraste, sous le seuil WCAG AA de 4,5. */
+.lead-form p,
+.lead-form-wrap > p { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
 .form-group { margin-bottom: 16px; }
 .form-group input {
   width: 100%;
