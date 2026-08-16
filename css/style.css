@@ -3443,3 +3443,7 @@ a:hover > .platform-logo {
   background-attachment: local, local, scroll, scroll;
 }
 .ji-table-scroll > table { margin: 0; }
+
+/* Fil d'Ariane dans un hero centré (pages outils) : sans cette variante,
+   le fil resterait collé à gauche sous un titre centré. */
+.breadcrumb--centre { justify-content: center; }

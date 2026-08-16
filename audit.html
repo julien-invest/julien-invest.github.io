@@ -140,6 +140,32 @@
     .aud-restart:hover { color:var(--navy); }
     .aud-disclaimer { font-size:12px; color:var(--grey-3); line-height:1.6; border-top:1px solid var(--grey-5); padding-top:16px; margin-top:18px; }
   </style>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://julieninvest.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Outils",
+   "item": "https://julieninvest.com/outils.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Audit de portefeuille",
+   "item": "https://julieninvest.com/audit.html"
+  }
+ ]
+}
+  </script>
 </head>
 <body>
 
@@ -294,6 +320,13 @@
 
   <section class="aud-hero">
     <div class="container">
+        <nav class="breadcrumb breadcrumb--centre" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <a href="outils.html">Outils</a>
+          <span>›</span>
+          <span class="breadcrumb-current">Audit de portefeuille</span>
+        </nav>
       <span class="t-label">Audit de portefeuille</span>
       <h1>Sais-tu vraiment si ton portefeuille<br><em class="t-display">est solide ?</em></h1>
       <p style="color:var(--grey-2); max-width:560px; margin:14px auto 0;">6 axes. 12 questions. Un score honnête et des actions concrètes.</p>

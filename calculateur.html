@@ -419,6 +419,32 @@
   "founder": { "@type": "Person", "name": "Julien Denis" }
 }
   </script>
+  <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Accueil",
+   "item": "https://julieninvest.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Outils",
+   "item": "https://julieninvest.com/outils.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Calculateurs",
+   "item": "https://julieninvest.com/calculateur.html"
+  }
+ ]
+}
+  </script>
 </head>
 <body>
   <!-- NAV -->
@@ -575,6 +601,13 @@
   <section class="calc-page-hero">
     <div class="calc-page-hero-bg"></div>
     <div class="container">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a>
+          <span>›</span>
+          <a href="outils.html">Outils</a>
+          <span>›</span>
+          <span class="breadcrumb-current">Calculateurs</span>
+        </nav>
       <div class="calc-hero-content">
         <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,180,232,0.2);border:1px solid rgba(200,180,232,0.5);border-radius:100px;padding:6px 16px;margin-bottom:28px;">
           <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--navy);">Outils gratuits</span>
