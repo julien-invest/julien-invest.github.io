@@ -568,6 +568,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .content-card-tag--pea    { background: var(--mint-lt); color: #065F46; }
 .content-card-tag--fiscalite { background: #F3E8FF; color: #6B21A8; }
 .content-card-tag--immo  { background: #FEE2E2; color: #991B1B; }
+.content-card-tag--actus { background: #E0F2FE; color: #075985; }
 .content-card-date {
   font-size: 12px;
   color: var(--grey-3);
