@@ -611,3 +611,20 @@ document.querySelectorAll('.guide-card-header').forEach(btn => {
     document.dispatchEvent(new CustomEvent('ji:code-copie', { detail: { code: code } }));
   });
 })();
+
+/* ── BARRE D'ACTION MOBILE : n'apparaît qu'après 600 px de défilement,
+   pour ne pas couvrir les boutons du haut de page à l'arrivée. ── */
+(function () {
+  var bar = document.querySelector('.mobile-sticky-cta');
+  if (!bar) return;
+  bar.classList.add('is-managed');
+  var ticking = false;
+  function update() {
+    ticking = false;
+    bar.classList.toggle('is-visible', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();

@@ -3,7 +3,7 @@
    Direction : Premium minimal / Apple-Stripe
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+/* Polices : chargées par une balise <link> dans le <head> de chaque page (plus rapide qu'un @import). */
 
 /* ── TOKENS ─────────────────────────────────── */
 :root {
@@ -325,9 +325,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
 }
 .hero-title {
+  text-wrap: balance;
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: clamp(46px, 5.4vw, 76px);
+  font-size: clamp(44px, 4.8vw, 68px);
   color: var(--navy);
   margin-bottom: 24px;
   line-height: 1.08;
@@ -1870,12 +1871,8 @@ a:hover > .platform-logo {
   .container { padding: 0 20px; }
   .nav-links, .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
-  .nav-logo {
-    color: var(--white);
-    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
-  }
-  .nav:not(.scrolled) .nav-hamburger span { background: var(--white); }
-  .nav:not(.scrolled) { background: linear-gradient(to bottom, rgba(13,13,46,0.22), transparent); }
+  /* Logo et bouton menu en navy : les hauts de page sont clairs (blanc illisible avant le 16/11/2026) */
+  .nav--dark:not(.scrolled) .nav-hamburger span { background: var(--white); }
   .problem-grid { grid-template-columns: 1fr; }
   .offers-grid { grid-template-columns: 1fr; }
   .testimonials-grid { grid-template-columns: 1fr; }
@@ -3072,7 +3069,9 @@ a:hover > .platform-logo {
     padding: 12px 16px;
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
     box-shadow: 0 -4px 20px rgba(15, 37, 88, 0.18);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
+  .mobile-sticky-cta.is-managed:not(.is-visible) { transform: translateY(110%); }
   .mobile-sticky-cta .btn {
     width: 100%;
     justify-content: center;
@@ -3141,6 +3140,20 @@ a:hover > .platform-logo {
   .cookie-consent-btn { flex: 1; }
 }
 
+/* Bandeau cookies compact (16/11/2026) : en bas à droite sur ordinateur,
+   réduit sur mobile, pour ne plus couvrir les boutons du haut de page. */
+@media (min-width: 769px) {
+  .cookie-consent { left: auto; right: 20px; bottom: 20px; max-width: 400px; margin: 0; gap: 14px; padding: 18px 20px; }
+  .cookie-consent-text { flex: 1 1 100%; font-size: 13px; }
+  .cookie-consent-actions { width: 100%; }
+  .cookie-consent-btn { flex: 1; }
+}
+@media (max-width: 768px) {
+  .cookie-consent { left: 10px; right: 10px; bottom: 10px; gap: 10px; padding: 12px 14px; border-radius: 14px; }
+  .cookie-consent-text { flex: 1 1 100%; font-size: 12.5px; line-height: 1.45; }
+  .cookie-consent-btn { padding-top: 9px; padding-bottom: 9px; }
+}
+
 /* ══════════════════════════════════════════════════════════
    ANIMATIONS — ajouté le 12/08/2026
    Vocabulaire repris du site Ju.en.vie pour la cohérence de marque.
@@ -3180,25 +3193,8 @@ a:hover > .platform-logo {
   pointer-events: none;
 }
 
-/* ── 4. Entrée du hero, en cascade douce ── */
-.has-js .page-hero-content > *,
-.has-js .hero-content > * {
-  animation: ji-hero-in 0.75s var(--ease-out) backwards;
-}
-.has-js .page-hero-content > *:nth-child(1),
-.has-js .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
-.has-js .page-hero-content > *:nth-child(2),
-.has-js .hero-content > *:nth-child(2) { animation-delay: 0.13s; }
-.has-js .page-hero-content > *:nth-child(3),
-.has-js .hero-content > *:nth-child(3) { animation-delay: 0.21s; }
-.has-js .page-hero-content > *:nth-child(4),
-.has-js .hero-content > *:nth-child(4) { animation-delay: 0.29s; }
-.has-js .page-hero-content > *:nth-child(n+5),
-.has-js .hero-content > *:nth-child(n+5) { animation-delay: 0.37s; }
-@keyframes ji-hero-in {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: none; }
-}
+/* ── 4. Entrée du hero : supprimée le 16/11/2026. Le titre et le texte du haut de page
+   s'affichent immédiatement (ils restaient invisibles 1 à 3 s au chargement). ── */
 
 /* ── 5. Trait doré qui se dessine sous le mot en italique du hero ── */
 .has-js .hero-title em { border-bottom-color: transparent; position: relative; }
